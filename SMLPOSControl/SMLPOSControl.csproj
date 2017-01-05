@@ -1,0 +1,572 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1DD6CD38-CFC5-4E87-9544-F6A8F351216F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLPOSControl</RootNamespace>
+    <AssemblyName>SMLPOSControl</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\MyLib\myDLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLBarcodeManage">
+      <HintPath>..\SMLBarcodeManage\bin\Debug\SMLBarcodeManage.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLERPICInfo">
+      <HintPath>..\SMLERPICInfo\bin\Debug\SMLERPICInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLProcess, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_checkerDeviceConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_checkerDeviceConfig.Designer.cs">
+      <DependentUpon>_checkerDeviceConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_checkerKitchen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_checkerKitchen.Designer.cs">
+      <DependentUpon>_checkerKitchen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_checkPriceUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_checkPriceUserControl.Designer.cs">
+      <DependentUpon>_checkPriceUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer\_clientDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_designer\_clientDesign.Designer.cs">
+      <DependentUpon>_clientDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer\_deletePOSDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_designer\_deletePOSDesign.Designer.cs">
+      <DependentUpon>_deletePOSDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer\_drawPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_designer\_object\_button.cs" />
+    <Compile Include="_designer\_object\_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_designer\_object\_form.Designer.cs">
+      <DependentUpon>_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer\_loadStandardDesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_designer\_loadStandardDesign.Designer.cs">
+      <DependentUpon>_loadStandardDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer\_object\_number.cs" />
+    <Compile Include="_designer\_object\_posHTML.cs" />
+    <Compile Include="_designer\_object\_posImage.cs" />
+    <Compile Include="_designer\_object\_posItemPanel.cs" />
+    <Compile Include="_designer\_object\_posItemsTable.cs" />
+    <Compile Include="_designer\_object\_posLabel.cs" />
+    <Compile Include="_designer\_object\_posObject.cs" />
+    <Compile Include="_designer\_object\_posPanel.cs" />
+    <Compile Include="_designer\_object\_posTextbox.cs" />
+    <Compile Include="_designer\_object\_propertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_designer\_object\_propertyForm.Designer.cs">
+      <DependentUpon>_propertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer\_posDesignXML.cs" />
+    <Compile Include="_designer\_posSaveScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_food\_chefListControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_chefListControl.Designer.cs">
+      <DependentUpon>_chefListControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_closeSummaryTableForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_food\_closeSummaryTableForm.Designer.cs">
+      <DependentUpon>_closeSummaryTableForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_fastOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_fastOrderControl.Designer.cs">
+      <DependentUpon>_fastOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_itemCancelGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_foodDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_food\_foodDetailForm.Designer.cs">
+      <DependentUpon>_foodDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_foodOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_foodOrderControl.Designer.cs">
+      <DependentUpon>_foodOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_itemGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_kitchenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_kitchenControl.Designer.cs">
+      <DependentUpon>_kitchenControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_kitchenFast.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_kitchenFast.Designer.cs">
+      <DependentUpon>_kitchenFast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_kitchenManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_kitchenManage.Designer.cs">
+      <DependentUpon>_kitchenManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_orderCancelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_food\_orderCancelForm.Designer.cs">
+      <DependentUpon>_orderCancelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_orderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_orderControl.Designer.cs">
+      <DependentUpon>_orderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_orderListGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_orderScreenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_orderSuggestRemarkForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_food\_orderSuggestRemarkForm.Designer.cs">
+      <DependentUpon>_orderSuggestRemarkForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_selectSaleUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_selectSaleUserControl.Designer.cs">
+      <DependentUpon>_selectSaleUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_tableConfirmControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_tableConfirmControl.Designer.cs">
+      <DependentUpon>_tableConfirmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_tableInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_tableInfoControl.Designer.cs">
+      <DependentUpon>_tableInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_selectSaleButtonControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_food\_tableMoveControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_tableMoveControl.Designer.cs">
+      <DependentUpon>_tableMoveControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_tableOpenControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_food\_tableOpenControl.Designer.cs">
+      <DependentUpon>_tableOpenControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_tableOrderEditControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_tableOrderEditControl.Designer.cs">
+      <DependentUpon>_tableOrderEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_tableViewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_tableViewControl.Designer.cs">
+      <DependentUpon>_tableViewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_food\_orderCancelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_food\_orderCancelControl.Designer.cs">
+      <DependentUpon>_orderCancelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_kitchenPrintClass.cs" />
+    <Compile Include="_masterRemark.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_masterRemark.Designer.cs">
+      <DependentUpon>_masterRemark.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_orderDevice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_orderDevice.Designer.cs">
+      <DependentUpon>_orderDevice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_orderdeviceConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_orderdeviceConfig.Designer.cs">
+      <DependentUpon>_orderdeviceConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posInputNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posInputNumberForm.Designer.cs">
+      <DependentUpon>_posInputNumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_tableSearchLevelMenuControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_tableSearchLevelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_tableSearchLevelControl.Designer.cs">
+      <DependentUpon>_tableSearchLevelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posMachine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posMachine.Designer.cs">
+      <DependentUpon>_posMachine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_global.cs" />
+    <Compile Include="_posConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posConfig.Designer.cs">
+      <DependentUpon>_posConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posDownloadSound.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posDownloadSound.Designer.cs">
+      <DependentUpon>_posDownloadSound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posPointPeriodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posPointPeriodForm.Designer.cs">
+      <DependentUpon>_posPointPeriodForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="_table.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_table.Designer.cs">
+      <DependentUpon>_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_tableScreenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_tableScreenControl.Designer.cs">
+      <DependentUpon>_tableScreenControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_checkerDeviceConfig.resx">
+      <DependentUpon>_checkerDeviceConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_checkerKitchen.resx">
+      <DependentUpon>_checkerKitchen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_checkPriceUserControl.resx">
+      <DependentUpon>_checkPriceUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer\_clientDesign.resx">
+      <DependentUpon>_clientDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer\_deletePOSDesign.resx">
+      <DependentUpon>_deletePOSDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer\_drawPanel.resx">
+      <DependentUpon>_drawPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer\_object\_form.resx">
+      <DependentUpon>_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer\_loadStandardDesign.resx">
+      <DependentUpon>_loadStandardDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer\_object\_propertyForm.resx">
+      <DependentUpon>_propertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_chefListControl.resx">
+      <DependentUpon>_chefListControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_closeSummaryTableForm.resx">
+      <DependentUpon>_closeSummaryTableForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_fastOrderControl.resx">
+      <DependentUpon>_fastOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_foodDetailForm.resx">
+      <DependentUpon>_foodDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_foodOrderControl.resx">
+      <DependentUpon>_foodOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_kitchenControl.resx">
+      <DependentUpon>_kitchenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_kitchenFast.resx">
+      <DependentUpon>_kitchenFast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_kitchenManage.resx">
+      <DependentUpon>_kitchenManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_orderCancelForm.resx">
+      <DependentUpon>_orderCancelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_orderControl.resx">
+      <DependentUpon>_orderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_orderSuggestRemarkForm.resx">
+      <DependentUpon>_orderSuggestRemarkForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_selectSaleUserControl.resx">
+      <DependentUpon>_selectSaleUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_tableConfirmControl.resx">
+      <DependentUpon>_tableConfirmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_tableInfoControl.resx">
+      <DependentUpon>_tableInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_tableMoveControl.resx">
+      <DependentUpon>_tableMoveControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_tableOpenControl.resx">
+      <DependentUpon>_tableOpenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_tableOrderEditControl.resx">
+      <DependentUpon>_tableOrderEditControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_tableViewControl.resx">
+      <DependentUpon>_tableViewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_food\_orderCancelControl.resx">
+      <DependentUpon>_orderCancelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_masterRemark.resx">
+      <DependentUpon>_masterRemark.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_orderDevice.resx">
+      <DependentUpon>_orderDevice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_orderdeviceConfig.resx">
+      <DependentUpon>_orderdeviceConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posInputNumberForm.resx">
+      <DependentUpon>_posInputNumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_tableSearchLevelControl.resx">
+      <DependentUpon>_tableSearchLevelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posMachine.resx">
+      <DependentUpon>_posMachine.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posConfig.resx">
+      <DependentUpon>_posConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posDownloadSound.resx">
+      <DependentUpon>_posDownloadSound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posPointPeriodForm.resx">
+      <DependentUpon>_posPointPeriodForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_table.resx">
+      <DependentUpon>_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_tableScreenControl.resx">
+      <DependentUpon>_tableScreenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BarcoderLib\BarcoderLib.csproj">
+      <Project>{de365ee5-91af-4a6b-bbb7-2b95df29be93}</Project>
+      <Name>BarcoderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73aa4c07-aabc-4c52-b7d7-1b0a9b0b256a}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPIC\SMLERPIC.csproj">
+      <Project>{74253644-DE8A-43E8-A9C1-3C50FFC570A2}</Project>
+      <Name>SMLERPIC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wooden-table.png" />
+    <None Include="Resources\box_into.png" />
+    <None Include="Resources\book_blue_add.png" />
+    <None Include="Resources\book_blue_delete.png" />
+    <Content Include="Resources\bringtofront.png" />
+    <None Include="Resources\zoom_in.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\bt03.png" />
+    <None Include="Resources\del.png" />
+    <None Include="Resources\businessman_view.png" />
+    <None Include="Resources\contract.png" />
+    <None Include="Resources\clipboard_next.png" />
+    <None Include="Resources\delete21.png" />
+    <None Include="Resources\check2.png" />
+    <Content Include="Resources\disks.png" />
+    <Content Include="Resources\disk_blue.png" />
+    <None Include="Resources\disk_blue1.png" />
+    <Content Include="Resources\document_certificate.png" />
+    <None Include="Resources\error.png" />
+    <Content Include="Resources\error1.png" />
+    <None Include="Resources\export2.png" />
+    <None Include="Resources\export1.png" />
+    <Content Include="Resources\folder_view.png" />
+    <None Include="Resources\garbage_empty.png" />
+    <None Include="Resources\form_yellow.png" />
+    <Content Include="Resources\groupalignbottom.png" />
+    <Content Include="Resources\groupalignleft.png" />
+    <Content Include="Resources\groupalignright.png" />
+    <Content Include="Resources\groupaligntop.png" />
+    <Content Include="Resources\HTML.png" />
+    <None Include="Resources\import1.png" />
+    <None Include="Resources\navigate_right2.png" />
+    <None Include="Resources\navigate_right.png" />
+    <None Include="Resources\navigate_left.png" />
+    <None Include="Resources\navigate_left2.png" />
+    <None Include="Resources\note_add.png" />
+    <None Include="Resources\power_off.png" />
+    <None Include="Resources\power_off_2.png" />
+    <None Include="Resources\index_replace.png" />
+    <None Include="Resources\notebook_preferences.png" />
+    <None Include="Resources\preferences1.png" />
+    <Content Include="Resources\property.png" />
+    <None Include="Resources\replace2.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\scroll_information.png" />
+    <None Include="Resources\scroll_preferences.png" />
+    <Content Include="Resources\sendtoback.png" />
+    <None Include="Resources\telephone.png" />
+    <Content Include="Resources\tools16.png" />
+    <None Include="Resources\undo.png" />
+    <None Include="Resources\weight2.png" />
+    <None Include="Resources\users_family.png" />
+    <Content Include="Resources\window.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

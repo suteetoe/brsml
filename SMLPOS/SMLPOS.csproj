@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{10E6C79A-BEA7-4F15-A15B-697194907AD1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLPOS</RootNamespace>
+    <AssemblyName>SMLPOS</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>c:\publish\smlpos\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.smlsoft.com/smlpos/</InstallUrl>
+    <ProductName>SML POS</ProductName>
+    <PublisherName>SML Soft</PublisherName>
+    <MinimumRequiredVersion>1.0.0.102</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>103</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>shoppingcart.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>C68E1E98C1C207BB366C269A41EF65A8113AD326</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_mainForm.Designer.cs">
+      <DependentUpon>_mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_mainShortcut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_mainShortcut.Designer.cs">
+      <DependentUpon>_mainShortcut.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_mainForm.resx">
+      <DependentUpon>_mainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_mainShortcut.resx">
+      <DependentUpon>_mainShortcut.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SMLPOS_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAPReport\SMLERPAPReport.csproj">
+      <Project>{37699660-52D6-408D-B84C-2C264A446B75}</Project>
+      <Name>SMLERPAPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAP\SMLERPAP.csproj">
+      <Project>{E7D5EE89-FBF8-4BA2-8DBF-55D4CBAA2201}</Project>
+      <Name>SMLERPAP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARReport\SMLERPARAPReport.csproj">
+      <Project>{706278D1-2158-4000-A1A5-F401B0C59890}</Project>
+      <Name>SMLERPARAPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAR\SMLERPAR.csproj">
+      <Project>{60245A02-8C1E-4BB9-B365-D65423793126}</Project>
+      <Name>SMLERPAR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPASSET\SMLERPASSET.csproj">
+      <Project>{358CCCBB-F185-4F6F-AC8B-38F26E1CF022}</Project>
+      <Name>SMLERPASSET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAudit\SMLERPAudit.csproj">
+      <Project>{0C06EFD4-A9CC-4C4E-829C-C2D6D4C0F81C}</Project>
+      <Name>SMLERPAudit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPCASHBANKReport\SMLERPCASHBANKReport.csproj">
+      <Project>{0AB4E9BD-B9F1-4357-9F16-0D22E4022FD8}</Project>
+      <Name>SMLERPCASHBANKReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPCASHBANK\SMLERPCASHBANK.csproj">
+      <Project>{7BC02F85-9D27-426C-A4FF-927B94F41FCC}</Project>
+      <Name>SMLERPCASHBANK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPConfig\SMLERPConfig.csproj">
+      <Project>{2E9E7D02-2F83-4383-B048-F81914A7B9BF}</Project>
+      <Name>SMLERPConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGL\SMLERPGL.csproj">
+      <Project>{5645B824-BFF4-4C0A-9533-0B75527E90C6}</Project>
+      <Name>SMLERPGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPICInfo\SMLERPICInfo.csproj">
+      <Project>{D81C3BD6-3AD4-47E0-93C7-B37EEC82B62A}</Project>
+      <Name>SMLERPICInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPICReport\SMLERPICReport.csproj">
+      <Project>{B9E32AF4-28F3-4097-AE65-234D11983359}</Project>
+      <Name>SMLERPICReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPIC\SMLERPIC.csproj">
+      <Project>{74253644-DE8A-43E8-A9C1-3C50FFC570A2}</Project>
+      <Name>SMLERPIC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPPOReport\SMLERPPOReport.csproj">
+      <Project>{8F7C5F5C-AA9E-443D-8B52-DF3932153B31}</Project>
+      <Name>SMLERPPOReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPPO\SMLERPPO.csproj">
+      <Project>{CD0B05F2-4085-468A-9ED8-FAC39C16AD89}</Project>
+      <Name>SMLERPPO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReport\SMLERPReport.csproj">
+      <Project>{5208DB5E-2327-414A-9170-86AA6B6C0E71}</Project>
+      <Name>SMLERPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSOReport\SMLERPSOReport.csproj">
+      <Project>{A79D2994-F2B4-4D54-9493-4CA1C036641B}</Project>
+      <Name>SMLERPSOReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSO\SMLERPSO.csproj">
+      <Project>{B9445ECD-2E5D-480A-A6BD-8A634DC2EE38}</Project>
+      <Name>SMLERPSO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPTemplate\SMLERPTemplate.csproj">
+      <Project>{72DC59D6-C11D-430C-950B-B5266FB463E8}</Project>
+      <Name>SMLERPTemplate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLFastReport\SMLFastReport.csproj">
+      <Project>{D03F726A-A232-41AB-AED7-6C997C84AC85}</Project>
+      <Name>SMLFastReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLHealthyConfig\SMLHealthyConfig.csproj">
+      <Project>{DAE36B47-AE67-4854-AAF2-173348B9702F}</Project>
+      <Name>SMLHealthyConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLHealthyControl\SMLHealthyControl.csproj">
+      <Project>{44F278E2-5FEE-4851-8DCD-145360B9885C}</Project>
+      <Name>SMLHealthyControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLMIS\SMLMIS.csproj">
+      <Project>{28DF96FE-38E5-44FE-83A9-F6FB1C166131}</Project>
+      <Name>SMLMIS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLPosClient\SMLPOSClient.csproj">
+      <Project>{488c5ea3-f91a-4ada-90c3-8e06ecc097c6}</Project>
+      <Name>SMLPOSClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLPOSControl\SMLPOSControl.csproj">
+      <Project>{1DD6CD38-CFC5-4E87-9544-F6A8F351216F}</Project>
+      <Name>SMLPOSControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLTransportLabel\SMLTransportLabel.csproj">
+      <Project>{2B8BE631-35AD-48DC-9D77-35B785A9F7DF}</Project>
+      <Name>SMLTransportLabel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="shoppingbasket_full.ico" />
+    <None Include="Resources\Abstract Blue backgrounds 3.jpg" />
+    <None Include="Resources\inventory.png" />
+    <None Include="Resources\Picture.png" />
+    <None Include="Resources\tag-orange.png" />
+    <None Include="Resources\Pictures.png" />
+    <None Include="Resources\Web.png" />
+    <None Include="Resources\Mail.png" />
+    <None Include="Resources\Security.png" />
+    <None Include="Resources\currency_dollar.png" />
+    <None Include="Resources\id_card.png" />
+    <None Include="Resources\cooperation-offers.png" />
+    <None Include="Resources\books_preferences.png" />
+    <None Include="Resources\Calc.png" />
+    <None Include="Resources\handheld_device.png" />
+    <None Include="Resources\contract.png" />
+    <None Include="Resources\transform2.png" />
+    <None Include="Resources\server_client.png" />
+    <None Include="Resources\users_family.png" />
+    <None Include="Resources\press.png" />
+    <None Include="Resources\barcode_print.png" />
+    <None Include="Resources\inbox_into.png" />
+    <None Include="Resources\paste.png" />
+    <None Include="Resources\rubberstamp.png" />
+    <None Include="Resources\wooden-table.png" />
+    <EmbeddedResource Include="Drug-basket.ico" />
+    <EmbeddedResource Include="Pork-Chop.ico" />
+    <None Include="Resources\home.png" />
+    <None Include="Resources\error.png" />
+    <EmbeddedResource Include="mpayicon.ico" />
+    <EmbeddedResource Include="SeaAndHillRESTAURANT_2.ico" />
+    <EmbeddedResource Include="SeaAndHillPOS_2.ico" />
+    <Content Include="shoppingcart.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.mshtml">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

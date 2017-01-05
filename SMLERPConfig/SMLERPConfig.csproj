@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2E9E7D02-2F83-4383-B048-F81914A7B9BF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPConfig</RootNamespace>
+    <AssemblyName>SMLERPConfig</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunFxCop>false</RunFxCop>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_accountPeriod\_accountPeriodMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_accountPeriod\_accountPeriodMain.Designer.cs">
+      <DependentUpon>_accountPeriodMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accountPeriod\_accountPeriodSetTermAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_accountPeriod\_accountPeriodSetTermAuto.Designer.cs">
+      <DependentUpon>_accountPeriodSetTermAuto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_credit_type.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_credit_type.Designer.cs">
+      <DependentUpon>_credit_type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_dashboardConfigScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_dashboardConfigScreen.Designer.cs">
+      <DependentUpon>_dashboardConfigScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_expenses_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_expenses_list.Designer.cs">
+      <DependentUpon>_expenses_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_book.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_book.Designer.cs">
+      <DependentUpon>_book.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_companyProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_companyProfile.Designer.cs">
+      <DependentUpon>_companyProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_gridSalePlanDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_income_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_income_list.Designer.cs">
+      <DependentUpon>_income_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_option.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_option.Designer.cs">
+      <DependentUpon>_option.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource16x16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource16x16.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_optionSaleShiftScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_optionSaleShiftScreen.Designer.cs">
+      <DependentUpon>_optionSaleShiftScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_provinceLoadFromWebControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_provinceLoadFromWebControl.Designer.cs">
+      <DependentUpon>_provinceLoadFromWebControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_salePlanManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_salePlanManage.Designer.cs">
+      <DependentUpon>_salePlanManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="_accountPeriod\_accountPeriodMain.resx">
+      <DependentUpon>_accountPeriodMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_accountPeriod\_accountPeriodSetTermAuto.resx">
+      <DependentUpon>_accountPeriodSetTermAuto.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_credit_type.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_credit_type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_dashboardConfigScreen.resx">
+      <DependentUpon>_dashboardConfigScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_expenses_list.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_expenses_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_book.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_book.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_companyProfile.resx">
+      <DependentUpon>_companyProfile.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_income_list.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_income_list.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_option.resx">
+      <DependentUpon>_option.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource16x16.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource16x16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_optionSaleShiftScreen.resx">
+      <DependentUpon>_optionSaleShiftScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_provinceLoadFromWebControl.resx">
+      <DependentUpon>_provinceLoadFromWebControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_salePlanManage.resx">
+      <DependentUpon>_salePlanManage.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\changepassword.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\companyprofile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightbulb_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\companyprofile1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_left_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nav_right_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branch_element.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bt03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\node_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

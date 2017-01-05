@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:intf="http://smlpackage" xmlns:impl="http://smlpackage" targetNamespace="http://smlpackage" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://smlpackage">
+      <xsd:element name="_invoiceGetqueryCompress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="query" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetqueryCompressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_invoiceGetqueryCompressReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetquery">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="transection_flag" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetqueryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_invoiceGetqueryReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetquerySearchCompress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="query" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetquerySearchCompressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_invoiceGetquerySearchCompressReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetquerySearch">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="queryForsearch" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_invoiceGetquerySearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_invoiceGetquerySearchReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetquery">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="transection_flag" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetqueryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_dePositGetqueryReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetquerySearchCompress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="query" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetquerySearchCompressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_dePositGetquerySearchCompressReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetquerySearch">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="queryForsearch" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetquerySearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_dePositGetquerySearchReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetqueryCompress">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="GUID" type="xsd:string" />
+            <xsd:element name="configFileName" type="xsd:string" />
+            <xsd:element name="databaseName" type="xsd:string" />
+            <xsd:element name="query" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="_dePositGetqueryCompressResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="_dePositGetqueryCompressReturn" type="xsd:base64Binary" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="_dePositGetqueryCompressResponse">
+    <wsdl:part name="parameters" element="impl:_dePositGetqueryCompressResponse" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetquerySearchCompressResponse">
+    <wsdl:part name="parameters" element="impl:_invoiceGetquerySearchCompressResponse" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetqueryRequest">
+    <wsdl:part name="parameters" element="impl:_invoiceGetquery" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetquerySearchResponse">
+    <wsdl:part name="parameters" element="impl:_dePositGetquerySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetquerySearchResponse">
+    <wsdl:part name="parameters" element="impl:_invoiceGetquerySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetquerySearchRequest">
+    <wsdl:part name="parameters" element="impl:_dePositGetquerySearch" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetqueryCompressResponse">
+    <wsdl:part name="parameters" element="impl:_invoiceGetqueryCompressResponse" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetquerySearchCompressRequest">
+    <wsdl:part name="parameters" element="impl:_dePositGetquerySearchCompress" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetquerySearchCompressResponse">
+    <wsdl:part name="parameters" element="impl:_dePositGetquerySearchCompressResponse" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetqueryResponse">
+    <wsdl:part name="parameters" element="impl:_invoiceGetqueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetqueryRequest">
+    <wsdl:part name="parameters" element="impl:_dePositGetquery" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetquerySearchCompressRequest">
+    <wsdl:part name="parameters" element="impl:_invoiceGetquerySearchCompress" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetqueryResponse">
+    <wsdl:part name="parameters" element="impl:_dePositGetqueryResponse" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetqueryCompressRequest">
+    <wsdl:part name="parameters" element="impl:_invoiceGetqueryCompress" />
+  </wsdl:message>
+  <wsdl:message name="_invoiceGetquerySearchRequest">
+    <wsdl:part name="parameters" element="impl:_invoiceGetquerySearch" />
+  </wsdl:message>
+  <wsdl:message name="_dePositGetqueryCompressRequest">
+    <wsdl:part name="parameters" element="impl:_dePositGetqueryCompress" />
+  </wsdl:message>
+  <wsdl:portType name="SMLFrameWork">
+    <wsdl:operation name="_invoiceGetqueryCompress">
+      <wsdl:input name="_invoiceGetqueryCompressRequest" message="impl:_invoiceGetqueryCompressRequest" />
+      <wsdl:output name="_invoiceGetqueryCompressResponse" message="impl:_invoiceGetqueryCompressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_invoiceGetquery">
+      <wsdl:input name="_invoiceGetqueryRequest" message="impl:_invoiceGetqueryRequest" />
+      <wsdl:output name="_invoiceGetqueryResponse" message="impl:_invoiceGetqueryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_invoiceGetquerySearchCompress">
+      <wsdl:input name="_invoiceGetquerySearchCompressRequest" message="impl:_invoiceGetquerySearchCompressRequest" />
+      <wsdl:output name="_invoiceGetquerySearchCompressResponse" message="impl:_invoiceGetquerySearchCompressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_invoiceGetquerySearch">
+      <wsdl:input name="_invoiceGetquerySearchRequest" message="impl:_invoiceGetquerySearchRequest" />
+      <wsdl:output name="_invoiceGetquerySearchResponse" message="impl:_invoiceGetquerySearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetquery">
+      <wsdl:input name="_dePositGetqueryRequest" message="impl:_dePositGetqueryRequest" />
+      <wsdl:output name="_dePositGetqueryResponse" message="impl:_dePositGetqueryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetquerySearchCompress">
+      <wsdl:input name="_dePositGetquerySearchCompressRequest" message="impl:_dePositGetquerySearchCompressRequest" />
+      <wsdl:output name="_dePositGetquerySearchCompressResponse" message="impl:_dePositGetquerySearchCompressResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetquerySearch">
+      <wsdl:input name="_dePositGetquerySearchRequest" message="impl:_dePositGetquerySearchRequest" />
+      <wsdl:output name="_dePositGetquerySearchResponse" message="impl:_dePositGetquerySearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetqueryCompress">
+      <wsdl:input name="_dePositGetqueryCompressRequest" message="impl:_dePositGetqueryCompressRequest" />
+      <wsdl:output name="_dePositGetqueryCompressResponse" message="impl:_dePositGetqueryCompressResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SMLFrameWorkSoapBinding" type="impl:SMLFrameWork">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="_invoiceGetqueryCompress">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_invoiceGetqueryCompressRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_invoiceGetqueryCompressResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_invoiceGetquery">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_invoiceGetqueryRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_invoiceGetqueryResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_invoiceGetquerySearchCompress">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_invoiceGetquerySearchCompressRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_invoiceGetquerySearchCompressResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_invoiceGetquerySearch">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_invoiceGetquerySearchRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_invoiceGetquerySearchResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetquery">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_dePositGetqueryRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_dePositGetqueryResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetquerySearchCompress">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_dePositGetquerySearchCompressRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_dePositGetquerySearchCompressResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetquerySearch">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_dePositGetquerySearchRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_dePositGetquerySearchResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="_dePositGetqueryCompress">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="_dePositGetqueryCompressRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="_dePositGetqueryCompressResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SMLFrameWorkService">
+    <wsdl:port name="SMLFrameWork" binding="impl:SMLFrameWorkSoapBinding">
+      <wsdlsoap:address location="http://hunter:8083/SMLWS/services/SMLFrameWork" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

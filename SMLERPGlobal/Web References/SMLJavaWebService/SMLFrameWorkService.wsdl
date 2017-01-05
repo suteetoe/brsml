@@ -1,0 +1,1086 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://SMLWebService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SMLFrameWorkService" targetNamespace="http://SMLWebService/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:80/SMLJavaWebService/SMLFrameWork?xsd=1" namespace="http://SMLWebService/" />
+    </xsd:schema>
+  </types>
+  <message name="_process_profit_and_lost_by_color_stream">
+    <part name="parameters" element="tns:_process_profit_and_lost_by_color_stream" />
+  </message>
+  <message name="_process_profit_and_lost_by_color_streamResponse">
+    <part name="parameters" element="tns:_process_profit_and_lost_by_color_streamResponse" />
+  </message>
+  <message name="_process_profit_and_lost_by_product_stream">
+    <part name="parameters" element="tns:_process_profit_and_lost_by_product_stream" />
+  </message>
+  <message name="_process_profit_and_lost_by_product_streamResponse">
+    <part name="parameters" element="tns:_process_profit_and_lost_by_product_streamResponse" />
+  </message>
+  <message name="_purchase_permium_process">
+    <part name="parameters" element="tns:_purchase_permium_process" />
+  </message>
+  <message name="_purchase_permium_processResponse">
+    <part name="parameters" element="tns:_purchase_permium_processResponse" />
+  </message>
+  <message name="_purchase_permium_process_compress">
+    <part name="parameters" element="tns:_purchase_permium_process_compress" />
+  </message>
+  <message name="_purchase_permium_process_compressResponse">
+    <part name="parameters" element="tns:_purchase_permium_process_compressResponse" />
+  </message>
+  <message name="_glReFormatChartOfAccount">
+    <part name="parameters" element="tns:_glReFormatChartOfAccount" />
+  </message>
+  <message name="_glReFormatChartOfAccountResponse">
+    <part name="parameters" element="tns:_glReFormatChartOfAccountResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="_invoiceGetqueryCompress">
+    <part name="parameters" element="tns:_invoiceGetqueryCompress" />
+  </message>
+  <message name="_invoiceGetqueryCompressResponse">
+    <part name="parameters" element="tns:_invoiceGetqueryCompressResponse" />
+  </message>
+  <message name="_processDashBoard">
+    <part name="parameters" element="tns:_processDashBoard" />
+  </message>
+  <message name="_processDashBoardResponse">
+    <part name="parameters" element="tns:_processDashBoardResponse" />
+  </message>
+  <message name="_processDashBoardsCompress">
+    <part name="parameters" element="tns:_processDashBoardsCompress" />
+  </message>
+  <message name="_processDashBoardsCompressResponse">
+    <part name="parameters" element="tns:_processDashBoardsCompressResponse" />
+  </message>
+  <message name="_processApTrans">
+    <part name="parameters" element="tns:_processApTrans" />
+  </message>
+  <message name="_processApTransResponse">
+    <part name="parameters" element="tns:_processApTransResponse" />
+  </message>
+  <message name="_processApTransCompress">
+    <part name="parameters" element="tns:_processApTransCompress" />
+  </message>
+  <message name="_processApTransCompressResponse">
+    <part name="parameters" element="tns:_processApTransCompressResponse" />
+  </message>
+  <message name="_invoiceGetquery">
+    <part name="parameters" element="tns:_invoiceGetquery" />
+  </message>
+  <message name="_invoiceGetqueryResponse">
+    <part name="parameters" element="tns:_invoiceGetqueryResponse" />
+  </message>
+  <message name="_invoiceGetquerySearchCompress">
+    <part name="parameters" element="tns:_invoiceGetquerySearchCompress" />
+  </message>
+  <message name="_invoiceGetquerySearchCompressResponse">
+    <part name="parameters" element="tns:_invoiceGetquerySearchCompressResponse" />
+  </message>
+  <message name="_invoiceGetquerySearch">
+    <part name="parameters" element="tns:_invoiceGetquerySearch" />
+  </message>
+  <message name="_invoiceGetquerySearchResponse">
+    <part name="parameters" element="tns:_invoiceGetquerySearchResponse" />
+  </message>
+  <message name="_dePositGetquery">
+    <part name="parameters" element="tns:_dePositGetquery" />
+  </message>
+  <message name="_dePositGetqueryResponse">
+    <part name="parameters" element="tns:_dePositGetqueryResponse" />
+  </message>
+  <message name="_dePositGetquerySearchCompress">
+    <part name="parameters" element="tns:_dePositGetquerySearchCompress" />
+  </message>
+  <message name="_dePositGetquerySearchCompressResponse">
+    <part name="parameters" element="tns:_dePositGetquerySearchCompressResponse" />
+  </message>
+  <message name="_dePositGetquerySearch">
+    <part name="parameters" element="tns:_dePositGetquerySearch" />
+  </message>
+  <message name="_dePositGetquerySearchResponse">
+    <part name="parameters" element="tns:_dePositGetquerySearchResponse" />
+  </message>
+  <message name="_dePositGetqueryCompress">
+    <part name="parameters" element="tns:_dePositGetqueryCompress" />
+  </message>
+  <message name="_dePositGetqueryCompressResponse">
+    <part name="parameters" element="tns:_dePositGetqueryCompressResponse" />
+  </message>
+  <message name="_trans_itemGetquery">
+    <part name="parameters" element="tns:_trans_itemGetquery" />
+  </message>
+  <message name="_trans_itemGetqueryResponse">
+    <part name="parameters" element="tns:_trans_itemGetqueryResponse" />
+  </message>
+  <message name="_trans_itemGetqueryCompress">
+    <part name="parameters" element="tns:_trans_itemGetqueryCompress" />
+  </message>
+  <message name="_trans_itemGetqueryCompressResponse">
+    <part name="parameters" element="tns:_trans_itemGetqueryCompressResponse" />
+  </message>
+  <message name="_process_ar_status">
+    <part name="parameters" element="tns:_process_ar_status" />
+  </message>
+  <message name="_process_ar_statusResponse">
+    <part name="parameters" element="tns:_process_ar_statusResponse" />
+  </message>
+  <message name="_process_ar_status_compress">
+    <part name="parameters" element="tns:_process_ar_status_compress" />
+  </message>
+  <message name="_process_ar_status_compressResponse">
+    <part name="parameters" element="tns:_process_ar_status_compressResponse" />
+  </message>
+  <message name="_process_ar_ageing">
+    <part name="parameters" element="tns:_process_ar_ageing" />
+  </message>
+  <message name="_process_ar_ageingResponse">
+    <part name="parameters" element="tns:_process_ar_ageingResponse" />
+  </message>
+  <message name="_process_ar_ageing_compress">
+    <part name="parameters" element="tns:_process_ar_ageing_compress" />
+  </message>
+  <message name="_process_ar_ageing_compressResponse">
+    <part name="parameters" element="tns:_process_ar_ageing_compressResponse" />
+  </message>
+  <message name="_process_ar_stream">
+    <part name="parameters" element="tns:_process_ar_stream" />
+  </message>
+  <message name="_process_ar_streamResponse">
+    <part name="parameters" element="tns:_process_ar_streamResponse" />
+  </message>
+  <message name="_processChqCreditCard">
+    <part name="parameters" element="tns:_processChqCreditCard" />
+  </message>
+  <message name="_processChqCreditCardResponse">
+    <part name="parameters" element="tns:_processChqCreditCardResponse" />
+  </message>
+  <message name="_process_cb_statement">
+    <part name="parameters" element="tns:_process_cb_statement" />
+  </message>
+  <message name="_process_cb_statementResponse">
+    <part name="parameters" element="tns:_process_cb_statementResponse" />
+  </message>
+  <message name="_process_cb_statement_compress">
+    <part name="parameters" element="tns:_process_cb_statement_compress" />
+  </message>
+  <message name="_process_cb_statement_compressResponse">
+    <part name="parameters" element="tns:_process_cb_statement_compressResponse" />
+  </message>
+  <message name="_queryCBGetStream">
+    <part name="parameters" element="tns:_queryCBGetStream" />
+  </message>
+  <message name="_queryCBGetStreamResponse">
+    <part name="parameters" element="tns:_queryCBGetStreamResponse" />
+  </message>
+  <message name="_queryCBStream">
+    <part name="parameters" element="tns:_queryCBStream" />
+  </message>
+  <message name="_queryCBStreamResponse">
+    <part name="parameters" element="tns:_queryCBStreamResponse" />
+  </message>
+  <message name="_process_stock_balance">
+    <part name="parameters" element="tns:_process_stock_balance" />
+  </message>
+  <message name="_process_stock_balanceResponse">
+    <part name="parameters" element="tns:_process_stock_balanceResponse" />
+  </message>
+  <message name="_process_stock_balance_compress">
+    <part name="parameters" element="tns:_process_stock_balance_compress" />
+  </message>
+  <message name="_process_stock_balance_compressResponse">
+    <part name="parameters" element="tns:_process_stock_balance_compressResponse" />
+  </message>
+  <message name="_process_stock_cost_finish">
+    <part name="parameters" element="tns:_process_stock_cost_finish" />
+  </message>
+  <message name="_process_stock_cost_finishResponse">
+    <part name="parameters" element="tns:_process_stock_cost_finishResponse" />
+  </message>
+  <message name="_process_stock_cost">
+    <part name="parameters" element="tns:_process_stock_cost" />
+  </message>
+  <message name="_process_stock_costResponse">
+    <part name="parameters" element="tns:_process_stock_costResponse" />
+  </message>
+  <message name="_process_stock_cost_compress">
+    <part name="parameters" element="tns:_process_stock_cost_compress" />
+  </message>
+  <message name="_process_stock_cost_compressResponse">
+    <part name="parameters" element="tns:_process_stock_cost_compressResponse" />
+  </message>
+  <message name="_process_ic_balance">
+    <part name="parameters" element="tns:_process_ic_balance" />
+  </message>
+  <message name="_process_ic_balanceResponse">
+    <part name="parameters" element="tns:_process_ic_balanceResponse" />
+  </message>
+  <message name="_process_ic_balance_compress">
+    <part name="parameters" element="tns:_process_ic_balance_compress" />
+  </message>
+  <message name="_process_ic_balance_compressResponse">
+    <part name="parameters" element="tns:_process_ic_balance_compressResponse" />
+  </message>
+  <message name="_process_ic_remain">
+    <part name="parameters" element="tns:_process_ic_remain" />
+  </message>
+  <message name="_process_ic_remainResponse">
+    <part name="parameters" element="tns:_process_ic_remainResponse" />
+  </message>
+  <message name="_process_ic_remaimn_compress">
+    <part name="parameters" element="tns:_process_ic_remaimn_compress" />
+  </message>
+  <message name="_process_ic_remaimn_compressResponse">
+    <part name="parameters" element="tns:_process_ic_remaimn_compressResponse" />
+  </message>
+  <message name="_queryRemainGetStream">
+    <part name="parameters" element="tns:_queryRemainGetStream" />
+  </message>
+  <message name="_queryRemainGetStreamResponse">
+    <part name="parameters" element="tns:_queryRemainGetStreamResponse" />
+  </message>
+  <message name="_queryRemainStream">
+    <part name="parameters" element="tns:_queryRemainStream" />
+  </message>
+  <message name="_queryRemainStreamResponse">
+    <part name="parameters" element="tns:_queryRemainStreamResponse" />
+  </message>
+  <message name="_process_request">
+    <part name="parameters" element="tns:_process_request" />
+  </message>
+  <message name="_process_requestResponse">
+    <part name="parameters" element="tns:_process_requestResponse" />
+  </message>
+  <message name="_process_request_cancel">
+    <part name="parameters" element="tns:_process_request_cancel" />
+  </message>
+  <message name="_process_request_cancelResponse">
+    <part name="parameters" element="tns:_process_request_cancelResponse" />
+  </message>
+  <message name="_process_ap_status">
+    <part name="parameters" element="tns:_process_ap_status" />
+  </message>
+  <message name="_process_ap_statusResponse">
+    <part name="parameters" element="tns:_process_ap_statusResponse" />
+  </message>
+  <message name="_process_ap_status_compress">
+    <part name="parameters" element="tns:_process_ap_status_compress" />
+  </message>
+  <message name="_process_ap_status_compressResponse">
+    <part name="parameters" element="tns:_process_ap_status_compressResponse" />
+  </message>
+  <message name="_process_ap_ageing">
+    <part name="parameters" element="tns:_process_ap_ageing" />
+  </message>
+  <message name="_process_ap_ageingResponse">
+    <part name="parameters" element="tns:_process_ap_ageingResponse" />
+  </message>
+  <message name="_process_ap_ageing_compress">
+    <part name="parameters" element="tns:_process_ap_ageing_compress" />
+  </message>
+  <message name="_process_ap_ageing_compressResponse">
+    <part name="parameters" element="tns:_process_ap_ageing_compressResponse" />
+  </message>
+  <message name="_process_gps_location">
+    <part name="parameters" element="tns:_process_gps_location" />
+  </message>
+  <message name="_process_gps_locationResponse">
+    <part name="parameters" element="tns:_process_gps_locationResponse" />
+  </message>
+  <message name="_process_gps_data">
+    <part name="parameters" element="tns:_process_gps_data" />
+  </message>
+  <message name="_process_gps_dataResponse">
+    <part name="parameters" element="tns:_process_gps_dataResponse" />
+  </message>
+  <message name="_process_gps_load_condition">
+    <part name="parameters" element="tns:_process_gps_load_condition" />
+  </message>
+  <message name="_process_gps_load_conditionResponse">
+    <part name="parameters" element="tns:_process_gps_load_conditionResponse" />
+  </message>
+  <message name="_process_gps_load_data">
+    <part name="parameters" element="tns:_process_gps_load_data" />
+  </message>
+  <message name="_process_gps_load_dataResponse">
+    <part name="parameters" element="tns:_process_gps_load_dataResponse" />
+  </message>
+  <message name="_process_gps_update_data">
+    <part name="parameters" element="tns:_process_gps_update_data" />
+  </message>
+  <message name="_process_gps_update_dataResponse">
+    <part name="parameters" element="tns:_process_gps_update_dataResponse" />
+  </message>
+  <message name="_process_gps_load_sale_data">
+    <part name="parameters" element="tns:_process_gps_load_sale_data" />
+  </message>
+  <message name="_process_gps_load_sale_dataResponse">
+    <part name="parameters" element="tns:_process_gps_load_sale_dataResponse" />
+  </message>
+  <message name="_process_gps_load_sale_data_compress">
+    <part name="parameters" element="tns:_process_gps_load_sale_data_compress" />
+  </message>
+  <message name="_process_gps_load_sale_data_compressResponse">
+    <part name="parameters" element="tns:_process_gps_load_sale_data_compressResponse" />
+  </message>
+  <message name="_process">
+    <part name="parameters" element="tns:_process" />
+  </message>
+  <message name="_processResponse">
+    <part name="parameters" element="tns:_processResponse" />
+  </message>
+  <message name="_processKiller">
+    <part name="parameters" element="tns:_processKiller" />
+  </message>
+  <message name="_processKillerResponse">
+    <part name="parameters" element="tns:_processKillerResponse" />
+  </message>
+  <portType name="SMLFrameWork">
+    <operation name="_process_profit_and_lost_by_color_stream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_profit_and_lost_by_color_streamRequest" message="tns:_process_profit_and_lost_by_color_stream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_profit_and_lost_by_color_streamResponse" message="tns:_process_profit_and_lost_by_color_streamResponse" />
+    </operation>
+    <operation name="_process_profit_and_lost_by_product_stream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_profit_and_lost_by_product_streamRequest" message="tns:_process_profit_and_lost_by_product_stream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_profit_and_lost_by_product_streamResponse" message="tns:_process_profit_and_lost_by_product_streamResponse" />
+    </operation>
+    <operation name="_purchase_permium_process">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_purchase_permium_processRequest" message="tns:_purchase_permium_process" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_purchase_permium_processResponse" message="tns:_purchase_permium_processResponse" />
+    </operation>
+    <operation name="_purchase_permium_process_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_purchase_permium_process_compressRequest" message="tns:_purchase_permium_process_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_purchase_permium_process_compressResponse" message="tns:_purchase_permium_process_compressResponse" />
+    </operation>
+    <operation name="_glReFormatChartOfAccount">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_glReFormatChartOfAccountRequest" message="tns:_glReFormatChartOfAccount" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_glReFormatChartOfAccountResponse" message="tns:_glReFormatChartOfAccountResponse" />
+      <fault wsam:Action="http://SMLWebService/SMLFrameWork/_glReFormatChartOfAccount/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="_invoiceGetqueryCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetqueryCompressRequest" message="tns:_invoiceGetqueryCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetqueryCompressResponse" message="tns:_invoiceGetqueryCompressResponse" />
+    </operation>
+    <operation name="_processDashBoard">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processDashBoardRequest" message="tns:_processDashBoard" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processDashBoardResponse" message="tns:_processDashBoardResponse" />
+      <fault wsam:Action="http://SMLWebService/SMLFrameWork/_processDashBoard/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="_processDashBoardsCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processDashBoardsCompressRequest" message="tns:_processDashBoardsCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processDashBoardsCompressResponse" message="tns:_processDashBoardsCompressResponse" />
+      <fault wsam:Action="http://SMLWebService/SMLFrameWork/_processDashBoardsCompress/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="_processApTrans">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processApTransRequest" message="tns:_processApTrans" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processApTransResponse" message="tns:_processApTransResponse" />
+      <fault wsam:Action="http://SMLWebService/SMLFrameWork/_processApTrans/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="_processApTransCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processApTransCompressRequest" message="tns:_processApTransCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processApTransCompressResponse" message="tns:_processApTransCompressResponse" />
+      <fault wsam:Action="http://SMLWebService/SMLFrameWork/_processApTransCompress/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="_invoiceGetquery">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetqueryRequest" message="tns:_invoiceGetquery" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetqueryResponse" message="tns:_invoiceGetqueryResponse" />
+    </operation>
+    <operation name="_invoiceGetquerySearchCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetquerySearchCompressRequest" message="tns:_invoiceGetquerySearchCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetquerySearchCompressResponse" message="tns:_invoiceGetquerySearchCompressResponse" />
+    </operation>
+    <operation name="_invoiceGetquerySearch">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetquerySearchRequest" message="tns:_invoiceGetquerySearch" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_invoiceGetquerySearchResponse" message="tns:_invoiceGetquerySearchResponse" />
+    </operation>
+    <operation name="_dePositGetquery">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetqueryRequest" message="tns:_dePositGetquery" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetqueryResponse" message="tns:_dePositGetqueryResponse" />
+    </operation>
+    <operation name="_dePositGetquerySearchCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetquerySearchCompressRequest" message="tns:_dePositGetquerySearchCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetquerySearchCompressResponse" message="tns:_dePositGetquerySearchCompressResponse" />
+    </operation>
+    <operation name="_dePositGetquerySearch">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetquerySearchRequest" message="tns:_dePositGetquerySearch" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetquerySearchResponse" message="tns:_dePositGetquerySearchResponse" />
+    </operation>
+    <operation name="_dePositGetqueryCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetqueryCompressRequest" message="tns:_dePositGetqueryCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_dePositGetqueryCompressResponse" message="tns:_dePositGetqueryCompressResponse" />
+    </operation>
+    <operation name="_trans_itemGetquery">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_trans_itemGetqueryRequest" message="tns:_trans_itemGetquery" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_trans_itemGetqueryResponse" message="tns:_trans_itemGetqueryResponse" />
+    </operation>
+    <operation name="_trans_itemGetqueryCompress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_trans_itemGetqueryCompressRequest" message="tns:_trans_itemGetqueryCompress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_trans_itemGetqueryCompressResponse" message="tns:_trans_itemGetqueryCompressResponse" />
+    </operation>
+    <operation name="_process_ar_status">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_statusRequest" message="tns:_process_ar_status" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_statusResponse" message="tns:_process_ar_statusResponse" />
+    </operation>
+    <operation name="_process_ar_status_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_status_compressRequest" message="tns:_process_ar_status_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_status_compressResponse" message="tns:_process_ar_status_compressResponse" />
+    </operation>
+    <operation name="_process_ar_ageing">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_ageingRequest" message="tns:_process_ar_ageing" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_ageingResponse" message="tns:_process_ar_ageingResponse" />
+    </operation>
+    <operation name="_process_ar_ageing_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_ageing_compressRequest" message="tns:_process_ar_ageing_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_ageing_compressResponse" message="tns:_process_ar_ageing_compressResponse" />
+    </operation>
+    <operation name="_process_ar_stream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_streamRequest" message="tns:_process_ar_stream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ar_streamResponse" message="tns:_process_ar_streamResponse" />
+    </operation>
+    <operation name="_processChqCreditCard">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processChqCreditCardRequest" message="tns:_processChqCreditCard" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processChqCreditCardResponse" message="tns:_processChqCreditCardResponse" />
+    </operation>
+    <operation name="_process_cb_statement">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_cb_statementRequest" message="tns:_process_cb_statement" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_cb_statementResponse" message="tns:_process_cb_statementResponse" />
+    </operation>
+    <operation name="_process_cb_statement_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_cb_statement_compressRequest" message="tns:_process_cb_statement_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_cb_statement_compressResponse" message="tns:_process_cb_statement_compressResponse" />
+    </operation>
+    <operation name="_queryCBGetStream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_queryCBGetStreamRequest" message="tns:_queryCBGetStream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_queryCBGetStreamResponse" message="tns:_queryCBGetStreamResponse" />
+    </operation>
+    <operation name="_queryCBStream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_queryCBStreamRequest" message="tns:_queryCBStream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_queryCBStreamResponse" message="tns:_queryCBStreamResponse" />
+    </operation>
+    <operation name="_process_stock_balance">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_balanceRequest" message="tns:_process_stock_balance" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_balanceResponse" message="tns:_process_stock_balanceResponse" />
+    </operation>
+    <operation name="_process_stock_balance_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_balance_compressRequest" message="tns:_process_stock_balance_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_balance_compressResponse" message="tns:_process_stock_balance_compressResponse" />
+    </operation>
+    <operation name="_process_stock_cost_finish">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_cost_finishRequest" message="tns:_process_stock_cost_finish" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_cost_finishResponse" message="tns:_process_stock_cost_finishResponse" />
+    </operation>
+    <operation name="_process_stock_cost">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_costRequest" message="tns:_process_stock_cost" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_costResponse" message="tns:_process_stock_costResponse" />
+    </operation>
+    <operation name="_process_stock_cost_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_cost_compressRequest" message="tns:_process_stock_cost_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_stock_cost_compressResponse" message="tns:_process_stock_cost_compressResponse" />
+    </operation>
+    <operation name="_process_ic_balance">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_balanceRequest" message="tns:_process_ic_balance" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_balanceResponse" message="tns:_process_ic_balanceResponse" />
+    </operation>
+    <operation name="_process_ic_balance_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_balance_compressRequest" message="tns:_process_ic_balance_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_balance_compressResponse" message="tns:_process_ic_balance_compressResponse" />
+    </operation>
+    <operation name="_process_ic_remain">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_remainRequest" message="tns:_process_ic_remain" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_remainResponse" message="tns:_process_ic_remainResponse" />
+    </operation>
+    <operation name="_process_ic_remaimn_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_remaimn_compressRequest" message="tns:_process_ic_remaimn_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ic_remaimn_compressResponse" message="tns:_process_ic_remaimn_compressResponse" />
+    </operation>
+    <operation name="_queryRemainGetStream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_queryRemainGetStreamRequest" message="tns:_queryRemainGetStream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_queryRemainGetStreamResponse" message="tns:_queryRemainGetStreamResponse" />
+    </operation>
+    <operation name="_queryRemainStream">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_queryRemainStreamRequest" message="tns:_queryRemainStream" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_queryRemainStreamResponse" message="tns:_queryRemainStreamResponse" />
+    </operation>
+    <operation name="_process_request">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_requestRequest" message="tns:_process_request" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_requestResponse" message="tns:_process_requestResponse" />
+    </operation>
+    <operation name="_process_request_cancel">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_request_cancelRequest" message="tns:_process_request_cancel" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_request_cancelResponse" message="tns:_process_request_cancelResponse" />
+    </operation>
+    <operation name="_process_ap_status">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_statusRequest" message="tns:_process_ap_status" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_statusResponse" message="tns:_process_ap_statusResponse" />
+    </operation>
+    <operation name="_process_ap_status_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_status_compressRequest" message="tns:_process_ap_status_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_status_compressResponse" message="tns:_process_ap_status_compressResponse" />
+    </operation>
+    <operation name="_process_ap_ageing">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_ageingRequest" message="tns:_process_ap_ageing" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_ageingResponse" message="tns:_process_ap_ageingResponse" />
+    </operation>
+    <operation name="_process_ap_ageing_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_ageing_compressRequest" message="tns:_process_ap_ageing_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_ap_ageing_compressResponse" message="tns:_process_ap_ageing_compressResponse" />
+    </operation>
+    <operation name="_process_gps_location">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_locationRequest" message="tns:_process_gps_location" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_locationResponse" message="tns:_process_gps_locationResponse" />
+    </operation>
+    <operation name="_process_gps_data">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_dataRequest" message="tns:_process_gps_data" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_dataResponse" message="tns:_process_gps_dataResponse" />
+    </operation>
+    <operation name="_process_gps_load_condition">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_conditionRequest" message="tns:_process_gps_load_condition" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_conditionResponse" message="tns:_process_gps_load_conditionResponse" />
+    </operation>
+    <operation name="_process_gps_load_data">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_dataRequest" message="tns:_process_gps_load_data" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_dataResponse" message="tns:_process_gps_load_dataResponse" />
+    </operation>
+    <operation name="_process_gps_update_data">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_update_dataRequest" message="tns:_process_gps_update_data" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_update_dataResponse" message="tns:_process_gps_update_dataResponse" />
+    </operation>
+    <operation name="_process_gps_load_sale_data">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_sale_dataRequest" message="tns:_process_gps_load_sale_data" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_sale_dataResponse" message="tns:_process_gps_load_sale_dataResponse" />
+    </operation>
+    <operation name="_process_gps_load_sale_data_compress">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_sale_data_compressRequest" message="tns:_process_gps_load_sale_data_compress" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_process_gps_load_sale_data_compressResponse" message="tns:_process_gps_load_sale_data_compressResponse" />
+    </operation>
+    <operation name="_process">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processRequest" message="tns:_process" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processResponse" message="tns:_processResponse" />
+    </operation>
+    <operation name="_processKiller">
+      <input wsam:Action="http://SMLWebService/SMLFrameWork/_processKillerRequest" message="tns:_processKiller" />
+      <output wsam:Action="http://SMLWebService/SMLFrameWork/_processKillerResponse" message="tns:_processKillerResponse" />
+    </operation>
+  </portType>
+  <binding name="SMLFrameWorkPortBinding" type="tns:SMLFrameWork">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="_process_profit_and_lost_by_color_stream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_profit_and_lost_by_product_stream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_purchase_permium_process">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_purchase_permium_process_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_glReFormatChartOfAccount">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_invoiceGetqueryCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_processDashBoard">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_processDashBoardsCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_processApTrans">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_processApTransCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_invoiceGetquery">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_invoiceGetquerySearchCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_invoiceGetquerySearch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_dePositGetquery">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_dePositGetquerySearchCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_dePositGetquerySearch">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_dePositGetqueryCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_trans_itemGetquery">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_trans_itemGetqueryCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ar_status">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ar_status_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ar_ageing">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ar_ageing_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ar_stream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_processChqCreditCard">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_cb_statement">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_cb_statement_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryCBGetStream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryCBStream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_stock_balance">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_stock_balance_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_stock_cost_finish">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_stock_cost">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_stock_cost_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ic_balance">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ic_balance_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ic_remain">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ic_remaimn_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryRemainGetStream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryRemainStream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_request">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_request_cancel">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ap_status">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ap_status_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ap_ageing">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_ap_ageing_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_location">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_data">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_load_condition">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_load_data">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_update_data">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_load_sale_data">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process_gps_load_sale_data_compress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_process">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_processKiller">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SMLFrameWorkService">
+    <port name="SMLFrameWorkPort" binding="tns:SMLFrameWorkPortBinding">
+      <soap:address location="http://localhost:80/SMLJavaWebService/SMLFrameWork" />
+    </port>
+  </service>
+</definitions>

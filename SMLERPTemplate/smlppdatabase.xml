@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="windows-874" ?>
+<node>
+<table name="pp_trans" thai="รายการจัดสินค้า" eng="pp_trans" xversion="" >
+<field name="doc_no" thai="เลขที่เอกสาร" eng="Doc No" type="varchar" length="20" indentity="yes" allow_null="false" resource_only="false"></field>
+<field name="doc_date" thai="วันที่เอกสาร" eng="Doc Date" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="ref_code" thai="เลขที่เอกสารอ้างอิง" eng="Ref Code" type="varchar" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="ref_date" thai="วันที่เอกสารอ้างอิง" eng="Ref Date" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="due_date" thai="วันที่มารับ" eng="Due Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cust_code" thai="รหัสลูกค้า" eng="Customer Code" type="varchar" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="sale_code" thai="รหัสพนักงานขาย" eng="Sale Code" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="status" thai="สถานะ" eng="Status" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="persent" thai="เปอร์เชน" eng="Persent" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="row_number" thai="ลำดับที่" eng="Row Number" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="flag" thai="เลือก" eng="Flag" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="pp_trans_detail" thai="รายละเอียด" eng="pp_trans_detail" xversion="" >
+<field name="row_number" thai="ลำดับที่" eng="Row Number" type="int" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="doc_no" thai="เลขที่เอกสาร" eng="Doc No" type="varchar" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="ic_code" thai="รหัสสินค้า" eng="Item Code" type="varchar" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="wh_code" thai="คลังสินค้า" eng="WH Code" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="shelf_code" thai="ที่เก็บสินค้า" eng="Shelf Code" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="unit_code" thai="หน่วยนับ" eng="Unit Code" type="varchar" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="qty" thai="จำนวน" eng="QTY" type="float" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="event_qty" thai="จำนวนที่จัด" eng="Even QTY" type="float" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="event_date_time" thai="วันและเวลาที่ทำรายการ" eng="Date And Time" type="datetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="flag" thai="เลือก" eng="Flag" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+</node>

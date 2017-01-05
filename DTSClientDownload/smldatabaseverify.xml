@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<node>
+  <before>
+    <postgres>
+    </postgres>
+  </before>
+
+  <after>
+    <postgres>
+      <script>
+        drop function all
+      </script>
+      <script>
+        CREATE OR REPLACE FUNCTION gen_code_list(field_name TEXT,code_list TEXT) returns setof TEXT as $$
+        DECLARE
+        elements TEXT ARRAY;
+        temp_text text := &#39;&#39;;
+        value1 text;
+        between_text TEXT:=&#39;&#39;;
+        or_text TEXT:=&#39;&#39;;
+        have_in int:=0;
+        between_split TEXT ARRAY;
+        BEGIN
+        elements  := regexp_split_to_array(code_list, &#39;,&#39;);
+        FOR i IN 1 .. array_length(elements,1) LOOP
+        value1 = elements[i];
+        if (position(&#39;:&#39; in value1) &gt; 0) then
+        if (length(between_text) &gt; 0) then
+        between_text:= between_text||&#39; or &#39;;
+        end if;
+        between_split:= regexp_split_to_array(value1, &#39;:&#39;);
+        between_text:= between_text||field_name||&#39; between &#39;||&#39;&#39;&#39;&#39;||between_split[1]||&#39;&#39;&#39;&#39;||&#39; and &#39;||&#39;&#39;&#39;&#39;||between_split[2]||&#39;&#39;&#39;&#39;||&#39; &#39;;
+        else
+        if (length(value1) &gt; 0) then
+        if (length(temp_text) &gt; 0) then
+        temp_text := temp_text||&#39;,&#39;;
+        end if;
+        temp_text := temp_text||&#39;&#39;&#39;&#39;||value1||&#39;&#39;&#39;&#39;;
+        have_in:=1;
+        end if;
+        end if;
+        END loop;
+        if (have_in = 1) then
+        if (length(between_text) &gt; 0) then
+        or_text := &#39; or &#39;;
+        end if;
+        temp_text  := or_text || field_name || &#39; in (&#39; || temp_text || &#39;)&#39;;
+        end if;
+        RETURN NEXT between_text||temp_text;
+        END;
+        $$  LANGUAGE plpgsql;
+      </script>
+      <script>
+        -- ยอดขายสินค้า
+        CREATE  OR REPLACE function f_trans_detail_1(from_date as date,date) returns table
+        (
+        doc_date date,
+        doc_no varchar ,
+        total_before_vat numeric,
+        total_discount numeric,
+        total_vat_value numeric,
+        total_amount numeric,
+        cust_name varchar ,
+        sale_name varchar ,
+        sale_group varchar ,
+        sale_type varchar
+        )
+        as $$
+        SELECT ic_trans.doc_date, ic_trans.doc_no, ic_trans.total_before_vat, ic_trans.total_discount, ic_trans.total_vat_value, ic_trans.total_amount, ((((( SELECT ar_customer.name_1
+        FROM ar_customer
+        WHERE ar_customer.code::text = ic_trans.cust_code::text))::text) || &#39;(&#39;::text) || ic_trans.cust_code::text) || &#39;)&#39;::text AS cust_name, ((((( SELECT erp_user.name_1
+        FROM erp_user
+        WHERE erp_user.code::text = ic_trans.sale_code::text))::text) || &#39;(&#39;::text) || ic_trans.sale_code::text) || &#39;)&#39;::text AS sale_name, ic_trans.sale_group,
+        CASE
+        WHEN ic_trans.inquiry_type = 0 THEN &#39;ขายเชื่อ&#39;::text
+        WHEN ic_trans.inquiry_type = 1 THEN &#39;ขายสด&#39;::text
+        WHEN ic_trans.inquiry_type = 2 THEN &#39;ขายเชื่อ (บริการ)&#39;::text
+        WHEN ic_trans.inquiry_type = 3 THEN &#39;ขายสด (บริการ)&#39;::text
+        ELSE &#39;unknow&#39;::text
+        END AS sale_type
+        FROM ic_trans
+        WHERE ic_trans.doc_date between $1 and $2 and ic_trans.trans_flag = 44 AND ic_trans.last_status = 0;
+        $$ LANGUAGE sql;
+      </script>
+      <script>
+        -- สินค้าที่ไม่มีการขาย
+        CREATE OR REPLACE FUNCTION ic_function_no_sale(IN numeric)
+        RETURNS TABLE(item_code character varying, item_name character varying, unit_standard character varying, unit_standard_name character varying, balance_qty numeric, last_buy date, last_sale date, day_count integer, day_count_word character varying) AS
+        $$
+        select item_code,item_name,unit_standard,unit_standard_name,balance_qty,last_buy,last_sale,
+        case when last_sale is null then null else date(now())-date(last_sale) end as day_count,
+        cast((case when last_sale is null then null else coalesce(age(cast(now() as date) ,last_sale),null) end) as character varying) as day_count_word from
+        (select code as item_code,name_1 as item_name,unit_standard,(select name_1 from ic_unit where ic_unit.code=unit_standard) as  unit_standard_name,balance_qty,
+        coalesce((select doc_date from ic_trans_detail where item_code=code and last_status=0 and trans_flag=12 order by doc_date desc,doc_time desc limit 1),null) as last_buy,
+        coalesce((select doc_date from ic_trans_detail where item_code=code and last_status=0 and trans_flag=44 order by doc_date desc,doc_time desc limit 1),null) as last_sale
+        from ic_inventory where balance_qty&gt;0 and coalesce((select count(*) from ic_trans_detail where doc_date &gt;= cast(now() as date)-cast($1 as integer) and item_code=code and last_status=0 and trans_flag=44),0)=0
+        ) as t1
+        $$ LANGUAGE sql;
+      </script>
+      <script>
+        -- ยอดขายสินค้าตามผู้จัดจำหน่าย
+        CREATE OR REPLACE FUNCTION sml_ic_function_sale_by_supplier(IN from_date date, IN to_date date, IN ap_code_list character varying, IN item_code_list character varying)
+        RETURNS TABLE(supplier_code character varying, supplier_name character varying, item_code character varying, item_name character varying, ic_unit_code character varying, barcode character varying, qty_sale numeric, amount_sale numeric, qty_sale_return numeric, amount_sale_return numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare ar_list_where TEXT;
+        declare item_list_where TEXT;
+        begin
+
+        if (length(ap_code_list) = 0) then
+        ar_list_where :=  &#39;&#39;;
+        else
+        ar_list_where := &#39; where &#39; || gen_code_list(&#39;supplier_codex&#39;,ap_code_list);
+        end if;
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; and &#39; || gen_code_list(&#39;item_code&#39;,item_code_list);
+        end if;
+
+        query_text := &#39;
+        select supplier_codex ,(select name_1 from ap_supplier where code=supplier_codex) ,item_codex,(select name_1 from ic_inventory where code=item_codex),(select ic_inventory.unit_standard from ic_inventory where code=item_codex),(select ic_inventory_barcode.barcode from ic_inventory_barcode where ic_inventory_barcode.ic_code=item_codex limit 1),qty_salex,amount_salex,qty_sale_returnx,amount_sale_returnx from
+        (select item_codex,coalesce((select ic_inventory.supplier_code from ic_inventory where ic_inventory.code=t1.item_codex),null) as supplier_codex,qty_salex,amount_salex,qty_sale_returnx,amount_sale_returnx from
+        (select ic_trans_detail.item_code as item_codex,sum(case when trans_flag=44 then qty * (stand_value/divide_value) else 0 end) as qty_salex,sum(case when trans_flag=44 then sum_amount else 0 end) as amount_salex,sum(case when trans_flag=48 then qty * (stand_value/divide_value) else 0 end) as qty_sale_returnx,sum(case when trans_flag=48 then sum_amount else 0 end) as amount_sale_returnx from ic_trans_detail where doc_date between &#39;&#39;&#39;||from_date||&#39;&#39;&#39; and &#39;&#39;&#39;||to_date||&#39;&#39;&#39; &#39;||item_list_where||&#39; and trans_flag in (44,48) and last_status=0 group by ic_trans_detail.item_code) as t1 ) as t2 &#39;||ar_list_where||&#39;;&#39;;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE;
+      </script>
+      <script>
+        -- ยอดขายตามลูกค้า 12 เดือน
+        CREATE OR REPLACE FUNCTION sml_sale_ar_by_month(IN year_condition integer, IN month_condition integer, IN cust_code_list character varying, IN where_and_ic_trans_detail character varying)
+        RETURNS TABLE(ar_code character varying, ar_name character varying, qty_month_1 numeric, qty_month_2 numeric, qty_month_3 numeric, qty_month_4 numeric, qty_month_5 numeric, qty_month_6 numeric, qty_month_7 numeric, qty_month_8 numeric, qty_month_9 numeric, qty_month_10 numeric, qty_month_11 numeric, qty_month_12 numeric, qty_sum numeric, amount_month_1 numeric, amount_month_2 numeric, amount_month_3 numeric, amount_month_4 numeric, amount_month_5 numeric, amount_month_6 numeric, amount_month_7 numeric, amount_month_8 numeric, amount_month_9 numeric, amount_month_10 numeric, amount_month_11 numeric, amount_month_12 numeric, amount_sum numeric, cost_month_1 numeric, cost_month_2 numeric, cost_month_3 numeric, cost_month_4 numeric, cost_month_5 numeric, cost_month_6 numeric, cost_month_7 numeric, cost_month_8 numeric, cost_month_9 numeric, cost_month_10 numeric, cost_month_11 numeric, cost_month_12 numeric, cost_sum numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare query_month TEXT;
+        declare cust_list_where TEXT;
+        declare item_list_where TEXT;
+        declare year_start INTEGER;
+        declare month_start INTEGER;
+        declare month_count INTEGER;
+
+        begin
+
+        if (length(cust_code_list) = 0) then
+        cust_list_where :=  &#39;&#39;;
+        else
+        cust_list_where := &#39; and &#39; || gen_code_list(&#39;cust_code&#39;,cust_code_list);
+        end if;
+
+        year_start := year_condition;
+        month_start := month_condition;
+        FOR month_count IN 1..12 LOOP
+        month_start := month_start - 1;
+        if month_start = 0 then
+        month_start := 12;
+        year_start := year_start - 1;
+        end if;
+        END LOOP;
+
+        query_month := &#39;&#39;;
+        FOR month_count IN 1..12 LOOP
+        if month_count &lt;&gt; 1 then
+        query_month := query_month || &#39;,&#39;;
+        end if;
+        query_month := query_month || &#39;sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then qty*(stand_value/divide_value) else 0 end) as qty_month_&#39;||month_count||&#39;x,sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then sum_amount else 0 end) as amount_month_&#39;||month_count||&#39;x,sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then sum_of_cost else 0 end) as cost_month_&#39;||month_count||&#39;x&#39;;
+        month_start := month_start + 1;
+        if month_start = 13 then
+        month_start := 1;
+        year_start := year_start + 1;
+        end if;
+        END LOOP;
+        query_text := &#39;select ar_codex,(select name_1 from ar_customer where code=ar_codex) as ar_namex , qty_month_1x , qty_month_2x , qty_month_3x , qty_month_4x , qty_month_5x ,  qty_month_6x , qty_month_7x , qty_month_8x , qty_month_9x , qty_month_10x , qty_month_11x , qty_month_12x ,qty_month_1x+qty_month_2x+qty_month_3x+qty_month_4x+qty_month_5x+qty_month_6x+qty_month_7x+qty_month_8x+qty_month_9x+qty_month_10x+qty_month_11x+qty_month_12x as sum_qty_month_totalx, amount_month_1x , amount_month_2x , amount_month_3x , amount_month_4x , amount_month_5x ,  amount_month_6x , amount_month_7x , amount_month_8x , amount_month_9x , amount_month_10x , amount_month_11x , amount_month_12x ,amount_month_1x+amount_month_2x+amount_month_3x+amount_month_4x+amount_month_5x+amount_month_6x+amount_month_7x+amount_month_8x+amount_month_9x+amount_month_10x+amount_month_11x+amount_month_12x as sum_amount_month_totalx,cost_month_1x , cost_month_2x , cost_month_3x , cost_month_4x , cost_month_5x ,  cost_month_6x , cost_month_7x , cost_month_8x , cost_month_9x , cost_month_10x , cost_month_11x , cost_month_12x ,cost_month_1x+cost_month_2x+cost_month_3x+cost_month_4x+cost_month_5x+cost_month_6x+cost_month_7x+cost_month_8x+cost_month_9x+cost_month_10x+cost_month_11x+cost_month_12x as sum_cost_month_totalx from
+        (select ic_trans_detail.cust_code as ar_codex,&#39;||query_month||&#39; from ic_trans_detail where trans_flag=44 and last_status=0 &#39;||cust_list_where||&#39; &#39;||where_and_ic_trans_detail||&#39; group by ic_trans_detail.cust_code) as temp1&#39;;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE
+        COST 100
+        ROWS 1000;
+        ALTER FUNCTION sml_sale_ar_by_month(integer, integer, character varying, character varying) OWNER TO postgres;
+      </script>
+      <script>
+        CREATE OR REPLACE FUNCTION sml_sale_cust_item_by_month(IN year_condition integer, IN month_condition integer, IN cust_code_list character varying, IN item_code_list character varying, IN where_and_ic_trans_detail character varying)
+        RETURNS TABLE(cust_code character varying, item_code character varying, item_name character varying, ic_unit_code character varying, qty_month_1 numeric, qty_month_2 numeric, qty_month_3 numeric, qty_month_4 numeric, qty_month_5 numeric, qty_month_6 numeric, qty_month_7 numeric, qty_month_8 numeric, qty_month_9 numeric, qty_month_10 numeric, qty_month_11 numeric, qty_month_12 numeric, qty_sum numeric, amount_month_1 numeric, amount_month_2 numeric, amount_month_3 numeric, amount_month_4 numeric, amount_month_5 numeric, amount_month_6 numeric, amount_month_7 numeric, amount_month_8 numeric, amount_month_9 numeric, amount_month_10 numeric, amount_month_11 numeric, amount_month_12 numeric, amount_sum numeric, cost_month_1 numeric, cost_month_2 numeric, cost_month_3 numeric, cost_month_4 numeric, cost_month_5 numeric, cost_month_6 numeric, cost_month_7 numeric, cost_month_8 numeric, cost_month_9 numeric, cost_month_10 numeric, cost_month_11 numeric, cost_month_12 numeric, cost_sum numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare query_month TEXT;
+        declare cust_list_where TEXT;
+        declare item_list_where TEXT;
+        declare year_start INTEGER;
+        declare month_start INTEGER;
+        declare month_count INTEGER;
+
+        begin
+
+        if (length(cust_code_list) = 0) then
+        cust_list_where :=  &#39;&#39;;
+        else
+        cust_list_where := &#39; and &#39; || gen_code_list(&#39;cust_code&#39;,cust_code_list);
+        end if;
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; and &#39; || gen_code_list(&#39;item_code&#39;,item_code_list);
+        end if;
+
+        year_start := year_condition;
+        month_start := month_condition;
+        FOR month_count IN 1..12 LOOP
+        month_start := month_start - 1;
+        if month_start = 0 then
+        month_start := 12;
+        year_start := year_start - 1;
+        end if;
+        END LOOP;
+
+        query_month := &#39;&#39;;
+        FOR month_count IN 1..12 LOOP
+        if month_count &lt;&gt; 1 then
+        query_month := query_month || &#39;,&#39;;
+        end if;
+        query_month := query_month || &#39;sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then qty*(stand_value/divide_value) else 0 end) as qty_month_&#39;||month_count||&#39;x,sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then sum_amount else 0 end) as amount_month_&#39;||month_count||&#39;x,sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then sum_of_cost else 0 end) as cost_month_&#39;||month_count||&#39;x&#39;;
+        month_start := month_start + 1;
+        if month_start = 13 then
+        month_start := 1;
+        year_start := year_start + 1;
+        end if;
+        END LOOP;
+        query_text := &#39;select cust_codex,item_codex, (select name_1 from ic_inventory where code=item_codex) as item_namex , (select unit_cost from ic_inventory where code=item_codex) as ic_unit_codex ,  qty_month_1x , qty_month_2x , qty_month_3x , qty_month_4x , qty_month_5x ,  qty_month_6x , qty_month_7x , qty_month_8x , qty_month_9x , qty_month_10x , qty_month_11x , qty_month_12x ,qty_month_1x+qty_month_2x+qty_month_3x+qty_month_4x+qty_month_5x+qty_month_6x+qty_month_7x+qty_month_8x+qty_month_9x+qty_month_10x+qty_month_11x+qty_month_12x as sum_qty_month_totalx, amount_month_1x , amount_month_2x , amount_month_3x , amount_month_4x , amount_month_5x ,  amount_month_6x , amount_month_7x , amount_month_8x , amount_month_9x , amount_month_10x , amount_month_11x , amount_month_12x ,amount_month_1x+amount_month_2x+amount_month_3x+amount_month_4x+amount_month_5x+amount_month_6x+amount_month_7x+amount_month_8x+amount_month_9x+amount_month_10x+amount_month_11x+amount_month_12x as sum_amount_month_totalx,cost_month_1x , cost_month_2x , cost_month_3x , cost_month_4x , cost_month_5x ,  cost_month_6x , cost_month_7x , cost_month_8x , cost_month_9x , cost_month_10x , cost_month_11x , cost_month_12x ,cost_month_1x+cost_month_2x+cost_month_3x+cost_month_4x+cost_month_5x+cost_month_6x+cost_month_7x+cost_month_8x+cost_month_9x+cost_month_10x+cost_month_11x+cost_month_12x as sum_cost_month_totalx from
+        (select ic_trans_detail.cust_code as cust_codex,ic_trans_detail.item_code as item_codex,&#39;||query_month||&#39; from ic_trans_detail where trans_flag=44 and last_status=0 &#39;||item_list_where||&#39; &#39;||cust_list_where||&#39; &#39;||where_and_ic_trans_detail||&#39; group by ic_trans_detail.cust_code,ic_trans_detail.item_code) as temp1&#39;;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE;
+      </script>
+      <script>
+        -- ยอดขายตามสินค้า 12 เดือน
+        CREATE OR REPLACE FUNCTION sml_sale_item_by_month(IN year_condition integer, IN month_condition integer, IN item_code_list character varying, IN where_and_ic_trans_detail character varying)
+        RETURNS TABLE(item_code character varying, item_name character varying, ic_unit_code character varying, qty_month_1 numeric, qty_month_2 numeric, qty_month_3 numeric, qty_month_4 numeric, qty_month_5 numeric, qty_month_6 numeric, qty_month_7 numeric, qty_month_8 numeric, qty_month_9 numeric, qty_month_10 numeric, qty_month_11 numeric, qty_month_12 numeric, qty_sum numeric, amount_month_1 numeric, amount_month_2 numeric, amount_month_3 numeric, amount_month_4 numeric, amount_month_5 numeric, amount_month_6 numeric, amount_month_7 numeric, amount_month_8 numeric, amount_month_9 numeric, amount_month_10 numeric, amount_month_11 numeric, amount_month_12 numeric, amount_sum numeric, cost_month_1 numeric, cost_month_2 numeric, cost_month_3 numeric, cost_month_4 numeric, cost_month_5 numeric, cost_month_6 numeric, cost_month_7 numeric, cost_month_8 numeric, cost_month_9 numeric, cost_month_10 numeric, cost_month_11 numeric, cost_month_12 numeric, cost_sum numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare query_month TEXT;
+        declare cust_list_where TEXT;
+        declare item_list_where TEXT;
+        declare year_start INTEGER;
+        declare month_start INTEGER;
+        declare month_count INTEGER;
+
+        begin
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; and &#39; || gen_code_list(&#39;item_code&#39;,item_code_list);
+        end if;
+
+        year_start := year_condition;
+        month_start := month_condition;
+        FOR month_count IN 1..12 LOOP
+        month_start := month_start - 1;
+        if month_start = 0 then
+        month_start := 12;
+        year_start := year_start - 1;
+        end if;
+        END LOOP;
+
+        query_month := &#39;&#39;;
+        FOR month_count IN 1..12 LOOP
+        if month_count &lt;&gt; 1 then
+        query_month := query_month || &#39;,&#39;;
+        end if;
+        query_month := query_month || &#39;sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then qty*(stand_value/divide_value) else 0 end) as qty_month_&#39;||month_count||&#39;x,sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then sum_amount else 0 end) as amount_month_&#39;||month_count||&#39;x,sum(case when extract(year from doc_date)=&#39;||year_start||&#39; and extract(month from doc_date)=&#39;||month_start||&#39; then sum_of_cost else 0 end) as cost_month_&#39;||month_count||&#39;x&#39;;
+        month_start := month_start + 1;
+        if month_start = 13 then
+        month_start := 1;
+        year_start := year_start + 1;
+        end if;
+        END LOOP;
+        query_text := &#39;select item_codex, (select name_1 from ic_inventory where code=item_codex) as item_namex , (select unit_cost from ic_inventory where code=item_codex) as ic_unit_codex ,  qty_month_1x , qty_month_2x , qty_month_3x , qty_month_4x , qty_month_5x ,  qty_month_6x , qty_month_7x , qty_month_8x , qty_month_9x , qty_month_10x , qty_month_11x , qty_month_12x ,qty_month_1x+qty_month_2x+qty_month_3x+qty_month_4x+qty_month_5x+qty_month_6x+qty_month_7x+qty_month_8x+qty_month_9x+qty_month_10x+qty_month_11x+qty_month_12x as sum_qty_month_totalx, amount_month_1x , amount_month_2x , amount_month_3x , amount_month_4x , amount_month_5x ,  amount_month_6x , amount_month_7x , amount_month_8x , amount_month_9x , amount_month_10x , amount_month_11x , amount_month_12x ,amount_month_1x+amount_month_2x+amount_month_3x+amount_month_4x+amount_month_5x+amount_month_6x+amount_month_7x+amount_month_8x+amount_month_9x+amount_month_10x+amount_month_11x+amount_month_12x as sum_amount_month_totalx,cost_month_1x , cost_month_2x , cost_month_3x , cost_month_4x , cost_month_5x ,  cost_month_6x , cost_month_7x , cost_month_8x , cost_month_9x , cost_month_10x , cost_month_11x , cost_month_12x ,cost_month_1x+cost_month_2x+cost_month_3x+cost_month_4x+cost_month_5x+cost_month_6x+cost_month_7x+cost_month_8x+cost_month_9x+cost_month_10x+cost_month_11x+cost_month_12x as sum_cost_month_totalx from
+        (select ic_trans_detail.item_code as item_codex,&#39;||query_month||&#39; from ic_trans_detail where trans_flag=44 and last_status=0 &#39;||item_list_where||&#39; &#39;||where_and_ic_trans_detail||&#39; group by ic_trans_detail.item_code) as temp1&#39;;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE;
+      </script>
+      <script>
+        CREATE OR REPLACE FUNCTION sml_ic_function_stock_balance(IN end_date date, IN item_code_list character varying)
+        RETURNS TABLE(ic_code character varying, ic_name character varying, balance_qty numeric, ic_unit_code character varying, average_cost numeric, average_cost_end numeric, balance_amount numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare item_list_where TEXT;
+
+        begin
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; where &#39; || gen_code_list(&#39;ic_code&#39;,item_code_list);
+        end if;
+
+        query_text = &#39;select ic_code, ic_name, balance_qty, ic_unit_code, case when balance_qty=0 then 0 else balance_amount/balance_qty end as average_cost,
+        coalesce(((select average_cost from ic_trans_detail where ic_trans_detail.last_status=0 and ic_trans_detail.item_code=temp2.ic_code and doc_date_calc&lt;=&#39;&#39;&#39;||end_date||&#39;&#39;&#39; and ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) order by doc_date_calc desc,doc_time desc ,line_number desc  offset 0 limit 1 )*unit_ratio),0) as average_cost_end, balance_amount from
+        (select ic_code, ic_name, balance_qty, ic_unit_code, (select unit_standard_stand_value/unit_standard_divide_value from ic_inventory where ic_inventory.code=temp1.ic_code) as unit_ratio, balance_amount  from (select item_code as ic_code, (select name_1 from ic_inventory where ic_inventory.code=item_code) as ic_name, (select unit_standard from ic_inventory where ic_inventory.code=item_code) as ic_unit_code, coalesce(sum(calc_flag*((case when trans_flag in (14,16) and inquiry_type=1 then 0 else case when ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) then qty*(stand_value / divide_value) else 0 end end))),0) as balance_qty,
+        coalesce(sum(calc_flag*((case when trans_flag in (14,16) and inquiry_type=1 then 0 else case when ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) then sum_of_cost else 0 end end))),0) as balance_amount from ic_trans_detail where ic_trans_detail.last_status=0 and ic_trans_detail.item_type &lt;&gt; 5 and doc_date_calc &lt;=&#39;&#39;&#39;||end_date||&#39;&#39;&#39; group by item_code order by item_code) as temp1) as temp2 &#39;||item_list_where;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE;
+      </script>
+      <script>
+        --สินค้าคงเหลือตามคลัง
+        CREATE OR REPLACE FUNCTION sml_ic_function_stock_balance_warehouse(IN end_date date, IN item_code_list character varying, IN warehouse_code_list character varying)
+        RETURNS TABLE(ic_code character varying, ic_name character varying, warehouse character varying, min_qty numeric, max_qty numeric,balance_qty numeric, ic_unit_code character varying, average_cost numeric, average_cost_end numeric, balance_amount numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare item_list_where TEXT;
+        declare warehouse_list_where TEXT;
+
+        begin
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; where &#39; || gen_code_list(&#39;ic_code&#39;,item_code_list);
+        end if;
+
+        if (length(warehouse_code_list) = 0) then
+        warehouse_list_where := &#39;&#39;;
+        else
+        if (length(item_list_where)=0) then
+        warehouse_list_where := &#39; where &#39;;
+        else
+        warehouse_list_where := &#39; and &#39;;
+        end if;
+        warehouse_list_where := gen_code_list(&#39;warehouse&#39;,warehouse_code_list);
+        end if;
+
+        query_text = &#39;
+        select ic_code, ic_name, warehouse,
+        coalesce((select sum(min_point) from ic_wh_shelf where ic_wh_shelf.ic_code=temp2.ic_code and ic_wh_shelf.wh_code=temp2.warehouse group by ic_wh_shelf.wh_code),0.0) as min_qty,
+        coalesce((select sum(max_point) from ic_wh_shelf where ic_wh_shelf.ic_code=temp2.ic_code and ic_wh_shelf.wh_code=temp2.warehouse group by ic_wh_shelf.wh_code),0.0) as max_qty,
+        balance_qty, ic_unit_code,
+        case when balance_qty=0 then 0 else balance_amount/balance_qty end as average_cost,
+        coalesce(((select average_cost from ic_trans_detail where ic_trans_detail.last_status=0 and ic_trans_detail.item_code=temp2.ic_code and doc_date_calc&lt;=&#39;&#39;&#39;||end_date||&#39;&#39;&#39; and ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) order by doc_date_calc desc,doc_time desc ,line_number desc  offset 0 limit 1 )*unit_ratio),0) as average_cost_end, balance_amount from (select ic_code, ic_name,warehouse, balance_qty, ic_unit_code, (select unit_standard_stand_value/unit_standard_divide_value from ic_inventory where ic_inventory.code=temp1.ic_code) as unit_ratio, balance_amount  from (select item_code as ic_code, (select name_1 from ic_inventory where ic_inventory.code=item_code) as ic_name, wh_code as warehouse,(select unit_standard from ic_inventory where ic_inventory.code=item_code) as ic_unit_code, coalesce(sum(calc_flag*((case when trans_flag in (14,16) and inquiry_type=1 then 0 else case when ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) then qty*(stand_value / divide_value) else 0 end end))),0) as balance_qty, coalesce(sum(calc_flag*((case when trans_flag in (14,16) and inquiry_type=1 then 0 else case when ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) then sum_of_cost else 0 end end))),0) as balance_amount from ic_trans_detail where ic_trans_detail.last_status=0 and ic_trans_detail.item_type&lt;&gt;5 and doc_date_calc&lt;=&#39;&#39;&#39;||end_date||&#39;&#39;&#39; group by item_code,wh_code order by item_code,warehouse) as temp1) as temp2&#39;||item_list_where||warehouse_list_where;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE;
+      </script>
+      <script>
+        -- สินค้าคงเหลือตามที่เก็บ
+        CREATE OR REPLACE FUNCTION sml_ic_function_stock_balance_warehouse_location(IN end_date date, IN item_code_list character varying, IN warehouse_code_list character varying, IN location_code_list character varying)
+        RETURNS TABLE(ic_code character varying, ic_name character varying, warehouse character varying, &quot;location&quot; character varying, min_qty numeric, max_qty numeric, balance_qty numeric, ic_unit_code character varying, average_cost numeric, average_cost_end numeric, balance_amount numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare item_list_where TEXT;
+        declare warehouse_list_where TEXT;
+        declare location_list_where TEXT;
+
+        begin
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; where &#39; || gen_code_list(&#39;ic_code&#39;,item_code_list);
+        end if;
+
+        if (length(warehouse_code_list) = 0) then
+        warehouse_list_where := &#39;&#39;;
+        else
+        if (length(item_list_where)=0) then
+        warehouse_list_where := &#39; where &#39;;
+        else
+        warehouse_list_where := &#39; and &#39;;
+        end if;
+        warehouse_list_where := warehouse_list_where || gen_code_list(&#39;warehouse&#39;,warehouse_code_list);
+        end if;
+
+        if (length(location_code_list) = 0) then
+        location_list_where := &#39;&#39;;
+        else
+        if (length(item_list_where||warehouse_list_where)=0) then
+        location_list_where := &#39; where &#39;;
+        else
+        location_list_where := &#39; and &#39;;
+        end if;
+        location_list_where := location_list_where || gen_code_list(&#39;location&#39;,location_code_list);
+        end if;
+
+        query_text = &#39;
+        select ic_code, ic_name, warehouse,location,
+        coalesce((select min_point from ic_wh_shelf where ic_wh_shelf.ic_code=temp2.ic_code and ic_wh_shelf.wh_code=temp2.warehouse and ic_wh_shelf.shelf_code=temp2.location),0.0) as min_qty,
+        coalesce((select max_point from ic_wh_shelf where ic_wh_shelf.ic_code=temp2.ic_code and ic_wh_shelf.wh_code=temp2.warehouse and ic_wh_shelf.shelf_code=temp2.location),0.0) as max_qty,
+        balance_qty, ic_unit_code,
+        case when balance_qty=0 then 0 else balance_amount/balance_qty end as average_cost,
+        coalesce(((select average_cost from ic_trans_detail where ic_trans_detail.last_status=0 and ic_trans_detail.item_code=temp2.ic_code and doc_date_calc&lt;=&#39;&#39;&#39;||end_date||&#39;&#39;&#39; and ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2))
+        or (trans_flag in (56,72,16,44,46) )) order by doc_date_calc desc,doc_time desc ,line_number desc  offset 0 limit 1 )*unit_ratio),0) as average_cost_end, balance_amount from (select ic_code, ic_name,warehouse,location, balance_qty, ic_unit_code,
+        (select unit_standard_stand_value/unit_standard_divide_value from ic_inventory where ic_inventory.code=temp1.ic_code) as unit_ratio, balance_amount  from (select item_code as ic_code, (select name_1 from ic_inventory where ic_inventory.code=item_code) as ic_name,
+        wh_code as warehouse,shelf_code as location,(select unit_standard from ic_inventory where ic_inventory.code=item_code) as ic_unit_code, coalesce(sum(calc_flag*((case when trans_flag in (14,16) and inquiry_type=1 then 0 else case when ((trans_flag in (66,70,54,60,58,12,14)
+        or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) then qty*(stand_value / divide_value) else 0 end end))),0) as balance_qty, coalesce(sum(calc_flag*((case when trans_flag in (14,16) and inquiry_type=1 then 0 else case when
+        ((trans_flag in (66,70,54,60,58,12,14) or (trans_flag=48 and inquiry_type &lt; 2)) or (trans_flag in (56,72,16,44,46) )) then sum_of_cost else 0 end end))),0) as balance_amount from ic_trans_detail where ic_trans_detail.last_status=0 and
+        ic_trans_detail.item_type&lt;&gt;5 and doc_date_calc&lt;=&#39;&#39;&#39;||end_date||&#39;&#39;&#39; group by item_code,wh_code,shelf_code order by item_code,wh_code,shelf_code) as temp1) as temp2&#39;||item_list_where||&#39; &#39;||warehouse_list_where||&#39; &#39;||location_list_where;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE
+      </script>
+      <script>
+        CREATE OR REPLACE FUNCTION sml_ar_ic_trans_balance(IN end_date date, IN code_list character varying, IN doc_no_list character varying)
+        RETURNS TABLE(ar_code character varying, ar_name character varying, doc_no character varying, doc_date date, due_date date, due_day integer, doc_type smallint, doc_type_name text, status smallint, amount numeric, ar_balance numeric) AS
+        $BODY$
+        declare query_text TEXT;
+        declare code_list_where TEXT;
+        declare doc_no_list_where TEXT;
+        declare cust_name TEXT;
+        declare doc_type_case TEXT;
+
+        begin
+
+        if (length(code_list) = 0) then
+        code_list_where := &#39;&#39;;
+        else
+        code_list_where := gen_code_list(&#39;ic_trans.cust_code&#39;,code_list);
+        end if;
+        if (length(doc_no_list) = 0) then
+        doc_no_list_where := &#39;&#39;;
+        else
+        doc_no_list_where := &#39; and &#39; || gen_code_list(&#39;doc_no&#39;,doc_no_list);
+        end if;
+        doc_type_case := &#39;case when doc_type=44 then &#39;&#39;&#3586;&#3634;&#3618;&#39;&#39; else case when doc_type=48 then &#39;&#39;&#3619;&#3633;&#3610;&#3588;&#3639;&#3609;&#39;&#39; else case when doc_type=99 then &#39;&#39;&#3605;&#3633;&#3657;&#3591;&#3627;&#3609;&#3637;&#3657;&#3629;&#3639;&#3656;&#3609;&#3654;&#39;&#39; else case when doc_type=93 then &#39;&#39;&#3605;&#3633;&#3657;&#3591;&#3627;&#3609;&#3637;&#3657;&#3618;&#3585;&#3617;&#3634;&#39;&#39; else case when doc_type=46 then &#39;&#39;&#3648;&#3614;&#3636;&#3656;&#3617;&#3627;&#3609;&#3637;&#3657;(&#3586;&#3634;&#3618;)&#39;&#39; else &#39;&#39;&#39;&#39; end end end end end&#39;;
+
+
+        query_text = &#39;select ar_code,(select name_1 from ar_customer where ar_customer.code=ar_code) as ar_name,doc_no,doc_date,due_date,due_day,doc_type,&#39;||doc_type_case||&#39; as doc_type_name,status,amount,ar_balance from (select cust_code as ar_code,doc_no as doc_no,doc_date as doc_date,due_date as due_date,amount as amount,doc_type as doc_type,used_status as status,case when date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;)-due_date &gt; 0  then date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;)-due_date else 0 end as due_day,balance_amount as ar_balance from (select cust_code,doc_date,due_date,doc_no,trans_flag as doc_type,used_status,coalesce(total_amount,0) as amount,coalesce(total_amount,0)-(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where last_status=0 &#39;||doc_no_list_where||&#39; and trans_flag in (239) and ic_trans.doc_no=ap_ar_trans_detail.billing_no and ic_trans.doc_date=ap_ar_trans_detail.billing_date and doc_date &lt;= date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;)) as balance_amount from ic_trans where last_status=0 &#39;||doc_no_list_where||&#39; and trans_flag=44 and (inquiry_type=0  or inquiry_type=2)  and doc_date &lt;= date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;) and &#39;||code_list_where||&#39; union all select cust_code,doc_date,due_date,doc_no,trans_flag as doc_type,used_status,coalesce(total_amount,0) as amount,coalesce(total_amount,0)-(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where last_status=0 and trans_flag in (239) and ic_trans.doc_no=ap_ar_trans_detail.billing_no and ic_trans.doc_date=ap_ar_trans_detail.billing_date and doc_date &lt;= date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;)) as balance_amount from ic_trans where last_status=0 &#39;||doc_no_list_where||&#39; and (trans_flag=46 or trans_flag=93 or trans_flag=99 or trans_flag=95 or trans_flag=101) and doc_date &lt;= date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;) and &#39;||code_list_where||&#39; union all select cust_code,doc_date,due_date,doc_no,trans_flag as doc_type,used_status,-1*coalesce(total_amount,0) as amount,-1*(coalesce(total_amount,0)+(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where last_status=0 and trans_flag in (239) and ic_trans.doc_no=ap_ar_trans_detail.billing_no and ic_trans.doc_date=ap_ar_trans_detail.billing_date and doc_date &lt;= date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;))) as balance_amount from ic_trans where last_status=0 &#39;||doc_no_list_where||&#39; and ((trans_flag=48 and inquiry_type=0) or trans_flag=97 or trans_flag=103) and doc_date &lt;= date(&#39;&#39;&#39;||end_date||&#39;&#39;&#39;) and &#39;||code_list_where||&#39;) as temp2 ) as temp3  where ar_balance&lt;&gt;0 order by due_date,doc_date,doc_no&#39;;
+        return query  execute(query_text);
+        end;
+        $BODY$
+        LANGUAGE plpgsql VOLATILE
+        COST 100
+        ROWS 1000;
+      </script>
+    </postgres>
+  </after>
+</node>

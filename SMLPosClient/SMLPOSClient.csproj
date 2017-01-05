@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{488C5EA3-F91A-4ADA-90C3-8E06ECC097C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLPosClient</RootNamespace>
+    <AssemblyName>SMLPosClient</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <ManifestCertificateThumbprint>FF0CE29999EE8493A6710E1AEE700CA4C9F82829</ManifestCertificateThumbprint>
+    <ManifestKeyFile>SMLPOSClient_2_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>false</SignManifests>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <PublishUrl>C:\publish\SMLPOSClient\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.smlsoft.com/SMLPOSClient/</InstallUrl>
+    <ProductName>SML POS</ProductName>
+    <PublisherName>SMLPOSClient</PublisherName>
+    <MinimumRequiredVersion>1.0.0.26</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>27</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SMLReport\myDLL\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLERPARAPInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SMLERPGLControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="SMLERPReportTool, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="control\_chequeButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\_chequeButton.Designer.cs">
+      <DependentUpon>_chequeButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\_functionButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\_functionButton.Designer.cs">
+      <DependentUpon>_functionButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\_cashButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\_cashButton.Designer.cs">
+      <DependentUpon>_cashButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\_numpadButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\_numpadButton.Designer.cs">
+      <DependentUpon>_numpadButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\_posButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\_posForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="control\_posForm.Designer.cs">
+      <DependentUpon>_posForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="control\_posGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="control\_posPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="control\_posTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_androidCustomerScreen.cs" />
+    <Compile Include="_closeTableSummaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_closeTableSummaryForm.Designer.cs">
+      <DependentUpon>_closeTableSummaryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_configCustomerDisplayControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_configCustomerDisplayControl.Designer.cs">
+      <DependentUpon>_configCustomerDisplayControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_itemSearchLevelForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_itemSearchLevelForm.Designer.cs">
+      <DependentUpon>_itemSearchLevelForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_periodCloseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_periodCloseForm.Designer.cs">
+      <DependentUpon>_periodCloseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_counSellingConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_counSellingConfigForm.Designer.cs">
+      <DependentUpon>_counSellingConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_holdBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_holdBillForm.Designer.cs">
+      <DependentUpon>_holdBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_newCustForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_newCustForm.Designer.cs">
+      <DependentUpon>_newCustForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_periodOpenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_periodOpenForm.Designer.cs">
+      <DependentUpon>_periodOpenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_pointMovementControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_pointMovementControl.Designer.cs">
+      <DependentUpon>_pointMovementControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posChangeDetailForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posChangeDetailForm.Designer.cs">
+      <DependentUpon>_posChangeDetailForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posConfimUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posConfimUserForm.Designer.cs">
+      <DependentUpon>_posConfimUserForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posInputNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posInputNumberForm.Designer.cs">
+      <DependentUpon>_posInputNumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posPrintSlipPeriod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posPrintSlipPeriod.Designer.cs">
+      <DependentUpon>_posPrintSlipPeriod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posProcess.cs" />
+    <Compile Include="_posSaveMoneyReceive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posSaveMoneyReceive.Designer.cs">
+      <DependentUpon>_posSaveMoneyReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posSaveSendMoney.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posSaveSendMoney.Designer.cs">
+      <DependentUpon>_posSaveSendMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_printVatFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_printVatFull.Designer.cs">
+      <DependentUpon>_printVatFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_helpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_helpForm.Designer.cs">
+      <DependentUpon>_helpForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_moneyReceive.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_moneyReceive.Designer.cs">
+      <DependentUpon>_moneyReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_processItem.cs" />
+    <Compile Include="_reprintBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_reprintBillForm.Designer.cs">
+      <DependentUpon>_reprintBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_booleanParser.cs" />
+    <Compile Include="_cancelBillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_cancelBillForm.Designer.cs">
+      <DependentUpon>_cancelBillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_configPOSScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_configPOSScreen.Designer.cs">
+      <DependentUpon>_configPOSScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_myDataGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_posCashControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posCashControl.Designer.cs">
+      <DependentUpon>_posCashControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posExtendForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posExtendForm.Designer.cs">
+      <DependentUpon>_posExtendForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posFinishForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posFinishForm.Designer.cs">
+      <DependentUpon>_posFinishForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posLoginConfigScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posLoginConfigScreen.Designer.cs">
+      <DependentUpon>_posLoginConfigScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posLoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posLoginForm.Designer.cs">
+      <DependentUpon>_posLoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posPayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posPayForm.Designer.cs">
+      <DependentUpon>_posPayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posProductControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posProductControl.Designer.cs">
+      <DependentUpon>_posProductControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posClientForm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posClientForm.Designer.cs">
+      <DependentUpon>_posClientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_selectLanguageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_selectLanguageForm.Designer.cs">
+      <DependentUpon>_selectLanguageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="_selectScreenDemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_selectScreenDemo.Designer.cs">
+      <DependentUpon>_selectScreenDemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_summaryDayUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_summaryDayUserControl.Designer.cs">
+      <DependentUpon>_summaryDayUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_summaryUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_summaryUserControl.Designer.cs">
+      <DependentUpon>_summaryUserControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="control\_chequeButton.resx">
+      <DependentUpon>_chequeButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\_functionButton.resx">
+      <DependentUpon>_functionButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\_cashButton.resx">
+      <DependentUpon>_cashButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\_numpadButton.resx">
+      <DependentUpon>_numpadButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="control\_posForm.resx">
+      <DependentUpon>_posForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_closeTableSummaryForm.resx">
+      <DependentUpon>_closeTableSummaryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_configCustomerDisplayControl.resx">
+      <DependentUpon>_configCustomerDisplayControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_itemSearchLevelForm.resx">
+      <DependentUpon>_itemSearchLevelForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_periodCloseForm.resx">
+      <DependentUpon>_periodCloseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_counSellingConfigForm.resx">
+      <DependentUpon>_counSellingConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_holdBillForm.resx">
+      <DependentUpon>_holdBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_newCustForm.resx">
+      <DependentUpon>_newCustForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_periodOpenForm.resx">
+      <DependentUpon>_periodOpenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_pointMovementControl.resx">
+      <DependentUpon>_pointMovementControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posChangeDetailForm.resx">
+      <DependentUpon>_posChangeDetailForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posConfimUserForm.resx">
+      <DependentUpon>_posConfimUserForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posInputNumberForm.resx">
+      <DependentUpon>_posInputNumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posPrintSlipPeriod.resx">
+      <DependentUpon>_posPrintSlipPeriod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posSaveMoneyReceive.resx">
+      <DependentUpon>_posSaveMoneyReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posSaveSendMoney.resx">
+      <DependentUpon>_posSaveSendMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_printVatFull.resx">
+      <DependentUpon>_printVatFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_helpForm.resx">
+      <DependentUpon>_helpForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_moneyReceive.resx">
+      <DependentUpon>_moneyReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_reprintBillForm.resx">
+      <DependentUpon>_reprintBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cancelBillForm.resx">
+      <DependentUpon>_cancelBillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_configPOSScreen.resx">
+      <DependentUpon>_configPOSScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posCashControl.resx">
+      <DependentUpon>_posCashControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posExtendForm.resx">
+      <DependentUpon>_posExtendForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posFinishForm.resx">
+      <DependentUpon>_posFinishForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posLoginConfigScreen.resx">
+      <DependentUpon>_posLoginConfigScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posLoginForm.resx">
+      <DependentUpon>_posLoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posPayForm.resx">
+      <DependentUpon>_posPayForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posProductControl.resx">
+      <DependentUpon>_posProductControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posClientForm.resx">
+      <DependentUpon>_posClientForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posPromotionForm.resx">
+      <DependentUpon>_posPromotionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_selectLanguageForm.resx">
+      <DependentUpon>_selectLanguageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_selectScreenDemo.resx">
+      <DependentUpon>_selectScreenDemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_summaryDayUserControl.resx">
+      <DependentUpon>_summaryDayUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_summaryUserControl.resx">
+      <DependentUpon>_summaryUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="_posPromotionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_posPromotionForm.Designer.cs">
+      <DependentUpon>_posPromotionForm.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BarcoderLib\BarcoderLib.csproj">
+      <Project>{DE365EE5-91AF-4A6B-BBB7-2B95DF29BE93}</Project>
+      <Name>BarcoderLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLBarcodeManage\SMLBarcodeManage.csproj">
+      <Project>{BF22C54B-4AC3-4050-8C5D-81A95B3C5955}</Project>
+      <Name>SMLBarcodeManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAR\SMLERPAR.csproj">
+      <Project>{60245A02-8C1E-4BB9-B365-D65423793126}</Project>
+      <Name>SMLERPAR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPCASHBANKReport\SMLERPCASHBANKReport.csproj">
+      <Project>{0AB4E9BD-B9F1-4357-9F16-0D22E4022FD8}</Project>
+      <Name>SMLERPCASHBANKReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPIC\SMLERPIC.csproj">
+      <Project>{74253644-DE8A-43E8-A9C1-3C50FFC570A2}</Project>
+      <Name>SMLERPIC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSO\SMLERPSO.csproj">
+      <Project>{B9445ECD-2E5D-480A-A6BD-8A634DC2EE38}</Project>
+      <Name>SMLERPSO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPTemplate\SMLERPTemplate.csproj">
+      <Project>{72DC59D6-C11D-430C-950B-B5266FB463E8}</Project>
+      <Name>SMLERPTemplate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLPOSControl\SMLPOSControl.csproj">
+      <Project>{1DD6CD38-CFC5-4E87-9544-F6A8F351216F}</Project>
+      <Name>SMLPOSControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rainbow-sky-1024x768.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\0036.png" />
+    <Content Include="Resources\0457.png" />
+    <Content Include="Resources\0561.png" />
+    <None Include="Resources\Taiwan.png" />
+    <None Include="Resources\United Kingdom.png" />
+    <None Include="Resources\Thailand.png" />
+    <None Include="Resources\percent.png" />
+    <None Include="Resources\postableclose.xml" />
+    <None Include="Resources\printer_view.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\money21.png" />
+    <None Include="Resources\navigate-left-icon.png" />
+    <None Include="Resources\navigate-right-icon.png" />
+    <None Include="Resources\locked.png" />
+    <None Include="Resources\keys.png" />
+    <None Include="Resources\20.jpg" />
+    <None Include="Resources\50.jpg" />
+    <None Include="Resources\100.jpg" />
+    <None Include="Resources\500.jpg" />
+    <None Include="Resources\1000.jpg" />
+    <None Include="Resources\creditcards.png" />
+    <None Include="Resources\components.png" />
+    <None Include="Resources\del.png" />
+    <None Include="Resources\Arrow-Left-icon.png" />
+    <None Include="Resources\credit-card-16x16.png" />
+    <None Include="Resources\China.png" />
+    <Content Include="Resources\disk_blue.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\error1.png" />
+    <None Include="Resources\disk_blue1.png" />
+    <None Include="Resources\disk_blue24.png" />
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\Indonesia.png" />
+    <None Include="Resources\France.png" />
+    <None Include="Resources\Japan.png" />
+    <Content Include="Resources\key1.png" />
+    <None Include="Resources\check2.png" />
+    <None Include="Resources\document_delete.png" />
+    <None Include="Resources\box_add.png" />
+    <None Include="Resources\money_envelope.png" />
+    <None Include="Resources\stopwatch_stop.png" />
+    <None Include="Resources\document_pinned.png" />
+    <None Include="Resources\document_refresh.png" />
+    <None Include="Resources\cashier.png" />
+    <None Include="Resources\address_book.png" />
+    <None Include="Resources\printer_warning.png" />
+    <None Include="Resources\package_delete.png" />
+    <None Include="Resources\users4.png" />
+    <None Include="Resources\box_view.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\document_text.png" />
+    <None Include="Resources\money2.png" />
+    <None Include="Resources\calculator.png" />
+    <None Include="Resources\lock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

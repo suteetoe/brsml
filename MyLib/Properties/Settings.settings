@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="MyLib.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MyLib_SMLJAVAWS_DotNetFrameWork" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://jead-pc:8084/SMLJavaWebService/DotNetFrameWork</Value>
+    </Setting>
+    <Setting Name="MyLib_SMLJAVAWS_DotNetFrameWorkService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8084/SMLJavaWebService/DotNetFrameWork</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

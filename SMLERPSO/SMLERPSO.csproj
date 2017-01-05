@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B9445ECD-2E5D-480A-A6BD-8A634DC2EE38}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPSO</RootNamespace>
+    <AssemblyName>SMLERPSO</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_saleInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_saleInformation.Designer.cs">
+      <DependentUpon>_saleInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_saleInformationByProduct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_saleInformationByProduct.Designer.cs">
+      <DependentUpon>_saleInformationByProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_saleInformationBySaleman.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_saleInformationBySaleman.Designer.cs">
+      <DependentUpon>_saleInformationBySaleman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soFullInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soFullInvoice.Designer.cs">
+      <DependentUpon>_soFullInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soInvoiceCenter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soInvoiceCenter.Designer.cs">
+      <DependentUpon>_soInvoiceCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_deposit_money_return_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_deposit_money_return_cancel.Designer.cs">
+      <DependentUpon>_so_deposit_money_return_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_deposit_money_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_deposit_money_cancel.Designer.cs">
+      <DependentUpon>_so_deposit_money_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soReservedApproval.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soReservedApproval.Designer.cs">
+      <DependentUpon>_soReservedApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_creditNoteCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_creditNoteCancel.Designer.cs">
+      <DependentUpon>_creditNoteCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soInvoiceAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soInvoiceAdd.Designer.cs">
+      <DependentUpon>_soInvoiceAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soInvoiceAddCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soInvoiceAddCancel.Designer.cs">
+      <DependentUpon>_soInvoiceAddCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soInvoiceCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soInvoiceCancel.Designer.cs">
+      <DependentUpon>_soInvoiceCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soQuotationCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soQuotationCancel.Designer.cs">
+      <DependentUpon>_soQuotationCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soReservedCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soReservedCancel.Designer.cs">
+      <DependentUpon>_soReservedCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soSaleorderCancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soSaleorderCancel.Designer.cs">
+      <DependentUpon>_soSaleorderCancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_advance_money.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_advance_money.Designer.cs">
+      <DependentUpon>_so_advance_money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_advance_money_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_advance_money_cancel.Designer.cs">
+      <DependentUpon>_so_advance_money_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_advance_money_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_advance_money_return.Designer.cs">
+      <DependentUpon>_so_advance_money_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_advance_money_return_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_advance_money_return_cancel.Designer.cs">
+      <DependentUpon>_so_advance_money_return_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_deposit_money.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_deposit_money.Designer.cs">
+      <DependentUpon>_so_deposit_money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_deposit_money_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_deposit_money_return.Designer.cs">
+      <DependentUpon>_so_deposit_money_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_so_docPicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_so_docPicture.Designer.cs">
+      <DependentUpon>_so_docPicture.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="_saleInformation.resx">
+      <DependentUpon>_saleInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_saleInformationByProduct.resx">
+      <DependentUpon>_saleInformationByProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_saleInformationBySaleman.resx">
+      <DependentUpon>_saleInformationBySaleman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soFullInvoice.resx">
+      <DependentUpon>_soFullInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soInvoiceCenter.resx">
+      <DependentUpon>_soInvoiceCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_deposit_money_return_cancel.resx">
+      <DependentUpon>_so_deposit_money_return_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_deposit_money_cancel.resx">
+      <DependentUpon>_so_deposit_money_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soReservedApproval.resx">
+      <DependentUpon>_soReservedApproval.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_creditNote.resx">
+      <DependentUpon>_creditNote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_creditNoteCancel.resx">
+      <DependentUpon>_creditNoteCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soEstimate.resx">
+      <DependentUpon>_soEstimate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soInquiry.resx">
+      <DependentUpon>_soInquiry.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soInvoiceAdd.resx">
+      <DependentUpon>_soInvoiceAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soInvoice.resx">
+      <DependentUpon>_soInvoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soInvoiceAddCancel.resx">
+      <DependentUpon>_soInvoiceAddCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soInvoiceCancel.resx">
+      <DependentUpon>_soInvoiceCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soQuotation.resx">
+      <DependentUpon>_soQuotation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soQuotationApproval.resx">
+      <DependentUpon>_soQuotationApproval.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soQuotationCancel.resx">
+      <DependentUpon>_soQuotationCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soReserved.resx">
+      <DependentUpon>_soReserved.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soReservedCancel.resx">
+      <DependentUpon>_soReservedCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soSaleorder.resx">
+      <DependentUpon>_soSaleorder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_soSaleorderApproval.resx">
+      <DependentUpon>_soSaleorderApproval.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_soSaleorderCancel.resx">
+      <DependentUpon>_soSaleorderCancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_advance_money.resx">
+      <DependentUpon>_so_advance_money.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_advance_money_cancel.resx">
+      <DependentUpon>_so_advance_money_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_advance_money_return.resx">
+      <DependentUpon>_so_advance_money_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_advance_money_return_cancel.resx">
+      <DependentUpon>_so_advance_money_return_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_deposit_money.resx">
+      <DependentUpon>_so_deposit_money.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_deposit_money_return.resx">
+      <DependentUpon>_so_deposit_money_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_so_docPicture.resx">
+      <DependentUpon>_so_docPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="_creditNote.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_creditNote.Designer.cs">
+      <DependentUpon>_creditNote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soEstimate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soEstimate.Designer.cs">
+      <DependentUpon>_soEstimate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soInquiry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soInquiry.designer.cs">
+      <DependentUpon>_soInquiry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soInvoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soInvoice.Designer.cs">
+      <DependentUpon>_soInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soQuotation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soQuotation.Designer.cs">
+      <DependentUpon>_soQuotation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soQuotationApproval.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soQuotationApproval.Designer.cs">
+      <DependentUpon>_soQuotationApproval.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soReserved.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soReserved.Designer.cs">
+      <DependentUpon>_soReserved.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_soSaleorder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soSaleorder.Designer.cs">
+      <DependentUpon>_soSaleorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="_soSaleorderApproval.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_soSaleorderApproval.Designer.cs">
+      <DependentUpon>_soSaleorderApproval.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\view1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="saleInformation\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

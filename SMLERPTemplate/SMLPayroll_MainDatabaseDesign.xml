@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <_module>
+    <anyType xsi:type="xsd:string">Module1</anyType>
+    <anyType xsi:type="xsd:string">Module2</anyType>
+  </_module>
+  <_tables>
+    <_tableList _moduleName="Module1" _name="sml_database_group" _description="กลุ่มของฐานข้อมูล" _descriptionEng="Database group" _version="ALL" _width="234" _height="53" _x="28" _y="12">
+      <_fields>
+        <_fieldList _name="group_code" _description="รหัสกลุ่มผู้ข้อมูล" _descriptionEng="Database group code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="group_name" _description="ชื่อกลุ่มผู้ใช้" _descriptionEng="Database group name" _type="1" _length="150" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_group_code" _custer="1" _unique="1" _fieldsDisplay="group_code">
+          <_fields>
+            <_fields>group_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated>
+        <_afterCreated>insert into sml_database_group (group_code,group_name) values ('sml','default')</_afterCreated>
+        <_afterCreated />
+        <_afterCreated />
+        <_afterCreated />
+      </_afterCreated>
+      <_afterVerify>
+        <_afterVerify />
+        <_afterVerify />
+        <_afterVerify />
+      </_afterVerify>
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_database_group_admin" _description="รหัส Admin ของแต่ละกลุ่มข้อมูล" _descriptionEng="Database admin list" _version="ALL" _width="327" _height="53" _x="14" _y="296">
+      <_fields>
+        <_fieldList _name="group_code" _description="รหัสกลุ่มข้อมูล" _descriptionEng="Database group code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="admin_code" _description="รหัสผู้ใช้" _descriptionEng="User code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_group_code_and_admin_code" _custer="1" _unique="1" _fieldsDisplay="group_code,admin_code">
+          <_fields>
+            <_fields>group_code</_fields>
+            <_fields>admin_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_database_list" _description="รายชื่อฐานข้อมูลทั้งหมด" _descriptionEng="Database List" _version="ALL" _width="274" _height="85" _x="6" _y="89">
+      <_fields>
+        <_fieldList _name="data_group" _description="รหัสกลุ่มข้อมูล" _descriptionEng="Database group" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="data_code" _description="รหัสข้อมูล" _descriptionEng="Database code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="data_name" _description="ชื่อบริษัท" _descriptionEng="Company name" _type="1" _length="150" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="data_database_name" _description="ชื่อฐานข้อมูล" _descriptionEng="Database name" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_data_code" _custer="1" _unique="1" _fieldsDisplay="data_code">
+          <_fields>
+            <_fields>data_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_database_list_user_and_group" _description="รายชื่อกลุ่มผู้ใช้ และรหัสผู้ใช้ที่มีสิทธิใช้ข้อมูล" _descriptionEng="Database list for user and group" _version="ALL" _width="419" _height="85" _x="14" _y="196">
+      <_fields>
+        <_fieldList _name="data_group" _description="รหัสกลุ่มข้อมูล" _descriptionEng="Database group" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="data_code" _description="รหัสข้อมูล" _descriptionEng="Database code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_or_group_code" _description="รหัสผู้ใช้ หรือกลุ่มผู้ใช้" _descriptionEng="User code or user group" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_or_group_status" _description="สถานะ (1=กลุ่ม,2=ผู้ใช้)" _descriptionEng="Status (1=Group,2=User)" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_data_group_and_data_code" _custer="1" _unique="1" _fieldsDisplay="data_group,data_code,user_or_group_code">
+          <_fields>
+            <_fields>data_group</_fields>
+            <_fields>data_code</_fields>
+            <_fields>user_or_group_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_group_list" _description="รายชื่อกลุ่ม" _descriptionEng="Group List" _version="ALL" _width="204" _height="69" _x="339" _y="14">
+      <_fields>
+        <_fieldList _name="group_code" _description="รหัสกลุ่ม" _descriptionEng="Group code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="group_name" _description="ชื่อกลุ่ม" _descriptionEng="Group name" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="active_status" _description="ใช้งาน" _descriptionEng="Active" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_group_code" _custer="1" _unique="1" _fieldsDisplay="group_code">
+          <_fields>
+            <_fields>group_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated>
+        <_afterCreated>insert into sml_group_list (group_code,group_name,active_status) values ('SML','SML',0)</_afterCreated>
+        <_afterCreated />
+      </_afterCreated>
+      <_afterVerify>
+        <_afterVerify />
+        <_afterVerify />
+      </_afterVerify>
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_permissions_group" _description="กำหนดสิทธิ์กลุ่มผู้ใช้งาน" _descriptionEng="Permissions Group" _version="ALL" _width="265" _height="181" _x="662" _y="312">
+      <_fields>
+        <_fieldList _name="usercode" _description="รหัส" _descriptionEng="Code" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="image_file" _description="แฟ้มกำหนดสิทธิ์" _descriptionEng="Permissions File" _type="9" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="system_id" _description="ระบบ" _descriptionEng="System ID" _type="1" _length="10" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="guid_code" _descriptionEng="guid_code" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="menucode" _description="รหัสเมนู" _descriptionEng="Menu Id" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="menuname" _description="ชื่อเมนู" _descriptionEng="Menu Name" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isread" _description="ใช้งานได้" _descriptionEng="Read" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isadd" _description="เพิ่ม" _descriptionEng="Add" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isdelete" _description="ลบ" _descriptionEng="Delete" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isedit" _description="แก้ไข" _descriptionEng="Edit" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_permissions_user" _description="กำหนดสิทธิ์ผู้ใช้งาน" _descriptionEng="Permissions User" _version="ALL" _width="237" _height="181" _x="629" _y="112">
+      <_fields>
+        <_fieldList _name="usercode" _description="รหัส" _descriptionEng="Code" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="image_file" _description="แฟ้มกำหนดสิทธิ์" _descriptionEng="Permissions File" _type="9" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="system_id" _description="ระบบ" _descriptionEng="System ID" _type="1" _length="10" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="guid_code" _descriptionEng="guid_code" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="menucode" _description="รหัสเมนู" _descriptionEng="Menu Id" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="menuname" _description="ชื่อเมนู" _descriptionEng="Menu Name" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isread" _description="ใช้งานได้" _descriptionEng="Read" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isadd" _description="เพิ่ม" _descriptionEng="Add" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isdelete" _description="ลบ" _descriptionEng="Delete" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="isedit" _description="แก้ไข" _descriptionEng="Edit" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_resource" _description="รายละเอียดข้อความหน้าจอ และรายงาน" _descriptionEng="Resource" _version="ALL" _width="283" _height="181" _x="15" _y="358">
+      <_fields>
+        <_fieldList _name="data_group" _description="รหัสกลุ่มข้อมูล" _descriptionEng="Database group" _type="1" _length="25" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="code" _description="รหัสข้อความ" _descriptionEng="Code" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_1" _description="ข้อความภาษาไทย" _descriptionEng="Name 1" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_2" _description="ข้อความภาษาอังกฤษ" _descriptionEng="Name 2" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_3" _description="ข้อความภาษาอังกฤษ" _descriptionEng="Name 2" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_4" _description="ข้อความภาษาอังกฤษ" _descriptionEng="Name 2" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_5" _description="ข้อความภาษาอังกฤษ" _descriptionEng="Name 2" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_6" _description="ข้อความภาษาอังกฤษ" _descriptionEng="Name 2" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="status" _description="สถานะ" _descriptionEng="Status" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="length" _description="ความยาว" _descriptionEng="Length" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_data_group_and_code" _custer="1" _unique="1" _fieldsDisplay="data_group,code">
+          <_fields>
+            <_fields>data_group</_fields>
+            <_fields>code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify>
+        <_afterVerify />
+      </_afterVerify>
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_user_and_group" _description="รายละเอียดพนักงาน ที่อยู่ในกลุ่ม" _descriptionEng="Group and User" _version="ALL" _width="290" _height="53" _x="334" _y="109">
+      <_fields>
+        <_fieldList _name="user_code" _description="รหัสพนักงาน" _descriptionEng="User code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="group_code" _description="รหัสกลุ่ม" _descriptionEng="Group code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_group_code_and_user_code" _custer="1" _unique="1" _fieldsDisplay="group_code,user_code">
+          <_fields>
+            <_fields>group_code</_fields>
+            <_fields>user_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated>
+        <_afterCreated />
+      </_afterCreated>
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_user_list" _description="รายละเอียดผู้ใช้" _descriptionEng="User List" _version="ALL" _width="214" _height="101" _x="563" _y="2">
+      <_fields>
+        <_fieldList _name="user_code" _description="รหัสผู้ใช้" _descriptionEng="User code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_name" _description="ชื่อผู้ใช้" _descriptionEng="User name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_password" _description="รหัสผ่าน" _descriptionEng="User password" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_level" _description="ระดับความสามารถ" _descriptionEng="User level" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="active_status" _description="ใช้งาน" _descriptionEng="Active" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_user_code" _custer="1" _unique="1" _fieldsDisplay="user_code">
+          <_fields>
+            <_fields>user_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated>
+        <_afterCreated>insert into sml_user_list (user_code,user_name,user_password,user_level,active_status) values ('superadmin','Super admin','superadmin',2,0)</_afterCreated>
+        <_afterCreated />
+      </_afterCreated>
+      <_afterVerify>
+        <_afterVerify />
+        <_afterVerify />
+      </_afterVerify>
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_guid" _description="GUID" _descriptionEng="GUID" _version="ALL" _width="275" _height="117" _x="351" _y="294">
+      <_fields>
+        <_fieldList _name="guid_code" _description="รหัส GUID" _descriptionEng="GUID CODE" _type="1" _length="35" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="login_time" _description="วันเวลา Login" _descriptionEng="Login Time" _type="8" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="last_access_time" _description="วันเวลา Connect ล่าสุด" _descriptionEng="Last Access Time" _type="8" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_code" _description="รหัสผู้ใช้งาน" _descriptionEng="User Code" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="computer_name" _description="ชื่อคอมพิวเตอร์" _descriptionEng="Computer Name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="database_code" _description="ชื่อฐานข้อมูลที่ใช้" _descriptionEng="Database Name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="PK_GUID" _custer="1" _unique="1" _fieldsDisplay="guid_code">
+          <_fields>
+            <_fields>guid_code</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_access_list" _description="รายการผู้เข้าใช้งาน" _descriptionEng="Access List" _version="ALL" _width="247" _height="101" _x="358" _y="426">
+      <_fields>
+        <_fieldList _name="access_time" _description="เวลาที่เข้าใช้" _descriptionEng="Access Time" _type="8" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="access_type" _description="ประเภทการเข้าใช้" _descriptionEng="Acess Type" _type="3" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_code" _description="รหัสผู้ใช้งาน" _descriptionEng="User Code" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="computer_name" _description="ชื่อเครื่อง" _descriptionEng="Computer Name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="database_code" _description="รหัสฐานข้อมูล" _descriptionEng="Database Code" _type="1" _length="100" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Module1" _name="sml_language" _description="Language" _descriptionEng="Language" _version="" _width="171" _height="101" _x="14" _y="571">
+      <_fields>
+        <_fieldList _name="thai_lang" _description="" _descriptionEng="" _type="1" _length="200" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="english_lang" _description="" _descriptionEng="" _type="1" _length="200" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="chinese_lang" _description="" _descriptionEng="" _type="1" _length="200" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="malay_lang" _description="" _descriptionEng="" _type="1" _length="200" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="india_lang" _description="" _descriptionEng="" _type="1" _length="200" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="sml_language_PK_PRIMARY" _custer="1" _unique="1" _fieldsDisplay="thai_lang">
+          <_fields>
+            <_fields>thai_lang</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+  </_tables>
+</_data>

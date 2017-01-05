@@ -1,0 +1,866 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLInventoryControl</RootNamespace>
+    <AssemblyName>SMLInventoryControl</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <StartupObject />
+    <SignAssembly>false</SignAssembly>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="_approveOrderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_approveOrderControl.Designer.cs">
+      <DependentUpon>_approveOrderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_findPriceCenter.cs" />
+    <Compile Include="_icStandardCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icDiscount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icDiscount.Designer.cs">
+      <DependentUpon>_icDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icDiscountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icDiscountControl.Designer.cs">
+      <DependentUpon>_icDiscountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_importOrderFromInternet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_importOrderFromInternet.Designer.cs">
+      <DependentUpon>_importOrderFromInternet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_findPurchasePriceClass.cs" />
+    <Compile Include="_icPriceManage\_getICForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icPriceManage\_getICForm.Designer.cs">
+      <DependentUpon>_getICForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPriceManage\_gridIcPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPriceManage\_icListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icPriceManage\_icListForm.Designer.cs">
+      <DependentUpon>_icListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPriceManage\_icPriceAdjustForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icPriceManage\_icPriceAdjustForm.Designer.cs">
+      <DependentUpon>_icPriceAdjustForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPriceManage\_icPriceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icPriceManage\_icPriceListForm.Designer.cs">
+      <DependentUpon>_icPriceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPriceManage\_icPriceManageList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPriceManage\_icPriceManageList.Designer.cs">
+      <DependentUpon>_icPriceManageList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icAllPrice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icAllPrice.Designer.cs">
+      <DependentUpon>_icAllPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icAllPriceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icAllPriceControl.Designer.cs">
+      <DependentUpon>_icAllPriceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransImportDataControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransImportDataControl.Designer.cs">
+      <DependentUpon>_icTransImportDataControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeAmountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeAmountForm.Designer.cs">
+      <DependentUpon>_icTransItemGridChangeAmountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeQtyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeQtyForm.Designer.cs">
+      <DependentUpon>_icTransItemGridChangeQtyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EnhancedPrintPreviewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnhancedPrintPreviewDialog.designer.cs">
+      <DependentUpon>EnhancedPrintPreviewDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PageImageList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_basket\_productOriginalStyleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_basket\_productOriginalStyleForm.Designer.cs">
+      <DependentUpon>_productOriginalStyleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_clone_icTrans.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_colorInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_colorInfo.Designer.cs">
+      <DependentUpon>_colorInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_createBarcodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_createBarcodeForm.Designer.cs">
+      <DependentUpon>_createBarcodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_docFlowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_docFlowForm.Designer.cs">
+      <DependentUpon>_docFlowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_docFlowStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_docFlowStyle.Designer.cs">
+      <DependentUpon>_docFlowStyle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_findPriceClass.cs" />
+    <Compile Include="_formSaleOrderPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formSaleOrderPreview.Designer.cs">
+      <DependentUpon>_formSaleOrderPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formulaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formulaForm.Designer.cs">
+      <DependentUpon>_formulaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_global.cs" />
+    <Compile Include="_icmainGridBarCodeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icmainGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icmainGridControl.Designer.cs">
+      <DependentUpon>_icmainGridControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icmainScreenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icmainScreenControl.Designer.cs">
+      <DependentUpon>_icmainScreenControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceDetail.Designer.cs">
+      <DependentUpon>_icPriceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceFormula.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceFormula.Designer.cs">
+      <DependentUpon>_icPriceFormula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceFormulaTemplate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceFormulaTemplate.Designer.cs">
+      <DependentUpon>_icPriceFormulaTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPrice\_icPriceList.Designer.cs">
+      <DependentUpon>_icPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPurchasePrice\_icPriceDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPurchasePrice\_icPriceDetail.designer.cs">
+      <DependentUpon>_icPriceDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPurchasePrice\_icPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPurchasePrice\_icPriceList.designer.cs">
+      <DependentUpon>_icPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransControl.Designer.cs">
+      <DependentUpon>_icTransControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransExtraControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransExtraControl.Designer.cs">
+      <DependentUpon>_icTransExtraControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransGridItemAutoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransGridItemAutoForm.Designer.cs">
+      <DependentUpon>_icTransGridItemAutoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeDiscountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeDiscountForm.Designer.cs">
+      <DependentUpon>_icTransItemGridChangeDiscountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeNameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridChangeNameForm.Designer.cs">
+      <DependentUpon>_icTransItemGridChangeNameForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransItemGridChangePriceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridChangePriceForm.Designer.cs">
+      <DependentUpon>_icTransItemGridChangePriceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransItemGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridSelectWareHouseAndShelfForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransItemGridSelectWareHouseAndShelfForm.Designer.cs">
+      <DependentUpon>_icTransItemGridSelectWareHouseAndShelfForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransLabelPrint\_icTransLabelPrintScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransLabelPrint\_icTransLabelPrintControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransLabelPrint\_icTransLabelPrintControl.Designer.cs">
+      <DependentUpon>_icTransLabelPrintControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransLabelPrint\_icTransLabelPrintGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransRefControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransRefControl.Designer.cs">
+      <DependentUpon>_icTransRefControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransScreenBottomControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransScreenMoreControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransScreenTopControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransSerialNumberDockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransSerialNumberDockForm.Designer.cs">
+      <DependentUpon>_icTransSerialNumberDockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransSerialNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransSerialNumberForm.Designer.cs">
+      <DependentUpon>_icTransSerialNumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icTransWeightControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icTransWeightControl.Designer.cs">
+      <DependentUpon>_icTransWeightControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icUpdateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icUpdateControl.Designer.cs">
+      <DependentUpon>_icUpdateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icUpdateForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icUpdateForm.Designer.cs">
+      <DependentUpon>_icUpdateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_importCartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_importCartForm.Designer.cs">
+      <DependentUpon>_importCartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_importHandheld\_importForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_importHandheld\_importForm.Designer.cs">
+      <DependentUpon>_importForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_itemSearchLevelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_itemSearchLevelControl.Designer.cs">
+      <DependentUpon>_itemSearchLevelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_itemSearchLevelMenuControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_jeadTestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_jeadTestForm.Designer.cs">
+      <DependentUpon>_jeadTestForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_labelPrintForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_labelPrintForm.Designer.cs">
+      <DependentUpon>_labelPrintForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_lineColorStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_lineColorStatusControl.Designer.cs">
+      <DependentUpon>_lineColorStatusControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_lotForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_lotForm.Designer.cs">
+      <DependentUpon>_lotForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_priceInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_priceInfoForm.Designer.cs">
+      <DependentUpon>_priceInfoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_pricePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_pricePasswordForm.Designer.cs">
+      <DependentUpon>_pricePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_search_chq_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_search_chq_form.Designer.cs">
+      <DependentUpon>_search_chq_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectBillFromPosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_selectBillFromPosForm.Designer.cs">
+      <DependentUpon>_selectBillFromPosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_search_bill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_search_bill.designer.cs">
+      <DependentUpon>_search_bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_shipmentControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_shipmentControl.Designer.cs">
+      <DependentUpon>_shipmentControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkReorder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkReorder.Designer.cs">
+      <DependentUpon>_stkReorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stockAutoAdjustControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stockAutoAdjustControl.Designer.cs">
+      <DependentUpon>_stockAutoAdjustControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stockAutoAdjustProductNotFoundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_stockAutoAdjustProductNotFoundForm.Designer.cs">
+      <DependentUpon>_stockAutoAdjustProductNotFoundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_tools.cs" />
+    <Compile Include="_transHistory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_transHistory.Designer.cs">
+      <DependentUpon>_transHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_utils\_selectSerialNumberForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_utils\_selectSerialNumberForm.Designer.cs">
+      <DependentUpon>_selectSerialNumberForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_utils\_selectLocaionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_utils\_selectLocaionForm.Designer.cs">
+      <DependentUpon>_selectLocaionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_utils\_selectLocaionUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_utils\_selectLocaionUserControl.Designer.cs">
+      <DependentUpon>_selectLocaionUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_utils\_selectWareHouseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_utils\_selectWareHouseForm.Designer.cs">
+      <DependentUpon>_selectWareHouseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_utils\_selectWareHouseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_utils\_selectWareHouseUserControl.Designer.cs">
+      <DependentUpon>_selectWareHouseUserControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="_approveOrderControl.resx">
+      <DependentUpon>_approveOrderControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPriceManage\_getICForm.resx">
+      <DependentUpon>_getICForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPriceManage\_icListForm.resx">
+      <DependentUpon>_icListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPriceManage\_icPriceAdjustForm.resx">
+      <DependentUpon>_icPriceAdjustForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPriceManage\_icPriceListForm.resx">
+      <DependentUpon>_icPriceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPriceManage\_icPriceManageList.resx">
+      <DependentUpon>_icPriceManageList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icAllPrice.resx">
+      <DependentUpon>_icAllPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icAllPriceControl.resx">
+      <DependentUpon>_icAllPriceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icDiscount.resx">
+      <DependentUpon>_icDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icDiscountControl.resx">
+      <DependentUpon>_icDiscountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransImportDataControl.resx">
+      <DependentUpon>_icTransImportDataControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridChangeAmountForm.resx">
+      <DependentUpon>_icTransItemGridChangeAmountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridChangeQtyForm.resx">
+      <DependentUpon>_icTransItemGridChangeQtyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnhancedPrintPreviewDialog.resx">
+      <DependentUpon>EnhancedPrintPreviewDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_basket\_productOriginalStyleForm.resx">
+      <DependentUpon>_productOriginalStyleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_colorInfo.resx">
+      <DependentUpon>_colorInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_createBarcodeForm.resx">
+      <DependentUpon>_createBarcodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_docFlowForm.resx">
+      <DependentUpon>_docFlowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_docFlowStyle.resx">
+      <DependentUpon>_docFlowStyle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formSaleOrderPreview.resx">
+      <DependentUpon>_formSaleOrderPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formulaForm.resx">
+      <DependentUpon>_formulaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icmainGridControl.resx">
+      <DependentUpon>_icmainGridControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icmainScreenControl.resx">
+      <DependentUpon>_icmainScreenControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icPriceDetail.resx">
+      <DependentUpon>_icPriceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icPriceFormula.resx">
+      <DependentUpon>_icPriceFormula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icPriceFormulaTemplate.resx">
+      <DependentUpon>_icPriceFormulaTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPrice\_icPriceList.resx">
+      <DependentUpon>_icPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPurchasePrice\_icPriceDetail.resx">
+      <DependentUpon>_icPriceDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPurchasePrice\_icPriceList.resx">
+      <DependentUpon>_icPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransControl.resx">
+      <DependentUpon>_icTransControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransExtraControl.resx">
+      <DependentUpon>_icTransExtraControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransGridItemAutoForm.resx">
+      <DependentUpon>_icTransGridItemAutoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridChangeDiscountForm.resx">
+      <DependentUpon>_icTransItemGridChangeDiscountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridChangeNameForm.resx">
+      <DependentUpon>_icTransItemGridChangeNameForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridChangePriceForm.resx">
+      <DependentUpon>_icTransItemGridChangePriceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridControl.resx">
+      <DependentUpon>_icTransItemGridControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransItemGridSelectWareHouseAndShelfForm.resx">
+      <DependentUpon>_icTransItemGridSelectWareHouseAndShelfForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransLabelPrint\_icTransLabelPrintControl.resx">
+      <DependentUpon>_icTransLabelPrintControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransRefControl.resx">
+      <DependentUpon>_icTransRefControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransSerialNumberDockForm.resx">
+      <DependentUpon>_icTransSerialNumberDockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransSerialNumberForm.resx">
+      <DependentUpon>_icTransSerialNumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransWeightControl.resx">
+      <DependentUpon>_icTransWeightControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icUpdateControl.resx">
+      <DependentUpon>_icUpdateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icUpdateForm.resx">
+      <DependentUpon>_icUpdateForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_importCartForm.resx">
+      <DependentUpon>_importCartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_importHandheld\_importForm.resx">
+      <DependentUpon>_importForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_importOrderFromInternet.resx">
+      <DependentUpon>_importOrderFromInternet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_itemSearchLevelControl.resx">
+      <DependentUpon>_itemSearchLevelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_jeadTestForm.resx">
+      <DependentUpon>_jeadTestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_labelPrintForm.resx">
+      <DependentUpon>_labelPrintForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_lineColorStatusControl.resx">
+      <DependentUpon>_lineColorStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_lotForm.resx">
+      <DependentUpon>_lotForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_priceInfoForm.resx">
+      <DependentUpon>_priceInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_pricePasswordForm.resx">
+      <DependentUpon>_pricePasswordForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_search_chq_form.resx">
+      <DependentUpon>_search_chq_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_selectBillFromPosForm.resx">
+      <DependentUpon>_selectBillFromPosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_search_bill.resx">
+      <DependentUpon>_search_bill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_shipmentControl.resx">
+      <DependentUpon>_shipmentControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkReorder.resx">
+      <DependentUpon>_stkReorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stockAutoAdjustControl.resx">
+      <DependentUpon>_stockAutoAdjustControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stockAutoAdjustProductNotFoundForm.resx">
+      <DependentUpon>_stockAutoAdjustProductNotFoundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_transHistory.resx">
+      <DependentUpon>_transHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_utils\_selectSerialNumberForm.resx">
+      <DependentUpon>_selectSerialNumberForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_utils\_selectLocaionForm.resx">
+      <DependentUpon>_selectLocaionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_utils\_selectLocaionUserControl.resx">
+      <DependentUpon>_selectLocaionUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_utils\_selectWareHouseForm.resx">
+      <DependentUpon>_selectWareHouseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_utils\_selectWareHouseUserControl.resx">
+      <DependentUpon>_selectWareHouseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\JsonLib\JsonLib.csproj">
+      <Project>{04d535b4-9302-4247-b65c-f1d2d4c05752}</Project>
+      <Name>JsonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLBarcodeManage\SMLBarcodeManage.csproj">
+      <Project>{BF22C54B-4AC3-4050-8C5D-81A95B3C5955}</Project>
+      <Name>SMLBarcodeManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARInfo\SMLERPARAPInfo.csproj">
+      <Project>{29BAAC40-D635-4619-BB24-AD8D6FAB2D82}</Project>
+      <Name>SMLERPARAPInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGLControl\SMLERPGLControl.csproj">
+      <Project>{fe37db34-d7d6-441c-af95-41a8cbe06fdb}</Project>
+      <Name>SMLERPGLControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGL\SMLERPGL.csproj">
+      <Project>{5645b824-bff4-4c0a-9533-0b75527e90c6}</Project>
+      <Name>SMLERPGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
+      <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
+      <Name>SMLERPReportTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLTransportLabel\SMLTransportLabel.csproj">
+      <Project>{2b8be631-35ad-48dc-9d77-35b785a9f7df}</Project>
+      <Name>SMLTransportLabel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cashier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filesave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tasks24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contract.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bt03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_yellow_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cube_green_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\barcode.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forbidden.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\garbage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magic-wand2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

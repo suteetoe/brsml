@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-874" ?>
+<node>
+  <main id ="sml_setup" name="กำหนดค่าเริ่มต้นระบบ" english="SML Setup" xversion="ALL">
+    <detail screen_code="screen_payroll_company_profile" name="กำหนดค่าเริ่มต้นบริษัท" english="Company Profile" xversion="ALL"></detail>
+	  <detail screen_code="screen_master_payroll_side_list" name="ฝ่าย" english="Side List" xversion="ALL"></detail>
+	  <detail screen_code="screen_master_payroll_section_list" name="แผนก" english="Section List" xversion="ALL"></detail>
+	  <detail screen_code="screen_master_payroll_work_title" name="ตำแหน่งงาน" english="Work Tile" xversion="ALL"></detail>
+	  <detail screen_code="screen_master_payroll_bank_list" name="ธนาคาร" english="Bank List" xversion="ALL"></detail>
+    <detail screen_code="screen_master_payroll_branch_bank" name="สาขาธนาคาร" english="Branch Bank" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_employee" name="บันทึกรายละเอียดพนักงาน/ลูกจ้าง" english="Employee" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_short_of_work" name="บันทึกการขาดงาน" english="Short of Work" xversion="ALL"></detail>
+    <detail screen_code="screen_payroll_arrive_late" name="บันทึกการมาสาย" english="Arrive Late" xversion="ALL"></detail>
+    <detail screen_code="screen_payroll_leave" name="บันทึกการลางาน" english="Leave" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_over_time" name="บันทึกค่าล่วงเวลา" english="Over Time" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_income_tax" name="บันทึกภาษีเงินได้" english="Income Tax" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_trans_list" name="บันทึกรายละเอียดการทำงาน" english="Trans List" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_calculate_wages" name="คำนวณค่าจ้าง" english="Calculate Wages" xversion="ALL"></detail>
+	  <detail screen_code="screen_payroll_calculate_tax" name="คำนวณภาษี" english="Calculate Tax" xversion="ALL"></detail>
+    <detail screen_code="screen_payroll_tax" name="คำนวณภาษี" english="Calculate Tax" xversion="ALL"></detail>
+	  <detail screen_code="popup_payroll_employee" name="พนักงาน - ลูกจ้าง" english="Employee" xversion="ALL"></detail>
+	  <detail screen_code="popup_payroll_short_of_work" name="ประเภทการขาดงาน" english="Short of Work" xversion="ALL"></detail>
+	  <detail screen_code="popup_payroll_over_time" name="ประเภทค่าล่วงเวลา" english="Over Time" xversion="ALL"></detail>
+    <detail screen_code="screen_erp_doc_format" name="รายละเอียดรูปแบบเอกสาร" english="ERP Doc Format"></detail>
+  </main>
+  <main id="erp_formdesign" name="ระบบแก้ไขแบบฟอร์ม" english="FormDesign" xversion="ALL">
+    <detail screen_code="screen_formdesign_loadform" name="เลือกฟอร์มจาก server" english="Open Fromdesign From SERVER"></detail>
+  </main>
+</node>

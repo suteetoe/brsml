@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://SMLWebService/" targetNamespace="http://SMLWebService/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Exception" type="tns:Exception" />
+  <xs:element name="_dePositGetquery" type="tns:_dePositGetquery" />
+  <xs:element name="_dePositGetqueryCompress" type="tns:_dePositGetqueryCompress" />
+  <xs:element name="_dePositGetqueryCompressResponse" type="tns:_dePositGetqueryCompressResponse" />
+  <xs:element name="_dePositGetqueryResponse" type="tns:_dePositGetqueryResponse" />
+  <xs:element name="_dePositGetquerySearch" type="tns:_dePositGetquerySearch" />
+  <xs:element name="_dePositGetquerySearchCompress" type="tns:_dePositGetquerySearchCompress" />
+  <xs:element name="_dePositGetquerySearchCompressResponse" type="tns:_dePositGetquerySearchCompressResponse" />
+  <xs:element name="_dePositGetquerySearchResponse" type="tns:_dePositGetquerySearchResponse" />
+  <xs:element name="_glReFormatChartOfAccount" type="tns:_glReFormatChartOfAccount" />
+  <xs:element name="_glReFormatChartOfAccountResponse" type="tns:_glReFormatChartOfAccountResponse" />
+  <xs:element name="_invoiceGetquery" type="tns:_invoiceGetquery" />
+  <xs:element name="_invoiceGetqueryCompress" type="tns:_invoiceGetqueryCompress" />
+  <xs:element name="_invoiceGetqueryCompressResponse" type="tns:_invoiceGetqueryCompressResponse" />
+  <xs:element name="_invoiceGetqueryResponse" type="tns:_invoiceGetqueryResponse" />
+  <xs:element name="_invoiceGetquerySearch" type="tns:_invoiceGetquerySearch" />
+  <xs:element name="_invoiceGetquerySearchCompress" type="tns:_invoiceGetquerySearchCompress" />
+  <xs:element name="_invoiceGetquerySearchCompressResponse" type="tns:_invoiceGetquerySearchCompressResponse" />
+  <xs:element name="_invoiceGetquerySearchResponse" type="tns:_invoiceGetquerySearchResponse" />
+  <xs:element name="_process" type="tns:_process" />
+  <xs:element name="_processApTrans" type="tns:_processApTrans" />
+  <xs:element name="_processApTransCompress" type="tns:_processApTransCompress" />
+  <xs:element name="_processApTransCompressResponse" type="tns:_processApTransCompressResponse" />
+  <xs:element name="_processApTransResponse" type="tns:_processApTransResponse" />
+  <xs:element name="_processChqCreditCard" type="tns:_processChqCreditCard" />
+  <xs:element name="_processChqCreditCardResponse" type="tns:_processChqCreditCardResponse" />
+  <xs:element name="_processDashBoard" type="tns:_processDashBoard" />
+  <xs:element name="_processDashBoardResponse" type="tns:_processDashBoardResponse" />
+  <xs:element name="_processDashBoardsCompress" type="tns:_processDashBoardsCompress" />
+  <xs:element name="_processDashBoardsCompressResponse" type="tns:_processDashBoardsCompressResponse" />
+  <xs:element name="_processKiller" type="tns:_processKiller" />
+  <xs:element name="_processKillerResponse" type="tns:_processKillerResponse" />
+  <xs:element name="_processResponse" type="tns:_processResponse" />
+  <xs:element name="_process_ap_ageing" type="tns:_process_ap_ageing" />
+  <xs:element name="_process_ap_ageingResponse" type="tns:_process_ap_ageingResponse" />
+  <xs:element name="_process_ap_ageing_compress" type="tns:_process_ap_ageing_compress" />
+  <xs:element name="_process_ap_ageing_compressResponse" type="tns:_process_ap_ageing_compressResponse" />
+  <xs:element name="_process_ap_status" type="tns:_process_ap_status" />
+  <xs:element name="_process_ap_statusResponse" type="tns:_process_ap_statusResponse" />
+  <xs:element name="_process_ap_status_compress" type="tns:_process_ap_status_compress" />
+  <xs:element name="_process_ap_status_compressResponse" type="tns:_process_ap_status_compressResponse" />
+  <xs:element name="_process_ar_ageing" type="tns:_process_ar_ageing" />
+  <xs:element name="_process_ar_ageingResponse" type="tns:_process_ar_ageingResponse" />
+  <xs:element name="_process_ar_ageing_compress" type="tns:_process_ar_ageing_compress" />
+  <xs:element name="_process_ar_ageing_compressResponse" type="tns:_process_ar_ageing_compressResponse" />
+  <xs:element name="_process_ar_status" type="tns:_process_ar_status" />
+  <xs:element name="_process_ar_statusResponse" type="tns:_process_ar_statusResponse" />
+  <xs:element name="_process_ar_status_compress" type="tns:_process_ar_status_compress" />
+  <xs:element name="_process_ar_status_compressResponse" type="tns:_process_ar_status_compressResponse" />
+  <xs:element name="_process_ar_stream" type="tns:_process_ar_stream" />
+  <xs:element name="_process_ar_streamResponse" type="tns:_process_ar_streamResponse" />
+  <xs:element name="_process_cb_statement" type="tns:_process_cb_statement" />
+  <xs:element name="_process_cb_statementResponse" type="tns:_process_cb_statementResponse" />
+  <xs:element name="_process_cb_statement_compress" type="tns:_process_cb_statement_compress" />
+  <xs:element name="_process_cb_statement_compressResponse" type="tns:_process_cb_statement_compressResponse" />
+  <xs:element name="_process_gps_data" type="tns:_process_gps_data" />
+  <xs:element name="_process_gps_dataResponse" type="tns:_process_gps_dataResponse" />
+  <xs:element name="_process_gps_load_condition" type="tns:_process_gps_load_condition" />
+  <xs:element name="_process_gps_load_conditionResponse" type="tns:_process_gps_load_conditionResponse" />
+  <xs:element name="_process_gps_load_data" type="tns:_process_gps_load_data" />
+  <xs:element name="_process_gps_load_dataResponse" type="tns:_process_gps_load_dataResponse" />
+  <xs:element name="_process_gps_load_sale_data" type="tns:_process_gps_load_sale_data" />
+  <xs:element name="_process_gps_load_sale_dataResponse" type="tns:_process_gps_load_sale_dataResponse" />
+  <xs:element name="_process_gps_load_sale_data_compress" type="tns:_process_gps_load_sale_data_compress" />
+  <xs:element name="_process_gps_load_sale_data_compressResponse" type="tns:_process_gps_load_sale_data_compressResponse" />
+  <xs:element name="_process_gps_location" type="tns:_process_gps_location" />
+  <xs:element name="_process_gps_locationResponse" type="tns:_process_gps_locationResponse" />
+  <xs:element name="_process_gps_update_data" type="tns:_process_gps_update_data" />
+  <xs:element name="_process_gps_update_dataResponse" type="tns:_process_gps_update_dataResponse" />
+  <xs:element name="_process_ic_balance" type="tns:_process_ic_balance" />
+  <xs:element name="_process_ic_balanceResponse" type="tns:_process_ic_balanceResponse" />
+  <xs:element name="_process_ic_balance_compress" type="tns:_process_ic_balance_compress" />
+  <xs:element name="_process_ic_balance_compressResponse" type="tns:_process_ic_balance_compressResponse" />
+  <xs:element name="_process_ic_remaimn_compress" type="tns:_process_ic_remaimn_compress" />
+  <xs:element name="_process_ic_remaimn_compressResponse" type="tns:_process_ic_remaimn_compressResponse" />
+  <xs:element name="_process_ic_remain" type="tns:_process_ic_remain" />
+  <xs:element name="_process_ic_remainResponse" type="tns:_process_ic_remainResponse" />
+  <xs:element name="_process_profit_and_lost_by_color_stream" type="tns:_process_profit_and_lost_by_color_stream" />
+  <xs:element name="_process_profit_and_lost_by_color_streamResponse" type="tns:_process_profit_and_lost_by_color_streamResponse" />
+  <xs:element name="_process_profit_and_lost_by_product_stream" type="tns:_process_profit_and_lost_by_product_stream" />
+  <xs:element name="_process_profit_and_lost_by_product_streamResponse" type="tns:_process_profit_and_lost_by_product_streamResponse" />
+  <xs:element name="_process_request" type="tns:_process_request" />
+  <xs:element name="_process_requestResponse" type="tns:_process_requestResponse" />
+  <xs:element name="_process_request_cancel" type="tns:_process_request_cancel" />
+  <xs:element name="_process_request_cancelResponse" type="tns:_process_request_cancelResponse" />
+  <xs:element name="_process_stock_balance" type="tns:_process_stock_balance" />
+  <xs:element name="_process_stock_balanceResponse" type="tns:_process_stock_balanceResponse" />
+  <xs:element name="_process_stock_balance_compress" type="tns:_process_stock_balance_compress" />
+  <xs:element name="_process_stock_balance_compressResponse" type="tns:_process_stock_balance_compressResponse" />
+  <xs:element name="_process_stock_cost" type="tns:_process_stock_cost" />
+  <xs:element name="_process_stock_costResponse" type="tns:_process_stock_costResponse" />
+  <xs:element name="_process_stock_cost_compress" type="tns:_process_stock_cost_compress" />
+  <xs:element name="_process_stock_cost_compressResponse" type="tns:_process_stock_cost_compressResponse" />
+  <xs:element name="_process_stock_cost_finish" type="tns:_process_stock_cost_finish" />
+  <xs:element name="_process_stock_cost_finishResponse" type="tns:_process_stock_cost_finishResponse" />
+  <xs:element name="_purchase_permium_process" type="tns:_purchase_permium_process" />
+  <xs:element name="_purchase_permium_processResponse" type="tns:_purchase_permium_processResponse" />
+  <xs:element name="_purchase_permium_process_compress" type="tns:_purchase_permium_process_compress" />
+  <xs:element name="_purchase_permium_process_compressResponse" type="tns:_purchase_permium_process_compressResponse" />
+  <xs:element name="_queryCBGetStream" type="tns:_queryCBGetStream" />
+  <xs:element name="_queryCBGetStreamResponse" type="tns:_queryCBGetStreamResponse" />
+  <xs:element name="_queryCBStream" type="tns:_queryCBStream" />
+  <xs:element name="_queryCBStreamResponse" type="tns:_queryCBStreamResponse" />
+  <xs:element name="_queryRemainGetStream" type="tns:_queryRemainGetStream" />
+  <xs:element name="_queryRemainGetStreamResponse" type="tns:_queryRemainGetStreamResponse" />
+  <xs:element name="_queryRemainStream" type="tns:_queryRemainStream" />
+  <xs:element name="_queryRemainStreamResponse" type="tns:_queryRemainStreamResponse" />
+  <xs:element name="_trans_itemGetquery" type="tns:_trans_itemGetquery" />
+  <xs:element name="_trans_itemGetqueryCompress" type="tns:_trans_itemGetqueryCompress" />
+  <xs:element name="_trans_itemGetqueryCompressResponse" type="tns:_trans_itemGetqueryCompressResponse" />
+  <xs:element name="_trans_itemGetqueryResponse" type="tns:_trans_itemGetqueryResponse" />
+  <xs:complexType name="_dePositGetquerySearchCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetquerySearchCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_trans_itemGetqueryCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+      <xs:element name="arg4" type="xs:int" />
+      <xs:element name="arg5" type="xs:int" />
+      <xs:element name="arg6" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_trans_itemGetqueryCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_balance_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_balance_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processKiller">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processKillerResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_purchase_permium_process">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_purchase_permium_processResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetquery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetqueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_location">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_process_gps_locationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processApTrans">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element name="arg8" type="xs:int" />
+      <xs:element name="arg9" type="xs:int" />
+      <xs:element name="arg10" type="xs:int" />
+      <xs:element name="arg11" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processApTransResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Exception">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetqueryCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetqueryCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_ageing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_ageingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_status_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+      <xs:element name="arg8" type="xs:int" />
+      <xs:element name="arg9" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_status_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_glReFormatChartOfAccount">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_glReFormatChartOfAccountResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_data">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_dataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_stream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element name="arg6" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_streamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processChqCreditCard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processChqCreditCardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_condition">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:boolean" />
+      <xs:element name="arg1" type="xs:boolean" />
+      <xs:element name="arg2" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_conditionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_remaimn_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_remaimn_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_status">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+      <xs:element name="arg8" type="xs:int" />
+      <xs:element name="arg9" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_statusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_balance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_balanceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_trans_itemGetquery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element name="arg4" type="xs:int" />
+      <xs:element name="arg5" type="xs:int" />
+      <xs:element name="arg6" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_trans_itemGetqueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_status_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_status_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_cost_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+      <xs:element name="arg4" type="xs:int" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_cost_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_update_data">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element name="arg1" type="xs:double" />
+      <xs:element name="arg2" type="xs:double" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_update_dataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_cost_finish">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_cost_finishResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_cost">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element name="arg4" type="xs:int" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_costResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetqueryCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetqueryCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_status">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_statusResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_purchase_permium_process_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_purchase_permium_process_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetquerySearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetquerySearchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_cb_statement">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_cb_statementResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_balance">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_balanceResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_sale_data_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_sale_data_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_request_cancel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_request_cancelResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetquerySearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetquerySearchResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryRemainStream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryRemainStreamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCBGetStream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element name="arg3" type="xs:int" />
+      <xs:element name="arg4" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCBGetStreamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_ageing">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_ageingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryRemainGetStream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element name="arg3" type="xs:int" />
+      <xs:element name="arg4" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryRemainGetStreamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_cb_statement_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element name="arg7" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_cb_statement_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processDashBoardsCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processDashBoardsCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_ageing_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ar_ageing_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_profit_and_lost_by_color_stream">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+      <xs:element minOccurs="0" name="arg10" type="xs:string" />
+      <xs:element minOccurs="0" name="arg11" type="xs:string" />
+      <xs:element minOccurs="0" name="arg12" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_profit_and_lost_by_color_streamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processApTransCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element name="arg8" type="xs:int" />
+      <xs:element name="arg9" type="xs:int" />
+      <xs:element name="arg10" type="xs:int" />
+      <xs:element name="arg11" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processApTransCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_remain">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ic_remainResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetquery">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_dePositGetqueryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_balance_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_stock_balance_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processDashBoard">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processDashBoardResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCBStream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCBStreamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_profit_and_lost_by_product_stream">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+      <xs:element minOccurs="0" name="arg10" type="xs:string" />
+      <xs:element minOccurs="0" name="arg11" type="xs:string" />
+      <xs:element minOccurs="0" name="arg12" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_profit_and_lost_by_product_streamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_request">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_requestResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetquerySearchCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_invoiceGetquerySearchCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_processResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_sale_data">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_load_sale_dataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_ageing_compress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_ap_ageing_compressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_data">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element name="arg2" type="xs:double" />
+      <xs:element name="arg3" type="xs:double" />
+      <xs:element name="arg4" type="xs:int" />
+      <xs:element name="arg5" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_process_gps_dataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5C3BD762-1B77-40A3-87C6-F85208421203}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLTransferDataPOS</RootNamespace>
+    <AssemblyName>SMLTransferDataPOS</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>C:\publish\smltransferdatapos\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>true</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://www.smlsoft.com/smltransferdatapos/</InstallUrl>
+    <ProductName>SML TransferData POS</ProductName>
+    <PublisherName>SMLSoft</PublisherName>
+    <MinimumRequiredVersion>1.0.0.21</MinimumRequiredVersion>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>index.html</WebPage>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>E2DB14C16C420C1000D2CE7AC545EA635B5FFC54</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SMLTransferDataPOS_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>index_replace.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_earthSaleTransferUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_earthSaleTransferUserControl.Designer.cs">
+      <DependentUpon>_earthSaleTransferUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_earthTransferTransectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_earthTransferTransectionControl.Designer.cs">
+      <DependentUpon>_earthTransferTransectionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_global.cs" />
+    <Compile Include="_icTransfer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransfer.Designer.cs">
+      <DependentUpon>_icTransfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_mainForm.Designer.cs">
+      <DependentUpon>_mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_mainServerSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_mainServerSetup.Designer.cs">
+      <DependentUpon>_mainServerSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_posSaleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_posSaleControl.Designer.cs">
+      <DependentUpon>_posSaleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_siriPosDataTransfer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_siriPosDataTransfer.Designer.cs">
+      <DependentUpon>_siriPosDataTransfer.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_earthSaleTransferUserControl.resx">
+      <DependentUpon>_earthSaleTransferUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_earthTransferTransectionControl.resx">
+      <DependentUpon>_earthTransferTransectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icTransfer.resx">
+      <DependentUpon>_icTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_mainForm.resx">
+      <DependentUpon>_mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_mainServerSetup.resx">
+      <DependentUpon>_mainServerSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_posSaleControl.resx">
+      <DependentUpon>_posSaleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_siriPosDataTransfer.resx">
+      <DependentUpon>_siriPosDataTransfer.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SMLTransferDataPOS_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLDataCenterSync\SMLDataCenterSync.csproj">
+      <Project>{16529ABC-A879-4E9A-B3D1-69ACF14B8300}</Project>
+      <Name>SMLDataCenterSync</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPTemplate\SMLERPTemplate.csproj">
+      <Project>{72DC59D6-C11D-430C-950B-B5266FB463E8}</Project>
+      <Name>SMLERPTemplate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4c2c0f42-fe26-4ca5-99b5-543ab784551c}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index_replace.ico" />
+    <None Include="Resources\flash1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://SMLWebService/" targetNamespace="http://SMLWebService/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="IOException" type="tns:IOException" />
+  <xs:element name="_DeleteImageList" type="tns:_DeleteImageList" />
+  <xs:element name="_DeleteImageListResponse" type="tns:_DeleteImageListResponse" />
+  <xs:element name="_LoadImageList" type="tns:_LoadImageList" />
+  <xs:element name="_LoadImageListResponse" type="tns:_LoadImageListResponse" />
+  <xs:element name="_SaveFormDesign" type="tns:_SaveFormDesign" />
+  <xs:element name="_SaveFormDesignResponse" type="tns:_SaveFormDesignResponse" />
+  <xs:element name="_SaveImageList" type="tns:_SaveImageList" />
+  <xs:element name="_SaveImageListResponse" type="tns:_SaveImageListResponse" />
+  <xs:element name="_changePassword" type="tns:_changePassword" />
+  <xs:element name="_changePasswordResponse" type="tns:_changePasswordResponse" />
+  <xs:element name="_checkConnect" type="tns:_checkConnect" />
+  <xs:element name="_checkConnectResponse" type="tns:_checkConnectResponse" />
+  <xs:element name="_checkConnectSpeed" type="tns:_checkConnectSpeed" />
+  <xs:element name="_checkConnectSpeedResponse" type="tns:_checkConnectSpeedResponse" />
+  <xs:element name="_connectDatabase" type="tns:_connectDatabase" />
+  <xs:element name="_connectDatabaseResponse" type="tns:_connectDatabaseResponse" />
+  <xs:element name="_createDatabaseAndTable" type="tns:_createDatabaseAndTable" />
+  <xs:element name="_createDatabaseAndTableResponse" type="tns:_createDatabaseAndTableResponse" />
+  <xs:element name="_deleteGroupList" type="tns:_deleteGroupList" />
+  <xs:element name="_deleteGroupListResponse" type="tns:_deleteGroupListResponse" />
+  <xs:element name="_deleteUserList" type="tns:_deleteUserList" />
+  <xs:element name="_deleteUserListResponse" type="tns:_deleteUserListResponse" />
+  <xs:element name="_findDatabase" type="tns:_findDatabase" />
+  <xs:element name="_findDatabaseResponse" type="tns:_findDatabaseResponse" />
+  <xs:element name="_getAdminConnection" type="tns:_getAdminConnection" />
+  <xs:element name="_getAdminConnectionResponse" type="tns:_getAdminConnectionResponse" />
+  <xs:element name="_getAllTable" type="tns:_getAllTable" />
+  <xs:element name="_getAllTableResponse" type="tns:_getAllTableResponse" />
+  <xs:element name="_getConnection" type="tns:_getConnection" />
+  <xs:element name="_getConnectionResponse" type="tns:_getConnectionResponse" />
+  <xs:element name="_getDatabaseCode" type="tns:_getDatabaseCode" />
+  <xs:element name="_getDatabaseCodeResponse" type="tns:_getDatabaseCodeResponse" />
+  <xs:element name="_getDatabaseList" type="tns:_getDatabaseList" />
+  <xs:element name="_getDatabaseListResponse" type="tns:_getDatabaseListResponse" />
+  <xs:element name="_getFieldFromDatabase" type="tns:_getFieldFromDatabase" />
+  <xs:element name="_getFieldFromDatabaseResponse" type="tns:_getFieldFromDatabaseResponse" />
+  <xs:element name="_getFileLastUpdate" type="tns:_getFileLastUpdate" />
+  <xs:element name="_getFileLastUpdateResponse" type="tns:_getFileLastUpdateResponse" />
+  <xs:element name="_getGroupList" type="tns:_getGroupList" />
+  <xs:element name="_getGroupListResponse" type="tns:_getGroupListResponse" />
+  <xs:element name="_getMacAddress" type="tns:_getMacAddress" />
+  <xs:element name="_getMacAddressResponse" type="tns:_getMacAddressResponse" />
+  <xs:element name="_getQrCodeByte" type="tns:_getQrCodeByte" />
+  <xs:element name="_getQrCodeByteResponse" type="tns:_getQrCodeByteResponse" />
+  <xs:element name="_getSchemaTable" type="tns:_getSchemaTable" />
+  <xs:element name="_getSchemaTableResponse" type="tns:_getSchemaTableResponse" />
+  <xs:element name="_getServerIpAddr" type="tns:_getServerIpAddr" />
+  <xs:element name="_getServerIpAddrResponse" type="tns:_getServerIpAddrResponse" />
+  <xs:element name="_getTableFromDatabase" type="tns:_getTableFromDatabase" />
+  <xs:element name="_getTableFromDatabaseResponse" type="tns:_getTableFromDatabaseResponse" />
+  <xs:element name="_getUserList" type="tns:_getUserList" />
+  <xs:element name="_getUserListInGroup" type="tns:_getUserListInGroup" />
+  <xs:element name="_getUserListInGroupResponse" type="tns:_getUserListInGroupResponse" />
+  <xs:element name="_getUserListResponse" type="tns:_getUserListResponse" />
+  <xs:element name="_insertLanguageToTable" type="tns:_insertLanguageToTable" />
+  <xs:element name="_insertLanguageToTableResponse" type="tns:_insertLanguageToTableResponse" />
+  <xs:element name="_loadForm" type="tns:_loadForm" />
+  <xs:element name="_loadFormResponse" type="tns:_loadFormResponse" />
+  <xs:element name="_loadXmlFile" type="tns:_loadXmlFile" />
+  <xs:element name="_loadXmlFileResponse" type="tns:_loadXmlFileResponse" />
+  <xs:element name="_loginProcess" type="tns:_loginProcess" />
+  <xs:element name="_loginProcessResponse" type="tns:_loginProcessResponse" />
+  <xs:element name="_logoutProcess" type="tns:_logoutProcess" />
+  <xs:element name="_logoutProcessResponse" type="tns:_logoutProcessResponse" />
+  <xs:element name="_providerLoad" type="tns:_providerLoad" />
+  <xs:element name="_providerLoadResponse" type="tns:_providerLoadResponse" />
+  <xs:element name="_providerSave" type="tns:_providerSave" />
+  <xs:element name="_providerSaveResponse" type="tns:_providerSaveResponse" />
+  <xs:element name="_query" type="tns:_query" />
+  <xs:element name="_query2" type="tns:_query2" />
+  <xs:element name="_query2Response" type="tns:_query2Response" />
+  <xs:element name="_queryByteData" type="tns:_queryByteData" />
+  <xs:element name="_queryByteDataResponse" type="tns:_queryByteDataResponse" />
+  <xs:element name="_queryColumnName" type="tns:_queryColumnName" />
+  <xs:element name="_queryColumnNameResponse" type="tns:_queryColumnNameResponse" />
+  <xs:element name="_queryCompress" type="tns:_queryCompress" />
+  <xs:element name="_queryCompressByteArray" type="tns:_queryCompressByteArray" />
+  <xs:element name="_queryCompressByteArrayResponse" type="tns:_queryCompressByteArrayResponse" />
+  <xs:element name="_queryCompressResponse" type="tns:_queryCompressResponse" />
+  <xs:element name="_queryGetStream" type="tns:_queryGetStream" />
+  <xs:element name="_queryGetStreamResponse" type="tns:_queryGetStreamResponse" />
+  <xs:element name="_queryInsertOrUpdate" type="tns:_queryInsertOrUpdate" />
+  <xs:element name="_queryInsertOrUpdateCompress" type="tns:_queryInsertOrUpdateCompress" />
+  <xs:element name="_queryInsertOrUpdateCompressResponse" type="tns:_queryInsertOrUpdateCompressResponse" />
+  <xs:element name="_queryInsertOrUpdateNoGuid2" type="tns:_queryInsertOrUpdateNoGuid2" />
+  <xs:element name="_queryInsertOrUpdateNoGuid2Response" type="tns:_queryInsertOrUpdateNoGuid2Response" />
+  <xs:element name="_queryInsertOrUpdateResponse" type="tns:_queryInsertOrUpdateResponse" />
+  <xs:element name="_queryLimit" type="tns:_queryLimit" />
+  <xs:element name="_queryLimitCompress" type="tns:_queryLimitCompress" />
+  <xs:element name="_queryLimitCompressResponse" type="tns:_queryLimitCompressResponse" />
+  <xs:element name="_queryLimitResponse" type="tns:_queryLimitResponse" />
+  <xs:element name="_queryList" type="tns:_queryList" />
+  <xs:element name="_queryListCompress" type="tns:_queryListCompress" />
+  <xs:element name="_queryListCompressResponse" type="tns:_queryListCompressResponse" />
+  <xs:element name="_queryListGetData" type="tns:_queryListGetData" />
+  <xs:element name="_queryListGetDataCompress" type="tns:_queryListGetDataCompress" />
+  <xs:element name="_queryListGetDataCompressResponse" type="tns:_queryListGetDataCompressResponse" />
+  <xs:element name="_queryListGetDataResponse" type="tns:_queryListGetDataResponse" />
+  <xs:element name="_queryListResponse" type="tns:_queryListResponse" />
+  <xs:element name="_queryResponse" type="tns:_queryResponse" />
+  <xs:element name="_queryStream" type="tns:_queryStream" />
+  <xs:element name="_queryStreamResponse" type="tns:_queryStreamResponse" />
+  <xs:element name="_query_Image" type="tns:_query_Image" />
+  <xs:element name="_query_ImageResponse" type="tns:_query_ImageResponse" />
+  <xs:element name="_queryfrontPosProduct" type="tns:_queryfrontPosProduct" />
+  <xs:element name="_queryfrontPosProductCompress" type="tns:_queryfrontPosProductCompress" />
+  <xs:element name="_queryfrontPosProductCompressResponse" type="tns:_queryfrontPosProductCompressResponse" />
+  <xs:element name="_queryfrontPosProductResponse" type="tns:_queryfrontPosProductResponse" />
+  <xs:element name="_readXmlFile" type="tns:_readXmlFile" />
+  <xs:element name="_readXmlFileResponse" type="tns:_readXmlFileResponse" />
+  <xs:element name="_resourceInsert" type="tns:_resourceInsert" />
+  <xs:element name="_resourceInsertAll" type="tns:_resourceInsertAll" />
+  <xs:element name="_resourceInsertAllResponse" type="tns:_resourceInsertAllResponse" />
+  <xs:element name="_resourceInsertResponse" type="tns:_resourceInsertResponse" />
+  <xs:element name="_saveDatabaseList" type="tns:_saveDatabaseList" />
+  <xs:element name="_saveDatabaseListResponse" type="tns:_saveDatabaseListResponse" />
+  <xs:element name="_saveGroupList" type="tns:_saveGroupList" />
+  <xs:element name="_saveGroupListResponse" type="tns:_saveGroupListResponse" />
+  <xs:element name="_saveUserAndGroup" type="tns:_saveUserAndGroup" />
+  <xs:element name="_saveUserAndGroupResponse" type="tns:_saveUserAndGroupResponse" />
+  <xs:element name="_saveUserList" type="tns:_saveUserList" />
+  <xs:element name="_saveUserListResponse" type="tns:_saveUserListResponse" />
+  <xs:element name="_saveXmlFile" type="tns:_saveXmlFile" />
+  <xs:element name="_saveXmlFileResponse" type="tns:_saveXmlFileResponse" />
+  <xs:element name="_sendGuid" type="tns:_sendGuid" />
+  <xs:element name="_sendGuidResponse" type="tns:_sendGuidResponse" />
+  <xs:element name="_systemChangePassword" type="tns:_systemChangePassword" />
+  <xs:element name="_systemChangePasswordResponse" type="tns:_systemChangePasswordResponse" />
+  <xs:element name="_systemLogin" type="tns:_systemLogin" />
+  <xs:element name="_systemLoginResponse" type="tns:_systemLoginResponse" />
+  <xs:element name="_systemStartup" type="tns:_systemStartup" />
+  <xs:element name="_systemStartupResponse" type="tns:_systemStartupResponse" />
+  <xs:element name="_verifyDatabase" type="tns:_verifyDatabase" />
+  <xs:element name="_verifyDatabaseResponse" type="tns:_verifyDatabaseResponse" />
+  <xs:element name="_verifyDatabaseScript" type="tns:_verifyDatabaseScript" />
+  <xs:element name="_verifyDatabaseScriptResponse" type="tns:_verifyDatabaseScriptResponse" />
+  <xs:complexType name="_sendGuid">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_sendGuidResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_logoutProcess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_logoutProcessResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_loadXmlFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_loadXmlFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCompressByteArray">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCompressByteArrayResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_providerLoad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_providerLoadResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_SaveFormDesign">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="arg8" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_SaveFormDesignResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getDatabaseCode">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getDatabaseCodeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryByteData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg4" nillable="true" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryByteDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getUserList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getUserListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveXmlFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="XMLFileName" type="xs:string" />
+      <xs:element minOccurs="0" name="XMLString" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveXmlFileResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_checkConnect">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_checkConnectResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveUserList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveUserListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_verifyDatabase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_verifyDatabaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getQrCodeByte">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getQrCodeByteResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getConnection">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getConnectionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getSchemaTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getSchemaTableResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getMacAddress">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_getMacAddressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getTableFromDatabase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getTableFromDatabaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListGetDataCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListGetDataCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryLimitCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element name="arg5" type="xs:int" />
+      <xs:element name="arg6" type="xs:int" />
+      <xs:element name="arg7" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryLimitCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_query">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_readXmlFile">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_readXmlFileResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getFieldFromDatabase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getFieldFromDatabaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryGetStream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element name="arg3" type="xs:int" />
+      <xs:element name="arg4" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryGetStreamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_findDatabase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_findDatabaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_changePassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_changePasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryInsertOrUpdateNoGuid2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryInsertOrUpdateNoGuid2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_providerSave">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_providerSaveResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_deleteUserList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_deleteUserListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_query2">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_query2Response">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_DeleteImageList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg5" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_DeleteImageListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryInsertOrUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryInsertOrUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_systemLogin">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_systemLoginResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_loadForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_loadFormResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:formDesignType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="formDesignType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_code" type="xs:string" />
+      <xs:element minOccurs="0" name="_name" type="xs:string" />
+      <xs:element minOccurs="0" name="_formdesign" type="xs:anyType" />
+      <xs:element minOccurs="0" name="_formbg" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_systemStartup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_systemStartupResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_deleteGroupList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_deleteGroupListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="IOException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryInsertOrUpdateCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryInsertOrUpdateCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getAdminConnection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getAdminConnectionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_SaveImageList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg3" nillable="true" type="tns:imageType" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg5" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="imageType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_code" type="xs:string" />
+      <xs:element minOccurs="0" name="_databyteImage" type="xs:anyType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_SaveImageListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_verifyDatabaseScript">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_verifyDatabaseScriptResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_getUserListInGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getUserListInGroupResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_createDatabaseAndTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_createDatabaseAndTableResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListGetData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListGetDataResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryLimit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element name="arg5" type="xs:int" />
+      <xs:element name="arg6" type="xs:int" />
+      <xs:element name="arg7" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryLimitResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_connectDatabase">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_connectDatabaseResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getFileLastUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getFileLastUpdateResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_resourceInsertAll">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_resourceInsertAllResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_getServerIpAddr">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getServerIpAddrResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryfrontPosProductCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+      <xs:element minOccurs="0" name="arg10" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryfrontPosProductCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryfrontPosProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+      <xs:element minOccurs="0" name="arg6" type="xs:string" />
+      <xs:element minOccurs="0" name="arg7" type="xs:string" />
+      <xs:element minOccurs="0" name="arg8" type="xs:string" />
+      <xs:element minOccurs="0" name="arg9" type="xs:string" />
+      <xs:element minOccurs="0" name="arg10" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryfrontPosProductResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_systemChangePassword">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_systemChangePasswordResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveUserAndGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveUserAndGroupResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_LoadImageList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_LoadImageListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" nillable="true" type="tns:imageType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryStream">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryStreamResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_query_Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_query_ImageResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveGroupList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveGroupListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getDatabaseList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getDatabaseListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getGroupList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getGroupListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_insertLanguageToTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_insertLanguageToTableResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getAllTable">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_getAllTableResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_checkConnectSpeed">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="_checkConnectSpeedResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_resourceInsert">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_resourceInsertResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:resourceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resourceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="_code" type="xs:string" />
+      <xs:element minOccurs="0" name="_name_1" type="xs:string" />
+      <xs:element minOccurs="0" name="_name_2" type="xs:string" />
+      <xs:element minOccurs="0" name="_name_3" type="xs:string" />
+      <xs:element minOccurs="0" name="_name_4" type="xs:string" />
+      <xs:element minOccurs="0" name="_name_5" type="xs:string" />
+      <xs:element minOccurs="0" name="_name_6" type="xs:string" />
+      <xs:element name="_status" type="xs:int" />
+      <xs:element name="_length" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListCompress">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryListCompressResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" nillable="true" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryColumnName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_queryColumnNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_loginProcess">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+      <xs:element minOccurs="0" name="arg3" type="xs:string" />
+      <xs:element minOccurs="0" name="arg4" type="xs:string" />
+      <xs:element minOccurs="0" name="arg5" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_loginProcessResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveDatabaseList">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+      <xs:element minOccurs="0" name="arg1" type="xs:string" />
+      <xs:element minOccurs="0" name="arg2" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="_saveDatabaseListResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

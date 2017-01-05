@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<_data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <_module>
+    <anyType xsi:type="xsd:string">Pick_and_Pack</anyType>
+  </_module>
+  <_tables>
+    <_tableList _moduleName="Pick_and_Pack" _name="pp_trans" _description="รายการจัดสินค้า" _descriptionEng="pp_trans" _version="" _width="235" _height="213" _x="42" _y="28">
+      <_fields>
+        <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="Doc No" _type="1" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="1" _indentitySeed="1" _indentityIncrement="1">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="Doc Date" _type="6" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref_code" _description="เลขที่เอกสารอ้างอิง" _descriptionEng="Ref Code" _type="1" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref_date" _description="วันที่เอกสารอ้างอิง" _descriptionEng="Ref Date" _type="6" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="due_date" _description="วันที่มารับ" _descriptionEng="Due Date" _type="6" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="cust_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sale_code" _description="รหัสพนักงานขาย" _descriptionEng="Sale Code" _type="1" _length="20" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="status" _description="สถานะ" _descriptionEng="Status" _type="3" _length="0" _null="1" _resource_only="0" _default="0">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark>
+              <_remark>1=รอจัดสินค้า , 2=กำลังจัดสินค้า, 3=จัดสินค้าเสร็จ,4 =  รับของแล้ว ,9=ยกเลิก</_remark>
+            </_remark>
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="persent" _description="เปอร์เชน" _descriptionEng="Persent" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark" _description="หมายเหตุ" _descriptionEng="Remark" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="row_number" _description="ลำดับที่" _descriptionEng="Row Number" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="flag" _description="เลือก" _descriptionEng="Flag" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Pick_and_Pack" _name="pp_trans_detail" _description="รายละเอียด" _descriptionEng="pp_trans_detail" _version="" _width="275" _height="181" _x="48" _y="258">
+      <_fields>
+        <_fieldList _name="row_number" _description="ลำดับที่" _descriptionEng="Row Number" _type="3" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="Doc No" _type="1" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ic_code" _description="รหัสสินค้า" _descriptionEng="Item Code" _type="1" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wh_code" _description="คลังสินค้า" _descriptionEng="WH Code" _type="1" _length="20" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="shelf_code" _description="ที่เก็บสินค้า" _descriptionEng="Shelf Code" _type="1" _length="20" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="unit_code" _description="หน่วยนับ" _descriptionEng="Unit Code" _type="1" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="qty" _description="จำนวน" _descriptionEng="QTY" _type="2" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="event_qty" _description="จำนวนที่จัด" _descriptionEng="Even QTY" _type="2" _length="20" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="event_date_time" _description="วันและเวลาที่ทำรายการ" _descriptionEng="Date And Time" _type="8" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="flag" _description="เลือก" _descriptionEng="Flag" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+  </_tables>
+</_data>

@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CD0B05F2-4085-468A-9ED8-FAC39C16AD89}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPPO</RootNamespace>
+    <AssemblyName>SMLERPPO</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_buyInformation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_buyInformation.Designer.cs">
+      <DependentUpon>_buyInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_po_advance_money.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_po_advance_money.Designer.cs">
+      <DependentUpon>_po_advance_money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_po_advance_money_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_po_advance_money_return.Designer.cs">
+      <DependentUpon>_po_advance_money_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_po_deposit_money.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_po_deposit_money.Designer.cs">
+      <DependentUpon>_po_deposit_money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_po_deposit_money_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_po_deposit_money_return.Designer.cs">
+      <DependentUpon>_po_deposit_money_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_po_docPicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_po_docPicture.Designer.cs">
+      <DependentUpon>_po_docPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_purchase_order_investigate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_purchase_order_investigate.Designer.cs">
+      <DependentUpon>_purchase_order_investigate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_buyInformation.resx">
+      <DependentUpon>_buyInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_po_advance_money.resx">
+      <DependentUpon>_po_advance_money.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_po_advance_money_return.resx">
+      <DependentUpon>_po_advance_money_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_po_deposit_money.resx">
+      <DependentUpon>_po_deposit_money.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_po_deposit_money_return.resx">
+      <DependentUpon>_po_deposit_money_return.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_po_docPicture.resx">
+      <DependentUpon>_po_docPicture.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zoom_in.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

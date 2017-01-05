@@ -1,0 +1,705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74253644-DE8A-43E8-A9C1-3C50FFC570A2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPIC</RootNamespace>
+    <AssemblyName>SMLERPIC</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="SMLERPARAPInfo, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SMLERPARInfo\bin\Debug\SMLERPARAPInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLERPReportTool, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SMLERPReportTool\bin\Debug\SMLERPReportTool.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_warehouseLocationGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_warehouseLocationGroup.Designer.cs">
+      <DependentUpon>_warehouseLocationGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_whLocationGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_whLocationGroup.Designer.cs">
+      <DependentUpon>_whLocationGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_gridICSpecialSearchWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBarcodeDiscountSelectDayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icBarcodeDiscountSelectDayForm.Designer.cs">
+      <DependentUpon>_icBarcodeDiscountSelectDayForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icBarcodePicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBarcodePicture.Designer.cs">
+      <DependentUpon>_icBarcodePicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icDescription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icDescription.Designer.cs">
+      <DependentUpon>_icDescription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icDocPicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icDocPicture.Designer.cs">
+      <DependentUpon>_icDocPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icEditDetailFast.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icEditDetailFast.Designer.cs">
+      <DependentUpon>_icEditDetailFast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icLotManage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icLotManage.Designer.cs">
+      <DependentUpon>_icLotManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_screenWarehouseLocationGroup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_screenWarehouseLocationGroup.Designer.cs">
+      <DependentUpon>_screenWarehouseLocationGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMainProductSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMainProductSet.Designer.cs">
+      <DependentUpon>_icMainProductSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMultiBarcodeDiscount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMultiBarcodeDiscount.Designer.cs">
+      <DependentUpon>_icMultiBarcodeDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMultiBarcodeDiscountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMultiBarcodeDiscountControl.Designer.cs">
+      <DependentUpon>_icMultiBarcodeDiscountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMainControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMainControl.Designer.cs">
+      <DependentUpon>_icMainControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_icPromotion\_case4Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_case3Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_case1Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_case2Class.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_gridGroupClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icQualityLabelPrint.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_icQualityLabelPrint.Designer.cs">
+      <DependentUpon>_icQualityLabelPrint.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSerialStockCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSerialStockCheck.Designer.cs">
+      <DependentUpon>_icSerialStockCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icQualityControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icQualityControl.Designer.cs">
+      <DependentUpon>_icQualityControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSpecialPartRelateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSpecialPartRelateControl.Designer.cs">
+      <DependentUpon>_icSpecialPartRelateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSpecialSearchWordControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSpecialSearchWordControl.Designer.cs">
+      <DependentUpon>_icSpecialSearchWordControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSpecificSearch.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSpecificSearch.Designer.cs">
+      <DependentUpon>_icSpecificSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_screenICSpecialSearchWord.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_utility.cs" />
+    <EmbeddedResource Include="_icBarcodeDiscountSelectDayForm.resx">
+      <DependentUpon>_icBarcodeDiscountSelectDayForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icBarcodePicture.resx">
+      <DependentUpon>_icBarcodePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icDescription.resx">
+      <DependentUpon>_icDescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icDocPicture.resx">
+      <DependentUpon>_icDocPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icEditDetailFast.resx">
+      <DependentUpon>_icEditDetailFast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icLotManage.resx">
+      <DependentUpon>_icLotManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_screenWarehouseLocationGroup.resx">
+      <DependentUpon>_screenWarehouseLocationGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMainProductSet.resx">
+      <DependentUpon>_icMainProductSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMainControl.resx">
+      <DependentUpon>_icMainControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_barcodeCheckerControl.resx">
+      <DependentUpon>_barcodeCheckerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icAddBarcodeFastControl.resx">
+      <DependentUpon>_icAddBarcodeFastControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icBarcodeDiscount.resx">
+      <DependentUpon>_icBarcodeDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icBarcodeDiscountControl.resx">
+      <DependentUpon>_icBarcodeDiscountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icBuildPriceList.resx">
+      <DependentUpon>_icBuildPriceList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icImportPicture.resx">
+      <DependentUpon>_icImportPicture.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMainColorSet.resx">
+      <DependentUpon>_icMainColorSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icBarcodeDiscountGrid.resx">
+      <DependentUpon>_icBarcodeDiscountGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMultiBarcodeDiscount.resx">
+      <DependentUpon>_icMultiBarcodeDiscount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMultiBarcodeDiscountControl.resx">
+      <DependentUpon>_icMultiBarcodeDiscountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPointUpdateControl.resx">
+      <DependentUpon>_icPointUpdateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPromotion\_conditionControl.resx">
+      <DependentUpon>_conditionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPurchasePermium.resx">
+      <DependentUpon>_icPurchasePermium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icQualityLabelPrint.resx">
+      <DependentUpon>_icQualityLabelPrint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icRecalc.resx">
+      <DependentUpon>_icRecalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSearchLevel.resx">
+      <DependentUpon>_icSearchLevel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSearchLevelMultiItem.resx">
+      <DependentUpon>_icSearchLevelMultiItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSearchLevelMultiItemScreen.resx">
+      <DependentUpon>_icSearchLevelMultiItemScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSearchLevelScreen.resx">
+      <DependentUpon>_icSearchLevelScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSerialNumber.resx">
+      <DependentUpon>_icSerialNumber.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icBarcode.resx">
+      <DependentUpon>_icBarcode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icDateAdjust.resx">
+      <DependentUpon>_icDateAdjust.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMain.resx">
+      <DependentUpon>_icMain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMainDetail.resx">
+      <DependentUpon>_icMainDetail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icMainDetailPicture.resx">
+      <DependentUpon>_icMainDetailPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icPromotion\_formula.resx">
+      <DependentUpon>_formula.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icRelation.resx">
+      <DependentUpon>_icRelation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSerialStockCheck.resx">
+      <DependentUpon>_icSerialStockCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSpecialPartRelateControl.resx">
+      <DependentUpon>_icSpecialPartRelateControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSpecialSearchWordControl.resx">
+      <DependentUpon>_icSpecialSearchWordControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icSpecificSearch.resx">
+      <DependentUpon>_icSpecificSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icStkBuid.resx">
+      <DependentUpon>_icStkBuid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icStockCheck.resx">
+      <DependentUpon>_icStockCheck.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icStockColorAdj.resx">
+      <DependentUpon>_icStockColorAdj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icStockColorRecalc.resx">
+      <DependentUpon>_icStockColorRecalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icUnitCheckerControl.resx">
+      <DependentUpon>_icUnitCheckerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_icWeightCost.resx">
+      <DependentUpon>_icWeightCost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_icQualityControl.resx">
+      <DependentUpon>_icQualityControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_warehouseLocationGroup.resx">
+      <DependentUpon>_warehouseLocationGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="_barcodeCheckerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_barcodeCheckerControl.Designer.cs">
+      <DependentUpon>_barcodeCheckerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cancelControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cancelControl.Designer.cs">
+      <DependentUpon>_cancelControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icAddBarcodeFastControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icAddBarcodeFastControl.Designer.cs">
+      <DependentUpon>_icAddBarcodeFastControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icBarcodeDiscount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBarcodeDiscount.Designer.cs">
+      <DependentUpon>_icBarcodeDiscount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icBarcodeDiscountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBarcodeDiscountControl.Designer.cs">
+      <DependentUpon>_icBarcodeDiscountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icBuildPriceList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBuildPriceList.Designer.cs">
+      <DependentUpon>_icBuildPriceList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icImportPicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icImportPicture.Designer.cs">
+      <DependentUpon>_icImportPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMainColorSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMainColorSet.Designer.cs">
+      <DependentUpon>_icMainColorSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icBarcodeDiscountGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBarcodeDiscountGrid.Designer.cs">
+      <DependentUpon>_icBarcodeDiscountGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPointUpdateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPointUpdateControl.Designer.cs">
+      <DependentUpon>_icPointUpdateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPromotion\_conditionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_conditionControl.Designer.cs">
+      <DependentUpon>_conditionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPromotion\_gridItemClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_gridPriceAndDiscountClass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_icPromotionFormulaScreenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPurchasePermium.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPurchasePermium.Designer.cs">
+      <DependentUpon>_icPurchasePermium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icRecalc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icRecalc.Designer.cs">
+      <DependentUpon>_icRecalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSearchLevel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSearchLevel.Designer.cs">
+      <DependentUpon>_icSearchLevel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSearchLevelMultiItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSearchLevelMultiItem.Designer.cs">
+      <DependentUpon>_icSearchLevelMultiItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSearchLevelMultiItemScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSearchLevelMultiItemScreen.Designer.cs">
+      <DependentUpon>_icSearchLevelMultiItemScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSearchLevelScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSearchLevelScreen.Designer.cs">
+      <DependentUpon>_icSearchLevelScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icSerialNumber.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icSerialNumber.Designer.cs">
+      <DependentUpon>_icSerialNumber.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icBarcode.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icBarcode.Designer.cs">
+      <DependentUpon>_icBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icDateAdjust.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icDateAdjust.Designer.cs">
+      <DependentUpon>_icDateAdjust.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMain.Designer.cs">
+      <DependentUpon>_icMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMainDetail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMainDetail.Designer.cs">
+      <DependentUpon>_icMainDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icMainDetailPicture.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icMainDetailPicture.Designer.cs">
+      <DependentUpon>_icMainDetailPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icPromotion\_formula.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icPromotion\_formula.Designer.cs">
+      <DependentUpon>_formula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icRelation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icRelation.Designer.cs">
+      <DependentUpon>_icRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icStkBuid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icStkBuid.Designer.cs">
+      <DependentUpon>_icStkBuid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icStockCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icStockCheck.Designer.cs">
+      <DependentUpon>_icStockCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icStockColorAdj.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icStockColorAdj.Designer.cs">
+      <DependentUpon>_icStockColorAdj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icStockColorRecalc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icStockColorRecalc.Designer.cs">
+      <DependentUpon>_icStockColorRecalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icUnitCheckerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icUnitCheckerControl.Designer.cs">
+      <DependentUpon>_icUnitCheckerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_icWeightCost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icWeightCost.Designer.cs">
+      <DependentUpon>_icWeightCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_processPromotion.cs" />
+    <Compile Include="_selectMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HTMLwysiwygLib\HTMLwysiwygLib.csproj">
+      <Project>{E1826C5B-D05C-400D-8223-D401D8A04061}</Project>
+      <Name>HTMLwysiwygLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonLib\JsonLib.csproj">
+      <Project>{04d535b4-9302-4247-b65c-f1d2d4c05752}</Project>
+      <Name>JsonLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLBarcodeManage\SMLBarcodeManage.csproj">
+      <Project>{BF22C54B-4AC3-4050-8C5D-81A95B3C5955}</Project>
+      <Name>SMLBarcodeManage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAR\SMLERPAR.csproj">
+      <Project>{60245A02-8C1E-4BB9-B365-D65423793126}</Project>
+      <Name>SMLERPAR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGLControl\SMLERPGLControl.csproj">
+      <Project>{FE37DB34-D7D6-441C-AF95-41A8CBE06FDB}</Project>
+      <Name>SMLERPGLControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPICInfo\SMLERPICInfo.csproj">
+      <Project>{D81C3BD6-3AD4-47E0-93C7-B37EEC82B62A}</Project>
+      <Name>SMLERPICInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReport\SMLERPReport.csproj">
+      <Project>{5208DB5E-2327-414A-9170-86AA6B6C0E71}</Project>
+      <Name>SMLERPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47ea8ca3-3fbf-4e90-a811-ab61f48ec9d6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\bt03.png" />
+    <Content Include="_saveButton.Image.png" />
+    <None Include="Resources\printer1.png" />
+    <None Include="Resources\lightbulb_on.png" />
+    <None Include="Resources\unknown.png" />
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\folder_into.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\delete.png" />
+    <Content Include="Resources\disk_blue.png" />
+    <Content Include="Resources\error1.png" />
+    <Content Include="Resources\exit.png" />
+    <None Include="Resources\replace2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

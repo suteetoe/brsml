@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{37699660-52D6-408D-B84C-2C264A446B75}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPAPReport</RootNamespace>
+    <AssemblyName>SMLERPAPReport</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <StartupObject />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="condition\_condition_aging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="condition\_condition_aging.Designer.cs">
+      <DependentUpon>_condition_aging.cs</DependentUpon>
+    </Compile>
+    <Compile Include="condition\_condition_grid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="condition\_condition_screen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="condition\_condition_screen_detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="condition\_condition_screen_detail.Designer.cs">
+      <DependentUpon>_condition_screen_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="condition\_condition_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="condition\_condition_form.Designer.cs">
+      <DependentUpon>_condition_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_payment_daily.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_payment_daily.Designer.cs">
+      <DependentUpon>_payment_daily.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_absolute_not_movement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_absolute_not_movement.Designer.cs">
+      <DependentUpon>_absolute_not_movement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_billing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_billing.Designer.cs">
+      <DependentUpon>_billing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_billing_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_billing_cancel.Designer.cs">
+      <DependentUpon>_billing_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_debt_cut_off.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_debt_cut_off.Designer.cs">
+      <DependentUpon>_debt_cut_off.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_debt_cut_off_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_debt_cut_off_cancel.Designer.cs">
+      <DependentUpon>_debt_cut_off_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_payment.Designer.cs">
+      <DependentUpon>_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_payment_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_payment_cancel.Designer.cs">
+      <DependentUpon>_payment_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_prepare_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_prepare_payment.Designer.cs">
+      <DependentUpon>_prepare_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="report\_prepare_payment_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="report\_prepare_payment_cancel.Designer.cs">
+      <DependentUpon>_prepare_payment_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <EmbeddedResource Include="condition\_condition_aging.resx">
+      <DependentUpon>_condition_aging.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="condition\_condition_form.resx">
+      <DependentUpon>_condition_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_payment_daily.resx">
+      <DependentUpon>_payment_daily.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_absolute_not_movement.resx">
+      <DependentUpon>_absolute_not_movement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_billing.resx">
+      <DependentUpon>_billing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_billing_cancel.resx">
+      <DependentUpon>_billing_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_debt_cut_off.resx">
+      <DependentUpon>_debt_cut_off.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_debt_cut_off_cancel.resx">
+      <DependentUpon>_debt_cut_off_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_payment.resx">
+      <DependentUpon>_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_payment_cancel.resx">
+      <DependentUpon>_payment_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_prepare_payment.resx">
+      <DependentUpon>_prepare_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="report\_prepare_payment_cancel.resx">
+      <DependentUpon>_prepare_payment_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARInfo\SMLERPARAPInfo.csproj">
+      <Project>{29BAAC40-D635-4619-BB24-AD8D6FAB2D82}</Project>
+      <Name>SMLERPARAPInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARReport\SMLERPARAPReport.csproj">
+      <Project>{706278D1-2158-4000-A1A5-F401B0C59890}</Project>
+      <Name>SMLERPARAPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
+      <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
+      <Name>SMLERPReportTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

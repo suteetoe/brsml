@@ -1,0 +1,1274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5208DB5E-2327-414A-9170-86AA6B6C0E71}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPReport</RootNamespace>
+    <AssemblyName>SMLERPReport</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ap\Billing_Outstanding.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Billing_Outstanding.Designer.cs">
+      <DependentUpon>Billing_Outstanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Billing_Value_by_Invoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Billing_Value_by_Invoice.Designer.cs">
+      <DependentUpon>Billing_Value_by_Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Debt_Cut_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Debt_Cut_by_Date.Designer.cs">
+      <DependentUpon>Debt_Cut_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Debt_Cut_by_Payable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Debt_Cut_by_Payable.Designer.cs">
+      <DependentUpon>Debt_Cut_by_Payable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Debt_Cut_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Debt_Cut_Detail.Designer.cs">
+      <DependentUpon>Debt_Cut_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Detail_Payable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Detail_Payable.Designer.cs">
+      <DependentUpon>Detail_Payable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Documents_Early_Year.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Documents_Early_Year.Designer.cs">
+      <DependentUpon>Documents_Early_Year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Documents_Early_Year_Cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Documents_Early_Year_Cancel.Designer.cs">
+      <DependentUpon>Documents_Early_Year_Cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Documents_Early_Year_Other_Cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Documents_Early_Year_Other_Cancel.Designer.cs">
+      <DependentUpon>Documents_Early_Year_Other_Cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Increase_Debt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Increase_Debt.Designer.cs">
+      <DependentUpon>Increase_Debt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Increase_Debt_Cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Increase_Debt_Cancel.Designer.cs">
+      <DependentUpon>Increase_Debt_Cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Increase_Debt_Other_Cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Increase_Debt_Other_Cancel.Designer.cs">
+      <DependentUpon>Increase_Debt_Other_Cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Invoice_Arrears_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Invoice_Arrears_by_Date.Designer.cs">
+      <DependentUpon>Invoice_Arrears_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Invoice_Arrears_Due.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Invoice_Arrears_Due.Designer.cs">
+      <DependentUpon>Invoice_Arrears_Due.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Invoice_Due_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Invoice_Due_by_Date.Designer.cs">
+      <DependentUpon>Invoice_Due_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Invoice_Overdue_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Invoice_Overdue_by_Date.Designer.cs">
+      <DependentUpon>Invoice_Overdue_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Movement_Payable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Movement_Payable.Designer.cs">
+      <DependentUpon>Movement_Payable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Payable_Ageing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Payable_Ageing.Designer.cs">
+      <DependentUpon>Payable_Ageing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Payable_by_Currency.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Payable_by_Currency.Designer.cs">
+      <DependentUpon>Payable_by_Currency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Payment_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Payment_by_Date.Designer.cs">
+      <DependentUpon>Payment_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Payment_by_Department.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Payment_by_Department.Designer.cs">
+      <DependentUpon>Payment_by_Department.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Payment_by_Invoice.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Payment_by_Invoice.Designer.cs">
+      <DependentUpon>Payment_by_Invoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Payment_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Payment_Detail.Designer.cs">
+      <DependentUpon>Payment_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Reduction_Dept.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Reduction_Dept.Designer.cs">
+      <DependentUpon>Reduction_Dept.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Reduction_Dept_Cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Reduction_Dept_Cancel.Designer.cs">
+      <DependentUpon>Reduction_Dept_Cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Reduction_Dept_Other_Cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Reduction_Dept_Other_Cancel.Designer.cs">
+      <DependentUpon>Reduction_Dept_Other_Cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\Status_Payable.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\Status_Payable.Designer.cs">
+      <DependentUpon>Status_Payable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\_condition_type_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ap\_condition_type_1.Designer.cs">
+      <DependentUpon>_condition_type_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\_report_ap_doc_bill.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\_report_ap_doc_bill.Designer.cs">
+      <DependentUpon>_report_ap_doc_bill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ap\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\_report_ap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\_report_ap.Designer.cs">
+      <DependentUpon>_report_ap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ap\_report_ap_summary.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ap\_report_ap_summary.Designer.cs">
+      <DependentUpon>_report_ap_summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_condition_ar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ar\_condition_ar.Designer.cs">
+      <DependentUpon>_condition_ar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_condition_ar_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ar\_condition_ar_new.Designer.cs">
+      <DependentUpon>_condition_ar_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_grid_condition_ar_new.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_billing_and_detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_billing_and_detail.Designer.cs">
+      <DependentUpon>_report_ar_billing_and_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_check_balance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_check_balance.Designer.cs">
+      <DependentUpon>_report_ar_check_balance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_detail.Designer.cs">
+      <DependentUpon>_report_ar_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_document_start_year.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_document_start_year.Designer.cs">
+      <DependentUpon>_report_ar_document_start_year.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_invoice_payment_remain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_invoice_payment_remain.Designer.cs">
+      <DependentUpon>_report_ar_invoice_payment_remain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_receipt_temp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_receipt_temp.designer.cs">
+      <DependentUpon>_report_ar_receipt_temp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_trans_debt_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_trans_debt_payment.Designer.cs">
+      <DependentUpon>_report_ar_trans_debt_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_period_debt_remain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_period_debt_remain.Designer.cs">
+      <DependentUpon>_report_ar_period_debt_remain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_receipt_and_detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_receipt_and_detail.Designer.cs">
+      <DependentUpon>_report_ar_receipt_and_detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_record.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_record.Designer.cs">
+      <DependentUpon>_report_ar_record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_cut_debt_lost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_cut_debt_lost.Designer.cs">
+      <DependentUpon>_report_ar_cut_debt_lost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_status.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_status.Designer.cs">
+      <DependentUpon>_report_ar_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_report_ar_trans.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_report_ar_trans.Designer.cs">
+      <DependentUpon>_report_ar_trans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ar\_screen_condition_ar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ar\_screen_condition_ar_new.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Book_Bank_Balance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Book_Bank_Balance.Designer.cs">
+      <DependentUpon>Book_Bank_Balance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Cash_deposit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Cash_deposit.Designer.cs">
+      <DependentUpon>Cash_deposit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Cash_movements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Cash_movements.Designer.cs">
+      <DependentUpon>Cash_movements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Open_sub_Cash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Open_sub_Cash.Designer.cs">
+      <DependentUpon>Open_sub_Cash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Pay_Cash_by_DocDate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Pay_Cash_by_DocDate.Designer.cs">
+      <DependentUpon>Pay_Cash_by_DocDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Received_Cash_sub_item.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Received_Cash_sub_item.Designer.cs">
+      <DependentUpon>Received_Cash_sub_item.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Revenue_by_Bank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Revenue_by_Bank.Designer.cs">
+      <DependentUpon>Revenue_by_Bank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Statement_Advance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Statement_Advance.Designer.cs">
+      <DependentUpon>Statement_Advance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Sub_Cash_Movements.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Sub_Cash_Movements.Designer.cs">
+      <DependentUpon>Sub_Cash_Movements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Summary_Payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Summary_Payment.Designer.cs">
+      <DependentUpon>Summary_Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\Transfer_Money_Between_Banks.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\Transfer_Money_Between_Banks.Designer.cs">
+      <DependentUpon>Transfer_Money_Between_Banks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\_bankStatment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\_bankStatment.Designer.cs">
+      <DependentUpon>_bankStatment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="cash_bank\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="cash_bank\_report_cash_bank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="cash_bank\_report_cash_bank.Designer.cs">
+      <DependentUpon>_report_cash_bank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_condition_cheque_card.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_condition_cheque_card.Designer.cs">
+      <DependentUpon>_condition_cheque_card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_Cheque_Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_Cheque_Card.Designer.cs">
+      <DependentUpon>_report_Cheque_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Cancel_Card_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Cancel_Card_Detail.Designer.cs">
+      <DependentUpon>_report_chq_card_Cancel_Card_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Cancel_Cheque_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Cancel_Cheque_Detail.Designer.cs">
+      <DependentUpon>_report_chq_card_Cancel_Cheque_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Detail_Cheque_by_Date_Import.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Detail_Cheque_by_Date_Import.Designer.cs">
+      <DependentUpon>_report_chq_card_Detail_Cheque_by_Date_Import.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Disposit_Cheque_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_Disposit_Cheque_Detail.Designer.cs">
+      <DependentUpon>_report_chq_card_Disposit_Cheque_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_EndDate_Card.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_EndDate_Card.Designer.cs">
+      <DependentUpon>_report_chq_card_EndDate_Card.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_EndDate_Pay_Cheque.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_chq_card_EndDate_Pay_Cheque.Designer.cs">
+      <DependentUpon>_report_chq_card_EndDate_Pay_Cheque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_ch_card_Cash_Money_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Cheque_Card\_report_ch_card_Cash_Money_Detail.Designer.cs">
+      <DependentUpon>_report_ch_card_Cash_Money_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="condition\_screen_condition_grid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="condition\_screen_condition_tabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="imex\report_sale_analyze.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="imex\report_sale_analyze.Designer.cs">
+      <DependentUpon>report_sale_analyze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_condition_po.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="po\_condition_po.Designer.cs">
+      <DependentUpon>_condition_po.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_compare_purchase_monthly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_compare_purchase_monthly.Designer.cs">
+      <DependentUpon>_report_po_compare_purchase_monthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_cut_purchase_order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_cut_purchase_order.Designer.cs">
+      <DependentUpon>_report_po_cut_purchase_order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_cut_receipt.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_cut_receipt.Designer.cs">
+      <DependentUpon>_report_po_cut_receipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_debt_from_purchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_debt_from_purchase.Designer.cs">
+      <DependentUpon>_report_po_debt_from_purchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_analyze.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_analyze.Designer.cs">
+      <DependentUpon>_report_po_purchase_analyze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_explain_by_tax.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_explain_by_tax.Designer.cs">
+      <DependentUpon>_report_po_purchase_explain_by_tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_order_due_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_order_due_payment.Designer.cs">
+      <DependentUpon>_report_po_purchase_order_due_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_order_explain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_order_explain.Designer.cs">
+      <DependentUpon>_report_po_purchase_order_explain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_order_sum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_order_sum.Designer.cs">
+      <DependentUpon>_report_po_purchase_order_sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_sum_by_tax.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_sum_by_tax.Designer.cs">
+      <DependentUpon>_report_po_purchase_sum_by_tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_total.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_purchase_total.Designer.cs">
+      <DependentUpon>_report_po_purchase_total.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_rank_purchase_total.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_rank_purchase_total.Designer.cs">
+      <DependentUpon>_report_po_rank_purchase_total.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_receipt_explain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_receipt_explain.Designer.cs">
+      <DependentUpon>_report_po_receipt_explain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_requisition_purchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_requisition_purchase.Designer.cs">
+      <DependentUpon>_report_po_requisition_purchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_return_sum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_return_sum.Designer.cs">
+      <DependentUpon>_report_po_return_sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_report_po_status_purchase_order.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="po\_report_po_status_purchase_order.Designer.cs">
+      <DependentUpon>_report_po_status_purchase_order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="po\_screen_condition_po.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="so\Analysis_Sell_Ex_by_Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Analysis_Sell_Ex_by_Product.Designer.cs">
+      <DependentUpon>Analysis_Sell_Ex_by_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Analysis_Sell_Sum_by_DocNo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Analysis_Sell_Sum_by_DocNo.Designer.cs">
+      <DependentUpon>Analysis_Sell_Sum_by_DocNo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Check_Beck_Debt_by_Status.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Check_Beck_Debt_by_Status.Designer.cs">
+      <DependentUpon>Check_Beck_Debt_by_Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Debt_Ar_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Debt_Ar_Detail.Designer.cs">
+      <DependentUpon>Debt_Ar_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Delivery_Money_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Delivery_Money_by_Date.Designer.cs">
+      <DependentUpon>Delivery_Money_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Deposit_Cut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Deposit_Cut.Designer.cs">
+      <DependentUpon>Deposit_Cut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Deposit_Record.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Deposit_Record.Designer.cs">
+      <DependentUpon>Deposit_Record.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Explain_Invoice_by_Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Explain_Invoice_by_Product.Designer.cs">
+      <DependentUpon>Explain_Invoice_by_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Explain_Item_Category_Sales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Explain_Item_Category_Sales.Designer.cs">
+      <DependentUpon>Explain_Item_Category_Sales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Income_Cost_Matching.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Income_Cost_Matching.Designer.cs">
+      <DependentUpon>Income_Cost_Matching.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Invoice_Tax_Cut.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Invoice_Tax_Cut.Designer.cs">
+      <DependentUpon>Invoice_Tax_Cut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Margin_reacceptance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Margin_reacceptance.Designer.cs">
+      <DependentUpon>Margin_reacceptance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Pay_Oreder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Pay_Oreder.Designer.cs">
+      <DependentUpon>Pay_Oreder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Product_Rank.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Product_Rank.Designer.cs">
+      <DependentUpon>Product_Rank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Sale_Billing.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Sale_Billing.Designer.cs">
+      <DependentUpon>Sale_Billing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Sale_History_Product.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Sale_History_Product.Designer.cs">
+      <DependentUpon>Sale_History_Product.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Sell_by_Sale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Sell_by_Sale.Designer.cs">
+      <DependentUpon>Sell_by_Sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Shipments_by_Date.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Shipments_by_Date.Designer.cs">
+      <DependentUpon>Shipments_by_Date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Shipments_Compare_Month.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Shipments_Compare_Month.Designer.cs">
+      <DependentUpon>Shipments_Compare_Month.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\Tax_Invoice_Detail.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\Tax_Invoice_Detail.Designer.cs">
+      <DependentUpon>Tax_Invoice_Detail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="so\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="so\_report_so.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="so\_report_so.Designer.cs">
+      <DependentUpon>_report_so.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_condition_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_condition_form.Designer.cs">
+      <DependentUpon>_condition_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARInfo\SMLERPARAPInfo.csproj">
+      <Project>{29BAAC40-D635-4619-BB24-AD8D6FAB2D82}</Project>
+      <Name>SMLERPARAPInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
+      <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
+      <Name>SMLERPReportTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ap\Billing_Outstanding.resx">
+      <DependentUpon>Billing_Outstanding.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Billing_Value_by_Invoice.resx">
+      <DependentUpon>Billing_Value_by_Invoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Debt_Cut_by_Date.resx">
+      <DependentUpon>Debt_Cut_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Debt_Cut_by_Payable.resx">
+      <DependentUpon>Debt_Cut_by_Payable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Debt_Cut_Detail.resx">
+      <DependentUpon>Debt_Cut_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Detail_Payable.resx">
+      <DependentUpon>Detail_Payable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Documents_Early_Year.resx">
+      <DependentUpon>Documents_Early_Year.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Documents_Early_Year_Cancel.resx">
+      <DependentUpon>Documents_Early_Year_Cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Documents_Early_Year_Other_Cancel.resx">
+      <DependentUpon>Documents_Early_Year_Other_Cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Increase_Debt.resx">
+      <DependentUpon>Increase_Debt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Increase_Debt_Cancel.resx">
+      <DependentUpon>Increase_Debt_Cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Increase_Debt_Other_Cancel.resx">
+      <DependentUpon>Increase_Debt_Other_Cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Invoice_Arrears_by_Date.resx">
+      <DependentUpon>Invoice_Arrears_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Invoice_Arrears_Due.resx">
+      <DependentUpon>Invoice_Arrears_Due.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Invoice_Due_by_Date.resx">
+      <DependentUpon>Invoice_Due_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Invoice_Overdue_by_Date.resx">
+      <DependentUpon>Invoice_Overdue_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Movement_Payable.resx">
+      <DependentUpon>Movement_Payable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Payable_Ageing.resx">
+      <DependentUpon>Payable_Ageing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Payable_by_Currency.resx">
+      <DependentUpon>Payable_by_Currency.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Payment_by_Date.resx">
+      <DependentUpon>Payment_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Payment_by_Department.resx">
+      <DependentUpon>Payment_by_Department.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Payment_by_Invoice.resx">
+      <DependentUpon>Payment_by_Invoice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Payment_Detail.resx">
+      <DependentUpon>Payment_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Reduction_Dept.resx">
+      <DependentUpon>Reduction_Dept.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Reduction_Dept_Cancel.resx">
+      <DependentUpon>Reduction_Dept_Cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Reduction_Dept_Other_Cancel.resx">
+      <DependentUpon>Reduction_Dept_Other_Cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\Status_Payable.resx">
+      <DependentUpon>Status_Payable.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\_condition_type_1.resx">
+      <DependentUpon>_condition_type_1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\_report_ap_doc_bill.resx">
+      <DependentUpon>_report_ap_doc_bill.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\_report_ap.resx">
+      <DependentUpon>_report_ap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ap\_report_ap_summary.resx">
+      <DependentUpon>_report_ap_summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_condition_ar.resx">
+      <DependentUpon>_condition_ar.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_condition_ar_new.resx">
+      <DependentUpon>_condition_ar_new.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_billing_and_detail.resx">
+      <DependentUpon>_report_ar_billing_and_detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_check_balance.resx">
+      <DependentUpon>_report_ar_check_balance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_detail.resx">
+      <DependentUpon>_report_ar_detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_document_start_year.resx">
+      <DependentUpon>_report_ar_document_start_year.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_invoice_payment_remain.resx">
+      <DependentUpon>_report_ar_invoice_payment_remain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_receipt_temp.resx">
+      <DependentUpon>_report_ar_receipt_temp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_trans_debt_payment.resx">
+      <DependentUpon>_report_ar_trans_debt_payment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_period_debt_remain.resx">
+      <DependentUpon>_report_ar_period_debt_remain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_receipt_and_detail.resx">
+      <DependentUpon>_report_ar_receipt_and_detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_record.resx">
+      <DependentUpon>_report_ar_record.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_cut_debt_lost.resx">
+      <DependentUpon>_report_ar_cut_debt_lost.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_status.resx">
+      <DependentUpon>_report_ar_status.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ar\_report_ar_trans.resx">
+      <DependentUpon>_report_ar_trans.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Book_Bank_Balance.resx">
+      <DependentUpon>Book_Bank_Balance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Cash_deposit.resx">
+      <DependentUpon>Cash_deposit.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Cash_movements.resx">
+      <DependentUpon>Cash_movements.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Open_sub_Cash.resx">
+      <DependentUpon>Open_sub_Cash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Pay_Cash_by_DocDate.resx">
+      <DependentUpon>Pay_Cash_by_DocDate.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Received_Cash_sub_item.resx">
+      <DependentUpon>Received_Cash_sub_item.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Revenue_by_Bank.resx">
+      <DependentUpon>Revenue_by_Bank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Statement_Advance.resx">
+      <DependentUpon>Statement_Advance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Sub_Cash_Movements.resx">
+      <DependentUpon>Sub_Cash_Movements.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Summary_Payment.resx">
+      <DependentUpon>Summary_Payment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\Transfer_Money_Between_Banks.resx">
+      <DependentUpon>Transfer_Money_Between_Banks.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\_bankStatment.resx">
+      <DependentUpon>_bankStatment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="cash_bank\_report_cash_bank.resx">
+      <DependentUpon>_report_cash_bank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_condition_cheque_card.resx">
+      <DependentUpon>_condition_cheque_card.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_Cheque_Card.resx">
+      <DependentUpon>_report_Cheque_Card.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_chq_card_Cancel_Card_Detail.resx">
+      <DependentUpon>_report_chq_card_Cancel_Card_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_chq_card_Cancel_Cheque_Detail.resx">
+      <DependentUpon>_report_chq_card_Cancel_Cheque_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_chq_card_Detail_Cheque_by_Date_Import.resx">
+      <DependentUpon>_report_chq_card_Detail_Cheque_by_Date_Import.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_chq_card_Disposit_Cheque_Detail.resx">
+      <DependentUpon>_report_chq_card_Disposit_Cheque_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_chq_card_EndDate_Card.resx">
+      <DependentUpon>_report_chq_card_EndDate_Card.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_chq_card_EndDate_Pay_Cheque.resx">
+      <DependentUpon>_report_chq_card_EndDate_Pay_Cheque.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cheque_Card\_report_ch_card_Cash_Money_Detail.resx">
+      <DependentUpon>_report_ch_card_Cash_Money_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="imex\report_sale_analyze.resx">
+      <DependentUpon>report_sale_analyze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_condition_po.resx">
+      <DependentUpon>_condition_po.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_compare_purchase_monthly.resx">
+      <DependentUpon>_report_po_compare_purchase_monthly.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_cut_purchase_order.resx">
+      <DependentUpon>_report_po_cut_purchase_order.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_cut_receipt.resx">
+      <DependentUpon>_report_po_cut_receipt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_debt_from_purchase.resx">
+      <DependentUpon>_report_po_debt_from_purchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_analyze.resx">
+      <DependentUpon>_report_po_purchase_analyze.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_explain_by_tax.resx">
+      <DependentUpon>_report_po_purchase_explain_by_tax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_order_due_payment.resx">
+      <DependentUpon>_report_po_purchase_order_due_payment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_order_explain.resx">
+      <DependentUpon>_report_po_purchase_order_explain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_order_sum.resx">
+      <DependentUpon>_report_po_purchase_order_sum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_sum_by_tax.resx">
+      <DependentUpon>_report_po_purchase_sum_by_tax.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_purchase_total.resx">
+      <DependentUpon>_report_po_purchase_total.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_rank_purchase_total.resx">
+      <DependentUpon>_report_po_rank_purchase_total.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_receipt_explain.resx">
+      <DependentUpon>_report_po_receipt_explain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_requisition_purchase.resx">
+      <DependentUpon>_report_po_requisition_purchase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_return_sum.resx">
+      <DependentUpon>_report_po_return_sum.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="po\_report_po_status_purchase_order.resx">
+      <DependentUpon>_report_po_status_purchase_order.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Analysis_Sell_Ex_by_Product.resx">
+      <DependentUpon>Analysis_Sell_Ex_by_Product.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Analysis_Sell_Sum_by_DocNo.resx">
+      <DependentUpon>Analysis_Sell_Sum_by_DocNo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Check_Beck_Debt_by_Status.resx">
+      <DependentUpon>Check_Beck_Debt_by_Status.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Debt_Ar_Detail.resx">
+      <DependentUpon>Debt_Ar_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Delivery_Money_by_Date.resx">
+      <DependentUpon>Delivery_Money_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Deposit_Cut.resx">
+      <DependentUpon>Deposit_Cut.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Deposit_Record.resx">
+      <DependentUpon>Deposit_Record.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Explain_Invoice_by_Product.resx">
+      <DependentUpon>Explain_Invoice_by_Product.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Explain_Item_Category_Sales.resx">
+      <DependentUpon>Explain_Item_Category_Sales.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Income_Cost_Matching.resx">
+      <DependentUpon>Income_Cost_Matching.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Invoice_Tax_Cut.resx">
+      <DependentUpon>Invoice_Tax_Cut.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Margin_reacceptance.resx">
+      <DependentUpon>Margin_reacceptance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Pay_Oreder.resx">
+      <DependentUpon>Pay_Oreder.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Product_Rank.resx">
+      <DependentUpon>Product_Rank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Sale_Billing.resx">
+      <DependentUpon>Sale_Billing.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Sale_History_Product.resx">
+      <DependentUpon>Sale_History_Product.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Sell_by_Sale.resx">
+      <DependentUpon>Sell_by_Sale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Shipments_by_Date.resx">
+      <DependentUpon>Shipments_by_Date.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Shipments_Compare_Month.resx">
+      <DependentUpon>Shipments_Compare_Month.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\Tax_Invoice_Detail.resx">
+      <DependentUpon>Tax_Invoice_Detail.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="so\_report_so.resx">
+      <DependentUpon>_report_so.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_condition_form.resx">
+      <DependentUpon>_condition_form.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7AA146B8-A728-4C9C-869F-07B0C196A7EE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLServiceCenter</RootNamespace>
+    <AssemblyName>SMLServiceCenter</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_mainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_mainForm.Designer.cs">
+      <DependentUpon>_mainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="_mainForm.resx">
+      <DependentUpon>_mainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLAPARControl\SMLERPAPARControl.csproj">
+      <Project>{6F0D1302-38EE-41D2-98A2-6D6F629C1A66}</Project>
+      <Name>SMLERPAPARControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAPReport\SMLERPAPReport.csproj">
+      <Project>{37699660-52D6-408D-B84C-2C264A446B75}</Project>
+      <Name>SMLERPAPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAP\SMLERPAP.csproj">
+      <Project>{E7D5EE89-FBF8-4BA2-8DBF-55D4CBAA2201}</Project>
+      <Name>SMLERPAP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARInfo\SMLERPARAPInfo.csproj">
+      <Project>{29BAAC40-D635-4619-BB24-AD8D6FAB2D82}</Project>
+      <Name>SMLERPARAPInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARReport\SMLERPARAPReport.csproj">
+      <Project>{706278D1-2158-4000-A1A5-F401B0C59890}</Project>
+      <Name>SMLERPARAPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPAR\SMLERPAR.csproj">
+      <Project>{60245A02-8C1E-4BB9-B365-D65423793126}</Project>
+      <Name>SMLERPAR</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPASSET\SMLERPASSET.csproj">
+      <Project>{358CCCBB-F185-4F6F-AC8B-38F26E1CF022}</Project>
+      <Name>SMLERPASSET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPCASHBANKReport\SMLERPCASHBANKReport.csproj">
+      <Project>{0AB4E9BD-B9F1-4357-9F16-0D22E4022FD8}</Project>
+      <Name>SMLERPCASHBANKReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPCASHBANK\SMLERPCASHBANK.csproj">
+      <Project>{7BC02F85-9D27-426C-A4FF-927B94F41FCC}</Project>
+      <Name>SMLERPCASHBANK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPConfig\SMLERPConfig.csproj">
+      <Project>{2E9E7D02-2F83-4383-B048-F81914A7B9BF}</Project>
+      <Name>SMLERPConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGLControl\SMLERPGLControl.csproj">
+      <Project>{FE37DB34-D7D6-441C-AF95-41A8CBE06FDB}</Project>
+      <Name>SMLERPGLControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGL\SMLERPGL.csproj">
+      <Project>{5645B824-BFF4-4C0A-9533-0B75527E90C6}</Project>
+      <Name>SMLERPGL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPICInfo\SMLERPICInfo.csproj">
+      <Project>{D81C3BD6-3AD4-47E0-93C7-B37EEC82B62A}</Project>
+      <Name>SMLERPICInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPICReport\SMLERPICReport.csproj">
+      <Project>{B9E32AF4-28F3-4097-AE65-234D11983359}</Project>
+      <Name>SMLERPICReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPIC\SMLERPIC.csproj">
+      <Project>{74253644-DE8A-43E8-A9C1-3C50FFC570A2}</Project>
+      <Name>SMLERPIC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPPOReport\SMLERPPOReport.csproj">
+      <Project>{8F7C5F5C-AA9E-443D-8B52-DF3932153B31}</Project>
+      <Name>SMLERPPOReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPPO\SMLERPPO.csproj">
+      <Project>{CD0B05F2-4085-468A-9ED8-FAC39C16AD89}</Project>
+      <Name>SMLERPPO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
+      <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
+      <Name>SMLERPReportTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReport\SMLERPReport.csproj">
+      <Project>{5208DB5E-2327-414A-9170-86AA6B6C0E71}</Project>
+      <Name>SMLERPReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSERVICECENTER\SMLERPSERVICECENTER.csproj">
+      <Project>{F07CD4DC-D4AF-420D-A1B8-8D3C4F12ECAF}</Project>
+      <Name>SMLERPSERVICECENTER</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSOReport\SMLERPSOReport.csproj">
+      <Project>{A79D2994-F2B4-4D54-9493-4CA1C036641B}</Project>
+      <Name>SMLERPSOReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSO\SMLERPSO.csproj">
+      <Project>{B9445ECD-2E5D-480A-A6BD-8A634DC2EE38}</Project>
+      <Name>SMLERPSO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPTemplate\SMLERPTemplate.csproj">
+      <Project>{72DC59D6-C11D-430C-950B-B5266FB463E8}</Project>
+      <Name>SMLERPTemplate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

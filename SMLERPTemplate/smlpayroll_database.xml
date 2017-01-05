@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="windows-874" ?>
+<node>
+  <table name="formdesign" thai="Form Design" eng="Form Design" xversion="" >
+    <field name="formcode" thai="Code" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="formguid_code" thai="formguid_code" eng="guid_code" type="varchar" length="40" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="Guid Code" type="varchar" length="40" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="formname" thai="Name" eng="" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="timeupdate" thai="Update" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="formdesigntext" thai="Text" eng="" type="image" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="formbackground" thai="formbackground" eng="Form BackGround" type="image" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="formdesign_PK_PRIMARY_formdesign" field="formcode"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="sml_group_list" thai="รายชื่อกลุ่ม" eng="Group List" xversion="ALL" >
+    <field name="group_code" thai="รหัสกลุ่ม" eng="Group code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="group_name" thai="ชื่อกลุ่ม" eng="Group name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="active_status" thai="ใช้งาน" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menu" thai="เมนู" eng="Menu" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="search" thai="ค้นหา" eng="Search" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="sml_user_list" thai="รายละเอียดผู้ใช้" eng="User List" xversion="ALL" >
+    <field name="user_code" thai="รหัสผู้ใช้" eng="User code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="user_name" thai="ชื่อผู้ใช้" eng="User name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="user_password" thai="รหัสผ่าน" eng="User password" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="user_level" thai="ระดับความสามารถ" eng="User level" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="active_status" thai="ใช้งาน" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menu" thai="เมนู" eng="Menu" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="search" thai="ค้นหา" eng="Search" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="sml_permissions_group" thai="กำหนดสิทธิ์กลุ่มผู้ใช้งาน" eng="Permissions Group" xversion="ALL" >
+    <field name="usercode" thai="รหัส" eng="Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="image_file" thai="แฟ้มกำหนดสิทธิ์" eng="Permissions File" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="system_id" thai="ระบบ" eng="System ID" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menucode" thai="รหัสเมนู" eng="Menu Id" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menuname" thai="ชื่อเมนู" eng="Menu Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isread" thai="ใช้งานได้" eng="Read" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isadd" thai="เพิ่ม" eng="Add" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isdelete" thai="ลบ" eng="Delete" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isedit" thai="แก้ไข" eng="Edit" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="sml_permissions_user" thai="กำหนดสิทธิ์ผู้ใช้งาน" eng="Permissions User" xversion="ALL" >
+    <field name="usercode" thai="รหัส" eng="Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="image_file" thai="แฟ้มกำหนดสิทธิ์" eng="Permissions File" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="system_id" thai="ระบบ" eng="System ID" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menucode" thai="รหัสเมนู" eng="Menu Id" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menuname" thai="ชื่อเมนู" eng="Menu Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isread" thai="ใช้งานได้" eng="Read" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isadd" thai="เพิ่ม" eng="Add" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isdelete" thai="ลบ" eng="Delete" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="isedit" thai="แก้ไข" eng="Edit" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="erp_branch_list" thai="รายชื่อสาขา" eng="Branch list" xversion="ALL" >
+    <field name="code" thai="รหัสสาขา" eng="Branch code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="number" thai="สาขาลำดับที่" eng="Branch number" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="name_1" thai="ชื่อสาขา" eng="Branch name" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Branch name (2)" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address_1" thai="ที่อยู่สาขา " eng="Branch address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address_2" thai="ที่อยู่ (ภาษาอังกฤษ)" eng="Branch address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="telephone" thai="หมายเลขโทรศัพท์" eng="Telephone number" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="fax" thai="หมายเลขโทรสาร" eng="Fax number" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="GUID" eng="GUID" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="erp_branch_list_PK_CODE" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="erp_option" thai="ข้อเลือกในการทำงาน" eng="Option" xversion="ALL" >
+    <field name="year_type" thai="ประเภทปี" eng="Year type" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="vat_type" thai="ประเภทภาษีมูลค่าเพิ่ม (ขาย)" eng="Vat type" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="vat_rate" thai="อัตราภาษีมูลค่าเพิ่ม" eng="Vat rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="gl_no_decimal" thai="จุดทศนิยม (บัญชี)" eng="Account Decimal Point" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_log_book" thai="ใช้ระบบตรวจสอบการใช้งาน" eng="Log book" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_print_slip" thai="พิมพ์เอกสารหลังการบันทึกข้อมูล" eng="Print slip" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_doc_group" thai="ใช้กลุ่มเอกสาร" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_department" thai="ใช้ระบบแยกแผนก" eng="Department" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_job" thai="ใช้ระบบแยกงาน" eng="Job" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_allocate" thai="ใช้ระบบการจัดสรรค์" eng="Allocate" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_unit" thai="ใช้ระบบแยกหน่วยงาน" eng="Unit" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="use_work_in_process" thai="ใช้ระบบแยกการผลิต" eng="Work in Process" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="buddhist" thai="พุทธศักราช" eng="Buddhist" type="int" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="christian" thai="คริสศักราช" eng="christian" type="int" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_gl" thai="บัญชีแยกประเภท" eng="General Ledger" type="int" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="vat_include" thai="รวมใน" eng="Include" type="int" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="vat_exclude" thai="แยกนอก" eng="Exclude" type="int" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="item_qty_decimal" thai="จุดทศนิยม (จำนวนสินค้า)" eng="Item Qty Point" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="item_price_decimal" thai="จุดทศนิยม (ราคาสินค้า)" eng="Item Price Point" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="item_amount_decimal" thai="จุดทศนิยม (มูลค่าสินค้า)" eng="Item Amount Point" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tab_item" thai="สินค้าคงคลัง" eng="Product" type="int" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="wht_rate" thai="อัตราภาษีหัก ณ. ที่จ่าย" eng="WH Tax" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="vat_type_1" thai="ประเภทภาษีมูลค่าเพิ่ม (ซื้อ)" eng="Vat Type" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="warning_price_1" thai="เตือนเมื่อไม่พบราคาขาย" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="warning_price_2" thai="เตือนราคาขายกับประเภทภาษี" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="warning_price_3" thai="ใช้ระบบรหัสผ่านแก้ไขราคา" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="purchase_credit_note_type" thai="ส่งคืน,ลดหนี้ใช้แบบอ้างอิงเอกสารใบเดียว" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="printer_top_margin" thai="Top Margin" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="erp_doc_format" thai="รูปแบบเอกสาร" eng="Document Format" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_1" thai="ชื่อ" eng="Name" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Name (English)" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="GUID" eng="GUID" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="format" thai="รูปแบบเอกสาร" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="screen_code" thai="รหัสหน้าจอ" eng="" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="form_code" thai="รหัสแบบฟอร์ม" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="erp_doc_format_PK_CODE" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="images" thai="รูปภาพ" eng="Images" xversion="ALL" >
+    <field name="image_id" thai="รหัส" eng="Image ID" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="image_file" thai="รูปภาพ" eng="Image File" type="image" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="system_id" thai="ระบบ" eng="System ID" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="erp_view_column" thai="รายละเอียดหน้าจอค้นหา" eng="View Column" xversion="ALL" >
+    <field name="screen_group" thai="กลุ่มหน้าจอ" eng="Screen group" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="screen_code" thai="รหัสหน้าจอ" eng="Screen code" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="column_number" thai="ลำดับที่" eng="Column number" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_name" thai="ชื่อ" eng="Column name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Column name eng" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_field_name" thai="ชื่อข้อมูล" eng="Column field name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_field_sort" thai="ชื่อข้อมูลเพื่อเรียง" eng="Column field for sort" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_width" thai="ความกว้าง" eng="Column width" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_type" thai="ประเภท" eng="Column type" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_align" thai="จัดช่อง" eng="Column align" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_format" thai="รูปแบบ" eng="Column format" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="column_resource" thai="Resource" eng="" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="erp_view_document" thai="หน้าจอสำหรับแสดงรายการข้อมูล" eng="Document view" xversion="ALL" >
+    <field name="screen_code" thai="รหัสหน้าจอ" eng="System Code" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_1" thai="ชื่อไทย" eng="Name 1" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="name_2" thai="ชื่ออังกฤษ" eng="Name 2" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="erp_view_document_PK_CODE" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="erp_view_table" thai="รายละเอียดการแสดงผลแต่ละหน้าจอ" eng="View by Table" xversion="ALL" >
+    <field name="screen_code" thai="รหัสหน้าจอ" eng="Screen code" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_1" thai="ชื่อหน้าจอ" eng="Screen name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_2" thai="ชื่อหน้าจอ (ภาษาอังกฤษ)" eng="Screen 2" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="table_name" thai="ชื่อตารางข้อมูลหลัก" eng="Table name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="table_list" thai="ชื่อตารางข้อมูลที่เกี่ยวข้อง" eng="Table list" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="sort" thai="ชื่อข้อมูลที่จะเรียง" eng="Sort" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="filter" thai="เงื่อนไขการแสดงผล" eng="Filter" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="width_persent" thai="ความกว้างเป็นเปอร์เซ็นต์" eng="Width by persent" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="erp_view_table_PK_CODE" field="screen_code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_company_config" thai="ค่าเริ่มต้นบริษัท" eng="Company Configuration" xversion="ALL" >
+    <field name="company_name_th" thai="ชื่อบริษัท (ไทย)" eng="Company Name (Thai)" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="company_name_en" thai="ชื่อบริษัท (อังกฤษ)" eng="Company Name (English)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="business_name_th" thai="ผู้ประกอบการ (ไทย)" eng="Business Name (Thai)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="business_name_en" thai="ผู้ประกอบการ (อังกฤษ)" eng="Business Name (English)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address_th" thai="ที่อยู่ (ไทย)" eng="Address (Thai)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address_en" thai="ที่อยู่ (อังกฤษ)" eng="Address (English)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="house" thai="อาคาร" eng="House" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="room_no" thai="ห้องที่" eng="Room No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="floor_no" thai="ชั้นที่" eng="Floor No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="village" thai="หมู่บ้าน" eng="Village" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="house_no" thai="เลขที่" eng="House No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="crowd_no" thai="หมู่ที่" eng="Crowd No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="lane" thai="ตรอก/ซอย" eng="Lane" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="road" thai="ถนน" eng="Road" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="locality" thai="ตำบล/แขวง" eng="Locality" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="amphur" thai="อำเภอ/เขต" eng="Amphur" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="province" thai="จังหวัด" eng="Province" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="postcode" thai="รหัสไปรษณีย์" eng="Post Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="telephone" thai="หมายเลขโทรศัพท์" eng="Telephone Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="fax" thai="หมายเลขโทรสาร" eng="Fax Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_no" thai="เลขประจำตัวผู้เสียภาษี" eng="Tax Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="trade_license" thai="ทะเบียนการค้า" eng="Trade License" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="social_security_no" thai="เลขประกันสังคม" eng="Social Security Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reserve_fund_no" thai="เลขที่ใบอนุญาตกองทุนสำรอง" eng="Reserve Fund Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="company_logo" thai="เครื่องหมายบริษัท" eng="Logo" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="branch" thai="สาขา" eng="Branch" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="money_adjust" thai="การปัดเศษสตางค์" eng="Money Adjustment" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="salary_method" thai="วิธีคิดเงินเดือน" eng="Salary Method" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="social_security_rate" thai="อัตราสมทบกองทุนประกันสังคม" eng="Social Security" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reserve_fund_rate" thai="อัตราสมทบกองทุนสำรองฯ" eng="Reserve Fund" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reserve_fund_type" thai="ประเภทกองทุนเงินสำรอง" eng="Reserve Fund Type" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="customer_rf_rate" thai="อัตราสมทบกองทุนสำรองฯ (หักจากลูกจ้าง)" eng="Customer RF Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="employer_rf_rate" thai="อัตราสมทบกองทุนสำรองฯ (หักจากนายจ้าง)" eng="Employer RF Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="customer_ss_rate" thai="อัตราสมทบประกันสังคม (หักจากลูกจ้าง)" eng="Customer SS Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="employer_ss_rate" thai="อัตราสมทบประกันสังคม (หักจากนายจ้าง)" eng="Employer SS Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="social_security_max" thai="อัตราค่าแรงสูงสุด" eng="Social Security Max Salary" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="social_security_min" thai="อัตราค่าแรงต่ำสุด" eng="Social Security Min Salary" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_social_security" thai="ลดฯประกันสังคมไม่เกิน" eng="Reduce Social Security" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_reserve_fund" thai="ลดฯกองทุนสำรองฯไม่เกิน" eng="Reduce Reserve Fund" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="hourly" thai="จำนวนชั่วโมงทำงาน/วัน" eng="Hourly" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="hourly_day" thai="จำนวนชั่วโมงทำงาน/วัน" eng="Hourly" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="hourly_week" thai="จำนวนชั่วโมงทำงาน/วัน" eng="Hourly" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="work_day" thai="จำนวนวันทำงาน/สัปดาห์" eng="Work Day" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="costs_sow" thai="หักขาดงาน" eng="Costs SOW" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="costs_leave" thai="หักลางาน" eng="Costs Leave" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="costs_late" thai="หักมาสาย" eng="Costs Late" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="costs_payout" thai="ค่าใช้จ่ายอื่นๆ" eng="Costs Payout" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="costs_advance" thai="หักเงินจ่ายล่วงหน้า" eng="Costs Advance" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="costs_insure" thai="เงินค้ำประกัน" eng="Costs Insure" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="year" thai="ปี" eng="Year" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="no_adjust" thai="ไม่ปัดเศษ" eng="No Adjustment" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="up_adjust" thai="ปัดขึ้นทั้งหมด" eng="Up Adjustment" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="down_adjust" thai="ปัดลงทั้งหมด" eng="Down Adjustment" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="mix_adjust" thai="ปัดแบบสัดส่วน" eng="Mix Adjustment" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="average" thai="แบบเฉลี่ย 30 วัน/เดือน" eng="Average 30 Days/Month" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="be_true" thai="แบบจำนวนวันจริง" eng="Many Days is True" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="daily" thai="รายวัน" eng="Daily" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="mon" thai="จันทร์" eng="Monday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tue" thai="อังคาร" eng="Tuesday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="wed" thai="พุธ" eng="Wednesday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="thu" thai="พฤหัสบดี" eng="Thursday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="fri" thai="ศุกร์" eng="Friday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="sat" thai="เสาร์" eng="Saturday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="sun" thai="อาทิตย์" eng="Sunday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_detail" thai="รายละเอียด" eng="Detail" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_method" thai="เงื่อนไขการคำนวณ(อื่นๆ)" eng="Method" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_bank" thai="บัญชีธนาคาร" eng="Book Bank" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_holiday" thai="วันหยุดบริษัท" eng="Holiday" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="upright" thai="แบบคงที่" eng="Upright" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="change" thai="แบบแปรผัน" eng="Change" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_method_payroll" thai="เงื่อนไขการคำนวณเงินเดือน" eng="Method" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_address_tax" thai="ที่อยู่ในการออกใบกำกับภาษี" eng="Address" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_costs" thai="ค่าใช้จ่าย" eng="Costs" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="deducted" thai="หักจากเงินได้" eng="Deducted" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="not_deducted" thai="ไม่หักจากเงินได้" eng="Not Deducted" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="groupbox_tax" thai="การคำนวณภาษี" eng="Tax" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="last_period" thai="งวดสุดท้าย" eng="Last Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="all_period" thai="ทุกงวด" eng="All Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tax_period_month" thai="คำนวณภาษี" eng="Tax" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_period_week" thai="คำนวณภาษี" eng="Tax" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_period_day" thai="คำนวณภาษี" eng="Tax" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="period_number_month" thai="จำนวนงวดต่อเดือน" eng="Periods per month" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="period_number_week" thai="จำนวนงวดต่อเดือน" eng="Periods per month" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="period_number_day" thai="จำนวนงวดต่อเดือน" eng="Periods per month" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="one_period" thai="หนี่งงวด" eng="One Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="two_period" thai="สองงวด" eng="Two Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="three_period" thai="สามงวด" eng="Three Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="four_period" thai="สี่งวด" eng="Four Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="start_one_month" thai="งวดที่หนึ่งจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_one_month" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_two_month" thai="งวดที่สองจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_two_month" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_three_month" thai="งวดที่สามจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_three_month" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_four_month" thai="งวดที่สี่จากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_four_month" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_one_week" thai="งวดที่หนึ่งจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_one_week" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_two_week" thai="งวดที่สองจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_two_week" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_three_week" thai="งวดที่สามจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_three_week" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_four_week" thai="งวดที่สี่จากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_four_week" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_one_day" thai="งวดที่หนึ่งจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_one_day" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_two_day" thai="งวดที่สองจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_two_day" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_three_day" thai="งวดที่สามจากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_three_day" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_four_day" thai="งวดที่สี่จากวันที่" eng="Start Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_four_day" thai="ถึงวันที่" eng="End Date" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tab_calculate_tax_month" thai="พนักงานรายเดือน" eng="Month" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_calculate_tax_week" thai="พนักงานรายสัปดาห์" eng="Week" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_calculate_tax_day" thai="พนักงานรายวัน" eng="Day" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="calculate_salary_month" thai="คำนวนเงินเดือน" eng="Calculate salary" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="calculate_salary_week" thai="คำนวนเงินเดือน" eng="Calculate salary" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="calculate_salary_day" thai="คำนวนเงินเดือน" eng="Calculate salary" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="recorded_daily" thai="บันทึกข้อมูลรายวัน" eng="Recorded daily" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="not_recorded_daily" thai="ไม่บันทึกข้อมูลรายวัน" eng="Not Recorded daily" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="payroll_side_list" thai="ฝ่าย" eng="Side List" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ (ไทย)" eng="Name (Thai)" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_en" thai="ชื่อ (อังกฤษ)" eng="Name (English)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="active" thai="ใช้" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="inactive" thai="ไม่ใช้" eng="Inactive" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_side_list_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_section_list" thai="แผนก" eng="Section List" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ (ไทย)" eng="Name (Thai)" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_en" thai="ชื่อ (อังกฤษ)" eng="Name (English)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="active" thai="ใช้" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="inactive" thai="ไม่ใช้" eng="Inactive" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_section_list_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_work_title" thai="ตำแหน่งงาน" eng="Work Title" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ (ไทย)" eng="Name (Thai)" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_en" thai="ชื่อ (อังกฤษ)" eng="Name (English)" type="varchar" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="active" thai="ใช้" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="inactive" thai="ไม่ใช้" eng="Inactive" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_work_title_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_bank_list" thai="ธนาคาร" eng="Section List" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ (ไทย)" eng="Name (Thai)" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name_en" thai="ชื่อ (อังกฤษ)" eng="Name (English)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="active" thai="ใช้" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="inactive" thai="ไม่ใช้" eng="Inactive" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_bank_list_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_employee" thai="พนักงาน/ลูกจ้าง" eng="Employee" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="title_name" thai="คำนำหน้าชื่อ" eng="Title Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="name" thai="ชื่อ-นามสกุล" eng="Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="nick_name" thai="ชื่อเล่น" eng="Nick Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="side_code" thai="ฝ่าย" eng="Side" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="section_code" thai="แผนก" eng="Section" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="work_title" thai="ตำแหน่ง" eng="Work Title" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="employee_type" thai="ประเภทลูกจ้าง" eng="Employee" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_work" thai="วันที่เริ่มต้นทำงาน" eng="Start Working Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="salary" thai="ค่าแรง" eng="Salary" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="social_security_no" thai="เลขประกันสังคม" eng="Social Security Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="hospital" thai="ชื่อสถานพยาบาล" eng="Hospital" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="produce_social_security" thai="วันที่ออกบัตร" eng="Day Produce" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="expire_social_security" thai="วันที่หมดอายุ" eng="Day Expire" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="book_bank_no" thai="เลขบัญชีธนาคาร" eng="Book Bank Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="bank_code" thai="รหัสธนาคาร" eng="Bank Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="bank_name" thai="ชื่อธนาคาร" eng="Bank Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="branch_bank" thai="สาขา" eng="Branch Bank" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_no" thai="เลขประจำตัวผู้เสียภาษี" eng="Tax Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="active" thai="จ้างงาน" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="hold" thai="พักงาน" eng="Suspension" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="inactive" thai="เลิกจ้าง" eng="Inactive" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="monthly" thai="รายเดือน" eng="Monthly" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="weekly" thai="รายสัปดาห์" eng="Weekly" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="daily" thai="รายวัน" eng="Daily" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="salary_from" thai="ตั้งแต่" eng="Salary From" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="salary_to" thai="จนกระทั่งถึง" eng="Salary To" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="for_month" thai="เดือน" eng="Month" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="for_year" thai="พ.ศ." eng="Buddhist Era" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_from" thai="จากพนักงาน" eng="Employee From" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_to" thai="ถึง" eng="To" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_detail" thai="รายละเอียด" eng="Employee Detail" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_adderss" thai="ที่อยู่ปัจจุบัน" eng="Address" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_education" thai="ประวัติการศึกษา" eng="Education" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_experience" thai="ประสบการณ์การทำงาน" eng="Experience" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_picture" thai="รูปพนักงาน" eng="Employee Picture" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_reduce" thai="ลดหย่อน" eng="Reduce" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_social_security" thai="ประกันสังคม" eng="Social Security" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_salary" thai="เงินเดือน" eng="Salary" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_talent" thai="ความสามารถพิเศษ" eng="Talent" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_collateral" thai="บุคคลค้ำประกัน" eng="Collateral" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_family" thai="ผู้ติดต่อกรณีฉุกเฉิน" eng="Family" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_reduce_spouse" thai="ลดหย่อนคู่สมรส" eng="Reduce Spouse" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_reduce_detail" thai="ลดย่อนอื่นๆ" eng="Reduce Detail" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="name_employee_tex" thai="ชื่อผู้มีหน้าที่หักภาษี" eng="Name Employee Tax" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="January" thai="มกราคม" eng="January" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="February" thai="กุมภาพันธ์" eng="February" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="March" thai="มีนาคม" eng="March" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="April" thai="เมษายน" eng="April" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="May" thai="พฤษภาคม" eng="May" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="June" thai="มิถุนายน" eng="June" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="July" thai="กรกฎาคม" eng="July" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="August" thai="สิงหาคม" eng="August" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="September" thai="กันยายน" eng="September" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="October" thai="ตุลาคม" eng="October" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="November" thai="พฤศจิกายน" eng="November" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="December" thai="ธันวาคม" eng="December" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_reserve_fund" thai="กองทุนสำรองเลี้ยงชีพ" eng="Reserve Fund" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="access_reserve_fund" thai="เข้ากองทุนสำรองเลี้ยงชีพ" eng="Access Reserve Fund" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="not_access_reserve_fund" thai="ไม่เข้ากองทุนสำรองเลี้ยงชีพ" eng="Not Access Reserve Fund" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reserve_fund_no" thai="รหัสสมาชิกกองทุนสำรองเลี้ยงชีพ" eng="Reserve Fund No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reserve_fund_start_date" thai="วันที่เริ่มเข้ากองทุนสำรองเลี้ยงชีพ" eng="Reserve Fund Start Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reserve_fund_end_date" thai="วันที่สิ้นสุดสมาชิก" eng="Reserve Fund End Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reserve_fund_status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="salary_status" thai="สถานะเงินเดือน" eng="Salary Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="salary_vary" thai="เงินเดือนแบบแปรผัน" eng="Vary" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="salary_constant" thai="เงินเดือนแบบคงที่" eng="Constant" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_salary_vary" thai="เงินเดือนแบบแปรผัน" eng="Salary Vary" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_employee_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_employee_detail" thai="รายละเอียด" eng="Employee Detail" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="birth_day" thai="วันเกิด" eng="Birth Day" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="age" thai="อายุ" eng="Age" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="sex" thai="เพศ" eng="Sex" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="group_blood" thai="กรุ๊ปเลือด" eng="Group Blood" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="high" thai="ส่วนสูง(cm)" eng="High(cm)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="weigh" thai="น้ำหนัก(kg)" eng="Weigh(kg)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="race" thai="เชื้อชาติ" eng="Race" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="nationality" thai="สัญชาติ" eng="Nationality" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="religion" thai="ศาสนา" eng="Religion" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="id_code" thai="รหัสบัตรประชาชน" eng="ID Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="produce_at" thai="ออกให้ ณ" eng="Produce at" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="produce_card" thai="วันที่ออกบัตร" eng="Day produce" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="expire_card" thai="วันที่หมดอายุ" eng="Day expire" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address_id_card" thai="ที่อยู่ตามบัตรประชาชน" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="talent" thai="ความสามารถพิเศษ" eng="Talent" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="situation_soldier" thai="สถานะภาพทางทหาร" eng="Situation Soldier" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="situation" thai="สถานภาพ" eng="Situation" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="spouse_name" thai="ชื่อคู่สมรส" eng="Spouse Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="spouse_birth_day" thai="วันเกิด" eng="Birth Day" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="spouse_id_code" thai="รหัสบัตรประชาชน" eng="ID Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="spouse_work_status" thai="สถานะของคู่สมรส" eng="Spouse Working Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="spouse_tax" thai="คู่สมรสยื่นภาษี" eng="Spouse Tax" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_spouse" thai="ลดหย่อนคู่สมรส" eng="Reduce Spouse" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_myself" thai="ลดหย่อนผู้มีเงินได้" eng="Redyce Myself" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="child_study_qty" thai="จำนวนบุตรกำลังศึกษา" eng="Child Study Qty" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="child_no_study_qty" thai="จำนวนบุตรไม่ได้ศึกษา" eng="Child No Study Qty" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_child_study" thai="ลดหย่อนบุตรที่ศึกษาอยู่" eng="Reduce child study" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_child_no_study" thai="ลดหย่อนบุตรที่ไม่ได้ศึกษา" eng="Reduce child no study" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="insurance_parents" thai="เบี้ยประกันบิดามารดา" eng="Insurance Parents" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_parents" thai="ลดหย่อนบิดามารดา" eng="Reduce Parents" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_father" thai="ลดหย่อนบิดา" eng="Reduce father" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_mother" thai="ลดหย่อนมารดา" eng="Reduce mother" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_father_law" thai="ลดหย่อนบิดาคู่สมรส" eng="Reduce father law" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="reduce_mother_law" thai="ลดหย่อนมารดาคู่สมรส" eng="Reduce mother law" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="father_name" thai="ชื่อบิดา" eng="Father name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="mother_name" thai="ชื่อมารดา" eng="Mother name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="father_law_name" thai="ชื่อบิดาคู่สมรส" eng="Father law name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="mother_law_name" thai="ชื่อมารดาคู่สมรส" eng="Mother law name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="father_id" thai="รหัสบัตรประชาชนบิดา" eng="Father ID" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="mother_id" thai="รหัสบัตรประชาชนมารดา" eng="Mother ID" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="father_law_id" thai="รหัสบัตรประชาชนบิดาคู่สมรส" eng="Father law ID" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="mother_law_id" thai="รหัสบัตรประชาชนมารดาคู่สมรส" eng="Mother lae ID" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="insurance" thai="เบี้ยประกันชีวิต" eng="Insurance" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="loan" thai="เบี้ยกู้ยืมเพื่อซื้อที่อยู่อาศัย" eng="Loan" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="funds_reserves" thai="สะสมกองทุนสำรองเลี้ยงชีพ" eng="Funds Reserves" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="buy_funds_reserves" thai="ซื้อหน่วยลงทุน RMF" eng="Buy RMF" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="buy_share" thai="ซื้อหน่วยลงทุน LTF" eng="Buy LTF" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="donation" thai="เงินบริจาค" eng="Donation" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="donation_education" thai="บริจาคเพื่อการศึกษา" eng="Donation education" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="insurance_social" thai="เงินสมทบกองทุนประกันสังคม" eng="Insurance Social" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="except_funds_reserves" thai="ยกเว้นสะสมกองทุนสำรองเลี้ยงชีพ" eng="Except Funds Reserves" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="except_gbk" thai="ยกเว้นสะสม กบข." eng="Except GBK" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="except_teacher" thai="ยกเว้นสะสมสงเคราะห์ครูเอกชน" eng="Except teacher " type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="except_65year" thai="ยกเว้นผู้มีเงินได้อายุ 65 ปีขึ้นไป" eng="Except 65 year" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="except_spouse_65year" thai="ยกเว้นคู่สมรสอายุ 65 ปีขึ้นไป" eng="Except spouse 65 year" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="except_labour_legislation" thai="ยกเว้นค่าชดเชยตาม กม. แรงงาน" eng="Except labour legislation" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="single" thai="โสด" eng="Single" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="married" thai="สมรส" eng="Married" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="widow" thai="หม้าย" eng="Widow" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="spouse_work" thai="คู่สมรสมีเงินได้" eng="Spouse Work" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="spouse_not_work" thai="คู่สมรสไม่มีเงินได้" eng="Spouse Not Work" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="male" thai="ชาย" eng="Male" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="female" thai="หญิง" eng="Female" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="conscript" thai="เกณฑ์ทหารแล้ว" eng="Conscript" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="not_conscript" thai="ยังไม่เกณฑ์ทหาร" eng="Don't Conscript" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="totle_up" thai="ยื่นรวม" eng="Totle up" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="separate" thai="แยกยื่น" eng="Separate" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="no_conscript" thai="ยกเว้นการเกณฑ์ทหาร" eng="No Conscript" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="payroll_employee_address" thai="ที่อยู่ปัจจุบัน" eng="Employee Address" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="address" thai="ที่อยู่" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="house" thai="อาคาร" eng="House" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="room_no" thai="ห้องที่" eng="Room No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="floor_no" thai="ชั้นที่" eng="Floor No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="village" thai="หมู่บ้าน" eng="Village" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="house_no" thai="เลขที่" eng="House No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="crowd_no" thai="หมู่ที่" eng="Crowd No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="lane" thai="ตรอก/ซอย" eng="Lane" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="road" thai="ถนน" eng="Road" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="locality" thai="ตำบล/แขวง" eng="Locality" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="amphur" thai="อำเภอ/เขต" eng="Amphur" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="province" thai="จังหวัด" eng="Province" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="postcode" thai="รหัสไปรษณีย์" eng="Post Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="telephone" thai="โทรศัพท์" eng="Telephone" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="mobile" thai="โทรศัพท์มือถือ" eng="Mobile" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="contact" thai="ผู้ติดต่อกรณีฉุกเฉิน" eng="Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="relation" thai="ความสัมพันธ์" eng="Relation" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="telephone_contact" thai="โทรศัพท์" eng="Telephone" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="payroll_employee_education" thai="ประวัติการศึกษา" eng="Employee Education" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="education_level" thai="ระดับการศึกษา" eng="Education Level" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="education_major" thai="คณะ/สาขาวิชาหลัก" eng="Education in Major" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="education_minor" thai="คณะ/สาขาวิชารอง" eng="Education in Minor" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="education_intitute" thai="สถาบันการศึกษา" eng="Education Intitute" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="finished_year" thai="ปีที่จบการศึกษา" eng="Finished Year" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="activity" thai="กิจกรรมขณะศึกษาอยู่" eng="Activity" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="grade" thai="เกรดเฉลี่ย" eng="Grade" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="payroll_employee_experience" thai="ประสบการณ์การทำงาน" eng="Employee Experience" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="exp_place" thai="สถานที่ทำงาน" eng="Work Place" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="exp_title" thai="ตำแหน่ง" eng="Work Title" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="exp_time" thai="ระยะเวลา" eng="Experience Time" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="สาเหตุที่ออก" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="exp_start" thai="ปีที่เริ่ม" eng="Start year" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="exp_to" thai="ถึงปี" eng="To year" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="exp_salary" thai="เงินเดือน" eng="Salary" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="payroll_short_of_work" thai="การขาดงาน" eng="Short of Work" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ" eng="Name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="wages_cut_rate" thai="อัตราหักค่าแรง(ต่อวัน)" eng="Wages Cut Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="wages_cut_money" thai="จำนวนเงินที่หัก" eng="Wages Cut Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_rate_or_money" thai="วิธีการคำนวณ" eng="" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_rate" thai="คำนวณจากอัตราค่าแรง(ต่อวัน)" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="select_money" thai="คำนวณจากเงินที่หัก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_short_of_work_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_leave" thai="การลางาน" eng="Leave" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ" eng="Name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="leave_rate" thai="อัตราหักค่าแรง(ต่อชม.)" eng="Leave Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="leave_money" thai="จำนวนเงินที่หัก" eng="Leave Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_rate_or_money" thai="วิธีการคำนวณ" eng="" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_rate" thai="คำนวณจากอัตราค่าแรง(ต่อชม.)" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="select_money" thai="คำนวณจากเงินที่หัก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_leave_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_arrive_late" thai="การมาสาย" eng="Arrive Late" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ" eng="Name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="arrive_late_rate" thai="อัตราหักค่าแรง(ต่อชม.)" eng="Arrive Late Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arrive_late_money" thai="จำนวนเงินที่หัก" eng="Arrive Late Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_rate_or_money" thai="วิธีการคำนวณ" eng="" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_rate" thai="คำนวณจากอัตราค่าแรง(ต่อชม.)" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="select_money" thai="คำนวณจากเงินที่หัก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_arrive_late_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_over_time" thai="ค่าล่วงเวลา" eng="Over Time" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ" eng="Name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="ot_rate" thai="อัตราล่วงเวลา(ต่อชม.)" eng="OT Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="payroll_over_time_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_income_tax" thai="ภาษีเงินได้" eng="Income Tax" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="income_from" thai="เงินได้ตั้งแต่" eng="Income From" type="float" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="income_to" thai="จนกระทั่งถึง" eng="Income to" type="float" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="income_money" thai="จำนวนเงิน" eng="Income Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_rate" thai="อัตราภาษี" eng="Tax Rate" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_money" thai="มูลค่าภาษี" eng="Tax Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="sum_taxt_money" thai="มูลค่าภาษีสะสม" eng="Sum Tax Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <index index_name="payroll_income_tax_PK_PRIMARY" field="code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_trans" thai="บันทึกการทำงาน" eng="Transection" xversion="ALL" >
+    <field name="trans_flag" thai="trans flag" eng="tran flag" type="int" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_no" thai="เลขที่เอกสาร" eng="Document No" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_date" thai="วันที่เอกสาร" eng="Document Date" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="employee" thai="ชื่อ-นามสกุล" eng="Name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="employee_type" thai="ประเภทลูกจ้าง" eng="Employee Type" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="work_from_date" thai="วันที่เริ่มต้น" eng="Work From Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="work_end_date" thai="วันที่สิ้นสุด" eng="Work End Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="date_pay_salary" thai="วันที่จ่ายค่าจ้าง" eng="Date pay salary" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="holiday" thai="จำนวนวันหยุด" eng="Holiday" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="working_day" thai="จำนวนวันทำงาน" eng="Working Days" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="saver_code" thai="ผู้บันทึก" eng="Saver Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_month" thai="เดือน" eng="Month" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_month_str" thai="เดือน" eng="Month" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_year" thai="ปี" eng="Year" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="normal" thai="ปกติ" eng="Normal" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="cancel" thai="ยกเลิก" eng="Cancel" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="monthly" thai="รายเดือน" eng="Monthly" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="weekly" thai="รายสัปดาห์" eng="Weekly" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="daily" thai="รายวัน" eng="Daily" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_short_of_work" thai="ขาดงาน" eng="Short of work" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_leave" thai="ลางาน" eng="Leave" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_arrive_late" thai="มาสาย" eng="Arrive Late" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_over_time" thai="ล่วงเวลา" eng="Over time" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_other_money" thai="เงินได้-เงินหักอื่นๆ" eng="Other money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_working_day" thai="วันทำงาน" eng="Working Day" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="January" thai="มกราคม" eng="January" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="February" thai="กุมภาพันธ์" eng="February" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="March" thai="มีนาคม" eng="March" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="April" thai="เมษายน" eng="April" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="May" thai="พฤษภาคม" eng="May" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="June" thai="มิถุนายน" eng="June" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="July" thai="กรกฎาคม" eng="July" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="August" thai="สิงหาคม" eng="August" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="September" thai="กันยายน" eng="September" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="October" thai="ตุลาคม" eng="October" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="November" thai="พฤษจิกายน" eng="November" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="December" thai="ธันวาคม" eng="December" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_from" thai="จากลูกจ้าง" eng="Employee From" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_to" thai="ถึงลูกจ้าง" eng="Employee To" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_all" thai="ลูกจ้างทั้งหมด" eng="Employee All" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_name" thai="ชื่อลูกจ้าง" eng="Employee Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="wages_money" thai="เงินค่าจ้าง" eng="Wages Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="sow_money" thai="เงินหัก(ขาดงาน)" eng="Shot of work Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="leave_money" thai="เงินหัก(ลางาน)" eng="Leave Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="late_money" thai="เงินหัก(มาสาย)" eng="Late Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="ot_money" thai="ค่าล่วงเวลา" eng="Over Time Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="society_insure_money" thai="ประกันสังคม" eng="Society insure Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reserve_money" thai="เงินกองทุนสำรอง" eng="Reserve Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="diligent_money" thai="เบี๊ยขยัน" eng="Diligent Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="bonus_money" thai="เงินโบนัส" eng="Bonus Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="other_income_money" thai="เงินได้อื่นๆ" eng="Other income Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="advance_money" thai="หักเงินจ่ายล่วงหน้า" eng="Advance Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="insure_money" thai="เงินค้ำประกัน" eng="Insure Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="other_payout_money" thai="เงินจ่ายอื่นๆ" eng="Other Payout Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="net_wages" thai="เงินค่าจ้างสุทธิ" eng="Net wages" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="prepay_money" thai="เงินจ่ายล่วงหน้า" eng="Prepay Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_trans_PK_PRIMARY" field="doc_no"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_trans_detail" thai="รายละเอียดการทำงาน" eng="Transection Detail" xversion="ALL" >
+    <field name="trans_flag" thai="trans flag" eng="trans flag" type="int" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="trans_type" thai="trans type" eng="Trans Type" type="int" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_no" thai="เลขที่เอกสาร" eng="Document No" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_date" thai="วันที่เอกสาร" eng="Document Date" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="employee" thai="รหัสพนักงาน" eng="Employee Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="employee_type" thai="ประเภทลูกจ้าง" eng="Employee Type" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="working_type" thai="ประเภทการทำงาน" eng="Working Type" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="working_date" thai="วันที่ทำงาน" eng="Working Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="working_day" thai="จำนวนวัน" eng="Many Days" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="working_hours" thai="จำนวนชั่วโมง" eng="Late Hours" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="working_minute" thai="นาที" eng="Minute" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="money" thai="จำนวนเงิน" eng="Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="diligent_money" thai="เบี้ยขยัน" eng="Diligent Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="bonus_money" thai="เงินโบนัส" eng="Bonus Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="other_income_money" thai="เงินได้อื่นๆ" eng="Other Income Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="prepay_money" thai="เงินจ่ายล่วงหน้า" eng="Prepay Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="advance_money" thai="หักเงินจ่ายล่วงหน้า" eng="Advance Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="insure_money" thai="เงินค้ำประกัน" eng="Insure Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="other_payout_money" thai="เงินจ่ายอื่นๆ" eng="Other Payout Money" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tax_already_pay" thai="ภาษีที่ชำระแล้ว" eng="Tax already pay" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_month" thai="เดือน" eng="Month" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="select_year" thai="ปี" eng="Year" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="line_number" thai="บรรทัด" eng="Line Number" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="sow_type" thai="รหัสการขาดงาน" eng="Short of Work Type Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="sow_name" thai="ประเภทการขาดงาน" eng="Short of Work Type" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="late_type" thai="รหัสการมาสาย" eng="Arrive Late Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="late_name" thai="ประเภทการมาสาย" eng="Arrive Late" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="leave_type" thai="รหัสการลางาน" eng="Leave Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="leave_name" thai="ประเภทการลางาน" eng="Leave" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="ot_type" thai="รหัสการล่วงเวลา" eng="OT Type Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="ot_name" thai="ประเภทการล่วงเวลา" eng="OT Type" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="late_date" thai="วันที่มาสาย" eng="Late Date" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="leave_date" thai="วันที่ลางาน" eng="Late Date" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="sow_date" thai="วันที่ขาดงาน" eng="Short of Work Date" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="ot_date" thai="วันที่ทำโอที" eng="Over Time Date" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tax_income" thai="ภาษีเงินได้" eng="Tax income" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="net_tax" thai="มูลค่าภาษีสุทธิ" eng="Net tax" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="net_wages" thai="ค่าจ้างสุทธิ" eng="Net wages" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="wages_money" thai="เงินค่าจ้าง" eng="Wages money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_name" thai="ชื่อพนักงาน" eng="Employee Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="other_money_date" thai="วันที่ทำรายการ" eng="Other Money Date" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="payroll_branch_bank" thai="สาขาธนาคาร" eng="Branch Bank" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name1" thai="ชื่อ(ไทย)" eng="Name(TH)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="name2" thai="ชื่อ(อังกฤษ)" eng="Name(EN)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="bank_code" thai="รหัสธนาคาร" eng="Bank Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="active" thai="ใช้" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="inactive" thai="ไม่ใช้" eng="Inactive" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="payroll_branch_bank_PK_PRIMARY" field="code,bank_code"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_employee_collateral" thai="บุคคลค้ำประกัน" eng="Employee Collateral" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อผู้ค้ำประกัน" eng="Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="occupation" thai="อาชีพ" eng="Occupation" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="relation" thai="ความสัมพันธ์" eng="Relation" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address" thai="ที่อยู่" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="telephone" thai="โทรศัพท์" eng="Telephone" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="payroll_employee_family" thai="ผู้ติดต่อกรณีฉุกเฉิน" eng="Employee Family" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อ - นามสกุล" eng="Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="occupation" thai="อาชีพ" eng="Occupation" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="relation" thai="ความสัมพันธ์" eng="Relation" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="address" thai="ที่อยู่" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="telephone" thai="โทรศัพท์" eng="Telephone" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="payroll_company_bank" thai="บัญชีธนาคาร" eng="payroll_company_bank" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="name" thai="ชื่อธนาคาร" eng="Bank Name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="book_bank_no" thai="เลขสมุดบัญชีธนาคาร" eng="Book Bank No" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="branch_bank" thai="สาขา" eng="Branch Bank" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="branch_name" thai="ชื่อสาขา" eng="Branch Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="payroll_company_holiday" thai="วันหยุดบริษัท" eng="Company Holiday" xversion="ALL" >
+    <field name="code" thai="รหัส" eng="Code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="mon" thai="จันทร์" eng="Monday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tue" thai="อังคาร" eng="Tuesday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="wed" thai="พุธ" eng="Wednesday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="thu" thai="พฤหัสบดี" eng="Thursday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="fri" thai="ศุกร์" eng="Friday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="sat" thai="เสาร์" eng="Saturday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="sun" thai="อาทิตย์" eng="Sunday" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="logs" thai="log" eng="log" xversion="" >
+    <field name="function_code" thai="1=เพิ่ม,2=แก้ไข,3=ลบ" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="data1" thai="ข้อมูลใหม่" eng="" type="varchar" length="5000" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="data2" thai="ข้อมูลเดิม" eng="" type="varchar" length="5000" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="user_code" thai="รหัสผู้ใช้" eng="" type="varchar" length="35" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="date_time" thai="วันที่/เวลา" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="screen_code" thai="รหัสหน้าจอ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid" thai="guid" eng="" type="varchar" length="35" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_date" thai="วันที่เอกสาร" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="doc_date_old" thai="วันที่เอกสารเดิม" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="doc_no" thai="เลขที่เอกสาร" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="doc_no_old" thai="เลขที่เอกสารเดิม" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="doc_amount" thai="มูลค่า" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="doc_amount_old" thai="มูลค่าเดิม" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="function_type" thai="0=Login,1=Menu,2=Trans,3=Report" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="date_time_out" thai="วันที่/เวลาออก" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="date_begin" thai="จากวันที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="date_end" thai="ถึงวันที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="search" thai="ค้นหา" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="computer_name" thai="ชื่อเครื่อง" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="login_time" thai="เวลาเข้าใช้ระบบ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="logout_time" thai="เวลาออกจากระบบ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="menu_name" thai="ชื่อระบบ" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="data_new" thai="ข้อมูลใหม่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="data_old" thai="ข้อมูลเดิม" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <index index_name="logs_PK_PRIMARY" field="guid"  custer="true"  unique="true" ></index>
+  </table>
+  <table name="payroll_resource" thai="Resource" eng="Resource" xversion="ALL" >
+    <field name="doc_no" thai="เลขที่เอกสาร" eng="Document No" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="doc_date" thai="วันที่เอกสาร" eng="Document Date" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_type" thai="ประเภทลูกจ้าง" eng="Employee Type" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="select_month" thai="เดือน" eng="Month" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="select_year" thai="ปี" eng="Year" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="date_from" thai="จากวันที่" eng="Date From" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="date_to" thai="ถึงวันที่" eng="Date To" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_all" thai="เลือกลูกจ้างทั้งหมด" eng="Employee All" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_from" thai="จากลูกจ้าง" eng="Employee From" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_to" thai="ถึงลูกจ้าง" eng="Employee To" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="normal" thai="ปกติ" eng="Normal" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="cancel" thai="ยกเลิก" eng="Cancel" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="monthly" thai="รายเดือน" eng="Monthly" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="weekly" thai="รายสัปดาห์" eng="Weekly" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="daily" thai="รายวัน" eng="Daily" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="January" thai="มกราคม" eng="January" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="February" thai="กุมภาพันธ์" eng="February" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="March" thai="มีนาคม" eng="March" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="April" thai="เมษายน" eng="April" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="May" thai="พฤษภาคม" eng="May" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="June" thai="มิถุนายน" eng="June" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="July" thai="กรกฎาคม" eng="July" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="August" thai="สิงหาคม" eng="August" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="September" thai="กันยายน" eng="September" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="October" thai="ตุลาคม" eng="October" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="November" thai="พฤศจิกายน" eng="November" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="December" thai="ธันวาคม" eng="December" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee" thai="รหัสลูกจ้าง" eng="Employee" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="employee_name" thai="ชื่อลูกจ้าง" eng="Employee Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="wages_money" thai="เงินค่าจ้าง" eng="Wages Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="sow_money" thai="เงินหัก (ขาดงาน)" eng="Short of Work Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="leave_money" thai="เงินหัก(ลางาน)" eng="Leave Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="late_money" thai="เงินหัก(มาสาย)" eng="Arrive Late Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="ot_money" thai="ค่าล่วงเวลา" eng="Over Time Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="society_insure_money" thai="เงินประกันสังคม" eng="Society Insure Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reserve_money" thai="เงินกองทุนสำรอง" eng="Reserve Fund Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="diligent_money" thai="เบี้ยขยัน" eng="Diligent Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="bonus_money" thai="เงินโบนัส" eng="Bonus Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="prepay_money" thai="เงินจ่ายล่วงหน้า" eng="Prepay Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="other_income_money" thai="เงินได้อื่นๆ" eng="Other Income Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="advance_money" thai="หักเงินจ่ายล่วงหน้า" eng="Advance Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="insure_money" thai="เงินคํ้าประกัน" eng="Insure Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="other_payout_money" thai="เงินจ่ายอื่นๆ" eng="Other Payout Money" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="net_wages" thai="เป็นเงินค่าจ้างสุทธิ" eng="Net Wages" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_child" thai="ลดฯบุตร" eng="Reduce Child" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_father_mother" thai="ลดฯบิดา/มารดา" eng="Reduce Father/Mother" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="insurance" thai="เบี้ยประกัน" eng="Insurace" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="loan" thai="เบี้ยกู้ยืม" eng="Loan" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_40" thai="หักค่าใช้จ่าย 40%" eng="Reduce 40%" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_myself" thai="ลดฯผู้มีเงินได้" eng="Reduce Myself" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_other" thai="ลดหย่อนอื่นๆ" eng="Reduce Other" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tax_income" thai="ภาษีเงินได้" eng="Tax income" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tax_already_pay" thai="ภาษีที่ชำระแล้ว" eng="Tax already pay" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="net_tax" thai="มูลค่าภาษีสุทธิ" eng="Net tax" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="remark" thai="หมายเหตุ" eng="Remark" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="from_salary" thai="จากค่าจ้าง" eng="From Salary" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="to_salary" thai="ถึงค่าจ้าง" eng="To Salary" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_parents" thai="ลดฯบิดามารดา" eng="Reduce Parents" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="insurance_parents" thai="เบี้ยประกันบิดามารดา" eng="Insurace Parents" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="select_period" thai="งวดที่" eng="Select Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="period_one" thai="งวดที่หนึ่ง" eng="Period One" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="period_two" thai="งวดที่สอง" eng="Period Two" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="period_three" thai="งวดที่สาม" eng="Period Three" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="period_four" thai="งวดที่สี่" eng="Period Four" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="period_all" thai="ทุกงวด" eng="Period All" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="reduce_spouse" thai="ลดฯคู่สมรส" eng="Reduce Spouse" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="show_month" thai="แสดงเป็นเดือน" eng="Show Month" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="show_period" thai="แสดงเป็นงวด" eng="Show Period" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="option" thai="Option" eng="Option" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+  </table>
+  <table name="payroll_employee_salary" thai="เงินเดือน" eng="Salary" xversion="All" >
+    <field name="code" thai="รหัสพนักงาน" eng="Code" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="salary" thai="ค่าจ้าง" eng="Salary" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="start_date" thai="วันที่เริ่มใช้งาน" eng="Start Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="end_date" thai="วันที่สิ้นสุดการใช้งาน" eng="End Date" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="status" thai="สถานะ" eng="Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+</node>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="windows-874" ?>
+<node>
+<table name="erp_user_group" thai="กลุ่มผู้ใช้งาน" eng="User Group" xversion="ALL" >
+<field name="code" thai="รหัส" eng="Code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ" eng="Name" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Name (English)" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="GUID" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="erp_user_group_PK_CODE" field="code"  custer="true"  unique="true" ></index>
+</table>
+<table name="sml_agent" thai="sml_agent" eng="sml_agent" xversion="" >
+<field name="code" thai="รหัส" eng="Code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name" thai="ชื่อ" eng="Name" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="password" thai="รหัสผ่าน" eng="Pass Word" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="email" thai="อีเมล์" eng="Email" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="servername" thai="ชื่อ แม่ข่าย" eng="Server Name" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="branchdatabasename" thai="ชื่อ ฐานข้อมูลลูกข่าย" eng="Branch Database Server Name" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="windowservername" thai="ชื่อเครื่องลูกข่าย" eng="Windows Server Name" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="transall" thai="โอนข้อมูล" eng="Trans" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="GUID" eng="guid" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="slsmn" thai="Slsmn" eng="Slsmn" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cust_group" thai="Cust Group" eng="Cust Group" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address" thai="Address" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address1" thai="Address1" eng="Address1" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address2" thai="Address2" eng="Address2" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="phone" thai="Phone" eng="Phone" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="postcode" thai="Post Code" eng="Post Code" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cust_type" thai="Cust Type" eng="Cust Type" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mkt_lev" thai="Mkt Lev" eng="Mkt Lev" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mkt_chan" thai="Mkt Chanel" eng="Mkt Chanel" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="chan_type" thai="Chanel Type" eng="Chanel Type" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dateacc" thai="Date Acc" eng="Date Acc" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="province" thai="Province" eng="Province" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="rsm" thai="RSM" eng="RSM" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="region" thai="Region" eng="Region" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="salesmanname" thai="Saleman Name" eng="Saleman Name" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="installeddate" thai="Installed Date" eng="Installed Date" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ap_code" thai="รหัสเจ้าหนี้" eng="AP Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="channelmaster" thai="Channel Master" eng="Channel Master" xversion="" >
+<field name="cust_code" thai="รหัส" eng="Code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="cust_name" thai="ชื่อ" eng="Name" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="slsmn" thai="Slsmn" eng="Slsmn" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cust_group" thai="Cust Group" eng="Cust Group" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address" thai="Address" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address1" thai="Address1" eng="Address1" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address2" thai="Address2" eng="Address2" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="phone" thai="Phone" eng="Phone" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="postcode" thai="Post Code" eng="Post Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cust_type" thai="Cust Type" eng="Cust Type" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mkt_lev" thai="Mkt Lev" eng="Mkt Lev" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mkt_chan" thai="Mkt Chanel" eng="Mkt Chanel" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="chan_type" thai="Chanel Type" eng="Chanel Type" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dateacc" thai="Date Acc" eng="Date Acc" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="province" thai="Province" eng="Province" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="rsm" thai="RSM" eng="RSM" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="region" thai="Region" eng="Region" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="salesmanname" thai="Saleman Name" eng="Saleman Name" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="installeddate" thai="Installed Date" eng="Installed Date" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="sml_user_list" thai="รายละเอียดผู้ใช้" eng="User List" xversion="ALL" >
+<field name="user_code" thai="รหัสผู้ใช้" eng="User code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="user_name" thai="ชื่อผู้ใช้" eng="User name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="user_password" thai="รหัสผ่าน" eng="User password" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="user_level" thai="ระดับความสามารถ" eng="User level" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="active_status" thai="ใช้งาน" eng="Active" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="menu" thai="เมนู" eng="Menu" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="search" thai="ค้นหา" eng="Search" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="sml_permissions_group" thai="กำหนดสิทธิ์กลุ่มผู้ใช้งาน" eng="Permissions Group" xversion="ALL" >
+<field name="usercode" thai="รหัส" eng="Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="image_file" thai="แฟ้มกำหนดสิทธิ์" eng="Permissions File" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="system_id" thai="ระบบ" eng="System ID" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="guid_code" thai="guid_code" eng="guid_code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="menucode" thai="รหัสเมนู" eng="Menu Id" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="menuname" thai="ชื่อเมนู" eng="Menu Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isread" thai="ใช้งานได้" eng="Read" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isadd" thai="เพิ่ม" eng="Add" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isdelete" thai="ลบ" eng="Delete" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isedit" thai="แก้ไข" eng="Edit" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="sml_permissions_user" thai="กำหนดสิทธิ์ผู้ใช้งาน" eng="Permissions User" xversion="ALL" >
+<field name="usercode" thai="รหัส" eng="Code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="image_file" thai="แฟ้มกำหนดสิทธิ์" eng="Permissions File" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="system_id" thai="ระบบ" eng="System ID" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="guid_code" thai="guid_code" eng="guid_code" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="menucode" thai="รหัสเมนู" eng="Menu Id" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="menuname" thai="ชื่อเมนู" eng="Menu Name" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isread" thai="ใช้งานได้" eng="Read" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isadd" thai="เพิ่ม" eng="Add" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isdelete" thai="ลบ" eng="Delete" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="isedit" thai="แก้ไข" eng="Edit" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="erp_company_profile" thai="รายละเอียดบริษัท" eng="Company profile" xversion="ALL" >
+<field name="company_name_1" thai="ชื่อบริษัท" eng="Company name" type="varchar" length="100" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="company_name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Company name (2)" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="business_name_1" thai="ชื่อผู้ประกอบการ" eng="Business name" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="business_name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Business name (2)" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address_1" thai="ที่อยู่" eng="Address" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="address_2" thai="ที่อยู่ (ภาษาอังกฤษ)" eng="Address (2)" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="telephone_number" thai="หมายเลขโทรศัพท์" eng="Telephone number" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="fax_number" thai="หมายเลขโทรสาร" eng="Fax number" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="tax_number" thai="เลขที่ผู้เสียภาษี" eng="Tax number" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="branch_status" thai="ใช้ระบบสาขา" eng="Branch Status" type="tinyint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="workplace_1" thai="ชื่อสถานที่ประกอบการ" eng="Workplace 1" type="varchar" length="200" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="workplace_2" thai="ชื่อสถานที่ประกอบการ(อังถฤษ)" eng="Workplace 2" type="varchar" length="200" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="erp_view_column" thai="รายละเอียดหน้าจอค้นหา" eng="View column" xversion="ALL" >
+<field name="screen_group" thai="กลุ่มหน้าจอ" eng="Screen group" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="screen_code" thai="รหัสหน้าจอ" eng="Screen code" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="column_number" thai="ลำดับที่" eng="Column number" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_name" thai="ชื่อ" eng="Column name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_name_2" thai="ชื่อ (ภาษาอังกฤษ)" eng="Column name eng" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_field_name" thai="ชื่อข้อมูล" eng="Column field name" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_field_sort" thai="ชื่อข้อมูลเพื่อเรียง" eng="Column field for sort" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_width" thai="ความกว้าง" eng="Column width" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_type" thai="ประเภท" eng="Column type" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_align" thai="จัดช่อง" eng="Column align" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_format" thai="รูปแบบ" eng="Column format" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="column_resource" thai="Resource" eng="" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="erp_view_document" thai="หน้าจอสำหรับแสดงรายการข้อมูล" eng="Document view" xversion="ALL" >
+<field name="screen_code" thai="รหัสหน้าจอ" eng="System Code" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="code" thai="รหัส" eng="Code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name_1" thai="ชื่อไทย" eng="Name 1" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่ออังกฤษ" eng="Name 2" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="erp_view_document_PK_CODE" field="code"  custer="true"  unique="true" ></index>
+</table>
+<table name="erp_view_table" thai="รายละเอียดการแสดงผลแต่ละหน้าจอ" eng="View by Table" xversion="ALL" >
+<field name="screen_code" thai="รหัสหน้าจอ" eng="Screen code" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name_1" thai="ชื่อหน้าจอ" eng="Screen name" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name_2" thai="ชื่อหน้าจอ (ภาษาอังกฤษ)" eng="Screen 2" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="table_name" thai="ชื่อตารางข้อมูลหลัก" eng="Table name" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="table_list" thai="ชื่อตารางข้อมูลที่เกี่ยวข้อง" eng="Table list" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="sort" thai="ชื่อข้อมูลที่จะเรียง" eng="Sort" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="filter" thai="เงื่อนไขการแสดงผล" eng="Filter" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="width_persent" thai="ความกว้างเป็นเปอร์เซ็นต์" eng="Width by persent" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="erp_view_table_PK_CODE" field="screen_code"  custer="true"  unique="true" ></index>
+</table>
+<table name="process" thai="process" eng="process" xversion="" >
+<field name="process_name" thai="process name" eng="process name" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="last_guid" thai="guid" eng="guid" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="last_time" thai="last time" eng="last time" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="wherein" thai="where in" eng="where in" type="varchar" length="500" indentity="no" allow_null="false" resource_only="false"></field>
+<index index_name="process_process_name" field="process_name" ></index>
+<index index_name="process_wherein" field="wherein" ></index>
+<index index_name="process_name_and_wherein" field="process_name,wherein" ></index>
+<index index_name="process_last_guid" field="last_guid" ></index>
+</table>
+<table name="logs" thai="log" eng="log" xversion="" >
+<field name="function_code" thai="1=เพิ่ม,2=แก้ไข,3=ลบ" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="data1" thai="ข้อมูลใหม่" eng="" type="varchar" length="5000" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="data2" thai="ข้อมูลเดิม" eng="" type="varchar" length="5000" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="user_code" thai="รหัสผู้ใช้" eng="" type="varchar" length="35" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="date_time" thai="วันที่/เวลา" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="screen_code" thai="รหัสหน้าจอ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid" thai="guid" eng="" type="varchar" length="35" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="doc_date" thai="วันที่เอกสาร" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="doc_date_old" thai="วันที่เอกสารเดิม" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="doc_no" thai="เลขที่เอกสาร" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="doc_no_old" thai="เลขที่เอกสารเดิม" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="doc_amount" thai="มูลค่า" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="doc_amount_old" thai="มูลค่าเดิม" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="function_type" thai="0=Login,1=Menu,2=Trans,3=Report" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="date_time_out" thai="วันที่/เวลาออก" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="date_begin" thai="จากวันที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="date_end" thai="ถึงวันที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="search" thai="ค้นหา" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="computer_name" thai="ชื่อเครื่อง" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="login_time" thai="เวลาเข้าใช้ระบบ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="logout_time" thai="เวลาออกจากระบบ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="menu_name" thai="ชื่อระบบ" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="data_new" thai="ข้อมูลใหม่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="data_old" thai="ข้อมูลเดิม" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<index index_name="logs_PK_PRIMARY" field="guid"  custer="true"  unique="true" ></index>
+</table>
+<table name="statisticsInfo" thai="statisticsInfo" eng="statisticsInfo" xversion="" >
+<field name="colorid" thai="ColorId" eng="ColorId" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="system" thai="System" eng="System" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="brand" thai="Brand" eng="Brand" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="base" thai="Base" eng="Base" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cansize" thai="CanSize" eng="CanSize" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="source" thai="Source" eng="Source" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="colorname" thai="ColorName" eng="ColorName" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="colornumber" thai="ColorNumber" eng="ColorNumber" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="datetime" thai="DateTime" eng="DateTime" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dispnum" thai="DispNum" eng="DispNum" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="printnum" thai="PrintNum" eng="PrintNum" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="catalogue" thai="Catalogue" eng="Catalogue" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="hue" thai="Hue" eng="Hue" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="depth" thai="Depth" eng="Depth" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="chroma" thai="Chroma" eng="Chroma" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="productcode" thai="ProductCode" eng="ProductCode" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="productname" thai="ProductName" eng="ProductName" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="tier" thai="Tier" eng="Tier" type="varchar" length="200" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="type" thai="Type" eng="Type" type="varchar" length="200" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cataloguereference" thai="Catalogue Reference" eng="Catalogue Reference" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cansizeno" thai="CansizeNo" eng="CansizeNo" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="totalsales" thai="Total Sales" eng="Total Sales" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="slsmn" thai="Slsmn" eng="Slsmn" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="custgroup" thai="CustGroup" eng="CustGroup" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="custtype" thai="CustType" eng="CustType" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mktlev" thai="Mktlev" eng="Mktlev" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mktchan" thai="Mktchan" eng="Mktchan" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="chantype" thai="ChanType" eng="ChanType" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dateacc" thai="DateAcc" eng="DateAcc" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="province" thai="Province" eng="Province" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="rms" thai="RMS" eng="RMS" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="region" thai="Region" eng="Region" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="salesmanname" thai="SalesmanName" eng="SalesmanName" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="installeddate" thai="InstalledDate" eng="InstalledDate" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="agencode" thai="Agen Code" eng="Agen Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="oldcolornumber" thai="Old Color Number" eng="Old Color Number" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="brand1" thai="Brand 1" eng="Brand 1" type="varchar" length="200" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="base1" thai="Base 1" eng="Base 1" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="chroma" thai="Chroma" eng="Chroma" xversion="" >
+<field name="code" thai="Code" eng="Code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="chroma_min" thai="Min" eng="Min" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="chroma_max" thai="Max" eng="Max" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="chroma_PK_Code" field="code"  custer="true"  unique="true" ></index>
+</table>
+<table name="hue" thai="HUE" eng="HUE" xversion="" >
+<field name="code" thai="Code" eng="Code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name" thai="Name" eng="Name" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="hue_PK_Code" field="code"  custer="true"  unique="true" ></index>
+</table>
+<table name="lrv" thai="LRV" eng="LRV" xversion="" >
+<field name="code" thai="Code" eng="Code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="lrv_min" thai="Min" eng="Min" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="lrv_max" thai="Max" eng="Max" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="lrv_PK_Code" field="code"  custer="true"  unique="true" ></index>
+</table>
+<table name="rdmcolor" thai="RDM Color" eng="RDM Color" xversion="" >
+<field name="colornumber" thai="Color Number" eng="Color Number" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="hue" thai="Hue" eng="Hue" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="depth" thai="Depth" eng="Depth" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="tier" thai="Tier" eng="Tier" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="Product_Master" thai="Produc Master" eng="Produc Master" xversion="" >
+<field name="product_line" thai="Product Line" eng="" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="product" thai="Product" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="product_name" thai="Prodcut Name" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="type" thai="Type" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="tier" thai="Tier" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="brand" thai="Brand" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<index index_name="Product_Master_PK_PRIMARY" field="product_line"  custer="true"  unique="true" ></index>
+</table>
+<table name="ProcessCube" thai="ProcessCube" eng="ProcessCube" xversion="" >
+<field name="temp_field" thai="temp_field" eng="temp_field" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="cubeprocesslog" thai="cubeprocesslog" eng="cubeprocesslog" xversion="" >
+<field name="logdetail" thai="logdetail" eng="logdetail" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+</table>
+<table name="cubeprocess" thai="cubeprocess" eng="cubeprocess" xversion="" >
+<field name="temp1" thai="temp1" eng="temp1" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+</node>

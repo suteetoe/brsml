@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SMLProcess.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SMLProcess_SMLFrameWork_SMLFrameWork" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8080/SMLJavaWebService/SMLFrameWorkService</Value>
+    </Setting>
+    <Setting Name="SMLProcess_SMLJavaWebService_DotNetFrameWorkService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:8084/SMLJavaWebService/SMLFrameWork</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

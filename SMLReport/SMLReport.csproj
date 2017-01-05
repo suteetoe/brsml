@@ -1,0 +1,748 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLReport</RootNamespace>
+    <AssemblyName>SMLReport</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <ApplicationIcon>document_edit.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>myDLL\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeVendor.Controls, Version=1.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyLib\myDLL\CodeVendor.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.81.0.1407, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyLib\myDLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource16x16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource16x16.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_drawEllipse.cs" />
+    <Compile Include="_accessories\_drawTools\_drawLabel.cs" />
+    <Compile Include="_accessories\_drawTools\_drawLine.cs" />
+    <Compile Include="_accessories\_drawTools\GraphicsProperties.cs" />
+    <Compile Include="_accessories\_drawTools\_drawRoundedRectangle.cs" />
+    <Compile Include="_accessories\_drawTools\_drawTable.cs" />
+    <Compile Include="_accessories\_drawTools\_drawTextField.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_columnMultiFieldCollection.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_coluumnMultiFieldCollectionPropertyDescriptor.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_customCollectionEditor.cs" />
+    <Compile Include="_accessories\_drawTools\_drawImageField.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_tableColumns.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_tableColumnsCollection.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_tableColumnsCollectionPropertyDescriptor.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_tableFooters.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_tableFootersCollection.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_tableFootersCollectionPropertyDescriptor.cs" />
+    <Compile Include="_accessories\_drawTools\_table\_typeConverter.cs" />
+    <Compile Include="_accessories\_drawTools\_toolImageField.cs" />
+    <Compile Include="_accessories\_drawTools\_toolRoundedRectangle.cs" />
+    <Compile Include="_accessories\_drawTools\_toolTable.cs" />
+    <Compile Include="_accessories\_drawTools\_toolTextField.cs" />
+    <Compile Include="_accessories\_query\_drawObjectFieldConv.cs" />
+    <Compile Include="_accessories\_query\_fieldConverter.cs" />
+    <Compile Include="_accessories\_query\_imageListFieldConverter.cs" />
+    <Compile Include="_accessories\_query\_serialNumberFieldConv.cs" />
+    <Compile Include="_accessories\_query\_tableColumnsFieldConverter.cs" />
+    <Compile Include="_accessories\_query\_tableFootersFieldConverter.cs" />
+    <Compile Include="_formReport\_dataSearchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_formReport\_dataSearchControl.Designer.cs">
+      <DependentUpon>_dataSearchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_deleteFormServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_deleteFormServer.Designer.cs">
+      <DependentUpon>_deleteFormServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_drawPaperXml.cs" />
+    <Compile Include="_formReport\_formDesignDataList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_formReport\_formDesignDataList.Designer.cs">
+      <DependentUpon>_formDesignDataList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_formPrint.cs" />
+    <Compile Include="_formReport\_formPrintOption.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_formPrintOption.Designer.cs">
+      <DependentUpon>_formPrintOption.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_imageCollection.cs" />
+    <Compile Include="_formReport\_imageCollectionPropertyDescriptor.cs" />
+    <Compile Include="_formReport\_imageList.cs" />
+    <Compile Include="_formReport\_imageListCollectionEditor.cs" />
+    <Compile Include="_formReport\_imageObject.cs" />
+    <Compile Include="_formReport\_loadStandardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_loadStandardForm.Designer.cs">
+      <DependentUpon>_loadStandardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_masterFormImport.cs" />
+    <Compile Include="_formReport\_moneyToText.cs" />
+    <Compile Include="_formReport\_myPrintDocument.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="_formReport\_openFormServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_openFormServer.Designer.cs">
+      <DependentUpon>_openFormServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_pageSort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_pageSort.Designer.cs">
+      <DependentUpon>_pageSort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_queryDetailControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_formReport\_queryDetailControl.Designer.cs">
+      <DependentUpon>_queryDetailControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_queryExecuteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_queryExecuteForm.Designer.cs">
+      <DependentUpon>_queryExecuteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_queryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_queryForm.Designer.cs">
+      <DependentUpon>_queryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_queryParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_queryParameterForm.Designer.cs">
+      <DependentUpon>_queryParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_saveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_saveForm.Designer.cs">
+      <DependentUpon>_saveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_selectBackgroundForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_formReport\_selectBackgroundForm.Designer.cs">
+      <DependentUpon>_selectBackgroundForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_generate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_generate.Designer.cs">
+      <DependentUpon>_generate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_ImportFormDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_ImportFormDesign.Designer.cs">
+      <DependentUpon>_ImportFormDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_reportUtility.cs" />
+    <Compile Include="_report\_class.cs" />
+    <Compile Include="_report\_conditionScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_conditionScreen.Designer.cs">
+      <DependentUpon>_conditionScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_csvClass.cs" />
+    <Compile Include="_report\_excelClass.cs" />
+    <Compile Include="_report\_reportDrawPaper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_reportDrawPaper.Designer.cs">
+      <DependentUpon>_reportDrawPaper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_view.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_view.Designer.cs">
+      <DependentUpon>_view.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_queryPreview\_queryPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryPreview\_queryPreview.Designer.cs">
+      <DependentUpon>_queryPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_parameterDesigner\_parameterDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_parameterDesigner\_parameterDesigner.Designer.cs">
+      <DependentUpon>_parameterDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_formReport\_formDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_formReport\_formDesigner.Designer.cs">
+      <DependentUpon>_formDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_drawPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_accessories\_drawPanel.Designer.cs">
+      <DependentUpon>_drawPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_queryDesigner\_queryDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryDesigner\_queryDesigner.Designer.cs">
+      <DependentUpon>_queryDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_drawObject.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_drawImage.cs" />
+    <Compile Include="_formReport\_drawPaper.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_formReport\_drawPaper.Designer.cs">
+      <DependentUpon>_drawPaper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_drawRectangle.cs" />
+    <Compile Include="_accessories\_rulerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_accessories\_rulerControl.Designer.cs">
+      <DependentUpon>_rulerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolEllipse.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolLabel.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolLine.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolObject.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolImage.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolPointer.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_toolRectangle.cs">
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_graphicsList.cs" />
+    <Compile Include="_queryDesigner\_linkList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryDesigner\_linkList.Designer.cs">
+      <DependentUpon>_linkList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_queryDesigner\_linkPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryDesigner\_linkPanel.Designer.cs">
+      <DependentUpon>_linkPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_mainScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_mainScreen.Designer.cs">
+      <DependentUpon>_mainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_pageSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_accessories\_pageSetup.Designer.cs">
+      <DependentUpon>_pageSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_queryDesigner\_selectCover.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryDesigner\_selectCover.Designer.cs">
+      <DependentUpon>_selectCover.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_queryDesigner\_tablePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryDesigner\_tablePanel.designer.cs">
+      <DependentUpon>_tablePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_accessories\_drawTools\_tool.cs">
+    </Compile>
+    <Compile Include="_standardReport\_sectionObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_standardReport\_sectionObject.Designer.cs">
+      <DependentUpon>_sectionObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_standardReport\_standardReportDesigner.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_standardReport\_standardReportDesigner.Designer.cs">
+      <DependentUpon>_standardReportDesigner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_whereUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_whereUserControl.Designer.cs">
+      <DependentUpon>_whereUserControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource16x16.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource16x16.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_dataSearchControl.resx">
+      <DependentUpon>_dataSearchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_deleteFormServer.resx">
+      <DependentUpon>_deleteFormServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_formDesignDataList.resx">
+      <DependentUpon>_formDesignDataList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_formPrintOption.resx">
+      <DependentUpon>_formPrintOption.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_loadStandardForm.resx">
+      <DependentUpon>_loadStandardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_openFormServer.resx">
+      <DependentUpon>_openFormServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_queryDetailControl.resx">
+      <DependentUpon>_queryDetailControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_queryExecuteForm.resx">
+      <DependentUpon>_queryExecuteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_queryForm.resx">
+      <DependentUpon>_queryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_queryParameterForm.resx">
+      <DependentUpon>_queryParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_saveForm.resx">
+      <DependentUpon>_saveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_selectBackgroundForm.resx">
+      <DependentUpon>_selectBackgroundForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_generate.resx">
+      <DependentUpon>_generate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_ImportFormDesign.resx">
+      <DependentUpon>_ImportFormDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_parameterDesigner\_parameterDesigner.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_parameterDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_formDesigner.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_formDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_accessories\_drawPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_drawPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryDesigner\_queryDesigner.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_queryDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryDesigner\_linkList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_linkList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryDesigner\_linkPanel.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_linkPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_mainScreen.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_mainScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryDesigner\_selectCover.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_selectCover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryDesigner\_tablePanel.resx">
+      <DependentUpon>_tablePanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_new.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder_view.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gettext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo_portrait.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_center.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_justified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_align_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_italics.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_bold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\text_normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\garbage_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selection1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrench.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ellipse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_edit.png" />
+    <None Include="Resources\tag_yellow.png" />
+    <None Include="Resources\delete21.png" />
+    <Content Include="myDLL\BarcodeLib.dll" />
+    <Content Include="Resources\A_Barcode_Sm_N.png" />
+    <Content Include="Resources\barcode.jpg" />
+    <Content Include="Resources\checkbox.png" />
+    <None Include="Resources\csv_icon.png" />
+    <Content Include="Resources\data.png" />
+    <Content Include="Resources\disks.png" />
+    <Content Include="Resources\document_certificate.png" />
+    <Content Include="Resources\document_into.png" />
+    <Content Include="Resources\document_lock.png" />
+    <Content Include="Resources\document_ok.png" />
+    <Content Include="Resources\document_out.png" />
+    <Content Include="Resources\elements1.png" />
+    <Content Include="Resources\Ellipse16.png" />
+    <Content Include="Resources\export1.png" />
+    <Content Include="Resources\export2.png" />
+    <None Include="Resources\flash1.png" />
+    <None Include="Resources\garbage_empty1.png" />
+    <Content Include="Resources\help2.png" />
+    <Content Include="Resources\icon_picture.gif" />
+    <Content Include="Resources\lightbulb_on.png" />
+    <Content Include="Resources\preferences1.png" />
+    <Content Include="Resources\printer_view.png" />
+    <None Include="Resources\procude_label.png" />
+    <Content Include="Resources\ps_barcode4.gif" />
+    <Content Include="Resources\Rectangle16.png" />
+    <Content Include="Resources\RoundedRectangle16.png" />
+    <Content Include="Resources\table.png" />
+    <None Include="Resources\table_sql_view.png" />
+    <EmbeddedResource Include="Rectangle.cur" />
+    <EmbeddedResource Include="_formReport\_pageSort.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_pageSort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_conditionScreen.resx">
+      <DependentUpon>_conditionScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_reportDrawPaper.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_reportDrawPaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_view.resx">
+      <DependentUpon>_view.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryPreview\_queryPreview.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_queryPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_formReport\_drawPaper.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_drawPaper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_accessories\_rulerControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_rulerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_accessories\_pageSetup.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_pageSetup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_standardReport\_sectionObject.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_sectionObject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_standardReport\_standardReportDesigner.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_standardReportDesigner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_whereUserControl.resx">
+      <DependentUpon>_whereUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Resources\landscape.png" />
+    <Content Include="document_edit.ico" />
+    <None Include="Resources\label.png" />
+    <None Include="Resources\grid.png" />
+    <None Include="Resources\box1.png" />
+    <None Include="Resources\bold.png" />
+    <None Include="Resources\italic.png" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\center.png" />
+    <None Include="Resources\bringtofront.png" />
+    <None Include="Resources\copy1.png" />
+    <None Include="Resources\cut1.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\groupaligntop.png" />
+    <None Include="Resources\groupalignbottom.png" />
+    <None Include="Resources\groupalignleft.png" />
+    <None Include="Resources\groupalignright.png" />
+    <None Include="Resources\fillecolor.png" />
+    <None Include="Resources\error.png" />
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\excel.jpg" />
+    <None Include="Resources\document_new1.png" />
+    <None Include="Resources\document_exchange.png" />
+    <None Include="Resources\document_delete.png" />
+    <None Include="Resources\check21.png" />
+    <None Include="Resources\error1.png" />
+    <None Include="Resources\bt03.png" />
+    <None Include="Resources\carabiner.png" />
+    <Content Include="Resources\line.png" />
+    <None Include="Resources\nav_down_blue.png" />
+    <None Include="Resources\nav_up_blue.png" />
+    <None Include="Resources\nav_right_blue.png" />
+    <None Include="Resources\nav_left_blue.png" />
+    <None Include="Resources\printer.png" />
+    <None Include="Resources\navigate_right2.png" />
+    <None Include="Resources\navigate_right.png" />
+    <None Include="Resources\navigate_left2.png" />
+    <None Include="Resources\navigate_left.png" />
+    <None Include="Resources\textcolor.png" />
+    <None Include="Resources\linecolor.png" />
+    <None Include="Resources\paste1.png" />
+    <None Include="Resources\sendtoback.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\underline.png" />
+    <None Include="Resources\ruler.png" />
+    <None Include="Resources\pagesetup.png" />
+    <None Include="Resources\textbox.png" />
+    <None Include="Resources\portrait.png" />
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\rectangle.png" />
+    <None Include="Resources\line11.png" />
+    <None Include="Resources\line1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73aa4c07-aabc-4c52-b7d7-1b0a9b0b256a}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

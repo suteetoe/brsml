@@ -1,0 +1,63 @@
+﻿namespace SMLERPIC
+{
+    partial class _icBarcodeDiscount
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this._myManageMain = new MyLib._myManageData();
+            this.SuspendLayout();
+            // 
+            // _myManageMain
+            // 
+            this._myManageMain._mainMenuCode = "";
+            this._myManageMain._mainMenuId = "";
+            this._myManageMain.BackColor = System.Drawing.Color.WhiteSmoke;
+            this._myManageMain.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this._myManageMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._myManageMain.Location = new System.Drawing.Point(0, 0);
+            this._myManageMain.Name = "_myManageMain";
+            this._myManageMain.Size = new System.Drawing.Size(570, 389);
+            this._myManageMain.TabIndex = 0;
+            this._myManageMain.TabStop = false;
+            // 
+            // _icBarcodeDiscount
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this._myManageMain);
+            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
+            this.Name = "_icBarcodeDiscount";
+            this.Size = new System.Drawing.Size(570, 389);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private MyLib._myManageData _myManageMain;
+    }
+}

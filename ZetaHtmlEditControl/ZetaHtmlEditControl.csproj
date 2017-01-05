@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <ProjectGuid>{B00AE765-8212-43FD-8E70-768A6C20EE93}</ProjectGuid>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath />
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace>ZetaHtmlEditControl</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HttpServer, Version=1.1.0.0, Culture=neutral, PublicKeyToken=a96f302995d63e21, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\HttpServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="SgmlReaderDll, Version=1.7.3.27734, Culture=neutral, PublicKeyToken=0471d2efadfe2cee, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\SgmlReaderDll.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtendedWebBrowser.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Helper\ConvertHelper.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
+    <Compile Include="Helper\ImageScaler.cs" />
+    <Compile Include="Helper\LocalizableDescriptionAttribute.cs" />
+    <Compile Include="Helper\Pair.cs" />
+    <Compile Include="Helper\StringHelper.cs" />
+    <Compile Include="HtmlConversionHelper.cs" />
+    <Compile Include="HtmlEditControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlEditControl.Designer.cs">
+      <DependentUpon>HtmlEditControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlEditorCellPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HtmlEditorCellPropertiesForm.Designer.cs">
+      <DependentUpon>HtmlEditorCellPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlEditorTableNewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HtmlEditorTableNewForm.Designer.cs">
+      <DependentUpon>HtmlEditorTableNewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlEditUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HtmlEditUserControl.Designer.cs">
+      <DependentUpon>HtmlEditUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IExternalInformationProvider.cs" />
+    <Compile Include="IExternalWebServer.cs" />
+    <Compile Include="MyToolStripRenderer.cs" />
+    <Compile Include="PInvoke\NativeMethods.cs" />
+    <Compile Include="Helper\PathHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HtmlSourceTextEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HtmlSourceTextEditForm.Designer.cs">
+      <DependentUpon>HtmlSourceTextEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PInvoke\UnsafeNativeMethods.cs" />
+    <Compile Include="WebBrowserHelper.cs" />
+    <Compile Include="WebServer.cs" />
+    <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HtmlEditControl.de.resx">
+      <DependentUpon>HtmlEditControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditControl.resx">
+      <DependentUpon>HtmlEditControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditorCellPropertiesForm.de.resx">
+      <DependentUpon>HtmlEditorCellPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditorCellPropertiesForm.resx">
+      <DependentUpon>HtmlEditorCellPropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditorTableNewForm.de.resx">
+      <DependentUpon>HtmlEditorTableNewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditorTableNewForm.resx">
+      <DependentUpon>HtmlEditorTableNewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditUserControl.de.resx">
+      <DependentUpon>HtmlEditUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlEditUserControl.resx">
+      <DependentUpon>HtmlEditUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlSourceTextEditForm.de.resx">
+      <DependentUpon>HtmlSourceTextEditForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HtmlSourceTextEditForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>HtmlSourceTextEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.de.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ZetaHtmlEditControl.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\HttpServer.dll" />
+    <Content Include="dll\SgmlReaderDll.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

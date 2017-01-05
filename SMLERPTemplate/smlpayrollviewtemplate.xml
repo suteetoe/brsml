@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="windows-874" ?>
+<node>
+  <screen screen_code="screen_master_payroll_side_list" name_1="ฝ่าย" name_2="Side List" table_name="payroll_side_list" table_list="payroll_side_list" sort="payroll_side_list.code" filter="payroll_side_list.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_side_list.code" column_field_sort="payroll_side_list.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_side_list.name" column_field_sort="payroll_side_list.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_master_payroll_section_list" name_1="แผนก" name_2="Section List" table_name="payroll_section_list" table_list="payroll_section_list" sort="payroll_section_list.code" filter="payroll_section_list.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_section_list.code" column_field_sort="payroll_section_list.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_section_list.name" column_field_sort="payroll_section_list.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_master_payroll_work_title" name_1="ตำแหน่งงาน" name_2="Work Title" table_name="payroll_work_title" table_list="payroll_work_title" sort="payroll_work_title.code" filter="payroll_work_title.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_work_title.code" column_field_sort="payroll_work_title.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_work_title.name" column_field_sort="payroll_work_title.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_master_payroll_bank_list" name_1="ธนาคาร" name_2="Bank List" table_name="payroll_bank_list" table_list="payroll_bank_list" sort="payroll_bank_list.code" filter="payroll_bank_list.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_bank_list.code" column_field_sort="payroll_bank_list.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_bank_list.name" column_field_sort="payroll_bank_list.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_master_payroll_branch_bank" name_1="สาขาธนาคาร" name_2="Branch Bank" table_name="payroll_branch_bank" table_list="payroll_branch_bank" sort="payroll_branch_bank.code" filter="payroll_branch_bank.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_branch_bank.code" column_field_sort="payroll_branch_bank.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ(ไทย)" column_name_2="Name(TH)"  column_field_name="payroll_branch_bank.name1" column_field_sort="payroll_branch_bank.name1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ(อังกฤษ)" column_name_2="Name(EN)"  column_field_name="payroll_branch_bank.name2" column_field_sort="payroll_branch_bank.name2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_employee" name_1="บันทึกรายละเอียดพนักงาน/ลูกจ้าง" name_2="Employee" table_name="payroll_employee" table_list="payroll_employee" sort="payroll_employee.code" filter="payroll_employee.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_employee.code" column_field_sort="payroll_employee.code" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_employee.name" column_field_sort="payroll_employee.name" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ฝ่าย" column_name_2="Side" column_field_name="(select name from payroll_side_list where (payroll_side_list.code = payroll_employee.side_code) )" column_field_sort="payroll_employee.side_code" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="แผนก" column_name_2="Section" column_field_name="(select name from payroll_section_list where (payroll_section_list.code = payroll_employee.section_code) )" column_field_sort="payroll_employee.section_code" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ตำแหน่งงาน" column_name_2="Work Title" column_field_name="(select name from payroll_work_title where (payroll_work_title.code = payroll_employee.work_title) )" column_field_sort="payroll_employee.work_title" column_width="15" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_short_of_work" name_1="บันทึกการขาดงาน" name_2="Short of work" table_name="payroll_short_of_work" table_list="payroll_short_of_work" sort="payroll_short_of_work.code" filter="payroll_short_of_work.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_short_of_work.code" column_field_sort="payroll_short_of_work.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_short_of_work.name" column_field_sort="payroll_short_of_work.name" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="อัตราหักค่าแรง" column_name_2="Wages Cut Rate" column_field_name="payroll_short_of_work.wages_cut_rate" column_field_sort="payroll_short_of_work.wages_cut_rate" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+    <detail column_name="จำนวนเงินที่หัก" column_name_2="Wages Cut Money" column_field_name="payroll_short_of_work.wages_cut_money" column_field_sort="payroll_short_of_work.wages_cut_money" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_arrive_late" name_1="บันทึกการมาสาย" name_2="Arrive Late" table_name="payroll_arrive_late" table_list="payroll_arrive_late" sort="payroll_arrive_late.code" filter="payroll_arrive_late.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_arrive_late.code" column_field_sort="payroll_arrive_late.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_arrive_late.name" column_field_sort="payroll_arrive_late.name" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="อัตราหักค่าแรง" column_name_2="Late Cut Rate" column_field_name="payroll_arrive_late.arrive_late_rate" column_field_sort="payroll_arrive_late.arrive_late_rate" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+    <detail column_name="จำนวนเงินที่หัก" column_name_2="Late Cut Money" column_field_name="payroll_arrive_late.arrive_late_money" column_field_sort="payroll_arrive_late.arrive_late_money" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_leave" name_1="บันทึกการลางาน" name_2="Leave" table_name="payroll_leave" table_list="payroll_leave" sort="payroll_leave.code" filter="payroll_leave.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_leave.code" column_field_sort="payroll_leave.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_leave.name" column_field_sort="payroll_leave.name" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="อัตราหักค่าแรง" column_name_2="Leave Cut Rate" column_field_name="payroll_leave.leave_rate" column_field_sort="payroll_leave.leave_rate" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+    <detail column_name="จำนวนเงินที่หัก" column_name_2="Leave Cut Money" column_field_name="payroll_leave.leave_money" column_field_sort="payroll_leave.leave_money" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_over_time" name_1="บันทึกค่าล่วงเวลา" name_2="Over Time" table_name="payroll_over_time" table_list="payroll_over_time" sort="payroll_over_time.code" filter="payroll_over_time.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_over_time.code" column_field_sort="payroll_over_time.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_over_time.name" column_field_sort="payroll_over_time.name" column_width="60" column_type="varchar" column_align="left"></detail>
+    <detail column_name="อัตราล่วงเวลา" column_name_2="OT Rate" column_field_name="payroll_over_time.ot_rate" column_field_sort="payroll_over_time.ot_rate" column_width="20" column_type="float" format="m02" column_align="left"></detail>    
+  </screen>
+  <screen screen_code="screen_payroll_income_tax" name_1="บันทึกภาษีเงินได้" name_2="Income Tax" table_name="payroll_income_tax" table_list="payroll_income_tax" sort="payroll_income_tax.code" filter="payroll_income_tax.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_income_tax.code" column_field_sort="payroll_income_tax.code" column_width="25" column_type="varchar" column_align="left"></detail>
+    <detail column_name="เงินได้ตั้งแต่" column_name_2="Income From"  column_field_name="payroll_income_tax.income_from" column_field_sort="payroll_income_tax.income_from" column_width="25" column_type="float" format="m02" column_align="left"></detail>
+    <detail column_name="จนกระทั่งถึง" column_name_2="Income to" column_field_name="payroll_income_tax.income_to" column_field_sort="payroll_income_tax.income_to" column_width="25" column_type="float" format="m02" column_align="left"></detail>
+    <!--<detail column_name="จำนวนเงิน" column_name_2="Income Money" column_field_name="payroll_income_tax.income_money" column_field_sort="payroll_income_tax.income_money" column_width="20" column_type="float" format="m02" column_align="left"></detail>-->
+    <detail column_name="อัตราภาษี" column_name_2="Tax Rate" column_field_name="payroll_income_tax.tax_rate" column_field_sort="payroll_income_tax.tax_rate" column_width="25" column_type="float" format="m02" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_trans_list" name_1="บันทึกรายละเอียดการทำงาน" name_2="Trans List" table_name="payroll_trans" table_list="payroll_trans" sort="payroll_trans.doc_no" filter="payroll_trans.doc_no" width_by_persent="true" xversion ="ALL">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Document No" column_field_name="payroll_trans.doc_no" column_field_sort="payroll_trans.doc_no" column_width="25" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ลูกจ้าง" column_name_2="Employee Code"  column_field_name="(payroll_trans.employee ||&apos;~&apos; || (select name from payroll_employee where payroll_employee.code = payroll_trans.employee))" column_field_sort="payroll_trans.employee" column_width="25" column_type="varchar" column_align="left"></detail>
+    <!--<detail column_name="วันที่เอกสาร" column_name_2="Document Date"  column_field_name="payroll_trans_list.doc_date" column_field_sort="payroll_trans_list.doc_date" column_width="25" column_type="date" column_align="left"></detail>-->    
+    <detail column_name="เดือน" column_name_2="Month" column_field_name="payroll_trans.select_month_str" column_field_sort="payroll_trans.select_month_str" column_width="25" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ปี" column_name_2="Year" column_field_name="payroll_trans.select_year" column_field_sort="payroll_trans.select_year" column_width="25" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_calculate_wages" name_1="คำนวณค่าจ้าง" name_2="Calculate Wages" table_name="payroll_calculate_wages" table_list="payroll_calculate_wages" sort="payroll_calculate_wages.doc_no" filter="payroll_calculate_wages.doc_no" width_by_persent="true" xversion ="ALL">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Document No" column_field_name="payroll_calculate_wages.doc_no" column_field_sort="payroll_calculate_wages.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Document Date"  column_field_name="payroll_calculate_wages.doc_date" column_field_sort="payroll_calculate_wages.doc_date" column_width="20" column_type="date" column_align="left"></detail>
+    <detail column_name="เดือน" column_name_2="Month" column_field_name="payroll_calculate_wages.selected_month_str" column_field_sort="payroll_calculate_wages.selected_month_str" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ปี" column_name_2="Year" column_field_name="payroll_calculate_wages.selected_year" column_field_sort="payroll_calculate_wages.selected_year" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="จำนวนเงินทั้งสิ้น" column_name_2="Total Money" column_field_name="payroll_calculate_wages.total_money" column_field_sort="payroll_calculate_wages.total_money" column_width="20" column_type="float" format="m02" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_calculate_tax" name_1="คำนวณภาษี" name_2="Calculate Tax" table_name="payroll_calculate_tax" table_list="payroll_calculate_tax" sort="payroll_calculate_tax.doc_no" filter="payroll_calculate_tax.doc_no" width_by_persent="true" xversion ="ALL">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Document No" column_field_name="payroll_calculate_tax.doc_no" column_field_sort="payroll_calculate_tax.doc_no" column_width="25" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Document Date"  column_field_name="payroll_calculate_tax.doc_date" column_field_sort="payroll_calculate_tax.doc_date" column_width="25" column_type="date" column_align="left"></detail>
+    <detail column_name="ปีภาษี" column_name_2="Tax Year" column_field_name="payroll_calculate_tax.tax_year" column_field_sort="payroll_calculate_tax.tax_year" column_width="25" column_type="float" format="m02" column_align="left"></detail>    
+    <detail column_name="จำนวนเงินทั้งสิ้น" column_name_2="Total Money" column_field_name="payroll_calculate_tax.total_money" column_field_sort="payroll_calculate_tax.total_money" column_width="25" column_type="float" format="m02" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_payroll_tax" name_1="คำนวณภาษี" name_2="Calculate Tax" table_name="payroll_trans" table_list="payroll_trans" sort="payroll_trans.doc_no" filter="payroll_trans.doc_no" width_by_persent="true" xversion ="ALL">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Document No" column_field_name="payroll_trans.doc_no" column_field_sort="payroll_trans.doc_no" column_width="25" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Document Date"  column_field_name="payroll_trans.doc_date" column_field_sort="payroll_trans.doc_date" column_width="25" column_type="date" column_align="left"></detail>
+    <detail column_name="เดือน" column_name_2="Tax Month" column_field_name="payroll_trans.select_month_str" column_field_sort="payroll_trans.select_month_str" column_width="25" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ปีภาษี" column_name_2="Tax Year" column_field_name="payroll_trans.select_year" column_field_sort="payroll_trans.select_year" column_width="25" column_type="varchar" column_align="left"></detail>    
+  </screen>
+  <screen screen_code="popup_payroll_employee" name_1="พนักงาน - ลูกจ้าง" name_2="Employee" table_name="payroll_employee" table_list="payroll_employee" sort="payroll_employee.code" filter="payroll_employee.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_employee.code" column_field_sort="payroll_employee.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_employee.name" column_field_sort="payroll_employee.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="popup_payroll_short_of_work" name_1="ประเภทการขาดงาน" name_2="Short of Work" table_name="payroll_short_of_work" table_list="payroll_short_of_work" sort="payroll_short_of_work.code" filter="payroll_short_of_work.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_short_of_work.code" column_field_sort="payroll_short_of_work.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_short_of_work.name" column_field_sort="payroll_short_of_work.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="popup_payroll_over_time" name_1="ประเภทค่าล่วงเวลา" name_2="Over Time" table_name="payroll_over_time" table_list="payroll_over_time" sort="payroll_over_time.code" filter="payroll_over_time.code" width_by_persent="true" xversion ="ALL">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="payroll_over_time.code" column_field_sort="payroll_over_time.code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="payroll_over_time.name" column_field_sort="payroll_over_time.name" column_width="60" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_erp_doc_format" name_1="รายละเอียดรูปแบบเอกสาร" name_2="DocGroup" table_name="erp_doc_format" table_list="erp_doc_format" sort="erp_doc_format.code" filter="" width_by_persent="true">
+    <detail column_name="รหัสรูปแบบเอกสาร" column_name_2="DocGroupCode" column_field_name="erp_doc_format.code" column_field_sort="erp_doc_format.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อรูปแบบเอกสาร" column_name_2="DocGroupName"  column_field_name="erp_doc_format.name_1" column_field_sort="erp_doc_format.name_1" column_width="30" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อรูปแบบเอกสาร (ภาษาอังกฤษ)" column_name_2="DocGroupName (English)"  column_field_name="erp_doc_format.name_2" column_field_sort="erp_doc_format.name_2" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="รูปแบบเอกสาร" column_name_2="Format"  column_field_name="erp_doc_format.format" column_field_sort="erp_doc_format.format" column_width="30" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_formdesign_loadform" name_1="เลือกฟอร์มจาก server" name_2="Open Fromdesign From SERVER" table_name="formdesign" table_list="formdesign" sort="formdesign.formcode" filter="" width_by_persent="true">
+    <detail column_name="รหัสฟอร์ม" column_name_2="FormCode" column_field_name="formdesign.formcode" column_field_sort="formdesign.formcode" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อฟอร์ม" column_name_2="Name Of Form" column_field_name="formdesign.formname" column_field_sort="formdesign.formname" column_width="50" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่แก้ไข" column_name_2="Time Update" column_field_name="formdesign.timeupdate" column_field_sort="formdesign.timeupdate" column_width="30" column_type="varchar" column_align="left"></detail>
+    <detail column_name="guid_code" column_name_2="guid code" column_field_name="formdesign.guid_code" column_field_sort="formdesign.guid_code" column_width="0" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <!--*********************************************-->
+</node>

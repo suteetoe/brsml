@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F7C5F5C-AA9E-443D-8B52-DF3932153B31}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPPOReport</RootNamespace>
+    <AssemblyName>SMLERPPOReport</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="_condition_po.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_condition_po.Designer.cs">
+      <DependentUpon>_condition_po.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_report_add_goods_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_report_add_goods_cancel.Designer.cs">
+      <DependentUpon>_report_add_goods_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_report_credit_note_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_report_credit_note_cancel.Designer.cs">
+      <DependentUpon>_report_credit_note_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_report_offer_buy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_report_offer_buy.Designer.cs">
+      <DependentUpon>_report_offer_buy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_report_purchase_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_report_purchase_cancel.Designer.cs">
+      <DependentUpon>_report_purchase_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_analyze\_report_compare_purchase_monthly.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_analyze\_report_compare_purchase_monthly.Designer.cs">
+      <DependentUpon>_report_compare_purchase_monthly.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_analyze\_report_purchase_analyze.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_analyze\_report_purchase_analyze.Designer.cs">
+      <DependentUpon>_report_purchase_analyze.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_analyze\_report_rank_purchase_total.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_analyze\_report_rank_purchase_total.Designer.cs">
+      <DependentUpon>_report_rank_purchase_total.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_add_goods_sum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_add_goods_sum.Designer.cs">
+      <DependentUpon>_report_add_goods_sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_debt_from_purchase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_debt_from_purchase.Designer.cs">
+      <DependentUpon>_report_debt_from_purchase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_order_due.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_order_due.Designer.cs">
+      <DependentUpon>_report_purchase_order_due.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_order_status.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_order_status.Designer.cs">
+      <DependentUpon>_report_purchase_order_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_order_sum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_order_sum.Designer.cs">
+      <DependentUpon>_report_purchase_order_sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_request_status.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_request_status.Designer.cs">
+      <DependentUpon>_report_purchase_request_status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_sum_by_tax.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_sum_by_tax.Designer.cs">
+      <DependentUpon>_report_purchase_sum_by_tax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_total.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_purchase_total.Designer.cs">
+      <DependentUpon>_report_purchase_total.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report_summary\_report_return_sum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report_summary\_report_return_sum.Designer.cs">
+      <DependentUpon>_report_return_sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_condition_po.resx">
+      <DependentUpon>_condition_po.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_report_add_goods_cancel.resx">
+      <DependentUpon>_report_add_goods_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_report_credit_note_cancel.resx">
+      <DependentUpon>_report_credit_note_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_report_offer_buy.resx">
+      <DependentUpon>_report_offer_buy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_report_purchase_cancel.resx">
+      <DependentUpon>_report_purchase_cancel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_analyze\_report_compare_purchase_monthly.resx">
+      <DependentUpon>_report_compare_purchase_monthly.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_analyze\_report_purchase_analyze.resx">
+      <DependentUpon>_report_purchase_analyze.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_analyze\_report_rank_purchase_total.resx">
+      <DependentUpon>_report_rank_purchase_total.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_add_goods_sum.resx">
+      <DependentUpon>_report_add_goods_sum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_debt_from_purchase.resx">
+      <DependentUpon>_report_debt_from_purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_purchase_order_due.resx">
+      <DependentUpon>_report_purchase_order_due.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_purchase_order_status.resx">
+      <DependentUpon>_report_purchase_order_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_purchase_order_sum.resx">
+      <DependentUpon>_report_purchase_order_sum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_purchase_request_status.resx">
+      <DependentUpon>_report_purchase_request_status.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_purchase_sum_by_tax.resx">
+      <DependentUpon>_report_purchase_sum_by_tax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_purchase_total.resx">
+      <DependentUpon>_report_purchase_total.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report_summary\_report_return_sum.resx">
+      <DependentUpon>_report_return_sum.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPICReport\SMLERPICReport.csproj">
+      <Project>{B9E32AF4-28F3-4097-AE65-234D11983359}</Project>
+      <Name>SMLERPICReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
+      <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
+      <Name>SMLERPReportTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPSOReport\SMLERPSOReport.csproj">
+      <Project>{A79D2994-F2B4-4D54-9493-4CA1C036641B}</Project>
+      <Name>SMLERPSOReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

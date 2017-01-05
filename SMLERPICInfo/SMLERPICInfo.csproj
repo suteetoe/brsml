@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D81C3BD6-3AD4-47E0-93C7-B37EEC82B62A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPICInfo</RootNamespace>
+    <AssemblyName>SMLERPICInfo</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PlatformTarget>x86</PlatformTarget>
+    <TargetFrameworkProfile />
+    <StartupObject />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>default</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <CodeAnalysisFailOnMissingRules>false</CodeAnalysisFailOnMissingRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>default</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="SMLERPAPARControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_icTransectionCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_icTransectionCheck.Designer.cs">
+      <DependentUpon>_icTransectionCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_ic_inventory_information.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_ic_inventory_information.Designer.cs">
+      <DependentUpon>_ic_inventory_information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_ic_inventory_information_2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_ic_inventory_information_2.Designer.cs">
+      <DependentUpon>_ic_inventory_information_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_serialNumberMovement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkBalanceLocation.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkBalanceLocation.Designer.cs">
+      <DependentUpon>_stkBalanceLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkBalanceLocationGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkBalanceWareHouse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkBalanceWareHouse.Designer.cs">
+      <DependentUpon>_stkBalanceWareHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkBalanceByLot.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkBalanceByLot.Designer.cs">
+      <DependentUpon>_stkBalanceByLot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_global.cs" />
+    <Compile Include="_stkBalanceWareHouseGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkConditionScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkDrillDownForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_stkDrillDownForm.Designer.cs">
+      <DependentUpon>_stkDrillDownForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkMovementSum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkMovementSum.Designer.cs">
+      <DependentUpon>_stkMovementSum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkNoMovement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkNoMovement.Designer.cs">
+      <DependentUpon>_stkNoMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkBalance.Designer.cs">
+      <DependentUpon>_stkBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkProfitByColor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkProfitByColor.Designer.cs">
+      <DependentUpon>_stkProfitByColor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkProfitChoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_stkProfitChoiceForm.Designer.cs">
+      <DependentUpon>_stkProfitChoiceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_stkProfitConditionScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkMovement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkMovement.Designer.cs">
+      <DependentUpon>_stkMovement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="_stkProfit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_stkProfit.Designer.cs">
+      <DependentUpon>_stkProfit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="_icTransectionCheck.resx">
+      <DependentUpon>_icTransectionCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_ic_inventory_information.resx">
+      <DependentUpon>_ic_inventory_information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_ic_inventory_information_2.resx">
+      <DependentUpon>_ic_inventory_information_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkBalanceLocation.resx">
+      <DependentUpon>_stkBalanceLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkBalanceWareHouse.resx">
+      <DependentUpon>_stkBalanceWareHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkBalanceByLot.resx">
+      <DependentUpon>_stkBalanceByLot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="_stkDrillDownForm.resx">
+      <DependentUpon>_stkDrillDownForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkMovementSum.resx">
+      <DependentUpon>_stkMovementSum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkNoMovement.resx">
+      <DependentUpon>_stkNoMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkBalance.resx">
+      <DependentUpon>_stkBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkProfitByColor.resx">
+      <DependentUpon>_stkProfitByColor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkProfitChoiceForm.resx">
+      <DependentUpon>_stkProfitChoiceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkMovement.resx">
+      <DependentUpon>_stkMovement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_stkProfit.resx">
+      <DependentUpon>_stkProfit.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPPO\SMLERPPO.csproj">
+      <Project>{CD0B05F2-4085-468A-9ED8-FAC39C16AD89}</Project>
+      <Name>SMLERPPO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4c2c0f42-fe26-4ca5-99b5-543ab784551c}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_notebook.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

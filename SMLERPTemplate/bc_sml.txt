@@ -1,0 +1,403 @@
+﻿*begin
+
+[drop view pricelist]
+[drop view ArContact]
+[drop view ApContact]
+[drop view chart_account]
+[drop view item_detail]
+[drop view Ar_detail]
+[drop view Ap_detail]
+[drop view assets_detail]
+[drop view BCItemwarehouse_view]
+[drop view ITEMComponents]
+
+[create view chart_account
+as
+select code,acclevel as account_level,name1 as name_1,name2 as name_2,isheader as status,accountgroup-1 as account_type
+,case when accountgroup in('1','5') then 0 else 1 end as balance_mode,sideseparate as side_status,departseparate as department_status
+,allocateseparate as allocate_status,projectseparate as project_status,jobseparate as job_status,1 as active_status 
+from bcchartofaccount]
+
+[Create view ApContact as
+(select * from bccontactlist where parentcode in(select code from bcap))]
+
+[create view  Pricelist as
+(
+select 1 as status,itemcode,unitcode,'' as arcode,fromqty,toqty,startdate,stopdate,saletype,transporttype,saleprice2 as saleprice1,'' as FromArGroup,1 as pricetype from BCPricelist
+union all
+select 1 as status,itemcode,unitcode,arcode,1,9999,'2010-01-01','2020-12-31',0,0,priceamount2  as saleprice1,'',3 as pricetype from bcarpricelist
+union all
+select 1 as status,itemcode,unitcode,'',fromqty,toqty,'2010-01-01','2020-12-31',0,0,SalePrice  as saleprice1,FromArGroup ,2 as pricetype from BCPromoPrice
+)
+]
+
+[Create view ArContact as
+(select * from bccontactlist where parentcode in(select code from bcar))]
+
+[Create view item_detail as
+select code,OrderPoint,StockMin,StockMax,SalePrice1,SalePrice2,SalePrice3,SalePrice4,defbuyshelf,
+defbuyunitcode,defsalewhcode,defsaleshelf,defbadwhcode,defbadshelf,defbuywhcode,defsaleunitcode,
+AccGroupCode from bcitem]
+
+[Create view Ar_detail as
+select code,SaleAreaCode,SaleCode,DebtLimit1,BillCredit,TaxNo,IDCardNo,TaxType,DefaultTaxRate,AccountCode,
+GroupCode,detaildiscount,discount from bcar]
+
+[Create view BCItemwarehouse_view as
+select distinct Itemcode,WHCode,ShelfCode from BCItemwarehouse where itemcode<>'.']
+
+[Create view assets_detail as
+select Code,BuyDate,BuyPrice,BuyDocNo,BuyDocDate,BuyForm,StartCalcDate,StopCalcDate,AmountCalc,CalcType,AssetsRate,
+AssetsAge,AssetsBalance,sumofassetsbal,isfirstscrap,processtype,InsuranceNo,SaftyNo,SaftyName,InsurePremium,
+InsureAge,InsureStartDate,InsureStopDate,MyDescription,Remain From bcassetsmaster]
+
+
+[Create view Ap_detail as
+select code,creditday,TaxNo,IDCardNo,TaxType,DefaultTaxRate,AccountCode,GroupCode from bcap]
+
+[create view ITEMComponents
+as
+select ParentCode,ItemCode,UnitCode,Price1,Qty,Amount1,roworder as line_number
+from BCITEMComponents]
+
+*begin
+
+*end_target
+
+[update ic_inventory set unit_standard=unit_cost,update_price=1,update_detail=1]
+[update ic_unit_use set status=1]
+[update ic_inventory_price set status=1,price_mode=0]
+[update ar_customer_detail set credit_money_max=credit_money,is_lock_record=0]
+[delete from ic_unit_use where ic_code in (select code from ic_inventory where unit_type=0)]
+[insert into ic_unit_use (ic_code,code,line_number,stand_value,divide_value,ratio,status) (select code as ic_code,unit_cost as code,1 as line_number,1 as stand_value,1 as divide_value,1 as ratio,1 as status from ic_inventory where unit_type=0)]
+[update ic_inventory set ic_serial_no=1 where item_type=2]
+[update ic_inventory set item_type=2 where item_type=3]
+[update ic_inventory set item_type=3 where item_type=5 or item_type=7]
+[update ar_customer set status=0 ]
+[update ap_supplier set status=0]
+
+*end_target
+
+*end
+[drop view pricelist]
+[drop view ArContact]
+[drop view ApContact]
+[drop view chart_account]
+[drop view item_detail]
+[drop view Ar_detail]
+[drop view Ap_detail]
+[drop view assets_detail]
+[drop view BCItemwarehouse_view]
+[drop view ITEMComponents]
+*end
+
+*bcconfigurations,erp_company_profile
+companyname,company_name_1
+companynameEng,company_name_2
+managername,business_name_1
+managernameEng,business_name_2
+address,address_1
+addresseng,address_2
+telephone,telephone_number
+fax,fax_number
+taxnumber,tax_number
+
+*BCItemGroup,ic_group
+Code,code
+Name,name_1
+
+*BCItemType,item_design
+Code,code
+Name,name_1
+
+*BCItemCategory,ic_category
+Code,code
+Name,name_1
+
+*BCItemFormat,ic_pattern
+Code,code
+Name,name_1
+
+*BCItemBrand,ic_brand
+Code,code
+Name,name_1
+
+* bcitemsize,ic_size
+Code,code
+Name,name_1
+
+*bcitemcolor,ic_color
+Code,code
+Name,name_1
+
+*BCItemClassfication,ic_model
+Code,code
+Name,name_1
+
+*BCShelf,IC_Shelf
+Code,Code
+Name,name_1
+Whcode,Whcode
+
+*BCItemUnit,ic_unit
+Code,code
+Name,name_1
+
+*BCWarehouse,IC_Warehouse
+Code,code
+Name,name_1
+
+*bcitem,ic_inventory
+code,code
+name1,name_1
+name2,name_eng_1
+ShortName,short_name
+CategoryCode,item_category 
+GroupCode,group_main
+BrandCode,item_brand
+TypeCode,item_design
+FormatCode,item_pattern
+ColorCode,item_color
+MyClass,item_model
+MySize,item_size
+UnitType,unit_type 
+DefStkUnitCode,unit_cost
+StockType,item_type
+ExceptTax,tax_type
+CostType,cost_type
+ActiveStatus,status
+MyDescription,remark
+
+*item_detail,ic_inventory_detail
+code,ic_code
+OrderPoint,purchase_point
+StockMin,minimum_qty
+StockMax,maximum_qty
+SalePrice1,sale_price_1
+SalePrice2,sale_price_2
+SalePrice3,sale_price_3
+SalePrice4,sale_price_4
+defbuyshelf,start_purchase_shelf
+defbuyunitcode,start_purchase_unit
+defsalewhcode,start_sale_wh
+defsaleshelf,start_sale_shelf
+defbadwhcode,ic_out_wh
+defbadshelf,ic_out_shelf
+defbuywhcode,start_purchase_wh
+defsaleunitcode,start_sale_unit
+AccGroupCode,account_group
+
+*BCbarcodeMaster,ic_inventory_barcode
+itemcode,ic_code
+barcode,barcode
+unitcode,unit_code
+whcode,wh_code
+shelfcode,shelf_code
+
+*BCItemwarehouse_view,ic_wh_shelf
+Itemcode,ic_code
+WHCode,wh_code
+ShelfCode,shelf_code
+
+*BCStkpacking,ic_unit_use
+unitcode,code
+Running,line_number
+Runner,row_order
+ItemCode,ic_code
+Rate1,stand_value
+Rate2,divide_value
+Rate,ratio
+
+*Pricelist,ic_inventory_price
+itemcode,ic_code
+unitcode,unit_code
+fromqty,from_qty
+toqty,to_qty
+startdate,from_date
+stopdate,to_date
+saletype,sale_type
+transporttype,transport_type
+saleprice1,sale_price1
+status,status
+pricetype,price_type
+arcode,cust_code
+FromArGroup,cust_group_1
+
+*ArContact,ar_contactor
+Name,name
+Address,address
+ParentCode,ar_code
+PersonPosition,work_title
+telephone,telephone
+
+*BCAr,ar_customer
+code,code
+Name1,name_1
+Name2,name_eng_1
+BillAddress,address
+Telephone,telephone
+Fax,fax
+EmailAddress,email
+HomePage,website
+TypeCode,ar_type
+Birthday,birth_day
+PersonType,ar_status
+activestatus,status
+
+*Ar_detail,ar_customer_detail
+code,ar_code
+SaleAreaCode,area_code
+SaleCode,sale_code
+DebtLimit1,credit_money
+BillCredit,credit_day
+TaxNo,tax_id
+IDCardNo,card_id
+TaxType,tax_type
+DefaultTaxRate,tax_rate
+AccountCode,account_code
+GroupCode,group_main
+
+*BCArGroup,ar_group
+code,code
+Name,name_1
+
+*BCCUSTTYPE,ar_type
+code,code
+Name,name_1
+
+*bcsalearea,ar_sale_area
+code,code
+Name,name_1
+
+*ApContact,ap_contactor
+Name,name
+Address,address
+ParentCode,ap_code
+PersonPosition,work_title
+telephone,telephone
+
+*BCAp,ap_supplier
+code,code
+Name1,name_1
+Name2,name_eng_1
+Address,address
+Telephone,telephone
+Fax,fax
+EmailAddress,email
+TypeCode,ap_type
+PersonType,ap_status
+activestatus,status
+
+*Ap_detail,ap_supplier_detail
+code,ap_code
+creditday,credit_day
+TaxNo,tax_id
+IDCardNo,card_id
+TaxType,tax_type
+DefaultTaxRate,tax_rate
+AccountCode,account_code
+GroupCode,group_main
+
+*BCApGroup,ap_group
+code,code
+Name,name_1
+
+*BCApType,ap_type
+code,code
+Name,name_1
+
+*BCSale,erp_user
+code,code
+name,name_1
+address,address
+
+*BCBank,erp_bank
+Code,code
+Name,name_1
+
+*bcbankaccount,erp_pass_book_type
+code,code
+name,name_1
+
+*bcglbook,gl_journal_book
+code,code
+name,name_1
+titlename,name_2
+
+*bcdepartment,erp_department_list
+code,code
+name,name_1
+
+*bcproject,erp_project_list
+code,code
+name,name_1
+
+*bcallocate,erp_allocate_list
+code,code
+name,name_1
+
+*chart_account,gl_chart_of_account
+code,code
+account_level,account_level
+name_1,name_1,
+name_2,name_2
+status,status
+account_type,account_type
+balance_mode,balance_mode
+side_status,side_status
+department_status,department_status
+allocate_status,allocate_status
+project_status,project_status
+job_status,job_status
+active_status,active_status
+
+*bcassetsmaster,as_asset
+Code,Code
+Name,Name_1
+UnitCode,Unit_Code
+AssetsType,as_type
+DepartCode,Department_code
+LocateCode,as_location
+
+*assets_detail,as_asset_detail
+Code,as_code
+BuyDate,as_buy_date
+BuyPrice,as_buy_price
+BuyDocNo,Doc_buy_ref
+BuyDocDate,Doc_buy_date
+BuyForm,as_buy_from
+StartCalcDate,Start_calc_date
+StopCalcDate,Stop_calc_date
+AmountCalc,as_calc_value
+CalcType,calc_type
+AssetsRate,as_rate
+AssetsAge,as_age
+AssetsBalance,as_value_balance
+sumofassetsbal,as_sum_value_balance
+isfirstscrap,as_dead_calc
+InsuranceNo,insure_no
+SaftyNo,safety_code
+SaftyName,insure_company
+InsurePremium,insure_money
+InsureAge,insure_age
+InsureStartDate,Insure_Start_Date
+InsureStopDate,Insure_Stop_Date
+MyDescription,remark
+Remain,as_dead_value
+
+*bcassettype,as_asset_type
+Code,code
+Name,Name_1
+
+*bcassetslocate,as_asset_location
+code,code
+name,name_1
+
+*ITEMComponents,ic_inventory_set_detail
+ParentCode,ic_set_code
+ItemCode,ic_code
+UnitCode,unit_code
+Price1,price
+Qty,qty
+Amount1,sum_amount
+line_number,line_number

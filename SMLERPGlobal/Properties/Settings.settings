@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="_g.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SMLERPGlobal_SMLJAVAWS_PO_SMLFrameWorkService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://hunter:8083/SMLWS/services/SMLFrameWork</Value>
+    </Setting>
+    <Setting Name="SMLERPGlobal_SMLJAVAWS_PO1_SMLFrameWorkService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://hunter:8083/SMLWS/services/SMLFrameWork</Value>
+    </Setting>
+    <Setting Name="SMLERPGlobal_SMLJavaWebService_SMLFrameWorkService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://localhost:80/SMLJavaWebService/SMLFrameWork</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

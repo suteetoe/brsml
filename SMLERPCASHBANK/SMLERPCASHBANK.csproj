@@ -1,0 +1,689 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7BC02F85-9D27-426C-A4FF-927B94F41FCC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPCASHBANK</RootNamespace>
+    <AssemblyName>SMLERPCASHBANK</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_bank_expense.resx">
+      <DependentUpon>_cb_bank_expense.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_bank_expense_cancle.resx">
+      <DependentUpon>_cb_bank_expense_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_bank_income.resx">
+      <DependentUpon>_cb_bank_income.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_bank_income_cancle.resx">
+      <DependentUpon>_cb_bank_income_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_payin.resx">
+      <DependentUpon>_cb_cash_payin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_payin_cancle.resx">
+      <DependentUpon>_cb_cash_payin_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_transfer.resx">
+      <DependentUpon>_cb_cash_transfer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_transfer_cancle.resx">
+      <DependentUpon>_cb_cash_transfer_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_transfer_received.resx">
+      <DependentUpon>_cb_cash_transfer_received.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_transfer_received_cancle.resx">
+      <DependentUpon>_cb_cash_transfer_received_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_withdraw.resx">
+      <DependentUpon>_cb_cash_withdraw.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_cash_withdraw_cancle.resx">
+      <DependentUpon>_cb_cash_withdraw_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_cancel.resx">
+      <DependentUpon>_cb_chq_in_cancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_change.resx">
+      <DependentUpon>_cb_chq_in_change.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_change_cancle.resx">
+      <DependentUpon>_cb_chq_in_change_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_discount.resx">
+      <DependentUpon>_cb_chq_in_discount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_honor.resx">
+      <DependentUpon>_cb_chq_in_honor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_honor_cancle.resx">
+      <DependentUpon>_cb_chq_in_honor_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_new.resx">
+      <DependentUpon>_cb_chq_in_new.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_new_cancle.resx">
+      <DependentUpon>_cb_chq_in_new_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_payin.resx">
+      <DependentUpon>_cb_chq_in_payin.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_payin_cancle.resx">
+      <DependentUpon>_cb_chq_in_payin_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_receive.resx">
+      <DependentUpon>_cb_chq_in_receive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_receive_master.resx">
+      <DependentUpon>_cb_chq_in_receive_master.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_return.resx">
+      <DependentUpon>_cb_chq_in_return.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_in_return_cancle.resx">
+      <DependentUpon>_cb_chq_in_return_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_cancel.resx">
+      <DependentUpon>_cb_chq_out_cancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_change.resx">
+      <DependentUpon>_cb_chq_out_change.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_change_cancle.resx">
+      <DependentUpon>_cb_chq_out_change_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_honor.resx">
+      <DependentUpon>_cb_chq_out_honor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_honor_cancle.resx">
+      <DependentUpon>_cb_chq_out_honor_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_payment.resx">
+      <DependentUpon>_cb_chq_out_payment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_payment_master.resx">
+      <DependentUpon>_cb_chq_out_payment_master.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_return.resx">
+      <DependentUpon>_cb_chq_out_return.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_chq_out_return_cancle.resx">
+      <DependentUpon>_cb_chq_out_return_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_credit_card_cancel.resx">
+      <DependentUpon>_cb_credit_card_cancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_credit_card_money.resx">
+      <DependentUpon>_cb_credit_card_money.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_credit_master.resx">
+      <DependentUpon>_cb_credit_master.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_credit_master_payment.resx">
+      <DependentUpon>_cb_credit_master_payment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_interest_payment.resx">
+      <DependentUpon>_cb_interest_payment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_interest_payment_cancle.resx">
+      <DependentUpon>_cb_interest_payment_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_interest_received.resx">
+      <DependentUpon>_cb_interest_received.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_interest_received_cancle.resx">
+      <DependentUpon>_cb_interest_received_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash.resx">
+      <DependentUpon>_cb_petty_cash.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_clear.resx">
+      <DependentUpon>_cb_petty_cash_clear.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_payment.resx">
+      <DependentUpon>_cb_petty_cash_payment.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_receive.resx">
+      <DependentUpon>_cb_petty_cash_receive.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_receive_cancle.resx">
+      <DependentUpon>_cb_petty_cash_receive_cancle.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_request.resx">
+      <DependentUpon>_cb_petty_cash_request.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_requestapprove_cancel.resx">
+      <DependentUpon>_cb_petty_cash_requestapprove_cancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_request_approve.resx">
+      <DependentUpon>_cb_petty_cash_request_approve.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_cash_request_cancel.resx">
+      <DependentUpon>_cb_petty_cash_request_cancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_return.resx">
+      <DependentUpon>_cb_petty_return.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_cb_petty_return_cancel.resx">
+      <DependentUpon>_cb_petty_return_cancel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="_cb_bank_expense.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_bank_expense.Designer.cs">
+      <DependentUpon>_cb_bank_expense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_bank_expense_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_bank_expense_cancle.Designer.cs">
+      <DependentUpon>_cb_bank_expense_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_bank_income.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_bank_income.Designer.cs">
+      <DependentUpon>_cb_bank_income.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_bank_income_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_bank_income_cancle.Designer.cs">
+      <DependentUpon>_cb_bank_income_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_payin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_payin.Designer.cs">
+      <DependentUpon>_cb_cash_payin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_payin_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_payin_cancle.Designer.cs">
+      <DependentUpon>_cb_cash_payin_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_transfer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_transfer.Designer.cs">
+      <DependentUpon>_cb_cash_transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_transfer_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_transfer_cancle.Designer.cs">
+      <DependentUpon>_cb_cash_transfer_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_transfer_received.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_transfer_received.Designer.cs">
+      <DependentUpon>_cb_cash_transfer_received.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_transfer_received_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_transfer_received_cancle.Designer.cs">
+      <DependentUpon>_cb_cash_transfer_received_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_withdraw.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_withdraw.Designer.cs">
+      <DependentUpon>_cb_cash_withdraw.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_cash_withdraw_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_cash_withdraw_cancle.Designer.cs">
+      <DependentUpon>_cb_cash_withdraw_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_cancel.Designer.cs">
+      <DependentUpon>_cb_chq_in_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_change.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_change.Designer.cs">
+      <DependentUpon>_cb_chq_in_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_change_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_change_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_in_change_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_discount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_discount.Designer.cs">
+      <DependentUpon>_cb_chq_in_discount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_honor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_honor.Designer.cs">
+      <DependentUpon>_cb_chq_in_honor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_honor_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_honor_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_in_honor_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_new.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_new.Designer.cs">
+      <DependentUpon>_cb_chq_in_new.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_new_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_new_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_in_new_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_payin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_payin.Designer.cs">
+      <DependentUpon>_cb_chq_in_payin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_payin_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_payin_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_in_payin_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_receive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_receive.Designer.cs">
+      <DependentUpon>_cb_chq_in_receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_receive_master.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_receive_master.Designer.cs">
+      <DependentUpon>_cb_chq_in_receive_master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_return.Designer.cs">
+      <DependentUpon>_cb_chq_in_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_in_return_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_in_return_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_in_return_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_cancel.Designer.cs">
+      <DependentUpon>_cb_chq_out_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_change.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_change.Designer.cs">
+      <DependentUpon>_cb_chq_out_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_change_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_change_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_out_change_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_honor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_honor.Designer.cs">
+      <DependentUpon>_cb_chq_out_honor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_honor_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_honor_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_out_honor_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_payment.Designer.cs">
+      <DependentUpon>_cb_chq_out_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_payment_master.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_payment_master.Designer.cs">
+      <DependentUpon>_cb_chq_out_payment_master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_return.Designer.cs">
+      <DependentUpon>_cb_chq_out_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_chq_out_return_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_chq_out_return_cancle.Designer.cs">
+      <DependentUpon>_cb_chq_out_return_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_credit_card_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_credit_card_cancel.Designer.cs">
+      <DependentUpon>_cb_credit_card_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_credit_card_money.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_credit_card_money.Designer.cs">
+      <DependentUpon>_cb_credit_card_money.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_credit_master.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_credit_master.Designer.cs">
+      <DependentUpon>_cb_credit_master.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_credit_master_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_credit_master_payment.Designer.cs">
+      <DependentUpon>_cb_credit_master_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_interest_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_interest_payment.Designer.cs">
+      <DependentUpon>_cb_interest_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_interest_payment_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_interest_payment_cancle.Designer.cs">
+      <DependentUpon>_cb_interest_payment_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_interest_received.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_interest_received.Designer.cs">
+      <DependentUpon>_cb_interest_received.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_interest_received_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_interest_received_cancle.Designer.cs">
+      <DependentUpon>_cb_interest_received_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash.Designer.cs">
+      <DependentUpon>_cb_petty_cash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_clear.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_clear.Designer.cs">
+      <DependentUpon>_cb_petty_cash_clear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_payment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_payment.Designer.cs">
+      <DependentUpon>_cb_petty_cash_payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_receive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_receive.Designer.cs">
+      <DependentUpon>_cb_petty_cash_receive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_receive_cancle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_receive_cancle.Designer.cs">
+      <DependentUpon>_cb_petty_cash_receive_cancle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_request.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_request.Designer.cs">
+      <DependentUpon>_cb_petty_cash_request.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_requestapprove_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_requestapprove_cancel.Designer.cs">
+      <DependentUpon>_cb_petty_cash_requestapprove_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_request_approve.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_request_approve.Designer.cs">
+      <DependentUpon>_cb_petty_cash_request_approve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_cash_request_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_cash_request_cancel.Designer.cs">
+      <DependentUpon>_cb_petty_cash_request_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_return.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_return.Designer.cs">
+      <DependentUpon>_cb_petty_return.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_cb_petty_return_cancel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_cb_petty_return_cancel.Designer.cs">
+      <DependentUpon>_cb_petty_return_cancel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLInventoryControl\SMLInventoryControl.csproj">
+      <Project>{3F71EFCB-5E11-4509-8EDF-EFE9484A6CCF}</Project>
+      <Name>SMLInventoryControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

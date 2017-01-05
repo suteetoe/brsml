@@ -1,0 +1,770 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5645B824-BFF4-4C0A-9533-0B75527E90C6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPGL</RootNamespace>
+    <AssemblyName>SMLERPGL</AssemblyName>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunFxCop>false</RunFxCop>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CodeVendor.Controls, Version=1.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MyLib\myDLL\CodeVendor.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="_journalPassUndo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_journalPassUndo.Designer.cs">
+      <DependentUpon>_journalPassUndo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GenDataForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GenDataForm.Designer.cs">
+      <DependentUpon>GenDataForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_analysis\_trialBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_analysis\_trialBalance.designer.cs">
+      <DependentUpon>_trialBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_chart\_changeAccountCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_chart\_changeAccountCode.designer.cs">
+      <DependentUpon>_changeAccountCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccount.Designer.cs">
+      <DependentUpon>_chartOfAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccountFast.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccountFast.Designer.cs">
+      <DependentUpon>_chartOfAccountFast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccountProcessFlow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccountProcessFlow.Designer.cs">
+      <DependentUpon>_chartOfAccountProcessFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_chart\_chartOfAccountScreen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_chart\_chatOfAccountFlow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_chart\_chatOfAccountFlow.Designer.cs">
+      <DependentUpon>_chatOfAccountFlow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_checkData.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_checkData.Designer.cs">
+      <DependentUpon>_checkData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_glDetailDrillDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_display\_glDetailDrillDown.Designer.cs">
+      <DependentUpon>_glDetailDrillDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_glList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_glList.Designer.cs">
+      <DependentUpon>_glList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_glListDrillDown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_display\_glListDrillDown.Designer.cs">
+      <DependentUpon>_glListDrillDown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_glListSum.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_glListSum.Designer.cs">
+      <DependentUpon>_glListSum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_glTrialBalance.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_glTrialBalance.Designer.cs">
+      <DependentUpon>_glTrialBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_glWorkSheet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_glWorkSheet.Designer.cs">
+      <DependentUpon>_glWorkSheet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_selectAccountAndPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resource16x16.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource16x16.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_journalEntryAccount.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_journalEntryAccount.Designer.cs">
+      <DependentUpon>_journalEntryAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_journalEntryAccount_pic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_journalEntryAccount_pic.Designer.cs">
+      <DependentUpon>_journalEntryAccount_pic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_journalEntryFast.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_journalEntryFast.Designer.cs">
+      <DependentUpon>_journalEntryFast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_journalPass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_journalPass.Designer.cs">
+      <DependentUpon>_journalPass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_other_1\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_other_1\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_other_1\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_other_1\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_glDesign.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_glDesign.Designer.cs">
+      <DependentUpon>_glDesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_loadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_loadForm.Designer.cs">
+      <DependentUpon>_loadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_properties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_properties.Designer.cs">
+      <DependentUpon>_properties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_chartOfAccount\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_chartOfAccount\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_saveAsControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_reportDesign\_saveAsControl.Designer.cs">
+      <DependentUpon>_saveAsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_selectBranchControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_selectBranchControl.Designer.cs">
+      <DependentUpon>_selectBranchControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_sheetSum\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_sheetSum\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_sheetSum\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_sheetSum\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_sheet\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_sheet\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_sheet\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_sheet\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_journalSum\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_journalSum\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_journalSum\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_journalSum\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_journal\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_journal\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_journal\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_journal\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_screenReportCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_screenSelectAccountAndPeriod.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_singhaReportProfitAndLost\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_singhaReportProfitAndLost\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_singhaReportProfitAndLost\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_singhaReportProfitAndLost\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_tax\_whtConditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_tax\_whtConditionForm.designer.cs">
+      <DependentUpon>_whtConditionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_tax\_vat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_tax\_vatConditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_tax\_vatConditionForm.designer.cs">
+      <DependentUpon>_vatConditionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_tax\_wht.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_tax\_wht.Designer.cs">
+      <DependentUpon>_wht.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_tax\_whtReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_tax\_whtReport.Designer.cs">
+      <DependentUpon>_whtReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_profitAndLostBranch\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_profitAndLostBranch\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_profitAndLostBranch\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_profitAndLostBranch\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranch\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranch\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranch\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranch\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_trialBalance\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_trialBalance\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_trialBalance\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_trialBalance\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_selectJournalBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_selectJournalBook.Designer.cs">
+      <DependentUpon>_selectJournalBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranchDepart\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranchDepart\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranchDepart\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_trialBalanceBranchDepart\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_workSheet\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_workSheet\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_workSheet\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_workSheet\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="_transProcessUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_transProcessUserControl.Designer.cs">
+      <DependentUpon>_transProcessUserControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluant.Calculator\Evaluant.Calculator.csproj">
+      <Project>{5f014003-50d8-49e0-8afe-91d38dccc97c}</Project>
+      <Name>Evaluant.Calculator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPConfig\SMLERPConfig.csproj">
+      <Project>{2E9E7D02-2F83-4383-B048-F81914A7B9BF}</Project>
+      <Name>SMLERPConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGLControl\SMLERPGLControl.csproj">
+      <Project>{FE37DB34-D7D6-441C-AF95-41A8CBE06FDB}</Project>
+      <Name>SMLERPGLControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
+      <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
+      <Name>SMLERPReportTool</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="_journalPassUndo.resx">
+      <DependentUpon>_journalPassUndo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GenDataForm.resx">
+      <DependentUpon>GenDataForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_analysis\_trialBalance.resx">
+      <DependentUpon>_trialBalance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_chart\_changeAccountCode.resx">
+      <DependentUpon>_changeAccountCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_chart\_chartOfAccount.resx">
+      <DependentUpon>_chartOfAccount.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_chart\_chartOfAccountFast.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_chartOfAccountFast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_chart\_chartOfAccountProcessFlow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_chartOfAccountProcessFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_chart\_chatOfAccountFlow.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_chatOfAccountFlow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_checkData.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_checkData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_glDetailDrillDown.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glDetailDrillDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_glList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_glListDrillDown.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glListDrillDown.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_glListSum.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glListSum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_glTrialBalance.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glTrialBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_glWorkSheet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glWorkSheet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource16x16.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource16x16.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_journalEntryAccount.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_journalEntryAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_journalEntryAccount_pic.resx">
+      <DependentUpon>_journalEntryAccount_pic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_journalEntryFast.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_journalEntryFast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_journalPass.resx">
+      <DependentUpon>_journalPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_other_1\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_other_1\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_reportDesign\_glDesign.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_glDesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_reportDesign\_loadForm.resx">
+      <DependentUpon>_loadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_reportDesign\_properties.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_properties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_chartOfAccount\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_reportDesign\_saveAsControl.resx">
+      <DependentUpon>_saveAsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_selectBranchControl.resx">
+      <DependentUpon>_selectBranchControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_sheetSum\_condition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_sheetSum\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_sheet\_condition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_sheet\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_journalSum\_condition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_journalSum\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_journal\_condition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_journal\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_singhaReportProfitAndLost\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_singhaReportProfitAndLost\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_tax\_whtConditionForm.resx">
+      <DependentUpon>_whtConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_tax\_vatConditionForm.resx">
+      <DependentUpon>_vatConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_tax\_wht.resx">
+      <DependentUpon>_wht.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_tax\_whtReport.resx">
+      <DependentUpon>_whtReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_profitAndLostBranch\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_profitAndLostBranch\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_trialBalanceBranch\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_trialBalanceBranch\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_trialBalance\_condition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_trialBalance\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_selectJournalBook.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_selectJournalBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_trialBalanceBranchDepart\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_trialBalanceBranchDepart\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_workSheet\_condition.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_condition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_workSheet\_report.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>_report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_transProcessUserControl.resx">
+      <DependentUpon>_transProcessUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\disk_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\branch_element.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bt03.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\selection.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checks1.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

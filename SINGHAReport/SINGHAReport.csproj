@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8CEF2A70-6ED8-41B4-95C1-CFC864723FDB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SINGHAReport</RootNamespace>
+    <AssemblyName>SINGHAReport</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AP\_apReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AP\_apReport.Designer.cs">
+      <DependentUpon>_apReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CASHBANK\_cashbankReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CASHBANK\_cashbankReport.Designer.cs">
+      <DependentUpon>_cashbankReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GL\_glReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GL\_glReport.Designer.cs">
+      <DependentUpon>_glReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GL\_glReportGenerate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GL\_glReportGenerate.Designer.cs">
+      <DependentUpon>_glReportGenerate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SO\_soReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SO\_soReport.Designer.cs">
+      <DependentUpon>_soReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_conditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_conditionForm.Designer.cs">
+      <DependentUpon>_conditionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_conditionScreenTop.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_saleToolsWebControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_saleToolsWebControl.Designer.cs">
+      <DependentUpon>_saleToolsWebControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_singhaDataSyncControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_singhaDataSyncControl.Designer.cs">
+      <DependentUpon>_singhaDataSyncControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_singhaReportEnum.cs" />
+    <Compile Include="_singhareportGenerate.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_singhareportGenerate.Designer.cs">
+      <DependentUpon>_singhareportGenerate.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AP\_apReport.resx">
+      <DependentUpon>_apReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CASHBANK\_cashbankReport.resx">
+      <DependentUpon>_cashbankReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GL\_glReport.resx">
+      <DependentUpon>_glReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GL\_glReportGenerate.resx">
+      <DependentUpon>_glReportGenerate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SO\_soReport.resx">
+      <DependentUpon>_soReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_conditionForm.resx">
+      <DependentUpon>_conditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_saleToolsWebControl.resx">
+      <DependentUpon>_saleToolsWebControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_singhaDataSyncControl.resx">
+      <DependentUpon>_singhaDataSyncControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_singhareportGenerate.resx">
+      <DependentUpon>_singhareportGenerate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5e55cf8e-f06f-4112-8f49-80d3f68bb75c}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPARInfo\SMLERPARAPInfo.csproj">
+      <Project>{29baac40-d635-4619-bb24-ad8d6fab2d82}</Project>
+      <Name>SMLERPARAPInfo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73aa4c07-aabc-4c52-b7d7-1b0a9b0b256a}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41b81586-3b62-4c5f-89c8-74a21a53fa96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4c2c0f42-fe26-4ca5-99b5-543ab784551c}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47ea8ca3-3fbf-4e90-a811-ab61f48ec9d6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

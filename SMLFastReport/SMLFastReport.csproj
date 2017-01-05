@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D03F726A-A232-41AB-AED7-6C997C84AC85}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLFastReport</RootNamespace>
+    <AssemblyName>SMLFastReport</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\SMLReport\myDLL\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeVendor.Controls">
+      <HintPath>..\MyLib\myDLL\CodeVendor.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_conditionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_conditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_conditionForm.Designer.cs">
+      <DependentUpon>_conditionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_configForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_configForm.Designer.cs">
+      <DependentUpon>_configForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_deleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_deleteForm.Designer.cs">
+      <DependentUpon>_deleteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_designer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_designer.Designer.cs">
+      <DependentUpon>_designer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_genReport.cs" />
+    <Compile Include="_importFastReport.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_importFastReport.Designer.cs">
+      <DependentUpon>_importFastReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_loadForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_loadForm.Designer.cs">
+      <DependentUpon>_loadForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_previewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_previewForm.Designer.cs">
+      <DependentUpon>_previewForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_processImportReport.cs" />
+    <Compile Include="_queryAccountControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryAccountControl.Designer.cs">
+      <DependentUpon>_queryAccountControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_queryControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_queryControl.Designer.cs">
+      <DependentUpon>_queryControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_saveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_saveForm.Designer.cs">
+      <DependentUpon>_saveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_searchResourceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_searchResourceForm.Designer.cs">
+      <DependentUpon>_searchResourceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+    <Compile Include="_showQueryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_showQueryForm.Designer.cs">
+      <DependentUpon>_showQueryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_xmlClass.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_conditionForm.resx">
+      <DependentUpon>_conditionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_configForm.resx">
+      <DependentUpon>_configForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_deleteForm.resx">
+      <DependentUpon>_deleteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_designer.resx">
+      <DependentUpon>_designer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_importFastReport.resx">
+      <DependentUpon>_importFastReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_loadForm.resx">
+      <DependentUpon>_loadForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_previewForm.resx">
+      <DependentUpon>_previewForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryAccountControl.resx">
+      <DependentUpon>_queryAccountControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_queryControl.resx">
+      <DependentUpon>_queryControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_saveForm.resx">
+      <DependentUpon>_saveForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_searchResourceForm.resx">
+      <DependentUpon>_searchResourceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_showQueryForm.resx">
+      <DependentUpon>_showQueryForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41b81586-3b62-4c5f-89c8-74a21a53fa96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scroll_view.png" />
+    <None Include="Resources\gear_run.png" />
+    <None Include="Resources\folder_view.png" />
+    <None Include="Resources\export2.png" />
+    <None Include="Resources\import1.png" />
+    <None Include="Resources\flash.png" />
+    <None Include="Resources\table_sql_view.png" />
+    <None Include="Resources\disks.png" />
+    <None Include="Resources\arrow_up_green.png" />
+    <None Include="Resources\arrow_down_green.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\check.png" />
+    <Content Include="Resources\disk_blue.png" />
+    <None Include="Resources\document_add.png" />
+    <Content Include="Resources\error.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

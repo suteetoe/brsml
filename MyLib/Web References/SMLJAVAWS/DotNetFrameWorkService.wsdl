@@ -1,0 +1,1321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://SMLWebService/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="DotNetFrameWorkService" targetNamespace="http://SMLWebService/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8084/SMLJavaWebService/DotNetFrameWork?xsd=1" namespace="http://SMLWebService/" />
+    </xsd:schema>
+  </types>
+  <message name="_query">
+    <part name="parameters" element="tns:_query" />
+  </message>
+  <message name="_queryResponse">
+    <part name="parameters" element="tns:_queryResponse" />
+  </message>
+  <message name="_queryGetStream">
+    <part name="parameters" element="tns:_queryGetStream" />
+  </message>
+  <message name="_queryGetStreamResponse">
+    <part name="parameters" element="tns:_queryGetStreamResponse" />
+  </message>
+  <message name="_queryStream">
+    <part name="parameters" element="tns:_queryStream" />
+  </message>
+  <message name="_queryStreamResponse">
+    <part name="parameters" element="tns:_queryStreamResponse" />
+  </message>
+  <message name="_getFileLastUpdate">
+    <part name="parameters" element="tns:_getFileLastUpdate" />
+  </message>
+  <message name="_getFileLastUpdateResponse">
+    <part name="parameters" element="tns:_getFileLastUpdateResponse" />
+  </message>
+  <message name="_systemLogin">
+    <part name="parameters" element="tns:_systemLogin" />
+  </message>
+  <message name="_systemLoginResponse">
+    <part name="parameters" element="tns:_systemLoginResponse" />
+  </message>
+  <message name="_systemChangePassword">
+    <part name="parameters" element="tns:_systemChangePassword" />
+  </message>
+  <message name="_systemChangePasswordResponse">
+    <part name="parameters" element="tns:_systemChangePasswordResponse" />
+  </message>
+  <message name="_changePassword">
+    <part name="parameters" element="tns:_changePassword" />
+  </message>
+  <message name="_changePasswordResponse">
+    <part name="parameters" element="tns:_changePasswordResponse" />
+  </message>
+  <message name="_providerLoad">
+    <part name="parameters" element="tns:_providerLoad" />
+  </message>
+  <message name="_providerLoadResponse">
+    <part name="parameters" element="tns:_providerLoadResponse" />
+  </message>
+  <message name="_providerSave">
+    <part name="parameters" element="tns:_providerSave" />
+  </message>
+  <message name="_providerSaveResponse">
+    <part name="parameters" element="tns:_providerSaveResponse" />
+  </message>
+  <message name="_queryInsertOrUpdateNoGuid2">
+    <part name="parameters" element="tns:_queryInsertOrUpdateNoGuid2" />
+  </message>
+  <message name="_queryInsertOrUpdateNoGuid2Response">
+    <part name="parameters" element="tns:_queryInsertOrUpdateNoGuid2Response" />
+  </message>
+  <message name="_query2">
+    <part name="parameters" element="tns:_query2" />
+  </message>
+  <message name="_query2Response">
+    <part name="parameters" element="tns:_query2Response" />
+  </message>
+  <message name="_loadXmlFile">
+    <part name="parameters" element="tns:_loadXmlFile" />
+  </message>
+  <message name="_loadXmlFileResponse">
+    <part name="parameters" element="tns:_loadXmlFileResponse" />
+  </message>
+  <message name="_saveXmlFile">
+    <part name="parameters" element="tns:_saveXmlFile" />
+  </message>
+  <message name="_saveXmlFileResponse">
+    <part name="parameters" element="tns:_saveXmlFileResponse" />
+  </message>
+  <message name="_insertLanguageToTable">
+    <part name="parameters" element="tns:_insertLanguageToTable" />
+  </message>
+  <message name="_insertLanguageToTableResponse">
+    <part name="parameters" element="tns:_insertLanguageToTableResponse" />
+  </message>
+  <message name="_getConnection">
+    <part name="parameters" element="tns:_getConnection" />
+  </message>
+  <message name="_getConnectionResponse">
+    <part name="parameters" element="tns:_getConnectionResponse" />
+  </message>
+  <message name="_connectDatabase">
+    <part name="parameters" element="tns:_connectDatabase" />
+  </message>
+  <message name="_connectDatabaseResponse">
+    <part name="parameters" element="tns:_connectDatabaseResponse" />
+  </message>
+  <message name="_getAdminConnection">
+    <part name="parameters" element="tns:_getAdminConnection" />
+  </message>
+  <message name="_getAdminConnectionResponse">
+    <part name="parameters" element="tns:_getAdminConnectionResponse" />
+  </message>
+  <message name="_getUserList">
+    <part name="parameters" element="tns:_getUserList" />
+  </message>
+  <message name="_getUserListResponse">
+    <part name="parameters" element="tns:_getUserListResponse" />
+  </message>
+  <message name="_getGroupList">
+    <part name="parameters" element="tns:_getGroupList" />
+  </message>
+  <message name="_getGroupListResponse">
+    <part name="parameters" element="tns:_getGroupListResponse" />
+  </message>
+  <message name="_getDatabaseList">
+    <part name="parameters" element="tns:_getDatabaseList" />
+  </message>
+  <message name="_getDatabaseListResponse">
+    <part name="parameters" element="tns:_getDatabaseListResponse" />
+  </message>
+  <message name="_saveUserList">
+    <part name="parameters" element="tns:_saveUserList" />
+  </message>
+  <message name="_saveUserListResponse">
+    <part name="parameters" element="tns:_saveUserListResponse" />
+  </message>
+  <message name="_saveGroupList">
+    <part name="parameters" element="tns:_saveGroupList" />
+  </message>
+  <message name="_saveGroupListResponse">
+    <part name="parameters" element="tns:_saveGroupListResponse" />
+  </message>
+  <message name="_saveUserAndGroup">
+    <part name="parameters" element="tns:_saveUserAndGroup" />
+  </message>
+  <message name="_saveUserAndGroupResponse">
+    <part name="parameters" element="tns:_saveUserAndGroupResponse" />
+  </message>
+  <message name="_saveDatabaseList">
+    <part name="parameters" element="tns:_saveDatabaseList" />
+  </message>
+  <message name="_saveDatabaseListResponse">
+    <part name="parameters" element="tns:_saveDatabaseListResponse" />
+  </message>
+  <message name="_deleteUserList">
+    <part name="parameters" element="tns:_deleteUserList" />
+  </message>
+  <message name="_deleteUserListResponse">
+    <part name="parameters" element="tns:_deleteUserListResponse" />
+  </message>
+  <message name="_deleteGroupList">
+    <part name="parameters" element="tns:_deleteGroupList" />
+  </message>
+  <message name="_deleteGroupListResponse">
+    <part name="parameters" element="tns:_deleteGroupListResponse" />
+  </message>
+  <message name="IOException">
+    <part name="fault" element="tns:IOException" />
+  </message>
+  <message name="_getAllTable">
+    <part name="parameters" element="tns:_getAllTable" />
+  </message>
+  <message name="_getAllTableResponse">
+    <part name="parameters" element="tns:_getAllTableResponse" />
+  </message>
+  <message name="_getFieldFromDatabase">
+    <part name="parameters" element="tns:_getFieldFromDatabase" />
+  </message>
+  <message name="_getFieldFromDatabaseResponse">
+    <part name="parameters" element="tns:_getFieldFromDatabaseResponse" />
+  </message>
+  <message name="_getTableFromDatabase">
+    <part name="parameters" element="tns:_getTableFromDatabase" />
+  </message>
+  <message name="_getTableFromDatabaseResponse">
+    <part name="parameters" element="tns:_getTableFromDatabaseResponse" />
+  </message>
+  <message name="_getUserListInGroup">
+    <part name="parameters" element="tns:_getUserListInGroup" />
+  </message>
+  <message name="_getUserListInGroupResponse">
+    <part name="parameters" element="tns:_getUserListInGroupResponse" />
+  </message>
+  <message name="_createDatabaseAndTable">
+    <part name="parameters" element="tns:_createDatabaseAndTable" />
+  </message>
+  <message name="_createDatabaseAndTableResponse">
+    <part name="parameters" element="tns:_createDatabaseAndTableResponse" />
+  </message>
+  <message name="_verifyDatabase">
+    <part name="parameters" element="tns:_verifyDatabase" />
+  </message>
+  <message name="_verifyDatabaseResponse">
+    <part name="parameters" element="tns:_verifyDatabaseResponse" />
+  </message>
+  <message name="_verifyDatabaseScript">
+    <part name="parameters" element="tns:_verifyDatabaseScript" />
+  </message>
+  <message name="_verifyDatabaseScriptResponse">
+    <part name="parameters" element="tns:_verifyDatabaseScriptResponse" />
+  </message>
+  <message name="_findDatabase">
+    <part name="parameters" element="tns:_findDatabase" />
+  </message>
+  <message name="_findDatabaseResponse">
+    <part name="parameters" element="tns:_findDatabaseResponse" />
+  </message>
+  <message name="_queryList">
+    <part name="parameters" element="tns:_queryList" />
+  </message>
+  <message name="_queryListResponse">
+    <part name="parameters" element="tns:_queryListResponse" />
+  </message>
+  <message name="_queryListCompress">
+    <part name="parameters" element="tns:_queryListCompress" />
+  </message>
+  <message name="_queryListCompressResponse">
+    <part name="parameters" element="tns:_queryListCompressResponse" />
+  </message>
+  <message name="_queryListGetData">
+    <part name="parameters" element="tns:_queryListGetData" />
+  </message>
+  <message name="_queryListGetDataResponse">
+    <part name="parameters" element="tns:_queryListGetDataResponse" />
+  </message>
+  <message name="_queryListGetDataCompress">
+    <part name="parameters" element="tns:_queryListGetDataCompress" />
+  </message>
+  <message name="_queryListGetDataCompressResponse">
+    <part name="parameters" element="tns:_queryListGetDataCompressResponse" />
+  </message>
+  <message name="_queryCompressByteArray">
+    <part name="parameters" element="tns:_queryCompressByteArray" />
+  </message>
+  <message name="_queryCompressByteArrayResponse">
+    <part name="parameters" element="tns:_queryCompressByteArrayResponse" />
+  </message>
+  <message name="_queryCompress">
+    <part name="parameters" element="tns:_queryCompress" />
+  </message>
+  <message name="_queryCompressResponse">
+    <part name="parameters" element="tns:_queryCompressResponse" />
+  </message>
+  <message name="_queryColumnName">
+    <part name="parameters" element="tns:_queryColumnName" />
+  </message>
+  <message name="_queryColumnNameResponse">
+    <part name="parameters" element="tns:_queryColumnNameResponse" />
+  </message>
+  <message name="_queryByteData">
+    <part name="parameters" element="tns:_queryByteData" />
+  </message>
+  <message name="_queryByteDataResponse">
+    <part name="parameters" element="tns:_queryByteDataResponse" />
+  </message>
+  <message name="_loadForm">
+    <part name="parameters" element="tns:_loadForm" />
+  </message>
+  <message name="_loadFormResponse">
+    <part name="parameters" element="tns:_loadFormResponse" />
+  </message>
+  <message name="_SaveFormDesign">
+    <part name="parameters" element="tns:_SaveFormDesign" />
+  </message>
+  <message name="_SaveFormDesignResponse">
+    <part name="parameters" element="tns:_SaveFormDesignResponse" />
+  </message>
+  <message name="_query_Image">
+    <part name="parameters" element="tns:_query_Image" />
+  </message>
+  <message name="_query_ImageResponse">
+    <part name="parameters" element="tns:_query_ImageResponse" />
+  </message>
+  <message name="_getQrCodeByte">
+    <part name="parameters" element="tns:_getQrCodeByte" />
+  </message>
+  <message name="_getQrCodeByteResponse">
+    <part name="parameters" element="tns:_getQrCodeByteResponse" />
+  </message>
+  <message name="_LoadImageList">
+    <part name="parameters" element="tns:_LoadImageList" />
+  </message>
+  <message name="_LoadImageListResponse">
+    <part name="parameters" element="tns:_LoadImageListResponse" />
+  </message>
+  <message name="_SaveImageList">
+    <part name="parameters" element="tns:_SaveImageList" />
+  </message>
+  <message name="_SaveImageListResponse">
+    <part name="parameters" element="tns:_SaveImageListResponse" />
+  </message>
+  <message name="_DeleteImageList">
+    <part name="parameters" element="tns:_DeleteImageList" />
+  </message>
+  <message name="_DeleteImageListResponse">
+    <part name="parameters" element="tns:_DeleteImageListResponse" />
+  </message>
+  <message name="_getMacAddress">
+    <part name="parameters" element="tns:_getMacAddress" />
+  </message>
+  <message name="_getMacAddressResponse">
+    <part name="parameters" element="tns:_getMacAddressResponse" />
+  </message>
+  <message name="_queryInsertOrUpdate">
+    <part name="parameters" element="tns:_queryInsertOrUpdate" />
+  </message>
+  <message name="_queryInsertOrUpdateResponse">
+    <part name="parameters" element="tns:_queryInsertOrUpdateResponse" />
+  </message>
+  <message name="_queryInsertOrUpdateCompress">
+    <part name="parameters" element="tns:_queryInsertOrUpdateCompress" />
+  </message>
+  <message name="_queryInsertOrUpdateCompressResponse">
+    <part name="parameters" element="tns:_queryInsertOrUpdateCompressResponse" />
+  </message>
+  <message name="_queryLimitCompress">
+    <part name="parameters" element="tns:_queryLimitCompress" />
+  </message>
+  <message name="_queryLimitCompressResponse">
+    <part name="parameters" element="tns:_queryLimitCompressResponse" />
+  </message>
+  <message name="_queryLimit">
+    <part name="parameters" element="tns:_queryLimit" />
+  </message>
+  <message name="_queryLimitResponse">
+    <part name="parameters" element="tns:_queryLimitResponse" />
+  </message>
+  <message name="_resourceInsertAll">
+    <part name="parameters" element="tns:_resourceInsertAll" />
+  </message>
+  <message name="_resourceInsertAllResponse">
+    <part name="parameters" element="tns:_resourceInsertAllResponse" />
+  </message>
+  <message name="_systemStartup">
+    <part name="parameters" element="tns:_systemStartup" />
+  </message>
+  <message name="_systemStartupResponse">
+    <part name="parameters" element="tns:_systemStartupResponse" />
+  </message>
+  <message name="_resourceInsert">
+    <part name="parameters" element="tns:_resourceInsert" />
+  </message>
+  <message name="_resourceInsertResponse">
+    <part name="parameters" element="tns:_resourceInsertResponse" />
+  </message>
+  <message name="_readXmlFile">
+    <part name="parameters" element="tns:_readXmlFile" />
+  </message>
+  <message name="_readXmlFileResponse">
+    <part name="parameters" element="tns:_readXmlFileResponse" />
+  </message>
+  <message name="_getSchemaTable">
+    <part name="parameters" element="tns:_getSchemaTable" />
+  </message>
+  <message name="_getSchemaTableResponse">
+    <part name="parameters" element="tns:_getSchemaTableResponse" />
+  </message>
+  <message name="_loginProcess">
+    <part name="parameters" element="tns:_loginProcess" />
+  </message>
+  <message name="_loginProcessResponse">
+    <part name="parameters" element="tns:_loginProcessResponse" />
+  </message>
+  <message name="_logoutProcess">
+    <part name="parameters" element="tns:_logoutProcess" />
+  </message>
+  <message name="_logoutProcessResponse">
+    <part name="parameters" element="tns:_logoutProcessResponse" />
+  </message>
+  <message name="_sendGuid">
+    <part name="parameters" element="tns:_sendGuid" />
+  </message>
+  <message name="_sendGuidResponse">
+    <part name="parameters" element="tns:_sendGuidResponse" />
+  </message>
+  <message name="_checkConnect">
+    <part name="parameters" element="tns:_checkConnect" />
+  </message>
+  <message name="_checkConnectResponse">
+    <part name="parameters" element="tns:_checkConnectResponse" />
+  </message>
+  <message name="_checkConnectSpeed">
+    <part name="parameters" element="tns:_checkConnectSpeed" />
+  </message>
+  <message name="_checkConnectSpeedResponse">
+    <part name="parameters" element="tns:_checkConnectSpeedResponse" />
+  </message>
+  <message name="_queryfrontPosProduct">
+    <part name="parameters" element="tns:_queryfrontPosProduct" />
+  </message>
+  <message name="_queryfrontPosProductResponse">
+    <part name="parameters" element="tns:_queryfrontPosProductResponse" />
+  </message>
+  <message name="_getDatabaseCode">
+    <part name="parameters" element="tns:_getDatabaseCode" />
+  </message>
+  <message name="_getDatabaseCodeResponse">
+    <part name="parameters" element="tns:_getDatabaseCodeResponse" />
+  </message>
+  <message name="_queryfrontPosProductCompress">
+    <part name="parameters" element="tns:_queryfrontPosProductCompress" />
+  </message>
+  <message name="_queryfrontPosProductCompressResponse">
+    <part name="parameters" element="tns:_queryfrontPosProductCompressResponse" />
+  </message>
+  <message name="_getServerIpAddr">
+    <part name="parameters" element="tns:_getServerIpAddr" />
+  </message>
+  <message name="_getServerIpAddrResponse">
+    <part name="parameters" element="tns:_getServerIpAddrResponse" />
+  </message>
+  <portType name="DotNetFrameWork">
+    <operation name="_query">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryRequest" message="tns:_query" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryResponse" message="tns:_queryResponse" />
+    </operation>
+    <operation name="_queryGetStream">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryGetStreamRequest" message="tns:_queryGetStream" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryGetStreamResponse" message="tns:_queryGetStreamResponse" />
+    </operation>
+    <operation name="_queryStream">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryStreamRequest" message="tns:_queryStream" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryStreamResponse" message="tns:_queryStreamResponse" />
+    </operation>
+    <operation name="_getFileLastUpdate">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getFileLastUpdateRequest" message="tns:_getFileLastUpdate" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getFileLastUpdateResponse" message="tns:_getFileLastUpdateResponse" />
+    </operation>
+    <operation name="_systemLogin">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_systemLoginRequest" message="tns:_systemLogin" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_systemLoginResponse" message="tns:_systemLoginResponse" />
+    </operation>
+    <operation name="_systemChangePassword">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_systemChangePasswordRequest" message="tns:_systemChangePassword" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_systemChangePasswordResponse" message="tns:_systemChangePasswordResponse" />
+    </operation>
+    <operation name="_changePassword">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_changePasswordRequest" message="tns:_changePassword" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_changePasswordResponse" message="tns:_changePasswordResponse" />
+    </operation>
+    <operation name="_providerLoad">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_providerLoadRequest" message="tns:_providerLoad" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_providerLoadResponse" message="tns:_providerLoadResponse" />
+    </operation>
+    <operation name="_providerSave">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_providerSaveRequest" message="tns:_providerSave" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_providerSaveResponse" message="tns:_providerSaveResponse" />
+    </operation>
+    <operation name="_queryInsertOrUpdateNoGuid2">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryInsertOrUpdateNoGuid2Request" message="tns:_queryInsertOrUpdateNoGuid2" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryInsertOrUpdateNoGuid2Response" message="tns:_queryInsertOrUpdateNoGuid2Response" />
+    </operation>
+    <operation name="_query2">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_query2Request" message="tns:_query2" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_query2Response" message="tns:_query2Response" />
+    </operation>
+    <operation name="_loadXmlFile">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_loadXmlFileRequest" message="tns:_loadXmlFile" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_loadXmlFileResponse" message="tns:_loadXmlFileResponse" />
+    </operation>
+    <operation name="_saveXmlFile">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_saveXmlFileRequest" message="tns:_saveXmlFile" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_saveXmlFileResponse" message="tns:_saveXmlFileResponse" />
+    </operation>
+    <operation name="_insertLanguageToTable">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_insertLanguageToTableRequest" message="tns:_insertLanguageToTable" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_insertLanguageToTableResponse" message="tns:_insertLanguageToTableResponse" />
+    </operation>
+    <operation name="_getConnection">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getConnectionRequest" message="tns:_getConnection" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getConnectionResponse" message="tns:_getConnectionResponse" />
+    </operation>
+    <operation name="_connectDatabase">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_connectDatabaseRequest" message="tns:_connectDatabase" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_connectDatabaseResponse" message="tns:_connectDatabaseResponse" />
+    </operation>
+    <operation name="_getAdminConnection">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getAdminConnectionRequest" message="tns:_getAdminConnection" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getAdminConnectionResponse" message="tns:_getAdminConnectionResponse" />
+    </operation>
+    <operation name="_getUserList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getUserListRequest" message="tns:_getUserList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getUserListResponse" message="tns:_getUserListResponse" />
+    </operation>
+    <operation name="_getGroupList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getGroupListRequest" message="tns:_getGroupList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getGroupListResponse" message="tns:_getGroupListResponse" />
+    </operation>
+    <operation name="_getDatabaseList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getDatabaseListRequest" message="tns:_getDatabaseList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getDatabaseListResponse" message="tns:_getDatabaseListResponse" />
+    </operation>
+    <operation name="_saveUserList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_saveUserListRequest" message="tns:_saveUserList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_saveUserListResponse" message="tns:_saveUserListResponse" />
+    </operation>
+    <operation name="_saveGroupList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_saveGroupListRequest" message="tns:_saveGroupList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_saveGroupListResponse" message="tns:_saveGroupListResponse" />
+    </operation>
+    <operation name="_saveUserAndGroup">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_saveUserAndGroupRequest" message="tns:_saveUserAndGroup" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_saveUserAndGroupResponse" message="tns:_saveUserAndGroupResponse" />
+    </operation>
+    <operation name="_saveDatabaseList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_saveDatabaseListRequest" message="tns:_saveDatabaseList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_saveDatabaseListResponse" message="tns:_saveDatabaseListResponse" />
+    </operation>
+    <operation name="_deleteUserList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_deleteUserListRequest" message="tns:_deleteUserList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_deleteUserListResponse" message="tns:_deleteUserListResponse" />
+    </operation>
+    <operation name="_deleteGroupList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_deleteGroupListRequest" message="tns:_deleteGroupList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_deleteGroupListResponse" message="tns:_deleteGroupListResponse" />
+      <fault wsam:Action="http://SMLWebService/DotNetFrameWork/_deleteGroupList/Fault/IOException" name="IOException" message="tns:IOException" />
+    </operation>
+    <operation name="_getAllTable">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getAllTableRequest" message="tns:_getAllTable" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getAllTableResponse" message="tns:_getAllTableResponse" />
+    </operation>
+    <operation name="_getFieldFromDatabase">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getFieldFromDatabaseRequest" message="tns:_getFieldFromDatabase" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getFieldFromDatabaseResponse" message="tns:_getFieldFromDatabaseResponse" />
+    </operation>
+    <operation name="_getTableFromDatabase">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getTableFromDatabaseRequest" message="tns:_getTableFromDatabase" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getTableFromDatabaseResponse" message="tns:_getTableFromDatabaseResponse" />
+    </operation>
+    <operation name="_getUserListInGroup">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getUserListInGroupRequest" message="tns:_getUserListInGroup" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getUserListInGroupResponse" message="tns:_getUserListInGroupResponse" />
+    </operation>
+    <operation name="_createDatabaseAndTable">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_createDatabaseAndTableRequest" message="tns:_createDatabaseAndTable" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_createDatabaseAndTableResponse" message="tns:_createDatabaseAndTableResponse" />
+    </operation>
+    <operation name="_verifyDatabase">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_verifyDatabaseRequest" message="tns:_verifyDatabase" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_verifyDatabaseResponse" message="tns:_verifyDatabaseResponse" />
+    </operation>
+    <operation name="_verifyDatabaseScript">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_verifyDatabaseScriptRequest" message="tns:_verifyDatabaseScript" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_verifyDatabaseScriptResponse" message="tns:_verifyDatabaseScriptResponse" />
+    </operation>
+    <operation name="_findDatabase">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_findDatabaseRequest" message="tns:_findDatabase" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_findDatabaseResponse" message="tns:_findDatabaseResponse" />
+    </operation>
+    <operation name="_queryList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListRequest" message="tns:_queryList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListResponse" message="tns:_queryListResponse" />
+    </operation>
+    <operation name="_queryListCompress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListCompressRequest" message="tns:_queryListCompress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListCompressResponse" message="tns:_queryListCompressResponse" />
+    </operation>
+    <operation name="_queryListGetData">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListGetDataRequest" message="tns:_queryListGetData" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListGetDataResponse" message="tns:_queryListGetDataResponse" />
+    </operation>
+    <operation name="_queryListGetDataCompress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListGetDataCompressRequest" message="tns:_queryListGetDataCompress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryListGetDataCompressResponse" message="tns:_queryListGetDataCompressResponse" />
+    </operation>
+    <operation name="_queryCompressByteArray">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryCompressByteArrayRequest" message="tns:_queryCompressByteArray" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryCompressByteArrayResponse" message="tns:_queryCompressByteArrayResponse" />
+    </operation>
+    <operation name="_queryCompress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryCompressRequest" message="tns:_queryCompress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryCompressResponse" message="tns:_queryCompressResponse" />
+    </operation>
+    <operation name="_queryColumnName">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryColumnNameRequest" message="tns:_queryColumnName" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryColumnNameResponse" message="tns:_queryColumnNameResponse" />
+    </operation>
+    <operation name="_queryByteData">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryByteDataRequest" message="tns:_queryByteData" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryByteDataResponse" message="tns:_queryByteDataResponse" />
+    </operation>
+    <operation name="_loadForm">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_loadFormRequest" message="tns:_loadForm" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_loadFormResponse" message="tns:_loadFormResponse" />
+    </operation>
+    <operation name="_SaveFormDesign">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_SaveFormDesignRequest" message="tns:_SaveFormDesign" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_SaveFormDesignResponse" message="tns:_SaveFormDesignResponse" />
+    </operation>
+    <operation name="_query_Image">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_query_ImageRequest" message="tns:_query_Image" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_query_ImageResponse" message="tns:_query_ImageResponse" />
+    </operation>
+    <operation name="_getQrCodeByte">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getQrCodeByteRequest" message="tns:_getQrCodeByte" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getQrCodeByteResponse" message="tns:_getQrCodeByteResponse" />
+    </operation>
+    <operation name="_LoadImageList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_LoadImageListRequest" message="tns:_LoadImageList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_LoadImageListResponse" message="tns:_LoadImageListResponse" />
+      <fault wsam:Action="http://SMLWebService/DotNetFrameWork/_LoadImageList/Fault/IOException" name="IOException" message="tns:IOException" />
+    </operation>
+    <operation name="_SaveImageList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_SaveImageListRequest" message="tns:_SaveImageList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_SaveImageListResponse" message="tns:_SaveImageListResponse" />
+    </operation>
+    <operation name="_DeleteImageList">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_DeleteImageListRequest" message="tns:_DeleteImageList" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_DeleteImageListResponse" message="tns:_DeleteImageListResponse" />
+    </operation>
+    <operation name="_getMacAddress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getMacAddressRequest" message="tns:_getMacAddress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getMacAddressResponse" message="tns:_getMacAddressResponse" />
+    </operation>
+    <operation name="_queryInsertOrUpdate">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryInsertOrUpdateRequest" message="tns:_queryInsertOrUpdate" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryInsertOrUpdateResponse" message="tns:_queryInsertOrUpdateResponse" />
+    </operation>
+    <operation name="_queryInsertOrUpdateCompress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryInsertOrUpdateCompressRequest" message="tns:_queryInsertOrUpdateCompress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryInsertOrUpdateCompressResponse" message="tns:_queryInsertOrUpdateCompressResponse" />
+    </operation>
+    <operation name="_queryLimitCompress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryLimitCompressRequest" message="tns:_queryLimitCompress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryLimitCompressResponse" message="tns:_queryLimitCompressResponse" />
+    </operation>
+    <operation name="_queryLimit">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryLimitRequest" message="tns:_queryLimit" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryLimitResponse" message="tns:_queryLimitResponse" />
+    </operation>
+    <operation name="_resourceInsertAll">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_resourceInsertAllRequest" message="tns:_resourceInsertAll" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_resourceInsertAllResponse" message="tns:_resourceInsertAllResponse" />
+    </operation>
+    <operation name="_systemStartup">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_systemStartupRequest" message="tns:_systemStartup" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_systemStartupResponse" message="tns:_systemStartupResponse" />
+    </operation>
+    <operation name="_resourceInsert">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_resourceInsertRequest" message="tns:_resourceInsert" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_resourceInsertResponse" message="tns:_resourceInsertResponse" />
+    </operation>
+    <operation name="_readXmlFile">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_readXmlFileRequest" message="tns:_readXmlFile" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_readXmlFileResponse" message="tns:_readXmlFileResponse" />
+    </operation>
+    <operation name="_getSchemaTable">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getSchemaTableRequest" message="tns:_getSchemaTable" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getSchemaTableResponse" message="tns:_getSchemaTableResponse" />
+    </operation>
+    <operation name="_loginProcess">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_loginProcessRequest" message="tns:_loginProcess" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_loginProcessResponse" message="tns:_loginProcessResponse" />
+    </operation>
+    <operation name="_logoutProcess">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_logoutProcessRequest" message="tns:_logoutProcess" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_logoutProcessResponse" message="tns:_logoutProcessResponse" />
+    </operation>
+    <operation name="_sendGuid">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_sendGuidRequest" message="tns:_sendGuid" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_sendGuidResponse" message="tns:_sendGuidResponse" />
+    </operation>
+    <operation name="_checkConnect">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_checkConnectRequest" message="tns:_checkConnect" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_checkConnectResponse" message="tns:_checkConnectResponse" />
+    </operation>
+    <operation name="_checkConnectSpeed">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_checkConnectSpeedRequest" message="tns:_checkConnectSpeed" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_checkConnectSpeedResponse" message="tns:_checkConnectSpeedResponse" />
+    </operation>
+    <operation name="_queryfrontPosProduct">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryfrontPosProductRequest" message="tns:_queryfrontPosProduct" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryfrontPosProductResponse" message="tns:_queryfrontPosProductResponse" />
+    </operation>
+    <operation name="_getDatabaseCode">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getDatabaseCodeRequest" message="tns:_getDatabaseCode" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getDatabaseCodeResponse" message="tns:_getDatabaseCodeResponse" />
+    </operation>
+    <operation name="_queryfrontPosProductCompress">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_queryfrontPosProductCompressRequest" message="tns:_queryfrontPosProductCompress" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_queryfrontPosProductCompressResponse" message="tns:_queryfrontPosProductCompressResponse" />
+    </operation>
+    <operation name="_getServerIpAddr">
+      <input wsam:Action="http://SMLWebService/DotNetFrameWork/_getServerIpAddrRequest" message="tns:_getServerIpAddr" />
+      <output wsam:Action="http://SMLWebService/DotNetFrameWork/_getServerIpAddrResponse" message="tns:_getServerIpAddrResponse" />
+    </operation>
+  </portType>
+  <binding name="DotNetFrameWorkPortBinding" type="tns:DotNetFrameWork">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="_query">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryGetStream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryStream">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getFileLastUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_systemLogin">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_systemChangePassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_changePassword">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_providerLoad">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_providerSave">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryInsertOrUpdateNoGuid2">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_query2">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_loadXmlFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_saveXmlFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_insertLanguageToTable">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getConnection">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_connectDatabase">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getAdminConnection">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getUserList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getGroupList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getDatabaseList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_saveUserList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_saveGroupList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_saveUserAndGroup">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_saveDatabaseList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_deleteUserList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_deleteGroupList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_getAllTable">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getFieldFromDatabase">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getTableFromDatabase">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getUserListInGroup">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_createDatabaseAndTable">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_verifyDatabase">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_verifyDatabaseScript">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_findDatabase">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryListCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryListGetData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryListGetDataCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryCompressByteArray">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryColumnName">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryByteData">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_loadForm">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_SaveFormDesign">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_query_Image">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getQrCodeByte">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_LoadImageList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="IOException">
+        <soap:fault use="literal" name="IOException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="_SaveImageList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_DeleteImageList">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getMacAddress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryInsertOrUpdate">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryInsertOrUpdateCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryLimitCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryLimit">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_resourceInsertAll">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_systemStartup">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_resourceInsert">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_readXmlFile">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getSchemaTable">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_loginProcess">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_logoutProcess">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_sendGuid">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_checkConnect">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_checkConnectSpeed">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryfrontPosProduct">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getDatabaseCode">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_queryfrontPosProductCompress">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="_getServerIpAddr">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="DotNetFrameWorkService">
+    <port name="DotNetFrameWorkPort" binding="tns:DotNetFrameWorkPortBinding">
+      <soap:address location="http://localhost:8084/SMLJavaWebService/DotNetFrameWork" />
+    </port>
+  </service>
+</definitions>

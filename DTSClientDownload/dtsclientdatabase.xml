@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<node>
+<table name="dts_download" thai="การส่งข้อมูล" eng="DTS Transfer" xversion="" >
+<field name="agentcode" thai="รหัส Agent" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="guid_download" thai="รหัสการ Download" eng="" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="download_flag" thai="ประเภทการ Download" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="download_date" thai="วันที่ Download" eng="" type="datetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="download_start" thai="เริ่มต้น Download" eng="" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="download_success" thai="สิ้นสุด Download" eng="" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="last_status" thai="สถานะการยกเลิก" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="download_status" thai="สถานะการ Download" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="dts_download_detail" thai="รายละเอียดการส่งข้อมูล" eng="DTS Transfer Detail" xversion="" >
+<field name="guid_download" thai="รหัสการ Download" eng="" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="agentcode" thai="รหัสตัวแทนจำหน่าย" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="download_flag" thai="ประเภทการ Download" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ref_no" thai="รหัสสินค้า/รหัส PO" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="download_date" thai="วันที่ download " eng="" type="datetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="download_start" thai="เริ่มต้น Download" eng="" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="download_success" thai="สินสุด Download" eng="" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="last_status" thai="สถานะ การยกเลิก" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="download_status" thai="สถานะ การ Download" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="dts_bcitem" thai="ข้อมูลสินค้า" eng="BC Item" xversion="" >
+<field name="code" thai="รหัสสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="barcode" thai="บาร์โค๊ดสินค้า" eng="" type="varchar" length="20" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="name1" thai="ชื่อสินค้า" eng="" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="defstkunitcode" thai="หน่วยนับมาตาฐาน" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="download_success" thai="วันที่นำเข้าระบบ" eng="" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="status" thai="สถานะใช้งาน" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="unittype" thai="สินค้าหลายหน่วยนับหรือไม่" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="groupcode" thai="Category" eng="" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="typecode" thai="Sub-Category" eng="" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="categorycode" thai="Class" eng="" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="formatcode" thai="Sub-Class" eng="" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="dts_bcpurchaseorder" thai="การสั่งซื้อ" eng="BC Purchase Order" xversion="" >
+<field name="docno" thai="เลขที่เอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="docdate" thai="วันที่เอกสาร" eng="" type="datetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="taxtype" thai="ประเภทภาษี" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="taxrate" thai="อัตราภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="apcode" thai="รหัสเจ้าหนี้ " eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="agentcode" thai="รหัสตัวแทนจำหน่าย" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="sumofitemamount" thai="รวมมูลค่าสินค้า" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="taxamount" thai="มูลค่าภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="totalamount" thai="มูลค่ารวมภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="netamount" thai="มูลค่าสุทธิ" eng="" type="currency" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="leadtime" thai="ระยะเวลาขนส่ง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="beforetaxamount" thai="มูลค่าก่อนคิดภาษี" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="excepttaxamount" thai="มูลค่ายกเว้นภาษี" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="zerotaxamount" thai="มูลค่าอัตราภาษีศูนย์" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="creditday" thai="เครดิต (วัน)" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="duedate" thai="วันครบกำหนด" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="dts_bcpurchaseordersub" thai="รายละเอียดการสั่งซื้อสินค้า" eng="BC PurchaseOrder Sub" xversion="" >
+<field name="docno" thai="เลขที่เอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="itemcode" thai="รหัสสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="unitcode" thai="หน่วยนับ" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="qty" thai="จำนวน" eng="" type="float" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="price" thai="ราคา" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="amount" thai="รวม" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="netamount" thai="มูลค่าสทธิ" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="docdate" thai="วันที่เอกสาร" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="apcode" thai="รหัสเจ้าหนี้" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="agentcode" thai="รหัสผู้แทนจำหน่าย" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="itemname" thai="ชื่อสินค้า" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="taxrate" thai="อัตราภาษี" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="rate1" thai="Rate 1" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="rate2" thai="Rate 2" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="groupcode" thai="Group Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="typecode" thai="Type Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="categorycode" thai="Category Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="formatcode" thai="Format Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="dts_bcstkpacking" thai="BC Stock Packing" eng="Table 9" xversion="" >
+<field name="itemcode" thai="รหัสสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="unitcode" thai="หน่วยนับสินค้า" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="rate1" thai="ตัวตั้ง" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="rate2" thai="ตัวหาร" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+</table>
+<table name="dts_allunitcode" thai="All Unit Code" eng="Table 10" xversion="" >
+<field name="itemcode" thai="รหัสสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="unitcode" thai="หน่วยนับ" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="isstkunit" thai="เป็นหน่วยมาตรฐาน" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="rate" thai="อัตราส่วน" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+</table>
+<table name="dts_bcsaleorder" thai="สังขาย/สั่งจองสินค้า" eng="" xversion="" >
+<field name="docno" thai="เลขที่เอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="docdate" thai="วันที่เอกสาร" eng="" type="datetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="taxtype" thai="ประเภทภาษี" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="taxrate" thai="อัตราภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="arcode" thai="รหัสลูกหนี้" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="agentcode" thai="รหัสผู้แทนจำหน่าย" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="sumofitemamount" thai="รวมมูลค่าสินค้า" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="afterdiscount" thai="มูลค่าหลังลด" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="beforetaxamount" thai="มูลค่าก่อนคิดภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="taxamount" thai="มูลค่าภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="totalamount" thai="มูลค่ารวมภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="excepttaxamount" thai="มูลค่ายกเว้นภาษี" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="zerotaxamount" thai="มูลค่าอัตราภาษีศูนย์" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="ownreceive" thai="ผู้รับสินค้า" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mydescription" thai="หมายเหตุ" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="netamount" thai="มูลค่าสุทธิ" eng="" type="currency" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="deliveryday" thai="ส่งมอบภายใน (วัน)" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="isconditionsend" thai="เงื่อนไขการส่งมอบ (0=รับเอง, 1=ส่งให้)" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="billtype" thai="ประเภทเอกสาร" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="deliverydate" thai="กำหนดส่งสินค้า" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+<table name="dts_bcsaleordersub" thai="รายละเอียดการสั่งซื้อ/สั่งจอง" eng="" xversion="" >
+<field name="docno" thai="เลขที่เอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="itemcode" thai="รหัสสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="unitcode" thai="หน่วยนับ" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="qty" thai="จำนวน" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="price" thai="ราคา" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="amount" thai="รวม" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="netamount" thai="มูลค่าสุทธิ" eng="" type="currency" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="originaldate" thai="กำหนดส่งสินค้า" eng="" type="datetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="docdate" thai="วันที่เอกสาร" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="arcode" thai="รหัสลูกหนี้" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="agentcode" thai="รหัสผู้แทนจำหน่าย" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="itemname" thai="ชื่อสินค้า" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="taxrate" thai="อัตราภาษี" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="rate1" thai="Rate 1" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="rate2" thai="Rate 2" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="groupcode" thai="Group Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="typecode" thai="Type Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="categorycode" thai="Category Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="formatcode" thai="Format Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+</table>
+</node>

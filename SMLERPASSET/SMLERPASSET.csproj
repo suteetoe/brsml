@@ -1,0 +1,347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{358CCCBB-F185-4F6F-AC8B-38F26E1CF022}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SMLERPASSET</RootNamespace>
+    <AssemblyName>SMLERPASSET</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs" />
+    <Compile Include="Properties\Resources1.Designer.cs" />
+    <Compile Include="Properties\Settings.Designer.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="_as_list.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_as_list.Designer.cs">
+      <DependentUpon>_as_list.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_as_list_pic.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_as_list_pic.Designer.cs">
+      <DependentUpon>_as_list_pic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_as_maintain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_as_maintain.Designer.cs">
+      <DependentUpon>_as_maintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_as_sale.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_as_sale.Designer.cs">
+      <DependentUpon>_as_sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_as_transfer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_as_transfer.Designer.cs">
+      <DependentUpon>_as_transfer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_controls\_maintenanceGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_controls\_maintenanceGrid.Designer.cs">
+      <DependentUpon>_maintenanceGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_controls\_resultGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_controls\_resultGrid.Designer.cs">
+      <DependentUpon>_resultGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_controls\_saleGrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_controls\_saleGrid.Designer.cs">
+      <DependentUpon>_saleGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_depreciateByDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_depreciateByDay.Designer.cs">
+      <DependentUpon>_depreciateByDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_depreciateByMonth.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_depreciateByMonth.Designer.cs">
+      <DependentUpon>_depreciateByMonth.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_depreciateByYear.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_display\_depreciateByYear.Designer.cs">
+      <DependentUpon>_depreciateByYear.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_display\_selectAsset.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_asset\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_asset\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_asset\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_asset\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_depreciate\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_depreciate\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_depreciate\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_depreciate\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_maintain\_condition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_report\_maintain\_condition.Designer.cs">
+      <DependentUpon>_condition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_maintain\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_maintain\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_sale\_report.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_report\_sale\_report.Designer.cs">
+      <DependentUpon>_report.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_report\_screenAssetCondition.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_selectMenu.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_as_list.resx">
+      <DependentUpon>_as_list.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_as_list_pic.resx">
+      <DependentUpon>_as_list_pic.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_as_maintain.resx">
+      <DependentUpon>_as_maintain.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_as_sale.resx">
+      <DependentUpon>_as_sale.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_as_transfer.resx">
+      <DependentUpon>_as_transfer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_controls\_maintenanceGrid.resx">
+      <DependentUpon>_maintenanceGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_controls\_resultGrid.resx">
+      <DependentUpon>_resultGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_controls\_saleGrid.resx">
+      <DependentUpon>_saleGrid.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_depreciateByDay.resx">
+      <DependentUpon>_depreciateByDay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_depreciateByMonth.resx">
+      <DependentUpon>_depreciateByMonth.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_display\_depreciateByYear.resx">
+      <DependentUpon>_depreciateByYear.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_asset\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_asset\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_depreciate\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_depreciate\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_maintain\_condition.resx">
+      <DependentUpon>_condition.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_maintain\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_report\_sale\_report.resx">
+      <DependentUpon>_report.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\check.png" />
+    <Content Include="Resources\disk_blue.png" />
+    <Content Include="Resources\error.png" />
+    <Content Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPConfig\SMLERPConfig.csproj">
+      <Project>{2E9E7D02-2F83-4383-B048-F81914A7B9BF}</Project>
+      <Name>SMLERPConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPControl\SMLERPControl.csproj">
+      <Project>{73AA4C07-AABC-4C52-B7D7-1B0A9B0B256A}</Project>
+      <Name>SMLERPControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
+      <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
+      <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
+      <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
+      <Name>SMLProcess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
