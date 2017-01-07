@@ -87,6 +87,51 @@ namespace _g
             }
         }
 
+        public static string _icWhShelfUserPermissionWhereQuery(_g.g._transControlTypeEnum transType)
+        {
+            StringBuilder __where = new StringBuilder();
 
+            string __screen_type = "";
+            switch (transType)
+            {
+                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ:
+                    __screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "PU" + "\' ";
+                    break;
+                case _g.g._transControlTypeEnum.ขาย_สั่งขาย:
+                case _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า:
+                    {
+                        if (MyLib._myGlobal._programName.Equals("SML CM"))
+                        {
+                            __screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "SI" + "\' ";
+                        }
+                    }
+                    break;
+                case _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ:
+                    __screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "SI" + "\' ";
+                    break;
+                case _g.g._transControlTypeEnum.สินค้า_โอนเข้า:
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก:
+                case _g.g._transControlTypeEnum.สินค้า_โอนเข้า_ยกเลิก:
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก_ยกเลิก:
+                    __screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "IM" + "\' ";
+                    break;
+                case _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้:
+                case _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้_ยกเลิก:
+                    __screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "ST" + "\' ";
+                    break;
+            }
+
+            if (__screen_type.Length > 0)
+            {
+                // __queryWareHouseAndShelf = "select * from (" + __queryWareHouseAndShelf + ") as temp1 where " +
+                __where.Append(
+                _g.d.ic_wh_shelf._wh_code + " in (select " + _g.d.erp_user_group_wh_shelf._wh_code + " from " + _g.d.erp_user_group_wh_shelf._table + " where " + _g.d.erp_user_group_wh_shelf._group_code + " in (select " + _g.d.erp_user_group_detail._group_code + " from " + _g.d.erp_user_group_detail._table + " where " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "') " + __screen_type + ") and " +
+                _g.d.ic_wh_shelf._shelf_code + " in (select " + _g.d.erp_user_group_wh_shelf._shelf_code + " from " + _g.d.erp_user_group_wh_shelf._table + " where " + _g.d.erp_user_group_wh_shelf._group_code + " in (select " + _g.d.erp_user_group_detail._group_code + " from " + _g.d.erp_user_group_detail._table + " where " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "') " + __screen_type + ") "
+
+                );
+            }
+
+            return __where.ToString();
+        }
     }
 }

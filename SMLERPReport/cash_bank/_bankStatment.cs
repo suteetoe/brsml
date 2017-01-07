@@ -227,6 +227,7 @@ namespace SMLERPReport.cash_bank
             __incomeFlagCBTransDetail.Append(_g.g._transFlagGlobal._transFlagStr(_g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า) + ",");
             __incomeFlagCBTransDetail.Append(_g.g._transFlagGlobal._transFlagStr(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ_รับคืน) + ",");
             __incomeFlagCBTransDetail.Append(_g.g._transFlagGlobal._transFlagStr(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า_รับคืน) + ",");
+            __incomeFlagCBTransDetail.Append(_g.g._transFlagGlobal._transFlagStr(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค) + ",");
             __incomeFlagCBTransDetail.Append(_g.g._transFlagGlobal._transFlagStr(_g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด));
             // ช่องเงินโอน (จ่าย)
             __outcomeFlagCBTransDetail.Append(_g.g._transFlagGlobal._transFlagStr(_g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน) + ",");

@@ -145,6 +145,8 @@ namespace SMLERPAPARControl._depositControl
                     //_myManageData       
 
                     this._myManageData1._dataList._lockRecord = true;
+                    this._myManageData1._dataList._isLockDoc = true;
+
                     this._myManageData1._displayMode = 0;
                     this._myManageData1._selectDisplayMode(this._myManageData1._displayMode);
                     this._myManageData1._manageButton = this._myToolbar;
@@ -174,6 +176,14 @@ namespace SMLERPAPARControl._depositControl
                     this._payControl._getCustCode += new SMLERPAPARControl._payControl._getCustCodeEvent(_payControl___getCustCode);
                     this._payControl._payDepositGrid._getCustCode += new _payDepositAdvanceGridControl._getCustCodeEvent(_payDepositGrid__getCustCode);
                     this._payControl._payDepositGrid._getProcessDate += new _payDepositAdvanceGridControl._getProcessDateEvent(_payDepositGrid__getProcessDate);
+
+                    if (MyLib._myGlobal._isUserLockDocument == true)
+                    {
+                        this._myManageData1._dataList._buttonUnlockDoc.Visible = true;
+                        this._myManageData1._dataList._buttonLockDoc.Visible = true;
+                        this._myManageData1._dataList._separatorLockDoc.Visible = true;
+                    }
+
                 }
             }
             get

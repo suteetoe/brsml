@@ -67,6 +67,11 @@ namespace SMLInventoryControl
             if (_g.g._companyProfile._perm_wh_shelf)
             {
                 // _g.d.erp_user_group_wh_shelf._screen_code
+
+
+                // ย้ายไป icInfoFlag
+                __extraWhere.Append(_g._icInfoFlag._icWhShelfUserPermissionWhereQuery(this._controlType));
+                /*
                 string __screen_type = "";
                 switch (this._controlType)
                 {
@@ -105,7 +110,8 @@ namespace SMLInventoryControl
                     _g.d.ic_wh_shelf._shelf_code + " in (select " + _g.d.erp_user_group_wh_shelf._shelf_code + " from " + _g.d.erp_user_group_wh_shelf._table + " where " + _g.d.erp_user_group_wh_shelf._group_code + " in (select " + _g.d.erp_user_group_detail._group_code + " from " + _g.d.erp_user_group_detail._table + " where " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "') " + __screen_type + ") "
 
                     );
-                }
+                }*/
+
 
                 if (this._extraWhere.Length > 0)
                 {

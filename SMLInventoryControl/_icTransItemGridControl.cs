@@ -6186,14 +6186,23 @@ namespace SMLInventoryControl
                 }
             }
             StringBuilder __query = new StringBuilder();
+            
+            // // toe เพิ่ม filter warehouse และ shelf ตามกลุ่มพนักงาน
+            StringBuilder __extraWhereGetDefaultWhShelf = new StringBuilder();
+            if (_g.g._companyProfile._perm_wh_shelf)
+            {
+                // _g.d.erp_user_group_wh_shelf._screen_code
+                __extraWhereGetDefaultWhShelf.Append(_g._icInfoFlag._icWhShelfUserPermissionWhereQuery(this._ictransControlTemp));
+            }
+
             __query.Append(MyLib._myGlobal._xmlHeader + "<node>");
             // 0,ชื่อสินค้า,คลังสินค้าซื้อ,พื้นที่เก็บสินค้าซื้อ,หน่วยนับมาตรฐาน
             __query.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ic_inventory._tax_type + "," + _g.d.ic_inventory._average_cost +
                 "," + "(select " + _g.d.ic_unit_use._stand_value + " from " + _g.d.ic_unit_use._table + " where " + _g.d.ic_unit_use._table + "." + _g.d.ic_unit_use._ic_code + "=" + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._code + " and " + _g.d.ic_unit_use._table + "." + _g.d.ic_unit_use._code + "=" + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._unit_cost + ") as " + this._columnAverageCostUnitStand +
                 "," + "(select " + _g.d.ic_unit_use._divide_value + " from " + _g.d.ic_unit_use._table + " where " + _g.d.ic_unit_use._table + "." + _g.d.ic_unit_use._ic_code + "=" + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._code + " and " + _g.d.ic_unit_use._table + "." + _g.d.ic_unit_use._code + "=" + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._unit_cost + ") as " + this._columnAverageCostUnitDiv +
                 "," + _g.d.ic_inventory._name_1 + "," + _g.d.ic_inventory._unit_type + "," + _g.d.ic_inventory._item_type + "," + _g.d.ic_inventory._cost_type +
-                "," + "coalesce((select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + _g.d.ic_wh_shelf._wh_code + " from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_inventory._code + " order by " + _g.d.ic_wh_shelf._wh_code + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + "),'') as " + _g.d.ic_wh_shelf._wh_code +
-                "," + "coalesce((select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + _g.d.ic_wh_shelf._shelf_code + " from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_inventory._code + " order by " + _g.d.ic_wh_shelf._wh_code + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + "),'') as " + _g.d.ic_wh_shelf._shelf_code +
+                "," + "coalesce((select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + _g.d.ic_wh_shelf._wh_code + " from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_inventory._code + ((__extraWhereGetDefaultWhShelf.Length > 0) ? " and " + __extraWhereGetDefaultWhShelf.ToString() : "") + " order by " + _g.d.ic_wh_shelf._wh_code + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + "),'') as " + _g.d.ic_wh_shelf._wh_code +
+                "," + "coalesce((select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + _g.d.ic_wh_shelf._shelf_code + " from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_inventory._code + ((__extraWhereGetDefaultWhShelf.Length > 0) ? " and " + __extraWhereGetDefaultWhShelf.ToString() : "") + " order by " + _g.d.ic_wh_shelf._wh_code + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + "),'') as " + _g.d.ic_wh_shelf._shelf_code +
                 "," + _g.d.ic_inventory._unit_standard + "," + _g.d.ic_inventory._ic_serial_no +
                 ",( select count(" + _g.d.ic_inventory_replacement._table + "." + _g.d.ic_inventory_replacement._ic_code + ") from " + _g.d.ic_inventory_replacement._table + " where " + _g.d.ic_inventory_replacement._table + "." + _g.d.ic_inventory_replacement._ic_replace_code + " = " + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._code + ") as " + _g.d.ic_inventory._have_replacement +
                 "," + _g.d.ic_inventory._use_expire +

@@ -979,6 +979,7 @@ namespace SMLERPAPARControl
                 // this._myManageData1._dataList._extraWhere = " (" + _g.d.ap_ar_trans._trans_flag + " = " + _transFlag + ") and (" + _g.d.ap_ar_trans._trans_type + " = " + _transType + ")";
                 this._myManageData1._dataList._extraWhereEvent += _dataList__extraWhereEvent;
                 this._myManageData1._dataList._lockRecord = true; // ใช้แบบ Lock Record ต้องมี guid_code ด้วยนะ อย่าลืม
+                this._myManageData1._dataList._isLockDoc = true;
                 this._myManageData1._dataList._loadViewFormat(_g.g._arapLoadViewGlobal._loadViewName(this._controlTypeTemp, 0), MyLib._myGlobal._userSearchScreenGroup, true);
                 //this._myManageData1._dataList._loadViewFormat(_g.g._screen_ap_ar_trans, MyLib._myGlobal._userSearchScreenGroup, true);
                 //this._myManageData1._dataList._referFieldAdd(_arapReferFieldGlobal._referField(this._controlTypeTemp), 1);
@@ -998,6 +999,13 @@ namespace SMLERPAPARControl
                 this._screenTop._saveKeyDown += new MyLib.SaveKeyDownHandler(_screenTop__saveKeyDown);
                 this._myManageData1._calcArea();
                 this._myManageData1._autoSize = true;
+
+                if (MyLib._myGlobal._isUserLockDocument == true)
+                {
+                    this._myManageData1._dataList._buttonUnlockDoc.Visible = true;
+                    this._myManageData1._dataList._buttonLockDoc.Visible = true;
+                    this._myManageData1._dataList._separatorLockDoc.Visible = true;
+                }
             }
             catch
             {
