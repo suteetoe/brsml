@@ -1884,8 +1884,15 @@ namespace SMLProcess
                             #region เจ้าหนี้
 
                             case _g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้ยกมา:
+                                __queryDocCancelCount = "(select count(doc_no) from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 81 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no) ";
+                                __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
+                                break;
                             case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้ยกมา:
+                                __queryDocCancelCount = "(select count(doc_no) from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 83 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no) ";
+                                __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
+                                break;
                             case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้ยกมา:
+                                __queryDocCancelCount = "(select count(doc_no) from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 85 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no) ";
                                 __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
                                 break;
 
@@ -1934,11 +1941,17 @@ namespace SMLProcess
                             #region ลูกหนี้
 
                             case _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้ยกมา:
-                            case _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้ยกมา:
-                            case _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้ยกมา:
+                                __queryDocCancelCount = "(select count(doc_no) from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 93 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no) ";
                                 __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
                                 break;
-
+                            case _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้ยกมา:
+                                __queryDocCancelCount = "(select count(doc_no) from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 95 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no) ";
+                                __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
+                                break;
+                            case _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้ยกมา:
+                                __queryDocCancelCount = "(select count(doc_no) from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 97 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no) ";
+                                __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
+                                break;
                             case _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้อื่น:
                                 __queryDocCancelCount = "(select count(doc_no) from ( select doc_no from ic_trans as doc_cancel where doc_cancel.trans_flag = 100 and doc_cancel.doc_ref = ic_trans.doc_no union all select doc_no from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 99 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no ) as doc_cancel_temp ) ";
                                 __queryDocRefCount = "(select count(ref_doc_no) from ic_trans_detail as doc_ref where doc_ref.ref_doc_no = ic_trans.doc_no and doc_ref.trans_flag in (101,103) and doc_ref.last_status=0 )";

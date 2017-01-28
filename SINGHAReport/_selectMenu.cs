@@ -160,6 +160,13 @@ namespace SINGHAReport
 
                 case "menu_saletools_approve_goods_transfer_request": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT1S");
                 case "menu_saletools_approve_goods_return": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT01JkN1c0lEPQ==");
+
+                case "menu_saletools_web_call_detail_in_plan": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=cmVwb3J0VmlzaXRDdXN0LmFzcHg=");
+                case "menu_saletools_web_call_detail_out_plan": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=cmVwb3J0dmlzaXRwbGFub3V0LmFzcHg=");
+                case "menu_saletools_web_call_summary_daily": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=cmVwb3J0dmlzaXQuYXNweA==");
+                case "menu_saletools_web_call_summary_monthly": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=cmVwb3J0dmlzaXRTYWxlVGFnZXQuYXNweA==");
+                case "menu_saletools_web_call_trend": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0Q2FsbFRyZW5kX0xpdGUuYXNweA==");
+
             }
             return null;
         }

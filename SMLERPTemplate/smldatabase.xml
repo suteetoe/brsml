@@ -348,6 +348,7 @@
 <field name="close_warning_backup" thai="ปิดเตือนสำรองข้อมูล" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ss_ref_po_only" thai="ใบสั่งขายอ้างอิงเสนอราคาเท่านั้น" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="warning_input_customer" thai="เตือนเลือกลูกค้าก่อนทำรายการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="inv_disable_quotation" thai="จอขายปิดอ้างอิงใบเสนอราคา" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>

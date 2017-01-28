@@ -1416,6 +1416,10 @@ namespace _g
             /// เตือนเลือกลูกค้าก่อนทำรายการ
             /// </summary>
             public static String _warning_input_customer = "warning_input_customer";
+            /// <summary>
+            /// จอขายปิดอ้างอิงใบเสนอราคา
+            /// </summary>
+            public static String _inv_disable_quotation = "inv_disable_quotation";
         }
 
         /// <summary>

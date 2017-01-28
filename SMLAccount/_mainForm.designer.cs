@@ -2025,7 +2025,18 @@
             treeNode1005,
             treeNode1008});
             System.Windows.Forms.TreeNode treeNode1010 = new System.Windows.Forms.TreeNode("กำหนดค่าตัวแปร Mobile");
-            System.Windows.Forms.TreeNode treeNode1011 = new System.Windows.Forms.TreeNode("Mobile Sales", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1011 = new System.Windows.Forms.TreeNode("Call Detail  (งานตามแผน)");
+            System.Windows.Forms.TreeNode treeNode1012 = new System.Windows.Forms.TreeNode("Call Detail (งานนอกแผน)");
+            System.Windows.Forms.TreeNode treeNode1013 = new System.Windows.Forms.TreeNode("Call Summary (รายวัน)");
+            System.Windows.Forms.TreeNode treeNode1014 = new System.Windows.Forms.TreeNode("Call Summary (รายเดือน)");
+            System.Windows.Forms.TreeNode treeNode1015 = new System.Windows.Forms.TreeNode("Call Trend");
+            System.Windows.Forms.TreeNode treeNode1016 = new System.Windows.Forms.TreeNode("Report", new System.Windows.Forms.TreeNode[] {
+            treeNode1011,
+            treeNode1012,
+            treeNode1013,
+            treeNode1014,
+            treeNode1015});
+            System.Windows.Forms.TreeNode treeNode1017 = new System.Windows.Forms.TreeNode("Mobile Sales", new System.Windows.Forms.TreeNode[] {
             treeNode932,
             treeNode936,
             treeNode953,
@@ -2034,14 +2045,15 @@
             treeNode968,
             treeNode974,
             treeNode1009,
-            treeNode1010});
-            System.Windows.Forms.TreeNode treeNode1012 = new System.Windows.Forms.TreeNode("Data ARM");
-            System.Windows.Forms.TreeNode treeNode1013 = new System.Windows.Forms.TreeNode("Data Saleout");
-            System.Windows.Forms.TreeNode treeNode1014 = new System.Windows.Forms.TreeNode("Data Stock");
-            System.Windows.Forms.TreeNode treeNode1015 = new System.Windows.Forms.TreeNode("Data", new System.Windows.Forms.TreeNode[] {
-            treeNode1012,
-            treeNode1013,
-            treeNode1014});
+            treeNode1010,
+            treeNode1016});
+            System.Windows.Forms.TreeNode treeNode1018 = new System.Windows.Forms.TreeNode("Data ARM");
+            System.Windows.Forms.TreeNode treeNode1019 = new System.Windows.Forms.TreeNode("Data Saleout");
+            System.Windows.Forms.TreeNode treeNode1020 = new System.Windows.Forms.TreeNode("Data Stock");
+            System.Windows.Forms.TreeNode treeNode1021 = new System.Windows.Forms.TreeNode("Data", new System.Windows.Forms.TreeNode[] {
+            treeNode1018,
+            treeNode1019,
+            treeNode1020});
             this._mainMenuERP = new MyLib._myTreeView();
             this._menuPanel.SuspendLayout();
             this._tabControl.SuspendLayout();
@@ -5135,21 +5147,38 @@
             treeNode1010.Name = "menu_saletools_14_9";
             treeNode1010.Tag = "&line&&singhareport&&1&&2&&12&&13&&3&";
             treeNode1010.Text = "กำหนดค่าตัวแปร Mobile";
-            treeNode1011.Name = "menu_saletools";
-            treeNode1011.Tag = "&singha&";
-            treeNode1011.Text = "Mobile Sales";
-            treeNode1012.Name = "menu_sync_data_arm";
+            treeNode1011.Name = "menu_saletools_web_call_detail_in_plan";
+            treeNode1011.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1011.Text = "Call Detail  (งานตามแผน)";
+            treeNode1012.Name = "menu_saletools_web_call_detail_out_plan";
             treeNode1012.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1012.Text = "Data ARM";
-            treeNode1013.Name = "menu_sync_data_saleout";
+            treeNode1012.Text = "Call Detail (งานนอกแผน)";
+            treeNode1013.Name = "menu_saletools_web_call_summary_daily";
             treeNode1013.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1013.Text = "Data Saleout";
-            treeNode1014.Name = "menu_sync_data_stock";
+            treeNode1013.Text = "Call Summary (รายวัน)";
+            treeNode1014.Name = "menu_saletools_web_call_summary_monthly";
             treeNode1014.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1014.Text = "Data Stock";
-            treeNode1015.Name = "singha_data_transfer";
-            treeNode1015.Tag = "&singha&";
-            treeNode1015.Text = "Data";
+            treeNode1014.Text = "Call Summary (รายเดือน)";
+            treeNode1015.Name = "menu_saletools_web_call_trend";
+            treeNode1015.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1015.Text = "Call Trend";
+            treeNode1016.Name = "menu_saletools_report_web";
+            treeNode1016.Text = "Report";
+            treeNode1017.Name = "menu_saletools";
+            treeNode1017.Tag = "&singha&";
+            treeNode1017.Text = "Mobile Sales";
+            treeNode1018.Name = "menu_sync_data_arm";
+            treeNode1018.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1018.Text = "Data ARM";
+            treeNode1019.Name = "menu_sync_data_saleout";
+            treeNode1019.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1019.Text = "Data Saleout";
+            treeNode1020.Name = "menu_sync_data_stock";
+            treeNode1020.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1020.Text = "Data Stock";
+            treeNode1021.Name = "singha_data_transfer";
+            treeNode1021.Tag = "&singha&";
+            treeNode1021.Text = "Data";
             this._mainMenuERP.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode133,
             treeNode276,
@@ -5166,8 +5195,8 @@
             treeNode828,
             treeNode910,
             treeNode931,
-            treeNode1011,
-            treeNode1015});
+            treeNode1017,
+            treeNode1021});
             this._mainMenuERP.Size = new System.Drawing.Size(314, 719);
             this._mainMenuERP.TabIndex = 4;
             this._mainMenuERP.TabStop = false;

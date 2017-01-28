@@ -1936,7 +1936,9 @@ namespace SMLInventoryControl
                                             ", (select " + _g.d.ap_ar_transport_label._ship_code + " from " + _g.d.ap_ar_transport_label._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ap_ar_transport_label._table + "." + _g.d.ap_ar_transport_label._cust_code + "  order by " + _g.d.ap_ar_transport_label._name_1 + " limit 1) as " + _g.d.ap_ar_transport_label._ship_code +
                                              ", (select " + _g.d.ap_ar_transport_label._address + " from " + _g.d.ap_ar_transport_label._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ap_ar_transport_label._table + "." + _g.d.ap_ar_transport_label._cust_code + "  order by " + _g.d.ap_ar_transport_label._name_1 + " limit 1) as address2 " +
                                              ", (select " + _g.d.ap_ar_transport_label._telephone + " from " + _g.d.ap_ar_transport_label._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ap_ar_transport_label._table + "." + _g.d.ap_ar_transport_label._cust_code + "  order by " + _g.d.ap_ar_transport_label._name_1 + " limit 1) as telephone2 " +
-                                            " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._code + " =  \'" + __cust_code + "\' ").Tables[0];
+                                             ", (select " + _g.d.ar_customer_detail._logistic_area + " from " + _g.d.ar_customer_detail._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + "  order by " + _g.d.ap_ar_transport_label._name_1 + " ) as " + _g.d.ar_customer_detail._logistic_area +
+                                             ", (select " + _g.d.ap_ar_transport_label._logistic_area + " from " + _g.d.ap_ar_transport_label._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ap_ar_transport_label._table + "." + _g.d.ap_ar_transport_label._cust_code + "  order by " + _g.d.ap_ar_transport_label._name_1 + " limit 1) as logistic_area2 " +
+                                             " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._code + " =  \'" + __cust_code + "\' ").Tables[0];
                                         if (__getShipmentData.Rows.Count > 0)
                                         {
                                             // update shipment detail
@@ -1962,6 +1964,7 @@ namespace SMLInventoryControl
                                             }
                                             this._shipmentControl._shipmentScreen._setDataStr(_g.d.ic_trans_shipment._transport_fax, __getShipmentData.Rows[0][_g.d.ar_customer._fax].ToString());
                                             this._shipmentControl._shipmentScreen._setDataStr(_g.d.ic_trans_shipment._ship_code, __getShipmentData.Rows[0][_g.d.ap_ar_transport_label._ship_code].ToString());
+                                            this._shipmentControl._shipmentScreen._setDataStr(_g.d.ic_trans_shipment._logistic_area, ((__getShipmentData.Rows[0]["logistic_area2"].ToString().Length > 0) ? __getShipmentData.Rows[0]["logistic_area2"].ToString() : __getShipmentData.Rows[0][_g.d.ar_customer_detail._logistic_area].ToString().Replace("\n", "\r\n")));
                                             //this._shipmentControl._shipmentScreen._setDataStr(_g.d.ap_ar_transport_label._fax, __getShipmentData.Rows[0][_g.d.ar_customer._fax].ToString());
                                         }
 
@@ -5047,7 +5050,7 @@ namespace SMLInventoryControl
                             decimal __vatRate = this._icTransScreenBottom._getDataNumber(_g.d.ic_trans._vat_rate);
                             // ปรับยอดรวมถอด vat
                             int __columnSumAmountExcludeVat = __sender._findColumnByName(_g.d.ic_trans_detail._sum_amount_exclude_vat);
-                            
+
                             for (int __row = 0; __row < __sender._rowData.Count; __row++)
                             {
                                 decimal __sumAmount = MyLib._myGlobal._decimalPhase(__sender._cellGet(__row, __columnTotalSumAmount).ToString());

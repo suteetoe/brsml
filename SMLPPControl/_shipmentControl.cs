@@ -110,6 +110,14 @@ namespace SMLPPControl
                             break;
                     }
 
+                    if (MyLib._myGlobal._isUserLockDocument == true)
+                    {
+
+                        this._myManageData._dataList._buttonUnlockDoc.Visible = true;
+                        this._myManageData._dataList._buttonLockDoc.Visible = true;
+                        this._myManageData._dataList._separatorLockDoc.Visible = true;
+                    }
+
                     this._myManageData._dataList._loadViewAddColumn += _dataList__loadViewAddColumn;
                     this._myManageData._dataList._extraWhereEvent += _dataList__extraWhereEvent;
                     this._myManageData._dataList._loadViewFormat(__screenTemplate, MyLib._myGlobal._userSearchScreenGroup, true);

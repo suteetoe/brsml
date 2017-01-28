@@ -227,6 +227,7 @@ namespace SMLERPControl._customer
                         {
                             this._addTextBox(__row, 0, 1, 0, _g.d.ar_customer_detail._area_paybill, 1, 2, 1, true, false, true);
                         }
+                        this._addTextBox(__row, 0, 1, 0, _g.d.ar_customer_detail._logistic_area, 1, 2, 1, true, false, true);
                     }
                     break;
                 case _controlTypeEnum.ArDetailCredit:

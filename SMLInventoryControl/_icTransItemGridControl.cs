@@ -6186,7 +6186,7 @@ namespace SMLInventoryControl
                 }
             }
             StringBuilder __query = new StringBuilder();
-            
+
             // // toe เพิ่ม filter warehouse และ shelf ตามกลุ่มพนักงาน
             StringBuilder __extraWhereGetDefaultWhShelf = new StringBuilder();
             if (_g.g._companyProfile._perm_wh_shelf)
@@ -9990,12 +9990,34 @@ namespace SMLInventoryControl
                     case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
                     case _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก:
                         {
+
+
                             int __columnQty = this._findColumnByName(_g.d.ic_trans_detail._qty);
+                            int __columnItemCode = this._findColumnByName(_g.d.ic_trans_detail._item_code);
+                            if (column == __columnItemCode)
+                            {
+                                // check doc ref
+                                string __getDocRef = this._cellGet(row, _g.d.ic_trans_detail._ref_doc_no).ToString();
+                                if (__getDocRef.Length ==0)
+                                {
+                                    MessageBox.Show("กรุณาเลือกเอกสารอ้างอิง");
+                                    this._cellUpdate(row, _g.d.ic_trans_detail._item_code, "", false);
+                                }
+                            }
+
                             if (column == __columnQty)
                             {
                                 // check ยอดคงเหลือ
                                 decimal __totalQty = (decimal)this._cellGet(row, _g.d.ic_trans_detail._total_qty);
                                 decimal __qty = (decimal)this._cellGet(row, _g.d.ic_trans_detail._qty);
+
+                                string __getDocRef = this._cellGet(row, _g.d.ic_trans_detail._ref_doc_no).ToString();
+                                if (__getDocRef.Length == 0)
+                                {
+                                    MessageBox.Show("กรุณาเลือกเอกสารอ้างอิง");
+                                    this._cellUpdate(row, _g.d.ic_trans_detail._qty, 0M, false);
+                                }
+
 
                                 if (__qty > __totalQty)
                                 {
@@ -11213,6 +11235,18 @@ namespace SMLInventoryControl
                         if (columnName.Equals(_g.d.ic_trans_detail._item_code))
                         {
                             // ค้นหารายการสินค้า
+
+                            if (this._icTransControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก)
+                            {
+                                // check doc_ref
+                                string __getDocRef = this._cellGet(row, _g.d.ic_trans_detail._ref_doc_no).ToString();
+                                if (__getDocRef.Length == 0)
+                                {
+                                    MessageBox.Show("กรุณาเลือกเอกสารอ้างอิง");
+                                    return;
+                                }
+                            }
+
                             /*this._searchItem = new MyLib._searchDataFull();
                             this._searchItem.Text = ((MyLib._myGrid._columnType)this._columnList[__columnNumber])._name;
                             this._searchItem._name = _g.g._search_screen_ic_inventory;*/
@@ -11538,6 +11572,20 @@ namespace SMLInventoryControl
                                         __extraWhere += _g.d.ic_inventory._item_type + "<>5 and " + _g.d.ic_inventory._code + " in (select " + _g.d.ic_trans_detail._item_code + " from " + _g.d.ic_trans_detail._table
                                             + " where " + _g.d.ic_trans_detail._doc_no + "=\'" + __docRefNo.ToUpper() + "\'"
                                             + " and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_สั่งขาย).ToString() + ")";
+                                        __dialogText = "สินค้าจากใบสั่งขายเลขที่";
+                                    }
+                                    else
+                                    {
+                                        __extraWhere = _g.d.ic_inventory._item_type + "<>5";
+                                    }
+                                    break;
+                                case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
+                                    if (__docRefNo.Length > 0)
+                                    {
+                                        // ค้นหาสินค้า เฉพาะสินค้าที่มีในเอกสารนั้นๆ
+                                        __extraWhere += _g.d.ic_inventory._item_type + "<>5 and " + _g.d.ic_inventory._code + " in (select " + _g.d.ic_wms_trans_detail._item_code + " from " + _g.d.ic_wms_trans_detail._table
+                                            + " where " + _g.d.ic_wms_trans_detail._doc_no + "=\'" + __docRefNo.ToUpper() + "\'"
+                                            + " and " + _g.d.ic_wms_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก).ToString() + ")";
                                         __dialogText = "สินค้าจากใบสั่งขายเลขที่";
                                     }
                                     else
