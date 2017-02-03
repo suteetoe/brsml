@@ -2015,7 +2015,7 @@ namespace SMLInventoryControl
                         // ภาษีซื้อ
                         //__query = "select " + _g.d.gl_journal_vat_buy._vat_doc_no + " from " + _g.d.gl_journal_vat_buy._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._vat_doc_no) + "=\'" + __taxDocNo + "\' and " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._ap_code) + "=\'" + __custCode + "\' and " + _g.d.gl_journal_vat_buy._trans_flag + "=" + __transFlag.ToString();
                         // แก้ให้ตรวจ เฉพาะเลขที่ใบกำกับภาษีซื้อ
-                        __query = "select " + _g.d.gl_journal_vat_buy._vat_doc_no + " from " + _g.d.gl_journal_vat_buy._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._vat_doc_no) + "=\'" + __taxDocNo + "\' and "+ _g.d.gl_journal_vat_buy._vat_effective_year + "=" +  __year+ " and " + _g.d.gl_journal_vat_buy._trans_flag + "=" + __transFlag.ToString();
+                        __query = "select " + _g.d.gl_journal_vat_buy._vat_doc_no + " from " + _g.d.gl_journal_vat_buy._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._vat_doc_no) + "=\'" + __taxDocNo + "\' and " + _g.d.gl_journal_vat_buy._vat_effective_year + "=" + __year + " and " + _g.d.gl_journal_vat_buy._trans_flag + "=" + __transFlag.ToString();
                     }
                     else
                     {
@@ -2469,7 +2469,7 @@ namespace SMLInventoryControl
                             case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                             case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
 
-                                
+
 
                                 if (this._searchName.Equals(_g.d.ic_trans._wh_from))
                                 {
@@ -2499,7 +2499,7 @@ namespace SMLInventoryControl
                                     _searchScreenMasterList.Add(_g.d.ic_shelf._table);
                                     _searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_from) + "\'");
 
-                                    if (_g.g._companyProfile._branchStatus == 1) 
+                                    if (_g.g._companyProfile._branchStatus == 1)
                                     {
                                         if (this._getBranchCode != null)
                                         {

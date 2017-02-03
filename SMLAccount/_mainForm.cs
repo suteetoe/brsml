@@ -150,15 +150,18 @@ namespace SMLAccount
                 MyLib._myFrameWork __myFremeWork = new _myFrameWork();
 
                 // select function old index if not match drop and create new index
-                DataTable __result = __myFremeWork._queryShort("SELECT indexdef FROM pg_indexes WHERE indexname = \'pk_ap_code_tax_no\' ").Tables[0];
-                if(__result.Rows.Count > 0)
+                if (MyLib._myGlobal._databaseName.Length > 0)
                 {
-                    string __newIndex = "CREATE UNIQUE INDEX pk_ap_code_tax_no ON gl_journal_vat_buy USING btree (ap_code, vat_doc_no, vat_calc, vat_effective_year)";
-                    string __indexMatch = __result.Rows[0][0].ToString();
-                    if (__indexMatch.Equals(__newIndex) == false)
+                    DataTable __result = __myFremeWork._queryShort("SELECT indexdef FROM pg_indexes WHERE indexname = \'pk_ap_code_tax_no\' ").Tables[0];
+                    if (__result.Rows.Count > 0)
                     {
-                        __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "DROP INDEX pk_ap_code_tax_no");
-                        __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
+                        string __newIndex = "CREATE UNIQUE INDEX pk_ap_code_tax_no ON gl_journal_vat_buy USING btree (ap_code, vat_doc_no, vat_calc, vat_effective_year)";
+                        string __indexMatch = __result.Rows[0][0].ToString();
+                        if (__indexMatch.Equals(__newIndex) == false)
+                        {
+                            __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "DROP INDEX pk_ap_code_tax_no");
+                            __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
+                        }
                     }
                 }
             }
