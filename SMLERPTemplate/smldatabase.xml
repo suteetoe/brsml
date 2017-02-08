@@ -349,6 +349,7 @@
 <field name="ss_ref_po_only" thai="ใบสั่งขายอ้างอิงเสนอราคาเท่านั้น" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="warning_input_customer" thai="เตือนเลือกลูกค้าก่อนทำรายการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="inv_disable_quotation" thai="จอขายปิดอ้างอิงใบเสนอราคา" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="use_credit_pay_bill_calc" thai="ใช้ระบบคำนวณวันครบกำหนดชำระบิล" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -8873,5 +8874,17 @@
 <field name="priolity" thai="ลำดับ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="location_name" thai="ชื่อที่เก็บ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <index index_name="ic_warehouse_location_group_detail_pk_ic_wh_lc_group_detail" field="wh_code,location_group,location"  custer="true"  unique="true" ></index>
+</table>
+<table name="ar_credit_pay_bill" thai="กำหนดวันครบกำหนดชำระเงิน" eng="" xversion="" >
+<field name="credit_day" thai="จำนวนวันเครดิต" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+<field name="day_to_due" thai="วันที่ครบกำหนดจ่าย" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="month_to_due" thai="จำนวนเดือนที่จะครบกำหนดจ่าย" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="day_to_close" thai="วันที่ปิดสถานะเครดิต" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="month_to_close" thai="จำนวนเดือนที่จะปิดสถานะเครดิต" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="credit_due" thai="กำหนดจ่าย" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="credit_close" thai="ปิดสถานะเครดิต" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="day" thai="วันที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="month" thai="จำนวนเดือน" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="line_number" thai="บรรทัด" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 </node>

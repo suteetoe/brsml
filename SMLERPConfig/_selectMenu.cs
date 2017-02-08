@@ -189,6 +189,15 @@ namespace SMLERPConfig
                     return __screenFull;
                 case "menu_setup_staff": // กำหนดรหัสพนักงาน
                     __screenFull = new MyLib._manageMasterCodeFull();
+
+                    if (MyLib._myGlobal._isUserLockDocument == true)
+                    {
+                        __screenFull._manageDataScreen._dataList._isLockDoc = true;
+                        __screenFull._manageDataScreen._dataList._buttonUnlockDoc.Visible = true;
+                        __screenFull._manageDataScreen._dataList._buttonLockDoc.Visible = true;
+                        __screenFull._manageDataScreen._dataList._separatorLockDoc.Visible = true;
+                    }
+                    
                     __screenFull._maxColumn = 2;
                     __screenFull._labelTitle.Text = screenName;
                     __screenFull._dataTableName = _g.d.erp_user._table;

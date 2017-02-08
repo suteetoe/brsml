@@ -2373,7 +2373,7 @@ namespace SMLInventoryControl
                                 {
                                     string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString();
                                     __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type + ","
-                                        + _g.d.ic_trans_detail._wh_code + "," + _g.d.ic_trans_detail._shelf_code + "," + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + "," + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + "," + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_line + "," + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._ref_guid + "  from " + _g.d.ic_trans_detail._table + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString() + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
+                                        + _g.d.ic_trans_detail._wh_code + "," + _g.d.ic_trans_detail._shelf_code + "," + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + "," + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + "," + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_line + "," + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._is_permium + "  from " + _g.d.ic_trans_detail._table + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString() + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
                                     __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
                                     for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
                                     {
@@ -2395,6 +2395,7 @@ namespace SMLInventoryControl
 
                                         string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
                                         string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
+                                        int __is_premium = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_permium].ToString());
 
 
                                         //
@@ -2413,6 +2414,7 @@ namespace SMLInventoryControl
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._is_permium, __is_premium, false);
 
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);

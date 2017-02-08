@@ -83,6 +83,13 @@ namespace SMLERPControl._customer
                 //this._myPanel1.Controls.Add()
             }
 
+            if (MyLib._myGlobal._isUserLockDocument == true)
+            {
+                this._myManageData1._dataList._isLockDoc = true;
+                this._myManageData1._dataList._buttonUnlockDoc.Visible = true;
+                this._myManageData1._dataList._buttonLockDoc.Visible = true;
+                this._myManageData1._dataList._separatorLockDoc.Visible = true;
+            }
 
         }
 

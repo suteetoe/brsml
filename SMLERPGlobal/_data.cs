@@ -1420,6 +1420,10 @@ namespace _g
             /// จอขายปิดอ้างอิงใบเสนอราคา
             /// </summary>
             public static String _inv_disable_quotation = "inv_disable_quotation";
+            /// <summary>
+            /// ใช้ระบบคำนวณวันครบกำหนดชำระบิล
+            /// </summary>
+            public static String _use_credit_pay_bill_calc = "use_credit_pay_bill_calc";
         }
 
         /// <summary>
@@ -34727,6 +34731,57 @@ namespace _g
             /// ชื่อที่เก็บ
             /// </summary>
             public static String _location_name = "location_name";
+        }
+
+        /// <summary>
+        /// กำหนดวันครบกำหนดชำระเงิน
+        /// </summary>
+        public class ar_credit_pay_bill
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_credit_pay_bill";
+            /// <summary>
+            /// จำนวนวันเครดิต
+            /// </summary>
+            public static String _credit_day = "credit_day";
+            /// <summary>
+            /// วันที่ครบกำหนดจ่าย
+            /// </summary>
+            public static String _day_to_due = "day_to_due";
+            /// <summary>
+            /// จำนวนเดือนที่จะครบกำหนดจ่าย
+            /// </summary>
+            public static String _month_to_due = "month_to_due";
+            /// <summary>
+            /// วันที่ปิดสถานะเครดิต
+            /// </summary>
+            public static String _day_to_close = "day_to_close";
+            /// <summary>
+            /// จำนวนเดือนที่จะปิดสถานะเครดิต
+            /// </summary>
+            public static String _month_to_close = "month_to_close";
+            /// <summary>
+            /// กำหนดจ่าย
+            /// </summary>
+            public static String _credit_due = "credit_due";
+            /// <summary>
+            /// ปิดสถานะเครดิต
+            /// </summary>
+            public static String _credit_close = "credit_close";
+            /// <summary>
+            /// วันที่
+            /// </summary>
+            public static String _day = "day";
+            /// <summary>
+            /// จำนวนเดือน
+            /// </summary>
+            public static String _month = "month";
+            /// <summary>
+            /// บรรทัด
+            /// </summary>
+            public static String _line_number = "line_number";
         }
     }
 }

@@ -717,7 +717,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3301" _x="418" _y="1445">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3317" _x="418" _y="1445">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1740,6 +1740,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="inv_disable_quotation" _description="จอขายปิดอ้างอิงใบเสนอราคา" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="use_credit_pay_bill_calc" _description="ใช้ระบบคำนวณวันครบกำหนดชำระบิล" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -15597,7 +15602,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_depart_list" _description="ผังบัญชีแยกตามแผนก" _descriptionEng="Account department list" _version="SMLGL+SMLERP" _width="299" _height="53" _x="20" _y="1081">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_depart_list" _description="ผังบัญชีแยกตามแผนก" _descriptionEng="Account department list" _version="SMLGL+SMLERP" _width="299" _height="53" _x="11" _y="1059">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -15621,7 +15626,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_side_list" _description="ผังบัญชีแยกตามหน่วยงาน" _descriptionEng="Account Side list" _version="SMLGL+SMLERP" _width="303" _height="53" _x="16" _y="1145">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_side_list" _description="ผังบัญชีแยกตามหน่วยงาน" _descriptionEng="Account Side list" _version="SMLGL+SMLERP" _width="303" _height="53" _x="12" _y="1125">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -15691,7 +15696,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_job_list" _description="ผังบัญชีแยกตามงาน" _descriptionEng="Account Job list" _version="SMLGL+SMLERP" _width="273" _height="53" _x="24" _y="1006">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_job_list" _description="ผังบัญชีแยกตามงาน" _descriptionEng="Account Job list" _version="SMLGL+SMLERP" _width="273" _height="53" _x="11" _y="997">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -44706,6 +44711,63 @@
           </_fields>
         </_indexs>
       </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Master" _name="ar_credit_pay_bill" _description="กำหนดวันครบกำหนดชำระเงิน" _descriptionEng="" _version="" _width="307" _height="181" _x="1170" _y="645">
+      <_fields>
+        <_fieldList _name="credit_day" _description="จำนวนวันเครดิต" _descriptionEng="" _type="4" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="day_to_due" _description="วันที่ครบกำหนดจ่าย" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="month_to_due" _description="จำนวนเดือนที่จะครบกำหนดจ่าย" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="day_to_close" _description="วันที่ปิดสถานะเครดิต" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="month_to_close" _description="จำนวนเดือนที่จะปิดสถานะเครดิต" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="credit_due" _description="กำหนดจ่าย" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="credit_close" _description="ปิดสถานะเครดิต" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="day" _description="วันที่" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="month" _description="จำนวนเดือน" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="line_number" _description="บรรทัด" _descriptionEng="" _type="3" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
       <_afterCreated />
       <_afterVerify />
     </_tableList>
