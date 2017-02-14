@@ -696,7 +696,7 @@ namespace SMLERPControl._customer
                 if (this._searchName.Equals(_g.d.ar_customer._code.ToLower()))
                 {
                     string _where = MyLib._myGlobal._addUpper(_g.d.erp_doc_format._screen_code) + "=\'AR\'";
-                    if (_g.g._companyProfile._branchStatus == 1 || _g.g._companyProfile._change_branch_code == false)
+                    if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
                     {
                         _where += " AND ((coalesce(" + _g.d.erp_doc_format._use_branch_select + ", 0) = 0 ) or (" + _g.d.erp_doc_format._branch_list + " like '%" + MyLib._myGlobal._branchCode + "%'))";
                     }

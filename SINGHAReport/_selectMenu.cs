@@ -155,7 +155,7 @@ namespace SINGHAReport
                 case "menu_saletools_mustlist_product": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=TXVzdExpc3QuYXNweA==");
                 //case "menu_9.4.5 SaleTargetAll.aspx": return new _saleToolsWebControl(menuName, "error");
                 //case "menu_9.4.9 Supplier": return new _saleToolsWebControl(menuName, "error");
-                // http://????????/dbo_agent/login.aspx?bypasskey=XYZ&userid=admin&url=d2ViY29uZmlnbWFzdGVyLmFzcHg=
+                // http://????????/dbo_agent/login.aspx?userid=admin&url=d2ViY29uZmlnbWFzdGVyLmFzcHg=
                 case "menu_saletools_14_9": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=d2ViY29uZmlnbWFzdGVyLmFzcHg=");
 
                 case "menu_saletools_approve_goods_transfer_request": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT1S");
@@ -167,6 +167,17 @@ namespace SINGHAReport
                 case "menu_saletools_web_call_summary_monthly": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=cmVwb3J0dmlzaXRTYWxlVGFnZXQuYXNweA==");
                 case "menu_saletools_web_call_trend": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0Q2FsbFRyZW5kX0xpdGUuYXNweA==");
 
+                case "menu_saletools_ap_goods_received": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1L");
+                case "menu_saletools_approve_ap_goods_received": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT1L");
+                case "menu_saletools_ap_good_issues": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1Y");
+                case "menu_saletools_approve_ap_good_issues": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT1Y");
+
+                case "menu_saletools_approve_payment": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=Q29uZmlybVBhaWRfQVAuYXNweA==");
+
+                case "menu_saletools_product_qty_deposit_movement": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDYXJkTW92ZW1lbnRTTUwuYXNweA==");
+                case "menu_saletools_product_amount_deposit_movement": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDYXJkTW92ZW1lbnRTTUxWMi5hc3B4");
+                case "menu_saletools_product_qty_ar_deposit": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDdXMuYXNweD9HQ3VzPVk=");
+                case "menu_saletools_product_qty_ap_deposit": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDdXMuYXNweD9HQ3VzPQ==");
             }
             return null;
         }

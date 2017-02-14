@@ -723,7 +723,7 @@ namespace SMLERPAPARControl._depositControl
 
                 if (this._searchName.Equals("doc_no"))
                 {
-                    if (_g.g._companyProfile._branchStatus == 1 || _g.g._companyProfile._change_branch_code == false)
+                    if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
                     {
                         this._search_data_full_pointer._dataList._extraWhere2 = " ((coalesce(" + _g.d.erp_doc_format._use_branch_select + ", 0) = 0 ) or (" + _g.d.erp_doc_format._branch_list + " like '%" + MyLib._myGlobal._branchCode + "%'))";
 
