@@ -104,6 +104,8 @@
 <field name="branch_code" thai="สาขาลำดับที่" eng="Branch Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="agent_code" thai="Agent Code" eng="Agent Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="sap_code" thai="SAP Code" eng="SAP Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="region" thai="Region" eng="Region" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="club" thai="Club" eng="Club" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_department_list" thai="รายชื่อแผนก" eng="Department List" xversion="ALL" >
 <field name="code" thai="รหัสแผนก" eng="Department code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -980,6 +982,11 @@
 <field name="balance_control" thai="อนุญาติให้ยอดคงเหลือติดลบ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="have_point" thai="เข้าสะสมแต้ม" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="start_unit_code" thai="หน่วยเริ่มต้นสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_21" thai="มิติ 21" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_22" thai="มิติ 22" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_23" thai="มิติ 23" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_24" thai="มิติ 24" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_25" thai="มิติ 25" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ic_inventory_detail_PK_CODE" field="ic_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ic_brand" thai="ยี่ห้อสินค้า" eng="Item Brand" xversion="" >
@@ -1161,6 +1168,11 @@
 <field name="headquarters" thai="สำนักงานใหญ่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="branch" thai="สาขา" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="branch_code" thai="เลขที่สาขา" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_6" thai="มิติ 6" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_7" thai="มิติ 7" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_8" thai="มิติ 8" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_9" thai="มิติ 9" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_10" thai="มิติ 10" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ap_supplier_detail_PK_CODE" field="ap_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_type" thai="ประเภทลูกหนี้" eng="Customer Type" xversion="" >
@@ -1776,6 +1788,11 @@
 <field name="30" thai="30" eng="30" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="31" thai="31" eng="31" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="no_select" thai="ไม่เลือก" eng="No Select" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="dimension_6" thai="มิติ 6" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_7" thai="มิติ 7" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_8" thai="มิติ 8" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_9" thai="มิติ 9" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="dimension_10" thai="มิติ 10" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ar_customer_detail_PK_CODE" field="ar_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_contactor" thai="ผู้ติดต่อ (ลูกหนี้)" eng="Contactor" xversion="SMLERP" >

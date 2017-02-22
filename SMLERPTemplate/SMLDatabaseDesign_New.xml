@@ -365,7 +365,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="549" _x="333" _y="485">
+    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="581" _x="333" _y="485">
       <_fields>
         <_fieldList _name="company_name_1" _description="ชื่อบริษัท" _descriptionEng="Company name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -528,6 +528,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="sap_code" _description="SAP Code" _descriptionEng="SAP Code" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="region" _description="Region" _descriptionEng="Region" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="club" _description="Club" _descriptionEng="Club" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -4447,7 +4457,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_inventory_detail" _description="รายละเอียดสินค้า" _descriptionEng="Inventory Detail" _version="SMLERP" _width="358" _height="1285" _x="374" _y="7">
+    <_tableList _moduleName="IC" _name="ic_inventory_detail" _description="รายละเอียดสินค้า" _descriptionEng="Inventory Detail" _version="SMLERP" _width="358" _height="1365" _x="374" _y="7">
       <_fields>
         <_fieldList _name="ic_code" _description="รหัสสินค้า" _descriptionEng="Item Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -4840,6 +4850,31 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="start_unit_code" _description="หน่วยเริ่มต้นสินค้า" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_21" _description="มิติ 21" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_22" _description="มิติ 22" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_23" _description="มิติ 23" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_24" _description="มิติ 24" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_25" _description="มิติ 25" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -5477,7 +5512,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ap_supplier_detail" _description="รายละเอียดเจ้าหนี้" _descriptionEng="Supplier Detail" _version="SMLERP" _width="266" _height="821" _x="299" _y="7">
+    <_tableList _moduleName="AP_AR" _name="ap_supplier_detail" _description="รายละเอียดเจ้าหนี้" _descriptionEng="Supplier Detail" _version="SMLERP" _width="266" _height="901" _x="299" _y="7">
       <_fields>
         <_fieldList _name="ap_code" _description="รหัสผู้จำหน่าย" _descriptionEng="Supplier Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -5725,6 +5760,31 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="branch_code" _description="เลขที่สาขา" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_6" _description="มิติ 6" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_7" _description="มิติ 7" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_8" _description="มิติ 8" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_9" _description="มิติ 9" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_10" _description="มิติ 10" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -6072,7 +6132,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ap_contactor" _description="ผู้ติดต่อ (เจ้าหนี้)" _descriptionEng="Contactor" _version="" _width="235" _height="181" _x="371" _y="833">
+    <_tableList _moduleName="AP_AR" _name="ap_contactor" _description="ผู้ติดต่อ (เจ้าหนี้)" _descriptionEng="Contactor" _version="" _width="235" _height="181" _x="660" _y="1554">
       <_fields>
         <_fieldList _name="ap_code" _description="รหัสเจ้าหนี้" _descriptionEng="AP Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -8166,7 +8226,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="324" _height="1845" _x="990" _y="7">
+    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="324" _height="1925" _x="990" _y="7">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -8734,6 +8794,31 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="no_select" _description="ไม่เลือก" _descriptionEng="No Select" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_6" _description="มิติ 6" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_7" _description="มิติ 7" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_8" _description="มิติ 8" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_9" _description="มิติ 9" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="dimension_10" _description="มิติ 10" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
