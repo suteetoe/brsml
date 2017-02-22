@@ -51,6 +51,7 @@ namespace SMLPPControl
                     string __screenTemplate = "";
 
                     this._myManageData._dataList._lockRecord = true;
+                    this._myManageData._dataList._isLockDoc = true;
 
                     switch (this.transControlType)
                     {
@@ -112,7 +113,6 @@ namespace SMLPPControl
 
                     if (MyLib._myGlobal._isUserLockDocument == true)
                     {
-
                         this._myManageData._dataList._buttonUnlockDoc.Visible = true;
                         this._myManageData._dataList._buttonLockDoc.Visible = true;
                         this._myManageData._dataList._separatorLockDoc.Visible = true;

@@ -59,7 +59,21 @@ namespace SMLInventoryControl
         public int _getTransStatus = 0;
         public string _getTransTemplate = "";
         public int _getSaleStatus = 0;
-        public string _menuName = "";
+
+        public string _menuNameTemp = "";
+        public string _menuName
+        {
+            get
+            {
+                return this._menuNameTemp;
+            }
+            set
+            {
+                this._menuNameTemp = value;
+                this._icTransScreenTop._menuName = value;
+            }
+        }
+
         public _g.g._vatTypeEnum _vatTypeTemp = _g.g._vatTypeEnum.ว่าง;
         public string _dataListExtraWhere = "";
         public Boolean _transControlDisplayOnly = false;

@@ -124,11 +124,15 @@ namespace _g
             if (__screen_type.Length > 0)
             {
                 // __queryWareHouseAndShelf = "select * from (" + __queryWareHouseAndShelf + ") as temp1 where " +
-                __where.Append(
+                /*__where.Append(
                 _g.d.ic_wh_shelf._wh_code + " in (select " + _g.d.erp_user_group_wh_shelf._wh_code + " from " + _g.d.erp_user_group_wh_shelf._table + " where " + _g.d.erp_user_group_wh_shelf._group_code + " in (select " + _g.d.erp_user_group_detail._group_code + " from " + _g.d.erp_user_group_detail._table + " where " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "') " + __screen_type + ") and " +
                 _g.d.ic_wh_shelf._shelf_code + " in (select " + _g.d.erp_user_group_wh_shelf._shelf_code + " from " + _g.d.erp_user_group_wh_shelf._table + " where " + _g.d.erp_user_group_wh_shelf._group_code + " in (select " + _g.d.erp_user_group_detail._group_code + " from " + _g.d.erp_user_group_detail._table + " where " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "') " + __screen_type + ") "
 
-                );
+                );*/
+
+                __where.Append(" exists ( " +
+                    " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                    " and ic_wh_shelf.wh_code = erp_user_group_wh_shelf.wh_code and ic_wh_shelf.shelf_code = erp_user_group_wh_shelf.shelf_code ) ");
             }
 
             return __where.ToString();

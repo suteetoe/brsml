@@ -1856,10 +1856,10 @@
             treeNode912,
             treeNode913,
             treeNode920});
-            System.Windows.Forms.TreeNode treeNode922 = new System.Windows.Forms.TreeNode("ยอดยกมา ยืม ภาชนะ");
-            System.Windows.Forms.TreeNode treeNode923 = new System.Windows.Forms.TreeNode("เงินมัดจำภาชนะ");
-            System.Windows.Forms.TreeNode treeNode924 = new System.Windows.Forms.TreeNode("คืนภาชนะ");
-            System.Windows.Forms.TreeNode treeNode925 = new System.Windows.Forms.TreeNode("คืนเงินมัดจำภาชนะ");
+            System.Windows.Forms.TreeNode treeNode922 = new System.Windows.Forms.TreeNode("รับสินค้าจากเจ้าหนี้(ยืม)");
+            System.Windows.Forms.TreeNode treeNode923 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้เจ้าหนี้(คืน)");
+            System.Windows.Forms.TreeNode treeNode924 = new System.Windows.Forms.TreeNode("รับสินค้าจากลูกค้า(รับคืน)");
+            System.Windows.Forms.TreeNode treeNode925 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้ลูกค้า(ยืม)");
             System.Windows.Forms.TreeNode treeNode926 = new System.Windows.Forms.TreeNode("รายงาน");
             System.Windows.Forms.TreeNode treeNode927 = new System.Windows.Forms.TreeNode("ยืม / คืน ภาชนะ", new System.Windows.Forms.TreeNode[] {
             treeNode922,
@@ -4922,14 +4922,18 @@
             treeNode920.Text = "รายงาน";
             treeNode921.Name = "menu_wh_deposits_system";
             treeNode921.Text = "ฝาก / เบิก / รับคืน สินค้า";
-            treeNode922.Name = "menu_wh_rent_balance";
-            treeNode922.Text = "ยอดยกมา ยืม ภาชนะ";
-            treeNode923.Name = "menu_wh_rent_deposits";
-            treeNode923.Text = "เงินมัดจำภาชนะ";
-            treeNode924.Name = "menu_wh_rent_return";
-            treeNode924.Text = "คืนภาชนะ";
-            treeNode925.Name = "menu_wh_rent_return_deposit";
-            treeNode925.Text = "คืนเงินมัดจำภาชนะ";
+            treeNode922.Name = "menu_ic_finish_receive_ap";
+            treeNode922.Tag = "&ic&&1&&2&&12&&13&&3&";
+            treeNode922.Text = "รับสินค้าจากเจ้าหนี้(ยืม)";
+            treeNode923.Name = "menu_ic_issue_ap";
+            treeNode923.Tag = "&ic&&1&&2&&12&&13&&3&";
+            treeNode923.Text = "เบิกสินค้าให้เจ้าหนี้(คืน)";
+            treeNode924.Name = "menu_ic_finish_receive_ar";
+            treeNode924.Tag = "&ic&&1&&2&&12&&13&&3&";
+            treeNode924.Text = "รับสินค้าจากลูกค้า(รับคืน)";
+            treeNode925.Name = "menu_ic_issue_ar";
+            treeNode925.Tag = "&ic&&1&&2&&12&&13&&3&";
+            treeNode925.Text = "เบิกสินค้าให้ลูกค้า(ยืม)";
             treeNode926.Name = "menu_wh_rent_report";
             treeNode926.Text = "รายงาน";
             treeNode927.Name = "menu_wh_rent";

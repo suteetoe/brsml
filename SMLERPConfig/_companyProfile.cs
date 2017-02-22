@@ -188,6 +188,9 @@ namespace SMLERPConfig
                 this._addTextBox(__row++, 0, _g.d.erp_company_profile._agent_code, 100);
                 this._addTextBox(__row++, 0, _g.d.erp_company_profile._sap_code, 100);
 
+                this._addTextBox(__row++, 0, _g.d.erp_company_profile._region, 100);
+                this._addTextBox(__row++, 0, _g.d.erp_company_profile._club, 100);
+
             }
         }
     }

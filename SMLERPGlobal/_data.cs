@@ -442,6 +442,14 @@ namespace _g
             /// SAP Code
             /// </summary>
             public static String _sap_code = "sap_code";
+            /// <summary>
+            /// Region
+            /// </summary>
+            public static String _region = "region";
+            /// <summary>
+            /// Club
+            /// </summary>
+            public static String _club = "club";
         }
 
         /// <summary>
@@ -3830,6 +3838,26 @@ namespace _g
             /// หน่วยเริ่มต้นสินค้า
             /// </summary>
             public static String _start_unit_code = "start_unit_code";
+            /// <summary>
+            /// มิติ 21
+            /// </summary>
+            public static String _dimension_21 = "dimension_21";
+            /// <summary>
+            /// มิติ 22
+            /// </summary>
+            public static String _dimension_22 = "dimension_22";
+            /// <summary>
+            /// มิติ 23
+            /// </summary>
+            public static String _dimension_23 = "dimension_23";
+            /// <summary>
+            /// มิติ 24
+            /// </summary>
+            public static String _dimension_24 = "dimension_24";
+            /// <summary>
+            /// มิติ 25
+            /// </summary>
+            public static String _dimension_25 = "dimension_25";
         }
 
         /// <summary>
@@ -4539,6 +4567,26 @@ namespace _g
             /// เลขที่สาขา
             /// </summary>
             public static String _branch_code = "branch_code";
+            /// <summary>
+            /// มิติ 6
+            /// </summary>
+            public static String _dimension_6 = "dimension_6";
+            /// <summary>
+            /// มิติ 7
+            /// </summary>
+            public static String _dimension_7 = "dimension_7";
+            /// <summary>
+            /// มิติ 8
+            /// </summary>
+            public static String _dimension_8 = "dimension_8";
+            /// <summary>
+            /// มิติ 9
+            /// </summary>
+            public static String _dimension_9 = "dimension_9";
+            /// <summary>
+            /// มิติ 10
+            /// </summary>
+            public static String _dimension_10 = "dimension_10";
         }
 
         /// <summary>
@@ -6887,6 +6935,26 @@ namespace _g
             /// ไม่เลือก
             /// </summary>
             public static String _no_select = "no_select";
+            /// <summary>
+            /// มิติ 6
+            /// </summary>
+            public static String _dimension_6 = "dimension_6";
+            /// <summary>
+            /// มิติ 7
+            /// </summary>
+            public static String _dimension_7 = "dimension_7";
+            /// <summary>
+            /// มิติ 8
+            /// </summary>
+            public static String _dimension_8 = "dimension_8";
+            /// <summary>
+            /// มิติ 9
+            /// </summary>
+            public static String _dimension_9 = "dimension_9";
+            /// <summary>
+            /// มิติ 10
+            /// </summary>
+            public static String _dimension_10 = "dimension_10";
         }
 
         /// <summary>

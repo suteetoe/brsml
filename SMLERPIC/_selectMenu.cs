@@ -111,6 +111,11 @@ namespace SMLERPIC
 
                 // imes
                 case "menu_ic_specific_search": return (new _icSpecificSearch());
+
+                case "menu_ic_finish_receive_ap": return new SMLInventoryControl._clone_icTrans(_g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป, menuName);
+                case "menu_ic_finish_receive_ar": return new SMLInventoryControl._clone_icTrans(_g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป, menuName);
+                case "menu_ic_issue_ap": return new SMLInventoryControl._clone_icTrans(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ, menuName);
+                case "menu_ic_issue_ar": return new SMLInventoryControl._clone_icTrans(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ, menuName);
             }
             return null;
         }

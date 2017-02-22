@@ -56,6 +56,7 @@ namespace SMLInventoryControl
         //public _icTransScreenBottomControl _icTransScreenBottom = null;
         public delegate string BranchCodeHandler();
         public event BranchCodeHandler _getBranchCode;
+        public string _menuName = "";
 
         public _g.g._transControlTypeEnum _icTransControlType
         {
@@ -1541,7 +1542,19 @@ namespace SMLInventoryControl
                 case _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป:
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._doc_date, 1, true, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_time, 1, 1, 0, true, false, false);
-                    this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, true, true, true, _g.d.ic_trans._ap_code);
+                    if (MyLib._myGlobal._mainMenuCodePassTrue.Equals("menu_ic_finish_receive_ar"))
+                    {
+                        this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, true, true, true, _g.d.ic_trans._ar_code);
+                    }
+                    else if (MyLib._myGlobal._mainMenuCodePassTrue.Equals("menu_ic_finish_receive_ap"))
+                    {
+                        this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, true, true, true, _g.d.ic_trans._ap_code);
+                    }
+                    else
+                    {
+                        this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, true, true, true, _g.d.ic_trans._ap_code);
+                    }
+
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 1, 1, true, false, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true);
@@ -1569,7 +1582,18 @@ namespace SMLInventoryControl
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
                     if (MyLib._myGlobal._OEMVersion.Equals("SINGHA") && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ)
                     {
-                        this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 2, 1, 4, true, false, true, true, true, _g.d.ic_trans._ar_code);
+                        if (MyLib._myGlobal._mainMenuCodePassTrue.Equals("menu_ic_issue_ar"))
+                        {
+                            this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, true, true, true, _g.d.ic_trans._ar_code);
+                        }
+                        else if (MyLib._myGlobal._mainMenuCodePassTrue.Equals("menu_ic_issue_ap"))
+                        {
+                            this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, true, true, true, _g.d.ic_trans._ap_code);
+                        }
+                        else
+                        {
+                            this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 2, 1, 4, true, false, true, true, true, _g.d.ic_trans._ar_code);
+                        }
                     }
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_ref, 1, 1, 0, true, false, true);
@@ -2486,7 +2510,7 @@ namespace SMLInventoryControl
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
-                                                __extraWhere = " branch_code  like \'%" + __getBranchSelect + "%\' ";
+                                                __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
                                             }
                                         }
                                     }
@@ -2509,7 +2533,7 @@ namespace SMLInventoryControl
                                             {
                                                 // where branch
                                                 //this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
-                                                __extraWhere = "  whcode in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\')  ";
+                                                __extraWhere = "  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
                                             }
                                         }
                                     }
@@ -2530,7 +2554,7 @@ namespace SMLInventoryControl
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
-                                                __extraWhere = " branch_code  like \'%" + __getBranchSelect + "%\' ";
+                                                __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
                                             }
                                         }
                                     }
@@ -2553,7 +2577,7 @@ namespace SMLInventoryControl
                                             {
                                                 // where branch
                                                 //this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
-                                                __extraWhere = "  whcode in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\')  ";
+                                                __extraWhere = "  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
                                             }
                                         }
                                     }
@@ -4059,7 +4083,14 @@ namespace SMLInventoryControl
                     case _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป:
                     case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกมา:
                     case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกมา:
-                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchApName));
+
+                        if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป && this._menuName.Equals("menu_ic_finish_receive_ar"))
+                        {
+                            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchArName));
+                        }
+                        else {
+                            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchApName));
+                        }
                         __tableCount++;
                         break;
                     case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ยกเลิก:
@@ -4136,7 +4167,15 @@ namespace SMLInventoryControl
                         __tableCount++;
                         break;
                     case _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ:
-                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchArName));
+                        if (this._menuName.Equals("menu_ic_issue_ap"))
+                        {
+                            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchApName));
+
+                        }
+                        else
+                        {
+                            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchArName));
+                        }
                         __tableCount++;
                         break;
                 }

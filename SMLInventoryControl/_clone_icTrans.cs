@@ -41,6 +41,67 @@ namespace SMLInventoryControl
             }
 
             this._ictrans = new SMLInventoryControl._icTransControl();
+
+            if (menuName.Equals("menu_ic_finish_receive_ar"))
+            {
+                this._ictrans._myToolBar.Enabled = false;
+                this._ictrans._dataListExtraWhere = _g.d.ic_trans._inquiry_type + "=1";
+                this._ictrans._myManageTrans._isAdd = false;
+                this._ictrans._myManageTrans._isEdit = false;
+                this._ictrans._myManageTrans._isDelete = true;
+                this._ictrans._menuName = menuName;
+                //this._ictrans._myManageTrans._dataList._fullMode = false;
+
+                this._ictrans._myManageTrans._dataList._printRangeButton.Visible = false;
+
+            }
+            else if (menuName.Equals("menu_ic_finish_receive_ap"))
+            {
+                this._ictrans._myToolBar.Enabled = false;
+                this._ictrans._myManageTrans._isAdd = false;
+                this._ictrans._myManageTrans._isEdit = false;
+                this._ictrans._myManageTrans._isDelete = true;
+                this._ictrans._menuName = menuName;
+                //this._ictrans._myManageTrans._dataList._fullMode = false;
+
+                this._ictrans._myManageTrans._dataList._printRangeButton.Visible = false;
+                this._ictrans._dataListExtraWhere = _g.d.ic_trans._inquiry_type + "=2";
+            }
+            else if (menuName.Equals("menu_ic_finish_receive"))
+            {
+                this._ictrans._dataListExtraWhere = _g.d.ic_trans._inquiry_type + " not in (1,2) ";
+            }
+            else if (menuName.Equals("menu_ic_issue_ap"))
+            {
+                this._ictrans._myToolBar.Enabled = false;
+                this._ictrans._myManageTrans._isAdd = false;
+                this._ictrans._myManageTrans._isEdit = false;
+                this._ictrans._myManageTrans._isDelete = true;
+                this._ictrans._menuName = menuName;
+                //this._ictrans._myManageTrans._dataList._fullMode = false;
+
+                this._ictrans._myManageTrans._dataList._printRangeButton.Visible = false;
+                this._ictrans._dataListExtraWhere = _g.d.ic_trans._inquiry_type + "=2";
+            }
+            else if (menuName.Equals("menu_ic_issue_ar"))
+            {
+                this._ictrans._myToolBar.Enabled = false;
+                this._ictrans._myManageTrans._isAdd = false;
+                this._ictrans._myManageTrans._isEdit = false;
+                this._ictrans._myManageTrans._isDelete = true;
+                this._ictrans._menuName = menuName;
+                //this._ictrans._myManageTrans._dataList._fullMode = false;
+
+                this._ictrans._myManageTrans._dataList._printRangeButton.Visible = false;
+                this._ictrans._dataListExtraWhere = _g.d.ic_trans._inquiry_type + "=1";
+            }
+            else if (menuName.Equals("menu_ic_issue"))
+            {
+                this._ictrans._dataListExtraWhere = _g.d.ic_trans._inquiry_type + " not in (1,2) ";
+
+            }
+
+
             this.SuspendLayout();
             // 
             // _ictrans

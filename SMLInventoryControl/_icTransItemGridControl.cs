@@ -5615,7 +5615,7 @@ namespace SMLInventoryControl
                     if (__getBranchSelect.Length > 0)
                     {
                         // where branch
-                        this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
+                        this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\') ";
                     }
                 }
             }

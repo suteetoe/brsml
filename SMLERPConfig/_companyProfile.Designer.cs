@@ -35,11 +35,11 @@
             this._myPanel1 = new MyLib._myPanel();
             this._myTabControl1 = new MyLib._myTabControl();
             this.tab_companyprofile = new System.Windows.Forms.TabPage();
-            this._companyProfileScreen1 = new SMLERPConfig._companyProfileScreen();
             this.tab_companydetail = new System.Windows.Forms.TabPage();
-            this._companyProfileDetailScreen1 = new SMLERPConfig._companyProfileDetailScreen();
             this._flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this._myShadowLabel1 = new MyLib._myShadowLabel(this.components);
+            this._companyProfileScreen1 = new SMLERPConfig._companyProfileScreen();
+            this._companyProfileDetailScreen1 = new SMLERPConfig._companyProfileDetailScreen();
             this._toolStrip1.SuspendLayout();
             this._myPanel1.SuspendLayout();
             this._myTabControl1.SuspendLayout();
@@ -96,7 +96,7 @@
             this._myPanel1.Location = new System.Drawing.Point(2, 27);
             this._myPanel1.Name = "_myPanel1";
             this._myPanel1.ShowLineBackground = true;
-            this._myPanel1.Size = new System.Drawing.Size(731, 487);
+            this._myPanel1.Size = new System.Drawing.Size(731, 583);
             this._myPanel1.TabIndex = 8;
             // 
             // _myTabControl1
@@ -109,7 +109,7 @@
             this._myTabControl1.Multiline = true;
             this._myTabControl1.Name = "_myTabControl1";
             this._myTabControl1.SelectedIndex = 0;
-            this._myTabControl1.Size = new System.Drawing.Size(731, 444);
+            this._myTabControl1.Size = new System.Drawing.Size(731, 540);
             this._myTabControl1.TabIndex = 10;
             this._myTabControl1.TableName = "";
             // 
@@ -119,22 +119,10 @@
             this.tab_companyprofile.Location = new System.Drawing.Point(4, 23);
             this.tab_companyprofile.Name = "tab_companyprofile";
             this.tab_companyprofile.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_companyprofile.Size = new System.Drawing.Size(723, 417);
+            this.tab_companyprofile.Size = new System.Drawing.Size(723, 513);
             this.tab_companyprofile.TabIndex = 0;
             this.tab_companyprofile.Text = "1.tab_companyprofile";
             this.tab_companyprofile.UseVisualStyleBackColor = true;
-            // 
-            // _companyProfileScreen1
-            // 
-            this._companyProfileScreen1._isChange = false;
-            this._companyProfileScreen1.AutoSize = true;
-            this._companyProfileScreen1.BackColor = System.Drawing.Color.Transparent;
-            this._companyProfileScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._companyProfileScreen1.Location = new System.Drawing.Point(3, 3);
-            this._companyProfileScreen1.Name = "_companyProfileScreen1";
-            this._companyProfileScreen1.Padding = new System.Windows.Forms.Padding(5);
-            this._companyProfileScreen1.Size = new System.Drawing.Size(717, 411);
-            this._companyProfileScreen1.TabIndex = 0;
             // 
             // tab_companydetail
             // 
@@ -142,20 +130,10 @@
             this.tab_companydetail.Location = new System.Drawing.Point(4, 23);
             this.tab_companydetail.Name = "tab_companydetail";
             this.tab_companydetail.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_companydetail.Size = new System.Drawing.Size(723, 387);
+            this.tab_companydetail.Size = new System.Drawing.Size(723, 503);
             this.tab_companydetail.TabIndex = 1;
             this.tab_companydetail.Text = "2.tab_profiledetail";
             this.tab_companydetail.UseVisualStyleBackColor = true;
-            // 
-            // _companyProfileDetailScreen1
-            // 
-            this._companyProfileDetailScreen1._isChange = false;
-            this._companyProfileDetailScreen1.BackColor = System.Drawing.Color.Transparent;
-            this._companyProfileDetailScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._companyProfileDetailScreen1.Location = new System.Drawing.Point(3, 3);
-            this._companyProfileDetailScreen1.Name = "_companyProfileDetailScreen1";
-            this._companyProfileDetailScreen1.Size = new System.Drawing.Size(717, 381);
-            this._companyProfileDetailScreen1.TabIndex = 0;
             // 
             // _flowLayoutPanel1
             // 
@@ -181,6 +159,7 @@
             this._myShadowLabel1.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this._myShadowLabel1.Location = new System.Drawing.Point(467, 5);
             this._myShadowLabel1.Name = "_myShadowLabel1";
+            this._myShadowLabel1.ResourceName = "";
             this._myShadowLabel1.ShadowColor = System.Drawing.Color.Gray;
             this._myShadowLabel1.Size = new System.Drawing.Size(261, 33);
             this._myShadowLabel1.StartColor = System.Drawing.Color.White;
@@ -188,6 +167,28 @@
             this._myShadowLabel1.Text = "Company Profiles.";
             this._myShadowLabel1.XOffset = 1F;
             this._myShadowLabel1.YOffset = 1F;
+            // 
+            // _companyProfileScreen1
+            // 
+            this._companyProfileScreen1._isChange = false;
+            this._companyProfileScreen1.AutoSize = true;
+            this._companyProfileScreen1.BackColor = System.Drawing.Color.Transparent;
+            this._companyProfileScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._companyProfileScreen1.Location = new System.Drawing.Point(3, 3);
+            this._companyProfileScreen1.Name = "_companyProfileScreen1";
+            this._companyProfileScreen1.Padding = new System.Windows.Forms.Padding(5);
+            this._companyProfileScreen1.Size = new System.Drawing.Size(717, 507);
+            this._companyProfileScreen1.TabIndex = 0;
+            // 
+            // _companyProfileDetailScreen1
+            // 
+            this._companyProfileDetailScreen1._isChange = false;
+            this._companyProfileDetailScreen1.BackColor = System.Drawing.Color.Transparent;
+            this._companyProfileDetailScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._companyProfileDetailScreen1.Location = new System.Drawing.Point(3, 3);
+            this._companyProfileDetailScreen1.Name = "_companyProfileDetailScreen1";
+            this._companyProfileDetailScreen1.Size = new System.Drawing.Size(717, 497);
+            this._companyProfileDetailScreen1.TabIndex = 0;
             // 
             // _companyProfile
             // 
@@ -197,7 +198,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(735, 516);
+            this.ClientSize = new System.Drawing.Size(735, 612);
             this.Controls.Add(this._myPanel1);
             this.Controls.Add(this._toolStrip1);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));

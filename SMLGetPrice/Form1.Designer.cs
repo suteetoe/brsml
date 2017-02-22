@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this._postgreSqlConnectStatus = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -246,9 +246,9 @@
             // 
             // _priceOld
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle1.Format = "N2";
-            this._priceOld.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.Format = "N2";
+            this._priceOld.DefaultCellStyle = dataGridViewCellStyle5;
             this._priceOld.FillWeight = 10F;
             this._priceOld.HeaderText = "ราคาเดิม";
             this._priceOld.Name = "_priceOld";
@@ -256,9 +256,9 @@
             // 
             // _priceNew
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "N2";
-            this._priceNew.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle6.Format = "N2";
+            this._priceNew.DefaultCellStyle = dataGridViewCellStyle6;
             this._priceNew.FillWeight = 10F;
             this._priceNew.HeaderText = "ราคาใหม่";
             this._priceNew.Name = "_priceNew";
@@ -553,9 +553,11 @@
             // 
             // _smlPasswordTextBox
             // 
+            this._smlPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this._smlPasswordTextBox.Location = new System.Drawing.Point(147, 133);
             this._smlPasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this._smlPasswordTextBox.Name = "_smlPasswordTextBox";
+            this._smlPasswordTextBox.PasswordChar = '*';
             this._smlPasswordTextBox.Size = new System.Drawing.Size(705, 21);
             this._smlPasswordTextBox.TabIndex = 2;
             // 
