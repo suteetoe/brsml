@@ -405,6 +405,7 @@
     <detail column_name="วันที่เอกสารอ้างอิง" column_name_2="Doc_date"  column_field_name="ic_trans.doc_ref_date" column_field_sort="ic_trans.doc_ref_date,ic_trans.doc_ref" column_width="25" column_type="date" column_align="left"></detail>
     <detail column_name="เอกสารอ้างอิง" column_name_2="Ref_docno"  column_field_name="ic_trans.doc_ref" column_field_sort="ic_trans.doc_ref" column_width="25" column_type="varchar" column_align="left"></detail>
     <detail column_name="laststatus" column_name_2="laststatus"  column_field_name="ic_trans.last_status" column_field_sort="ic_trans.last_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="docsuccess" column_name_2="docsuccess"  column_field_name="ic_trans.doc_success" column_field_sort="ic_trans.doc_success" column_width="0" column_type="int" column_align="left"></detail>
   </screen>
   <screen screen_code="screen_ic_stk_return" name_1="รายละเอียดรับคืนสินค้าเบิก" name_2="Stock Return" table_name="ic_trans" table_list="ic_trans" sort="ic_trans.doc_date" filter="" width_by_persent="true">
     <detail column_name="วันที่เอกสาร" column_name_2="Doc_date"  column_field_name="ic_trans.doc_date" column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="left"></detail>

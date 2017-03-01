@@ -15,7 +15,7 @@ namespace SMLReport._report
         public static string _processValue(string source)
         {
             source = source.Replace(_reportValueDefault._ltdName, MyLib._myGlobal._ltdName);
-            source = source.Replace(_reportValueDefault._currentDateTime, MyLib._myGlobal._convertDateToString(DateTime.Today, true));
+            source = source.Replace(_reportValueDefault._currentDateTime, MyLib._myGlobal._convertDateToString(DateTime.Now, true, false, "dd/MM/yyyy H:mm"));
             return source;
         }
     }

@@ -11724,9 +11724,20 @@ namespace SMLInventoryControl
                                         sum_amount_exclude_vat = __sum_amount_exclude_vat,
                                         remark = this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._remark) != -1 ? this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._remark).ToString() : "",
                                         line_number = __row,
-                                        pass_book_code = ((this._transControlType == _g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน || this._transControlType == _g.g._transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน) ? __itemCode : "")
-
+                                        pass_book_code = ((this._transControlType == _g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน || this._transControlType == _g.g._transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน) ? __itemCode : ""),
+                                        sum_amount = (this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._sum_amount) != -1) ? (decimal)this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._sum_amount) : 0M
                                     };
+
+                                    if (this._transControlType == _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค)
+                                    {
+                                        // case when trans_flag in (" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค) + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก) + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค) + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกเลิก) + ") then coalesce((select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + " trans_flag from ic_trans_detail as x where x.chq_number = ic_trans_detail.item_code and x.doc_date <= ic_trans_detail.doc_date and x.doc_time < ic_trans_detail.doc_time order by doc_date desc, doc_time desc " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + " ), 0) else 0 end
+                                        // หา last flag
+                                        DataTable __chqStatusTable = __myFrameWork._queryShort("select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + " trans_flag from ic_trans_detail as x where x.chq_number = \'" + __itemCode + "\'  order by doc_date desc, doc_time desc " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + " ").Tables[0];
+                                        if (__chqStatusTable.Rows.Count > 0)
+                                        {
+                                            __detailDataGL.last_flag = MyLib._myGlobal._intPhase(__chqStatusTable.Rows[0][0].ToString());
+                                        }
+                                    }
 
 
                                     __processControl._addTransDetailData(__detailDataGL, ((__row == 0) ? true : false));
@@ -11750,6 +11761,61 @@ namespace SMLInventoryControl
 
                                     __processControl._addTransDetailData(__detailDataGL, false);
                                 }
+                            }
+
+                            // pay detail
+                            if (this._payControl != null)
+                            {
+                                // chq
+                                for (int __row = 0; __row < this._payControl._payChequeGrid._rowData.Count; __row++)
+                                {
+                                    string __getChqNumber = this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._trans_number).ToString();
+                                    if (__getChqNumber.Length > 0)
+                                    {
+                                        decimal __amount = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._amount);
+
+                                        SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject((this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, this._getTransFlag, this._getTransType)
+                                        {
+                                            doc_type = 2,
+                                            item_type = 9999,
+                                            trans_number = __getChqNumber,
+                                            price = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._sum_amount),
+                                            amount = __amount,
+                                            sum_amount_exclude_vat = 0,
+                                            remark = "",
+                                            line_number = __row,
+                                            sum_amount = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._sum_amount)
+                                        };
+                                        __processControl._addTransDetailData(__detailDataGL, false);
+                                    }
+                                }
+
+                                // tranfer
+                                for (int __row = 0; __row < this._payControl._payTransferGrid._rowData.Count; __row++)
+                                {
+                                    string __getBookCode = this._payControl._payTransferGrid._cellGet(__row, _g.d.cb_trans_detail._trans_number).ToString();
+                                    if (__getBookCode.Length > 0)
+                                    {
+                                        decimal __amount = (decimal)this._payControl._payTransferGrid._cellGet(__row, _g.d.cb_trans_detail._amount);
+
+                                        SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject((this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, this._getTransFlag, this._getTransType)
+                                        {
+                                            doc_type = 1,
+                                            item_type = 9999,
+                                            trans_number = __getBookCode,
+                                            price = __amount,
+                                            amount = __amount,
+                                            sum_amount_exclude_vat = 0,
+                                            remark = "",
+                                            line_number = __row,
+                                            pass_book_code = __getBookCode,
+
+                                        };
+                                        __processControl._addTransDetailData(__detailDataGL, false);
+                                    }
+                                }
+
+                                // credit
                             }
 
                             __processControl._procesGLByTemp(this._icTransScreenTop._docFormatCode);

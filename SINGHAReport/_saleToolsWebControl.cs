@@ -23,6 +23,13 @@ namespace SINGHAReport
             InitializeComponent();
             this._browser.Navigate(__url);
 
+            /*
+            MessageBox.Show(this._browser.Version.ToString());
+
+            this._browser.Navigate("http://whatbrowser.org/");
+            */
+
+
         }
 
         private void closeButton_Click(object sender, EventArgs e)

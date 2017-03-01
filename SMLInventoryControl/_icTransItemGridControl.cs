@@ -515,8 +515,8 @@ namespace SMLInventoryControl
                             break;
 
                         case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
-                            this._addColumn(_g.d.ic_trans_detail._doc_ref_type, 10, 25, 25, true, true, true);
-                            this._addColumn(_g.d.ic_trans_detail._ref_doc_no, 1, 1, 10, true, true, true, true, "", "", "", _g.d.ic_trans_detail._doc_ref_partial);
+                            this._addColumn(_g.d.ic_trans_detail._doc_ref_type, 10, 25, 25, false, true, true);
+                            this._addColumn(_g.d.ic_trans_detail._ref_doc_no, 1, 1, 10, false, true, true, true, "", "", "", _g.d.ic_trans_detail._doc_ref_partial);
                             break;
                         case _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก:
                             this._addColumn(_g.d.ic_trans_detail._doc_ref_type, 10, 25, 25, true, true, true);
@@ -673,6 +673,11 @@ namespace SMLInventoryControl
                             this._addColumn(_g.d.ic_trans._cust_name, 1, 10, 10, false, true, false);
                             this._addColumn(_g.d.ic_trans_detail._ref_doc_date, 4, 1, 15, false, false, true, false, "dd/MM/yyyy", "", "", _g.d.ic_trans_detail._doc_date);
                             this._addColumn(_g.d.ic_trans_detail._sum_amount, 3, 1, 20, false, false, true, false, __formatNumberAmount);
+
+                            break;
+                        case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
+                            this._addColumn(_g.d.ic_trans_detail._item_code, 1, 1, 15, false, false, true, true);
+                            this._addColumn(_g.d.ic_trans_detail._item_name, 1, 1, 20, false, false, true, false);
 
                             break;
                         default:
@@ -1979,6 +1984,12 @@ namespace SMLInventoryControl
                 Boolean __foundRef = false;
                 switch (this._icTransControlType)
                 {
+                    #region
+                    #endregion
+                    #region
+                    #endregion
+
+                    #region เงินสด/ธนาคาร
                     case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้:
                     case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้:
                         {
@@ -2039,6 +2050,7 @@ namespace SMLInventoryControl
                             }
                         }
                         break;
+                    #endregion 
                     case _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น:
                     case _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น:
                         {
@@ -2102,110 +2114,138 @@ namespace SMLInventoryControl
 
                     #region ขาย
 
-                    #region ขาย_เพิ่มหนี้
-                    case _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้:
+                    #region ขาย_สั่งจองและสั่งซื้อสินค้า
+                    case _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า:
                         {
                             this._clear();
-                            // ค้นหาตามประเภทเอกสาร
-                            for (int __docType = 1; __docType <= 1; __docType++)
+                            //
+                            string __docNoPack = this._icTransRef._getDocRefPackForQuery(-1);
+                            if (__docNoPack.Length > 0)
                             {
-                                string __docNoPack = this._icTransRef._getDocRefPackForQuery(__docType);
-                                if (__docNoPack.Length > 0)
+                                string __sale_code = "";
+                                int __inquiry_type = 0;
+                                int __vat_type = 0;
+                                // ดึง sale
+                                try
                                 {
-                                    string __transFlag = "";
-                                    switch (__docType)
+                                    __query = "select " + _g.d.ic_trans._inquiry_type + ", " + _g.d.ic_trans._vat_type + "," + _g.d.ic_trans._sale_code + " from " + _g.d.ic_trans._table + " where " + _g.d.ic_trans._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เสนอราคา).ToString();
+                                    DataTable __discountTable = __myFrameWork._query(MyLib._myGlobal._databaseName, __query).Tables[0];
+                                    for (int __rowDiscount = 0; __rowDiscount < __discountTable.Rows.Count; __rowDiscount++)
                                     {
-                                        case 1: __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString(); break;
-                                    }
-                                    __wareHouseAndShelfCodeField = "wh_temp";
-                                    __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type + ","
-
-                                        + _g.d.ic_trans_detail._item_name + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._ref_row + ","
-                                        + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._item_type + "," + _g.d.ic_trans_detail._is_get_price + ","
-                                        + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_price + "," + _g.d.ic_trans_detail._set_ref_line + ","
-
-                                        + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_wh + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._wh_code + ","
-                                        + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_shelf + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._shelf_code + ","
-                                        + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + "," + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + ","
-                                        + "(select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + "wh_code||'~'||shelf_code from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " order by roworder " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + ") as " + __wareHouseAndShelfCodeField
-                                        + " from " + _g.d.ic_trans_detail._table
-                                        + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + __transFlag
-                                        + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
-                                    __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
-                                    for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
-                                    {
-                                        __foundRef = true;
-                                        string __itemName = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_name].ToString();
-                                        string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
-                                        int __refRow = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_row].ToString());
-                                        string __itemCodeMain = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code_main].ToString();
-                                        int __itemType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_type].ToString());
-                                        int __isGetPrice = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_get_price].ToString());
-                                        decimal __setRefQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_qty].ToString());
-                                        decimal __setRefPrice = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_price].ToString());
-                                        string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
-
-                                        string __itemCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code].ToString();
-                                        string __barcode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._barcode].ToString();
-                                        string __docNo = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                                        string __unitCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_code].ToString();
-                                        string __wareHouseCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._wh_code].ToString();
-                                        string __shelfCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._shelf_code].ToString();
-                                        decimal __qty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._qty].ToString());
-                                        decimal __price = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._price].ToString());
-                                        decimal __amount = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._sum_amount].ToString());
-                                        int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
-                                        int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
-                                        string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
-                                        if (__vatType != this._vatTypeNumber())
-                                        {
-                                            if (this._vatTypeNumber() == 0)
-                                            {
-                                                // แยกนอก แสดงว่าใบเสนอราคารวมใน ให้เอาราคาใบเสนอราคารวมในมาแยกนอก เพื่อให้สัมพันธ์กับการเสนอราคา
-                                                __price = (__price * 100M) / (100M + this._vatRate());
-                                            }
-                                            if (this._vatTypeNumber() == 1)
-                                            {
-                                                // รวมใน แสดงว่าใบเสนอราคาแยกนอก
-                                                __price = __price + ((__price * this._vatRate()) / 100M);
-                                            }
-                                        }
-                                        if (__wareHouseCode.Trim().Length == 0)
-                                        {
-                                            string[] __wareHouseAndShelfCodeTemp = __result.Tables[0].Rows[__row][__wareHouseAndShelfCodeField].ToString().Split('~');
-                                            __wareHouseCode = __wareHouseAndShelfCodeTemp[0].ToString();
-                                            __shelfCode = __wareHouseAndShelfCodeTemp[1].ToString();
-                                        }
-                                        int __addr = this._addRow();
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._doc_ref_type, __docType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_doc_no, __docNo, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __itemCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __barcode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_name, __itemName, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_qty, __setRefQty, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_price, __setRefPrice, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __refRow, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_type, __itemType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._is_get_price, __isGetPrice, false);
-
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __unitCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._price, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __price : 0M), false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __discount : ""), false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __qty : 0M), false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __amount : 0M), false);
-
-                                        //this._searchUnitNameWareHouseNameShelfName(__addr);
+                                        __sale_code = __discountTable.Rows[__rowDiscount][_g.d.ic_trans._sale_code].ToString();
+                                        __inquiry_type = MyLib._myGlobal._intPhase(__discountTable.Rows[__rowDiscount][_g.d.ic_trans._inquiry_type].ToString());
+                                        __vat_type = MyLib._myGlobal._intPhase(__discountTable.Rows[__rowDiscount][_g.d.ic_trans._vat_type].ToString());
                                     }
 
-                                    this._searchUnitNameWareHouseNameShelfNameAll();
+                                    if (__sale_code.Length > 0)
+                                    {
+                                        this._icTransScreenTop._setDataStr(_g.d.ic_trans._sale_code, __sale_code);
+                                    }
+                                    this._icTransScreenTop._setComboBox(_g.d.ic_trans._inquiry_type, __inquiry_type);
+                                    this._icTransScreenTop._setComboBox(_g.d.ic_trans._vat_type, __vat_type);
                                 }
+                                catch
+                                {
+                                }
+
+                                string __balanceQty = "(" + _g.d.ic_trans_detail._qty + "*(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + "))-coalesce((select sum(" + "x." + _g.d.ic_trans_detail._qty + "*(" + "x." + _g.d.ic_trans_detail._stand_value + "/" + "x." + _g.d.ic_trans_detail._divide_value + ")) from " + _g.d.ic_trans_detail._table + " as x where " + "x." + _g.d.ic_trans_detail._trans_flag + " in (" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เสนอราคา_ยกเลิก).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า) + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_สั่งขาย).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString() + ") and " + "x." + _g.d.ic_trans_detail._ref_doc_no + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._doc_no + " and x." + _g.d.ic_trans_detail._item_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " and x." + _g.d.ic_trans_detail._last_status + "=0),0)";
+
+                                __wareHouseAndShelfCodeField = "wh_temp";
+                                __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type
+                                    + "," + _g.d.ic_trans_detail._item_name + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._ref_row
+                                    + "," + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._item_type + "," + _g.d.ic_trans_detail._is_get_price
+                                    + "," + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_price + "," + _g.d.ic_trans_detail._set_ref_line + "," + _g.d.ic_trans_detail._is_serial_number
+                                    + "," + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_wh + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._wh_code
+                                    + "," + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_shelf + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._shelf_code
+                                    + "," + _g.d.ic_trans_detail._price
+                                    + "," + _g.d.ic_trans_detail._discount
+                                    + ",(" + __balanceQty + ")/(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + ") as " + _g.d.ic_trans_detail._qty
+                                    + "," + _g.d.ic_trans_detail._sum_amount
+                                    + "," + _g.d.ic_trans_detail._is_permium
+                                    + ",(select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + "wh_code||'~'||shelf_code from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " order by roworder " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + ") as " + __wareHouseAndShelfCodeField
+                                    + " from " + _g.d.ic_trans_detail._table
+                                    + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เสนอราคา).ToString()
+                                    + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
+                                __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
+                                for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
+                                {
+                                    __foundRef = true;
+                                    string __itemCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code].ToString();
+                                    string __barcode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._barcode].ToString();
+                                    string __itemName = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_name].ToString();
+                                    string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
+                                    int __refRow = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_row].ToString());
+                                    string __itemCodeMain = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code_main].ToString();
+                                    int __itemType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_type].ToString());
+                                    int __isGetPrice = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_get_price].ToString());
+                                    decimal __setRefQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_qty].ToString());
+                                    decimal __setRefPrice = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_price].ToString());
+                                    string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
+
+                                    string __docNo = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                                    string __unitCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_code].ToString();
+                                    string __wareHouseCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._wh_code].ToString();
+                                    string __shelfCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._shelf_code].ToString();
+                                    decimal __qty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._qty].ToString());
+                                    decimal __price = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._price].ToString());
+                                    decimal __amount = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._sum_amount].ToString());
+                                    int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
+                                    int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
+                                    int __is_serial_number = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_serial_number].ToString());
+                                    int __is_permium = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_permium].ToString());
+
+                                    string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
+                                    if (__vatType != this._vatTypeNumber())
+                                    {
+                                        if (this._vatTypeNumber() == 0)
+                                        {
+                                            // แยกนอก แสดงว่าใบเสนอราคารวมใน ให้เอาราคาใบเสนอราคารวมในมาแยกนอก เพื่อให้สัมพันธ์กับการเสนอราคา
+                                            __price = (__price * 100M) / (100M + this._vatRate());
+                                        }
+                                        if (this._vatTypeNumber() == 1)
+                                        {
+                                            // รวมใน แสดงว่าใบเสนอราคาแยกนอก
+                                            __price = __price + ((__price * this._vatRate()) / 100M);
+                                        }
+                                    }
+                                    if (__wareHouseCode.Trim().Length == 0)
+                                    {
+                                        string[] __wareHouseAndShelfCodeTemp = __result.Tables[0].Rows[__row][__wareHouseAndShelfCodeField].ToString().Split('~');
+                                        __wareHouseCode = __wareHouseAndShelfCodeTemp[0].ToString();
+                                        __shelfCode = __wareHouseAndShelfCodeTemp[1].ToString();
+                                    }
+                                    int __addr = this._addRow();
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_doc_no, __docNo, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __itemCode, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __barcode, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_name, __itemName, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_qty, __setRefQty, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_price, __setRefPrice, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __refRow, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_type, __itemType, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._is_get_price, __isGetPrice, false);
+
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __unitCode, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._price, __price, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, __discount, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, __amount, false);
+
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._is_serial_number, __is_serial_number, false);
+                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._is_permium, __is_permium, false);
+
+                                    //this._searchUnitNameWareHouseNameShelfName(__addr);
+                                    this._calcItemPrice(__addr, __addr, this._findColumnByName(_g.d.ic_trans_detail._discount));
+
+                                }
+                                this._searchUnitNameWareHouseNameShelfNameAll();
                             }
                         }
                         break;
@@ -2274,6 +2314,7 @@ namespace SMLInventoryControl
                                         + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_shelf + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._shelf_code + ","
                                         + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + ", (" + __balanceQty + ")/(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + ") as " + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + ","
                                         + "(select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + "wh_code||'~'||shelf_code from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " order by roworder " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + ") as " + __wareHouseAndShelfCodeField
+                                        + "," + _g.d.ic_trans_detail._is_permium
                                         + " from " + _g.d.ic_trans_detail._table
                                         + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + __transFlag
                                         + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
@@ -2303,6 +2344,7 @@ namespace SMLInventoryControl
                                         int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
                                         int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
                                         int __is_serial_number = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_serial_number].ToString());
+                                        int __is_permium = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_permium].ToString());
 
                                         string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
                                         if (__vatType != this._vatTypeNumber())
@@ -2350,81 +2392,13 @@ namespace SMLInventoryControl
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, __amount, false);
 
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._is_serial_number, __is_serial_number, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._is_permium, __is_permium, false);
 
                                         //this._searchUnitNameWareHouseNameShelfName(__addr);
                                         this._calcItemPrice(__addr, __addr, this._findColumnByName(_g.d.ic_trans_detail._discount));
 
                                     }
                                     this._searchUnitNameWareHouseNameShelfNameAll();
-                                }
-                            }
-                        }
-                        break;
-                    #endregion
-                    #region ขาย_รับคืนสินค้าจากการขายและลดหนี้
-                    case _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้:
-                        {
-                            this._clear();
-                            // ค้นหาตามประเภทเอกสาร
-                            for (int __docType = 1; __docType <= 3; __docType++)
-                            {
-                                string __docNoPack = this._icTransRef._getDocRefPackForQuery(__docType);
-                                if (__docNoPack.Length > 0)
-                                {
-                                    string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString();
-                                    __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type + ","
-                                        + _g.d.ic_trans_detail._wh_code + "," + _g.d.ic_trans_detail._shelf_code + "," + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + "," + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + "," + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_line + "," + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._is_permium + "  from " + _g.d.ic_trans_detail._table + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString() + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
-                                    __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
-                                    for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
-                                    {
-                                        __foundRef = true;
-                                        string __itemCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code].ToString();
-                                        string __barcode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._barcode].ToString();
-                                        string __docNo = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                                        string __unitCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_code].ToString();
-                                        string __wareHouseCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._wh_code].ToString();
-                                        string __shelfCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._shelf_code].ToString();
-                                        string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
-                                        decimal __qty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._qty].ToString());
-                                        decimal __price = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._price].ToString());
-                                        decimal __amount = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._sum_amount].ToString());
-                                        int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
-                                        int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
-
-                                        string __itemCodeMain = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code_main].ToString();
-
-                                        string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
-                                        string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
-                                        int __is_premium = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_permium].ToString());
-
-
-                                        //
-                                        int __addr = this._addRow();
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._doc_ref_type, __docType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_doc_no, __docNo, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __itemCode, true);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __barcode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __unitCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._price, __price, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, __discount, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, __amount, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._is_permium, __is_premium, false);
-
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
-                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);
-
-
-                                        // this._searchUnitNameWareHouseNameShelfName(__addr);
-                                    }
-                                    this._searchUnitNameWareHouseNameShelfNameAll();
-
-
                                 }
                             }
                         }
@@ -2597,6 +2571,7 @@ namespace SMLInventoryControl
                                         + "," + _g.d.ic_trans_detail._date_expire
                                         + "," + _g.d.ic_trans_detail._mfd_date
                                         + "," + _g.d.ic_trans_detail._mfn_name
+                                        + "," + _g.d.ic_trans_detail._is_permium
 
 
                                         + " from " + _g.d.ic_trans_detail._table
@@ -2634,6 +2609,7 @@ namespace SMLInventoryControl
                                         //int __unitType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_type].ToString());
                                         //decimal __standValue = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._stand_value].ToString());
                                         //decimal __divideValue = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._divide_value].ToString());
+                                        int __is_premium = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_permium].ToString());
 
                                         string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
 
@@ -2701,6 +2677,7 @@ namespace SMLInventoryControl
                                             this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false); // toe ให้ event active = true เพื่อไปตรวจสอบยอดคงเหลือหรือค้างจอง
                                             this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, __discount, false);
                                             this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, __amount, false);
+                                            this._cellUpdate(__addr, _g.d.ic_trans_detail._is_permium, __is_premium, false);
 
                                             this._cellUpdate(__addr, _g.d.ic_trans_detail._is_serial_number, __is_serial_number, true);
                                             if (__docType == 3)
@@ -2734,134 +2711,179 @@ namespace SMLInventoryControl
                         }
                         break;
                     #endregion
-                    #region ขาย_สั่งจองและสั่งซื้อสินค้า
-                    case _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า:
+                    #region ขาย_เพิ่มหนี้
+                    case _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้:
                         {
                             this._clear();
-                            //
-                            string __docNoPack = this._icTransRef._getDocRefPackForQuery(-1);
-                            if (__docNoPack.Length > 0)
+                            // ค้นหาตามประเภทเอกสาร
+                            for (int __docType = 1; __docType <= 1; __docType++)
                             {
-                                string __sale_code = "";
-                                int __inquiry_type = 0;
-                                int __vat_type = 0;
-                                // ดึง sale
-                                try
+                                string __docNoPack = this._icTransRef._getDocRefPackForQuery(__docType);
+                                if (__docNoPack.Length > 0)
                                 {
-                                    __query = "select " + _g.d.ic_trans._inquiry_type + ", " + _g.d.ic_trans._vat_type + "," + _g.d.ic_trans._sale_code + " from " + _g.d.ic_trans._table + " where " + _g.d.ic_trans._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เสนอราคา).ToString();
-                                    DataTable __discountTable = __myFrameWork._query(MyLib._myGlobal._databaseName, __query).Tables[0];
-                                    for (int __rowDiscount = 0; __rowDiscount < __discountTable.Rows.Count; __rowDiscount++)
+                                    string __transFlag = "";
+                                    switch (__docType)
                                     {
-                                        __sale_code = __discountTable.Rows[__rowDiscount][_g.d.ic_trans._sale_code].ToString();
-                                        __inquiry_type = MyLib._myGlobal._intPhase(__discountTable.Rows[__rowDiscount][_g.d.ic_trans._inquiry_type].ToString());
-                                        __vat_type = MyLib._myGlobal._intPhase(__discountTable.Rows[__rowDiscount][_g.d.ic_trans._vat_type].ToString());
+                                        case 1: __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString(); break;
                                     }
+                                    __wareHouseAndShelfCodeField = "wh_temp";
+                                    __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type + ","
 
-                                    if (__sale_code.Length > 0)
+                                        + _g.d.ic_trans_detail._item_name + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._ref_row + ","
+                                        + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._item_type + "," + _g.d.ic_trans_detail._is_get_price + ","
+                                        + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_price + "," + _g.d.ic_trans_detail._set_ref_line + ","
+
+                                        + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_wh + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._wh_code + ","
+                                        + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_shelf + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._shelf_code + ","
+                                        + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + "," + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + ","
+                                        + "(select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + "wh_code||'~'||shelf_code from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " order by roworder " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + ") as " + __wareHouseAndShelfCodeField
+                                        + " from " + _g.d.ic_trans_detail._table
+                                        + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + __transFlag
+                                        + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
+                                    __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
+                                    for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
                                     {
-                                        this._icTransScreenTop._setDataStr(_g.d.ic_trans._sale_code, __sale_code);
-                                    }
-                                    this._icTransScreenTop._setComboBox(_g.d.ic_trans._inquiry_type, __inquiry_type);
-                                    this._icTransScreenTop._setComboBox(_g.d.ic_trans._vat_type, __vat_type);
-                                }
-                                catch
-                                {
-                                }
+                                        __foundRef = true;
+                                        string __itemName = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_name].ToString();
+                                        string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
+                                        int __refRow = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_row].ToString());
+                                        string __itemCodeMain = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code_main].ToString();
+                                        int __itemType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_type].ToString());
+                                        int __isGetPrice = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_get_price].ToString());
+                                        decimal __setRefQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_qty].ToString());
+                                        decimal __setRefPrice = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_price].ToString());
+                                        string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
 
-                                string __balanceQty = "(" + _g.d.ic_trans_detail._qty + "*(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + "))-coalesce((select sum(" + "x." + _g.d.ic_trans_detail._qty + "*(" + "x." + _g.d.ic_trans_detail._stand_value + "/" + "x." + _g.d.ic_trans_detail._divide_value + ")) from " + _g.d.ic_trans_detail._table + " as x where " + "x." + _g.d.ic_trans_detail._trans_flag + " in (" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เสนอราคา_ยกเลิก).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า) + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_สั่งขาย).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString() + ") and " + "x." + _g.d.ic_trans_detail._ref_doc_no + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._doc_no + " and x." + _g.d.ic_trans_detail._item_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " and x." + _g.d.ic_trans_detail._last_status + "=0),0)";
-
-                                __wareHouseAndShelfCodeField = "wh_temp";
-                                __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type + ","
-
-                                    + _g.d.ic_trans_detail._item_name + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._ref_row + ","
-                                    + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._item_type + "," + _g.d.ic_trans_detail._is_get_price + ","
-                                    + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_price + "," + _g.d.ic_trans_detail._set_ref_line + "," + _g.d.ic_trans_detail._is_serial_number + ","
-
-                                    + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_wh + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._wh_code + ","
-                                    + "coalesce((select " + _g.d.ic_inventory_detail._start_purchase_shelf + " from " + _g.d.ic_inventory_detail._table + " where " + _g.d.ic_inventory_detail._table + "." + _g.d.ic_inventory_detail._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + "),'') as " + _g.d.ic_trans_detail._shelf_code + ","
-                                    + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + ",(" + __balanceQty + ")/(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + ") as " + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + ","
-                                    + "(select " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[0] + "wh_code||'~'||shelf_code from " + _g.d.ic_wh_shelf._table + " where " + _g.d.ic_wh_shelf._table + "." + _g.d.ic_wh_shelf._ic_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " order by roworder " + ((string[])MyLib._myGlobal._getTopAndLimitOneRecord())[1] + ") as " + __wareHouseAndShelfCodeField
-                                    + " from " + _g.d.ic_trans_detail._table
-                                    + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เสนอราคา).ToString()
-                                    + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
-                                __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
-                                for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
-                                {
-                                    __foundRef = true;
-                                    string __itemCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code].ToString();
-                                    string __barcode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._barcode].ToString();
-                                    string __itemName = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_name].ToString();
-                                    string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
-                                    int __refRow = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_row].ToString());
-                                    string __itemCodeMain = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code_main].ToString();
-                                    int __itemType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_type].ToString());
-                                    int __isGetPrice = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_get_price].ToString());
-                                    decimal __setRefQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_qty].ToString());
-                                    decimal __setRefPrice = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_price].ToString());
-                                    string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
-
-                                    string __docNo = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                                    string __unitCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_code].ToString();
-                                    string __wareHouseCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._wh_code].ToString();
-                                    string __shelfCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._shelf_code].ToString();
-                                    decimal __qty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._qty].ToString());
-                                    decimal __price = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._price].ToString());
-                                    decimal __amount = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._sum_amount].ToString());
-                                    int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
-                                    int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
-                                    int __is_serial_number = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_serial_number].ToString());
-
-                                    string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
-                                    if (__vatType != this._vatTypeNumber())
-                                    {
-                                        if (this._vatTypeNumber() == 0)
+                                        string __itemCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code].ToString();
+                                        string __barcode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._barcode].ToString();
+                                        string __docNo = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                                        string __unitCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_code].ToString();
+                                        string __wareHouseCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._wh_code].ToString();
+                                        string __shelfCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._shelf_code].ToString();
+                                        decimal __qty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._qty].ToString());
+                                        decimal __price = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._price].ToString());
+                                        decimal __amount = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._sum_amount].ToString());
+                                        int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
+                                        int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
+                                        string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
+                                        if (__vatType != this._vatTypeNumber())
                                         {
-                                            // แยกนอก แสดงว่าใบเสนอราคารวมใน ให้เอาราคาใบเสนอราคารวมในมาแยกนอก เพื่อให้สัมพันธ์กับการเสนอราคา
-                                            __price = (__price * 100M) / (100M + this._vatRate());
+                                            if (this._vatTypeNumber() == 0)
+                                            {
+                                                // แยกนอก แสดงว่าใบเสนอราคารวมใน ให้เอาราคาใบเสนอราคารวมในมาแยกนอก เพื่อให้สัมพันธ์กับการเสนอราคา
+                                                __price = (__price * 100M) / (100M + this._vatRate());
+                                            }
+                                            if (this._vatTypeNumber() == 1)
+                                            {
+                                                // รวมใน แสดงว่าใบเสนอราคาแยกนอก
+                                                __price = __price + ((__price * this._vatRate()) / 100M);
+                                            }
                                         }
-                                        if (this._vatTypeNumber() == 1)
+                                        if (__wareHouseCode.Trim().Length == 0)
                                         {
-                                            // รวมใน แสดงว่าใบเสนอราคาแยกนอก
-                                            __price = __price + ((__price * this._vatRate()) / 100M);
+                                            string[] __wareHouseAndShelfCodeTemp = __result.Tables[0].Rows[__row][__wareHouseAndShelfCodeField].ToString().Split('~');
+                                            __wareHouseCode = __wareHouseAndShelfCodeTemp[0].ToString();
+                                            __shelfCode = __wareHouseAndShelfCodeTemp[1].ToString();
                                         }
+                                        int __addr = this._addRow();
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._doc_ref_type, __docType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_doc_no, __docNo, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __itemCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __barcode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_name, __itemName, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_qty, __setRefQty, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_price, __setRefPrice, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __refRow, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_type, __itemType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._is_get_price, __isGetPrice, false);
+
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __unitCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._price, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __price : 0M), false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __discount : ""), false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __qty : 0M), false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? __amount : 0M), false);
+
+                                        //this._searchUnitNameWareHouseNameShelfName(__addr);
                                     }
-                                    if (__wareHouseCode.Trim().Length == 0)
+
+                                    this._searchUnitNameWareHouseNameShelfNameAll();
+                                }
+                            }
+                        }
+                        break;
+                    #endregion
+                    #region ขาย_รับคืนสินค้าจากการขายและลดหนี้
+                    case _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้:
+                        {
+                            this._clear();
+                            // ค้นหาตามประเภทเอกสาร
+                            for (int __docType = 1; __docType <= 3; __docType++)
+                            {
+                                string __docNoPack = this._icTransRef._getDocRefPackForQuery(__docType);
+                                if (__docNoPack.Length > 0)
+                                {
+                                    string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString();
+                                    __query = "select " + _g.d.ic_trans_detail._item_code + "," + _g.d.ic_trans_detail._barcode + "," + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._unit_code + "," + _g.d.ic_trans_detail._vat_type + "," + _g.d.ic_trans_detail._tax_type + ","
+                                        + _g.d.ic_trans_detail._wh_code + "," + _g.d.ic_trans_detail._shelf_code + "," + _g.d.ic_trans_detail._price + "," + _g.d.ic_trans_detail._discount + "," + _g.d.ic_trans_detail._qty + "," + _g.d.ic_trans_detail._sum_amount + "," + _g.d.ic_trans_detail._set_ref_qty + "," + _g.d.ic_trans_detail._set_ref_line + "," + _g.d.ic_trans_detail._item_code_main + "," + _g.d.ic_trans_detail._ref_guid + "," + _g.d.ic_trans_detail._is_permium + "  from " + _g.d.ic_trans_detail._table + " where " + _g.d.ic_trans_detail._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ).ToString() + " order by " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._line_number;
+                                    __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
+                                    for (int __row = 0; __row < __result.Tables[0].Rows.Count; __row++)
                                     {
-                                        string[] __wareHouseAndShelfCodeTemp = __result.Tables[0].Rows[__row][__wareHouseAndShelfCodeField].ToString().Split('~');
-                                        __wareHouseCode = __wareHouseAndShelfCodeTemp[0].ToString();
-                                        __shelfCode = __wareHouseAndShelfCodeTemp[1].ToString();
+                                        __foundRef = true;
+                                        string __itemCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code].ToString();
+                                        string __barcode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._barcode].ToString();
+                                        string __docNo = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                                        string __unitCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._unit_code].ToString();
+                                        string __wareHouseCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._wh_code].ToString();
+                                        string __shelfCode = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._shelf_code].ToString();
+                                        string __discount = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._discount].ToString();
+                                        decimal __qty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._qty].ToString());
+                                        decimal __price = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._price].ToString());
+                                        decimal __amount = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._sum_amount].ToString());
+                                        int __vatType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._vat_type].ToString());
+                                        int __taxType = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._tax_type].ToString());
+
+                                        string __itemCodeMain = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._item_code_main].ToString();
+
+                                        string __refGuid = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._ref_guid].ToString();
+                                        string __setRefLine = __result.Tables[0].Rows[__row][_g.d.ic_trans_detail._set_ref_line].ToString();
+                                        int __is_premium = MyLib._myGlobal._intPhase(__result.Tables[0].Rows[__row][_g.d.ic_trans_detail._is_permium].ToString());
+
+
+                                        //
+                                        int __addr = this._addRow();
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._doc_ref_type, __docType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_doc_no, __docNo, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __itemCode, true);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __barcode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __unitCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._price, __price, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, __discount, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, __amount, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._is_permium, __is_premium, false);
+
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
+                                        this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);
+
+
+                                        // this._searchUnitNameWareHouseNameShelfName(__addr);
                                     }
-                                    int __addr = this._addRow();
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_doc_no, __docNo, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __itemCode, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __barcode, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_name, __itemName, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_guid, __refGuid, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_line, __setRefLine, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_qty, __setRefQty, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._set_ref_price, __setRefPrice, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __refRow, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code_main, __itemCodeMain, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._item_type, __itemType, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._vat_type, __vatType, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._tax_type, __taxType, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._is_get_price, __isGetPrice, false);
+                                    this._searchUnitNameWareHouseNameShelfNameAll();
 
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __unitCode, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._price, __price, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._discount, __discount, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._sum_amount, __amount, false);
-
-                                    this._cellUpdate(__addr, _g.d.ic_trans_detail._is_serial_number, __is_serial_number, false);
-
-                                    //this._searchUnitNameWareHouseNameShelfName(__addr);
-                                    this._calcItemPrice(__addr, __addr, this._findColumnByName(_g.d.ic_trans_detail._discount));
 
                                 }
-                                this._searchUnitNameWareHouseNameShelfNameAll();
                             }
                         }
                         break;
@@ -2870,6 +2892,32 @@ namespace SMLInventoryControl
                     #endregion
                     #region ซิ้อ
 
+                    #region ซื้อ_ใบสั่งซื้อ_ยกเลิก
+                    case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก:
+                        {
+                            this._clear();
+                            //
+                            string __docNo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._doc_ref);
+
+                            string __balanceQty = "case when coalesce(item_code, '') = '' then 0 else   (((" + _g.d.ic_trans_detail._qty + "*(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + "))-coalesce((select sum(" + "x." + _g.d.ic_trans_detail._qty + "*(" + "x." + _g.d.ic_trans_detail._stand_value + "/" + "x." + _g.d.ic_trans_detail._divide_value + ")) from " + _g.d.ic_trans_detail._table + " as x where " + "x." + _g.d.ic_trans_detail._trans_flag + " in (" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า).ToString() + ") and " + "x." + _g.d.ic_trans_detail._ref_doc_no + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._doc_no + " and x." + _g.d.ic_trans_detail._item_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " and x." + _g.d.ic_trans_detail._last_status + "=0),0))/(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + ")) end ";
+
+                            DataTable __getData = __myFrameWork._queryShort("select " + MyLib._myGlobal._fieldAndComma(_g.d.ic_trans_detail._item_code, _g.d.ic_trans_detail._barcode, _g.d.ic_trans_detail._unit_code, __balanceQty + " as " + _g.d.ic_trans_detail._qty, _g.d.ic_trans_detail._line_number) + " from " + _g.d.ic_trans_detail._table + " where " + _g.d.ic_trans_detail._doc_no + "=\'" + __docNo + "\'" + " and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ).ToString() + " and " + __balanceQty + "<>0 order by line_number ").Tables[0];
+                            // ปรับปรุงหน่วยนับ เพื่อคำนวณ
+                            for (int __row = 0; __row < __getData.Rows.Count; __row++)
+                            {
+                                int __addr = this._addRow();
+                                int __refRow = MyLib._myGlobal._intPhase(__getData.Rows[__row][_g.d.ic_trans_detail._line_number].ToString());
+
+                                this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __getData.Rows[__row][_g.d.ic_trans_detail._item_code].ToString(), true);
+                                this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __getData.Rows[__row][_g.d.ic_trans_detail._barcode].ToString(), true);
+                                this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __getData.Rows[__row][_g.d.ic_trans_detail._unit_code].ToString(), true);
+                                this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, MyLib._myGlobal._decimalPhase(__getData.Rows[__row][_g.d.ic_trans_detail._qty].ToString()), false);
+
+                                this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __refRow, false);
+                            }
+                        }
+                        break;
+                    #endregion
                     #region ซื้อ_ใบสั่งซื้อ
                     case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ:
                         {
@@ -3800,6 +3848,7 @@ namespace SMLInventoryControl
 
                     #endregion
 
+                    #region สินค้า
                     case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
                         {
                             this._clear();
@@ -3877,31 +3926,9 @@ namespace SMLInventoryControl
                             }
                         }
                         break;
+                    #endregion
 
-                    case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก:
-                        {
-                            this._clear();
-                            //
-                            string __docNo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._doc_ref);
 
-                            string __balanceQty = "case when coalesce(item_code, '') = '' then 0 else   (((" + _g.d.ic_trans_detail._qty + "*(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + "))-coalesce((select sum(" + "x." + _g.d.ic_trans_detail._qty + "*(" + "x." + _g.d.ic_trans_detail._stand_value + "/" + "x." + _g.d.ic_trans_detail._divide_value + ")) from " + _g.d.ic_trans_detail._table + " as x where " + "x." + _g.d.ic_trans_detail._trans_flag + " in (" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ).ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า).ToString() + ") and " + "x." + _g.d.ic_trans_detail._ref_doc_no + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._doc_no + " and x." + _g.d.ic_trans_detail._item_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " and x." + _g.d.ic_trans_detail._last_status + "=0),0))/(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + ")) end ";
-
-                            DataTable __getData = __myFrameWork._queryShort("select " + MyLib._myGlobal._fieldAndComma(_g.d.ic_trans_detail._item_code, _g.d.ic_trans_detail._barcode, _g.d.ic_trans_detail._unit_code, __balanceQty + " as " + _g.d.ic_trans_detail._qty, _g.d.ic_trans_detail._line_number) + " from " + _g.d.ic_trans_detail._table + " where " + _g.d.ic_trans_detail._doc_no + "=\'" + __docNo + "\'" + " and " + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ).ToString() + " and " + __balanceQty + "<>0 order by line_number ").Tables[0];
-                            // ปรับปรุงหน่วยนับ เพื่อคำนวณ
-                            for (int __row = 0; __row < __getData.Rows.Count; __row++)
-                            {
-                                int __addr = this._addRow();
-                                int __refRow = MyLib._myGlobal._intPhase(__getData.Rows[__row][_g.d.ic_trans_detail._line_number].ToString());
-
-                                this._cellUpdate(__addr, _g.d.ic_trans_detail._item_code, __getData.Rows[__row][_g.d.ic_trans_detail._item_code].ToString(), true);
-                                this._cellUpdate(__addr, _g.d.ic_trans_detail._barcode, __getData.Rows[__row][_g.d.ic_trans_detail._barcode].ToString(), true);
-                                this._cellUpdate(__addr, _g.d.ic_trans_detail._unit_code, __getData.Rows[__row][_g.d.ic_trans_detail._unit_code].ToString(), true);
-                                this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, MyLib._myGlobal._decimalPhase(__getData.Rows[__row][_g.d.ic_trans_detail._qty].ToString()), false);
-
-                                this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __refRow, false);
-                            }
-                        }
-                        break;
                     case _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า_ยกเลิก:
                         {
                             this._clear();
@@ -10000,7 +10027,7 @@ namespace SMLInventoryControl
                             {
                                 // check doc ref
                                 string __getDocRef = this._cellGet(row, _g.d.ic_trans_detail._ref_doc_no).ToString();
-                                if (__getDocRef.Length ==0)
+                                if (__getDocRef.Length == 0)
                                 {
                                     MessageBox.Show("กรุณาเลือกเอกสารอ้างอิง");
                                     this._cellUpdate(row, _g.d.ic_trans_detail._item_code, "", false);

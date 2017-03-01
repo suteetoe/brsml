@@ -20,7 +20,7 @@ namespace MyLib
         public static Boolean _isDesignMode = true;
         public static List<_providerListClass> _providerList = new List<_providerListClass>();
         public static List<_printerListClass> _printerList = new List<_printerListClass>();
-        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 9, 18);
+        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 9, 19);
         public static Boolean _autoLogin = false;
         public static Boolean _useNoVat = false;
         public static string _programName = "";
@@ -1050,6 +1050,10 @@ namespace MyLib
                         }
                         if (_xmlUpdate.CompareTo(__lastUpdate) > 0)
                         {
+                            __myFrameWork._sendXmlFile(MyLib._myGlobal._dataViewTemplateXmlFileName);
+                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "truncate table erp_view_column");
+                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "truncate table erp_view_table");
+
                             MessageBox.Show("ตรวจพบการเปลี่ยนแปลงโครงสร้างข้อมูล กรุณาทำการตรวจสอบโครงสร้างฐานข้อมูลใหม่", "Database Verify", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }
                     }
@@ -2309,6 +2313,12 @@ namespace MyLib
 
         public static string _convertDateToString(DateTime myDateTime, bool fullMode, bool shortFormat)
         {
+            return _convertDateToString(myDateTime, fullMode, shortFormat, "d/M/yyyy");
+        }
+
+
+        public static string _convertDateToString(DateTime myDateTime, bool fullMode, bool shortFormat, string formatStr)
+        {
             StringBuilder __result = new StringBuilder();
             //IFormatProvider __culture = new CultureInfo("th-TH");
             /*if (fullMode)
@@ -2340,7 +2350,7 @@ namespace MyLib
                 __result.Append((myDateTime.Year <= 1000) ? "" : myDateTime.ToString((shortFormat) ? "dd/MM/yyyy" : "d MMMM yyyy", __culture));
             }
             __result.Append((myDateTime.Year <= 1000) ? "" : myDateTime.ToString((shortFormat) ? "dd/MM/yyyy" : "d MMMM yyyy", __culture));*/
-            __result.Append((myDateTime.Year <= 1000) ? "" : myDateTime.ToString("d/M/yyyy", _cultureInfo()));
+            __result.Append((myDateTime.Year <= 1000) ? "" : myDateTime.ToString(formatStr, _cultureInfo()));
             return __result.ToString();
         }
 

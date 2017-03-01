@@ -109,6 +109,7 @@ namespace _g
                 case _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ:
                     __screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "SI" + "\' ";
                     break;
+                case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
                 case _g.g._transControlTypeEnum.สินค้า_โอนเข้า:
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                 case _g.g._transControlTypeEnum.สินค้า_โอนเข้า_ยกเลิก:

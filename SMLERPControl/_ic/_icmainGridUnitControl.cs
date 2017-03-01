@@ -101,6 +101,7 @@ namespace SMLERPControl._ic
                         this._cellUpdate(row, _g.d.ic_unit_use._ratio, __getTotal, false);
                     }
                 }
+                /*
                 if (column == 6)
                 {
                     char[] splitter = { 'x', 'X' };
@@ -112,6 +113,7 @@ namespace SMLERPControl._ic
                         this._cellUpdate(row, _g.d.ic_unit_use._width_length_height, "", false);
                     }
                 }
+                */
             }
             catch (Exception)
             {

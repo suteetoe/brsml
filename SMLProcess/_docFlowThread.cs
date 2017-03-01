@@ -1627,6 +1627,11 @@ namespace SMLProcess
                             case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
                                 __queryDocCancelCount = "(select count(doc_no) from ( select doc_no from ic_trans as doc_cancel where doc_cancel.trans_flag = 59 and doc_cancel.doc_ref = ic_trans.doc_no union all select doc_no from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 58 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no ) as doc_cancel_temp ) ";
                                 break;
+                            case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
+                                __queryDocCancelCount = "(select count(doc_no) from ( select doc_no from ic_trans as doc_cancel where doc_cancel.trans_flag = 125 and doc_cancel.doc_ref = ic_trans.doc_no union all select doc_no from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 124 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no ) as doc_cancel_temp  ) ";
+                                __queryCountItemQty = "(select coalesce(sum(qty * (stand_value/divide_value)),0) from ic_trans_detail where ic_trans_detail.doc_no=ic_trans.doc_no and ic_trans_detail.trans_flag=124 and ic_trans_detail.last_status=0 and ic_trans_detail.item_code <> '' )";
+                                __queryReduceItemQty = "(select coalesce(sum(qty * (stand_value/divide_value)),0) from ic_trans_detail where ic_trans_detail.ref_doc_no=ic_trans.doc_no and ic_trans_detail.trans_flag in (72) and ic_trans_detail.last_status=0)";
+                                break;
                             case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                                 __queryDocCancelCount = "(select count(doc_no) from ( select doc_no from ic_trans as doc_cancel where doc_cancel.trans_flag = 73 and doc_cancel.doc_ref = ic_trans.doc_no union all select doc_no from ic_trans as doc_cancel2 where doc_cancel2.trans_flag in (70,72) and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no ) as doc_cancel_temp ) ";
                                 break;
@@ -2249,6 +2254,7 @@ namespace SMLProcess
                                 switch (_transType)
                                 {
                                     case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า:
+                                    case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
                                         {
                                             decimal __itemQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[0][__fieldCountItemQty].ToString());
                                             decimal __reduce = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[0][__fidldReduceItemQty].ToString());
@@ -2264,6 +2270,7 @@ namespace SMLProcess
                                             }
                                         }
                                         break;
+
                                     case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ:
 
                                     case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ:
@@ -2281,6 +2288,7 @@ namespace SMLProcess
                                     case _g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล:
 
                                     case _g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก:
+
                                         {
                                             decimal __itemQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[0][__fieldCountItemQty].ToString());
                                             decimal __reduce = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[0][__fidldReduceItemQty].ToString());
@@ -2596,6 +2604,7 @@ namespace SMLProcess
                 case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
                 case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก_ยกเลิก:
 
+                case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
                 case _g.g._transControlTypeEnum.สินค้า_โอนเข้า:
                 case _g.g._transControlTypeEnum.สินค้า_โอนเข้า_ยกเลิก:
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:

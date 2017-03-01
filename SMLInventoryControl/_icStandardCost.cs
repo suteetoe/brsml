@@ -23,7 +23,7 @@ namespace SMLInventoryControl
         {
             this.SuspendLayout();
             this._table_name = _g.d.ic_standard_cost._table;
-            string __formatNumber = MyLib._myGlobal._getFormatNumber("m02");
+            string __formatNumber = _g.g._getFormatNumberStr(2); // MyLib._myGlobal._getFormatNumber("m02");
             string __formatNumberNone = MyLib._myGlobal._getFormatNumber("m00");
             this._addColumn(_g.d.ic_standard_cost._date_start, 4, 10, 25, true, false, true);
             this._addColumn(_g.d.ic_standard_cost._unit_code, 1, 10, 25, false, false, true, true);

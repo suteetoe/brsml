@@ -75,6 +75,16 @@ namespace MyLib
             //this.Disposed += new EventHandler(_user_Disposed);
             //this.Resize += new EventHandler(_user_Resize);
             this._webBrowser.Visible = false;
+
+            if (MyLib._myGlobal._isUserLockDocument == true)
+            {
+                this._manageDataScreen._dataList._isLockDoc = true;
+
+                this._manageDataScreen._dataList._buttonUnlockDoc.Visible = true;
+                this._manageDataScreen._dataList._buttonLockDoc.Visible = true;
+                this._manageDataScreen._dataList._separatorLockDoc.Visible = true;
+
+            }
         }
 
         public String _dataTableName
