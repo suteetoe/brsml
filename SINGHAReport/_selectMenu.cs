@@ -178,6 +178,8 @@ namespace SINGHAReport
                 case "menu_saletools_product_amount_deposit_movement": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDYXJkTW92ZW1lbnRTTUxWMi5hc3B4");
                 case "menu_saletools_product_qty_ar_deposit": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDdXMuYXNweD9HQ3VzPVk=");
                 case "menu_saletools_product_qty_ap_deposit": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDdXMuYXNweD9HQ3VzPQ==");
+
+                case "menu_saletools_approve_return_from_cus": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT1HJkdDdXM9WQ==");
             }
             return null;
         }

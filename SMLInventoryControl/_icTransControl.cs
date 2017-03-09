@@ -9980,7 +9980,7 @@ namespace SMLInventoryControl
                         {
                             // ลบ GL เก่าออก
                             //
-                            if (_g.g._companyProfile._gl_process_realtime == false || __glManual == true)
+                            // if (_g.g._companyProfile._gl_process_realtime == false || __glManual == true)
                             {
                                 __myQuery.Append(this._glDeleteQuery(this._oldDocNo));
                             }
@@ -11657,7 +11657,8 @@ namespace SMLInventoryControl
 
                             __processControl = new SMLERPGL._transProcessUserControl();
 
-                            SMLERPGL._transProcessUserControl._transDataObject __transData = new SMLERPGL._transProcessUserControl._transDataObject("IC", (this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, this._getTransFlag, this._getTransType, this._icTransScreenTop._docFormatCode)
+                            //SMLERPGL._transProcessUserControl._transDataObject __transData = new SMLERPGL._transProcessUserControl._transDataObject("IC", (this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, this._getTransFlag, this._getTransType, this._icTransScreenTop._docFormatCode)
+                            SMLERPGL._transProcessUserControl._transDataObject __transData = new SMLERPGL._transProcessUserControl._transDataObject("IC", __docNo, this._getTransFlag, this._getTransType, this._icTransScreenTop._docFormatCode)
                             {
                                 cust_code = this._icTransScreenTop._getDataStr(_g.d.ic_trans._cust_code),
                                 cust_name = (this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code) != null) ? ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textSecond : "",

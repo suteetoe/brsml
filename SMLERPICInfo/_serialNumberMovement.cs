@@ -28,7 +28,7 @@ namespace SMLERPICInfo
             this._clear();
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
             string __custName = "case when trans_flag in (12,14,16) then coalesce((select name_1 from ap_supplier where ap_supplier.code=ic_trans_serial_number.cust_code),\'\') else coalesce((select name_1 from ar_customer where ar_customer.code=ic_trans_serial_number.cust_code),\'\') end";
-            string __query = "select *," + __custName +" as cust_name from " + _g.d.ic_trans_serial_number._table + " where " + MyLib._myGlobal._addUpper(_g.d.ic_trans_serial_number._serial_number) + "=\'" + serialNumber.ToUpper() + "\' and " + _g.d.ic_trans_serial_number._ic_code + "=\'" + itemCode + "\' " +" order by doc_date,doc_time";
+            string __query = "select *," + __custName +" as cust_name from " + _g.d.ic_trans_serial_number._table + " where " + MyLib._myGlobal._addUpper(_g.d.ic_trans_serial_number._serial_number) + "=\'" + serialNumber.ToUpper() + "\' and " + _g.d.ic_trans_serial_number._ic_code + "=\'" + itemCode + "\' and last_status = 0 " +" order by doc_date,doc_time";
             DataTable __data = __myFrameWork._queryShort(__query).Tables[0];
             for (int __row = 0; __row < __data.Rows.Count; __row++)
             {

@@ -727,7 +727,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3317" _x="418" _y="1445">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3381" _x="418" _y="1445">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1755,6 +1755,26 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="use_credit_pay_bill_calc" _description="ใช้ระบบคำนวณวันครบกำหนดชำระบิล" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="pr_disable_price" _description="เสนอซื้อห้ามกำหนดราคา" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="stock_accured_level" _description="ประเภทห้ามขายเกินค้างส่ง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_pay_from_bill_note" _description="รับชำระหนี้อ้างอิงวางบิลทุกครั้ง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ap_pay_from_bill_note" _description="จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -7563,7 +7583,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer" _description="ลูกหนี้" _descriptionEng="customer" _version="SMLERP" _width="305" _height="1365" _x="664" _y="5">
+    <_tableList _moduleName="AP_AR" _name="ar_customer" _description="ลูกหนี้" _descriptionEng="customer" _version="SMLERP" _width="305" _height="1381" _x="664" _y="5">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -7983,6 +8003,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="arm_approve_date" _description="วันที่อนุมัติ ARM Code" _descriptionEng="" _type="6" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="nfc_id" _description="NFC ID" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -8896,7 +8921,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_item_by_customer" _description="สินค้าตามลูกค้า" _descriptionEng="Item by Customer" _version="" _width="216" _height="101" _x="662" _y="1348">
+    <_tableList _moduleName="AP_AR" _name="ar_item_by_customer" _description="สินค้าตามลูกค้า" _descriptionEng="Item by Customer" _version="" _width="216" _height="101" _x="652" _y="1757">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">

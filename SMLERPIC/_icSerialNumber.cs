@@ -73,8 +73,11 @@ namespace SMLERPIC
         {
             try
             {
+                int __columnItemName = this._myManageMain._dataList._gridData._findColumnByName(_g.d.ic_serial._table + "." + _g.d.ic_serial._ic_code);
+                string __whereItemName = " and \'" + ((ArrayList)rowData)[__columnItemName].ToString() + "\' like " + _g.d.ic_serial._ic_code + " || '(%'";
+
                 MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-                DataSet getData = __myFrameWork._queryShort("select * from " + this._myManageMain._dataList._tableName + whereString);
+                DataSet getData = __myFrameWork._queryShort("select * from " + this._myManageMain._dataList._tableName + whereString + __whereItemName);
                 this._serialNumberScreen._loadData(getData.Tables[0]);
                 string __serialNumber = this._serialNumberScreen._getDataStr(_g.d.ic_serial._serial_number).ToString();
                 string __itemCode = this._serialNumberScreen._getDataStr(_g.d.ic_serial._ic_code).ToString();

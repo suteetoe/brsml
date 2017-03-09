@@ -1432,6 +1432,22 @@ namespace _g
             /// ใช้ระบบคำนวณวันครบกำหนดชำระบิล
             /// </summary>
             public static String _use_credit_pay_bill_calc = "use_credit_pay_bill_calc";
+            /// <summary>
+            /// เสนอซื้อห้ามกำหนดราคา
+            /// </summary>
+            public static String _pr_disable_price = "pr_disable_price";
+            /// <summary>
+            /// ประเภทห้ามขายเกินค้างส่ง
+            /// </summary>
+            public static String _stock_accured_level = "stock_accured_level";
+            /// <summary>
+            /// รับชำระหนี้อ้างอิงวางบิลทุกครั้ง
+            /// </summary>
+            public static String _ar_pay_from_bill_note = "ar_pay_from_bill_note";
+            /// <summary>
+            /// จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง
+            /// </summary>
+            public static String _ap_pay_from_bill_note = "ap_pay_from_bill_note";
         }
 
         /// <summary>
@@ -6301,6 +6317,10 @@ namespace _g
             /// วันที่อนุมัติ ARM Code
             /// </summary>
             public static String _arm_approve_date = "arm_approve_date";
+            /// <summary>
+            /// NFC ID
+            /// </summary>
+            public static String _nfc_id = "nfc_id";
         }
 
         /// <summary>

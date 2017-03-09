@@ -162,6 +162,7 @@ namespace SMLERPControl._customer
                                     this._addTextBox(__row, 1, 1, 0, _g.d.ar_customer._ar_branch_code, 1, 1, 4, true, false, true);
                                 }
                                 __row++;
+                                this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._nfc_id, 1, 1, 0, true, false, true);
                             }
 
                             this._addTextBox(__row++, 0, 2, 2, _g.d.ar_customer._remark, 2, 0, 0, true, false, true, true);
