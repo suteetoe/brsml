@@ -1621,6 +1621,12 @@ namespace SMLERPAPARControl
                 // auto run
                 this._search_data_full_pointer._dataList._extraWhere = MyLib._myGlobal._addUpper(_g.d.erp_doc_format._screen_code) + "=\'" + this._screen_code.ToUpper() + "\'";
             }
+
+            if (_searchName.Equals(_g.d.ap_ar_trans._sale_code))
+            {
+                this._search_data_full_pointer._dataList._extraWhere =  "coalesce(" + _g.d.erp_user._is_login_user + ", 0)=0 ";
+            }
+
             if (_searchName.Equals(_g.d.ic_trans._doc_ref))
             {
                 switch (this._controlTypeTemp)

@@ -2712,6 +2712,11 @@ namespace SMLInventoryControl
                                 {
                                     _searchScreenMasterList = _searchScreenProperties._setColumnSearch(this._searchName, 0, "", this._screen_code, _g.d.erp_user_group._is_price_list_approve + "=1");
                                 }
+
+                                if (this._searchName.Equals(_g.d.ic_trans._sale_code) && MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
+                                {
+                                    __extraWhere += "coalesce(" + _g.d.erp_user._is_login_user + ", 0)=0 ";
+                                }
                                 break;
                             case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ:
                                 _searchScreenMasterList = _searchScreenProperties._setColumnSearch(this._searchName, 0, "", this._screen_code, _g.d.erp_user_group._is_pr_approve + "=1");
@@ -3412,6 +3417,23 @@ namespace SMLInventoryControl
                                         _searchScreenMasterList.Add(_g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ));
                                         _searchScreenMasterList.Add(_g.d.ic_trans._table);
                                         _searchScreenMasterList.Add(_g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ) + " and " + _g.d.ic_trans._cust_code + "=\'" + this._getDataStr(_g.d.ic_trans._cust_code) + "\'");
+                                    }
+                                }
+                                break;
+
+                            case _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้:
+                                {
+                                    if (this._searchName.Equals(_g.d.ic_trans._sale_code) && MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
+                                    {
+                                        __extraWhere += "coalesce(" + _g.d.erp_user._is_login_user + ", 0)=0 ";
+                                    }
+                                }
+                                break;
+                            case _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้:
+                                {
+                                    if (this._searchName.Equals(_g.d.ic_trans._sale_code) && MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
+                                    {
+                                        __extraWhere += "coalesce(" + _g.d.erp_user._is_login_user + ", 0)=0 ";
                                     }
                                 }
                                 break;
