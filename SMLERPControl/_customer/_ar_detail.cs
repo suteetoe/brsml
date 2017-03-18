@@ -259,6 +259,12 @@ namespace SMLERPControl._customer
         {
             if (this._myToolbar.Enabled == true)
             {
+                if (this._myManageData1._isEdit == false)
+                {
+                    MessageBox.Show(MyLib._myGlobal._resource("warning55"), MyLib._myGlobal._resource("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (MyLib._myGlobal._checkChangeMaster())
                 {
                     string getEmtry = this._screenTop._checkEmtryField();
@@ -339,7 +345,8 @@ namespace SMLERPControl._customer
                                 {
                                     _myManageData1._afterUpdateData();
                                 }
-                                this._myManageData1._newData(true);
+                                //this._myManageData1._newData(true);
+                                _myManageData1__clearData();
                                 this._screenTop._isChange = false;
                             }
                             else
@@ -393,7 +400,7 @@ namespace SMLERPControl._customer
             this._screen_ar_contact_grid1._clear();
             Control codeControl = this._screenTop._getControl(_g.d.ar_customer._code);
             codeControl.Enabled = true;
-            this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code), "", true);
+            //this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code), "", true);
             if (this._screenTop._getControl(_g.d.ar_customer._name_1).GetType() == typeof(MyLib._myTextBox))
             {
                 MyLib._myTextBox getText = (MyLib._myTextBox)this._screenTop._getControl(_g.d.ar_customer._name_1);

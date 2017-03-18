@@ -11,6 +11,7 @@ namespace SMLERPASSET
 {
     public partial class _as_list : UserControl
     {
+        /* โต๋ทำ search แบบ buffer แทน
         MyLib._searchDataFull _searchUnitCode = new MyLib._searchDataFull();
         MyLib._searchDataFull _searchAsType = new MyLib._searchDataFull();
         MyLib._searchDataFull _searchSideCode = new MyLib._searchDataFull();
@@ -18,11 +19,17 @@ namespace SMLERPASSET
         MyLib._searchDataFull _searchAsLocation = new MyLib._searchDataFull();
         MyLib._searchDataFull _searchUser = new MyLib._searchDataFull();
         MyLib._searchDataFull _searchProvince = new MyLib._searchDataFull();
+        */
+
+        MyLib._searchDataFull _searchMasterScreen = new MyLib._searchDataFull();
+        SMLERPGlobal._searchProperties _searchScreenProperties = new SMLERPGlobal._searchProperties();
+        string _searchScreenMasterList = "";
 
         string _searchName = "";
         TextBox _searchTextBox;
         string _searchTxtName = "";
         MyLib._myFrameWork _myFrameWork = new MyLib._myFrameWork();
+        MyLib._myTextBox _searchControlTextbox;
         // Old Code For Update
         int _getColumnAsCode = 0;
         string _oldAsCode = "";
@@ -57,12 +64,16 @@ namespace SMLERPASSET
             this._screenTop._addTextBox(3, 0, 1, 0, _g.d.as_asset._name_eng_1, 2, 100, 0, true, false, false);
             this._screenTop._addTextBox(4, 0, 1, 0, _g.d.as_asset._name_eng_2, 2, 100, 0, true, false, true);
             this._screenTop._addTextBox(5, 0, 1, 0, _g.d.as_asset._code_old, 1, 25, 0, true, false, true);
-            MyLib._myGroupBox __statusGroupBox = _screenTop._addGroupBox(6, 0, 1, 3, 2, _g.d.as_asset._status, true);
+
+            this._screenTop._addTextBox(6, 0, 1, 0, _g.d.as_asset._depreciation_account_code, 1, 25, 1, true, false, false);
+            this._screenTop._addTextBox(7, 0, 1, 0, _g.d.as_asset._depreciation_sum_account_code, 1, 25, 1, true, false, false);
+
+            MyLib._myGroupBox __statusGroupBox = _screenTop._addGroupBox(8, 0, 1, 3, 2, _g.d.as_asset._status, true);
             _screenDepreciation._addRadioButtonOnGroupBox(0, 0, __statusGroupBox, __getNormalStatusResource, 0, true);
             _screenDepreciation._addRadioButtonOnGroupBox(0, 1, __statusGroupBox, __getDefectiveStatusResource, 1, false);
             _screenDepreciation._addRadioButtonOnGroupBox(0, 2, __statusGroupBox, __getLostStatusResource, 2, false);
 
-            this._screenTop._addTextBox(8, 0, 2, _g.d.as_asset._remark, 2, 255);
+            this._screenTop._addTextBox(10, 0, 2, _g.d.as_asset._remark, 2, 255);
             this._screenTop._refresh();
             // Event Screeen Top
             this._screenTop._saveKeyDown += new MyLib.SaveKeyDownHandler(_screenTop__saveKeyDown);
@@ -87,7 +98,9 @@ namespace SMLERPASSET
             this._screenGeneral._checkKeyDownReturn += new MyLib.CheckKeyDownReturnHandler(_screenGeneral__checkKeyDownReturn);
             this._screenGeneral._textBoxChanged += new MyLib.TextBoxChangedHandler(_screenGeneral__textBoxChanged);
             this._screenGeneral._textBoxSearch += new MyLib.TextBoxSearchHandler(_screenGeneral__textBoxSearch);
+
             // Start Unit Code
+            /*
             _searchUnitCode._name = _g.g._search_master_ic_unit;
             _searchUnitCode._dataList._loadViewFormat(_searchUnitCode._name, MyLib._myGlobal._userSearchScreenGroup, false);
             _searchUnitCode._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_gridData__mouseClick);
@@ -123,7 +136,7 @@ namespace SMLERPASSET
             _searchProvince._dataList._loadViewFormat(_searchProvince._name, MyLib._myGlobal._userSearchScreenGroup, false);
             _searchProvince._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_gridData__mouseClick);
             _searchProvince._searchEnterKeyPress += _searchProvince__searchEnterKeyPress;
-
+            */
             // ค้นหาแบบทันทีเมื่อเลื่อนไปช่องนั้น
             MyLib._myTextBox __getUnitCodeControl = (MyLib._myTextBox)_screenGeneral._getControl(_g.d.as_asset._unit_code);
             __getUnitCodeControl.textBox.Enter += new EventHandler(textBox_Enter);
@@ -334,17 +347,17 @@ namespace SMLERPASSET
             }
         }
 
-        void _searchProvince__searchEnterKeyPress(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
+        //void _searchProvince__searchEnterKeyPress(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
 
-        }
+        //}
 
-        void _searchUser__searchEnterKeyPress(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
+        //void _searchUser__searchEnterKeyPress(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
 
-        }
+        //}
 
         void _numAgeChange_Leave(object sender, EventArgs e)
         {
@@ -441,6 +454,10 @@ namespace SMLERPASSET
                     _autoRunning();
                 }
             }
+            else if (this._searchName.Equals(_g.d.as_asset._depreciation_account_code) || this._searchName.Equals(_g.d.as_asset._depreciation_sum_account_code))
+            {
+                _search(true);
+            }
         }
 
         MyLib._searchDataFull _search_data_full = new MyLib._searchDataFull();
@@ -478,6 +495,10 @@ namespace SMLERPASSET
                 }
                 MyLib._myGlobal._startSearchBox(this, ((MyLib._myTextBox)sender), ((MyLib._myTextBox)sender)._labelName, this._search_data_full, false, true, _where);
 
+            }
+            if (__name.Equals(_g.d.as_asset._depreciation_account_code) || __name.Equals(_g.d.as_asset._depreciation_sum_account_code))
+            {
+                _screenGeneral__textBoxSearch(sender);
             }
         }
 
@@ -705,15 +726,15 @@ namespace SMLERPASSET
             this._screenDepreciation._focusFirst();
         }
 
-        void _searchDepartmentCode__searchEnter(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
-        }
+        //void _searchDepartmentCode__searchEnter(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
+        //}
 
-        void _searchSideCode__searchEnter(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
-        }
+        //void _searchSideCode__searchEnter(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
+        //}
 
         Boolean _screenDepreciation__checkKeyDown(object sender, Keys keyData)
         {
@@ -755,56 +776,63 @@ namespace SMLERPASSET
         {
             if (e.KeyCode == Keys.F2)
             {
-                if (_searchUnitCode.Visible)
-                {
-                    _searchUnitCode.Focus();
-                    _searchUnitCode._firstFocus();
-                }
-                if (_searchAsType.Visible)
-                {
-                    _searchAsType.Focus();
-                    _searchAsType._firstFocus();
-                }
-                if (_searchSideCode.Visible)
-                {
-                    _searchSideCode.Focus();
-                    _searchSideCode._firstFocus();
-                }
-                if (_searchDepartmentCode.Visible)
-                {
-                    _searchDepartmentCode.Focus();
-                    _searchDepartmentCode._firstFocus();
-                }
-                if (_searchAsLocation.Visible)
-                {
-                    _searchAsLocation.Focus();
-                    _searchAsLocation._firstFocus();
-                }
+                //if (_searchUnitCode.Visible)
+                //{
+                //    _searchUnitCode.Focus();
+                //    _searchUnitCode._firstFocus();
+                //}
+                //if (_searchAsType.Visible)
+                //{
+                //    _searchAsType.Focus();
+                //    _searchAsType._firstFocus();
+                //}
+                //if (_searchSideCode.Visible)
+                //{
+                //    _searchSideCode.Focus();
+                //    _searchSideCode._firstFocus();
+                //}
+                //if (_searchDepartmentCode.Visible)
+                //{
+                //    _searchDepartmentCode.Focus();
+                //    _searchDepartmentCode._firstFocus();
+                //}
+                //if (_searchAsLocation.Visible)
+                //{
+                //    _searchAsLocation.Focus();
+                //    _searchAsLocation._firstFocus();
+                //}
 
-                if (_searchUser.Visible)
-                {
-                    _searchUser.Focus();
-                    _searchUser._firstFocus();
-                }
+                //if (_searchUser.Visible)
+                //{
+                //    _searchUser.Focus();
+                //    _searchUser._firstFocus();
+                //}
 
-                if (_searchProvince.Visible)
-                {
-                    _searchProvince.Focus();
-                    _searchProvince._firstFocus();
+                //if (_searchProvince.Visible)
+                //{
+                //    _searchProvince.Focus();
+                //    _searchProvince._firstFocus();
 
+                //}
+
+                if (_searchMasterScreen.Visible)
+                {
+                    _searchMasterScreen.Focus();
+                    _searchMasterScreen._firstFocus();
                 }
             }
         }
 
         void textBox_Leave(object sender, EventArgs e)
         {
-            _searchUnitCode.Visible = false;
-            _searchAsType.Visible = false;
-            _searchSideCode.Visible = false;
-            _searchDepartmentCode.Visible = false;
-            _searchAsLocation.Visible = false;
-            _searchUser.Visible = false;
-            _searchProvince.Visible = false;
+            //_searchUnitCode.Visible = false;
+            //_searchAsType.Visible = false;
+            //_searchSideCode.Visible = false;
+            //_searchDepartmentCode.Visible = false;
+            //_searchAsLocation.Visible = false;
+            //_searchUser.Visible = false;
+            //_searchProvince.Visible = false;
+            _searchMasterScreen.Visible = false;
         }
 
         void textBox_Enter(object sender, EventArgs e)
@@ -877,15 +905,15 @@ namespace SMLERPASSET
             return true;
         }
 
-        void _searchAsLocation__searchEnter(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
-        }
+        //void _searchAsLocation__searchEnter(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
+        //}
 
-        void _searchUnitCode__searchEnter(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
-        }
+        //void _searchUnitCode__searchEnter(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
+        //}
 
         void _searchByParent(object sender, int row)
         {
@@ -895,10 +923,10 @@ namespace SMLERPASSET
             SendKeys.Send("{TAB}");
         }
 
-        void _searchAsType__searchEnter(MyLib._myGrid sender, int row)
-        {
-            _searchByParent(sender, row);
-        }
+        //void _searchAsType__searchEnter(MyLib._myGrid sender, int row)
+        //{
+        //    _searchByParent(sender, row);
+        //}
 
         void _get_column_number()
         {
@@ -952,8 +980,39 @@ namespace SMLERPASSET
             return (false);
         }
 
+        void _searchMasterScreen__searchEnterKeyPress(MyLib._myGrid sender, int row)
+        {
+            _searchByParent(sender, row);
+        }
+
+
         void _screenGeneral__textBoxSearch(object sender)
         {
+            //_searchScreenMasterList.Clear();
+            MyLib._myTextBox __getControl = (MyLib._myTextBox)sender;
+            _searchControlTextbox = __getControl;
+            this._searchTextBox = __getControl.textBox;
+            this._searchName = ((MyLib._myTextBox)sender)._name.ToLower();
+            try
+            {
+                _searchScreenMasterList = _search_screen_neme(this._searchName); //_searchScreenProperties._setColumnSearch(this._searchName, 0, "");
+                if (!this._searchMasterScreen._name.ToLower().Equals(_searchScreenMasterList[0].ToString().ToLower()))
+                {
+                    _searchMasterScreen = new MyLib._searchDataFull();
+                    this._searchMasterScreen.Text = ((MyLib._myTextBox)sender)._labelName;
+                    this._searchMasterScreen._name = _searchScreenMasterList; // _searchScreenMasterList[0].ToString();
+                    this._searchMasterScreen._searchEnterKeyPress += new MyLib.SearchEnterKeyPressEventHandler(_searchMasterScreen__searchEnterKeyPress);
+                    this._searchMasterScreen._dataList._loadViewFormat(this._searchMasterScreen._name, MyLib._myGlobal._userSearchScreenGroup, false);
+                    this._searchMasterScreen._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_gridData__mouseClick);
+                    this._searchMasterScreen._dataList._refreshData();
+                }
+                MyLib._myGlobal._startSearchBox(__getControl, ((MyLib._myTextBox)sender)._labelName, this._searchMasterScreen, false);
+            }
+            catch (Exception)
+            {
+            }
+
+            /*
             string name = ((MyLib._myTextBox)sender)._name;
             string label_name = ((MyLib._myTextBox)sender)._labelName;
             if (name.Equals(_g.d.as_asset._unit_code))
@@ -1007,6 +1066,7 @@ namespace SMLERPASSET
                 MyLib._myGlobal._startSearchBox(getControl, label_name, _searchProvince, false);
 
             }
+            */
         }
 
         void _screenGeneral__textBoxChanged(object sender, string name)
@@ -1025,7 +1085,7 @@ namespace SMLERPASSET
         /// <param name="row"></param>
         void _searchAll(string name, int row)
         {
-            if (name.Equals(_g.g._search_master_ic_unit))
+            /*if (name.Equals(_g.g._search_master_ic_unit))
             {
                 string result = (string)_searchUnitCode._dataList._gridData._cellGet(row, 0);
                 if (result.Length > 0)
@@ -1097,7 +1157,32 @@ namespace SMLERPASSET
                     _search(true);
                 }
 
+            }*/
+
+            string result = (string)this._searchMasterScreen._dataList._gridData._cellGet(row, 0);
+            if (result.Length > 0)
+            {
+                _searchMasterScreen.Close();
+                if (this._searchName.Equals(_g.d.as_asset._unit_code) ||
+                    this._searchName.Equals(_g.d.as_asset._as_type) ||
+                    this._searchName.Equals(_g.d.as_asset._as_location) ||
+                    this._searchName.Equals(_g.d.as_asset._side_code) ||
+                    this._searchName.Equals(_g.d.as_asset._department_code) ||
+                    this._searchName.Equals(_g.d.as_asset._user_code))
+                {
+                    _screenGeneral._setDataStr(_searchName, result, "", true);
+                }
+                else if (this._searchName.Equals(_g.d.as_asset._depreciation_account_code) || this._searchName.Equals(_g.d.as_asset._depreciation_sum_account_code))
+                {
+                    _screenTop._setDataStr(_searchName, result, "", true);
+                }
+                else if (this._searchName.Equals(_g.d.as_asset_detail._asset_province))
+                {
+                    _other_screen._setDataStr(_searchName, result, "", true);
+                }
+                _search(true);
             }
+
         }
 
         void _gridData__mouseClick(object sender, MyLib.GridCellEventArgs e)
@@ -1129,6 +1214,12 @@ namespace SMLERPASSET
                 {
                     string getDataStr = this._other_screen._getDataStr(fieldName);
                     _other_screen._setDataStr(fieldName, getDataStr, getData, true);
+
+                }
+                if (fieldName.Equals(_g.d.as_asset._depreciation_account_code) || fieldName.Equals(_g.d.as_asset._depreciation_sum_account_code))
+                {
+                    string getDataStr = this._screenTop._getDataStr(fieldName);
+                    _screenTop._setDataStr(fieldName, getDataStr, getData, true);
 
                 }
                 else
@@ -1170,6 +1261,8 @@ namespace SMLERPASSET
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.as_asset_location._name_1 + " from " + _g.d.as_asset_location._table + " where " + _g.d.as_asset_location._code + "=\'" + _screenGeneral._getDataStr(_g.d.as_asset._as_location) + "\'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_user._name_1 + " from " + _g.d.erp_user._table + " where " + _g.d.erp_user._code + "=\'" + _screenGeneral._getDataStr(_g.d.as_asset._user_code) + "\'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_province._name_1 + " from " + _g.d.erp_province._table + " where " + _g.d.erp_province._code + "=\'" + this._other_screen._getDataStr(_g.d.as_asset_detail._asset_province) + "\'"));
+                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.gl_chart_of_account._name_1 + " from " + _g.d.gl_chart_of_account._table + " where " + _g.d.gl_chart_of_account._code + "=\'" + this._screenTop._getDataStr(_g.d.as_asset._depreciation_account_code) + "\'"));
+                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.gl_chart_of_account._name_1 + " from " + _g.d.gl_chart_of_account._table + " where " + _g.d.gl_chart_of_account._code + "=\'" + this._screenTop._getDataStr(_g.d.as_asset._depreciation_sum_account_code) + "\'"));
                 __myquery.Append("</node>");
                 ArrayList _getData = _myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
                 _searchAndWarning(_g.d.as_asset._unit_code, (DataSet)_getData[0], warning);
@@ -1179,6 +1272,8 @@ namespace SMLERPASSET
                 _searchAndWarning(_g.d.as_asset._as_location, (DataSet)_getData[4], warning);
                 _searchAndWarning(_g.d.as_asset._user_code, (DataSet)_getData[5], warning);
                 _searchAndWarning(_g.d.as_asset_detail._asset_province, (DataSet)_getData[6], warning);
+                _searchAndWarning(_g.d.as_asset._depreciation_account_code, (DataSet)_getData[7], warning);
+                _searchAndWarning(_g.d.as_asset._depreciation_sum_account_code, (DataSet)_getData[8], warning);
             }
             catch
             {
@@ -1327,5 +1422,20 @@ namespace SMLERPASSET
             this._autoRunningButton.Image = imageList1.Images[this._autoRunningButton._iconNumber];
             this._autoRunningButton.Invalidate();
         }
+
+        string _search_screen_neme(string _name)
+        {
+            if (_name.Equals(_g.d.as_asset._unit_code)) return _g.g._search_master_ic_unit;
+            if (_name.Equals(_g.d.as_asset._as_type)) return _g.g._search_master_as_asset_type;
+            if (_name.Equals(_g.d.as_asset._as_location)) return _g.g._search_master_as_asset_location;
+            if (_name.Equals(_g.d.as_asset._side_code)) return _g.g._search_screen_erp_side_list;
+            if (_name.Equals(_g.d.as_asset._department_code)) return _g.g._search_screen_erp_department_list;
+            if (_name.Equals(_g.d.as_asset._user_code)) return _g.g._search_screen_erp_user;
+            if (_name.Equals(_g.d.as_asset_detail._asset_province)) return _g.g._screen_erp_province;
+            if (_name.Equals(_g.d.as_asset._depreciation_account_code) || _name.Equals(_g.d.as_asset._depreciation_sum_account_code)) return _g.g._search_screen_gl_chart_of_account;
+
+            return "";
+        }
+
     }
 }

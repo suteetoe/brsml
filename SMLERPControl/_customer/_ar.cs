@@ -188,6 +188,12 @@ namespace SMLERPControl._customer
         {
             if (this._myToolbar.Enabled == true)
             {
+                if (this._myManageData1._mode == 1 && this._myManageData1._isAdd == false)
+                {
+                    MessageBox.Show(MyLib._myGlobal._resource("warning19"), MyLib._myGlobal._resource("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 bool __pass = true;
 
                 if (MyLib._myGlobal._checkChangeMaster())

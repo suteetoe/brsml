@@ -43,6 +43,14 @@ namespace SMLERPControl.supplier
             // _myManageData1._dataList._loadViewData(0);
             _myManageData1._autoSize = true;
             _myManageData1._autoSizeHeight = 350;
+
+            // toe 
+            this._myManageData1._dataList._buttonNew.Visible =
+                this._myManageData1._dataList._buttonNewFromTemp.Visible =
+                this._myManageData1._dataList._buttonSelectAll.Visible =
+                this._myManageData1._dataList._buttonDelete.Visible = false;
+            
+
             this.Disposed += new EventHandler(_ap_Disposed);
             this._myToolbar.Renderer = new Renderers.WindowsVistaRenderer();
             this._myTabControl1.SelectedIndexChanged += new EventHandler(_myTabControl1_SelectedIndexChanged);
@@ -195,6 +203,12 @@ namespace SMLERPControl.supplier
         {
             if (this._myToolbar.Enabled == true)
             {
+                if (this._myManageData1._isEdit == false)
+                {
+                    MessageBox.Show(MyLib._myGlobal._resource("warning55"), MyLib._myGlobal._resource("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 if (MyLib._myGlobal._checkChangeMaster())
                 {
                     string getEmtry = this._screenTop._checkEmtryField();
@@ -260,7 +274,8 @@ namespace SMLERPControl.supplier
                                 {
                                     _myManageData1._afterUpdateData();
                                 }
-                                this._myManageData1._newData(true);
+                                // this._myManageData1._newData(true);
+                                _myManageData1__clearData();
                                 this._screenTop._isChange = false;
                             }
                             else
@@ -315,7 +330,7 @@ namespace SMLERPControl.supplier
             Control codeControl = this._screenTop._getControl(_g.d.ap_supplier._code);
             codeControl.Enabled = true;
             this._screenTop._setDataStr(_g.d.ap_supplier._code, MyLib._myGlobal._getAutoRun(_g.d.ap_supplier._table, _g.d.ap_supplier._code), "", true);
-            if (this._screenTop._getControl(_g.d.ap_supplier._name_1).GetType() == typeof(MyLib._myTextBox))
+            // this._screenTop._setDataStr(_g.d.ap_supplier._code, MyLib._myGlobal._getAutoRun(_g.d.ap_supplier._table, _g.d.ap_supplier._code), "", true);
             {
                 MyLib._myTextBox getText = (MyLib._myTextBox)this._screenTop._getControl(_g.d.ap_supplier._name_1);
                 getText.textBox.Focus();

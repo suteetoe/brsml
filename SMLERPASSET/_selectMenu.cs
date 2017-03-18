@@ -28,7 +28,7 @@ namespace SMLERPASSET
                 // แสดงค่าเสื่อมราคาสินทรัพย์รายปี
                 case "menu_show_asset_byyear": return(new SMLERPASSET._display._depreciateByYear()); 
                 // โอนข้อมูลเข้าระบบบัญชี
-                //case "menu_asset_transfers": return(new SMLERPAS._as_transfer()); 
+                case "menu_asset_transfers": return(new SMLERPASSET._as_transfer()); 
                 // รายงานรายละเอียดสินทรัพย์
                 case "menu_asset_report_list": return(new SMLERPASSET._report._asset._report()); 
                 // รายงานค่าเสื่อมราคาสินทรัพย์

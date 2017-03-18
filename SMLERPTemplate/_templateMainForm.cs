@@ -245,6 +245,7 @@ namespace SMLERPTemplate
             MyLib._myGlobal._tableForAutoUnlock.Add(_g.d.ic_wms_trans._table);
 
             MyLib._myGlobal._tableForAutoUnlock.Add(_g.d.ic_specific_search_word._table);
+            MyLib._myGlobal._tableForAutoUnlock.Add(_g.d.as_trans._table);
 
         }
 

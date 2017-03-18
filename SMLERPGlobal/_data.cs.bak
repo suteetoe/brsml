@@ -442,14 +442,6 @@ namespace _g
             /// SAP Code
             /// </summary>
             public static String _sap_code = "sap_code";
-            /// <summary>
-            /// Region
-            /// </summary>
-            public static String _region = "region";
-            /// <summary>
-            /// Club
-            /// </summary>
-            public static String _club = "club";
         }
 
         /// <summary>
@@ -1428,26 +1420,6 @@ namespace _g
             /// จอขายปิดอ้างอิงใบเสนอราคา
             /// </summary>
             public static String _inv_disable_quotation = "inv_disable_quotation";
-            /// <summary>
-            /// ใช้ระบบคำนวณวันครบกำหนดชำระบิล
-            /// </summary>
-            public static String _use_credit_pay_bill_calc = "use_credit_pay_bill_calc";
-            /// <summary>
-            /// เสนอซื้อห้ามกำหนดราคา
-            /// </summary>
-            public static String _pr_disable_price = "pr_disable_price";
-            /// <summary>
-            /// ประเภทห้ามขายเกินค้างส่ง
-            /// </summary>
-            public static String _stock_accured_level = "stock_accured_level";
-            /// <summary>
-            /// รับชำระหนี้อ้างอิงวางบิลทุกครั้ง
-            /// </summary>
-            public static String _ar_pay_from_bill_note = "ar_pay_from_bill_note";
-            /// <summary>
-            /// จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง
-            /// </summary>
-            public static String _ap_pay_from_bill_note = "ap_pay_from_bill_note";
         }
 
         /// <summary>
@@ -3854,26 +3826,6 @@ namespace _g
             /// หน่วยเริ่มต้นสินค้า
             /// </summary>
             public static String _start_unit_code = "start_unit_code";
-            /// <summary>
-            /// มิติ 21
-            /// </summary>
-            public static String _dimension_21 = "dimension_21";
-            /// <summary>
-            /// มิติ 22
-            /// </summary>
-            public static String _dimension_22 = "dimension_22";
-            /// <summary>
-            /// มิติ 23
-            /// </summary>
-            public static String _dimension_23 = "dimension_23";
-            /// <summary>
-            /// มิติ 24
-            /// </summary>
-            public static String _dimension_24 = "dimension_24";
-            /// <summary>
-            /// มิติ 25
-            /// </summary>
-            public static String _dimension_25 = "dimension_25";
         }
 
         /// <summary>
@@ -4583,26 +4535,6 @@ namespace _g
             /// เลขที่สาขา
             /// </summary>
             public static String _branch_code = "branch_code";
-            /// <summary>
-            /// มิติ 6
-            /// </summary>
-            public static String _dimension_6 = "dimension_6";
-            /// <summary>
-            /// มิติ 7
-            /// </summary>
-            public static String _dimension_7 = "dimension_7";
-            /// <summary>
-            /// มิติ 8
-            /// </summary>
-            public static String _dimension_8 = "dimension_8";
-            /// <summary>
-            /// มิติ 9
-            /// </summary>
-            public static String _dimension_9 = "dimension_9";
-            /// <summary>
-            /// มิติ 10
-            /// </summary>
-            public static String _dimension_10 = "dimension_10";
         }
 
         /// <summary>
@@ -6317,10 +6249,6 @@ namespace _g
             /// วันที่อนุมัติ ARM Code
             /// </summary>
             public static String _arm_approve_date = "arm_approve_date";
-            /// <summary>
-            /// NFC ID
-            /// </summary>
-            public static String _nfc_id = "nfc_id";
         }
 
         /// <summary>
@@ -6955,26 +6883,6 @@ namespace _g
             /// ไม่เลือก
             /// </summary>
             public static String _no_select = "no_select";
-            /// <summary>
-            /// มิติ 6
-            /// </summary>
-            public static String _dimension_6 = "dimension_6";
-            /// <summary>
-            /// มิติ 7
-            /// </summary>
-            public static String _dimension_7 = "dimension_7";
-            /// <summary>
-            /// มิติ 8
-            /// </summary>
-            public static String _dimension_8 = "dimension_8";
-            /// <summary>
-            /// มิติ 9
-            /// </summary>
-            public static String _dimension_9 = "dimension_9";
-            /// <summary>
-            /// มิติ 10
-            /// </summary>
-            public static String _dimension_10 = "dimension_10";
         }
 
         /// <summary>
@@ -9215,14 +9123,6 @@ namespace _g
             /// ชำรุด
             /// </summary>
             public static String _status_defective = "status_defective";
-            /// <summary>
-            /// รหัสผังบัญชีค่าเสื่อมราคา
-            /// </summary>
-            public static String _depreciation_account_code = "depreciation_account_code";
-            /// <summary>
-            /// รหัสผังบัญชีค่าเสื่อมราคาสะสม
-            /// </summary>
-            public static String _depreciation_sum_account_code = "depreciation_sum_account_code";
         }
 
         /// <summary>
@@ -11467,42 +11367,6 @@ namespace _g
             /// ภ.ง.ด.50
             /// </summary>
             public static String _income_tax_50 = "income_tax_50";
-            /// <summary>
-            /// จากรหัสสินทรัพย์
-            /// </summary>
-            public static String _from_as_code = "from_as_code";
-            /// <summary>
-            /// ถึงรหัสสินทรัพย์
-            /// </summary>
-            public static String _to_as_code = "to_as_code";
-            /// <summary>
-            /// จากประเภท
-            /// </summary>
-            public static String _from_as_type = "from_as_type";
-            /// <summary>
-            /// ถึงประเภท
-            /// </summary>
-            public static String _to_as_type = "to_as_type";
-            /// <summary>
-            /// จากแผนก
-            /// </summary>
-            public static String _from_as_department = "from_as_department";
-            /// <summary>
-            /// ถึงแผนก
-            /// </summary>
-            public static String _to_as_department = "to_as_department";
-            /// <summary>
-            /// จากงวด
-            /// </summary>
-            public static String _from_as_period = "from_as_period";
-            /// <summary>
-            /// ถึงงวด
-            /// </summary>
-            public static String _to_as_period = "to_as_period";
-            /// <summary>
-            /// แยกแผนก
-            /// </summary>
-            public static String _department_split = "department_split";
         }
 
         /// <summary>
@@ -17545,10 +17409,6 @@ namespace _g
             /// Price Guid
             /// </summary>
             public static String _price_guid = "price_guid";
-            /// <summary>
-            /// มูลค่าส่วนลด
-            /// </summary>
-            public static String _discount_amount_2 = "discount_amount_2";
         }
 
         /// <summary>
@@ -28168,10 +28028,6 @@ namespace _g
             /// รายการค้างรับ
             /// </summary>
             public static String _sync_receive_count = "sync_receive_count";
-            /// <summary>
-            /// Always Sync
-            /// </summary>
-            public static String _always_sync = "always_sync";
         }
 
         /// <summary>
@@ -34871,195 +34727,6 @@ namespace _g
             /// ชื่อที่เก็บ
             /// </summary>
             public static String _location_name = "location_name";
-        }
-
-        /// <summary>
-        /// กำหนดวันครบกำหนดชำระเงิน
-        /// </summary>
-        public class ar_credit_pay_bill
-        {
-            /// <summary>
-            /// ชื่อ Table
-            /// </summary>
-            public static String _table = "ar_credit_pay_bill";
-            /// <summary>
-            /// จำนวนวันเครดิต
-            /// </summary>
-            public static String _credit_day = "credit_day";
-            /// <summary>
-            /// วันที่ครบกำหนดจ่าย
-            /// </summary>
-            public static String _day_to_due = "day_to_due";
-            /// <summary>
-            /// จำนวนเดือนที่จะครบกำหนดจ่าย
-            /// </summary>
-            public static String _month_to_due = "month_to_due";
-            /// <summary>
-            /// วันที่ปิดสถานะเครดิต
-            /// </summary>
-            public static String _day_to_close = "day_to_close";
-            /// <summary>
-            /// จำนวนเดือนที่จะปิดสถานะเครดิต
-            /// </summary>
-            public static String _month_to_close = "month_to_close";
-            /// <summary>
-            /// กำหนดจ่าย
-            /// </summary>
-            public static String _credit_due = "credit_due";
-            /// <summary>
-            /// ปิดสถานะเครดิต
-            /// </summary>
-            public static String _credit_close = "credit_close";
-            /// <summary>
-            /// วันที่
-            /// </summary>
-            public static String _day = "day";
-            /// <summary>
-            /// จำนวนเดือน
-            /// </summary>
-            public static String _month = "month";
-            /// <summary>
-            /// บรรทัด
-            /// </summary>
-            public static String _line_number = "line_number";
-        }
-
-        /// <summary>
-        /// รายวันสินทรัพย์
-        /// </summary>
-        public class as_trans
-        {
-            /// <summary>
-            /// ชื่อ Table
-            /// </summary>
-            public static String _table = "as_trans";
-            /// <summary>
-            /// GUID
-            /// </summary>
-            public static String _guid_code = "guid_code";
-            /// <summary>
-            /// เลขที่เอกสาร
-            /// </summary>
-            public static String _doc_no = "doc_no";
-            /// <summary>
-            /// วันที่
-            /// </summary>
-            public static String _doc_date = "doc_date";
-            /// <summary>
-            /// เวลา
-            /// </summary>
-            public static String _doc_time = "doc_time";
-            /// <summary>
-            /// ประเภทเอกสาร
-            /// </summary>
-            public static String _doc_format_code = "doc_format_code";
-            /// <summary>
-            /// มูลค่าสุทธิ
-            /// </summary>
-            public static String _total_amount = "total_amount";
-            /// <summary>
-            /// หมายเหตุ
-            /// </summary>
-            public static String _remark = "remark";
-            /// <summary>
-            /// Trans Flag
-            /// </summary>
-            public static String _trans_flag = "trans_flag";
-            /// <summary>
-            /// จากรหัสสินทรัพย์
-            /// </summary>
-            public static String _from_as_code = "from_as_code";
-            /// <summary>
-            /// ถึงรหัสสินทรัพย์
-            /// </summary>
-            public static String _to_as_code = "to_as_code";
-            /// <summary>
-            /// จากประเภท
-            /// </summary>
-            public static String _from_as_type = "from_as_type";
-            /// <summary>
-            /// ถึงประเภท
-            /// </summary>
-            public static String _to_as_type = "to_as_type";
-            /// <summary>
-            /// จากแผนก
-            /// </summary>
-            public static String _from_as_department = "from_as_department";
-            /// <summary>
-            /// ถึงแผนก
-            /// </summary>
-            public static String _to_as_department = "to_as_department";
-            /// <summary>
-            /// จากงวด
-            /// </summary>
-            public static String _from_as_period = "from_as_period";
-            /// <summary>
-            /// ถึงงวด
-            /// </summary>
-            public static String _to_as_period = "to_as_period";
-            /// <summary>
-            /// แยกแผนก
-            /// </summary>
-            public static String _department_split = "department_split";
-            /// <summary>
-            /// วันที่เริ่มต้น
-            /// </summary>
-            public static String _date_begin = "date_begin";
-            /// <summary>
-            /// วันที่สิ้นสุด
-            /// </summary>
-            public static String _date_end = "date_end";
-            /// <summary>
-            /// ปี
-            /// </summary>
-            public static String _by_year = "by_year";
-        }
-
-        /// <summary>
-        /// รายละเอียดรายวันสินทรัพย์
-        /// </summary>
-        public class as_trans_detail
-        {
-            /// <summary>
-            /// ชื่อ Table
-            /// </summary>
-            public static String _table = "as_trans_detail";
-            /// <summary>
-            /// เลขที่เอกสาร
-            /// </summary>
-            public static String _doc_no = "doc_no";
-            /// <summary>
-            /// วันที่เอกสาร
-            /// </summary>
-            public static String _doc_date = "doc_date";
-            /// <summary>
-            /// เวลา
-            /// </summary>
-            public static String _doc_time = "doc_time";
-            /// <summary>
-            /// รหัสสินทรัพย์
-            /// </summary>
-            public static String _item_code = "item_code";
-            /// <summary>
-            /// ชื่อสินทรัพย์
-            /// </summary>
-            public static String _item_name = "item_name";
-            /// <summary>
-            /// รวมมูลค่า
-            /// </summary>
-            public static String _sum_amount = "sum_amount";
-            /// <summary>
-            /// หมายเหตุ
-            /// </summary>
-            public static String _remark = "remark";
-            /// <summary>
-            /// Trans Flag
-            /// </summary>
-            public static String _trans_flag = "trans_flag";
-            /// <summary>
-            /// Line Number
-            /// </summary>
-            public static String _line_number = "line_number";
         }
     }
 }

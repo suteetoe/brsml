@@ -6,6 +6,8 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Xml;
+using System.IO;
 
 namespace SMLProcess
 {
@@ -22,6 +24,49 @@ namespace SMLProcess
             return _asViewDepreciateBalance(dateBegin, dateEnd, processBy, processMode, "", "");
         }
 
+        public ArrayList _getAssetDepreciateProcess(DateTime dateBegin, DateTime dateEnd, int processBy, int processMode)
+        {
+            return _getAssetDepreciateProcess(dateBegin, dateEnd, processBy, processMode, "", "");
+        }
+
+        public ArrayList _getAssetDepreciateProcess(DateTime dateBegin, DateTime dateEnd, int processBy, int processMode, string forReport, string whereReport)
+        {
+            ArrayList __result = new ArrayList();
+            DataSet __ds = new DataSet();
+            string getString = "";
+            try
+            {
+                __result.Clear();
+                SMLProcess._asProcess __process = new SMLProcess._asProcess();
+                getString = __process._asViewDepreciateBalance(dateBegin, dateEnd, processBy, processMode, forReport, whereReport);
+                XmlDocument __readXmlDoc = new XmlDocument();
+                __readXmlDoc.LoadXml(getString);
+                XmlNodeList __tableNodes = __readXmlDoc.SelectNodes("//ResultSet");
+                foreach (XmlNode __getTableNode in __tableNodes)
+                {
+                    DataSet __getData = new DataSet();
+                    XmlTextReader __readTableXml = new XmlTextReader(new StringReader("<ResultSet>" + __getTableNode.InnerXml + "</ResultSet>"));
+                    try
+                    {
+                        __getData.ReadXml(__readTableXml, XmlReadMode.InferSchema);
+                        if (__getData.Tables.Count == 0)
+                        {
+                            __getData.Tables.Add(new DataTable());
+                        }
+                    }
+                    catch
+                    {
+                        __getData.Tables.Add(new DataTable());
+                    }
+                    __result.Add(__getData);
+                }
+            }
+            catch
+            {
+            }
+            return (__result);
+        }
+
         public String _asViewDepreciateBalance(DateTime dateBegin, DateTime dateEnd, int processBy, int processMode, string forReport, string whereReport)
         {
             // สตริงสำหรับ รีเทิร์น
@@ -31,14 +76,25 @@ namespace SMLProcess
             StringBuilder __myquery = new StringBuilder();
             __myquery.Append(MyLib._myGlobal._xmlHeader + "<node>");
             // ดึงข้อมูลทั้งหมด
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + "ad." + _g.d.as_asset_detail._as_code + ",(select a." + _g.d.as_asset._name_1 + " from " + _g.d.as_asset._table + " a where ad." + _g.d.as_asset_detail._as_code + "=a." + _g.d.as_asset._code + ") as as_name," + forReport + "ad." + _g.d.as_asset_detail._as_buy_price + "," + "ad." + _g.d.as_asset_detail._as_dead_value + "," + "ad." + _g.d.as_asset_detail._as_age + "," + "ad." + _g.d.as_asset_detail._start_calc_date + "," + "ad." + _g.d.as_asset_detail._stop_calc_date + "," + "ad." + _g.d.as_asset_detail._calc_type + "," + "ad." + _g.d.as_asset_detail._as_calc_value + " from " + _g.d.as_asset_detail._table + " ad" + whereReport + " order by ad." + _g.d.as_asset_detail._as_code));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + "ad." + _g.d.as_asset_detail._as_code
+                + ",(select a." + _g.d.as_asset._name_1 + " from " + _g.d.as_asset._table + " a where ad." + _g.d.as_asset_detail._as_code + "=a." + _g.d.as_asset._code + ") as as_name"
+                + "," + forReport + "ad." + _g.d.as_asset_detail._as_buy_price
+                + "," + "ad." + _g.d.as_asset_detail._as_dead_value
+                + "," + "ad." + _g.d.as_asset_detail._as_age
+                + "," + "ad." + _g.d.as_asset_detail._start_calc_date
+                + "," + "ad." + _g.d.as_asset_detail._stop_calc_date
+                + "," + "ad." + _g.d.as_asset_detail._calc_type
+                + "," + "ad." + _g.d.as_asset_detail._as_calc_value
+                + ",(select a." + _g.d.as_asset._depreciation_account_code + " from " + _g.d.as_asset._table + " a where ad." + _g.d.as_asset_detail._as_code + "=a." + _g.d.as_asset._code + ") as " + _g.d.as_asset._depreciation_account_code
+                + ",(select a." + _g.d.as_asset._depreciation_sum_account_code + " from " + _g.d.as_asset._table + " a where ad." + _g.d.as_asset_detail._as_code + "=a." + _g.d.as_asset._code + ") as " + _g.d.as_asset._depreciation_sum_account_code
+                + " from " + _g.d.as_asset_detail._table + " ad" + whereReport + " order by ad." + _g.d.as_asset_detail._as_code));
             // ดึงข้อมูลการขายสินทรัพย์
             __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.as_asset_sale._table + "." + _g.d.as_asset_sale._sale_date + "," + _g.d.as_asset_sale_detail._table + "." + _g.d.as_asset_sale_detail._as_code + " from " + _g.d.as_asset_sale._table + " inner join " + _g.d.as_asset_sale_detail._table + " on " + _g.d.as_asset_sale._table + "." + _g.d.as_asset_sale._doc_no + "=" + _g.d.as_asset_sale_detail._table + "." + _g.d.as_asset_sale_detail._doc_no));
             __myquery.Append("</node>");
             MyLib._myFrameWork _myFrameWork = new MyLib._myFrameWork();
             ArrayList _getData = _myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
             DataSet __getAssets = null;
-            DataSet __getAssetSale = null; 
+            DataSet __getAssetSale = null;
             // มีข้อมูลจากการคิวรี่
             if (_getData.Count > 0)
             {
@@ -511,6 +567,17 @@ namespace SMLProcess
                                     {
                                         __result.Append("<as_report>" + __forReport + "</as_report>");
                                     }
+                                    // ผังค่าเสื่อม
+                                    {
+                                        int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                        int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                        string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                        string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                        __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                        __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                    }
                                     __result.Append("</Row>");
                                 }
                                 else
@@ -596,6 +663,17 @@ namespace SMLProcess
                                         {
                                             __result.Append("<as_report>" + __forReport + "</as_report>");
                                         }
+                                        // ผังค่าเสื่อม
+                                        {
+                                            int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                            int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                            string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                            string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                            __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                            __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                        }
                                         __result.Append("</Row>");
                                     }
                                     else if (__dateCompareBegin <= 0 && __dateCompareEnd <= 0 && __dateCompareBeginAndEnd >= 0)
@@ -662,6 +740,17 @@ namespace SMLProcess
                                         if (forReport.Length > 0)
                                         {
                                             __result.Append("<as_report>" + __forReport + "</as_report>");
+                                        }
+                                        // ผังค่าเสื่อม
+                                        {
+                                            int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                            int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                            string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                            string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                            __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                            __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
                                         }
                                         __result.Append("</Row>");
                                     }
@@ -730,6 +819,17 @@ namespace SMLProcess
                                             if (forReport.Length > 0)
                                             {
                                                 __result.Append("<as_report>" + __forReport + "</as_report>");
+                                            }
+                                            // ผังค่าเสื่อม
+                                            {
+                                                int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                                int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                                string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                                string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                                __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                                __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
                                             }
                                             __result.Append("</Row>");
                                         }
@@ -1254,6 +1354,19 @@ namespace SMLProcess
                                     {
                                         __result.Append("<as_report>" + __forReport + "</as_report>");
                                     }
+
+                                    // ผังค่าเสื่อม
+                                    {
+                                        int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                        int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                        string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                        string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                        __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                        __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                    }
+
                                     __result.Append("</Row>");
                                 }
                                 else
@@ -1335,6 +1448,17 @@ namespace SMLProcess
                                         {
                                             __result.Append("<as_report>" + __forReport + "</as_report>");
                                         }
+                                        // ผังค่าเสื่อม
+                                        {
+                                            int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                            int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                            string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                            string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                            __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                            __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                        }
                                         __result.Append("</Row>");
                                     }
                                     else if (__dateCompareBegin <= 0 && __dateCompareEnd <= 0 && __dateCompareBeginAndEnd >= 0)
@@ -1397,6 +1521,17 @@ namespace SMLProcess
                                         if (forReport.Length > 0)
                                         {
                                             __result.Append("<as_report>" + __forReport + "</as_report>");
+                                        }
+                                        // ผังค่าเสื่อม
+                                        {
+                                            int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                            int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                            string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                            string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                            __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                            __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
                                         }
                                         __result.Append("</Row>");
                                     }
@@ -1464,6 +1599,17 @@ namespace SMLProcess
                                             {
                                                 __result.Append("<as_report>" + __forReport + "</as_report>");
                                             }
+                                            // ผังค่าเสื่อม
+                                            {
+                                                int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                                int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                                string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                                string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                                __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                                __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                            }
                                             __result.Append("</Row>");
                                         }
                                     }
@@ -1512,7 +1658,7 @@ namespace SMLProcess
                                 TimeSpan __timeSpanDateInYearAfter = __endOfYearAfter.Subtract(__beginOfYearAfter);
                                 int __diffDateInYearAfter = (int)__timeSpanDateInYearAfter.TotalDays + 1;
                                 TimeSpan __timeSpanBetweenAfterDate = __yearColumnEndGlobal.Subtract(__beginOfYearAfter);
-                                int __diffDateAfter = (int)__timeSpanBetweenAfterDate.TotalDays;                                
+                                int __diffDateAfter = (int)__timeSpanBetweenAfterDate.TotalDays;
                                 //**************
                                 _assetListType[] __assetListType = new _assetListType[__yearApart + 1];
                                 Calendar calYear = CultureInfo.CurrentCulture.DateTimeFormat.Calendar;
@@ -1633,7 +1779,7 @@ namespace SMLProcess
                                                 }
                                             }
                                         }
-                                    } 
+                                    }
                                     // เริ่มต้นมากกว่า วันที่ 1 เดือน 1 สิ้นสุดน้อยกว่า วันที่ 31 เดือน 12
                                     if ((__subDayDateBegin.Equals("01") == false || __subMonthDateBegin.Equals("01") == false) && (__subDayDateEnd.Equals("31") == false || __subMonthDateEnd.Equals("12") == false))
                                     {
@@ -1831,6 +1977,17 @@ namespace SMLProcess
                                     {
                                         __result.Append("<as_report>" + __forReport + "</as_report>");
                                     }
+                                    // ผังค่าเสื่อม
+                                    {
+                                        int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                        int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                        string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                        string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                        __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                        __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                    }
                                     __result.Append("</Row>");
                                 }
                                 else
@@ -1912,6 +2069,17 @@ namespace SMLProcess
                                         {
                                             __result.Append("<as_report>" + __forReport + "</as_report>");
                                         }
+                                        // ผังค่าเสื่อม
+                                        {
+                                            int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                            int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                            string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                            string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                            __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                            __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                        }
                                         __result.Append("</Row>");
                                     }
                                     else if (__dateCompareBegin <= 0 && __dateCompareEnd <= 0 && __dateCompareBeginAndEnd >= 0)
@@ -1974,6 +2142,17 @@ namespace SMLProcess
                                         if (forReport.Length > 0)
                                         {
                                             __result.Append("<as_report>" + __forReport + "</as_report>");
+                                        }
+                                        // ผังค่าเสื่อม
+                                        {
+                                            int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                            int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                            string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                            string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                            __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                            __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
                                         }
                                         __result.Append("</Row>");
                                     }
@@ -2041,6 +2220,17 @@ namespace SMLProcess
                                             {
                                                 __result.Append("<as_report>" + __forReport + "</as_report>");
                                             }
+                                            // ผังค่าเสื่อม
+                                            {
+                                                int __columnDepreciationAccountcode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_account_code);
+                                                int __columndepreciationSumAccountCode = __getAssets.Tables[0].Columns.IndexOf(_g.d.as_asset._depreciation_sum_account_code);
+
+                                                string __depreciationAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columnDepreciationAccountcode].ToString();
+                                                string __depreciationSumAccountcode = __getAssets.Tables[0].Rows[__row].ItemArray[__columndepreciationSumAccountCode].ToString();
+                                                __result.Append("<" + _g.d.as_asset._depreciation_account_code + ">" + __depreciationAccountcode + "</" + _g.d.as_asset._depreciation_account_code + ">");
+                                                __result.Append("<" + _g.d.as_asset._depreciation_sum_account_code + ">" + __depreciationSumAccountcode + "</" + _g.d.as_asset._depreciation_sum_account_code + ">");
+
+                                            }
                                             __result.Append("</Row>");
                                         }
                                     }
@@ -2067,7 +2257,7 @@ namespace SMLProcess
         private float _come;
         private float _valuego;
 
-        public _assetListType() 
+        public _assetListType()
         {
             _code = "";
             _name = "";

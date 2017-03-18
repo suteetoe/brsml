@@ -1637,6 +1637,10 @@
     <detail column_name="รหัสกลุ่มที่เก็บ" column_name_2="Name"  column_field_name="ic_warehouse_location_group.location_group" column_field_sort="ic_warehouse_location_group.location_group" column_width="30" column_type="varchar" column_align="left"></detail>
     <detail column_name="ชื่อกลุ่มที่เก็บ" column_name_2="Address"  column_field_name="ic_warehouse_location_group.name_1" column_field_sort="ic_warehouse_location_group.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
   </screen>
-
-
+  <screen screen_code="screen_asset_trans" name_1="รายวันโอนค่าเสื่อมสินทรัพย์" name_2="Asset Trans" table_name="as_trans" table_list="as_trans" sort="as_trans.doc_date" filter="" width_by_persent="true">
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc date"  column_field_name="as_trans.doc_date" column_field_sort="as_trans.doc_date,as_trans.doc_time,as_trans.doc_no" column_width="20" column_type="date" column_align="left"></detail>
+    <detail column_name="เวลา" column_name_2="Doc Time"  column_field_name="as_trans.doc_time" column_field_sort="as_trans.doc_time" column_width="10" column_type="varchar" column_align="left"></detail>
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc_no" column_field_name="as_trans.doc_no" column_field_sort="as_trans.doc_no" column_width="30" column_type="varchar" column_align="left"></detail>
+    <detail column_name="มูลค่าสุทธิ" column_name_2="Total Amount"  column_field_name="as_trans.total_amount" column_field_sort="as_trans.total_amount" column_width="20" column_type="float" column_align="left"></detail>
+  </screen>
 </node>

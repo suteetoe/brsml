@@ -1225,6 +1225,7 @@ namespace _g
                     case "PRM": return _transControlTypeEnum.เงินสดย่อย_รับคืนเงินสดย่อย;
                     case "PMC": return _transControlTypeEnum.เงินสดย่อย_รับคืนเงินสดย่อย_ยกเลิก;
 
+                    case "AST": return _transControlTypeEnum.สินทรัพย์_โอนค่าเสื่อม;
                     //
                     default:
                         if (SystemInformation.ComputerName.ToLower().IndexOf("jead8") != -1 || SystemInformation.ComputerName.ToLower().IndexOf("toe-pc") != -1)
@@ -1434,6 +1435,7 @@ namespace _g
                     case 523: return _transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก;
 
                     case 1901: return _transControlTypeEnum.Shipment;
+                    case 1801: return _transControlTypeEnum.สินทรัพย์_โอนค่าเสื่อม;
 
                     default:
                         if (SystemInformation.ComputerName.ToLower().IndexOf("jead8") != -1 || SystemInformation.ComputerName.ToLower().IndexOf("toe-pc") != -1)
@@ -1692,6 +1694,7 @@ namespace _g
                     case _transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก: return 523;
 
                     case _transControlTypeEnum.Shipment: return 1901;
+                    case _transControlTypeEnum.สินทรัพย์_โอนค่าเสื่อม: return 1801;
                     default:
                         if (SystemInformation.ComputerName.ToLower().IndexOf("jead8") != -1 || SystemInformation.ComputerName.ToLower().IndexOf("toe-pc") != -1)
                         {
@@ -2766,7 +2769,8 @@ namespace _g
             คลัง_รับฝาก_เบิก,
             คลัง_รับฝาก_รับคืนจากเบิก,
 
-            Shipment
+            Shipment,
+            สินทรัพย์_โอนค่าเสื่อม
 
         }
 

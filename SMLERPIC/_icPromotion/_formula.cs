@@ -308,6 +308,12 @@ namespace SMLERPIC._icPromotion
         {
             if (MyLib._myGlobal._checkChangeMaster())
             {
+                if (this._myManageMain._mode == 1 && this._myManageMain._isAdd == false)
+                {
+                    MessageBox.Show(MyLib._myGlobal._resource("warning19"), MyLib._myGlobal._resource("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 try
                 {
                     string __getEmtry = this._icPromotionFormulaScreen._checkEmtryField();

@@ -104,8 +104,6 @@
 <field name="branch_code" thai="สาขาลำดับที่" eng="Branch Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="agent_code" thai="Agent Code" eng="Agent Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="sap_code" thai="SAP Code" eng="SAP Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="region" thai="Region" eng="Region" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="club" thai="Club" eng="Club" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_department_list" thai="รายชื่อแผนก" eng="Department List" xversion="ALL" >
 <field name="code" thai="รหัสแผนก" eng="Department code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -351,11 +349,6 @@
 <field name="ss_ref_po_only" thai="ใบสั่งขายอ้างอิงเสนอราคาเท่านั้น" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="warning_input_customer" thai="เตือนเลือกลูกค้าก่อนทำรายการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="inv_disable_quotation" thai="จอขายปิดอ้างอิงใบเสนอราคา" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="use_credit_pay_bill_calc" thai="ใช้ระบบคำนวณวันครบกำหนดชำระบิล" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="pr_disable_price" thai="เสนอซื้อห้ามกำหนดราคา" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="stock_accured_level" thai="ประเภทห้ามขายเกินค้างส่ง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="ar_pay_from_bill_note" thai="รับชำระหนี้อ้างอิงวางบิลทุกครั้ง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="ap_pay_from_bill_note" thai="จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -986,11 +979,6 @@
 <field name="balance_control" thai="อนุญาติให้ยอดคงเหลือติดลบ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="have_point" thai="เข้าสะสมแต้ม" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="start_unit_code" thai="หน่วยเริ่มต้นสินค้า" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_21" thai="มิติ 21" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_22" thai="มิติ 22" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_23" thai="มิติ 23" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_24" thai="มิติ 24" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_25" thai="มิติ 25" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ic_inventory_detail_PK_CODE" field="ic_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ic_brand" thai="ยี่ห้อสินค้า" eng="Item Brand" xversion="" >
@@ -1172,11 +1160,6 @@
 <field name="headquarters" thai="สำนักงานใหญ่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="branch" thai="สาขา" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="branch_code" thai="เลขที่สาขา" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_6" thai="มิติ 6" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_7" thai="มิติ 7" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_8" thai="มิติ 8" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_9" thai="มิติ 9" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_10" thai="มิติ 10" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ap_supplier_detail_PK_CODE" field="ap_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_type" thai="ประเภทลูกหนี้" eng="Customer Type" xversion="" >
@@ -1629,7 +1612,6 @@
 <field name="ar_branch_code" thai="ใช้เฉพาะสาขา" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_approve" thai="อนุมัติ ARM Code" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_approve_date" thai="วันที่อนุมัติ ARM Code" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="nfc_id" thai="NFC ID" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ar_customer_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 <index index_name="ar_customer_tambon" field="tambon" ></index>
 <index index_name="ar_customer_amper" field="amper" ></index>
@@ -1793,11 +1775,6 @@
 <field name="30" thai="30" eng="30" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="31" thai="31" eng="31" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="no_select" thai="ไม่เลือก" eng="No Select" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="dimension_6" thai="มิติ 6" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_7" thai="มิติ 7" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_8" thai="มิติ 8" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_9" thai="มิติ 9" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="dimension_10" thai="มิติ 10" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ar_customer_detail_PK_CODE" field="ar_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_contactor" thai="ผู้ติดต่อ (ลูกหนี้)" eng="Contactor" xversion="SMLERP" >
@@ -2361,8 +2338,6 @@
 <field name="status_normal" thai="ปรกติ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="status_lost" thai="สูญหาย" eng="lost" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="status_defective" thai="ชำรุด" eng="worn out" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="depreciation_account_code" thai="รหัสผังบัญชีค่าเสื่อมราคา" eng="Depreciation Account Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="depreciation_sum_account_code" thai="รหัสผังบัญชีค่าเสื่อมราคาสะสม" eng="Sum Depreciation Account Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="as_asset_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 </table>
 <table name="as_asset_detail" thai="รายละเอียดสินทรัพย์" eng="Asset Detail" xversion="" >
@@ -2930,15 +2905,6 @@
 <field name="sale_price" thai="ราคาขาย" eng="Sale Price" type="float" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="profit_loss" thai="กำไร(ขาดทุน)" eng="Profit Loss" type="float" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="income_tax_50" thai="ภ.ง.ด.50" eng="ภ.ง.ด.50" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="from_as_code" thai="จากรหัสสินทรัพย์" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="to_as_code" thai="ถึงรหัสสินทรัพย์" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="from_as_type" thai="จากประเภท" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="to_as_type" thai="ถึงประเภท" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="from_as_department" thai="จากแผนก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="to_as_department" thai="ถึงแผนก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="from_as_period" thai="จากงวด" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="to_as_period" thai="ถึงงวด" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="department_split" thai="แยกแผนก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 </table>
 <table name="ap_ar_resource" thai="รายละเอียดข้อความ" eng="AP/AR Resource" xversion="SMLERP" >
 <field name="customer" thai="ลูกค้า" eng="Customer" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
@@ -4491,7 +4457,6 @@
 <field name="price_2" thai="ราคา" eng="Price" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="sum_amount_2" thai="รวมมูลค่า" eng="Sum Amount" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="price_guid" thai="Price Guid" eng="" type="varchar" length="55" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="discount_amount_2" thai="มูลค่าส่วนลด" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ic_trans_detail_trans_type" field="trans_type" ></index>
 <index index_name="ic_trans_detail_trans_flag" field="trans_flag" ></index>
 <index index_name="ic_trans_detail_cust_code" field="cust_code" ></index>
@@ -7252,7 +7217,6 @@
 <field name="trans_command" thai="Command" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="sync_send_count" thai="รายการค้างส่ง" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="sync_receive_count" thai="รายการค้างรับ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="always_sync" thai="Always Sync" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="sync_table_list_sync_table_list_idx" field="table_name"  custer="true"  unique="true" ></index>
 </table>
 <table name="sync_field_list" thai="Table 293" eng="Table 293" xversion="" >
@@ -8909,50 +8873,5 @@
 <field name="priolity" thai="ลำดับ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="location_name" thai="ชื่อที่เก็บ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <index index_name="ic_warehouse_location_group_detail_pk_ic_wh_lc_group_detail" field="wh_code,location_group,location"  custer="true"  unique="true" ></index>
-</table>
-<table name="ar_credit_pay_bill" thai="กำหนดวันครบกำหนดชำระเงิน" eng="" xversion="" >
-<field name="credit_day" thai="จำนวนวันเครดิต" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="day_to_due" thai="วันที่ครบกำหนดจ่าย" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="month_to_due" thai="จำนวนเดือนที่จะครบกำหนดจ่าย" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="day_to_close" thai="วันที่ปิดสถานะเครดิต" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="month_to_close" thai="จำนวนเดือนที่จะปิดสถานะเครดิต" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="credit_due" thai="กำหนดจ่าย" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="credit_close" thai="ปิดสถานะเครดิต" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="day" thai="วันที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="month" thai="จำนวนเดือน" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="line_number" thai="บรรทัด" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-</table>
-<table name="as_trans" thai="รายวันสินทรัพย์" eng="Asset Trans" xversion="" >
-<field name="guid_code" thai="GUID" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="doc_no" thai="เลขที่เอกสาร" eng="" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="doc_date" thai="วันที่" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="doc_time" thai="เวลา" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="doc_format_code" thai="ประเภทเอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="total_amount" thai="มูลค่าสุทธิ" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="trans_flag" thai="Trans Flag" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="from_as_code" thai="จากรหัสสินทรัพย์" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="to_as_code" thai="ถึงรหัสสินทรัพย์" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="from_as_type" thai="จากประเภท" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="to_as_type" thai="ถึงประเภท" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="from_as_department" thai="จากแผนก" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="to_as_department" thai="ถึงแผนก" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="from_as_period" thai="จากงวด" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="to_as_period" thai="ถึงงวด" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="department_split" thai="แยกแผนก" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="date_begin" thai="วันที่เริ่มต้น" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="date_end" thai="วันที่สิ้นสุด" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="by_year" thai="ปี" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-</table>
-<table name="as_trans_detail" thai="รายละเอียดรายวันสินทรัพย์" eng="Asset Trans Detail" xversion="" >
-<field name="doc_no" thai="เลขที่เอกสาร" eng="" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="doc_date" thai="วันที่เอกสาร" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="doc_time" thai="เวลา" eng="" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="item_code" thai="รหัสสินทรัพย์" eng="" type="varchar" length="50" indentity="no" allow_null="false" resource_only="false"></field>
-<field name="item_name" thai="ชื่อสินทรัพย์" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="sum_amount" thai="รวมมูลค่า" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="trans_flag" thai="Trans Flag" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="line_number" thai="Line Number" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 </node>
