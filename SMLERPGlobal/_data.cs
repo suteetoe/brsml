@@ -6321,6 +6321,30 @@ namespace _g
             /// NFC ID
             /// </summary>
             public static String _nfc_id = "nfc_id";
+            /// <summary>
+            /// Tier
+            /// </summary>
+            public static String _arm_tier = "arm_tier";
+            /// <summary>
+            /// None
+            /// </summary>
+            public static String _tier_0 = "tier_0";
+            /// <summary>
+            /// Silver
+            /// </summary>
+            public static String _tier_1 = "tier_1";
+            /// <summary>
+            /// Gold
+            /// </summary>
+            public static String _tier_2 = "tier_2";
+            /// <summary>
+            /// Platinum
+            /// </summary>
+            public static String _tier_3 = "tier_3";
+            /// <summary>
+            /// Diamond
+            /// </summary>
+            public static String _tier_4 = "tier_4";
         }
 
         /// <summary>
@@ -9223,6 +9247,18 @@ namespace _g
             /// รหัสผังบัญชีค่าเสื่อมราคาสะสม
             /// </summary>
             public static String _depreciation_sum_account_code = "depreciation_sum_account_code";
+            /// <summary>
+            /// ชื่อแผนก
+            /// </summary>
+            public static String _department_name = "department_name";
+            /// <summary>
+            /// ชื่อประเภท
+            /// </summary>
+            public static String _type_name = "type_name";
+            /// <summary>
+            /// ชื่อที่ตั้งสินทรัพย์
+            /// </summary>
+            public static String _location_name = "location_name";
         }
 
         /// <summary>
@@ -35060,6 +35096,109 @@ namespace _g
             /// Line Number
             /// </summary>
             public static String _line_number = "line_number";
+        }
+
+        /// <summary>
+        /// รายละเอียดเพิ่มเติมรายวัน
+        /// </summary>
+        public class ic_trans_additional
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ic_trans_additional";
+            /// <summary>
+            /// เลขที่เอกสาร
+            /// </summary>
+            public static String _doc_no = "doc_no";
+            /// <summary>
+            /// ประเภทรายวัน
+            /// </summary>
+            public static String _trans_flag = "trans_flag";
+            /// <summary>
+            /// DeliveryDay
+            /// </summary>
+            public static String _deliveryday = "deliveryday";
+            /// <summary>
+            /// SSFQuantity
+            /// </summary>
+            public static String _ssfquantity = "ssfquantity";
+            /// <summary>
+            /// Cust_ID
+            /// </summary>
+            public static String _cust_id = "cust_id";
+            /// <summary>
+            /// CustCode
+            /// </summary>
+            public static String _custcode = "custcode";
+            /// <summary>
+            /// web_order_id
+            /// </summary>
+            public static String _web_order_id = "web_order_id";
+            /// <summary>
+            /// District1_Name
+            /// </summary>
+            public static String _district1_name = "district1_name";
+            /// <summary>
+            /// District2_Name
+            /// </summary>
+            public static String _district2_name = "district2_name";
+            /// <summary>
+            /// Province_Name
+            /// </summary>
+            public static String _province_name = "province_name";
+            /// <summary>
+            /// CustLat
+            /// </summary>
+            public static String _custlat = "custlat";
+            /// <summary>
+            /// CustLng
+            /// </summary>
+            public static String _custlng = "custlng";
+            /// <summary>
+            /// CustEmail
+            /// </summary>
+            public static String _custemail = "custemail";
+            /// <summary>
+            /// CustBusinessTel
+            /// </summary>
+            public static String _custbusinesstel = "custbusinesstel";
+            /// <summary>
+            /// CustMobile
+            /// </summary>
+            public static String _custmobile = "custmobile";
+            /// <summary>
+            /// OrderDetail
+            /// </summary>
+            public static String _orderdetail = "orderdetail";
+            /// <summary>
+            /// OrderType
+            /// </summary>
+            public static String _ordertype = "ordertype";
+            /// <summary>
+            /// FirstOrder
+            /// </summary>
+            public static String _firstorder = "firstorder";
+            /// <summary>
+            /// OrderPaymentType
+            /// </summary>
+            public static String _orderpaymenttype = "orderpaymenttype";
+            /// <summary>
+            /// DeliveryAddressID
+            /// </summary>
+            public static String _deliveryaddressid = "deliveryaddressid";
+            /// <summary>
+            /// OrderDeliveryDate
+            /// </summary>
+            public static String _orderdeliverydate = "orderdeliverydate";
+            /// <summary>
+            /// CustRefCode
+            /// </summary>
+            public static String _custrefcode = "custrefcode";
+            /// <summary>
+            /// PayMentDate
+            /// </summary>
+            public static String _paymentdate = "paymentdate";
         }
     }
 }
