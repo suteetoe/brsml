@@ -3388,7 +3388,7 @@ namespace SMLInventoryControl
                     this._icTransScreenTop._screen_code = "PIC";
                     break;
                 #endregion
-                #region ขายสินค้าและบริการ
+                #region ขาย
                 case _g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า_ยกเลิก:
                     this._tab.Visible = false;
                     this._icTransItemGrid.Visible = false;
@@ -3621,6 +3621,37 @@ namespace SMLInventoryControl
                     this._printButton.ResourceName = "พิมพ์เอกสารสั่งขาย";
                     this._printButton.Click += new EventHandler(_printButton_Click);
                     this._icTransScreenTop._screen_code = "SS";
+
+                    // shipment
+                    {
+                        _shipmentControl = new _shipmentControl(0);
+                        _shipmentControl.Dock = DockStyle.Fill;
+                        _shipmentControl._getCustCode += _shipmentControl__getCustCode;
+
+                        if (MyLib._myGlobal._OEMVersion == "SINGHA")
+                        {
+                            _shipmentControl._afterSelectAddress += _shipmentControl__afterSelectAddress;
+                        }
+
+                        this._tab_shipment = new System.Windows.Forms.TabPage();
+
+                        this._tab_shipment.SuspendLayout();
+                        this._tab.Controls.Add(this._tab_shipment);
+                        // 
+                        // tab_gl
+                        // 
+                        this._tab_shipment.Controls.Add(_shipmentControl);
+                        this._tab_shipment.ImageKey = "document_add.png";
+                        this._tab_shipment.Location = new System.Drawing.Point(4, 23);
+                        this._tab_shipment.Name = "tab_shipment";
+                        this._tab_shipment.Size = new System.Drawing.Size(66, 0);
+                        this._tab_shipment.TabIndex = 1;
+                        this._tab_shipment.Text = "tab_shipment";
+                        this._tab_shipment.UseVisualStyleBackColor = true;
+                        //
+                        this._tab_shipment.ResumeLayout(false);
+                    }
+
                     break;
                 case _g.g._transControlTypeEnum.ขาย_เสนอราคา:
                     this._printButton.Visible = true;

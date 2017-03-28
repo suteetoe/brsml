@@ -153,7 +153,8 @@ namespace SMLERPControl._customer
                             this._addTextBox(__row++, 1, 1, 0, _g.d.ar_customer._branch_code, 1, 0, 0, true, false, true, false);
                             if (MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
                             {
-                                this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._arm_code, 1, 10, 1, true, false);
+                                this._addTextBox(__row, 0, 1, 0, _g.d.ar_customer._arm_code, 1, 10, 1, true, false);
+                                this._addComboBox(__row++, 1, _g.d.ar_customer._arm_tier, true, new string[] { _g.d.ar_customer._tier_0, _g.d.ar_customer._tier_1, _g.d.ar_customer._tier_2, _g.d.ar_customer._tier_3, _g.d.ar_customer._tier_4 }, false);
                                 this._addCheckBox(__row, 0, _g.d.ar_customer._arm_approve, false, true);
                                 this._addDateBox(__row++, 1, 1, 1, _g.d.ar_customer._arm_approve_date, 1, true);
                                 this._addTextBox(__row, 0, 1, 0, _g.d.ar_customer._ar_code_main, 1, 1, 4, true, false, true);
@@ -553,7 +554,7 @@ namespace SMLERPControl._customer
             this.Invalidate();
             this.ResumeLayout();
         }
-        
+
         void _screenArControl__textBoxChanged(object sender, string name)
         {
             if (name.Equals(_g.d.ar_customer._ar_branch_code) == false && MyLib._myGlobal._OEMVersion.Equals("SINGHA"))

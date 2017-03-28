@@ -1954,46 +1954,49 @@ namespace SINGHAReport.GL
                             _view1._addDataColumn(__ojtReport, __warehouseObject, __whCodeColumnNumber, __whCode, null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.LeftRightBottom, SMLReport._report._cellType.String);
                             _view1._addDataColumn(__ojtReport, __warehouseObject, __locationColumnNumber, __shelfCode + "~" + __shelfName, null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
 
-                            DataRow[] __balanceItem = this._dataDetailTable.Select(_g.d.ic_resource._warehouse + "=\'" + __whCode + "\' and " + _g.d.ic_resource._location + "=\'" + __shelfCode + "\' ");
-
-                            int __lineNumberColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._sort_order);
-                            int __icCodeColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._ic_code);
-                            int __icNameColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._ic_name);
-                            int __bigQtyColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._big_qty);
-                            int __smallQtyColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._small_qty);
-                            int __saleColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._sale);
-                            int __premiumColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._premium);
-                            int __salereturnColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._sale_return);
-                            int __balanceColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._balance_qty);
-                            for (int __row = 0; __row < __balanceItem.Length; __row++)
+                            if (this._dataDetailTable.Rows.Count > 0)
                             {
-                                int __no = __row + 1;
-                                string __itemCode = __balanceItem[__row][_g.d.ic_resource._ic_code].ToString();
-                                string __itemName = __balanceItem[__row][_g.d.ic_resource._ic_name].ToString();
-                                decimal __bigQty = MyLib._myGlobal._decimalPhase(__balanceItem[__row][_g.d.ic_resource._big_qty].ToString());
-                                decimal __smallQty = MyLib._myGlobal._decimalPhase(__balanceItem[__row][_g.d.ic_resource._small_qty].ToString());
+                                DataRow[] __balanceItem = this._dataDetailTable.Select(_g.d.ic_resource._warehouse + "=\'" + __whCode + "\' and " + _g.d.ic_resource._location + "=\'" + __shelfCode + "\' ");
 
-                                SMLReport._report._objectListType __dataList = _view1._addObject(_view1._objectDataList, SMLReport._report._objectType.Detail, true, 0, true, SMLReport._report._columnBorder.None);
-
-                                if (__no % 20 == 0)
+                                int __lineNumberColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._sort_order);
+                                int __icCodeColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._ic_code);
+                                int __icNameColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._ic_name);
+                                int __bigQtyColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._big_qty);
+                                int __smallQtyColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._small_qty);
+                                int __saleColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._sale);
+                                int __premiumColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._premium);
+                                int __salereturnColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._sale_return);
+                                int __balanceColumnNumber = _view1._findColumn(__totalDateObject, _g.d.ic_resource._balance_qty);
+                                for (int __row = 0; __row < __balanceItem.Length; __row++)
                                 {
-                                    __dataList._pageBreak = true;
+                                    int __no = __row + 1;
+                                    string __itemCode = __balanceItem[__row][_g.d.ic_resource._ic_code].ToString();
+                                    string __itemName = __balanceItem[__row][_g.d.ic_resource._ic_name].ToString();
+                                    decimal __bigQty = MyLib._myGlobal._decimalPhase(__balanceItem[__row][_g.d.ic_resource._big_qty].ToString());
+                                    decimal __smallQty = MyLib._myGlobal._decimalPhase(__balanceItem[__row][_g.d.ic_resource._small_qty].ToString());
+
+                                    SMLReport._report._objectListType __dataList = _view1._addObject(_view1._objectDataList, SMLReport._report._objectType.Detail, true, 0, true, SMLReport._report._columnBorder.None);
+
+                                    if (__no % 20 == 0)
+                                    {
+                                        __dataList._pageBreak = true;
+                                    }
+                                    _view1._createEmtryColumn(__totalDateObject, __dataList);
+
+
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __lineNumberColumnNumber, __no.ToString(), null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.LeftRightBottom, SMLReport._report._cellType.String);
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __icCodeColumnNumber, __itemCode, null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.LeftRightBottom, SMLReport._report._cellType.String);
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __icNameColumnNumber, __itemName, null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
+
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __bigQtyColumnNumber, __bigQty.ToString("#,###,###"), null, SMLReport._report._cellAlign.Center, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.Number);
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __smallQtyColumnNumber, __smallQty.ToString("#,###,###"), null, SMLReport._report._cellAlign.Center, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.Number);
+
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __saleColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __premiumColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __salereturnColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
+                                    _view1._addDataColumn(__totalDateObject, __dataList, __balanceColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
+
                                 }
-                                _view1._createEmtryColumn(__totalDateObject, __dataList);
-
-
-                                _view1._addDataColumn(__totalDateObject, __dataList, __lineNumberColumnNumber, __no.ToString(), null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.LeftRightBottom, SMLReport._report._cellType.String);
-                                _view1._addDataColumn(__totalDateObject, __dataList, __icCodeColumnNumber, __itemCode, null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.LeftRightBottom, SMLReport._report._cellType.String);
-                                _view1._addDataColumn(__totalDateObject, __dataList, __icNameColumnNumber, __itemName, null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
-
-                                _view1._addDataColumn(__totalDateObject, __dataList, __bigQtyColumnNumber, __bigQty.ToString("#,###,###"), null, SMLReport._report._cellAlign.Center, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.Number);
-                                _view1._addDataColumn(__totalDateObject, __dataList, __smallQtyColumnNumber, __smallQty.ToString("#,###,###"), null, SMLReport._report._cellAlign.Center, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.Number);
-
-                                _view1._addDataColumn(__totalDateObject, __dataList, __saleColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
-                                _view1._addDataColumn(__totalDateObject, __dataList, __premiumColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
-                                _view1._addDataColumn(__totalDateObject, __dataList, __salereturnColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
-                                _view1._addDataColumn(__totalDateObject, __dataList, __balanceColumnNumber, "", null, SMLReport._report._cellAlign.Default, 0, SMLReport._report._columnBorder.RightBottom, SMLReport._report._cellType.String);
-
                             }
                         }
                     }

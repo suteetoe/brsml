@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{248B9F3A-6F41-42E0-8E91-0AD097F9EFA7}</ProjectGuid>
+    <ProjectGuid>{BC8AC259-2673-4C2A-BFF2-8D4B3A55C659}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SMLEDIControl</RootNamespace>
-    <AssemblyName>SMLEDIControl</AssemblyName>
+    <RootNamespace>BRInterfaceControl</RootNamespace>
+    <AssemblyName>BRInterfaceControl</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -29,24 +29,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,51 +37,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="_ediExport.cs">
+    <Compile Include="SOS\_singhaOnlineOrderImport.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="_ediExport.Designer.cs">
-      <DependentUpon>_ediExport.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_ediExternal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="_ediExternal.Designer.cs">
-      <DependentUpon>_ediExternal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="_ediExternalScreenControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="_ediExternalScreenControl.Designer.cs">
-      <DependentUpon>_ediExternalScreenControl.cs</DependentUpon>
+    <Compile Include="SOS\_singhaOnlineOrderImport.Designer.cs">
+      <DependentUpon>_singhaOnlineOrderImport.cs</DependentUpon>
     </Compile>
     <Compile Include="_selectMenu.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="_ediExport.resx">
-      <DependentUpon>_ediExport.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_ediExternal.resx">
-      <DependentUpon>_ediExternal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="_ediExternalScreenControl.resx">
-      <DependentUpon>_ediExternalScreenControl.cs</DependentUpon>
+    <EmbeddedResource Include="SOS\_singhaOnlineOrderImport.resx">
+      <DependentUpon>_singhaOnlineOrderImport.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BRInterfaceControl\BRInterfaceControl.csproj">
-      <Project>{bc8ac259-2673-4c2a-bff2-8d4b3a55c659}</Project>
-      <Name>BRInterfaceControl</Name>
+    <ProjectReference Include="..\JsonLib\JsonLib.csproj">
+      <Project>{04d535b4-9302-4247-b65c-f1d2d4c05752}</Project>
+      <Name>JsonLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyLib\MyLib.csproj">
       <Project>{5e55cf8e-f06f-4112-8f49-80d3f68bb75c}</Project>
@@ -111,31 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\disk_blue.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\error.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\checks.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\document_check.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\document_delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scroll_run.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scroll_view.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\scroll_replace.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\flash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

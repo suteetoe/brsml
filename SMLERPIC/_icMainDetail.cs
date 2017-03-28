@@ -79,6 +79,14 @@ namespace SMLERPIC
 
             if (this._icmainGridInteraction == null) this._myTabControlDetail.TabPages[tab_interaction.Name].Dispose();
 
+            this._myManageDetail._dataList._isLockDoc = true;
+            if (MyLib._myGlobal._isUserLockDocument == true)
+            {
+                this._myManageDetail._dataList._buttonUnlockDoc.Visible = true;
+                this._myManageDetail._dataList._buttonLockDoc.Visible = true;
+                this._myManageDetail._dataList._separatorLockDoc.Visible = true;
+            }
+
         }
 
         string _icmainScreenSaleWh__itemCode()

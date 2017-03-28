@@ -95,6 +95,15 @@ namespace SMLERPIC
             __utils._updateInventoryMaster("");
             Thread __thread = new Thread(new ThreadStart(__utils._updateInventoryMasterFunction));
             __thread.Start();
+
+            this._myManageMain._dataList._isLockDoc = true;
+            if (MyLib._myGlobal._isUserLockDocument == true)
+            {
+                this._myManageMain._dataList._buttonUnlockDoc.Visible = true;
+                this._myManageMain._dataList._buttonLockDoc.Visible = true;
+                this._myManageMain._dataList._separatorLockDoc.Visible = true;
+            }
+
             this.Disposed += new EventHandler(_icMain_Disposed);
         }
 

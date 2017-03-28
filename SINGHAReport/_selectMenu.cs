@@ -85,7 +85,7 @@ namespace SINGHAReport
                 case "menu_saletools_document_running_no": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=TWFzdGVyRG9jbm8uYXNweA==");
                 //case "menu_": return new _saleToolsWebControl(menuName, "");
                 //case "menu_3.10 Interface SML": return new _saleToolsWebControl(menuName, "");
-                case "menu_saletools_ods_transfer": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=U01MSW50ZXJmYWNlVHJhbnNhY3Rpb24uYXNweD9Eb2NUeXBlPUdU");
+                case "menu_saletools_ods_transfer": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=U01MSW50ZXJmYWNlbWFzdGVyLmFzcHg=");
                 //case "menu_": return new _saleToolsWebControl(menuName, "");
                 //case "menu_4.Photo": return new _saleToolsWebControl(menuName, "");
                 case "menu_saletools_photo_group": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=cGhvdG9ncm91cGxpc3RWMi5hc3B4P1R5cGU9UEg=");

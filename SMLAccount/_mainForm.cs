@@ -1264,8 +1264,7 @@ namespace SMLAccount
                         {
                             _selectMenuReportIC(menuName, __screenName);
                         }
-                        else
-                            if (tag.IndexOf("&icinfo&") != -1)
+                        else if (tag.IndexOf("&icinfo&") != -1)
                         {
                             _selectMenuICInfo(menuName, __screenName);
                         }

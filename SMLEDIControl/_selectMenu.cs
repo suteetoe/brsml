@@ -13,6 +13,7 @@ namespace SMLEDIControl
             {
                 case "menu_edi_external": return (new _ediExternal());
                 case "menu_edi_export": return (new _ediExport());
+                case "menu_sos_order_interface": return (new BRInterfaceControl.SOS._singhaOnlineOrderImport());
             }
 
             return null;

@@ -20,7 +20,7 @@ namespace SMLERPControl._customer
     {
         MyLib._myFrameWork _myFrameWork = new MyLib._myFrameWork();
         _screen_ar_main _ar_detail_screen;
-
+        string _oldCode = "";
 
         public _ar()
         {
@@ -208,14 +208,10 @@ namespace SMLERPControl._customer
                         String __chkNewCode = this._screenTop._getDataStr(_g.d.ar_customer._code);
                         if (MyLib._myGlobal._chkAutoRunBeforSave(_myManageData1._mode, __chkNewCode, _g.d.ar_customer._table, _g.d.ar_customer._code))
                         {
-                            if (MyLib._myGlobal._isCheckRuningBeforSave)
+                            if (MyLib._myGlobal._isCheckRuningBeforSave && _myManageData1._mode == 1)
                             {
                                 this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code));
                             }
-                            ArrayList __getData = this._screenTop._createQueryForDatabase();
-                            String _cust_code = this._screenTop._getDataStr(_g.d.ar_customer._code);
-                            StringBuilder __myQuery = new StringBuilder();
-
 
                             // check duplicate ar
                             if (_g.g._companyProfile._check_ar_duplicate_name && this._myManageData1._mode == 1)
@@ -231,6 +227,21 @@ namespace SMLERPControl._customer
 
                             if (__pass)
                             {
+                                if (this._myManageData1._mode == 2)
+                                {
+                                    // ถ้าเป็นการแก้ไข หาก code ไม่ตรงให้เอาของเก่า
+                                    string __getCode = this._screenTop._getDataStr(_g.d.ar_customer._code);
+                                    if (__getCode != this._oldCode)
+                                    {
+                                        this._screenTop._setDataStr(_g.d.ar_customer._code, this._oldCode, "", true);
+                                    }
+
+                                }
+
+                                ArrayList __getData = this._screenTop._createQueryForDatabase();
+                                String _cust_code = this._screenTop._getDataStr(_g.d.ar_customer._code);
+                                StringBuilder __myQuery = new StringBuilder();
+
                                 __myQuery.Append(MyLib._myGlobal._xmlHeader + "<node>");
 
                                 string __saleShiftField = "";
@@ -394,6 +405,7 @@ namespace SMLERPControl._customer
         void _myManageData1__clearData()
         {
             this._screenTop._clear();
+            this._oldCode = "";
             Control codeControl = this._screenTop._getControl(_g.d.ar_customer._code);
             codeControl.Enabled = true;
             this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code), "", true);
@@ -416,6 +428,7 @@ namespace SMLERPControl._customer
         void _myManageData1__newDataClick()
         {
             this._screenTop._clear();
+            this._oldCode = "";
             this._gridDealer._clear();
             Control codeControl = this._screenTop._getControl(_g.d.ar_customer._code);
             codeControl.Enabled = true;
@@ -487,6 +500,7 @@ namespace SMLERPControl._customer
                 DataSet dealerData = (DataSet)getDataList[1];
 
                 this._screenTop._loadData(getData.Tables[0]);
+                this._oldCode = this._screenTop._getDataStr(_g.d.ar_customer._code);
                 if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLBIllFree)
                 {
 
@@ -512,6 +526,8 @@ namespace SMLERPControl._customer
                 {
                     this._screenTop._focusFirst();
                 }
+
+                //this._oldCode = ((ArrayList)rowData)[1].ToString().ToUpper();
                 return (true);
             }
             catch (Exception)

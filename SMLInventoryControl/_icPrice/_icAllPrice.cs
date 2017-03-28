@@ -21,7 +21,7 @@ namespace SMLInventoryControl._icPrice
             //this._myTabControlDetail._getResource();
             this._myManageDetail._displayMode = 0;
             this._myManageDetail._dataList._lockRecord = true;
-            this._myManageDetail._isLockRecordFromDatabaseActive = false;
+            this._myManageDetail._isLockRecordFromDatabaseActive = true;
             this._myManageDetail._selectDisplayMode(this._myManageDetail._displayMode);
             // this._myManageDetail._dataList._columnFieldNameReplace += new MyLib.ColumnFieldNameReplaceEventHandler(_dataList__columnFieldNameReplace);
             this._myManageDetail._dataList._loadViewFormat(_g.g._search_screen_ic_inventory, MyLib._myGlobal._userSearchScreenGroup, true);
@@ -53,6 +53,13 @@ namespace SMLInventoryControl._icPrice
             this._myManageDetail.Invalidate();
             //
             // this._myToolBar.EnabledChanged += new EventHandler(_myToolBar_EnabledChanged);
+            this._myManageDetail._dataList._isLockDoc = true;
+            if (MyLib._myGlobal._isUserLockDocument == true)
+            {
+                this._myManageDetail._dataList._buttonUnlockDoc.Visible = true;
+                this._myManageDetail._dataList._buttonLockDoc.Visible = true;
+                this._myManageDetail._dataList._separatorLockDoc.Visible = true;
+            }
 
         }
 
