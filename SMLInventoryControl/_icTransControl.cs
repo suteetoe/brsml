@@ -1240,6 +1240,38 @@ namespace SMLInventoryControl
                 discountWord = discountAmount.ToString();
             }
             this._icTransScreenBottom._setDataStr(_g.d.ic_trans._discount_word, discountWord);
+
+            // 
+            if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ)
+            {
+                string __docNoPack = this._icTransRef._getDocRefPackForQuery(-1);
+                // check singha online
+
+                if (__docNoPack.Length > 0)
+                {
+                    string __queryCheckDocFromSinghaOnline = "select doc_no, " + _g.d.ic_trans._ref_doc_type + " from " + _g.d.ic_trans._table + " where " + _g.d.ic_trans._doc_no + " in (" + __docNoPack + ") and " + _g.d.ic_trans._ref_doc_type + "=\'SOS\' ";
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+
+                    DataTable __singhaDoc = __myFrameWork._queryShort(__queryCheckDocFromSinghaOnline).Tables[0];
+                    if (__singhaDoc.Rows.Count > 0)
+                    {
+                        for (int __row = 0; __row < __singhaDoc.Rows.Count; __row++)
+                        {
+                            string __refDocNo = __singhaDoc.Rows[__row]["doc_no"].ToString();
+                            string __getShipmentRef = "select * from ic_trans_shipment where doc_no = '" + __refDocNo + "' ";
+
+                            DataTable __shipmentRef = __myFrameWork._queryShort(__getShipmentRef).Tables[0];
+                            if (this._shipmentControl != null && __shipmentRef.Rows.Count > 0)
+                            {
+                                this._shipmentControl._shipmentScreen._loadData(__shipmentRef);
+                                this._shipmentControl._search(false);
+                            }
+                        }
+
+                    }
+                }
+
+            }
         }
 
         void _gridFindItemInfo()
@@ -1380,6 +1412,7 @@ namespace SMLInventoryControl
         }
 
         void _icTransItemGrid__afterSelectRow(object sender, int row)
+
         {
             this._gridFindItemInfo();
             if (this._lotScreen != null)
@@ -1405,6 +1438,7 @@ namespace SMLInventoryControl
             }
         }
 
+
         int _icTransScreenTop__vatCase(object sender)
         {
             // 0=ภาษีซื้อ,1=ภาษีขาย
@@ -1417,6 +1451,7 @@ namespace SMLInventoryControl
         }
 
         void _icTransScreenTop__textBoxChanged(object sender, string name)
+
         {
             switch (this._transControlType)
             {
@@ -2038,13 +2073,13 @@ namespace SMLInventoryControl
 
                 // singha check status ar_customer
                 if (MyLib._myGlobal._OEMVersion == ("SINGHA") && (name.Equals(_g.d.ic_trans._ar_code) || name.Equals(_g.d.ic_trans._cust_code))
-                    && (
-                    this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ ||
-                    this._transControlType == _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้ ||
-                    this._transControlType == _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้ ||
-                    this._transControlType == _g.g._transControlTypeEnum.ขาย_เสนอราคา ||
-                    this._transControlType == _g.g._transControlTypeEnum.ขาย_สั่งขาย ||
-                    this._transControlType == _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า))
+                        && (
+                        this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ ||
+                        this._transControlType == _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้ ||
+                        this._transControlType == _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้ ||
+                        this._transControlType == _g.g._transControlTypeEnum.ขาย_เสนอราคา ||
+                        this._transControlType == _g.g._transControlTypeEnum.ขาย_สั่งขาย ||
+                        this._transControlType == _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า))
                 {
                     MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
                     string __cust_code = this._icTransScreenTop._getDataStr(_g.d.ic_trans._cust_code);
@@ -2090,6 +2125,7 @@ namespace SMLInventoryControl
                 }
             }
         }
+
 
         decimal _icTransItemGrid__vatRate()
         {
@@ -2210,6 +2246,7 @@ namespace SMLInventoryControl
         }
 
         void _icTransScreenTop__comboBoxSelectIndexChanged(object sender, string name)
+
         {
             if (name.Equals(_g.d.ic_trans._inquiry_type))
             {
@@ -2307,6 +2344,7 @@ namespace SMLInventoryControl
         }
 
         void _ictransItemGrid__alterCellUpdate(object sender, int row, int column)
+
         {
             this._calc(sender);
             if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore &&
@@ -2341,6 +2379,7 @@ namespace SMLInventoryControl
         }
 
         bool _myManageTrans__checkEditData(int row, MyLib._myGrid sender)
+
         {
             if (MyLib._myGlobal._isUserTest)
             {
@@ -2411,8 +2450,11 @@ namespace SMLInventoryControl
                 if (__docColumn != -1 && grid._selectRow != -1)
                 {
                     string __docNo = grid._cellGet(grid._selectRow, __docColumn).ToString();
-                    _docFlowForm __docFlow = new _docFlowForm(this._transControlType, _g.d.ic_trans._doc_no, "", __docNo);
+                    /*_docFlowForm __docFlow = new _docFlowForm(this._transControlType, _g.d.ic_trans._doc_no, "", __docNo);
+                    __docFlow.Show();*/
+                    SMLProcess._docFlowForm __docFlow = new SMLProcess._docFlowForm(this._transControlType, _g.d.ic_trans._doc_no, "", __docNo);
                     __docFlow.Show();
+
                 }
                 else
                 {
@@ -2425,12 +2467,14 @@ namespace SMLInventoryControl
         }
 
         void _dataList__controlKeyEvent(MyLib._myGrid grid, Keys key)
+
         {
             if (key == Keys.F)
             {
                 _flowDisplay(grid);
             }
         }
+
 
         MyLib.BeforeDisplayRowReturn _gridData__beforeDisplayRow(MyLib._myGrid sender, int row, int columnNumber, string columnName, MyLib.BeforeDisplayRowReturn senderRow, MyLib._myGrid._columnType columnType, ArrayList rowData)
         {
@@ -2544,6 +2588,7 @@ namespace SMLInventoryControl
         }
 
         void _myToolBar_EnabledChanged(object sender, EventArgs e)
+
         {
             //this._icTransItemGrid.Enabled = ((ToolStrip)sender).Enabled;
             //this._icTransRef.Enabled = ((ToolStrip)sender).Enabled;
@@ -7162,6 +7207,14 @@ namespace SMLInventoryControl
                 this._calc(this._icTransItemGrid);
             }
             this._icTransScreenTop._isChange = false;
+
+            // arm
+            if (((DataSet)__getData[0]).Tables[0].Rows[0][_g.d.ic_trans._ref_doc_type].ToString().Equals("ARM"))
+            {
+                // checkbox arm
+                this._icTransScreenBottom._setCheckBox(_g.d.ic_trans._is_arm, true);
+            }
+
         }
 
         bool _myManageTrans__loadDataToScreen(object rowData, string whereString, bool forEdit)
@@ -10215,6 +10268,15 @@ namespace SMLInventoryControl
                                 {
                                     __moreField += "," + _g.d.ic_trans._auto_approved;
                                     __moreData += ",1";
+                                }
+
+                                if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ)
+                                {
+                                    if (this._icTransScreenBottom._getDataStr(_g.d.ic_trans._is_arm).Equals("1"))
+                                    {
+                                        __moreField += "," + _g.d.ic_trans._ref_doc_type;
+                                        __moreData += ",\'ARM\'";
+                                    }
                                 }
 
 

@@ -1448,6 +1448,10 @@ namespace _g
             /// จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง
             /// </summary>
             public static String _ap_pay_from_bill_note = "ap_pay_from_bill_note";
+            /// <summary>
+            /// ปิดสถานะเครดิตลูกหนี้อัตโนมัติ
+            /// </summary>
+            public static String _close_ar_status_auto = "close_ar_status_auto";
         }
 
         /// <summary>
@@ -6999,6 +7003,10 @@ namespace _g
             /// มิติ 10
             /// </summary>
             public static String _dimension_10 = "dimension_10";
+            /// <summary>
+            /// ไม่คำณวนปิดสถานะเครดิต
+            /// </summary>
+            public static String _disable_auto_close_credit = "disable_auto_close_credit";
         }
 
         /// <summary>
@@ -15831,6 +15839,14 @@ namespace _g
             /// ปิดเอกสาร
             /// </summary>
             public static String _doc_close = "doc_close";
+            /// <summary>
+            /// ประเภทเอกสาร
+            /// </summary>
+            public static String _ref_doc_type = "ref_doc_type";
+            /// <summary>
+            /// ARM
+            /// </summary>
+            public static String _is_arm = "is_arm";
         }
 
         /// <summary>
@@ -34849,6 +34865,18 @@ namespace _g
             /// %เกินวงเงิน
             /// </summary>
             public static String _over_percent = "over_percent";
+            /// <summary>
+            /// สถานะเครดิต
+            /// </summary>
+            public static String _credit_status = "credit_status";
+            /// <summary>
+            /// ผู้อนุมัติสถานะเครดิต
+            /// </summary>
+            public static String _user_approve_status = "user_approve_status";
+            /// <summary>
+            /// วันอนุมัติสถานะเครดิต
+            /// </summary>
+            public static String _user_approve_status_date = "user_approve_status_date";
         }
 
         /// <summary>
@@ -34958,6 +34986,30 @@ namespace _g
             /// บรรทัด
             /// </summary>
             public static String _line_number = "line_number";
+            /// <summary>
+            /// วันที่ออกจดหมายเตือน
+            /// </summary>
+            public static String _day_to_noties = "day_to_noties";
+            /// <summary>
+            /// จำนวนเดือนที่จะออกจดหมายเตือน
+            /// </summary>
+            public static String _month_to_noties = "month_to_noties";
+            /// <summary>
+            /// วันที่ออกจดหมายเตือน ครั้งที่ 2
+            /// </summary>
+            public static String _day_to_noties_2 = "day_to_noties_2";
+            /// <summary>
+            /// จำนวนเดือนที่จะออกจดหมายเตือน ครั้งที่ 2
+            /// </summary>
+            public static String _month_to_noties_2 = "month_to_noties_2";
+            /// <summary>
+            /// ออกจดหมายเตือน ครั้งที่ 1
+            /// </summary>
+            public static String _send_noties_1 = "send_noties_1";
+            /// <summary>
+            /// ออกจดหมายเตือน ครั้งที่ 2
+            /// </summary>
+            public static String _send_noties_2 = "send_noties_2";
         }
 
         /// <summary>
@@ -35199,6 +35251,10 @@ namespace _g
             /// PayMentDate
             /// </summary>
             public static String _paymentdate = "paymentdate";
+            /// <summary>
+            /// OrderDate
+            /// </summary>
+            public static String _orderdate = "orderdate";
         }
     }
 }

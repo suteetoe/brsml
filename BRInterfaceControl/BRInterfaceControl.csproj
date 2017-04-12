@@ -77,6 +77,21 @@
   <ItemGroup>
     <None Include="Resources\error.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSelect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IconSelected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flashlight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete2.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

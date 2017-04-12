@@ -81,12 +81,25 @@
       <HintPath>C:\Windows\assembly\GAC_MSIL\System\2.0.0.0__b77a5c561934e089\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_docFlowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_docFlowForm.Designer.cs">
+      <DependentUpon>_docFlowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_docFlowStyle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_docFlowStyle.Designer.cs">
+      <DependentUpon>_docFlowStyle.cs</DependentUpon>
+    </Compile>
     <Compile Include="_docFlowThread.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -137,6 +150,14 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="_docFlowForm.resx">
+      <DependentUpon>_docFlowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_docFlowStyle.resx">
+      <DependentUpon>_docFlowStyle.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

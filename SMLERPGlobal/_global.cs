@@ -2070,7 +2070,16 @@ namespace _g
                     case _transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด:
                     case _transControlTypeEnum.ซื้อ_พาเชียล_ตั้งหนี้:
                     case _transControlTypeEnum.ซื้อ_พาเชียล_เพิ่มหนี้:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกมา:
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก_ยกเลิก:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน_ยกเลิก:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน_ยกเลิก:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค_ยกเลิก:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน:
+                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน:
+
                         return 1;
                     // SO Trans
                     case _transControlTypeEnum.SoEstimate:
@@ -2132,13 +2141,9 @@ namespace _g
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_คืน:
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกเลิก:
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เข้าใหม่:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน:
                     case _transControlTypeEnum.เงินสดธนาคาร_บัตรเครดิต_ผ่าน:
                     case _transControlTypeEnum.เงินสดธนาคาร_บัตรเครดิต_ยกเลิก:
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกมา:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกมา:
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค:
                     // toe
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ฝาก_ยกเลิก:
@@ -2148,10 +2153,6 @@ namespace _g
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เข้าใหม่_ยกเลิก:
                     case _transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค_ยกเลิก:
 
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก_ยกเลิก:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน_ยกเลิก:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน_ยกเลิก:
-                    case _transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค_ยกเลิก:
 
                     case _transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน_ยกเลิก:
                     case _transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน_ยกเลิก:

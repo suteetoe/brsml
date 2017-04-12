@@ -166,6 +166,9 @@ namespace SMLERPAPARControl._depositControl
                     this._myManageData1._clearData += new MyLib.ClearDataEvent(_myManageData1__clearData);
                     this._myManageData1._dataList._gridData._beforeDisplayRow += new MyLib.BeforeDisplayRowEventHandler(_gridData__beforeDisplayRow);
                     this._myManageData1._dataList._extraWhereEvent += _dataList__extraWhereEvent;
+                    this._myManageData1._dataList._flowButton.Enabled = true;
+                    this._myManageData1._dataList._flowEvent += _dataList__flowEvent;
+
                     //
                     this._screenTop._textBoxSaved += new MyLib.TextBoxSavedHandler(_screenTop__textBoxSaved);
                     this._screenTop._comboBoxSelectIndexChanged += new MyLib.ComboBoxSelectIndexChangedHandler(_screenTop__comboBoxSelectIndexChanged);
@@ -189,6 +192,38 @@ namespace SMLERPAPARControl._depositControl
             get
             {
                 return this._ictransControlTypeTemp;
+            }
+        }
+
+        private void _dataList__flowEvent(MyLib._myGrid grid)
+        {
+            _flowDisplay(grid);
+        }
+
+        void _flowDisplay(MyLib._myGrid grid)
+        {
+            try
+            {
+                int __docColumn = grid._findColumnByName(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_no);
+                if (__docColumn != -1 && grid._selectRow != -1)
+                {
+                    string __docNo = grid._cellGet(grid._selectRow, __docColumn).ToString();
+
+                    /* โต๋ย้าย DocFlow ไป SMLProcess
+                    _docFlowForm __docFlow = new _docFlowForm(this._transControlType, _g.d.ic_trans._doc_no, "", __docNo);
+                    __docFlow.Show();
+                    */
+                    SMLProcess._docFlowForm __docFlow = new SMLProcess._docFlowForm(this._ictransControlTypeTemp, _g.d.ic_trans._doc_no, "", __docNo);
+                    __docFlow.Show();
+
+                }
+                else
+                {
+                    MessageBox.Show(MyLib._myGlobal._resource("ไม่พบเอกสาร"));
+                }
+            }
+            catch
+            {
             }
         }
 

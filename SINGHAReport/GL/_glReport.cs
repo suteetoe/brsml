@@ -880,6 +880,8 @@ namespace SINGHAReport.GL
                             string __getAccountName1 = _getAccount.Tables[0].Rows[__accountRow].ItemArray[1].ToString();
                             string __getAccountName2 = _getAccount.Tables[0].Rows[__accountRow].ItemArray[2].ToString();
 
+                            Console.WriteLine(__getAccountCode);
+
                             decimal __sumDebetAccount = 0;
                             decimal __sumCreditAccount = 0;
 

@@ -1690,6 +1690,7 @@ namespace SMLInventoryControl
                         if (MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
                         {
                             this._addTextBox(row, 0, 1, 0, _g.d.ic_trans._sender_code, 1, 1, 1, true, false, true);
+                            this._addCheckBox(++row, 0, _g.d.ic_trans._is_arm, true, false, false, false, _g.d.ic_trans._is_arm);
                         }
 
                         if (_g.g._companyProfile._multi_currency)

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace SMLInventoryControl
 {
@@ -172,6 +173,81 @@ namespace SMLInventoryControl
                 _searchAddress.ShowDialog();
             }
         }
+
+        bool _searchAndWarning(string fieldName, DataSet __dataResult, Boolean warning)
+        {
+            bool __result = false;
+            string __getData = "";
+            string __getDataStr = this._shipmentScreen._getDataStr(fieldName);
+            string __getDataStr1 = this._shipmentScreen._getDataStr(fieldName);
+            this._shipmentScreen._setDataStr(fieldName, __getDataStr, __getData, true);
+            if (__dataResult.Tables[0].Rows.Count > 0)
+            {
+                __getData = __dataResult.Tables[0].Rows[0][0].ToString();
+            }
+            this._shipmentScreen._setDataStr(fieldName, __getDataStr, __getData, true);
+            if (this._searchTextBox != null)
+            {
+
+                // toe เพิ่ม 20130311
+                // 20160810 toe เอาออก && this._icTransControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ 
+                if (this._searchName.CompareTo(fieldName) == 0 && (fieldName.Equals(_g.d.ic_trans._cust_code) ||
+                    fieldName.Equals(_g.d.ic_trans._wh_from) ||
+                    fieldName.Equals(_g.d.ic_trans._location_from) ||
+                    fieldName.Equals(_g.d.ic_trans._wh_to) ||
+                    fieldName.Equals(_g.d.ic_trans._location_to)) == true && __dataResult.Tables[0].Rows.Count == 0 && warning == true)
+                {
+                    MessageBox.Show("ไม่พบข้อมูล : " + ((MyLib._myTextBox)this._searchTextBox.Parent)._labelName);
+                    this._shipmentScreen._setDataStr(fieldName, "", "", true);
+                }
+
+                // jead เอาไว้แก้ทีหลัง
+                /*if (this._searchName.CompareTo(fieldName) == 0 && this._getDataStr(fieldName) != "")
+                {
+                    if (__dataResult.Tables[0].Rows.Count == 0 && warning)
+                    {
+                        MessageBox.Show(MyLib._myGlobal._resource("เอกสารเลขที่ หรือ ยอดตัดจ่าย ห้ามว่าง"), MyLib._myGlobal._resource("เตือน"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        ((MyLib._myTextBox)this._searchTextBox.Parent)._textFirst = "";
+                        ((MyLib._myTextBox)this._searchTextBox.Parent)._textSecond = "";
+                        ((MyLib._myTextBox)this._searchTextBox.Parent)._textLast = "";
+                        this._setDataStr(fieldName, "", "", true);
+                        this._searchTextBox.Focus();
+                        __result = true;
+                    }
+                }*/
+            }
+            return __result;
+        }
+
+
+
+        public void _search(bool warning)
+        {
+            StringBuilder __queryList = new StringBuilder();
+            __queryList.Append(MyLib._myGlobal._xmlHeader + "<node>");
+
+            __queryList.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_province._name_1 + " from " + _g.d.erp_province._table + " where " + _g.d.erp_province._code + " = " + this._shipmentScreen._getDataStrQuery(_g.d.ic_trans_shipment._transport_province) + " "));
+            //__queryList.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_province._name_1 + " from " + _g.d.erp_province._table + " where " + _g.d.erp_province._code + "=\'" + this._getDataStr(_g.d.ar_customer._province) + "\'"));
+            __queryList.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_amper._name_1 + " from " + _g.d.erp_amper._table + " where " + _g.d.erp_amper._province + "=\'" + this._shipmentScreen._getDataStr(_g.d.ic_trans_shipment._transport_province) + "\' and " + _g.d.erp_amper._code + "=\'" + this._shipmentScreen._getDataStr(_g.d.ic_trans_shipment._transport_amper) + "\'"));
+            __queryList.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_tambon._name_1 + " from " + _g.d.erp_tambon._table + " where " + _g.d.erp_tambon._province + "=\'" + this._shipmentScreen._getDataStr(_g.d.ic_trans_shipment._transport_province) + "\' and " + _g.d.erp_tambon._amper + "=\'" + this._shipmentScreen._getDataStr(_g.d.ic_trans_shipment._transport_amper) + "\' and " + _g.d.erp_tambon._code + "=\'" + this._shipmentScreen._getDataStr(_g.d.ic_trans_shipment._transport_tambon) + "\'"));
+            __queryList.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.transport_type._name_1 + " from " + _g.d.transport_type._table + " where " + _g.d.transport_type._code + " = " + this._shipmentScreen._getDataStrQuery(_g.d.ic_trans_shipment._transport_code) + " "));
+            __queryList.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_logistic_area._name_1 + " from " + _g.d.ar_logistic_area._table + " where " + _g.d.ar_logistic_area._code + " = " + this._shipmentScreen._getDataStrQuery(_g.d.ic_trans_shipment._logistic_area) + " "));
+            __queryList.Append("</node>");
+
+            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+            ArrayList _getData = __myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __queryList.ToString());
+            if (_getData.Count > 0)
+            {
+                _searchAndWarning(_g.d.ic_trans_shipment._transport_province, (DataSet)_getData[0], warning);
+                _searchAndWarning(_g.d.ic_trans_shipment._transport_amper, (DataSet)_getData[1], warning);
+                _searchAndWarning(_g.d.ic_trans_shipment._transport_tambon, (DataSet)_getData[2], warning);
+                _searchAndWarning(_g.d.ic_trans_shipment._transport_code, (DataSet)_getData[3], warning);
+                _searchAndWarning(_g.d.ic_trans_shipment._logistic_area, (DataSet)_getData[4], warning);
+
+            }
+        }
+
+
 
         void _gridDataMastersearch__mouseClick(object sender, MyLib.GridCellEventArgs e)
         {

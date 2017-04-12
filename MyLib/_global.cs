@@ -20,7 +20,7 @@ namespace MyLib
         public static Boolean _isDesignMode = true;
         public static List<_providerListClass> _providerList = new List<_providerListClass>();
         public static List<_printerListClass> _printerList = new List<_printerListClass>();
-        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 9, 48);
+        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 10, 4);
         public static Boolean _autoLogin = false;
         public static Boolean _useNoVat = false;
         public static string _programName = "";
@@ -1050,9 +1050,9 @@ namespace MyLib
                         }
                         if (_xmlUpdate.CompareTo(__lastUpdate) > 0)
                         {
-                            __myFrameWork._sendXmlFile(MyLib._myGlobal._dataViewTemplateXmlFileName);
-                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "truncate table erp_view_column");
-                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "truncate table erp_view_table");
+                            //__myFrameWork._sendXmlFile(MyLib._myGlobal._dataViewTemplateXmlFileName);
+                            //__myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "truncate table erp_view_column");
+                            //__myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "truncate table erp_view_table");
 
                             MessageBox.Show("ตรวจพบการเปลี่ยนแปลงโครงสร้างข้อมูล กรุณาทำการตรวจสอบโครงสร้างฐานข้อมูลใหม่", "Database Verify", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         }

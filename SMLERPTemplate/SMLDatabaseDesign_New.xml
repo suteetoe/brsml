@@ -727,7 +727,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3381" _x="418" _y="1445">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3397" _x="418" _y="1445">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1775,6 +1775,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="ap_pay_from_bill_note" _description="จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="close_ar_status_auto" _description="ปิดสถานะเครดิตลูกหนี้อัตโนมัติ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -8281,7 +8286,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="324" _height="1925" _x="990" _y="7">
+    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="1941" _x="990" _y="7">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -8874,6 +8879,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="dimension_10" _description="มิติ 10" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="disable_auto_close_credit" _description="ไม่คำณวนปิดสถานะเครดิต" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -18192,7 +18202,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans" _description="รายวันทั้งหมด" _descriptionEng="IC - Transection" _version="SMLERP" _width="452" _height="5093" _x="593" _y="6">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans" _description="รายวันทั้งหมด" _descriptionEng="IC - Transection" _version="SMLERP" _width="452" _height="5125" _x="593" _y="6">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -19906,6 +19916,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="doc_close" _description="ปิดเอกสาร" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref_doc_type" _description="ประเภทเอกสาร" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_arm" _description="ARM" _descriptionEng="ARM" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -44786,7 +44806,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_credit_request" _description="รายการขออนุมัติวงเงิน" _descriptionEng="ERP Credit Request" _version="" _width="232" _height="213" _x="1242" _y="2064">
+    <_tableList _moduleName="Setup" _name="erp_credit_request" _description="รายการขออนุมัติวงเงิน" _descriptionEng="ERP Credit Request" _version="" _width="315" _height="261" _x="1242" _y="2064">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -44844,6 +44864,21 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="over_percent" _description="%เกินวงเงิน" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="credit_status" _description="สถานะเครดิต" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_approve_status" _description="ผู้อนุมัติสถานะเครดิต" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_approve_status_date" _description="วันอนุมัติสถานะเครดิต" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -44934,7 +44969,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="ar_credit_pay_bill" _description="กำหนดวันครบกำหนดชำระเงิน" _descriptionEng="" _version="" _width="307" _height="181" _x="1170" _y="645">
+    <_tableList _moduleName="Master" _name="ar_credit_pay_bill" _description="กำหนดวันครบกำหนดชำระเงิน" _descriptionEng="" _version="" _width="372" _height="277" _x="1170" _y="644">
       <_fields>
         <_fieldList _name="credit_day" _description="จำนวนวันเครดิต" _descriptionEng="" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -44982,6 +45017,36 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="line_number" _description="บรรทัด" _descriptionEng="" _type="3" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="day_to_noties" _description="วันที่ออกจดหมายเตือน" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="month_to_noties" _description="จำนวนเดือนที่จะออกจดหมายเตือน" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="day_to_noties_2" _description="วันที่ออกจดหมายเตือน ครั้งที่ 2" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="month_to_noties_2" _description="จำนวนเดือนที่จะออกจดหมายเตือน ครั้งที่ 2" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_noties_1" _description="ออกจดหมายเตือน ครั้งที่ 1" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_noties_2" _description="ออกจดหมายเตือน ครั้งที่ 2" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -45150,7 +45215,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_additional" _description="รายละเอียดเพิ่มเติมรายวัน" _descriptionEng="IC Trans Addtitional" _version="" _width="288" _height="389" _x="1392" _y="6">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_additional" _description="รายละเอียดเพิ่มเติมรายวัน" _descriptionEng="IC Trans Addtitional" _version="" _width="288" _height="405" _x="1392" _y="6">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -45263,6 +45328,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="paymentdate" _description="PayMentDate" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="orderdate" _description="OrderDate" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

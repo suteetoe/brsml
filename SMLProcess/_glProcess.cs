@@ -1121,7 +1121,7 @@ namespace SMLProcess
             if (__getBalance.Tables[0].Rows.Count > 0)
             {
                 /// ยอดยกมา (จากการคำนวณ)
-                __balanceLine._balance = (decimal)Double.Parse(__getBalance.Tables[0].Rows[0].ItemArray[0].ToString());
+                __balanceLine._balance = (decimal) MyLib._myGlobal._decimalPhase(__getBalance.Tables[0].Rows[0].ItemArray[0].ToString());
                 __balance += __balanceLine._balance;
             }
             __balanceLine._desc = (MyLib._myGlobal._language == MyLib._languageEnum.Thai) ? "ยอดยกมา" : "Balance";

@@ -2292,7 +2292,7 @@ namespace SMLProcess
                                         {
                                             decimal __itemQty = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[0][__fieldCountItemQty].ToString());
                                             decimal __reduce = MyLib._myGlobal._decimalPhase(__result.Tables[0].Rows[0][__fidldReduceItemQty].ToString());
-                                            int __doc_success = (__itemQty == __reduce && __reduce != 0 && __detailRowCount > 0) ? 1 : 0;
+                                            int __doc_success = (__itemQty <= __reduce && __reduce != 0 && __detailRowCount > 0) ? 1 : 0;
 
                                             // doc_success check
                                             if (__doc_success != __old_doc_success)
@@ -2347,6 +2347,13 @@ namespace SMLProcess
                                     case _g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้อื่น:
                                     case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น:
                                     case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น:
+
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น:
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_เพิ่มหนี้:
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้:
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น:
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้:
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้:
                                         {
                                             int __used_status_old_2 = (MyLib._myGlobal._intPhase(__result.Tables[0].Rows[0][__fieldUsedStatus2].ToString()) > 0) ? 1 : 0;
                                             int __used_status_2 = (MyLib._myGlobal._intPhase(__result.Tables[0].Rows[0][__fieldDocRefCount2].ToString()) > 0) ? 1 : 0;
