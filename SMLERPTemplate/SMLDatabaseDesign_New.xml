@@ -21,6 +21,7 @@
     <anyType xsi:type="xsd:string">IMEX</anyType>
     <anyType xsi:type="xsd:string">EDI</anyType>
     <anyType xsi:type="xsd:string">Draft</anyType>
+    <anyType xsi:type="xsd:string">Utility</anyType>
   </_module>
   <_tables>
     <_tableList _moduleName="Setup" _name="erp_account_period" _description="งวดบัญชี" _descriptionEng="Account period" _version="ALL" _width="227" _height="101" _x="329" _y="10">
@@ -287,7 +288,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_branch_list" _description="รายชื่อสาขา" _descriptionEng="Branch list" _version="ALL" _width="383" _height="229" _x="9" _y="1075">
+    <_tableList _moduleName="Setup" _name="erp_branch_list" _description="รายชื่อสาขา" _descriptionEng="Branch list" _version="ALL" _width="383" _height="245" _x="9" _y="1075">
       <_fields>
         <_fieldList _name="code" _description="รหัสสาขา" _descriptionEng="Branch code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -354,6 +355,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="arm_code" _description="ARM Code" _descriptionEng="ARM Code" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs>
         <_indexs _name="PK_CODE" _custer="1" _unique="1" _fieldsDisplay="code">
@@ -365,7 +371,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="581" _x="333" _y="485">
+    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="597" _x="333" _y="485">
       <_fields>
         <_fieldList _name="company_name_1" _description="ชื่อบริษัท" _descriptionEng="Company name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -538,6 +544,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="club" _description="Club" _descriptionEng="Club" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_code" _description="ARM Code" _descriptionEng="ARM Code" _type="1" _length="50" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -727,7 +738,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3397" _x="418" _y="1445">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3413" _x="418" _y="1445">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1784,6 +1795,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="check_refer_wh_shelf" _description="ห้ามแก้ไขคลังที่เก็บกรณีอ้างอิงเอกสาร" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs />
       <_afterCreated />
@@ -2640,7 +2656,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_inventory" _description="สินค้า" _descriptionEng="Inventory" _version="SMLERP" _width="345" _height="1637" _x="16" _y="2">
+    <_tableList _moduleName="IC" _name="ic_inventory" _description="สินค้า" _descriptionEng="Inventory" _version="SMLERP" _width="345" _height="1653" _x="16" _y="2">
       <_fields>
         <_fieldList _name="code" _description="รหัสสินค้า" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -3147,6 +3163,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="degree" _description="ดีกรี" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_product_boonrawd" _description="สินค้าบุญรอด" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -4482,7 +4503,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_inventory_detail" _description="รายละเอียดสินค้า" _descriptionEng="Inventory Detail" _version="SMLERP" _width="358" _height="1365" _x="374" _y="7">
+    <_tableList _moduleName="IC" _name="ic_inventory_detail" _description="รายละเอียดสินค้า" _descriptionEng="Inventory Detail" _version="SMLERP" _width="358" _height="1381" _x="374" _y="7">
       <_fields>
         <_fieldList _name="ic_code" _description="รหัสสินค้า" _descriptionEng="Item Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -4900,6 +4921,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="dimension_25" _description="มิติ 25" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_premium" _description="สินค้าสมนาคุณ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -6214,7 +6240,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="ic_dimension" _description="มิติสินค้า" _descriptionEng="Inventory Dimension" _version="" _width="233" _height="133" _x="289" _y="883">
+    <_tableList _moduleName="Master" _name="ic_dimension" _description="มิติสินค้า" _descriptionEng="Inventory Dimension" _version="" _width="233" _height="133" _x="835" _y="938">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -10203,7 +10229,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_user" _description="พนักงาน" _descriptionEng="User" _version="ALL" _width="405" _height="933" _x="6" _y="1309">
+    <_tableList _moduleName="Setup" _name="erp_user" _description="พนักงาน" _descriptionEng="User" _version="ALL" _width="405" _height="949" _x="6" _y="1309">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -10486,6 +10512,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="mobile_user" _description="Mobile User" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sale_hub_user" _description="Sale Hub Users" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -16432,7 +16463,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_ref_document" _description="เอกสารอ้างอิง" _descriptionEng="Reference Document" _version="ALL" _width="206" _height="133" _x="416" _y="1051">
+    <_tableList _moduleName="Setup" _name="erp_ref_document" _description="เอกสารอ้างอิง" _descriptionEng="Reference Document" _version="ALL" _width="206" _height="133" _x="888" _y="2463">
       <_fields>
         <_fieldList _name="doc_no" _description="เอกสารเลขที่" _descriptionEng="Document No" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -16932,7 +16963,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_inventory_purchase_price" _description="กำหนดราคาซื้อสินค้า" _descriptionEng="Inventory Purchase Price" _version="" _width="275" _height="501" _x="1096" _y="5">
+    <_tableList _moduleName="IC" _name="ic_inventory_purchase_price" _description="กำหนดราคาซื้อสินค้า" _descriptionEng="Inventory Purchase Price" _version="" _width="275" _height="517" _x="1096" _y="5">
       <_fields>
         <_fieldList _name="ic_code" _description="รหัสสินค้า" _descriptionEng="Product" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -17084,6 +17115,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="olddate" _description="olddate" _descriptionEng="olddate" _type="1" _length="55" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="discount" _description="ส่วนลด" _descriptionEng="Discount" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -18202,7 +18238,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans" _description="รายวันทั้งหมด" _descriptionEng="IC - Transection" _version="SMLERP" _width="452" _height="5125" _x="593" _y="6">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans" _description="รายวันทั้งหมด" _descriptionEng="IC - Transection" _version="SMLERP" _width="452" _height="5173" _x="593" _y="6">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -19930,6 +19966,21 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="adjust_normal" _description="ปรับปรุงสินค้า" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="adjust_stock_balance" _description="ปรับปรุงยกมาสินค้า" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="adjust_end_product" _description="ปรับปรุงปิดสินค้า" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs>
         <_indexs _name="IC_TRANS_PK_PRIMARY" _custer="1" _unique="1" _fieldsDisplay="doc_no,trans_flag">
@@ -21631,7 +21682,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="IC - Transection Detail" _version="SMLERP" _width="328" _height="2757" _x="1053" _y="6">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="IC - Transection Detail" _version="SMLERP" _width="328" _height="2789" _x="1053" _y="6">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -22585,6 +22636,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="discount_amount_2" _description="มูลค่าส่วนลด" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_lock_cost" _description="กำหนดต้นทุนเอง" _descriptionEng="Lock Cost" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sum_of_cost_fix" _description="ต้นทุน" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -33283,7 +33344,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="POSConfig" _description="กำหนด config ระบบ POS " _descriptionEng="กำหนด config ระบบ POS " _version="" _width="428" _height="2069" _x="2" _y="1969">
+    <_tableList _moduleName="POS" _name="POSConfig" _description="กำหนด config ระบบ POS " _descriptionEng="กำหนด config ระบบ POS " _version="" _width="428" _height="2085" _x="2" _y="1969">
       <_fields>
         <_fieldList _name="cust_code_default" _description="ลูกค้าเริ่มต้น" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -33921,6 +33982,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="change_money_currency" _description="สกุลเงินสำหรับทอนเงิน" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="disable_sale_no_price" _description="ห้ามขายสินค้าราคาศูนย์" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -44324,7 +44390,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_credit_approve_level" _description="อนุมัติวงเงินตามช่วง" _descriptionEng="Credit Approve Level" _version="" _width="383" _height="117" _x="929" _y="1828">
+    <_tableList _moduleName="Setup" _name="erp_credit_approve_level" _description="อนุมัติวงเงินตามช่วง" _descriptionEng="Credit Approve Level" _version="" _width="383" _height="133" _x="1241" _y="2332">
       <_fields>
         <_fieldList _name="from_amount" _description="วงเงินอนุมัติจาก" _descriptionEng="" _type="2" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -44352,6 +44418,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="guid_code" _description="guid" _descriptionEng="" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="branch_code" _description="สาขา" _descriptionEng="Branch Code" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -45333,6 +45404,68 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="orderdate" _description="OrderDate" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Utility" _name="erp_send_message" _description="ส่งข้อความ" _descriptionEng="ERP Send Message" _version="" _width="272" _height="181" _x="0" _y="0">
+      <_fields>
+        <_fieldList _name="send_type" _description="ประเภทการส่ง" _descriptionEng="" _type="4" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark>
+              <_remark>1=email</_remark>
+              <_remark>2=SMS</_remark>
+              <_remark>3=Line</_remark>
+              <_remark>1009=Singha Sale Hub</_remark>
+            </_remark>
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_to" _description="ส่งถึง" _descriptionEng="" _type="1" _length="1500" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_message" _description="ข้อความ" _descriptionEng="" _type="10" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_date" _description="วันที่ให้ทำการส่ง" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_status" _description="สถานะการส่ง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="date_add" _description="วันที่เพิ่ม" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_to_date" _description="วันเวลาที่ทำการส่ง" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_title" _description="หัวข้อ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_process_guid" _description="guid เครื่องส่ง" _descriptionEng="" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="send_process_time" _description="เวลาทำการ process" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

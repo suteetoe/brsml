@@ -97,10 +97,10 @@ namespace MyLib.SendSMS
             //MyLib.SendSMS.WebPostRequest smsPost = new MyLib.SendSMS.WebPostRequest("https://apisaleshub.boonrawd.co.th/api/inbox/send");
             //smsPost.Add("apiKey", "fa1303aa97260c6e4bfa69fcbdd7934e");
 
-            MyLib.SendSMS.WebPostRequest smsPost = new MyLib.SendSMS.WebPostRequest("http://bsnews.brteasy.com:8080/api/inbox/send");
-            smsPost.Add("apiKey", "5514494e92efe05a6a852a9b328f1b10");
+            MyLib.SendSMS.WebPostRequest smsPost = new MyLib.SendSMS.WebPostRequest("http://agenthub.brteasy.com:8080/api/inbox/send"); // http://agenthub.brteasy.com:8080/api/admin/inbox/send");
+            smsPost.Add("apiKey", "93aa7accf7a9d53ad82d8ccb7e854b4d"); // "5514494e92efe05a6a852a9b328f1b10");
             smsPost.Add("channel", "inbox");
-            smsPost.Add("sender", "BS-SINGHA SML");
+            smsPost.Add("sender", "SINGHA SML");
 
             string[] _emails = phoneNumber.Split(',');
             foreach (string email in _emails)

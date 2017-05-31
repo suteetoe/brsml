@@ -134,6 +134,7 @@ namespace SMLERPConfig
                         __screenFull._addColumn(_g.d.erp_branch_list._serial_list, 100, 40);
                         __screenFull._addColumn(_g.d.erp_branch_list._phone_number_approve, 100, 40);
                         __screenFull._addColumn(_g.d.erp_branch_list._sale_hub_approve, 100, 40);
+                        __screenFull._addColumn(_g.d.erp_branch_list._arm_code, 100, 40);
                         __screenFull._finish();
                         return __screenFull;
                     }
@@ -165,11 +166,14 @@ namespace SMLERPConfig
                     __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + "roworder", 2, 0, 10, false, true, true, false);
                     __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + _g.d.erp_credit_approve_level._from_amount, 3, 0, 10, false, false, true, false, "m02");
                     __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + _g.d.erp_credit_approve_level._to_amount, 3, 0, 10, false, false, true, false, "m02");
+                    __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + _g.d.erp_credit_approve_level._branch_code, 1, 0, 10, false, false, true, false);
                     __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + _g.d.erp_credit_approve_level._user_approve, 1, 0, 10, false, false, true, false);
                     __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + _g.d.erp_credit_approve_level._phone_number_approve, 1, 0, 10, false, false, true, false);
+                    __screenFull._manageDataScreen._dataList._gridData._addColumn(_g.d.erp_credit_approve_level._table + "." + _g.d.erp_credit_approve_level._sale_hub_auth, 1, 0, 10, false, false, true, false);
 
                     __screenFull._inputScreen._addNumberBox(__screenFull._rowScreen++, 0, 1, 1, _g.d.erp_credit_approve_level._from_amount, 1, 3, true);
                     __screenFull._inputScreen._addNumberBox(__screenFull._rowScreen++, 0, 1, 1, _g.d.erp_credit_approve_level._to_amount, 1, 3, true);
+                    __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_credit_approve_level._branch_code, 1, 0, 0, true, false, true);
                     __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_credit_approve_level._user_approve, 1, 0, 0, true, false, true);
                     __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_credit_approve_level._phone_number_approve, 1, 0, 0, true, false, true);
                     __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_credit_approve_level._sale_hub_auth, 1, 0, 0, true, false, true);
@@ -197,7 +201,7 @@ namespace SMLERPConfig
                         __screenFull._manageDataScreen._dataList._buttonLockDoc.Visible = true;
                         __screenFull._manageDataScreen._dataList._separatorLockDoc.Visible = true;
                     }
-                    
+
                     __screenFull._maxColumn = 2;
                     __screenFull._labelTitle.Text = screenName;
                     __screenFull._dataTableName = _g.d.erp_user._table;
@@ -415,7 +419,13 @@ namespace SMLERPConfig
                     if (MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
                     {
                         __screenFull._inputScreen._addCheckBox(__screenFull._rowScreen, 0, _g.d.erp_user._reset_print_log, true, false);
-                        __screenFull._inputScreen._addCheckBox(__screenFull._rowScreen++, 0, _g.d.erp_user._mobile_user, true, false);
+                        __screenFull._inputScreen._addCheckBox(__screenFull._rowScreen++, 1, _g.d.erp_user._mobile_user, true, false);
+
+                        __screenFull._inputScreen._addNumberBox(__screenFull._rowScreen, 0, 1, 0, _g.d.erp_user._cr_approve_from, 1, 2, true);
+                        __screenFull._inputScreen._addNumberBox(__screenFull._rowScreen++, 1, 1, 0, _g.d.erp_user._cr_approve_to, 1, 2, true);
+
+                        __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 1, _g.d.erp_user._sale_hub_user, 1, 10, 1, true, false);
+
                     }
 
                     if (MyLib._myGlobal._programName == "SML CM")

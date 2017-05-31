@@ -190,6 +190,17 @@ namespace BRInterfaceControl.SOS
 
                                 // do save order ic_trans
 
+                                // check null value
+                                if (__json["doc_date"] == null)
+                                {
+                                    __rejectMessage.AppendLine("doc_date is null");
+                                }
+
+                                if (__json["doc_time"] == null)
+                                {
+                                    __rejectMessage.AppendLine("doc_time is null");
+                                }
+
                                 __docNo = __json["doc_no"].ToString().Replace("\"", string.Empty);
                                 string __docDate = (__json["doc_date"] != null) ? DateTime.ParseExact(__json["doc_date"], "yyyy-MM-dd", CultureInfo.InvariantCulture).ToString("yyyy-MM-dd") : "";
                                 string __custCode = __json["cust_code"].ToString().Replace("\"", string.Empty);
@@ -276,44 +287,106 @@ namespace BRInterfaceControl.SOS
 
                                 for (int __rowDetail = 0; __rowDetail < __items.Count; __rowDetail++)
                                 {
-
-
-                                    string __itemCode = __items[__rowDetail]["item_code"].ToString().Replace("\"", string.Empty);
-                                    string __unitCode = __items[__rowDetail]["unit_code"].ToString().Replace("\"", string.Empty);
-                                    string __whCode = __items[__rowDetail]["wh_code"].ToString().Replace("\"", string.Empty);
-                                    string __shelfCode = __items[__rowDetail]["shelf_code"].ToString().Replace("\"", string.Empty);
-                                    int __isPremium = (__items[__rowDetail]["is_permium"] == null) ? 0 : MyLib._myGlobal._intPhase(__items[__rowDetail]["is_permium"].ToString().Replace("\"", string.Empty));
-                                    int __lineNumber = MyLib._myGlobal._intPhase(__items[__rowDetail]["line_number"].ToString().Replace("\"", string.Empty));
-
-                                    Decimal __qty = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["qty"].ToString().Replace("\"", string.Empty));
-                                    Decimal __price = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["price"].ToString().Replace("\"", string.Empty));
-                                    Decimal __priceExcludeVat = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["price_exclude_vat"].ToString().Replace("\"", string.Empty));
-                                    Decimal __sumAmount = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["sum_amount"].ToString().Replace("\"", string.Empty));
-
-                                    Decimal __discount_amount = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["discount_amount"].ToString().Replace("\"", string.Empty));
-                                    Decimal __total_vat_value = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["vat_amount"].ToString().Replace("\"", string.Empty));
-
-                                    int __tax_type = MyLib._myGlobal._intPhase(__items[__rowDetail]["tax_type"].ToString().Replace("\"", string.Empty));
-                                    int __vat_type = MyLib._myGlobal._intPhase(__items[__rowDetail]["vat_type"].ToString().Replace("\"", string.Empty));
-
-                                    string __itemName = (__isPremium == 1) ? JsonLib._utils._getJsonValue(__items[__rowDetail]["promotion"]) : "";
-
-                                    string __insertDetail = "insert into " + _g.d.ic_trans_detail._table +
-                                        "(" + __fieldDetailList + ") values " +
-                "(" + __dataTransList +
-                "\'" + __itemCode + "\', \'" + __unitCode + "\', \'" + __qty.ToString() + "\', \'" + __whCode + "\', \'" + __shelfCode + "\'," +
-                "\'" + __price.ToString() + "\', \'" + __priceExcludeVat.ToString() + "\', \'" + __sumAmount.ToString() + "\'," +
-                "\'" + __discount_amount.ToString() + "\', \'" + __discount_amount.ToString() + "\', \'" + __total_vat_value.ToString() + "\', " +
-                "\'" + __tax_type.ToString() + "\', \'" + __vat_type.ToString() + "\', \'" + __itemName + "\') ";
-
-                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery(__insertDetail));
-
-                                    if (__itemList.IndexOf(__itemCode) == -1)
+                                    // check null data
+                                    StringBuilder __NullDetail = new StringBuilder();
+                                    if (__items[__rowDetail]["item_code"] == null)
                                     {
-                                        __itemList.Add(__itemCode);
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " item_code is null");
+                                    }
+                                    if (__items[__rowDetail]["unit_code"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " unit_code is null");
+                                    }
+                                    if (__items[__rowDetail]["wh_code"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " wh_code is null");
+                                    }
+                                    if (__items[__rowDetail]["shelf_code"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " shelf_code is null");
+                                    }
+                                    if (__items[__rowDetail]["line_number"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " line_number is null");
+                                    }
+                                    if (__items[__rowDetail]["qty"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " qty is null");
+                                    }
+                                    if (__items[__rowDetail]["price"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " price is null");
+                                    }
+                                    if (__items[__rowDetail]["price_exclude_vat"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " price_exclude_vat is null");
+                                    }
+                                    if (__items[__rowDetail]["sum_amount"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " sum_amount is null");
+                                    }
+                                    if (__items[__rowDetail]["discount_amount"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " discount_amount is null");
+                                    }
+                                    if (__items[__rowDetail]["vat_amount"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " vat_amount is null");
+                                    }
+                                    if (__items[__rowDetail]["tax_type"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " tax_type is null");
+                                    }
+                                    if (__items[__rowDetail]["vat_type"] == null)
+                                    {
+                                        __NullDetail.AppendLine(" row : " + __rowDetail + " vat_type is null");
                                     }
 
-                                    __productUnit.Add("(" + _g.d.ic_unit_use._ic_code + "=\'" + __itemCode + "\' and " + _g.d.ic_unit_use._code + "=\'" + __unitCode + "\' ) ");
+
+                                    if (__NullDetail.Length > 0)
+                                    {
+                                        __rejectMessage.AppendLine(__NullDetail.ToString());
+                                    }
+                                    else
+                                    {
+
+                                        string __itemCode = __items[__rowDetail]["item_code"].ToString().Replace("\"", string.Empty);
+                                        string __unitCode = __items[__rowDetail]["unit_code"].ToString().Replace("\"", string.Empty);
+                                        string __whCode = __items[__rowDetail]["wh_code"].ToString().Replace("\"", string.Empty);
+                                        string __shelfCode = __items[__rowDetail]["shelf_code"].ToString().Replace("\"", string.Empty);
+                                        int __isPremium = (__items[__rowDetail]["is_permium"] == null) ? 0 : MyLib._myGlobal._intPhase(__items[__rowDetail]["is_permium"].ToString().Replace("\"", string.Empty));
+                                        int __lineNumber = MyLib._myGlobal._intPhase(__items[__rowDetail]["line_number"].ToString().Replace("\"", string.Empty));
+
+                                        Decimal __qty = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["qty"].ToString().Replace("\"", string.Empty));
+                                        Decimal __price = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["price"].ToString().Replace("\"", string.Empty));
+                                        Decimal __priceExcludeVat = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["price_exclude_vat"].ToString().Replace("\"", string.Empty));
+                                        Decimal __sumAmount = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["sum_amount"].ToString().Replace("\"", string.Empty));
+
+                                        Decimal __discount_amount = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["discount_amount"].ToString().Replace("\"", string.Empty));
+                                        Decimal __total_vat_value = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["vat_amount"].ToString().Replace("\"", string.Empty));
+
+                                        int __tax_type = MyLib._myGlobal._intPhase(__items[__rowDetail]["tax_type"].ToString().Replace("\"", string.Empty));
+                                        int __vat_type = MyLib._myGlobal._intPhase(__items[__rowDetail]["vat_type"].ToString().Replace("\"", string.Empty));
+
+                                        string __itemName = (__isPremium == 1) ? JsonLib._utils._getJsonValue(__items[__rowDetail]["promotion"]) : "";
+
+                                        string __insertDetail = "insert into " + _g.d.ic_trans_detail._table +
+                                            "(" + __fieldDetailList + ") values " +
+                    "(" + __dataTransList +
+                    "\'" + __itemCode + "\', \'" + __unitCode + "\', \'" + __qty.ToString() + "\', \'" + __whCode + "\', \'" + __shelfCode + "\'," +
+                    "\'" + __price.ToString() + "\', \'" + __priceExcludeVat.ToString() + "\', \'" + __sumAmount.ToString() + "\'," +
+                    "\'" + __discount_amount.ToString() + "\', \'" + __discount_amount.ToString() + "\', \'" + __total_vat_value.ToString() + "\', " +
+                    "\'" + __tax_type.ToString() + "\', \'" + __vat_type.ToString() + "\', \'" + __itemName + "\') ";
+
+                                        __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery(__insertDetail));
+
+                                        if (__itemList.IndexOf(__itemCode) == -1)
+                                        {
+                                            __itemList.Add(__itemCode);
+                                        }
+
+                                        __productUnit.Add("(" + _g.d.ic_unit_use._ic_code + "=\'" + __itemCode + "\' and " + _g.d.ic_unit_use._code + "=\'" + __unitCode + "\' ) ");
+                                    }
                                 }
 
                                 StringBuilder __extraWhereGetDefaultWhShelf = new StringBuilder();
@@ -448,7 +521,7 @@ namespace BRInterfaceControl.SOS
                                     {
                                         MessageBox.Show(__moveResult);
                                     }
-                                    
+
                                     // update check
                                 }
                             }
@@ -494,6 +567,11 @@ namespace BRInterfaceControl.SOS
                 this._docGrid._cellUpdate(__row, 0, 0, true);
             }
             this._docGrid.Invalidate();
+        }
+
+        private void _closeButton_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

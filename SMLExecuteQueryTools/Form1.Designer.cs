@@ -44,20 +44,22 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this._queryGroupBox = new System.Windows.Forms.GroupBox();
-            this._textBoxQuery = new System.Windows.Forms.TextBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this._queryButton = new System.Windows.Forms.Button();
-            this._executeButton = new System.Windows.Forms.Button();
-            this._executeResult = new System.Windows.Forms.Label();
             this._resultDatagridView = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this._executeResult = new System.Windows.Forms.Label();
+            this._executeButton = new System.Windows.Forms.Button();
+            this._queryButton = new System.Windows.Forms.Button();
+            this._textBoxQuery = new System.Windows.Forms.TextBox();
+            this._testQuery = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this._queryGroupBox.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this._resultDatagridView)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this._testQuery);
             this.groupBox2.Controls.Add(this._desConnectedStatus);
             this.groupBox2.Controls.Add(this._desDatabaseNameTextbox);
             this.groupBox2.Controls.Add(this._desConnectButton);
@@ -208,14 +210,14 @@
             this._queryGroupBox.TabStop = false;
             this._queryGroupBox.Text = "Query";
             // 
-            // _textBoxQuery
+            // _resultDatagridView
             // 
-            this._textBoxQuery.Dock = System.Windows.Forms.DockStyle.Top;
-            this._textBoxQuery.Location = new System.Drawing.Point(3, 18);
-            this._textBoxQuery.Multiline = true;
-            this._textBoxQuery.Name = "_textBoxQuery";
-            this._textBoxQuery.Size = new System.Drawing.Size(980, 73);
-            this._textBoxQuery.TabIndex = 12;
+            this._resultDatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this._resultDatagridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._resultDatagridView.Location = new System.Drawing.Point(3, 122);
+            this._resultDatagridView.Name = "_resultDatagridView";
+            this._resultDatagridView.Size = new System.Drawing.Size(980, 446);
+            this._resultDatagridView.TabIndex = 14;
             // 
             // panel1
             // 
@@ -228,16 +230,13 @@
             this.panel1.Size = new System.Drawing.Size(980, 31);
             this.panel1.TabIndex = 13;
             // 
-            // _queryButton
+            // _executeResult
             // 
-            this._queryButton.Location = new System.Drawing.Point(788, 3);
-            this._queryButton.Name = "_queryButton";
-            this._queryButton.Size = new System.Drawing.Size(87, 23);
-            this._queryButton.TabIndex = 17;
-            this._queryButton.Text = "Query";
-            this._queryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this._queryButton.UseVisualStyleBackColor = true;
-            this._queryButton.Click += new System.EventHandler(this._queryButton_Click);
+            this._executeResult.Location = new System.Drawing.Point(3, 3);
+            this._executeResult.Name = "_executeResult";
+            this._executeResult.Size = new System.Drawing.Size(779, 23);
+            this._executeResult.TabIndex = 19;
+            this._executeResult.Text = "Database Name :";
             // 
             // _executeButton
             // 
@@ -250,22 +249,36 @@
             this._executeButton.UseVisualStyleBackColor = true;
             this._executeButton.Click += new System.EventHandler(this._executeButton_Click);
             // 
-            // _executeResult
+            // _queryButton
             // 
-            this._executeResult.Location = new System.Drawing.Point(3, 3);
-            this._executeResult.Name = "_executeResult";
-            this._executeResult.Size = new System.Drawing.Size(779, 23);
-            this._executeResult.TabIndex = 19;
-            this._executeResult.Text = "Database Name :";
+            this._queryButton.Location = new System.Drawing.Point(788, 3);
+            this._queryButton.Name = "_queryButton";
+            this._queryButton.Size = new System.Drawing.Size(87, 23);
+            this._queryButton.TabIndex = 17;
+            this._queryButton.Text = "Query";
+            this._queryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this._queryButton.UseVisualStyleBackColor = true;
+            this._queryButton.Click += new System.EventHandler(this._queryButton_Click);
             // 
-            // _resultDatagridView
+            // _textBoxQuery
             // 
-            this._resultDatagridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this._resultDatagridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._resultDatagridView.Location = new System.Drawing.Point(3, 122);
-            this._resultDatagridView.Name = "_resultDatagridView";
-            this._resultDatagridView.Size = new System.Drawing.Size(980, 446);
-            this._resultDatagridView.TabIndex = 14;
+            this._textBoxQuery.Dock = System.Windows.Forms.DockStyle.Top;
+            this._textBoxQuery.Location = new System.Drawing.Point(3, 18);
+            this._textBoxQuery.Multiline = true;
+            this._textBoxQuery.Name = "_textBoxQuery";
+            this._textBoxQuery.Size = new System.Drawing.Size(980, 73);
+            this._textBoxQuery.TabIndex = 12;
+            // 
+            // _testQuery
+            // 
+            this._testQuery.Location = new System.Drawing.Point(545, 140);
+            this._testQuery.Name = "_testQuery";
+            this._testQuery.Size = new System.Drawing.Size(101, 22);
+            this._testQuery.TabIndex = 19;
+            this._testQuery.Text = "Test Query";
+            this._testQuery.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this._testQuery.UseVisualStyleBackColor = true;
+            this._testQuery.Click += new System.EventHandler(this._testQuery_Click);
             // 
             // Form1
             // 
@@ -282,8 +295,8 @@
             this.groupBox2.PerformLayout();
             this._queryGroupBox.ResumeLayout(false);
             this._queryGroupBox.PerformLayout();
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this._resultDatagridView)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -312,6 +325,7 @@
         private System.Windows.Forms.Button _queryButton;
         private System.Windows.Forms.Label _executeResult;
         private System.Windows.Forms.DataGridView _resultDatagridView;
+        private System.Windows.Forms.Button _testQuery;
     }
 }
 

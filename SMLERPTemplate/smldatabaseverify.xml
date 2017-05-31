@@ -6,7 +6,7 @@
         ALTER TABLE pp_shipment DROP CONSTRAINT pp_shipment_pkey;
       </script>
       <script>
-         ALTER TABLE ic_inventory_price_formula DROP CONSTRAINT ic_inventory_price_formula_pk_primary_price_formula;    
+        ALTER TABLE ic_inventory_price_formula DROP CONSTRAINT ic_inventory_price_formula_pk_primary_price_formula;
       </script>
       <script>
         UPDATE ic_inventory_price_formula set tax_type = 0 where tax_type is null;
@@ -1040,7 +1040,7 @@
 
         year_start := year_condition;
         month_start := month_condition;
-        FOR month_count IN 1..12 LOOP
+        FOR month_count IN 1..11 LOOP
         month_start := month_start - 1;
         if month_start = 0 then
         month_start := 12;
@@ -1230,6 +1230,15 @@
       </script>
       <script>
         ALTER TABLE as_trans_detail ALTER COLUMN item_name DROP NOT NULL;
+      </script>
+      <script>
+        update ic_trans set trans_type = 1 where trans_flag in (451, 452, 453, 456, 471, 472 , 473 , 476)
+      </script>
+      <script>
+        update ic_trans_detail set trans_type = 1 where trans_flag in (451, 452, 453, 456, 471, 472 , 473 , 476)
+      </script>
+      <script>
+        ALTER TABLE erp_user ALTER COLUMN picture_1 DROP NOT NULL;
       </script>
     </postgres>
   </after>

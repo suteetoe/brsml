@@ -14,6 +14,8 @@ namespace SMLEDIControl
                 case "menu_edi_external": return (new _ediExternal());
                 case "menu_edi_export": return (new _ediExport());
                 case "menu_sos_order_interface": return (new BRInterfaceControl.SOS._singhaOnlineOrderImport());
+
+                case "menu_sync_data_arm": return (new BRInterfaceControl.ARM._sendDataARM());
             }
 
             return null;

@@ -748,6 +748,10 @@
       <Project>{5645b824-bff4-4c0a-9533-0b75527e90c6}</Project>
       <Name>SMLERPGL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SMLERPMailMessage\SMLERPMailMessage.csproj">
+      <Project>{8180a67b-562e-4030-a657-332d85f69eb4}</Project>
+      <Name>SMLERPMailMessage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMLERPReportTool\SMLERPReportTool.csproj">
       <Project>{4A49FD0B-4FB5-4640-A1A0-AC6C97D01377}</Project>
       <Name>SMLERPReportTool</Name>

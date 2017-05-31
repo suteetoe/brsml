@@ -299,6 +299,10 @@ namespace _g
             /// ผู้อนุมัติ Sale Hub
             /// </summary>
             public static String _sale_hub_approve = "sale_hub_approve";
+            /// <summary>
+            /// ARM Code
+            /// </summary>
+            public static String _arm_code = "arm_code";
         }
 
         /// <summary>
@@ -450,6 +454,10 @@ namespace _g
             /// Club
             /// </summary>
             public static String _club = "club";
+            /// <summary>
+            /// ARM Code
+            /// </summary>
+            public static String _arm_code = "arm_code";
         }
 
         /// <summary>
@@ -1452,6 +1460,10 @@ namespace _g
             /// ปิดสถานะเครดิตลูกหนี้อัตโนมัติ
             /// </summary>
             public static String _close_ar_status_auto = "close_ar_status_auto";
+            /// <summary>
+            /// ห้ามแก้ไขคลังที่เก็บกรณีอ้างอิงเอกสาร
+            /// </summary>
+            public static String _check_refer_wh_shelf = "check_refer_wh_shelf";
         }
 
         /// <summary>
@@ -2570,6 +2582,10 @@ namespace _g
             /// ดีกรี
             /// </summary>
             public static String _degree = "degree";
+            /// <summary>
+            /// สินค้าบุญรอด
+            /// </summary>
+            public static String _is_product_boonrawd = "is_product_boonrawd";
         }
 
         /// <summary>
@@ -3878,6 +3894,10 @@ namespace _g
             /// มิติ 25
             /// </summary>
             public static String _dimension_25 = "dimension_25";
+            /// <summary>
+            /// สินค้าสมนาคุณ
+            /// </summary>
+            public static String _is_premium = "is_premium";
         }
 
         /// <summary>
@@ -8304,6 +8324,10 @@ namespace _g
             /// Mobile User
             /// </summary>
             public static String _mobile_user = "mobile_user";
+            /// <summary>
+            /// Sale Hub Users
+            /// </summary>
+            public static String _sale_hub_user = "sale_hub_user";
         }
 
         /// <summary>
@@ -13662,6 +13686,10 @@ namespace _g
             /// olddate
             /// </summary>
             public static String _olddate = "olddate";
+            /// <summary>
+            /// ส่วนลด
+            /// </summary>
+            public static String _discount = "discount";
         }
 
         /// <summary>
@@ -15847,6 +15875,18 @@ namespace _g
             /// ARM
             /// </summary>
             public static String _is_arm = "is_arm";
+            /// <summary>
+            /// ปรับปรุงสินค้า
+            /// </summary>
+            public static String _adjust_normal = "adjust_normal";
+            /// <summary>
+            /// ปรับปรุงยกมาสินค้า
+            /// </summary>
+            public static String _adjust_stock_balance = "adjust_stock_balance";
+            /// <summary>
+            /// ปรับปรุงปิดสินค้า
+            /// </summary>
+            public static String _adjust_end_product = "adjust_end_product";
         }
 
         /// <summary>
@@ -17601,6 +17641,14 @@ namespace _g
             /// มูลค่าส่วนลด
             /// </summary>
             public static String _discount_amount_2 = "discount_amount_2";
+            /// <summary>
+            /// กำหนดต้นทุนเอง
+            /// </summary>
+            public static String _is_lock_cost = "is_lock_cost";
+            /// <summary>
+            /// ต้นทุน
+            /// </summary>
+            public static String _sum_of_cost_fix = "sum_of_cost_fix";
         }
 
         /// <summary>
@@ -26103,6 +26151,10 @@ namespace _g
             /// สกุลเงินสำหรับทอนเงิน
             /// </summary>
             public static String _change_money_currency = "change_money_currency";
+            /// <summary>
+            /// ห้ามขายสินค้าราคาศูนย์
+            /// </summary>
+            public static String _disable_sale_no_price = "disable_sale_no_price";
         }
 
         /// <summary>
@@ -34401,6 +34453,10 @@ namespace _g
             /// guid
             /// </summary>
             public static String _guid_code = "guid_code";
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _branch_code = "branch_code";
         }
 
         /// <summary>
@@ -35255,6 +35311,57 @@ namespace _g
             /// OrderDate
             /// </summary>
             public static String _orderdate = "orderdate";
+        }
+
+        /// <summary>
+        /// ส่งข้อความ
+        /// </summary>
+        public class erp_send_message
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "erp_send_message";
+            /// <summary>
+            /// ประเภทการส่ง
+            /// </summary>
+            public static String _send_type = "send_type";
+            /// <summary>
+            /// ส่งถึง
+            /// </summary>
+            public static String _send_to = "send_to";
+            /// <summary>
+            /// ข้อความ
+            /// </summary>
+            public static String _send_message = "send_message";
+            /// <summary>
+            /// วันที่ให้ทำการส่ง
+            /// </summary>
+            public static String _send_date = "send_date";
+            /// <summary>
+            /// สถานะการส่ง
+            /// </summary>
+            public static String _send_status = "send_status";
+            /// <summary>
+            /// วันที่เพิ่ม
+            /// </summary>
+            public static String _date_add = "date_add";
+            /// <summary>
+            /// วันเวลาที่ทำการส่ง
+            /// </summary>
+            public static String _send_to_date = "send_to_date";
+            /// <summary>
+            /// หัวข้อ
+            /// </summary>
+            public static String _send_title = "send_title";
+            /// <summary>
+            /// guid เครื่องส่ง
+            /// </summary>
+            public static String _send_process_guid = "send_process_guid";
+            /// <summary>
+            /// เวลาทำการ process
+            /// </summary>
+            public static String _send_process_time = "send_process_time";
         }
     }
 }

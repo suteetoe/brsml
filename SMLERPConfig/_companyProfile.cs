@@ -190,6 +190,7 @@ namespace SMLERPConfig
 
                 this._addTextBox(__row++, 0, _g.d.erp_company_profile._region, 100);
                 this._addTextBox(__row++, 0, _g.d.erp_company_profile._club, 100);
+                this._addTextBox(__row++, 0, _g.d.erp_company_profile._arm_code, 100);
 
             }
         }

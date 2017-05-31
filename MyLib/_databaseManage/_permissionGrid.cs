@@ -31,13 +31,15 @@ namespace MyLib._databaseManage
 
 
                 // get map column index from MyLib._d.sml_permissions_group._menucode
+                string __menuName = ((MyLib._myGrid._columnType)this._columnList[this._findColumnByName(MyLib._d.sml_permissions_group._menucode)])._name;
+
                 int __menuNameColumnIndex = -1;
                 for (int __rowMap = 0; __rowMap < __form._mapFieldView.Rows.Count; __rowMap++)
                 {
 
                     // return c1, c2, .. etc
                     string __mapFieldName = __form._mapFieldView.Rows[__rowMap].Cells[0].Value.ToString();
-                    if (__mapFieldName.ToUpper().Equals(this._table_name.ToUpper() + "." + MyLib._d.sml_permissions_group._menucode.ToUpper()))
+                    if (__mapFieldName.ToUpper().Equals(__menuName))
                     {
                         if (__form._mapFieldView.Rows[__rowMap].Cells[1].Value != null)
                         {

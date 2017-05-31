@@ -1426,62 +1426,67 @@ namespace SMLERPAPARControl
                                     // ยกเลิก เอกสาร
                                     _g._docCancelForm __docCancelForm = new _g._docCancelForm(this._oldDocNo);
 
-                                    if (__docCancelForm.ShowDialog() == DialogResult.Yes)
+                                    bool __openPeriod = _g.g._checkOpenPeriod(this._screenTop._getDataDate(_g.d.ap_ar_trans._doc_date));
+
+                                    if (__openPeriod)
                                     {
-                                        if (__docCancelForm._comboCancelConfirm.SelectedIndex == 1)
+                                        if (__docCancelForm.ShowDialog() == DialogResult.Yes)
                                         {
-                                            string __table_name = _g.d.ap_ar_trans._table;
-                                            if (_transFlag > 80 && _transFlag < 200)
+                                            if (__docCancelForm._comboCancelConfirm.SelectedIndex == 1)
                                             {
-                                                // กรณีพวกตั้งหนี้
-                                                __table_name = _g.d.ic_trans._table;
-                                            }
-                                            // update cancel 
-                                            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-
-                                            StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
-                                            __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + __table_name + " set is_cancel = 1, " + _g.d.ic_trans._cancel_code + "=\'" + MyLib._myGlobal._userCode + "\', " + _g.d.ic_trans._cancel_datetime + "=\'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\' where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + this._transFlag));
-                                            __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal._trans_flag + " =" + this._transFlag));
-                                            __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal_detail._table + " where " + _g.d.gl_journal_detail._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal_detail._trans_flag + " =" + this._transFlag));
-
-                                            if (this._vatBuy != null)
-                                            {
-                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal_vat_buy._table + " where " + _g.d.gl_journal_vat_buy._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal_vat_buy._trans_flag + " =" + this._transFlag));
-                                            }
-
-                                            __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
-                                                " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + "," + _g.d.erp_cancel_logs._cancel_reason + ") " +
-                                                " values " +
-                                                " (\'" + this._oldDocNo + "\', " + this._transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 0, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\', \'" + __docCancelForm._cancelReasonTextbox.Text + "\') "));
-
-                                            __queryListUpdate.Append("</node>");
-
-                                            string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
-                                            if (__result.Length > 0)
-                                            {
-                                                MessageBox.Show(__result.ToString(), "error");
-                                            }
-                                            else
-                                            {
-                                                string __docNoList = "";
-
-                                                __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
-
-                                                // get ref doc and add to __docNoList
-                                                if (this._oldDocRef.Length > 0)
+                                                string __table_name = _g.d.ap_ar_trans._table;
+                                                if (_transFlag > 80 && _transFlag < 200)
                                                 {
-                                                    __docNoList = __docNoList + "," + this._oldDocRef;
+                                                    // กรณีพวกตั้งหนี้
+                                                    __table_name = _g.d.ic_trans._table;
                                                 }
-                                                SMLProcess._docFlow __process = new SMLProcess._docFlow();
-                                                __process._processAll(this._transControlType, "", __docNoList);
+                                                // update cancel 
+                                                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-                                                MessageBox.Show("ยกเลิกเอกสารสำเร็จ");
+                                                StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
+                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + __table_name + " set is_cancel = 1, " + _g.d.ic_trans._cancel_code + "=\'" + MyLib._myGlobal._userCode + "\', " + _g.d.ic_trans._cancel_datetime + "=\'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\' where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + this._transFlag));
+                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal._trans_flag + " =" + this._transFlag));
+                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal_detail._table + " where " + _g.d.gl_journal_detail._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal_detail._trans_flag + " =" + this._transFlag));
+
+                                                if (this._vatBuy != null)
+                                                {
+                                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal_vat_buy._table + " where " + _g.d.gl_journal_vat_buy._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal_vat_buy._trans_flag + " =" + this._transFlag));
+                                                }
+
+                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
+                                                    " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + "," + _g.d.erp_cancel_logs._cancel_reason + ") " +
+                                                    " values " +
+                                                    " (\'" + this._oldDocNo + "\', " + this._transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 0, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\', \'" + __docCancelForm._cancelReasonTextbox.Text + "\') "));
+
+                                                __queryListUpdate.Append("</node>");
+
+                                                string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
+                                                if (__result.Length > 0)
+                                                {
+                                                    MessageBox.Show(__result.ToString(), "error");
+                                                }
+                                                else
+                                                {
+                                                    string __docNoList = "";
+
+                                                    __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+
+                                                    // get ref doc and add to __docNoList
+                                                    if (this._oldDocRef.Length > 0)
+                                                    {
+                                                        __docNoList = __docNoList + "," + this._oldDocRef;
+                                                    }
+                                                    SMLProcess._docFlow __process = new SMLProcess._docFlow();
+                                                    __process._processAll(this._transControlType, "", __docNoList);
+
+                                                    MessageBox.Show("ยกเลิกเอกสารสำเร็จ");
+                                                    this._myManageData1._dataList._refreshData();
+
+                                                }
                                                 this._myManageData1._dataList._refreshData();
-
                                             }
-                                            this._myManageData1._dataList._refreshData();
+                                            return true;
                                         }
-                                        return true;
                                     }
                                 }
                                 else
@@ -1512,54 +1517,58 @@ namespace SMLERPAPARControl
                                         this._transControlType == _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้)*/
                                 )
                     {
+                        bool __openPeriod = _g.g._checkOpenPeriod(this._screenTop._getDataDate(_g.d.ap_ar_trans._doc_date));
 
-                        if (MessageBox.Show("ต้องการเรียกเอกสารกลับมาใชังานได้ปรกติ หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                        if (__openPeriod)
                         {
-                            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-                            string __table_name = _g.d.ap_ar_trans._table;
-                            if (_transFlag > 80 && _transFlag < 200)
+                            if (MessageBox.Show("ต้องการเรียกเอกสารกลับมาใชังานได้ปรกติ หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                             {
-                                // กรณีพวกตั้งหนี้
-                                __table_name = _g.d.ic_trans._table;
-                            }
-
-                            StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
-                            __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + __table_name + " set is_cancel = 0 where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + this._transFlag));
-                            __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
-                                " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + ") " +
-                                " values " +
-                                " (\'" + this._oldDocNo + "\', " + this._transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 1, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\') "));
-
-                            //__queryListUpdate.Append("</node>");
-                            __queryListUpdate.Append("</node>");
-
-                            string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
-                            if (__result.Length > 0)
-                            {
-                                MessageBox.Show(__result.ToString(), "error");
-                            }
-                            else
-                            {
-
-                                string __docNoList = "";
-
-                                __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
-
-                                // get ref doc and add to __docNoList
-                                if (this._oldDocRef.Length > 0)
+                                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                                string __table_name = _g.d.ap_ar_trans._table;
+                                if (_transFlag > 80 && _transFlag < 200)
                                 {
-                                    __docNoList = __docNoList + "," + this._oldDocRef;
+                                    // กรณีพวกตั้งหนี้
+                                    __table_name = _g.d.ic_trans._table;
                                 }
-                                SMLProcess._docFlow __process = new SMLProcess._docFlow();
-                                __process._processAll(this._transControlType, "", __docNoList);
-                                MessageBox.Show("เรียกคืนเอกสารสำเร็จ");
-                                this._myManageData1._dataList._refreshData();
 
-                                // ประมวลผล GL ด้วย อย่าลืม
+                                StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
+                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + __table_name + " set is_cancel = 0 where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + this._transFlag));
+                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
+                                    " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + ") " +
+                                    " values " +
+                                    " (\'" + this._oldDocNo + "\', " + this._transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 1, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\') "));
+
+                                //__queryListUpdate.Append("</node>");
+                                __queryListUpdate.Append("</node>");
+
+                                string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
+                                if (__result.Length > 0)
+                                {
+                                    MessageBox.Show(__result.ToString(), "error");
+                                }
+                                else
+                                {
+
+                                    string __docNoList = "";
+
+                                    __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+
+                                    // get ref doc and add to __docNoList
+                                    if (this._oldDocRef.Length > 0)
+                                    {
+                                        __docNoList = __docNoList + "," + this._oldDocRef;
+                                    }
+                                    SMLProcess._docFlow __process = new SMLProcess._docFlow();
+                                    __process._processAll(this._transControlType, "", __docNoList);
+                                    MessageBox.Show("เรียกคืนเอกสารสำเร็จ");
+                                    this._myManageData1._dataList._refreshData();
+
+                                    // ประมวลผล GL ด้วย อย่าลืม
+                                }
+                                this._myManageData1._dataList._refreshData();
                             }
-                            this._myManageData1._dataList._refreshData();
+                            return true;
                         }
-                        return true;
                     }
                     return false;
                 }
@@ -2008,6 +2017,12 @@ namespace SMLERPAPARControl
 
                                 }
 
+                                if (this._transFlag == 19)
+                                {
+                                    int __columnVatAmount = this._vatBuy._vatGrid._findColumnByName(_g.d.gl_journal_vat_buy._vat_amount);
+                                    __vatNext = ((MyLib._myGrid._columnType)this._vatBuy._vatGrid._columnList[__columnVatAmount])._total;
+                                }
+
                                 //string __incheck = this._icTransScreenBottom._getDataStr(_g.d.ic_trans._remark);
 
                                 __processControl = new SMLERPGL._transProcessUserControl();
@@ -2085,6 +2100,64 @@ namespace SMLERPAPARControl
 
 
                                 }*/
+
+                                // pay detail
+
+                                if (this._payControl != null)
+                                {
+                                    // chq
+                                    for (int __row = 0; __row < this._payControl._payChequeGrid._rowData.Count; __row++)
+                                    {
+                                        string __getChqNumber = this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._trans_number).ToString();
+                                        if (__getChqNumber.Length > 0)
+                                        {
+                                            decimal __amount = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._amount);
+                                            int __pass_book_code_column = this._payControl._payChequeGrid._findColumnByName(_g.d.cb_trans_detail._pass_book_code);
+
+                                            SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject((this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, this._transFlag, this._transType)
+                                            {
+                                                doc_type = 2,
+                                                item_type = 9999,
+                                                trans_number = __getChqNumber,
+                                                price = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._sum_amount),
+                                                amount = __amount,
+                                                sum_amount_exclude_vat = 0,
+                                                remark = "",
+                                                line_number = __row,
+                                                sum_amount = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._sum_amount),
+                                                pass_book_code = (this._payControl._payChequeGrid._findColumnByName(_g.d.cb_trans_detail._pass_book_code) == -1) ? "" : this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._pass_book_code).ToString()
+                                            };
+                                            __processControl._addTransDetailData(__detailDataGL, false);
+                                        }
+                                    }
+
+                                    // tranfer
+                                    for (int __row = 0; __row < this._payControl._payTransferGrid._rowData.Count; __row++)
+                                    {
+                                        string __getBookCode = this._payControl._payTransferGrid._cellGet(__row, _g.d.cb_trans_detail._trans_number).ToString();
+                                        if (__getBookCode.Length > 0)
+                                        {
+                                            decimal __amount = (decimal)this._payControl._payTransferGrid._cellGet(__row, _g.d.cb_trans_detail._amount);
+
+                                            SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject((this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, this._transFlag, this._transType)
+                                            {
+                                                doc_type = 1,
+                                                item_type = 9999,
+                                                trans_number = __getBookCode,
+                                                price = __amount,
+                                                amount = __amount,
+                                                sum_amount_exclude_vat = 0,
+                                                remark = "",
+                                                line_number = __row,
+                                                pass_book_code = __getBookCode,
+
+                                            };
+                                            __processControl._addTransDetailData(__detailDataGL, false);
+                                        }
+                                    }
+
+                                    // credit
+                                }
 
                                 __processControl._procesGLByTemp(this._screenTop._docFormatCode);
                                 List<SMLERPGL._transProcessUserControl._glStruct> __glStruct = __processControl.getGLTrans;

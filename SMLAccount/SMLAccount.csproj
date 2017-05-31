@@ -263,6 +263,10 @@
       <Project>{74253644-DE8A-43E8-A9C1-3C50FFC570A2}</Project>
       <Name>SMLERPIC</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SMLERPMailMessage\SMLERPMailMessage.csproj">
+      <Project>{8180a67b-562e-4030-a657-332d85f69eb4}</Project>
+      <Name>SMLERPMailMessage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMLERPPOReport\SMLERPPOReport.csproj">
       <Project>{8F7C5F5C-AA9E-443D-8B52-DF3932153B31}</Project>
       <Name>SMLERPPOReport</Name>

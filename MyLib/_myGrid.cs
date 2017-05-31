@@ -2299,7 +2299,7 @@ namespace MyLib
 
         public void _calcTotal(Boolean eventActive)
         {
-            
+
             // if (this.ShowTotal == true)
             {
                 for (int __column = 0; __column < _columnList.Count; __column++)
@@ -2319,7 +2319,7 @@ namespace MyLib
                             {
                                 //try
                                 //{
-                                    __getColumn._total += (decimal)(((ArrayList)_rowData[__row])[__column]);
+                                __getColumn._total += (decimal)(((ArrayList)_rowData[__row])[__column]);
                                 //}
                                 //catch
                                 //{
@@ -4111,6 +4111,8 @@ namespace MyLib
             _myGridImportFromTextFileForm __form = new _myGridImportFromTextFileForm(this._columnList);
             __form._importButton.Click += (s1, e1) =>
             {
+
+
                 this._importWorking = true;
                 __form.Close();
                 __form._mapFieldView.EndEdit();
@@ -4182,6 +4184,7 @@ namespace MyLib
                 {
                     this._afterImportDataWork(this);
                 }
+
             };
             __form.ShowDialog();
         }
@@ -4349,6 +4352,7 @@ namespace MyLib
     public delegate object BeforeLoadDataToColumnObject(object sender, int row, int column);
 
     public delegate void AfterImportDataWork(object sender);
+
 
     public class QueryForInsertPerRowType
     {

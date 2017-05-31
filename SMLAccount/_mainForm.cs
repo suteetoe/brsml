@@ -616,6 +616,17 @@ namespace SMLAccount
             //{
             //    this._sendRequestArCredit();
             //}
+            _sendMessageProcess();
+
+        }
+
+        public void _sendMessageProcess()
+        {
+            SMLERPMailMessage._sendData __sendData = new SMLERPMailMessage._sendData();
+            _sendApproveCreditThread = new Thread(new ThreadStart(__sendData._sendMessageData));
+            this._sendApproveCreditThread.IsBackground = true;
+            this._sendApproveCreditThread.Start();
+
         }
 
         /// <summary>

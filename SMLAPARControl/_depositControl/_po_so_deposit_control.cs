@@ -1427,53 +1427,57 @@ namespace SMLERPAPARControl._depositControl
                                         // ยกเลิก เอกสาร
                                         _g._docCancelForm __docCancelForm = new _g._docCancelForm(this._oldDocNo);
 
-                                        if (__docCancelForm.ShowDialog() == DialogResult.Yes)
+                                        bool __openPeriod = _g.g._checkOpenPeriod(this._screenTop._getDataDate(_g.d.ic_trans._doc_date));
+                                        if (__openPeriod)
                                         {
-                                            if (__docCancelForm._comboCancelConfirm.SelectedIndex == 1)
+                                            if (__docCancelForm.ShowDialog() == DialogResult.Yes)
                                             {
-                                                int __transFlag = _g.g._transFlagGlobal._transFlag(this._icTransControlType);
-
-                                                // update cancel 
-                                                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-
-                                                StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
-                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans set is_cancel = 1, " + _g.d.ic_trans._cancel_code + "=\'" + MyLib._myGlobal._userCode + "\', " + _g.d.ic_trans._cancel_datetime + "=\'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\' where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + __transFlag));
-                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal._trans_flag + " =" + __transFlag));
-                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal_detail._table + " where " + _g.d.gl_journal_detail._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal_detail._trans_flag + " =" + __transFlag));
-
-                                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
-                                                    " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + "," + _g.d.erp_cancel_logs._cancel_reason + ") " +
-                                                    " values " +
-                                                    " (\'" + this._oldDocNo + "\', " + __transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 0, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\', \'" + __docCancelForm._cancelReasonTextbox.Text + "\') "));
-
-                                                __queryListUpdate.Append("</node>");
-
-                                                string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
-                                                if (__result.Length > 0)
+                                                if (__docCancelForm._comboCancelConfirm.SelectedIndex == 1)
                                                 {
-                                                    MessageBox.Show(__result.ToString(), "error");
-                                                }
-                                                else
-                                                {
-                                                    string __docNoList = "";
+                                                    int __transFlag = _g.g._transFlagGlobal._transFlag(this._icTransControlType);
 
-                                                    __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+                                                    // update cancel 
+                                                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-                                                    // get ref doc and add to __docNoList
-                                                    /*if (this._oldDocRef.Length > 0)
+                                                    StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
+                                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans set is_cancel = 1, " + _g.d.ic_trans._cancel_code + "=\'" + MyLib._myGlobal._userCode + "\', " + _g.d.ic_trans._cancel_datetime + "=\'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\' where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + __transFlag));
+                                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal._trans_flag + " =" + __transFlag));
+                                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.gl_journal_detail._table + " where " + _g.d.gl_journal_detail._doc_no + " = \'" + this._oldDocNo + "\' and " + _g.d.gl_journal_detail._trans_flag + " =" + __transFlag));
+
+                                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
+                                                        " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + "," + _g.d.erp_cancel_logs._cancel_reason + ") " +
+                                                        " values " +
+                                                        " (\'" + this._oldDocNo + "\', " + __transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 0, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\', \'" + __docCancelForm._cancelReasonTextbox.Text + "\') "));
+
+                                                    __queryListUpdate.Append("</node>");
+
+                                                    string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
+                                                    if (__result.Length > 0)
                                                     {
-                                                        __docNoList = __docNoList + "," + this._oldDocRef;
-                                                    }*/
-                                                    SMLProcess._docFlow __process = new SMLProcess._docFlow();
-                                                    __process._processAll(this._icTransControlType, "", __docNoList);
+                                                        MessageBox.Show(__result.ToString(), "error");
+                                                    }
+                                                    else
+                                                    {
+                                                        string __docNoList = "";
 
-                                                    MessageBox.Show("ยกเลิกเอกสารสำเร็จ");
+                                                        __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+
+                                                        // get ref doc and add to __docNoList
+                                                        /*if (this._oldDocRef.Length > 0)
+                                                        {
+                                                            __docNoList = __docNoList + "," + this._oldDocRef;
+                                                        }*/
+                                                        SMLProcess._docFlow __process = new SMLProcess._docFlow();
+                                                        __process._processAll(this._icTransControlType, "", __docNoList);
+
+                                                        MessageBox.Show("ยกเลิกเอกสารสำเร็จ");
+                                                        this._myManageData1._dataList._refreshData();
+
+                                                    }
                                                     this._myManageData1._dataList._refreshData();
-
                                                 }
-                                                this._myManageData1._dataList._refreshData();
+                                                return true;
                                             }
-                                            return true;
                                         }
                                     }
                                     else
@@ -1498,48 +1502,51 @@ namespace SMLERPAPARControl._depositControl
                                             this._transControlType == _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้)*/
                                     )
                         {
-
-                            if (MessageBox.Show("ต้องการเรียกเอกสารกลับมาใชังานได้ปรกติ หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                            bool __openPeriod = _g.g._checkOpenPeriod(this._screenTop._getDataDate(_g.d.ic_trans._doc_date));
+                            if (__openPeriod)
                             {
-                                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-
-                                int __transFlag = _g.g._transFlagGlobal._transFlag(this._icTransControlType);
-
-                                StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
-                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans set is_cancel = 0 where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + __transFlag));
-                                __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
-                                    " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + ") " +
-                                    " values " +
-                                    " (\'" + this._oldDocNo + "\', " + __transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 1, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\') "));
-
-                                //__queryListUpdate.Append("</node>");
-                                __queryListUpdate.Append("</node>");
-
-                                string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
-                                if (__result.Length > 0)
+                                if (MessageBox.Show("ต้องการเรียกเอกสารกลับมาใชังานได้ปรกติ หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo, MessageBoxIcon.None, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                                 {
-                                    MessageBox.Show(__result.ToString(), "error");
-                                }
-                                else
-                                {
+                                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-                                    string __docNoList = "";
+                                    int __transFlag = _g.g._transFlagGlobal._transFlag(this._icTransControlType);
 
-                                    __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+                                    StringBuilder __queryListUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
+                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans set is_cancel = 0 where doc_no = \'" + this._oldDocNo + "\' and trans_flag =" + __transFlag));
+                                    __queryListUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.erp_cancel_logs._table +
+                                        " (" + _g.d.erp_cancel_logs._doc_no + "," + _g.d.erp_cancel_logs._trans_flag + "," + _g.d.erp_cancel_logs._user_code + "," + _g.d.erp_cancel_logs._cancel_flag + "," + _g.d.erp_cancel_logs._cancel_datetime + ") " +
+                                        " values " +
+                                        " (\'" + this._oldDocNo + "\', " + __transFlag + ", \'" + MyLib._myGlobal._userCode + "\', 1, \'" + MyLib._myGlobal._convertDateTimeToQuery(DateTime.Now) + "\') "));
 
-                                    // get ref doc and add to __docNoList
-                                    /*if (this._oldDocRef.Length > 0)
+                                    //__queryListUpdate.Append("</node>");
+                                    __queryListUpdate.Append("</node>");
+
+                                    string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryListUpdate.ToString());
+                                    if (__result.Length > 0)
                                     {
-                                        __docNoList = __docNoList + "," + this._oldDocRef;
-                                    }*/
-                                    SMLProcess._docFlow __process = new SMLProcess._docFlow();
-                                    __process._processAll(this._icTransControlType, "", __docNoList);
-                                    MessageBox.Show("เรียกคืนเอกสารสำเร็จ");
-                                    this._myManageData1._dataList._refreshData();
+                                        MessageBox.Show(__result.ToString(), "error");
+                                    }
+                                    else
+                                    {
 
-                                    // ประมวลผล GL ด้วย อย่าลืม
+                                        string __docNoList = "";
+
+                                        __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+
+                                        // get ref doc and add to __docNoList
+                                        /*if (this._oldDocRef.Length > 0)
+                                        {
+                                            __docNoList = __docNoList + "," + this._oldDocRef;
+                                        }*/
+                                        SMLProcess._docFlow __process = new SMLProcess._docFlow();
+                                        __process._processAll(this._icTransControlType, "", __docNoList);
+                                        MessageBox.Show("เรียกคืนเอกสารสำเร็จ");
+                                        this._myManageData1._dataList._refreshData();
+
+                                        // ประมวลผล GL ด้วย อย่าลืม
+                                    }
+                                    this._myManageData1._dataList._refreshData();
                                 }
-                                this._myManageData1._dataList._refreshData();
                             }
                             return true;
                         }

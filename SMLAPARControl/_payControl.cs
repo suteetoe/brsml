@@ -1677,7 +1677,23 @@ namespace SMLERPAPARControl
             this._alterCellUpdate += new MyLib.AfterCellUpdateEventHandler(_pay_credit__alterCellUpdate);
             //this._beforeDisplayRendering += new MyLib.BeforeDisplayRenderRowEventHandler(_payChequeGridControl__beforeDisplayRendering);
 
+            this._beforeInputCell += _payChequeGridControl__beforeInputCell;
             this.Invalidate();
+        }
+
+        private bool _payChequeGridControl__beforeInputCell(MyLib._myGrid sender, int row, int column)
+        {
+            if (row > -1 && row < this._rowData.Count)
+            {
+                if (column == this._findColumnByName(_g.d.cb_trans_detail._chq_due_date))
+                {
+                    if (this._cellGet(row, _g.d.cb_trans_detail._chq_on_hand).ToString().Equals("1"))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
 
         MyLib.BeforeDisplayRowReturn _payChequeGridControl__beforeDisplayRendering(MyLib._myGrid sender, int row, int columnNumber, string columnName, MyLib.BeforeDisplayRowReturn senderRow, MyLib._myGrid._columnType columnType, ArrayList rowData, Graphics e)

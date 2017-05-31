@@ -201,5 +201,10 @@ namespace SMLExecuteQueryTools
                 }
             }
         }
+
+        private void _testQuery_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

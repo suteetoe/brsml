@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this._splitContainer = new System.Windows.Forms.SplitContainer();
             this._myPanel1 = new MyLib._myPanel();
             this._myFlowLayoutPanel3 = new MyLib._myFlowLayoutPanel();
             this.ButtonExit = new MyLib._myButton();
-            this._myGrid_User_list = new _permissionGrid();
+            this._myGrid_User_list = new MyLib._databaseManage._permissionGrid();
             this._myPanel2 = new MyLib._myPanel();
-            this._myGridpermissions = new MyLib._myGrid();
+            this._myGridpermissions = new _permissionGrid();
             this._toolStrip = new System.Windows.Forms.ToolStrip();
             this._selectread = new MyLib.ToolStripMyButton();
             this._selectAdd = new MyLib.ToolStripMyButton();
             this._selectdelete = new MyLib.ToolStripMyButton();
             this._selectEdit = new MyLib.ToolStripMyButton();
+            this._selectPrint = new System.Windows.Forms.ToolStripButton();
             this._myScreen1 = new MyLib._myScreen();
             this._myFlowLayoutPanel1 = new MyLib._myFlowLayoutPanel();
             this.ButtonSave = new MyLib._myButton();
-            this._selectPrint = new System.Windows.Forms.ToolStripButton();
             this._splitContainer.Panel1.SuspendLayout();
             this._splitContainer.Panel2.SuspendLayout();
             this._splitContainer.SuspendLayout();
@@ -102,10 +103,11 @@
             // 
             // ButtonExit
             // 
+            this.ButtonExit._drawNewMethod = false;
             this.ButtonExit.AutoSize = true;
             this.ButtonExit.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonExit.ButtonText = "ปิดหน้าจอ";
-            this.ButtonExit.Location = new System.Drawing.Point(207, 0);
+            this.ButtonExit.ButtonText = "screen_close";
+            this.ButtonExit.Location = new System.Drawing.Point(189, 0);
             this.ButtonExit.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ButtonExit.myImage = global::MyLib.Resource16x16.error;
             this.ButtonExit.myTextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -113,9 +115,9 @@
             this.ButtonExit.Name = "ButtonExit";
             this.ButtonExit.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.ButtonExit.ResourceName = "screen_close";
-            this.ButtonExit.Size = new System.Drawing.Size(87, 24);
+            this.ButtonExit.Size = new System.Drawing.Size(105, 24);
             this.ButtonExit.TabIndex = 0;
-            this.ButtonExit.Text = "ปิด";
+            this.ButtonExit.Text = "screen_close";
             this.ButtonExit.UseVisualStyleBackColor = false;
             this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click_1);
             // 
@@ -192,8 +194,8 @@
             this._selectread.Name = "_selectread";
             this._selectread.Padding = new System.Windows.Forms.Padding(1);
             this._selectread.ResourceName = "select_read";
-            this._selectread.Size = new System.Drawing.Size(103, 22);
-            this._selectread.Text = "ให้เข้าใช้งานได้";
+            this._selectread.Size = new System.Drawing.Size(87, 22);
+            this._selectread.Text = "select_read";
             this._selectread.Click += new System.EventHandler(this._selectread_Click_1);
             // 
             // _selectAdd
@@ -203,9 +205,9 @@
             this._selectAdd.Name = "_selectAdd";
             this._selectAdd.Padding = new System.Windows.Forms.Padding(1);
             this._selectAdd.ResourceName = "select_add";
-            this._selectAdd.Size = new System.Drawing.Size(101, 22);
+            this._selectAdd.Size = new System.Drawing.Size(84, 22);
             this._selectAdd.Tag = "";
-            this._selectAdd.Text = "ให้เพิ่มข้อมูลได้";
+            this._selectAdd.Text = "select_add";
             this._selectAdd.Click += new System.EventHandler(this._selectAdd_Click_1);
             // 
             // _selectdelete
@@ -215,8 +217,8 @@
             this._selectdelete.Name = "_selectdelete";
             this._selectdelete.Padding = new System.Windows.Forms.Padding(1);
             this._selectdelete.ResourceName = "select_delete";
-            this._selectdelete.Size = new System.Drawing.Size(94, 22);
-            this._selectdelete.Text = "ให้ลบข้อมูลได้";
+            this._selectdelete.Size = new System.Drawing.Size(96, 22);
+            this._selectdelete.Text = "select_delete";
             this._selectdelete.Click += new System.EventHandler(this._selectdelete_Click);
             // 
             // _selectEdit
@@ -226,9 +228,18 @@
             this._selectEdit.Name = "_selectEdit";
             this._selectEdit.Padding = new System.Windows.Forms.Padding(1);
             this._selectEdit.ResourceName = "select_change";
-            this._selectEdit.Size = new System.Drawing.Size(109, 22);
-            this._selectEdit.Text = "ให้แก้ไขข้อมูลได้";
+            this._selectEdit.Size = new System.Drawing.Size(103, 22);
+            this._selectEdit.Text = "select_change";
             this._selectEdit.Click += new System.EventHandler(this._selectEdit_Click_1);
+            // 
+            // _selectPrint
+            // 
+            this._selectPrint.Image = global::MyLib.Properties.Resources.printer;
+            this._selectPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._selectPrint.Name = "_selectPrint";
+            this._selectPrint.Size = new System.Drawing.Size(50, 22);
+            this._selectPrint.Text = "พิมพ์";
+            this._selectPrint.Click += new System.EventHandler(this._selectPrint_Click);
             // 
             // _myScreen1
             // 
@@ -255,10 +266,11 @@
             // 
             // ButtonSave
             // 
+            this.ButtonSave._drawNewMethod = false;
             this.ButtonSave.AutoSize = true;
             this.ButtonSave.BackColor = System.Drawing.Color.Transparent;
-            this.ButtonSave.ButtonText = "บันทึก";
-            this.ButtonSave.Location = new System.Drawing.Point(413, 0);
+            this.ButtonSave.ButtonText = "save";
+            this.ButtonSave.Location = new System.Drawing.Point(420, 0);
             this.ButtonSave.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.ButtonSave.myImage = global::MyLib.Resource16x16.disk_blue;
             this.ButtonSave.myTextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -266,20 +278,11 @@
             this.ButtonSave.Name = "ButtonSave";
             this.ButtonSave.Padding = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.ButtonSave.ResourceName = "save";
-            this.ButtonSave.Size = new System.Drawing.Size(67, 24);
+            this.ButtonSave.Size = new System.Drawing.Size(60, 24);
             this.ButtonSave.TabIndex = 1;
-            this.ButtonSave.Text = "บันทึก";
+            this.ButtonSave.Text = "save";
             this.ButtonSave.UseVisualStyleBackColor = false;
             this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click_1);
-            // 
-            // _selectPrint
-            // 
-            this._selectPrint.Image = global::MyLib.Properties.Resources.printer;
-            this._selectPrint.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._selectPrint.Name = "_selectPrint";
-            this._selectPrint.Size = new System.Drawing.Size(50, 20);
-            this._selectPrint.Text = "พิมพ์";
-            this._selectPrint.Click += new System.EventHandler(this._selectPrint_Click);
             // 
             // _menupermissions_user
             // 
@@ -321,7 +324,7 @@
         private _myScreen _myScreen1;
         private _myFlowLayoutPanel _myFlowLayoutPanel1;
         private _myButton ButtonSave;
-        private _myGrid _myGridpermissions;
+        private _permissionGrid _myGridpermissions;
         public _myButton ButtonExit;
         private System.Windows.Forms.ToolStripButton _selectPrint;
     }

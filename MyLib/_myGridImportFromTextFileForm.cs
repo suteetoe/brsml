@@ -14,6 +14,7 @@ namespace MyLib
     {
         private DataTable _dataTable = null;
         ArrayList _columnList = null;
+        //public Boolean _showHideColumn = false;
 
         public _myGridImportFromTextFileForm(ArrayList columnList)
         {

@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this._selectAllButton = new MyLib.ToolStripMyButton();
+            this._selectNoneButton = new MyLib.ToolStripMyButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this._closeButton = new MyLib.ToolStripMyButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._docGrid = new MyLib._myGrid();
             this._myFlowLayoutPanel1 = new MyLib._myFlowLayoutPanel();
             this._importButton = new MyLib.VistaButton();
             this._reloadButton = new MyLib.VistaButton();
             this._detailGrid = new MyLib._myGrid();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this._selectAllButton = new MyLib.ToolStripMyButton();
-            this._selectNoneButton = new MyLib.ToolStripMyButton();
-            this._closeButton = new MyLib.ToolStripMyButton();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -59,6 +59,44 @@
             this.toolStrip1.Size = new System.Drawing.Size(920, 25);
             this.toolStrip1.TabIndex = 4;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // _selectAllButton
+            // 
+            this._selectAllButton.Image = global::BRInterfaceControl.Properties.Resources.preferences1;
+            this._selectAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._selectAllButton.Name = "_selectAllButton";
+            this._selectAllButton.Padding = new System.Windows.Forms.Padding(1);
+            this._selectAllButton.ResourceName = "เลือกทั้งหมด";
+            this._selectAllButton.Size = new System.Drawing.Size(84, 22);
+            this._selectAllButton.Text = "เลือกทั้งหมด";
+            this._selectAllButton.Click += new System.EventHandler(this._selectAllButton_Click);
+            // 
+            // _selectNoneButton
+            // 
+            this._selectNoneButton.Image = global::BRInterfaceControl.Properties.Resources.delete2;
+            this._selectNoneButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._selectNoneButton.Name = "_selectNoneButton";
+            this._selectNoneButton.Padding = new System.Windows.Forms.Padding(1);
+            this._selectNoneButton.ResourceName = "ไม่เลือกทั้งหมด";
+            this._selectNoneButton.Size = new System.Drawing.Size(96, 22);
+            this._selectNoneButton.Text = "ไม่เลือกทั้งหมด";
+            this._selectNoneButton.Click += new System.EventHandler(this._selectNoneButton_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // _closeButton
+            // 
+            this._closeButton.Image = global::BRInterfaceControl.Properties.Resources.error;
+            this._closeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._closeButton.Name = "_closeButton";
+            this._closeButton.Padding = new System.Windows.Forms.Padding(1);
+            this._closeButton.ResourceName = "Close";
+            this._closeButton.Size = new System.Drawing.Size(58, 22);
+            this._closeButton.Text = "Close";
+            this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
             // 
             // splitContainer1
             // 
@@ -148,43 +186,6 @@
             this._detailGrid.Size = new System.Drawing.Size(417, 954);
             this._detailGrid.TabIndex = 1;
             this._detailGrid.TabStop = false;
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // _selectAllButton
-            // 
-            this._selectAllButton.Image = global::BRInterfaceControl.Properties.Resources.preferences1;
-            this._selectAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._selectAllButton.Name = "_selectAllButton";
-            this._selectAllButton.Padding = new System.Windows.Forms.Padding(1);
-            this._selectAllButton.ResourceName = "เลือกทั้งหมด";
-            this._selectAllButton.Size = new System.Drawing.Size(84, 22);
-            this._selectAllButton.Text = "เลือกทั้งหมด";
-            this._selectAllButton.Click += new System.EventHandler(this._selectAllButton_Click);
-            // 
-            // _selectNoneButton
-            // 
-            this._selectNoneButton.Image = global::BRInterfaceControl.Properties.Resources.delete2;
-            this._selectNoneButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._selectNoneButton.Name = "_selectNoneButton";
-            this._selectNoneButton.Padding = new System.Windows.Forms.Padding(1);
-            this._selectNoneButton.ResourceName = "ไม่เลือกทั้งหมด";
-            this._selectNoneButton.Size = new System.Drawing.Size(96, 22);
-            this._selectNoneButton.Text = "ไม่เลือกทั้งหมด";
-            this._selectNoneButton.Click += new System.EventHandler(this._selectNoneButton_Click);
-            // 
-            // _closeButton
-            // 
-            this._closeButton.Image = global::BRInterfaceControl.Properties.Resources.error;
-            this._closeButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this._closeButton.Name = "_closeButton";
-            this._closeButton.Padding = new System.Windows.Forms.Padding(1);
-            this._closeButton.ResourceName = "Close";
-            this._closeButton.Size = new System.Drawing.Size(58, 22);
-            this._closeButton.Text = "Close";
             // 
             // _singhaOnlineOrderImport
             // 

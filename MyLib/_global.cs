@@ -20,7 +20,7 @@ namespace MyLib
         public static Boolean _isDesignMode = true;
         public static List<_providerListClass> _providerList = new List<_providerListClass>();
         public static List<_printerListClass> _printerList = new List<_printerListClass>();
-        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 10, 4);
+        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 10, 32);
         public static Boolean _autoLogin = false;
         public static Boolean _useNoVat = false;
         public static string _programName = "";
@@ -3578,10 +3578,17 @@ namespace MyLib
 
         public static void _writeEventLog(string message, string source)
         {
-            using (EventLog eventLog = new EventLog("Application"))
+            try
             {
-                eventLog.Source = source;
-                eventLog.WriteEntry(message, EventLogEntryType.Error, 101, 1);
+                using (EventLog eventLog = new EventLog("Application"))
+                {
+                    eventLog.Source = source;
+                    eventLog.WriteEntry(message, EventLogEntryType.Error, 101, 1);
+                }
+            }
+            catch
+            {
+
             }
         }
     }

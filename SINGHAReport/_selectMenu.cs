@@ -37,8 +37,7 @@ namespace SINGHAReport
                 case "menu_singha_report_load_product_warehouse": return (new GL._glReport(_singhaReportEnum.สรุปโหลดสินค้า_รายคลัง, screenName));
 
                 case "menu_singha_report_other_expenses": return (new _singhareportGenerate(_singhaReportEnum.รายงานค่าใช้จ่ายอื่น, screenName)); // รายงานค่าใช้จ่ายอื่น ๆ
-
-                case "menu_sync_data_arm": return (new _singhaDataSyncControl(1));
+                                    
                 case "menu_sync_data_saleout": return (new _singhaDataSyncControl(2));
                 case "menu_sync_data_stock": return (new _singhaDataSyncControl(3));
 
@@ -180,6 +179,21 @@ namespace SINGHAReport
                 case "menu_saletools_product_qty_ap_deposit": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0U3RvY2tDdXMuYXNweD9HQ3VzPQ==");
 
                 case "menu_saletools_approve_return_from_cus": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPU4mVHlwZT1HJkdDdXM9WQ==");
+
+                case "menu_saletools_master_import": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=TWFzdGVySW1wb3J0RXhwb3J0LmFzcHg=");
+
+                case "menu_saletools_promotion_get": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=cmVwb3J0UHJvbW90aW9uQW10LmFzcHg=");
+
+                case "menu_saletools_discount_summary_report": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=UmVwb3J0RGlzY291bnRPbnRvcFN1bW1hcnkuYXNweA==");
+
+                case "menu_saletools_discount_detail_report": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=UmVwb3J0RGlzY291bnRPbnRvcC5hc3B4");
+
+                case "menu_saletools_sale_pivot_report": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=cmVwb3J0QkkuYXNweA==");
+
+                case "menu_saletools_customer_pivot_report": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=cmVwb3J0QklDdXN0b21lci5hc3B4");
+
+                case "menu_saletools_issue_to_customer": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1JJkdDdXM9WQ==");
+                case "menu_saletools_receive_from_customer": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1HJkdDdXM9WQ==");
             }
             return null;
         }

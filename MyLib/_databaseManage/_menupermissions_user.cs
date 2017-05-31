@@ -24,12 +24,12 @@ namespace MyLib._databaseManage
             _myFrameWork myFrameWork = new _myFrameWork();
 
             MyLib._myResource._resource = myFrameWork._resourceLoadAll(MyLib._myGlobal._dataGroup);
-            string query = "select " + MyLib._d.sml_user_list._user_code + "," + MyLib._d.sml_user_list._user_name + "," + MyLib._d.sml_user_list._active_status + "," + MyLib._d.sml_user_list._user_password + "," + MyLib._d.sml_user_list._user_level + " from " + MyLib._d.sml_user_list._table+" order by " + MyLib._d.sml_user_list._user_code;
+            string query = "select " + MyLib._d.sml_user_list._user_code + "," + MyLib._d.sml_user_list._user_name + "," + MyLib._d.sml_user_list._active_status + "," + MyLib._d.sml_user_list._user_password + "," + MyLib._d.sml_user_list._user_level + " from " + MyLib._d.sml_user_list._table + " order by " + MyLib._d.sml_user_list._user_code;
             DataSet result = myFrameWork._query(MyLib._myGlobal._mainDatabase, query);
             _myGrid_User_list._getResource = true;
             _myGrid_User_list._table_name = MyLib._d.sml_user_list._table;
             _myGrid_User_list._addColumn(MyLib._d.sml_user_list._user_code, 1, 50, 50);
-            _myGrid_User_list._addColumn(MyLib._d.sml_user_list._user_name, 1, 50, 50);            
+            _myGrid_User_list._addColumn(MyLib._d.sml_user_list._user_name, 1, 50, 50);
             _myGrid_User_list._loadFromDataTable(result.Tables[0]);
             _myGrid_User_list._mouseClick += new MouseClickHandler(_myGrid_User_list__mouseClick);
             _myGrid_User_list.Invalidate();
@@ -37,7 +37,7 @@ namespace MyLib._databaseManage
             this._myGridpermissions._rowNumberWork = true;
             this._myGridpermissions._getResource = true;
             this._myGridpermissions._isEdit = false;
-            this._myGridpermissions._table_name = MyLib._d.sml_permissions_user._table;            
+            this._myGridpermissions._table_name = MyLib._d.sml_permissions_user._table;
             this._myGridpermissions._addColumn(MyLib._d.sml_permissions_user._menuname, 1, 15, 60, false, false, false, false);
             this._myGridpermissions._addColumn(MyLib._d.sml_permissions_user._isread, 11, 5, 10);
             this._myGridpermissions._addColumn(MyLib._d.sml_permissions_user._isadd, 11, 5, 10);
@@ -47,10 +47,11 @@ namespace MyLib._databaseManage
             this._myGridpermissions._addColumn("MenumainName", 1, 15, 40, false, true, false, false);
             this._myGridpermissions.TabStop = false;
             this.Dock = DockStyle.Fill;
-            
+
             this._myGridpermissions.Invalidate();
             this._myGridpermissions._total_show = false;
             this._myGridpermissions.Refresh();
+
             this._myScreen1._maxColumn = 2;
             _datatablegroup = result.Tables[0];
             string __resourceuser_code = MyLib._myResource._findResource(MyLib._d.sml_user_list._user_code, "รหัสผู้ใช้")._str;
@@ -60,7 +61,7 @@ namespace MyLib._databaseManage
             this._myScreen1._addTextBox(0, 0, 1, 1, MyLib._d.sml_user_list._search, 2, 1, 1, true, false, true);
             this._myScreen1._addTextBox(1, 0, 1, 0, MyLib._d.sml_user_list._user_code, 1, 1, 0, true, false, false);
             this._myScreen1._addTextBox(1, 1, 1, 1, MyLib._d.sml_user_list._user_name, 1, 1, 0, true, false, true);
-            
+
             this._myScreen1._textBoxSearch += new TextBoxSearchHandler(_myScreen1__textBoxSearch);
             this._myScreen1._textBoxChanged += new TextBoxChangedHandler(_myScreen1__textBoxChanged);
             this._myScreen1.Invalidate();
@@ -70,6 +71,142 @@ namespace MyLib._databaseManage
             this.__mylistmenuGolbal_user = MyLib._myGlobal._listMenuAll;
             this.__gridInit_user();
         }
+
+        /*
+         * private void _myGridpermissions__importData(object sender)
+        {
+            _myGridImportFromTextFileForm __form = new _myGridImportFromTextFileForm(this._myGridpermissions._columnList);
+            __form._showHideColumn = true;
+            __form._importButton.Click += (s1, e1) =>
+            {
+                this._myGridpermissions._importWorking = true;
+                __form.Close();
+                __form._mapFieldView.EndEdit();
+                Application.DoEvents();
+
+                // search field defind
+                int __columnMenuName = -1;
+                int __columnIsView = -1;
+                int __columnIsAdd = -1;
+                int __columnIsDelete = -1;
+                int __columnIsEdit = -1;
+                for (int __row2 = 0; __row2 < __form._mapFieldView.Rows.Count; __row2++)
+                {
+                    string __name = __form._mapFieldView.Rows[__row2].Cells[0].Value.ToString();
+                    string __field = (__form._mapFieldView.Rows[__row2].Cells[1].Value == null) ? "" : __form._mapFieldView.Rows[__row2].Cells[1].Value.ToString();
+
+                    int __fieldIndex = (__field.Trim().Length > 0) ? MyLib._myGlobal._intPhase(__field.Trim().Substring(1)) : -1;
+
+                    switch (__row2)
+                    {
+                        case 1:
+                            __columnIsView = __fieldIndex;
+                            break;
+                        case 2:
+                            __columnIsAdd = __fieldIndex;
+                            break;
+                        case 3:
+                            __columnIsDelete = __fieldIndex;
+                            break;
+                        case 4:
+                            __columnIsEdit = __fieldIndex;
+                            break;
+                        case 5:
+                            __columnMenuName = __fieldIndex;
+                            break;
+                    }
+
+                }
+
+                if (__columnMenuName != -1)
+                {
+
+                    for (int __row1 = 0; __row1 < __form._dataGridView.Rows.Count; __row1++)
+                    {
+                        try
+                        {
+
+                            string __menuId = __form._dataGridView.Rows[__row1].Cells[__columnMenuName].Value.ToString();
+                            int __isView = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsView].Value.ToString());
+                            int __isAdd = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsAdd].Value.ToString());
+                            int __isDel = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsDelete].Value.ToString());
+                            int __isEdit = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsEdit].Value.ToString());
+
+                            int __rowAddr = this._myGridpermissions._findData(this._myGridpermissions._findColumnByName(MyLib._d.sml_permissions_user._menucode), __menuId);
+
+                            if (__rowAddr != -1)
+                            {
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isread, __isView, true);
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isadd, __isAdd, true);
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isdelete, __isDel, true);
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isedit, __isEdit, true);
+                            }
+                            //for (int __row2 = 0; __row2 < __form._mapFieldView.Rows.Count; __row2++)
+                            //{
+                            //string __name = __form._mapFieldView.Rows[__row2].Cells[0].Value.ToString();
+                            // string __field = (__form._mapFieldView.Rows[__row2].Cells[1].Value == null) ? "" : __form._mapFieldView.Rows[__row2].Cells[1].Value.ToString();
+                            //if (__field.Trim().Length > 0)
+                            //{
+
+                            //int __columnNumber = -1;
+                            //for (int __loop = 0; __loop < __form._dataGridView.Columns.Count; __loop++)
+                            //{
+                            //    if (__form._dataGridView.Columns[__loop].Name.Equals(__field))
+                            //    {
+                            //        __columnNumber = __loop;
+                            //        break;
+                            //    }
+                            //}
+                            //if (__columnNumber != -1)
+                            /*
+                            {
+                            string __value = __form._dataGridView.Rows[__row1].Cells[__columnNumber].Value.ToString();
+                            if (__addrRow == -1)
+                            {
+                                __addrRow = this._addRow();
+                            }
+                            int __gridColumnNumber = -1;
+                            MyLib._myGrid._columnType __myColumn = null;
+                            for (int __column = 0; __column < this._columnList.Count; __column++)
+                            {
+                                __myColumn = (MyLib._myGrid._columnType)_columnList[__column];
+                                if (__myColumn._name.Equals(__name))
+                                {
+                                    __gridColumnNumber = __column;
+                                    break;
+                                }
+                            }
+                            if (__myColumn != null && __gridColumnNumber != -1)
+                            {
+                                switch (__myColumn._type)
+                                {
+                                    case 1: this._cellUpdate(__addrRow, __gridColumnNumber, __value, (fastMode) ? false : true); break;
+                                    case 2:
+                                    case 3: this._cellUpdate(__addrRow, __gridColumnNumber, MyLib._myGlobal._decimalPhase(__value), (fastMode) ? false : true); break;
+                                    case 4:
+                                        this._cellUpdate(__addrRow, __gridColumnNumber, MyLib._myGlobal._convertDate(__value), (fastMode) ? false : true); break;
+                                }
+                            }
+                        }
+                            
+
+                            //}
+                            //}
+
+                        }
+                        catch (Exception __ex)
+                        {
+                            MessageBox.Show(__ex.Message.ToString());
+                        }
+                    }
+                }
+                this._myGridpermissions.Refresh();
+                this._myGridpermissions.Invalidate();
+
+                this._myGridpermissions._importWorking = false;
+            };
+            __form.ShowDialog();
+        }*/
 
         void _myScreen1__textBoxChanged(object sender, string name)
         {
@@ -139,7 +276,7 @@ namespace MyLib._databaseManage
                 }
             }
             return __mylist;
-            
+
         }
         DataTable __SearchMenu_user(_mainMenuClass menu)
         {
@@ -180,12 +317,13 @@ namespace MyLib._databaseManage
             }
             return __DataTableTemp;
         }
-        void _searchText_user() {
+        void _searchText_user()
+        {
             try
             {
                 string __search = _myScreen1._getDataStr(MyLib._d.sml_user_list._search).ToString();
                 MyLib._myTextBox __searchTextbox = ((MyLib._myTextBox)(_myScreen1._getControl(MyLib._d.sml_user_list._search)));
-                
+
                 DataTable __tempmenu;
                 if (this.__mylistmenuold_user != null)
                 {
@@ -216,7 +354,7 @@ namespace MyLib._databaseManage
                         __where.Append(string.Concat(" like \'%", __searchTextbox.TextBox.Text, "%\'"));
                     }
                     //label1.Text = __where.ToString();
-                 //   DataRow[] __userRow = __tempmenu.Select(MyLib._d.sml_permissions_user._menuname + " like '" + __where.ToString() + "%'");
+                    //   DataRow[] __userRow = __tempmenu.Select(MyLib._d.sml_permissions_user._menuname + " like '" + __where.ToString() + "%'");
                     DataRow[] __userRow = __tempmenu.Select(MyLib._d.sml_permissions_user._menuname + __where.ToString());
                     int _menuWrite = 0;
                     int _menuDelete = 0;
@@ -282,7 +420,7 @@ namespace MyLib._databaseManage
         }
         public DataTable _createTable()
         {
-            DataTable MenuTable = new DataTable( "Menu");
+            DataTable MenuTable = new DataTable("Menu");
 
             MenuTable.Columns.Add(new DataColumn(MyLib._d.sml_permissions_user._menucode, Type.GetType("System.String")));
             MenuTable.Columns.Add(new DataColumn(MyLib._d.sml_permissions_user._menuname, Type.GetType("System.String")));
@@ -348,8 +486,8 @@ namespace MyLib._databaseManage
             }
             this._myGridpermissions.Invalidate();
         }
-    
-     
+
+
         private MyLib.SMLJAVAWS.imageType[] ListType;
         private MyLib.SMLJAVAWS.imageType TypeImage;
         _mainMenuClass __MainMenu_user;
@@ -364,7 +502,7 @@ namespace MyLib._databaseManage
 
                     StringBuilder __myqueryWhere = new StringBuilder();
                     __MainMenu_user = new _mainMenuClass();
-                    __MainMenu_user = this.__newmenulist_user(__mylistmenuold_user);                   
+                    __MainMenu_user = this.__newmenulist_user(__mylistmenuold_user);
                     string[] xfeild = { MyLib._d.sml_permissions_user._usercode, MyLib._d.sml_permissions_user._image_file, MyLib._d.sml_permissions_user._guid_code };//insert
                     string xwhere = MyLib._d.sml_permissions_user._usercode;
                     string xTable = MyLib._d.sml_permissions_user._table;//update
@@ -392,7 +530,7 @@ namespace MyLib._databaseManage
                     this.__gridInit_user();
                     this.__mylistmenuold_user = null;
                     this._myScreen1._clear();
-                   
+
                 }
                 catch (Exception __ex)
                 {
@@ -431,8 +569,8 @@ namespace MyLib._databaseManage
         //    }
         //    return base.ProcessCmdKey(ref msg, keyData);
         //}
-     
-        void _loadMenu_user( string _user_code)
+
+        void _loadMenu_user(string _user_code)
         {
             try
             {
@@ -462,12 +600,12 @@ namespace MyLib._databaseManage
                     XmlSerializer __serializer = new XmlSerializer(typeof(MyLib._mainMenuClass));
                     _mainMenuClass __loadMenufromdatabase = (_mainMenuClass)__serializer.Deserialize(__stream);
                     _mainMenuClass __mylistmenuLoad = __loadMenufromdatabase;
-                    __stream = new MemoryStream(__databyte);                                      
-                   // XmlSerializer s = new XmlSerializer(typeof(MyLib._mainMenuClass));
-                   // TextReader r = new StreamReader(@"c:\test\" + _user_code + ".xml");
-                   // __loadMenufromdatabase = (MyLib._mainMenuClass)s.Deserialize(r);
-                   // _mainMenuClass __mylistmenuLoad = __loadMenufromdatabase;
-                   // r.Close();
+                    __stream = new MemoryStream(__databyte);
+                    // XmlSerializer s = new XmlSerializer(typeof(MyLib._mainMenuClass));
+                    // TextReader r = new StreamReader(@"c:\test\" + _user_code + ".xml");
+                    // __loadMenufromdatabase = (MyLib._mainMenuClass)s.Deserialize(r);
+                    // _mainMenuClass __mylistmenuLoad = __loadMenufromdatabase;
+                    // r.Close();
                     for (int __loop = 0; __loop < __mylistmenuLoad._MainMenuList.Count; __loop++)
                     {
                         MyLib._menuListClass __subLoad = (MyLib._menuListClass)__mylistmenuLoad._MainMenuList[__loop];
@@ -551,7 +689,7 @@ namespace MyLib._databaseManage
             }
             this._myGridpermissions.Invalidate();
         }
-        
+
 
 
         private void _selectdelete_Click(object sender, EventArgs e)
@@ -651,6 +789,6 @@ table {
         }
 
     }
- 
+
 }
 

@@ -57,6 +57,7 @@ namespace MyLib._databaseManage
             
             this._myScreen1._textBoxSearch += new TextBoxSearchHandler(_myScreen1__textBoxSearch);
             this._myScreen1._textBoxChanged += new TextBoxChangedHandler(_myScreen1__textBoxChanged);
+
             this._myScreen1.Invalidate();
             MyLib._myTextBox _getControlName = (MyLib._myTextBox)this._myScreen1._getControl(MyLib._d.sml_group_list._group_code);
             _getControlName.textBox.ReadOnly = true;
@@ -72,7 +73,142 @@ namespace MyLib._databaseManage
             this._mylistmenuGolbal = MyLib._myGlobal._listMenuAll;
             this.__gridInit();
         }
-       
+
+        private void _myGridpermissions__importData(object sender)
+        {
+            _myGridImportFromTextFileForm __form = new _myGridImportFromTextFileForm(this._myGridpermissions._columnList);
+            __form._importButton.Click += (s1, e1) =>
+            {
+                this._myGridpermissions._importWorking = true;
+                __form.Close();
+                __form._mapFieldView.EndEdit();
+                Application.DoEvents();
+
+                // search field defind
+                int __columnMenuName = -1;
+                int __columnIsView = -1;
+                int __columnIsAdd = -1;
+                int __columnIsDelete = -1;
+                int __columnIsEdit = -1;
+                for (int __row2 = 0; __row2 < __form._mapFieldView.Rows.Count; __row2++)
+                {
+                    string __name = __form._mapFieldView.Rows[__row2].Cells[0].Value.ToString();
+                    string __field = (__form._mapFieldView.Rows[__row2].Cells[1].Value == null) ? "" : __form._mapFieldView.Rows[__row2].Cells[1].Value.ToString();
+
+                    int __fieldIndex = (__field.Trim().Length > 0) ? MyLib._myGlobal._intPhase(__field.Trim().Substring(1)) : -1;
+
+                    switch (__row2)
+                    {
+                        case 1:
+                            __columnIsView = __fieldIndex;
+                            break;
+                        case 2:
+                            __columnIsAdd = __fieldIndex;
+                            break;
+                        case 3:
+                            __columnIsDelete = __fieldIndex;
+                            break;
+                        case 4:
+                            __columnIsEdit = __fieldIndex;
+                            break;
+                        case 5:
+                            __columnMenuName = __fieldIndex;
+                            break;
+                    }
+
+                }
+
+                if (__columnMenuName != -1)
+                {
+
+                    for (int __row1 = 0; __row1 < __form._dataGridView.Rows.Count; __row1++)
+                    {
+                        try
+                        {
+
+                            string __menuId = __form._dataGridView.Rows[__row1].Cells[__columnMenuName].Value.ToString();
+                            int __isView = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsView].Value.ToString());
+                            int __isAdd = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsAdd].Value.ToString());
+                            int __isDel = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsDelete].Value.ToString());
+                            int __isEdit = MyLib._myGlobal._intPhase(__form._dataGridView.Rows[__row1].Cells[__columnIsEdit].Value.ToString());
+
+                            int __rowAddr = this._myGridpermissions._findData(this._myGridpermissions._findColumnByName(MyLib._d.sml_permissions_user._menucode), __menuId);
+
+                            if (__rowAddr != -1)
+                            {
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isread, __isView, true);
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isadd, __isAdd, true);
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isdelete, __isDel, true);
+                                this._myGridpermissions._cellUpdate(__rowAddr, MyLib._d.sml_permissions_user._isedit, __isEdit, true);
+                            }
+                            //for (int __row2 = 0; __row2 < __form._mapFieldView.Rows.Count; __row2++)
+                            //{
+                            //string __name = __form._mapFieldView.Rows[__row2].Cells[0].Value.ToString();
+                            // string __field = (__form._mapFieldView.Rows[__row2].Cells[1].Value == null) ? "" : __form._mapFieldView.Rows[__row2].Cells[1].Value.ToString();
+                            //if (__field.Trim().Length > 0)
+                            //{
+
+                            //int __columnNumber = -1;
+                            //for (int __loop = 0; __loop < __form._dataGridView.Columns.Count; __loop++)
+                            //{
+                            //    if (__form._dataGridView.Columns[__loop].Name.Equals(__field))
+                            //    {
+                            //        __columnNumber = __loop;
+                            //        break;
+                            //    }
+                            //}
+                            //if (__columnNumber != -1)
+                            /*
+                            {
+                            string __value = __form._dataGridView.Rows[__row1].Cells[__columnNumber].Value.ToString();
+                            if (__addrRow == -1)
+                            {
+                                __addrRow = this._addRow();
+                            }
+                            int __gridColumnNumber = -1;
+                            MyLib._myGrid._columnType __myColumn = null;
+                            for (int __column = 0; __column < this._columnList.Count; __column++)
+                            {
+                                __myColumn = (MyLib._myGrid._columnType)_columnList[__column];
+                                if (__myColumn._name.Equals(__name))
+                                {
+                                    __gridColumnNumber = __column;
+                                    break;
+                                }
+                            }
+                            if (__myColumn != null && __gridColumnNumber != -1)
+                            {
+                                switch (__myColumn._type)
+                                {
+                                    case 1: this._cellUpdate(__addrRow, __gridColumnNumber, __value, (fastMode) ? false : true); break;
+                                    case 2:
+                                    case 3: this._cellUpdate(__addrRow, __gridColumnNumber, MyLib._myGlobal._decimalPhase(__value), (fastMode) ? false : true); break;
+                                    case 4:
+                                        this._cellUpdate(__addrRow, __gridColumnNumber, MyLib._myGlobal._convertDate(__value), (fastMode) ? false : true); break;
+                                }
+                            }
+                        }
+                            */
+
+                            //}
+                            //}
+
+                        }
+                        catch (Exception __ex)
+                        {
+                            MessageBox.Show(__ex.Message.ToString());
+                        }
+                    }
+                }
+                this._myGridpermissions.Refresh();
+                this._myGridpermissions.Invalidate();
+
+                this._myGridpermissions._importWorking = false;
+            };
+            __form.ShowDialog();
+        }
+
+
         void _myScreen1__textBoxChanged(object sender, string name)
         {
              if (name.Equals(MyLib._d.sml_group_list._search)){

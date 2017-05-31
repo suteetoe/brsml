@@ -74,7 +74,9 @@ namespace SMLERPControl
             }
         }
 
-
+        /// <summary>
+        /// ไม่ได้ใช้
+        /// </summary>
         public static void _sendRequestARCredit()
         {
             Thread.Sleep(60 * 1000);
