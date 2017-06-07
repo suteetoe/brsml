@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this._myPanel1 = new MyLib._myPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this._myGridTable = new MyLib._myGrid();
@@ -38,9 +39,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this._myFlowLayoutPanel1 = new MyLib._myFlowLayoutPanel();
+            this._exitButton = new MyLib._myButton();
             this._toolStrip = new System.Windows.Forms.ToolStrip();
             this._closeButton = new System.Windows.Forms.ToolStripButton();
-            this._exitButton = new MyLib._myButton();
+            this._exportAllButton = new MyLib.ToolStripMyButton();
             this._myPanel1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -196,10 +198,31 @@
             this._myFlowLayoutPanel1.Size = new System.Drawing.Size(738, 34);
             this._myFlowLayoutPanel1.TabIndex = 6;
             // 
+            // _exitButton
+            // 
+            this._exitButton._drawNewMethod = false;
+            this._exitButton.AutoSize = true;
+            this._exitButton.BackColor = System.Drawing.Color.Transparent;
+            this._exitButton.ButtonText = "screen_close";
+            this._exitButton.Location = new System.Drawing.Point(630, 5);
+            this._exitButton.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
+            this._exitButton.myImage = global::MyLib.Resource16x16.error;
+            this._exitButton.myTextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this._exitButton.myUseVisualStyleBackColor = false;
+            this._exitButton.Name = "_exitButton";
+            this._exitButton.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this._exitButton.ResourceName = "screen_close";
+            this._exitButton.Size = new System.Drawing.Size(102, 24);
+            this._exitButton.TabIndex = 5;
+            this._exitButton.Text = "screen_close";
+            this._exitButton.UseVisualStyleBackColor = false;
+            this._exitButton.Click += new System.EventHandler(this._exitButton_Click);
+            // 
             // _toolStrip
             // 
             this._toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this._closeButton});
+            this._closeButton,
+            this._exportAllButton});
             this._toolStrip.Location = new System.Drawing.Point(5, 5);
             this._toolStrip.Name = "_toolStrip";
             this._toolStrip.Size = new System.Drawing.Size(738, 25);
@@ -215,23 +238,16 @@
             this._closeButton.Text = "Close";
             this._closeButton.Click += new System.EventHandler(this._closeButton_Click);
             // 
-            // _exitButton
+            // _exportAllButton
             // 
-            this._exitButton.AutoSize = true;
-            this._exitButton.BackColor = System.Drawing.Color.Transparent;
-            this._exitButton.ButtonText = "ปิดหน้าจอ";
-            this._exitButton.Location = new System.Drawing.Point(654, 5);
-            this._exitButton.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
-            this._exitButton.myImage = global::MyLib.Resource16x16.error;
-            this._exitButton.myTextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this._exitButton.myUseVisualStyleBackColor = false;
-            this._exitButton.Name = "_exitButton";
-            this._exitButton.Padding = new System.Windows.Forms.Padding(4, 2, 4, 2);
-            this._exitButton.ResourceName = "screen_close";
-            this._exitButton.Size = new System.Drawing.Size(78, 24);
-            this._exitButton.TabIndex = 5;
-            this._exitButton.UseVisualStyleBackColor = false;
-            this._exitButton.Click += new System.EventHandler(this._exitButton_Click);
+            this._exportAllButton.Image = global::MyLib.Properties.Resources.document_into;
+            this._exportAllButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._exportAllButton.Name = "_exportAllButton";
+            this._exportAllButton.Padding = new System.Windows.Forms.Padding(1);
+            this._exportAllButton.ResourceName = "Export All";
+            this._exportAllButton.Size = new System.Drawing.Size(79, 22);
+            this._exportAllButton.Text = "Export All";
+            this._exportAllButton.Click += new System.EventHandler(this._exportAllButton_Click);
             // 
             // _databaseStruct
             // 
@@ -277,5 +293,6 @@
         public System.Windows.Forms.SplitContainer splitContainer2;
         public System.Windows.Forms.ToolStrip _toolStrip;
         private System.Windows.Forms.ToolStripButton _closeButton;
-	}
+        private ToolStripMyButton _exportAllButton;
+    }
 }

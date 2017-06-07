@@ -135,6 +135,11 @@ namespace SMLERPConfig
                         __screenFull._addColumn(_g.d.erp_branch_list._phone_number_approve, 100, 40);
                         __screenFull._addColumn(_g.d.erp_branch_list._sale_hub_approve, 100, 40);
                         __screenFull._addColumn(_g.d.erp_branch_list._arm_code, 100, 40);
+
+                        __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_branch_list._arm_send_cancel_doc_to, 1, 0, 0, true, false, true, true, true, _g.d.erp_branch_list._arm_send_cancel_doc);
+                        __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_branch_list._arm_send_cn_to, 1, 0, 0, true, false, true, true, true, _g.d.erp_branch_list._arm_send_cn);
+                        __screenFull._inputScreen._addTextBox(__screenFull._rowScreen++, 0, 1, 0, _g.d.erp_branch_list._arm_send_ar_change_to, 1, 0, 0, true, false, true, true, true, _g.d.erp_branch_list._arm_send_ar_change);
+
                         __screenFull._finish();
                         return __screenFull;
                     }

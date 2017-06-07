@@ -5961,6 +5961,23 @@ namespace SMLInventoryControl
                                                         SMLProcess._docFlow __process = new SMLProcess._docFlow();
                                                         __process._processAll(this._transControlType, "", __docNoList);
 
+                                                        // send arm
+                                                        if (_g.g._companyProfile._arm_send_cancel_doc)
+                                                        {
+                                                            StringBuilder __message = new StringBuilder();
+                                                            __message.Append("ยกเลิกเอกสาร " + this._oldDocNo + " โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") เหตุผล : " + __docCancelForm._cancelReasonTextbox.Text);
+
+                                                            string __sendTo = _g.g._companyProfile._arm_send_cancel_doc_to;
+
+                                                            DataTable __sendCancelBranch = __myFrameWork._queryShort("select " + _g.d.erp_branch_list._arm_send_cancel_doc_to + " from " + _g.d.erp_branch_list._table + " where " + _g.d.erp_branch_list._code + " = \'" + this._icTransScreenTop__getBranchCode() + "\' ").Tables[0];
+                                                            if (__sendCancelBranch.Rows.Count > 0 && __sendCancelBranch.Rows[0][0].ToString().Length > 0)
+                                                            {
+                                                                __sendTo = __sendCancelBranch.Rows[0][0].ToString();
+                                                            }
+
+                                                            SMLERPMailMessage._sendMessage._sendMessageSaleHub(__sendTo, __message.ToString(), "");
+                                                        }
+
                                                         MessageBox.Show("ยกเลิกเอกสารสำเร็จ");
                                                         this._myManageTrans._dataList._refreshData();
 
@@ -12430,6 +12447,26 @@ namespace SMLInventoryControl
                         this._saveLog(this._myManageTrans._mode);
                         //
                         MyLib._myGlobal._displayWarning(1, null);
+
+                        if (_g.g._companyProfile._arm_send_cn &&
+                            (this._transControlType == _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้ || this._transControlType == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้))
+                        {
+                            StringBuilder __armMessageCN = new StringBuilder();
+                            string __sendCNTo = _g.g._companyProfile._arm_send_cn_to;
+
+                            // get granch
+                            __armMessageCN.Append((this._myManageTrans._mode == 2 ? "แก้ไข" : "") + "ลดหนี้ " + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textSecond + "(" + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textFirst + ") โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") มูลค่า : " + this._icTransScreenBottom._getDataNumber(_g.d.ic_trans._total_amount));
+
+
+                            DataTable __sendCancelBranch = __myFrameWork._queryShort("select " + _g.d.erp_branch_list._arm_send_cn_to + " from " + _g.d.erp_branch_list._table + " where " + _g.d.erp_branch_list._code + " = \'" + this._icTransScreenTop__getBranchCode() + "\' ").Tables[0];
+                            if (__sendCancelBranch.Rows.Count > 0 && __sendCancelBranch.Rows[0][0].ToString().Length > 0)
+                            {
+                                __sendCNTo = __sendCancelBranch.Rows[0][0].ToString();
+                            }
+
+                            SMLERPMailMessage._sendMessage._sendMessageSaleHub(__sendCNTo, __armMessageCN.ToString(), "");
+                        }
+
                         //
                         this._myManageTrans._dataList._refreshData();
                         if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore)

@@ -112,6 +112,7 @@ namespace SMLERPConfig
                 ArrayList __getDataItemOption = _itemOption._createQueryForDatabase();
                 ArrayList __getDataSyncOption = _optionSync._createQueryForDatabase();
                 ArrayList __getDataSaleOption = _saleOption._createQueryForDatabase();
+                ArrayList __getARMOption = _optionSINGHAARMScreen1._createQueryForDatabase();
 
                 string __sale_shift_query = "";
                 if (_g.g._companyProfile._use_sale_shift == true)
@@ -129,7 +130,7 @@ namespace SMLERPConfig
                 try
                 {
                     MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-                    string __query = "select " + __getDataGlOption[0].ToString() + "," + __getDataItemOption[0].ToString() + "," + __getDataSyncOption[0].ToString() + "," + __getDataSaleOption[0].ToString() + __sale_shift_query + " from " + _glOption._table_name;
+                    string __query = "select " + __getDataGlOption[0].ToString() + "," + __getDataItemOption[0].ToString() + "," + __getDataSyncOption[0].ToString() + "," + __getDataSaleOption[0].ToString() + "," + __getARMOption[0].ToString() + __sale_shift_query + " from " + _glOption._table_name;
                     DataSet __result = __myFrameWork._query(MyLib._myGlobal._databaseName, __query);
                     _glOption._loadData(__result.Tables[0]);
                     _glOption._focusFirst();
@@ -139,6 +140,7 @@ namespace SMLERPConfig
                     //
                     _optionSync._loadData(__result.Tables[0]);
                     _saleOption._loadData(__result.Tables[0]);
+                    _optionSINGHAARMScreen1._loadData(__result.Tables[0]);
 
                     if (_g.g._companyProfile._use_sale_shift == true)
                     {
@@ -222,6 +224,7 @@ namespace SMLERPConfig
                 ArrayList __getDataItemOption = _itemOption._createQueryForDatabase();
                 ArrayList __getDataSyncOption = _optionSync._createQueryForDatabase();
                 ArrayList __getDataSaleOption = _saleOption._createQueryForDatabase();
+                ArrayList __getARMOption = _optionSINGHAARMScreen1._createQueryForDatabase();
 
                 string __getSaleShiftField = "";
                 string __getSaleShiftValue = "";
@@ -239,7 +242,7 @@ namespace SMLERPConfig
                     __getSaleShiftValue = "," + __getDataOrder[1].ToString();
                 }
 
-                __query = "insert into " + _g.d.erp_option._table + " (" + __getDataGlOption[0].ToString() + "," + __getDataItemOption[0].ToString() + "," + __getDataSyncOption[0].ToString() + "," + __getDataSaleOption[0].ToString() + __getSaleShiftField + ") values (" + __getDataGlOption[1].ToString() + "," + __getDataItemOption[1].ToString() + "," + __getDataSyncOption[1].ToString() + "," + __getDataSaleOption[1].ToString() + __getSaleShiftValue + ")";
+                __query = "insert into " + _g.d.erp_option._table + " (" + __getDataGlOption[0].ToString() + "," + __getDataItemOption[0].ToString() + "," + __getDataSyncOption[0].ToString() + "," + __getDataSaleOption[0].ToString() + "," + __getARMOption[0].ToString() + __getSaleShiftField + ") values (" + __getDataGlOption[1].ToString() + "," + __getDataItemOption[1].ToString() + "," + __getDataSyncOption[1].ToString() + "," + __getDataSaleOption[1].ToString() + "," + __getARMOption[1].ToString() + __getSaleShiftValue + ")";
                 //
 
                 if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLBIllFree)
@@ -830,7 +833,7 @@ namespace SMLERPConfig
 
 
                 this._addCheckBox(__row, 0, _g.d.erp_option._count_customer_table, false, true);
-                this._addCheckBox(__row++, 1, _g.d.erp_option._print_packing_pos_order, false, true);
+                 this._addTextBox(__row, 0, _g.d.erp_option._process_serial_device, 10);
 
                 this._addCheckBox(__row, 0, _g.d.erp_option._use_order_checker, false, true);
                 this._addCheckBox(__row++, 1, _g.d.erp_option._disable_edit_order, false, true);
@@ -842,6 +845,31 @@ namespace SMLERPConfig
                 this._addTextBox(__row++, 1, _g.d.erp_option._orders_speech_format, 0);
 
                 this._addCheckBox(__row, 0, _g.d.erp_option._save_user_order, false, true);
+
+                this._maxLabelWidth = new int[] { 100, 100 };
+            }
+        }
+    }
+
+    public class _optionSINGHAARMScreen : MyLib._myScreen
+    {
+        public _optionSINGHAARMScreen()
+        {
+            if (MyLib._myGlobal._isDesignMode == false)
+            {
+                int __row = 1;
+                this._maxColumn = 2;
+                this._table_name = _g.d.erp_option._table;
+
+
+                this._addCheckBox(__row, 0, _g.d.erp_option._arm_send_cancel_doc, false, true);
+                this._addTextBox(__row++, 1, _g.d.erp_option._arm_send_cancel_doc_to, 1000);
+
+                this._addCheckBox(__row, 0, _g.d.erp_option._arm_send_cn, false, true);
+                this._addTextBox(__row++, 1, _g.d.erp_option._arm_send_cn_to, 1000);
+
+                this._addCheckBox(__row, 0, _g.d.erp_option._arm_send_ar_change, false, true);
+                this._addTextBox(__row++, 1, _g.d.erp_option._arm_send_ar_change_to, 1000);
 
                 this._maxLabelWidth = new int[] { 100, 100 };
             }

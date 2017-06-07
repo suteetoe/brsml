@@ -288,7 +288,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_branch_list" _description="รายชื่อสาขา" _descriptionEng="Branch list" _version="ALL" _width="383" _height="245" _x="9" _y="1075">
+    <_tableList _moduleName="Setup" _name="erp_branch_list" _description="รายชื่อสาขา" _descriptionEng="Branch list" _version="ALL" _width="383" _height="341" _x="9" _y="1075">
       <_fields>
         <_fieldList _name="code" _description="รหัสสาขา" _descriptionEng="Branch code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -356,6 +356,36 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="arm_code" _description="ARM Code" _descriptionEng="ARM Code" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cancel_doc" _description="แจ้งเตือนยกเลิกเอกสาร" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cancel_doc_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cn" _description="แจ้งเตือนลดหนี้" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cn_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_ar_change" _description="แจ้งเตือนแก้ไขลูกหนี้" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_ar_change_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -738,7 +768,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3413" _x="418" _y="1445">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3525" _x="418" _y="1445">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1796,6 +1826,41 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="check_refer_wh_shelf" _description="ห้ามแก้ไขคลังที่เก็บกรณีอ้างอิงเอกสาร" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tab_arm" _description="ARM" _descriptionEng="ARM" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cancel_doc" _description="แจ้งเตือนยกเลิกเอกสาร" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cancel_doc_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cn" _description="แจ้งเตือนลดหนี้" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_cn_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_ar_change" _description="แจ้งเตือนแก้ไขลูกหนี้" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_send_ar_change_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -28118,7 +28183,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="process" _description="process" _descriptionEng="process" _version="" _width="241" _height="85" _x="813" _y="5">
+    <_tableList _moduleName="Master" _name="process" _description="process" _descriptionEng="process" _version="" _width="262" _height="101" _x="813" _y="5">
       <_fields>
         <_fieldList _name="process_name" _description="process name" _descriptionEng="process name" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -28136,6 +28201,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="wherein" _description="where in" _descriptionEng="where in" _type="1" _length="500" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="last_process_time" _description="Last Process Time" _descriptionEng="Last Process Time" _type="8" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

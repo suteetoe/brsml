@@ -203,6 +203,105 @@ namespace MyLib._databaseManage
         {
             this.Dispose();
         }
+
+        private void _exportAllButton_Click(object sender, EventArgs e)
+        {
+            Form __form = new Form();
+            MyLib._myGrid __gridExport = new _myGrid();
+
+            __gridExport._isEdit = false;
+            __gridExport._addColumn("table name", 1, 100, 20);
+            __gridExport._addColumn("table name thai", 1, 100, 30);
+            __gridExport._addColumn("table name english", 1, 100, 30);
+            __gridExport._addColumn("field name", 1, 100, 20);
+            __gridExport._addColumn("name thai", 1, 100, 20);
+            __gridExport._addColumn("name english", 1, 100, 20);
+            __gridExport._addColumn("type", 1, 100, 7);
+            __gridExport._addColumn("length", 1, 100, 7);
+            __gridExport._addColumn("indentity", 1, 100, 7);
+            __gridExport._addColumn("allow_null", 1, 100, 10);
+            __gridExport._calcPersentWidthToScatter();
+
+            // get field
+            DataTable __dt = new DataTable();
+            __dt.Columns.Add("table name", typeof(string));
+            __dt.Columns.Add("table name thai", typeof(string));
+            __dt.Columns.Add("table name english", typeof(string));
+            __dt.Columns.Add("field name", typeof(string));
+            __dt.Columns.Add("name thai", typeof(string));
+            __dt.Columns.Add("name english", typeof(string));
+            __dt.Columns.Add("type", typeof(string));
+            __dt.Columns.Add("length", typeof(string));
+            __dt.Columns.Add("indentity", typeof(string));
+            __dt.Columns.Add("allow_null", typeof(string));
+            __dt.Columns.Add("resource_only", typeof(string));
+            __dt.DefaultView.Sort = "table name";
+
+            XmlElement __xRoot = _xDoc.DocumentElement;
+            XmlNodeList __xReader = __xRoot.GetElementsByTagName("table");
+            for (int __table = 0; __table < __xReader.Count; __table++)
+            {
+                XmlNode __xFirstNode = __xReader.Item(__table);
+                if (__xFirstNode.NodeType == XmlNodeType.Element)
+                {
+                    XmlElement __xTable = (XmlElement)__xFirstNode;
+
+                    string tableName = __xTable.GetAttribute("name");
+                    string tableNameThai = __xTable.GetAttribute("thai");
+                    string tableNameEnglish = __xTable.GetAttribute("eng");
+
+                    //if (getTableName.CompareTo(__xTable.GetAttribute("name")) == 0)
+                    {
+
+                        XmlNodeList __xField = __xTable.GetElementsByTagName("field");
+                        for (int __field = 0; __field < __xField.Count; __field++)
+                        {
+                            XmlNode __xReadNode = __xField.Item(__field);
+                            if (__xReadNode != null)
+                            {
+                                if (__xReadNode.NodeType == XmlNodeType.Element)
+                                {
+                                    XmlElement __xGetField = (XmlElement)__xReadNode;
+                                    if (__xGetField.GetAttribute("resource_only") == "false")
+                                        __dt.Rows.Add(tableName, tableNameThai, tableNameEnglish, __xGetField.GetAttribute("name"), __xGetField.GetAttribute("thai"), __xGetField.GetAttribute("eng"), __xGetField.GetAttribute("type"), __xGetField.GetAttribute("length"), __xGetField.GetAttribute("indentity"), __xGetField.GetAttribute("allow_null"), __xGetField.GetAttribute("resource_only"));
+                                }
+                            }
+                        } // for
+
+                        //
+                        /*
+                        XmlNodeList __xIndex = __xTable.GetElementsByTagName("index");
+                        for (int __index = 0; __index < __xIndex.Count; __index++)
+                        {
+                            XmlNode __xReadNode = __xIndex.Item(__index);
+                            if (__xReadNode != null)
+                            {
+                                if (__xReadNode.NodeType == XmlNodeType.Element)
+                                {
+                                    XmlElement __xGetField = (XmlElement)__xReadNode;
+                                    int __addr = __gridExport._addRow();
+                                    // __gridExport._rowData.Count - 1;
+                                    __gridExport._cellUpdate(__addr, 0, __xGetField.GetAttribute("index_name"), false);
+                                    __gridExport._cellUpdate(__addr, 1, __xGetField.GetAttribute("field"), false);
+                                    __gridExport._cellUpdate(__addr, 2, __xGetField.GetAttribute("custer"), false);
+                                    __gridExport._cellUpdate(__addr, 3, __xGetField.GetAttribute("unique"), false);
+                                }
+                            }
+                        } // for
+                        */
+                        //break;
+                    }
+                }
+            } // for
+
+            __gridExport._loadFromDataTable(__dt);
+            __form.Controls.Add(__gridExport);
+            __gridExport.Dock = DockStyle.Fill;
+            __form.WindowState = FormWindowState.Maximized;
+
+            __form.ShowDialog(this);
+
+        }
     }
 
     public delegate void DatabaseStructLoadSuccessHandler(object sender);

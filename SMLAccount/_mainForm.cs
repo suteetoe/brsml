@@ -146,6 +146,13 @@ namespace SMLAccount
                 MyLib._myResource._updateResource("ic_inventory.item_pattern", "ตราสินค้า");
                 MyLib._myResource._updateResource("ic_inventory.item_grade", "กลุ่มสินค้าย่อย/รสชาติ");
 
+                MyLib._myResource._updateResource("erp_branch_list.sale_hub_approve", "ผู้อนุมัติ SINGHA ARM");
+                MyLib._myResource._updateResource("erp_credit_approve_level.sale_hub_auth", "SINGHA ARM User");
+                MyLib._myResource._updateResource("erp_option.sale_hub_approve", "ผู้อนุมัติ SINGHA ARM");
+                MyLib._myResource._updateResource("erp_option.salehub_approve", "ผ่านระบบ SINGHA ARM");
+                MyLib._myResource._updateResource("erp_option.sms_and_salehub_approve", "ผ่านระบบ SMS และ SINGHA ARM");
+                MyLib._myResource._updateResource("erp_user.sale_hub_user", "Sale Hub Users");
+
                 // change index
                 MyLib._myFrameWork __myFremeWork = new _myFrameWork();
 

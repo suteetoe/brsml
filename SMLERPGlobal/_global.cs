@@ -3421,6 +3421,30 @@ namespace _g
             /// เตือนเลือกลูกค้าก่อนทำรายการ
             /// </summary>
             public Boolean _warning_input_customer = false;
+            /// <summary>
+            /// แจ้งเตือนยกเลิกเอกสาร
+            /// </summary>
+            public Boolean _arm_send_cancel_doc = false;
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public String _arm_send_cancel_doc_to = "";
+            /// <summary>
+            /// แจ้งเตือนลดหนี้
+            /// </summary>
+            public Boolean _arm_send_cn = false;
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public String _arm_send_cn_to = "";
+            /// <summary>
+            /// แจ้งเตือนแก้ไขลูกหนี้
+            /// </summary>
+            public Boolean _arm_send_ar_change = false;
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public String _arm_send_ar_change_to = "";
         }
 
         //
@@ -4164,6 +4188,14 @@ namespace _g
                 _companyProfile._close_warning_backup = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._close_warning_backup) == 1) ? true : false;
                 _companyProfile._ss_ref_po_only = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._ss_ref_po_only) == 1) ? true : false;
                 _companyProfile._warning_input_customer = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._warning_input_customer) == 1) ? true : false;
+
+                _companyProfile._arm_send_cancel_doc = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._arm_send_cancel_doc) == 1) ? true : false;
+                _companyProfile._arm_send_cn = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._arm_send_cn) == 1) ? true : false;
+                _companyProfile._arm_send_ar_change = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._arm_send_ar_change) == 1) ? true : false;
+                _companyProfile._arm_send_cancel_doc_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_cancel_doc_to].ToString();
+                _companyProfile._arm_send_cn_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_cn_to].ToString();
+                _companyProfile._arm_send_ar_change_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_ar_change_to].ToString();
+
 
                 if (MyLib._myGlobal._programName.Equals("SML CM"))
                 {

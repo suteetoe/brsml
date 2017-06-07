@@ -33,6 +33,7 @@
             this._myTabControl1 = new MyLib._myTabControl();
             this.tab_gl = new System.Windows.Forms.TabPage();
             this.tab_item = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
             this._itemOption = new SMLERPConfig._optionItemScreen();
             this.tab_saleorder = new System.Windows.Forms.TabPage();
             this._saleOption = new SMLERPConfig._optionSaleOrderScreen();
@@ -40,19 +41,21 @@
             this._optionSync = new SMLERPConfig._optionSyncScreen();
             this.tab_mis = new System.Windows.Forms.TabPage();
             this._dashboardConfigScreen1 = new SMLERPConfig._dashboardConfigScreen();
+            this.tab_arm = new System.Windows.Forms.TabPage();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this._buttonSave = new MyLib.ToolStripMyButton();
             this._buttonClose = new MyLib.ToolStripMyButton();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this._optionSINGHAARMScreen1 = new SMLERPConfig._optionSINGHAARMScreen();
             this._myPanel1.SuspendLayout();
             this._myTabControl1.SuspendLayout();
             this.tab_gl.SuspendLayout();
             this.tab_item.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tab_saleorder.SuspendLayout();
             this.tab_sync.SuspendLayout();
             this.tab_mis.SuspendLayout();
+            this.tab_arm.SuspendLayout();
             this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // _myPanel1
@@ -74,7 +77,7 @@
             this._glOption.Dock = System.Windows.Forms.DockStyle.Top;
             this._glOption.Location = new System.Drawing.Point(5, 5);
             this._glOption.Name = "_glOption";
-            this._glOption.Size = new System.Drawing.Size(673, 606);
+            this._glOption.Size = new System.Drawing.Size(673, 651);
             this._glOption.TabIndex = 0;
             // 
             // _myTabControl1
@@ -84,6 +87,7 @@
             this._myTabControl1.Controls.Add(this.tab_saleorder);
             this._myTabControl1.Controls.Add(this.tab_sync);
             this._myTabControl1.Controls.Add(this.tab_mis);
+            this._myTabControl1.Controls.Add(this.tab_arm);
             this._myTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this._myTabControl1.Font = new System.Drawing.Font("Tahoma", 9F);
             this._myTabControl1.Location = new System.Drawing.Point(0, 25);
@@ -116,6 +120,16 @@
             this.tab_item.TabIndex = 1;
             this.tab_item.Text = "2.tab_item";
             this.tab_item.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this._itemOption);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(706, 584);
+            this.panel1.TabIndex = 1;
             // 
             // _itemOption
             // 
@@ -187,6 +201,16 @@
             this._dashboardConfigScreen1.Size = new System.Drawing.Size(706, 584);
             this._dashboardConfigScreen1.TabIndex = 0;
             // 
+            // tab_arm
+            // 
+            this.tab_arm.Controls.Add(this._optionSINGHAARMScreen1);
+            this.tab_arm.Location = new System.Drawing.Point(4, 23);
+            this.tab_arm.Name = "tab_arm";
+            this.tab_arm.Size = new System.Drawing.Size(706, 584);
+            this.tab_arm.TabIndex = 5;
+            this.tab_arm.Text = "6.tab_arm";
+            this.tab_arm.UseVisualStyleBackColor = true;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackgroundImage = global::SMLERPConfig.Resource16x16.bt03;
@@ -222,15 +246,15 @@
             this._buttonClose.Text = "ปิดหน้าจอ";
             this._buttonClose.Click += new System.EventHandler(this._buttonClose_Click);
             // 
-            // panel1
+            // _optionSINGHAARMScreen1
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this._itemOption);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(706, 584);
-            this.panel1.TabIndex = 1;
+            this._optionSINGHAARMScreen1._isChange = false;
+            this._optionSINGHAARMScreen1.BackColor = System.Drawing.Color.Transparent;
+            this._optionSINGHAARMScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._optionSINGHAARMScreen1.Location = new System.Drawing.Point(0, 0);
+            this._optionSINGHAARMScreen1.Name = "_optionSINGHAARMScreen1";
+            this._optionSINGHAARMScreen1.Size = new System.Drawing.Size(706, 584);
+            this._optionSINGHAARMScreen1.TabIndex = 0;
             // 
             // _option
             // 
@@ -254,13 +278,14 @@
             this._myTabControl1.ResumeLayout(false);
             this.tab_gl.ResumeLayout(false);
             this.tab_item.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.tab_saleorder.ResumeLayout(false);
             this.tab_sync.ResumeLayout(false);
             this.tab_mis.ResumeLayout(false);
+            this.tab_arm.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,5 +309,7 @@
         private System.Windows.Forms.TabPage tab_mis;
         private _dashboardConfigScreen _dashboardConfigScreen1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabPage tab_arm;
+        private _optionSINGHAARMScreen _optionSINGHAARMScreen1;
     }
 }

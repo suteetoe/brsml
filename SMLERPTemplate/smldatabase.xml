@@ -69,6 +69,12 @@
     <field name="phone_number_approve" thai="หมายเลขโทรศัทพ์ขออนุมัติวงเงิน" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="sale_hub_approve" thai="ผู้อนุมัติ Sale Hub" eng="" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="arm_code" thai="ARM Code" eng="ARM Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cancel_doc" thai="แจ้งเตือนยกเลิกเอกสาร" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cancel_doc_to" thai="ผู้รับ" eng="" type="varchar" length="1000" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cn" thai="แจ้งเตือนลดหนี้" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cn_to" thai="ผู้รับ" eng="" type="varchar" length="1000" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_ar_change" thai="แจ้งเตือนแก้ไขลูกหนี้" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_ar_change_to" thai="ผู้รับ" eng="" type="varchar" length="1000" indentity="no" allow_null="true" resource_only="false"></field>
     <index index_name="erp_branch_list_PK_CODE" field="code"  custer="true"  unique="true" ></index>
   </table>
   <table name="erp_company_profile" thai="รายละเอียดบริษัท" eng="Company profile" xversion="ALL" >
@@ -360,6 +366,13 @@
     <field name="ap_pay_from_bill_note" thai="จ่ายชำระหนี้อ้างอิงวางบิลทุกครั้ง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="close_ar_status_auto" thai="ปิดสถานะเครดิตลูกหนี้อัตโนมัติ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="check_refer_wh_shelf" thai="ห้ามแก้ไขคลังที่เก็บกรณีอ้างอิงเอกสาร" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tab_arm" thai="ARM" eng="ARM" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="arm_send_cancel_doc" thai="แจ้งเตือนยกเลิกเอกสาร" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cancel_doc_to" thai="ผู้รับ" eng="" type="varchar" length="1000" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cn" thai="แจ้งเตือนลดหนี้" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_cn_to" thai="ผู้รับ" eng="" type="varchar" length="1000" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_ar_change" thai="แจ้งเตือนแก้ไขลูกหนี้" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="arm_send_ar_change_to" thai="ผู้รับ" eng="" type="varchar" length="1000" indentity="no" allow_null="true" resource_only="false"></field>
   </table>
   <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
     <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -5546,6 +5559,7 @@
     <field name="last_guid" thai="guid" eng="guid" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="last_time" thai="last time" eng="last time" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="wherein" thai="where in" eng="where in" type="varchar" length="500" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="last_process_time" thai="Last Process Time" eng="Last Process Time" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <index index_name="process_process_name" field="process_name" ></index>
     <index index_name="process_wherein" field="wherein" ></index>
     <index index_name="process_name_and_wherein" field="process_name,wherein" ></index>

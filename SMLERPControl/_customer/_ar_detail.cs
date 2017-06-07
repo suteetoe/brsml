@@ -336,6 +336,24 @@ namespace SMLERPControl._customer
                             if (result.Length == 0)
                             {
                                 MyLib._myGlobal._displayWarning(1, null);
+
+                                if (_g.g._companyProfile._arm_send_ar_change && this._myManageData1._mode == 2)
+                                {
+                                    StringBuilder __message = new StringBuilder();
+                                    string __sendTo = _g.g._companyProfile._arm_send_cn_to;
+
+                                    // get granch
+                                    __message.Append("แก้ไขลูกค้า " + this._screenTop._getDataStr(_g.d.ar_customer._name_1) + "(" + this._screenTop._getDataStr(_g.d.ar_customer._code) + ") โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") ");
+
+                                    DataTable __sendCancelBranch = _myFrameWork._queryShort("select " + _g.d.erp_branch_list._arm_send_ar_change_to + " from " + _g.d.erp_branch_list._table + " where " + _g.d.erp_branch_list._code + " = \'" + MyLib._myGlobal._branchCode + "\' ").Tables[0];
+                                    if (__sendCancelBranch.Rows.Count > 0 && __sendCancelBranch.Rows[0][0].ToString().Length > 0)
+                                    {
+                                        __sendTo = __sendCancelBranch.Rows[0][0].ToString();
+                                    }
+
+                                    SMLERPMailMessage._sendMessage._sendMessageSaleHub(__sendTo, __message.ToString(), "");
+                                }
+
                                 this._screenTop._isChange = false;
                                 if (_myManageData1._mode == 1)
                                 {

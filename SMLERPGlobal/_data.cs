@@ -303,6 +303,30 @@ namespace _g
             /// ARM Code
             /// </summary>
             public static String _arm_code = "arm_code";
+            /// <summary>
+            /// แจ้งเตือนยกเลิกเอกสาร
+            /// </summary>
+            public static String _arm_send_cancel_doc = "arm_send_cancel_doc";
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public static String _arm_send_cancel_doc_to = "arm_send_cancel_doc_to";
+            /// <summary>
+            /// แจ้งเตือนลดหนี้
+            /// </summary>
+            public static String _arm_send_cn = "arm_send_cn";
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public static String _arm_send_cn_to = "arm_send_cn_to";
+            /// <summary>
+            /// แจ้งเตือนแก้ไขลูกหนี้
+            /// </summary>
+            public static String _arm_send_ar_change = "arm_send_ar_change";
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public static String _arm_send_ar_change_to = "arm_send_ar_change_to";
         }
 
         /// <summary>
@@ -1464,6 +1488,34 @@ namespace _g
             /// ห้ามแก้ไขคลังที่เก็บกรณีอ้างอิงเอกสาร
             /// </summary>
             public static String _check_refer_wh_shelf = "check_refer_wh_shelf";
+            /// <summary>
+            /// ARM
+            /// </summary>
+            public static String _tab_arm = "tab_arm";
+            /// <summary>
+            /// แจ้งเตือนยกเลิกเอกสาร
+            /// </summary>
+            public static String _arm_send_cancel_doc = "arm_send_cancel_doc";
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public static String _arm_send_cancel_doc_to = "arm_send_cancel_doc_to";
+            /// <summary>
+            /// แจ้งเตือนลดหนี้
+            /// </summary>
+            public static String _arm_send_cn = "arm_send_cn";
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public static String _arm_send_cn_to = "arm_send_cn_to";
+            /// <summary>
+            /// แจ้งเตือนแก้ไขลูกหนี้
+            /// </summary>
+            public static String _arm_send_ar_change = "arm_send_ar_change";
+            /// <summary>
+            /// ผู้รับ
+            /// </summary>
+            public static String _arm_send_ar_change_to = "arm_send_ar_change_to";
         }
 
         /// <summary>
@@ -21381,6 +21433,10 @@ namespace _g
             /// where in
             /// </summary>
             public static String _wherein = "wherein";
+            /// <summary>
+            /// Last Process Time
+            /// </summary>
+            public static String _last_process_time = "last_process_time";
         }
 
         /// <summary>

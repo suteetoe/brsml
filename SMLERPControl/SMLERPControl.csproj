@@ -827,6 +827,10 @@
       <Project>{41B81586-3B62-4C5F-89C8-74A21A53FA96}</Project>
       <Name>SMLERPGlobal</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SMLERPMailMessage\SMLERPMailMessage.csproj">
+      <Project>{8180a67b-562e-4030-a657-332d85f69eb4}</Project>
+      <Name>SMLERPMailMessage</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SMLProcess\SMLProcess.csproj">
       <Project>{4C2C0F42-FE26-4CA5-99B5-543AB784551C}</Project>
       <Name>SMLProcess</Name>

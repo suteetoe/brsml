@@ -1724,7 +1724,7 @@ namespace MyLib
                     _myFrameWork __myFrameWork = new _myFrameWork();
                     _myWebservice __ws = new _myWebservice(this._webServiceServer);
                     this._compressWebservice = __ws._compress;
-                    __ws._resourceInsertAll(this._databaseConfig, MyLib._myGlobal._databaseStructFileName, dataGroup);
+                    __ws._resourceInsertAll(this._databaseConfig, MyLib._myGlobal._databaseStructFileName, dataGroup.ToUpper());
                     __ws.Dispose();
                     __ws = null;
                 }
@@ -1733,7 +1733,7 @@ namespace MyLib
                 }
             }
             //
-            string __query = string.Concat("select code,name_1,name_2,name_3,name_4,name_5,name_6,length from sml_resource where ", _myGlobal._addUpper("data_group"), "=\'", dataGroup.ToUpper(), "\' order by code");
+            string __query = string.Concat("select code,name_1,name_2,name_3,name_4,name_5,name_6,length from sml_resource where data_group=\'", dataGroup.ToUpper(), "\' order by code");
             DataSet __xDataSet = _query(this._mainDatabase, __query);
             if (__xDataSet.Tables.Count > 0)
             {
