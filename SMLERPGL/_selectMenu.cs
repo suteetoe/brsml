@@ -175,6 +175,9 @@ namespace SMLERPGL
                 case "menu_gl_wht_report_in_3": return (new SMLERPGL._report._tax._wht(SMLERPGL._tax._whtConditionType.หักณที่จ่ายภงด3, screenName));
                 case "menu_gl_wht_report_sum": return (new SMLERPGL._report._tax._wht(SMLERPGL._tax._whtConditionType.ถูกหักณที่จ่าย, screenName));
                 case "menu_gl_process": return (new _transProcessUserControl());
+
+                case "menu_gl_end_of_period": return (new _glTransControl(_g.g._transControlTypeEnum.บัญชี_ประมวลผลสิ้นงวด));
+                case "menu_gl_end_of_year": return (new _glTransControl(_g.g._transControlTypeEnum.บัญชี_ประมวลผลสิ้นปี));
             }
             return null;
         }

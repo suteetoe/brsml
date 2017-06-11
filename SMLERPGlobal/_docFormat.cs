@@ -123,7 +123,7 @@ namespace _g
             this._inputScreen._textBoxSearch += new TextBoxSearchHandler(_inputScreen__textBoxSearch);
             this._inputScreen._textBoxChanged += new TextBoxChangedHandler(_inputScreen__textBoxChanged);
 
-            
+
 
             MyLib._myTextBox __getJournalBookControl = (MyLib._myTextBox)this._inputScreen._getControl(_g.d.erp_doc_format._gl_book);
             __getJournalBookControl.textBox.Enter += new EventHandler(textBox_Enter);
@@ -150,11 +150,11 @@ namespace _g
             this._extraPanel.Dock = DockStyle.Fill;
             __help.ScriptErrorsSuppressed = true;
             __help.Dock = DockStyle.Fill;
-            
-            __help.Navigate("http://spreadsheets.google.com/pub?key=tblj6DJJJXUckaycVClt7Cw&output=html");
+
+            //__help.Navigate("https://docs.google.com/spreadsheets/d/1w0riTg0DQAYCQRM2r4Cy0ED9MXL-j3dirYojxsTTk5I/pubhtml");
             //string curDir = Directory.GetCurrentDirectory();
-           // __help.Url = new Uri(String.Format("file:///{0}/screen_code.html", curDir));
-            //__help.Navigate("http://www.smlsoft.com/screen_code.html");
+            // __help.Url = new Uri(String.Format("file:///{0}/screen_code.html", curDir));
+            __help.Navigate("http://www.smlsoft.com/screen_code.html");
 
             // __help.Document.Body.ScrollIntoView(true);
             //this._panel1.Dock = DockStyle.Fill;
@@ -176,7 +176,7 @@ namespace _g
 
         void _docFormat__afterNewData(_manageMasterCodeFull sender)
         {
-            this._inputScreen._clearComcoBox(_g.d.erp_doc_format._vat_type);   
+            this._inputScreen._clearComcoBox(_g.d.erp_doc_format._vat_type);
         }
 
         string __gl__screenCode()

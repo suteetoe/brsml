@@ -1695,6 +1695,11 @@ namespace _g
 
                     case _transControlTypeEnum.Shipment: return 1901;
                     case _transControlTypeEnum.สินทรัพย์_โอนค่าเสื่อม: return 1801;
+
+                    // บัญชี
+                    case _transControlTypeEnum.บัญชี_ประมวลผลสิ้นงวด: return 1998;
+                    case _transControlTypeEnum.บัญชี_ประมวลผลสิ้นปี: return 1999;
+
                     default:
                         if (SystemInformation.ComputerName.ToLower().IndexOf("jead8") != -1 || SystemInformation.ComputerName.ToLower().IndexOf("toe-pc") != -1)
                         {
@@ -2771,7 +2776,9 @@ namespace _g
             คลัง_รับฝาก_รับคืนจากเบิก,
 
             Shipment,
-            สินทรัพย์_โอนค่าเสื่อม
+            สินทรัพย์_โอนค่าเสื่อม,
+            บัญชี_ประมวลผลสิ้นงวด,
+            บัญชี_ประมวลผลสิ้นปี
 
         }
 

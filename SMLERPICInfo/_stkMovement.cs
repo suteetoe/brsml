@@ -179,6 +179,8 @@ namespace SMLERPICInfo
                 }
                 string __result = __smlFrameWork._process_stock_cost(MyLib._myGlobal._databaseName, itemCode, (this._costMode == _g.g._productCostType.ปรกติ) ? 1 : 11, __dateBeginQuery, __dateEnd);
 
+                MyLib._myGlobal._writeLogFile(@"c:\smlsoft\stkmovementtemp.xml", __result.ToString(), true);
+
                 DataSet __dataResult = MyLib._myGlobal._convertStringToDataSet(__result);
                 if (__dataResult.Tables.Count > 0)
                 {

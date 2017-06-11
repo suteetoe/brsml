@@ -2297,10 +2297,12 @@ namespace MyLib
             }
         }
 
+        bool _disableCalTotal = false;
+
         public void _calcTotal(Boolean eventActive)
         {
 
-            // if (this.ShowTotal == true)
+            if (_disableCalTotal == false)
             {
                 for (int __column = 0; __column < _columnList.Count; __column++)
                 {
@@ -2317,14 +2319,18 @@ namespace MyLib
                             }
                             if (__totalPass)
                             {
-                                //try
-                                //{
-                                __getColumn._total += (decimal)(((ArrayList)_rowData[__row])[__column]);
-                                //}
-                                //catch
-                                //{
-
-                                //}
+                                try
+                                {
+                                    __getColumn._total += (decimal)(((ArrayList)_rowData[__row])[__column]);
+                                }
+                                catch (Exception ex)
+                                {
+                                    this._disableCalTotal = true;
+                                    string __message = string.Format("Error Sum Total Value {0} : Message {1} \r\nRow : {2}, Column {3}", (((ArrayList)_rowData[__row])[__column]).ToString(), ex.Message.ToString(), __row, __column);
+                                    MessageBox.Show(__message);
+                                    break;
+                                    //throw new Exception();
+                                }
                             }
                         }
                     }

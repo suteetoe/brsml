@@ -4090,7 +4090,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_journal_vat_sale" _description="ภาษีขาย" _descriptionEng="Vat Sale" _version="SMLGL+SMLERP" _width="265" _height="533" _x="722" _y="1233">
+    <_tableList _moduleName="GL" _name="gl_journal_vat_sale" _description="ภาษีขาย" _descriptionEng="Vat Sale" _version="SMLGL+SMLERP" _width="265" _height="533" _x="723" _y="1124">
       <_fields>
         <_fieldList _name="doc_date" _description="วันที่รายวัน" _descriptionEng="Document Date" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -12162,7 +12162,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Asset" _name="as_asset_maintenance_detail" _description="รายยละเอียดบำรุงรักษาสินทรัพย์" _descriptionEng="Asset Maintenance Detail" _version="" _width="331" _height="213" _x="316" _y="367">
+    <_tableList _moduleName="Asset" _name="as_asset_maintenance_detail" _description="รายยละเอียดบำรุงรักษาสินทรัพย์" _descriptionEng="Asset Maintenance Detail" _version="" _width="331" _height="213" _x="975" _y="14">
       <_fields>
         <_fieldList _name="doc_date" _description="เอกสารวันที่" _descriptionEng="Document Date" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -13214,7 +13214,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_resource" _description="รายละเอียดข้อความ" _descriptionEng="gl resource" _version="SMLGL+SMLERP" _width="360" _height="613" _x="11" _y="1355">
+    <_tableList _moduleName="GL" _name="gl_resource" _description="รายละเอียดข้อความ" _descriptionEng="gl resource" _version="SMLGL+SMLERP" _width="360" _height="613" _x="9" _y="1306">
       <_fields>
         <_fieldList _name="date_begin" _description="วันที่เริ่มต้น" _descriptionEng="Date begin" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -13493,7 +13493,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_recurring" _description="ข้อมูลไม่จำเป็น" _descriptionEng="GL Recurring" _version="SMLGL+SMLERP" _width="200" _height="69" _x="379" _y="1040">
+    <_tableList _moduleName="GL" _name="gl_recurring" _description="ข้อมูลไม่จำเป็น" _descriptionEng="GL Recurring" _version="SMLGL+SMLERP" _width="200" _height="69" _x="378" _y="1047">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -15966,7 +15966,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_project_list" _description="ผังบัญชีแยกตามโครงการ" _descriptionEng="Account Project list" _version="SMLGL+SMLERP" _width="314" _height="53" _x="16" _y="1225">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_project_list" _description="ผังบัญชีแยกตามโครงการ" _descriptionEng="Account Project list" _version="SMLGL+SMLERP" _width="314" _height="53" _x="11" _y="1185">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -15989,7 +15989,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_allocate_list" _description="ผังบัญชีแยกตามการจัดสรร" _descriptionEng="Account Allocate list" _version="SMLGL+SMLERP" _width="324" _height="53" _x="14" _y="1294">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_allocate_list" _description="ผังบัญชีแยกตามการจัดสรร" _descriptionEng="Account Allocate list" _version="SMLGL+SMLERP" _width="324" _height="53" _x="9" _y="1247">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -45197,7 +45197,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Asset" _name="as_trans" _description="รายวันสินทรัพย์" _descriptionEng="Asset Trans" _version="" _width="258" _height="341" _x="315" _y="955">
+    <_tableList _moduleName="Asset" _name="as_trans" _description="รายวันสินทรัพย์" _descriptionEng="Asset Trans" _version="" _width="258" _height="341" _x="324" _y="950">
       <_fields>
         <_fieldList _name="guid_code" _description="GUID" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -45304,7 +45304,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Asset" _name="as_trans_detail" _description="รายละเอียดรายวันสินทรัพย์" _descriptionEng="Asset Trans Detail" _version="" _width="235" _height="165" _x="618" _y="789">
+    <_tableList _moduleName="Asset" _name="as_trans_detail" _description="รายละเอียดรายวันสินทรัพย์" _descriptionEng="Asset Trans Detail" _version="" _width="235" _height="165" _x="587" _y="948">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -45536,6 +45536,140 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="send_process_time" _description="เวลาทำการ process" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="GL" _name="gl_trans" _description="รายวันบัญชี" _descriptionEng="GL Trans" _version="" _width="241" _height="277" _x="720" _y="1666">
+      <_fields>
+        <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="" _type="6" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="trans_flag" _description="ประเภทรายวัน" _descriptionEng="" _type="4" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_format_code" _description="รหัสเอกสาร" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="from_date" _description="จากวันที่" _descriptionEng="" _type="6" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="to_date" _description="ถึงวันที่" _descriptionEng="" _type="6" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="account_period" _description="งวดบัญชี" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="account_year" _description="ปีบัญชี" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="branch_code" _description="สาขา" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark" _description="หมายเหตุ" _descriptionEng="" _type="1" _length="500" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="book_code" _description="สมุดรายวัน" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="close_to_account" _description="ปิดเข้าบัญชี" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tab_detail" _description="รายละเอียด" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tab_gl" _description="GL" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_time" _description="เวลา" _descriptionEng="" _type="1" _length="10" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="GUID" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="GL" _name="gl_trans_detail" _description="รายละเอียดรายวันบัญชี" _descriptionEng="" _version="" _width="217" _height="149" _x="1002" _y="1719">
+      <_fields>
+        <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="" _type="6" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="trans_flag" _description="ประเภทรายวัน" _descriptionEng="" _type="4" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="account_code" _description="รหัสบัญชี" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="account_name" _description="ชื่อบัญชี" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="debit" _description="เดบิต" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="credit" _description="เครดิต" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="line_number" _description="Line Number" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

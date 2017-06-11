@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <PlatformTarget>x86</PlatformTarget>
     <TargetFrameworkProfile />
-    <ManifestCertificateThumbprint>4FF0EB5E877C4DD09FE2248A58F85022FB5CC41F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>00BC2C7FB87C5EA9423856FEDBE5AC612E245383</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
@@ -323,18 +323,6 @@
       <Project>{2B8BE631-35AD-48DC-9D77-35B785A9F7DF}</Project>
       <Name>SMLTransportLabel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <PublishFile Include="Microsoft.mshtml">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

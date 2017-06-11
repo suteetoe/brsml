@@ -9043,4 +9043,32 @@
     <field name="send_process_guid" thai="guid เครื่องส่ง" eng="" type="varchar" length="100" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="send_process_time" thai="เวลาทำการ process" eng="" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
   </table>
+  <table name="gl_trans" thai="รายวันบัญชี" eng="GL Trans" xversion="" >
+    <field name="doc_date" thai="วันที่เอกสาร" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_no" thai="เลขที่เอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="trans_flag" thai="ประเภทรายวัน" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_format_code" thai="รหัสเอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="from_date" thai="จากวันที่" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="to_date" thai="ถึงวันที่" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="account_period" thai="งวดบัญชี" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="account_year" thai="ปีบัญชี" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="branch_code" thai="สาขา" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="500" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="book_code" thai="สมุดรายวัน" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="close_to_account" thai="ปิดเข้าบัญชี" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="tab_detail" thai="รายละเอียด" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="tab_gl" thai="GL" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+    <field name="doc_time" thai="เวลา" eng="" type="varchar" length="10" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="guid_code" thai="GUID" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
+  <table name="gl_trans_detail" thai="รายละเอียดรายวันบัญชี" eng="" xversion="" >
+    <field name="doc_date" thai="วันที่เอกสาร" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="doc_no" thai="เลขที่เอกสาร" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="trans_flag" thai="ประเภทรายวัน" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
+    <field name="account_code" thai="รหัสบัญชี" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="account_name" thai="ชื่อบัญชี" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="debit" thai="เดบิต" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="credit" thai="เครดิต" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="line_number" thai="Line Number" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+  </table>
 </node>

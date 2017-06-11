@@ -35419,5 +35419,123 @@ namespace _g
             /// </summary>
             public static String _send_process_time = "send_process_time";
         }
+
+        /// <summary>
+        /// รายวันบัญชี
+        /// </summary>
+        public class gl_trans
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "gl_trans";
+            /// <summary>
+            /// วันที่เอกสาร
+            /// </summary>
+            public static String _doc_date = "doc_date";
+            /// <summary>
+            /// เลขที่เอกสาร
+            /// </summary>
+            public static String _doc_no = "doc_no";
+            /// <summary>
+            /// ประเภทรายวัน
+            /// </summary>
+            public static String _trans_flag = "trans_flag";
+            /// <summary>
+            /// รหัสเอกสาร
+            /// </summary>
+            public static String _doc_format_code = "doc_format_code";
+            /// <summary>
+            /// จากวันที่
+            /// </summary>
+            public static String _from_date = "from_date";
+            /// <summary>
+            /// ถึงวันที่
+            /// </summary>
+            public static String _to_date = "to_date";
+            /// <summary>
+            /// งวดบัญชี
+            /// </summary>
+            public static String _account_period = "account_period";
+            /// <summary>
+            /// ปีบัญชี
+            /// </summary>
+            public static String _account_year = "account_year";
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _branch_code = "branch_code";
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+            /// <summary>
+            /// สมุดรายวัน
+            /// </summary>
+            public static String _book_code = "book_code";
+            /// <summary>
+            /// ปิดเข้าบัญชี
+            /// </summary>
+            public static String _close_to_account = "close_to_account";
+            /// <summary>
+            /// รายละเอียด
+            /// </summary>
+            public static String _tab_detail = "tab_detail";
+            /// <summary>
+            /// GL
+            /// </summary>
+            public static String _tab_gl = "tab_gl";
+            /// <summary>
+            /// เวลา
+            /// </summary>
+            public static String _doc_time = "doc_time";
+            /// <summary>
+            /// GUID
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// รายละเอียดรายวันบัญชี
+        /// </summary>
+        public class gl_trans_detail
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "gl_trans_detail";
+            /// <summary>
+            /// วันที่เอกสาร
+            /// </summary>
+            public static String _doc_date = "doc_date";
+            /// <summary>
+            /// เลขที่เอกสาร
+            /// </summary>
+            public static String _doc_no = "doc_no";
+            /// <summary>
+            /// ประเภทรายวัน
+            /// </summary>
+            public static String _trans_flag = "trans_flag";
+            /// <summary>
+            /// รหัสบัญชี
+            /// </summary>
+            public static String _account_code = "account_code";
+            /// <summary>
+            /// ชื่อบัญชี
+            /// </summary>
+            public static String _account_name = "account_name";
+            /// <summary>
+            /// เดบิต
+            /// </summary>
+            public static String _debit = "debit";
+            /// <summary>
+            /// เครดิต
+            /// </summary>
+            public static String _credit = "credit";
+            /// <summary>
+            /// Line Number
+            /// </summary>
+            public static String _line_number = "line_number";
+        }
     }
 }

@@ -91,6 +91,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_glTransControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_glTransControl.Designer.cs">
+      <DependentUpon>_glTransControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_glTransScreenControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_glTransScreenControl.Designer.cs">
+      <DependentUpon>_glTransScreenControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="_journalPassUndo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -480,6 +492,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="_glTransControl.resx">
+      <DependentUpon>_glTransControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_glTransScreenControl.resx">
+      <DependentUpon>_glTransScreenControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_journalPassUndo.resx">
       <DependentUpon>_journalPassUndo.cs</DependentUpon>
     </EmbeddedResource>
@@ -765,6 +783,8 @@
   <ItemGroup>
     <None Include="Resources\checks1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\disk_blue1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

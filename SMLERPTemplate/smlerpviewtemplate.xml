@@ -1495,7 +1495,7 @@
     <detail column_name="ชื่อผู้รับ" column_name_2="Name"  column_field_name="ap_ar_transport_label.name_1" 	column_field_sort="ap_ar_transport_label.name_1" column_width="15" column_type="varchar" column_align="left"></detail>
     <detail column_name="ที่อยู่" column_name_2="Address" column_field_name="ap_ar_transport_label.address" 	column_field_sort="ap_ar_transport_label.address" column_width="40" column_type="varchar" column_align="left"></detail>
     <detail column_name="โทรศัทพ์" column_name_2="Telephone"  column_field_name="ap_ar_transport_label.telephone" column_field_sort="ap_ar_transport_label.telephone" column_width="15" column_type="varchar" column_align="left"></detail>
-  </screen>  
+  </screen>
   <screen screen_code="screen_ic_doc" name_1="เอกสารรายวันสินค้า" name_2="เอกสารรายวันสินค้า" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_date" filter="" width_by_persent="true">
     <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="30" column_type="date" column_align="center"></detail>
     <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="30" column_type="varchar" column_align="left"></detail>
@@ -1642,5 +1642,11 @@
     <detail column_name="เวลา" column_name_2="Doc Time"  column_field_name="as_trans.doc_time" column_field_sort="as_trans.doc_time" column_width="10" column_type="varchar" column_align="left"></detail>
     <detail column_name="เลขที่เอกสาร" column_name_2="Doc_no" column_field_name="as_trans.doc_no" column_field_sort="as_trans.doc_no" column_width="30" column_type="varchar" column_align="left"></detail>
     <detail column_name="มูลค่าสุทธิ" column_name_2="Total Amount"  column_field_name="as_trans.total_amount" column_field_sort="as_trans.total_amount" column_width="20" column_type="float" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_gl_trans" name_1="รายวันระบบบัญชี" name_2="GL Trans" table_name="gl_trans" table_list="gl_trans" sort="gl_trans.doc_date" filter="" width_by_persent="true">
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc date"  column_field_name="gl_trans.doc_date" column_field_sort="gl_trans.doc_date,gl_trans.doc_time,gl_trans.doc_no" column_width="20" column_type="date" column_align="left"></detail>
+    <detail column_name="เวลา" column_name_2="Doc Time"  column_field_name="gl_trans.doc_time" column_field_sort="gl_trans.doc_time" column_width="10" column_type="varchar" column_align="left"></detail>
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc_no" column_field_name="gl_trans.doc_no" column_field_sort="gl_trans.doc_no" column_width="30" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="gl_trans.remark" column_field_sort="gl_trans.remark" column_width="20" column_type="float" column_align="left"></detail>
   </screen>
 </node>
