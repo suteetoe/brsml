@@ -17701,6 +17701,10 @@ namespace _g
             /// ต้นทุน
             /// </summary>
             public static String _sum_of_cost_fix = "sum_of_cost_fix";
+            /// <summary>
+            /// กำไรขาดทุน
+            /// </summary>
+            public static String _profit_lost_cost_amount = "profit_lost_cost_amount";
         }
 
         /// <summary>

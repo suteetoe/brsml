@@ -20,12 +20,12 @@ namespace SMLERPControl._customer
                 this._myToolbar.Font = new Font(MyLib._myGlobal._myFont.FontFamily, MyLib._myGlobal._myFont.Size);
             }
             _myManageData1._dataList._lockRecord = true; // ใช้แบบ Lock Record ต้องมี guid_code ด้วยนะ อย่าลืม
-            _myManageData1._dataList._loadViewFormat("screen_ar_customer", MyLib._myGlobal._userSearchScreenGroup, true);
-            _myManageData1._dataList._referFieldAdd(_g.d.ar_customer._code, 1);
+            _myManageData1._dataList._loadViewFormat(_g.g._search_screen_ar_dealer, MyLib._myGlobal._userSearchScreenGroup, true);
+            _myManageData1._dataList._referFieldAdd(_g.d.ar_dealer._code, 1);
             _myManageData1._manageButton = this._myToolbar;
             if (_g.g._companyProfile._customer_by_branch && _g.g._companyProfile._change_branch_code == false)
             {
-                _myManageData1._dataList._extraWhere = _g.d.ar_customer._ar_branch_code + "=\'" + _g.g._companyProfile._branch_code + "\' ";
+                _myManageData1._dataList._extraWhere = "(select  " + _g.d.ar_customer._ar_branch_code + " from ar_customer where ar_customer.code = ar_dealer.ar_code )=\'" + _g.g._companyProfile._branch_code + "\' ";
             }
             //_myManageData1._manageBackgroundPanel = this._myPanel1;
             _myManageData1._loadDataToScreen += new MyLib.LoadDataToScreen(_myManageData1__loadDataToScreen);
@@ -40,6 +40,8 @@ namespace SMLERPControl._customer
             _myManageData1._dataList._loadViewData(0);
             _myManageData1._autoSize = true;
             _myManageData1._autoSizeHeight = 350;
+
+            this._screen_ar_main2._textBoxChanged += _screen_ar_main2__textBoxChanged;
             this.Disposed += new EventHandler(_ar_Disposed);
             this._myToolbar.Renderer = new Renderers.WindowsVistaRenderer();
             this._screenTop.Enabled = false;
@@ -49,6 +51,29 @@ namespace SMLERPControl._customer
         void _ar_Disposed(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void _screen_ar_main2__textBoxChanged(object sender, string name)
+        {
+            if (name.Equals(_g.d.ar_dealer._ar_code))
+            {
+                // ค้นหา
+                string __arCode = this._screen_ar_main2._getDataStr(_g.d.ar_dealer._ar_code);
+                if (__arCode.Length > 0)
+                {
+                    string __query = "select * from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._code + "=\'" + __arCode + "\' ";
+                    DataTable __result = _myFrameWork._query(MyLib._myGlobal._databaseName, __query).Tables[0];
+                    if (__result.Rows.Count > 0)
+                    {
+                        this._screenTop._loadData(__result);
+                    }
+                    else
+                    {
+                        MessageBox.Show("ไม่พบรหัสลูกหนี้ :" + __arCode);
+                        this._screen_ar_main2._setDataStr(_g.d.ar_dealer._ar_code, "");
+                    }
+                }
+            }
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -89,6 +114,7 @@ namespace SMLERPControl._customer
             {
                 if (MyLib._myGlobal._checkChangeMaster())
                 {
+                    this._screen_ar_main2._saveLastControl();
                     string getEmtry = this._screen_ar_main2._checkEmtryField();
                     if (getEmtry.Length > 0)
                     {
@@ -102,7 +128,7 @@ namespace SMLERPControl._customer
                         string __dataListUpdate = "  where " + _g.d.ar_dealer._ar_code + " = " + this._screenTop._getDataStrQuery(_g.d.ar_dealer._code);
                         __myQuery.Append(MyLib._myGlobal._xmlHeader + "<node>");
                         __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.ar_dealer._table + " " + __dataListUpdate));
-                        __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_dealer._table + " (ar_code," + __getData[0].ToString() + ") values (" + __dataList_1 + "" + __getData[1].ToString() + ")"));
+                        __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_dealer._table + " (" + __getData[0].ToString() + ") values (" + __getData[1].ToString() + ")"));
                         __myQuery.Append("</node>");
                         string result = _myFrameWork._queryList(MyLib._myGlobal._databaseName, __myQuery.ToString());
                         if (result.Length == 0)
@@ -143,8 +169,9 @@ namespace SMLERPControl._customer
                 for (int __loop = 0; __loop < selectRowOrder.Count; __loop++)
                 {
                     MyLib._deleteDataType getData = (MyLib._deleteDataType)selectRowOrder[__loop];
-                    __myQuery.Append(string.Format(MyLib._myUtil._convertTextToXmlForQuery("delete from {0} {1}"), _myManageData1._dataList._tableName, getData.whereString));
-                    __myQuery.Append(string.Format(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.ar_dealer._table), _myManageData1._dataList._tableName, getData.whereString));
+                    //__myQuery.Append(string.Format(MyLib._myUtil._convertTextToXmlForQuery("delete from {0} {1}"), _myManageData1._dataList._tableName, getData.whereString));
+                    string __where = getData.whereString;
+                    __myQuery.Append(string.Format(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.ar_dealer._table + " {1} "), _myManageData1._dataList._tableName, __where));
                 } // for
                 __myQuery.Append("</node>");
                 string result = _myFrameWork._queryList(MyLib._myGlobal._databaseName, __myQuery.ToString());
@@ -223,12 +250,13 @@ namespace SMLERPControl._customer
             {
                 this._screen_ar_main2._clear();
                 ArrayList __rowDataArray = (ArrayList)rowData;
-                string _oldDocNo = __rowDataArray[_get_column_number()].ToString();
                 StringBuilder __myquery = new StringBuilder();
+                string _oldDocNo = __rowDataArray[_myManageData1._dataList._gridData._findColumnByName(_g.d.ar_dealer._table + "." + _g.d.ar_dealer._ar_code)].ToString();
                 __myquery.Append(MyLib._myGlobal._xmlHeader + "<node>");
+                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._code + " = '" + _oldDocNo + "'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _myManageData1._dataList._tableName + whereString));
-                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.ar_dealer._table + " where " + _g.d.ar_dealer._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append("</node>");
+
                 ArrayList _getData = _myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
                 this._screenTop._loadData(((DataSet)_getData[0]).Tables[0]);
                 this._screen_ar_main2._loadData(((DataSet)_getData[1]).Tables[0]);

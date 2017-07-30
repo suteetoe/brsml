@@ -587,11 +587,15 @@ namespace SMLERPTemplate
         {
             try
             {
-                ManagementObjectSearcher __printerList = new ManagementObjectSearcher("SELECT * FROM Win32_Printer");
-                foreach (ManagementObject __getPrinter in __printerList.Get())
+                foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
                 {
-                    string __printerName = __getPrinter["Name"].ToString();
-                    bool __isDefault = (__getPrinter["Default"].ToString().ToLower().Equals("true")) ? true : false;
+                    System.Drawing.Printing.PrinterSettings settings = new System.Drawing.Printing.PrinterSettings();
+                    string __printerName = printer; // __getPrinter["Name"].ToString();
+                    bool __isDefault = false; //(__getPrinter["Default"].ToString().ToLower().Equals("true")) ? true : false;
+                    settings.PrinterName = printer;
+                    if (settings.IsDefaultPrinter)
+                        __isDefault = true;
+
                     _printerListClass __listPrinter = new _printerListClass() { _printerName = __printerName, _isDefault = __isDefault };
                     if (MyLib._myGlobal._printerList.Find(__info => __info._printerName == __printerName) == null)
                     {
@@ -601,17 +605,14 @@ namespace SMLERPTemplate
             }
             catch
             {
+
                 try
                 {
-                    foreach (string printer in System.Drawing.Printing.PrinterSettings.InstalledPrinters)
+                    ManagementObjectSearcher __printerList = new ManagementObjectSearcher("SELECT * FROM Win32_Printer");
+                    foreach (ManagementObject __getPrinter in __printerList.Get())
                     {
-                        System.Drawing.Printing.PrinterSettings settings = new System.Drawing.Printing.PrinterSettings();
-                        string __printerName = printer; // __getPrinter["Name"].ToString();
-                        bool __isDefault = false; //(__getPrinter["Default"].ToString().ToLower().Equals("true")) ? true : false;
-                        settings.PrinterName = printer;
-                        if (settings.IsDefaultPrinter)
-                            __isDefault = true;
-
+                        string __printerName = __getPrinter["Name"].ToString();
+                        bool __isDefault = (__getPrinter["Default"].ToString().ToLower().Equals("true")) ? true : false;
                         _printerListClass __listPrinter = new _printerListClass() { _printerName = __printerName, _isDefault = __isDefault };
                         if (MyLib._myGlobal._printerList.Find(__info => __info._printerName == __printerName) == null)
                         {
@@ -622,7 +623,6 @@ namespace SMLERPTemplate
                 catch
                 {
                 }
-
             }
         }
 
@@ -2497,7 +2497,15 @@ namespace SMLERPTemplate
                         this._menuBar.Items.Clear();
                         for (int loop = 0; loop < this._mainMenu.Nodes.Count; loop++)
                         {
-                            this._menuBar.Items.Add(_createMenuBar(null, this._mainMenu.Nodes[loop], this._menuBar.Font));
+                            _myToolStripMenuItem __menuBar = (_myToolStripMenuItem)_createMenuBar(null, this._mainMenu.Nodes[loop], this._menuBar.Font);
+
+                            if (_g.g._companyProfile._show_menu_by_permission == true)
+                            {
+                                if (__menuBar.DropDown.Items.Count > 0)
+                                    this._menuBar.Items.Add(__menuBar);
+                            }
+                            else
+                                this._menuBar.Items.Add(__menuBar);
                         }
                         //
                         /*    string _a1 = _menuName.ToString();

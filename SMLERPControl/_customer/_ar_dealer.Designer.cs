@@ -54,13 +54,16 @@
             this._myManageData1.Size = new System.Drawing.Size(727, 613);
             this._myManageData1.TabIndex = 1;
             this._myManageData1.TabStop = false;
+
+            this._myManageData1._form2.Controls.Add(this._myPanel1);
             // 
             // _myPanel1
             // 
             this._myPanel1._switchTabAuto = false;
             this._myPanel1.BeginColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this._myPanel1.Controls.Add(this._grouper1);
             this._myPanel1.Controls.Add(this._screenTop);
+            this._myPanel1.Controls.Add(this._grouper1);
+            this._myPanel1.Controls.Add(this._myToolbar);
             this._myPanel1.CornerPicture = null;
             this._myPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this._myPanel1.EndColor = System.Drawing.Color.SkyBlue;

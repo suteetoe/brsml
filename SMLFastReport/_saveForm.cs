@@ -39,6 +39,7 @@ namespace SMLFastReport
         private void _buttonSave_Click_1(object sender, EventArgs e)
         {
 
+            this._screen._saveLastControl();
             string _errorMessage = "";
 
             //if (_menuIdTextBox.Text.Trim().Equals(""))

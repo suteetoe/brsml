@@ -5627,7 +5627,7 @@ namespace SMLInventoryControl
                 if (__detail._serialNumber.Length > 0)
                 {
                     __detail._description = this._serialNumberForm._serialNumber._grid._cellGet(__row, _g.d.ic_trans_serial_number._description).ToString().Trim();
-                    __detail._voidDate = MyLib._myGlobal._convertDate(this._serialNumberForm._serialNumber._grid._cellGet(__row, _g.d.ic_trans_serial_number._void_date).ToString());
+                    __detail._voidDate = MyLib._myGlobal._convertDateFromQuery(this._serialNumberForm._serialNumber._grid._cellGet(__row, _g.d.ic_trans_serial_number._void_date).ToString());
                     __detail._price = (decimal)this._serialNumberForm._serialNumber._grid._cellGet(__row, _g.d.ic_trans_serial_number._price);
                     __data.__details.Add(__detail);
                     __qtySum++;

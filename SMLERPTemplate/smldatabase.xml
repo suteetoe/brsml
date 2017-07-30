@@ -4530,6 +4530,7 @@
     <field name="discount_amount_2" thai="มูลค่าส่วนลด" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="is_lock_cost" thai="กำหนดต้นทุนเอง" eng="Lock Cost" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <field name="sum_of_cost_fix" thai="ต้นทุน" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+    <field name="profit_lost_cost_amount" thai="กำไรขาดทุน" eng="Profit Lost Cost Amount" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
     <index index_name="ic_trans_detail_trans_type" field="trans_type" ></index>
     <index index_name="ic_trans_detail_trans_flag" field="trans_flag" ></index>
     <index index_name="ic_trans_detail_cust_code" field="cust_code" ></index>

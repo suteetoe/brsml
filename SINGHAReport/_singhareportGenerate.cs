@@ -1320,7 +1320,6 @@ namespace SINGHAReport
                             DateTime __from_date = (this._conditionScreen._screen._getDataDate(_g.d.cb_resource._date_from));
                             DateTime __to_date = (this._conditionScreen._screen._getDataDate(_g.d.cb_resource._date_to));
                             this._report._conditionText = "จากวันที่ " + __from_date.ToString("dd/MM/yyyy", new CultureInfo("th-TH")) + " ถึงวันที่ " + __to_date.ToString("dd/MM/yyyy", new CultureInfo("th-TH"));
-
                         }
                         break;
                     case _singhaReportEnum.สรุปโหลดสินค้า_รายคลัง:
@@ -1328,13 +1327,11 @@ namespace SINGHAReport
                             DateTime __to_date = (this._conditionScreen._screen._getDataDate(_g.d.ic_resource._date_end));
                             string __warehouse = this._conditionScreen._screen._getDataStr(_g.d.ic_resource._warehouse);
                             string __location = this._conditionScreen._screen._getDataStr(_g.d.ic_resource._location);
-
-
+                            
                             this._report._conditionText = "ถึงวันที่ " + __to_date.ToString("dd/MM/yyyy", new CultureInfo("th-TH")) + " คลัง : " + __warehouse + " ที่เก็บ : " + __location;
 
                         }
                         break;
-
                 }
 
                 // start process

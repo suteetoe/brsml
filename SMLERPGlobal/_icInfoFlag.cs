@@ -16,7 +16,7 @@ namespace _g
             " or (" + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_เพิ่มหนี้) + ") " +
             // จืด bug " or (" + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้) + " and " + _g.d.ic_trans_detail._inquiry_type + " in (0,1))" +
             " or (" + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด) + " )" +
-            " or (" + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด) + " and " + _g.d.ic_trans_detail._inquiry_type + "=0))"
+            " or (" + _g.d.ic_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด) + " ))"
 
             + " and not (ic_trans_detail.doc_ref <> '' and ic_trans_detail.is_pos = 1)";
             // เพิ่มความเร็ว + " and not (((select coalesce(ic_trans.doc_ref, '') from ic_trans where ic_trans.doc_no = ic_trans_detail.doc_no and ic_trans.trans_flag = ic_trans_detail.trans_flag and ic_trans.is_pos = 1 ) <> '' ) and ((select coalesce(ic_trans.is_pos, 0) from ic_trans where ic_trans.doc_no = ic_trans_detail.doc_no and ic_trans.trans_flag = ic_trans_detail.trans_flag ) = 1))";

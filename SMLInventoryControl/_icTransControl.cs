@@ -2482,7 +2482,7 @@ namespace SMLInventoryControl
             try
             {
                 string __getLockRecord = this._myManageTrans._dataList._gridData._cellGet(row, this._myManageTrans._dataList._isLockRecord).ToString();
-                if (__getLockRecord.Equals("1"))
+                if (__getLockRecord.Equals("1") && this._myManageTrans._dataList._showIsLockColumn == false)
                 {
                     return __result;
                 }
@@ -2550,6 +2550,16 @@ namespace SMLInventoryControl
                         __result.newColor = Color.SaddleBrown;
                     }
                 }
+
+                if (columnName.Equals(this._myManageTrans._dataList._isLockRecordShowColumn))
+                {
+                    if (__getLockRecord.Equals("1") && this._myManageTrans._dataList._showIsLockColumn == true)
+                    {
+                        ((ArrayList)__result.newData)[columnNumber] = "L";
+                    }
+                }
+
+
             }
             catch
             {
@@ -2675,6 +2685,9 @@ namespace SMLInventoryControl
                     this._myManageTrans._dataListOpen = true;
                     this._myManageTrans._dataList._lockRecord = true;
                     this._myManageTrans._dataList._isLockDoc = true;
+
+                    this._myManageTrans._dataList._showIsLockColumn = true;
+
                     this._myManageTrans._manageButton = this._myToolBar;
                     this._myManageTrans._manageBackgroundPanel = this._myPanel1;
                     //this._myManageTrans._dataList._extraWhere = _g.d.ic_trans._trans_flag + "=" + _getTransFlag.ToString() + " and " + _g.d.ic_trans._trans_type + "=" + _getTransType + this._dataListExtraWhere;
@@ -2731,43 +2744,68 @@ namespace SMLInventoryControl
             ArrayList __printList = new ArrayList();
             StringBuilder __packDocNoList = new StringBuilder();
             int __docNoColumnIndex = this._myManageTrans._dataList._gridData._findColumnByName(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_no);
+            int __isLockRecordColumnIndex = this._myManageTrans._dataList._gridData._findColumnByName(this._myManageTrans._dataList._isLockRecord);
+            if (this._transControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก || this._transControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก || this._transControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก)
+            {
+                __docNoColumnIndex = this._myManageTrans._dataList._gridData._findColumnByName(_g.d.ic_wms_trans._table + "." + _g.d.ic_wms_trans._doc_no);
+            }
             for (int __row = 0; __row < selectedRow.Count; __row++)
             {
                 int __getRow = (int)selectedRow[__row];
-                List<SMLERPReportTool._ReportToolCondition> __condition = new List<SMLERPReportTool._ReportToolCondition>();
-                string __getDocNo = this._myManageTrans._dataList._gridData._cellGet(__getRow, __docNoColumnIndex).ToString();
-                __condition.Add(new SMLERPReportTool._ReportToolCondition(_g.d.gl_journal._doc_no, __getDocNo));
-                __condition.Add(new SMLERPReportTool._ReportToolCondition(_g.d.ic_trans._trans_flag, this._getTransFlag.ToString()));
-                __printList.Add(__condition.ToArray());
 
-                // pack doc_no List 
-
-                if (__packDocNoList.Length > 0)
+                // check islock
+                bool __pass = true;
+                if (__isLockRecordColumnIndex != -1)
                 {
-                    __packDocNoList.Append(",");
-                }
-                __packDocNoList.Append("\'" + __getDocNo + "\'");
-            }
-            // ใส่ค่าว่างไปก่อน ค่อย query ดึงจากรหัสหน้าจอเอา
-            string __queryGetDocFormat = "select " + _g.d.erp_doc_format._form_code + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + " in ( select distinct " + _g.d.ic_trans._doc_format_code + " from " + _g.d.ic_trans._table + " where " + _g.d.ic_trans._doc_no + " in (" + __packDocNoList.ToString() + ") " + " and " + _g.d.ic_trans._trans_flag + "=" + this._getTransFlag + " ) ";
-            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
-            DataTable __result = __myFrameWork._queryShort(__queryGetDocFormat).Tables[0];
-
-            StringBuilder __doc_format_code = new StringBuilder();
-            if (__result.Rows.Count > 0)
-            {
-                for (int __loop = 0; __loop < __result.Rows.Count; __loop++)
-                {
-                    if (__doc_format_code.Length > 0)
+                    string __getIsLock = this._myManageTrans._dataList._gridData._cellGet(__getRow, __isLockRecordColumnIndex).ToString();
+                    if (__getIsLock.Equals("1"))
                     {
-                        __doc_format_code.Append(",");
+                        __pass = false;
                     }
-                    __doc_format_code.Append("" + __result.Rows[__loop][_g.d.erp_doc_format._form_code].ToString() + ""); // ไปหาเอา // this._screenTop._getDataStr(_g.d.gl_journal._doc_format_code); 
+                        
+                }
+
+                if (__pass)
+                {
+                    List<SMLERPReportTool._ReportToolCondition> __condition = new List<SMLERPReportTool._ReportToolCondition>();
+                    string __getDocNo = this._myManageTrans._dataList._gridData._cellGet(__getRow, __docNoColumnIndex).ToString();
+                    __condition.Add(new SMLERPReportTool._ReportToolCondition(_g.d.gl_journal._doc_no, __getDocNo));
+                    __condition.Add(new SMLERPReportTool._ReportToolCondition(_g.d.ic_trans._trans_flag, this._getTransFlag.ToString()));
+                    __printList.Add(__condition.ToArray());
+
+                    // pack doc_no List 
+
+                    if (__packDocNoList.Length > 0)
+                    {
+                        __packDocNoList.Append(",");
+                    }
+                    __packDocNoList.Append("\'" + __getDocNo + "\'");
                 }
             }
-            // string __doc_format_code 
-            // send key CTRL เพื่อดึง ไม่ต้องถามอีกให้ปล่อยไปก่อน
-            bool __printResult = SMLERPReportTool._global._printRangeForm("", __printList, true, __doc_format_code.ToString());
+
+            if (__printList.Count > 0)
+            {
+                // ใส่ค่าว่างไปก่อน ค่อย query ดึงจากรหัสหน้าจอเอา
+                string __queryGetDocFormat = "select " + _g.d.erp_doc_format._form_code + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + " in ( select distinct " + _g.d.ic_trans._doc_format_code + " from " + this._icTransTable + " where " + _g.d.ic_trans._doc_no + " in (" + __packDocNoList.ToString() + ") " + " and " + _g.d.ic_trans._trans_flag + "=" + this._getTransFlag + " ) ";
+                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                DataTable __result = __myFrameWork._queryShort(__queryGetDocFormat).Tables[0];
+
+                StringBuilder __doc_format_code = new StringBuilder();
+                if (__result.Rows.Count > 0)
+                {
+                    for (int __loop = 0; __loop < __result.Rows.Count; __loop++)
+                    {
+                        if (__doc_format_code.Length > 0)
+                        {
+                            __doc_format_code.Append(",");
+                        }
+                        __doc_format_code.Append("" + __result.Rows[__loop][_g.d.erp_doc_format._form_code].ToString() + ""); // ไปหาเอา // this._screenTop._getDataStr(_g.d.gl_journal._doc_format_code); 
+                    }
+                }
+                // string __doc_format_code 
+                // send key CTRL เพื่อดึง ไม่ต้องถามอีกให้ปล่อยไปก่อน
+                bool __printResult = SMLERPReportTool._global._printRangeForm("", __printList, true, __doc_format_code.ToString());
+            }
         }
 
         // toe doc picture form
@@ -5227,11 +5265,13 @@ namespace SMLInventoryControl
                                             string __refDocNo = this._icTransRef._transGrid._cellGet(__row, _g.d.ap_ar_trans_detail._billing_no).ToString().Trim();
                                             decimal __balance = MyLib._myGlobal._decimalPhase(this._icTransRef._transGrid._cellGet(__row, _g.d.ap_ar_trans_detail._sum_debt_balance).ToString());
                                             int __item_typeColumnNumber = this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._item_type);
+                                            int __taxTypeColumnNumber = this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._tax_type);
                                             decimal __sumRefAmount = 0.0M;
                                             for (int __loop = 0; __loop < this._icTransItemGrid._rowData.Count; __loop++)
                                             {
                                                 string __docNo = this._icTransItemGrid._cellGet(__loop, _g.d.ic_trans_detail._ref_doc_no).ToString().Trim();
                                                 int __item_type = (__item_typeColumnNumber == -1) ? 0 : (int)this._icTransItemGrid._cellGet(__loop, __item_typeColumnNumber);
+                                                int __tax_type = (__taxTypeColumnNumber == -1) ? 0 : (int)this._icTransItemGrid._cellGet(__loop, __taxTypeColumnNumber);
                                                 if (__refDocNo.Equals(__docNo) && (__item_type != 3 && __item_type != 5))
                                                 {
                                                     //decimal __sumAmount = MyLib._myGlobal._decimalPhase(this._icTransItemGrid._cellGet(__loop, _g.d.ic_trans_detail._sum_amount).ToString());
@@ -5241,7 +5281,10 @@ namespace SMLInventoryControl
                                                             {
                                                                 // แยกนอก
                                                                 decimal __sumAmount = MyLib._myGlobal._decimalPhase(this._icTransItemGrid._cellGet(__loop, _g.d.ic_trans_detail._sum_amount_exclude_vat).ToString());
-                                                                __sumAmount += (__sumAmount * (__vatRate / 100M));
+                                                                if (__tax_type == 0)
+                                                                {
+                                                                    __sumAmount += (__sumAmount * (__vatRate / 100M));
+                                                                }
                                                                 __sumRefAmount += __sumAmount;
                                                             }
                                                             break;
@@ -5430,6 +5473,7 @@ namespace SMLInventoryControl
                 MyLib._myFrameWork __myFramework = new MyLib._myFrameWork();
                 // check 
                 bool __printForm = false;
+
                 if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore)
                 {
                     string __query = "select " + _g.d.erp_doc_format._form_code + " from " + _g.d.erp_doc_format._table + " where " + MyLib._myGlobal._addUpper(_g.d.erp_doc_format._code) + "=\'" + this._icTransScreenTop._docFormatCode + "\'";
@@ -5442,6 +5486,9 @@ namespace SMLInventoryControl
                         }
                     }
                 }
+
+              
+
 
                 if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore && this._transControlType != _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด && this._transControlType != _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก && __printForm == false)
                 {
@@ -5466,6 +5513,18 @@ namespace SMLInventoryControl
                         }
                     }
 
+                    // check lock record
+                    {
+                        string __query = "select is_lock_record from " + this._icTransTable + " where doc_no=\'" + _oldDocNo + "\' and trans_flag = " + this._getTransFlag;
+                        DataTable __result = __myFramework._queryShort(__query).Tables[0];
+                        if (__result.Rows.Count > 0)
+                        {
+                            if (MyLib._myGlobal._intPhase(__result.Rows[0]["is_lock_record"].ToString()) == 1)
+                            {
+                                __isPrint = false;
+                            }
+                        }
+                    }
 
                     if (__isPrint)
                     {
@@ -5965,7 +6024,13 @@ namespace SMLInventoryControl
                                                         if (_g.g._companyProfile._arm_send_cancel_doc)
                                                         {
                                                             StringBuilder __message = new StringBuilder();
-                                                            __message.Append("ยกเลิกเอกสาร " + this._oldDocNo + " โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") เหตุผล : " + __docCancelForm._cancelReasonTextbox.Text);
+                                                            //__message.Append("ยกเลิกเอกสาร " + this._oldDocNo + " โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") เหตุผล : " + __docCancelForm._cancelReasonTextbox.Text);
+                                                            __message.Append(string.Format("ยกเลิกเอกสาร {0} ประเภทเอกสาร{1}  เหตุผล : {3} User : {2} {4}",
+                                                                this._oldDocNo,
+                                                                _g.g._transFlagGlobal._transName(this._getTransFlag),
+                                                                MyLib._myGlobal._userName,
+                                                                __docCancelForm._cancelReasonTextbox.Text,
+                                                                DateTime.Now.ToString("yyyyMMddHHmmss", new CultureInfo("en-US"))));
 
                                                             string __sendTo = _g.g._companyProfile._arm_send_cancel_doc_to;
 
@@ -6047,6 +6112,29 @@ namespace SMLInventoryControl
                                         }
                                         SMLProcess._docFlow __process = new SMLProcess._docFlow();
                                         __process._processAll(this._transControlType, "", __docNoList);
+
+                                        // send arm
+                                        if (_g.g._companyProfile._arm_send_cancel_doc)
+                                        {
+                                            StringBuilder __message = new StringBuilder();
+                                            //__message.Append("ยกเลิกเอกสาร " + this._oldDocNo + " โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") เหตุผล : " + __docCancelForm._cancelReasonTextbox.Text);
+                                            __message.Append(string.Format("คืนสถานะเอกสาร {0} ประเภทเอกสาร{1} User : {2} {3}",
+                                                this._oldDocNo,
+                                                _g.g._transFlagGlobal._transName(this._getTransFlag),
+                                                MyLib._myGlobal._userName,
+                                                DateTime.Now.ToString("yyyyMMddHHmmss", new CultureInfo("en-US"))));
+
+                                            string __sendTo = _g.g._companyProfile._arm_send_cancel_doc_to;
+
+                                            DataTable __sendCancelBranch = __myFrameWork._queryShort("select " + _g.d.erp_branch_list._arm_send_cancel_doc_to + " from " + _g.d.erp_branch_list._table + " where " + _g.d.erp_branch_list._code + " = \'" + this._icTransScreenTop__getBranchCode() + "\' ").Tables[0];
+                                            if (__sendCancelBranch.Rows.Count > 0 && __sendCancelBranch.Rows[0][0].ToString().Length > 0)
+                                            {
+                                                __sendTo = __sendCancelBranch.Rows[0][0].ToString();
+                                            }
+
+                                            SMLERPMailMessage._sendMessage._sendMessageSaleHub(__sendTo, __message.ToString(), "");
+                                        }
+
                                         MessageBox.Show("เรียกคืนเอกสารสำเร็จ");
                                         this._myManageTrans._dataList._refreshData();
 
@@ -12455,8 +12543,27 @@ namespace SMLInventoryControl
                             string __sendCNTo = _g.g._companyProfile._arm_send_cn_to;
 
                             // get granch
-                            __armMessageCN.Append((this._myManageTrans._mode == 2 ? "แก้ไข" : "") + "ลดหนี้ " + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textSecond + "(" + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textFirst + ") โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") มูลค่า : " + this._icTransScreenBottom._getDataNumber(_g.d.ic_trans._total_amount));
+                            //__armMessageCN.Append((this._myManageTrans._mode == 2 ? "แก้ไข" : "") + "ลดหนี้ " + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textSecond + "(" + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textFirst + ") โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") มูลค่า : " + this._icTransScreenBottom._getDataNumber(_g.d.ic_trans._total_amount));
+                            MyLib._myComboBox __combo = (MyLib._myComboBox)this._icTransScreenTop._getControl(_g.d.ic_trans._inquiry_type);
+                            string __cnType = __combo.Text;
 
+
+                            string[] __spCNText = __cnType.Split('.');
+                            if (__spCNText.Length > 1)
+                            {
+                                __cnType = __spCNText[1];
+                            }
+
+                            __armMessageCN.Append(
+                             string.Format("{0}ลดหนี้ {1} {2} {3} User : {4} {5}",
+
+                             (this._myManageTrans._mode == 2 ? "แก้ไข" : "")
+                             , __docNo
+                             , ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textFirst + " " + ((MyLib._myTextBox)this._icTransScreenTop._getControl(_g.d.ic_trans._cust_code))._textSecond
+                             , __cnType
+                             , MyLib._myGlobal._userCode
+                             , DateTime.Now.ToString("yyyyMMddHHmmss", new CultureInfo("en-US"))
+                             ));
 
                             DataTable __sendCancelBranch = __myFrameWork._queryShort("select " + _g.d.erp_branch_list._arm_send_cn_to + " from " + _g.d.erp_branch_list._table + " where " + _g.d.erp_branch_list._code + " = \'" + this._icTransScreenTop__getBranchCode() + "\' ").Tables[0];
                             if (__sendCancelBranch.Rows.Count > 0 && __sendCancelBranch.Rows[0][0].ToString().Length > 0)

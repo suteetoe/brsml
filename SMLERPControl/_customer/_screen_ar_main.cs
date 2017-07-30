@@ -335,7 +335,7 @@ namespace SMLERPControl._customer
                         MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLTomYumGoongPro ||
                         MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOSProfessional)
                     {
-                        this._addTextBox(__row++, 0, 1, 0, _g.d.ar_dealer._ar_code, 1, 1, 1, true, false);
+                        this._addTextBox(__row++, 0, 1, 0, _g.d.ar_dealer._ar_code, 1, 1, 1, true, false, false);
                     }
 
 

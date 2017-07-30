@@ -462,7 +462,6 @@ namespace SMLERPIC
             _getColumnCode = this._myManageMain._dataList._gridData._findColumnByName(this._refField);
         }
 
-
         void _myManageMain__closeScreen()
         {
             // Update ชื่อหน่วยนับ
@@ -471,7 +470,28 @@ namespace SMLERPIC
             __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update " + _g.d.ic_inventory._table + " set " + _g.d.ic_inventory._unit_standard_name +
                 "=" + __unitNameQuery + " where " + _g.d.ic_inventory._unit_standard_name + " is null or " + _g.d.ic_inventory._unit_standard_name + "<>" + __unitNameQuery);
             //
+            Thread __thread = new Thread(new ThreadStart(_changeUnitCodeRatio));
+            __thread.Start();
+
             this.Dispose();
+        }
+
+        public void _changeUnitCodeRatio()
+        {
+            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_unit_use set stand_value=1 where stand_value=0 or stand_value is null");
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_unit_use set divide_value=1 where divide_value=0 or divide_value is null");
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_trans_detail set stand_value=1 where stand_value <> 1 and ic_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=0)");
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_trans_detail set divide_value=1 where divide_value <> 1 and ic_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=0)");
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_trans_detail set stand_value=(select stand_value from ic_unit_use where ic_unit_use.ic_code=ic_trans_detail.item_code and ic_unit_use.code=ic_trans_detail.unit_code) " +
+                    " where stand_value<>(select stand_value from ic_unit_use where ic_unit_use.ic_code=ic_trans_detail.item_code and ic_unit_use.code=ic_trans_detail.unit_code) " +
+                    " and ic_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=1)");
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_trans_detail set divide_value=(select divide_value from ic_unit_use where ic_unit_use.ic_code=ic_trans_detail.item_code and ic_unit_use.code=ic_trans_detail.unit_code) " +
+                    " where divide_value<>(select divide_value from ic_unit_use where ic_unit_use.ic_code=ic_trans_detail.item_code and ic_unit_use.code=ic_trans_detail.unit_code) " +
+                    " and ic_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=1)");
+            //
+            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_trans_detail set average_cost_1 = 0 where average_cost_1 is null ");
         }
 
         void _saveButton_Click(object sender, EventArgs e)

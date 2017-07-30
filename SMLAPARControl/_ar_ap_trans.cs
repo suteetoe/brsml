@@ -1967,8 +1967,6 @@ namespace SMLERPAPARControl
                         // toe gl auto
                         SMLERPGL._transProcessUserControl __processControl = null;
 
-
-
                         if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccount ||
                             MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOS ||
                             MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountProfessional ||
@@ -2076,31 +2074,7 @@ namespace SMLERPAPARControl
 
                                 __processControl._addTransDetailData(null, true);
                                 // detail
-                                /*
-                                for (int __row = 0; __row < this._detailGrid._rowData.Count; __row++)
-                                {
-                                    string __itemCode = this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._item_code).ToString();
-
-                                    if (__itemCode != "")
-                                    {
-                                        SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject(this._oldDocNo, this._getTransFlag, this._getTransType)
-                                        {
-                                            item_type = (this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._item_type) != -1) ? MyLib._myGlobal._intPhase(this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._item_type).ToString()) : 0,
-                                            item_code = __itemCode,
-                                            price = (this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._price) != -1) ? (decimal)this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._price) : 0M,
-                                            amount = (decimal)this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._sum_amount),
-                                            sum_amount_exclude_vat = (this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._sum_amount_exclude_vat) != -1) ? (decimal)this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._sum_amount_exclude_vat) : 0M,
-                                            remark = this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._remark) != -1 ? this._icTransItemGrid._cellGet(__row, _g.d.ic_trans_detail._remark).ToString() : "",
-                                            line_number = __row
-                                        };
-
-
-                                        __processControl._addTransDetailData(__detailDataGL, ((__row == 0) ? true : false));
-                                    }
-
-
-                                }*/
-
+                               
                                 // pay detail
 
                                 if (this._payControl != null)

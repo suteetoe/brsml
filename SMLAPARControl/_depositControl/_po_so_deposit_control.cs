@@ -1205,9 +1205,244 @@ namespace SMLERPAPARControl._depositControl
                 __myQuery.Append(_g.g._queryUpdateTrans());
                 //
                 __myQuery.Append("</node>");
+
+                // auto gl
+                SMLERPGL._transProcessUserControl __processControl = null;
+
+                int _transFlag = _g.g._transFlagGlobal._transFlag(this._icTransControlType);
+
+                if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccount ||
+                    MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOS ||
+                    MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountProfessional ||
+                    MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOSProfessional)
+                {
+                    _g.g._companyProfileLoad();
+
+                    // toe กรณีแก้ไข และ ลง GL Auto
+                    if (this._glScreenTop != null && _g.g._companyProfile._gl_process_realtime)
+                    {
+                        // จำลอง datatable ที่ query ออกมาได้
+
+                        decimal __service_amount = 0M;
+                        int __vat_type = MyLib._myGlobal._intPhase(this._screenTop._getDataNumber(_g.d.ic_trans._vat_type).ToString());
+                        decimal __total_discoutnt = (__vat_type == 1) ? (this._screenBottom._getDataNumber(_g.d.ic_trans._total_discount) * 100 / (100 + _g.g._companyProfile._vat_rate)) : this._screenBottom._getDataNumber(_g.d.ic_trans._total_discount);
+                        decimal __credit_card_amount = 0M;
+                        decimal __credit_card_charge = 0M;
+                        string __departmentCode = "";
+                        string __projectCode = "";
+                        string __allocateCode = "";
+                        decimal __vatNext = 0M;
+                        string __sideCode = "";
+                        string __jobCode = "";
+                        decimal __total_cost = 0M;
+
+                        decimal __total_vat_value = 0M;
+                        if (_transFlag > 80 && _transFlag < 200)
+                        {
+                            __total_vat_value = this._screenBottom._getDataNumber(_g.d.ic_trans._total_vat_value);
+                        }
+                        else
+                        {
+                            if (this._vatBuy != null)
+                            {
+                                this._vatBuy._vatGrid._calcTotal(false);
+                                MyLib._myGrid._columnType __getColumn = (MyLib._myGrid._columnType)this._vatBuy._vatGrid._columnList[this._vatBuy._vatGrid._findColumnByName(_g.d.gl_journal_vat_buy._vat_amount)];
+                                __total_vat_value = __getColumn._total;
+                            }
+
+                            if (this._vatSale != null)
+                            {
+                                this._vatSale._vatGrid._calcTotal(false);
+                                MyLib._myGrid._columnType __getColumn = (MyLib._myGrid._columnType)this._vatSale._vatGrid._columnList[this._vatSale._vatGrid._findColumnByName(_g.d.gl_journal_vat_sale._amount)];
+                                __total_vat_value = __getColumn._total;
+                            }
+
+                        }
+
+                        if (_transFlag == 19)
+                        {
+                            int __columnVatAmount = this._vatBuy._vatGrid._findColumnByName(_g.d.gl_journal_vat_buy._vat_amount);
+                            __vatNext = ((MyLib._myGrid._columnType)this._vatBuy._vatGrid._columnList[__columnVatAmount])._total;
+                        }
+
+                        //string __incheck = this._icTransScreenBottom._getDataStr(_g.d.ic_trans._remark);
+
+                        __processControl = new SMLERPGL._transProcessUserControl();
+
+                        SMLERPGL._transProcessUserControl._transDataObject __transData = new SMLERPGL._transProcessUserControl._transDataObject(((_transFlag > 80 && _transFlag < 200) ? "IC" : "CB"), this._oldDocNo, _transFlag, _g.g._transTypeGlobal._transType(this._icTransControlType), this._screenTop._docFormatCode)
+                        {
+                            cust_code = this._screenTop._getDataStr(_g.d.ap_ar_trans._cust_code),
+                            cust_name = (this._screenTop._getControl(_g.d.ic_trans._cust_code) != null) ? ((MyLib._myTextBox)this._screenTop._getControl(_g.d.ic_trans._cust_code))._textSecond : "",
+                            vat_type = __vat_type,
+                            tax_doc_no = this._screenTop._getDataStr(_g.d.ic_trans._tax_doc_no),
+                            remark = this._screenBottom._getDataStr(_g.d.ic_trans._remark),
+                            total_amount = this._screenBottom._getDataNumber(_g.d.ic_trans._total_amount),
+                            service_amount = __service_amount,
+                            total_value = this._screenBottom._getDataNumber(_g.d.ic_trans._total_value),
+                            total_before_vat = this._screenBottom._getDataNumber(_g.d.ic_trans._total_before_vat),
+                            total_except_vat = this._screenBottom._getDataNumber(_g.d.ic_trans._total_except_vat),
+                            total_vat_value = __total_vat_value,
+                            total_discount = __total_discoutnt,
+                            cash_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._cash_amount) : 0M,
+                            tax_at_pay = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._total_tax_at_pay) : 0M,
+                            point_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._point_amount) : 0M,
+                            coupon_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._coupon_amount) : 0M,
+                            card_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._card_amount) : 0M,
+                            chq_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._chq_amount) : 0M,
+                            tranfer_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._tranfer_amount) : 0M,
+                            total_income_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._total_income_amount) : 0M,
+                            petty_cash_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._petty_cash_amount) : 0M,
+                            discount_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._discount_amount) : 0M,
+                            doc_ref = this._screenTop._getDataStr(_g.d.ic_trans._doc_ref),
+                            doc_date = this._screenTop._getDataStr(_g.d.ic_trans._doc_date, true).Replace("\'", ""),
+                            doc_time = this._screenTop._getDataStr(_g.d.ic_trans._doc_time),
+                            inquiry_type = MyLib._myGlobal._intPhase(this._screenTop._getDataNumber(_g.d.ic_trans._inquiry_type).ToString()),
+                            advance_amount = this._screenBottom._getDataNumber(_g.d.ic_trans._advance_amount),
+                            deposit_amount = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._deposit_amount) : 0M,
+                            credit_card_amount = __credit_card_amount,
+                            credit_card_charge = __credit_card_charge,
+                            tax_doc_date = this._screenTop._getDataStr(_g.d.ic_trans._tax_doc_date, true).Replace("\'", ""),
+                            branch_code = _g.g._companyProfile._branch_code,
+                            department_code = __departmentCode,
+                            project_code = __projectCode,
+                            allocate_code = __allocateCode,
+                            vat_next = __vatNext,
+                            side_code = __sideCode,
+                            job_code = __jobCode,
+                            total_cost = __total_cost,
+                            total_income_other = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._total_income_other) : 0M,
+                            total_expense_other = (this._payControl != null) ? this._payControl._payDetailScreen._getDataNumber(_g.d.cb_trans._total_expense_other) : 0M
+                        };
+
+                        __processControl._addTransData(__transData, true);
+
+                        __processControl._addTransDetailData(null, true);
+                        // detail
+
+                        // pay detail
+
+                        if (this._payControl != null)
+                        {
+                            // chq
+                            for (int __row = 0; __row < this._payControl._payChequeGrid._rowData.Count; __row++)
+                            {
+                                string __getChqNumber = this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._trans_number).ToString();
+                                if (__getChqNumber.Length > 0)
+                                {
+                                    decimal __amount = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._amount);
+                                    int __pass_book_code_column = this._payControl._payChequeGrid._findColumnByName(_g.d.cb_trans_detail._pass_book_code);
+
+                                    SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject((this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, _transFlag, _g.g._transTypeGlobal._transType(this._icTransControlType))
+                                    {
+                                        doc_type = 2,
+                                        item_type = 9999,
+                                        trans_number = __getChqNumber,
+                                        price = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._sum_amount),
+                                        amount = __amount,
+                                        sum_amount_exclude_vat = 0,
+                                        remark = "",
+                                        line_number = __row,
+                                        sum_amount = (decimal)this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._sum_amount),
+                                        pass_book_code = (this._payControl._payChequeGrid._findColumnByName(_g.d.cb_trans_detail._pass_book_code) == -1) ? "" : this._payControl._payChequeGrid._cellGet(__row, _g.d.cb_trans_detail._pass_book_code).ToString()
+                                    };
+                                    __processControl._addTransDetailData(__detailDataGL, false);
+                                }
+                            }
+
+                            // tranfer
+                            for (int __row = 0; __row < this._payControl._payTransferGrid._rowData.Count; __row++)
+                            {
+                                string __getBookCode = this._payControl._payTransferGrid._cellGet(__row, _g.d.cb_trans_detail._trans_number).ToString();
+                                if (__getBookCode.Length > 0)
+                                {
+                                    decimal __amount = (decimal)this._payControl._payTransferGrid._cellGet(__row, _g.d.cb_trans_detail._amount);
+
+                                    SMLERPGL._transProcessUserControl._transDetailDataObject __detailDataGL = new SMLERPGL._transProcessUserControl._transDetailDataObject((this._oldDocNo.Length == 0) ? __docNo : this._oldDocNo, _transFlag, _g.g._transTypeGlobal._transType(this._icTransControlType))
+                                    {
+                                        doc_type = 1,
+                                        item_type = 9999,
+                                        trans_number = __getBookCode,
+                                        price = __amount,
+                                        amount = __amount,
+                                        sum_amount_exclude_vat = 0,
+                                        remark = "",
+                                        line_number = __row,
+                                        pass_book_code = __getBookCode,
+
+                                    };
+                                    __processControl._addTransDetailData(__detailDataGL, false);
+                                }
+                            }
+
+                            // credit
+                        }
+
+                        __processControl._procesGLByTemp(this._screenTop._docFormatCode);
+                        List<SMLERPGL._transProcessUserControl._glStruct> __glStruct = __processControl.getGLTrans;
+
+                        // check balance 
+                        if (__glStruct != null && __glStruct.Count > 0 && __glStruct[0]._debit != __glStruct[0]._credit)
+                        {
+                            //MessageBox.Show("ยอดเดบิต : " + __glStruct[0]._debit + " เครดิต : " + __glStruct[0]._credit + " ไม่ลงตัว ", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            string __textHeader = "ยอดเดบิต : " + __glStruct[0]._debit + " เครดิต : " + __glStruct[0]._credit + " ไม่ลงตัว ";
+
+                            SMLERPGLControl._glDetail __detail = new SMLERPGLControl._glDetail();
+                            Form __alertGLDetailForm = new Form();
+                            __alertGLDetailForm.Text = __textHeader;
+                            __alertGLDetailForm.Size = new Size(600, 400);
+                            __alertGLDetailForm.Controls.Add(__detail);
+                            __alertGLDetailForm.StartPosition = FormStartPosition.CenterScreen;
+
+                            __detail.Dock = DockStyle.Fill;
+                            __detail._glDetailGrid.IsEdit = false;
+
+                            // add data togrid
+                            for (int glRow = 0; glRow < __glStruct[0]._glDetail.Count; glRow++)
+                            {
+                                string __accCode = __glStruct[0]._glDetail[glRow]._accountCode;
+                                string __accName = __glStruct[0]._glDetail[glRow]._accountName;
+                                string __accDesc = __glStruct[0]._glDetail[glRow]._accountDescription;
+                                string __accBranch = ""; // __glStruct[0]._glDetail[0].bra
+                                decimal __debit = __glStruct[0]._glDetail[glRow]._debit;
+                                decimal __credit = __glStruct[0]._glDetail[glRow]._credit;
+
+                                int __addRow = __detail._glDetailGrid._addRow();
+
+                                __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._account_code, __accCode, true);
+                                __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._account_name, __accName, true);
+                                __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._description, __accDesc, true);
+                                __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._branch_code, __accBranch, true);
+                                __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._debit, __debit, true);
+                                __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._credit, __credit, true);
+
+                            }
+
+                            __detail._glDetailGrid.Invalidate();
+
+                            __alertGLDetailForm.ShowDialog();
+
+                            return;
+                        }
+                    }
+                }
+
                 string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __myQuery.ToString());
                 if (__result.Length == 0)
                 {
+                    _g.g._companyProfileLoad();
+                    if (__processControl != null && __glManual == false && _g.g._companyProfile._gl_process_realtime == true) // (this._myManageData1._mode == 1 && _g.g._companyProfile._gl_process_realtime)
+                    {
+                        // call process Save GL
+                        //SMLERPGL._transProcessUserControl __processControl = new SMLERPGL._transProcessUserControl();
+                        __processControl._processGLByTrans(this._screenTop._getDataDate(_g.d.ic_trans._doc_date), __docNo, this._screenTop._docFormatCode);
+                        List<SMLERPGL._transProcessUserControl._glStruct> __glStruct = __processControl.getGLTrans;
+                        if (__glStruct != null && __glStruct.Count > 0 && __glStruct[0]._debit == __glStruct[0]._credit)
+                        {
+                            __processControl._saveToDatabase(__glStruct, 1, 1);
+                        }
+                    }
+
                     SMLProcess._docFlow __process = new SMLProcess._docFlow();
                     __process._processAll(_g.g._transControlTypeEnum.ว่าง, "", "");
                     //

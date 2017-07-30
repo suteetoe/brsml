@@ -658,7 +658,7 @@ namespace MyLib._databaseManage
                                         Boolean __pass = true;
                                         try
                                         {
-                                            DataTable __getDevice = __myFrameWork._query(MyLib._myGlobal._mainDatabase, "select " + MyLib._d.sml_user_list._device_id + " from " + MyLib._d.sml_user_list._table + " where " + MyLib._myGlobal._addUpper(MyLib._d.sml_user_list._user_code) + "=\'" + __data_user_code.ToUpper() + "\' order by "+ MyLib._d.sml_user_list._device_id).Tables[0];
+                                            DataTable __getDevice = __myFrameWork._query(MyLib._myGlobal._mainDatabase, "select " + MyLib._d.sml_user_list._device_id + " from " + MyLib._d.sml_user_list._table + " where " + MyLib._myGlobal._addUpper(MyLib._d.sml_user_list._user_code) + "=\'" + __data_user_code.ToUpper() + "\' order by " + MyLib._d.sml_user_list._device_id).Tables[0];
                                             if (__getDevice.Rows.Count > 0)
                                             {
                                                 string __device = __getDevice.Rows[0][0].ToString().Trim();
@@ -1023,54 +1023,59 @@ namespace MyLib._databaseManage
                         MyLib._myUtil._startDialog(this, __screenText, new _userAndGroup());
                     }
                     else
-                        if (__menuName.CompareTo(_admin_menu_group_manage) == 0)
+                    if (__menuName.CompareTo(_admin_menu_group_manage) == 0)
                     {
                         MyLib._myUtil._startDialog(this, __screenText, new _groupManage());
                     }
                     else
-                            if (__menuName.CompareTo(_admin_menu_database_group) == 0)
+                    if (__menuName.CompareTo(_admin_menu_database_group) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _groupDatabase());
+                        if (_checkSuperadminRole())
+                            MyLib._myUtil._startDialog(this, __screenText, new _groupDatabase());
                     }
                     else
-                                if (__menuName.CompareTo(_admin_menu_create_new_database) == 0)
+                    if (__menuName.CompareTo(_admin_menu_create_new_database) == 0)
                     {
                         // check is clound
-
-                        MyLib._myUtil._startDialog(this, __screenText, new _createDatabase(0));
+                        if (_checkSuperadminRole())
+                        {
+                            MyLib._myUtil._startDialog(this, __screenText, new _createDatabase(0));
+                        }
                     }
                     else
-                                    if (__menuName.CompareTo(_admin_menu_link_database) == 0)
+                    if (__menuName.CompareTo(_admin_menu_link_database) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._linkDatabase._linkDatabase());
+                        if (_checkSuperadminRole())
+                            MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._linkDatabase._linkDatabase());
                     }
                     else
-                                        if (__menuName.CompareTo(_admin_menu_verify_database) == 0)
+                    if (__menuName.CompareTo(_admin_menu_verify_database) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._verifyDatabase());
+                        if (_checkSuperadminRole())
+                            MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._verifyDatabase());
                     }
                     else
-                                            if (__menuName.CompareTo(_admin_menu_shrink_database) == 0)
+                    if (__menuName.CompareTo(_admin_menu_shrink_database) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._shrinkDatabase());
+                        if (_checkSuperadminRole()) MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._shrinkDatabase());
                     }
                     else
-                                                if (__menuName.CompareTo(_admin_menu_resource_edit) == 0)
+                    if (__menuName.CompareTo(_admin_menu_resource_edit) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._resourceEdit());
+                        if (_checkSuperadminRole()) MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._resourceEdit());
                     }
                     else
-                                                    if (__menuName.CompareTo(_admin_menu_change_password) == 0)
+                    if (__menuName.CompareTo(_admin_menu_change_password) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._smlChangePassword(this._screenTopAdmin._getDataStr(_user_code)));
+                        if (_checkSuperadminRole()) MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._smlChangePassword(this._screenTopAdmin._getDataStr(_user_code)));
                     }
                     else
-                                                        if (__menuName.CompareTo(_admin_menu_database_access) == 0)
+                    if (__menuName.CompareTo(_admin_menu_database_access) == 0)
                     {
-                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._databaseAccess());
+                        if (_checkSuperadminRole()) MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._databaseAccess());
                     }
                     else
-                                                            if (__menuName.CompareTo(_admin_menu_group_permissions) == 0)
+                    if (__menuName.CompareTo(_admin_menu_group_permissions) == 0)
                     {
                         try
                         {
@@ -1080,10 +1085,9 @@ namespace MyLib._databaseManage
                         {
                             MessageBox.Show(__ex.Message.ToString() + " : " + __ex.StackTrace.ToString());
                         }
-
                     }
                     else
-                                                                if (__menuName.CompareTo(_admin_menu_user_permissions) == 0)
+                    if (__menuName.CompareTo(_admin_menu_user_permissions) == 0)
                     {
                         try
                         {
@@ -1095,25 +1099,28 @@ namespace MyLib._databaseManage
                         }
                     }
                     else
-                                                                    if (__menuName.CompareTo(_admin_menu_trasnfer_data) == 0)
+                    if (__menuName.CompareTo(_admin_menu_trasnfer_data) == 0)
                     {
-                        try
+                        if (_checkSuperadminRole())
                         {
-                            _passwordForm __password = new _passwordForm();
-                            __password.StartPosition = FormStartPosition.CenterScreen;
-                            __password._okButton.Click += (s1, e1) =>
+                            try
                             {
-                                if (__password._passwordTextBox.Text.Equals("smladmin"))
+                                _passwordForm __password = new _passwordForm();
+                                __password.StartPosition = FormStartPosition.CenterScreen;
+                                __password._okButton.Click += (s1, e1) =>
                                 {
-                                    __password.Dispose();
-                                    MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._transferDatabase());
-                                }
-                            };
-                            __password.ShowDialog();
-                        }
-                        catch (Exception __ex)
-                        {
-                            MessageBox.Show(__ex.Message.ToString() + " : " + __ex.StackTrace.ToString());
+                                    if (__password._passwordTextBox.Text.Equals("smladmin"))
+                                    {
+                                        __password.Dispose();
+                                        MyLib._myUtil._startDialog(this, __screenText, new _databaseManage._transferDatabase());
+                                    }
+                                };
+                                __password.ShowDialog();
+                            }
+                            catch (Exception __ex)
+                            {
+                                MessageBox.Show(__ex.Message.ToString() + " : " + __ex.StackTrace.ToString());
+                            }
                         }
                     }
                 }
@@ -1123,6 +1130,17 @@ namespace MyLib._databaseManage
                     //this.loginTab.SelectTab(0);
                 }
             }
+        }
+
+        private bool _checkSuperadminRole()
+        {
+            if ((MyLib._myGlobal._userLevel < 3))
+            {
+                MessageBox.Show(MyLib._myGlobal._resource("ไม่อนุญาติ"), MyLib._myGlobal._resource("warning"), MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                //MooAe ให้กลับมาหน้า Login 
+                return false;
+            }
+            return true;
         }
 
         private void languageSwitch_Click(object sender, EventArgs e)

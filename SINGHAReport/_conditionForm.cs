@@ -112,8 +112,6 @@ namespace SINGHAReport
 
                         this._screen._setComboBox(_g.d.resource_report_vat._vat_month, DateTime.Now.Month - 1);
                         this._screen._setDataStr(_g.d.resource_report_vat._vat_year, DateTime.Now.ToString("yyyy", __culture));
-
-
                     }
                     break;
                 case _singhaReportEnum.GL_รายงานภาษีซื้อ:

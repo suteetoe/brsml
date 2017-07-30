@@ -20,7 +20,7 @@ namespace MyLib
         public static Boolean _isDesignMode = true;
         public static List<_providerListClass> _providerList = new List<_providerListClass>();
         public static List<_printerListClass> _printerList = new List<_printerListClass>();
-        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 10, 38);
+        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 10, 41);
         public static Boolean _autoLogin = false;
         public static Boolean _useNoVat = false;
         public static string _programName = "";

@@ -37,7 +37,7 @@ namespace SINGHAReport
                 case "menu_singha_report_load_product_warehouse": return (new GL._glReport(_singhaReportEnum.สรุปโหลดสินค้า_รายคลัง, screenName));
 
                 case "menu_singha_report_other_expenses": return (new _singhareportGenerate(_singhaReportEnum.รายงานค่าใช้จ่ายอื่น, screenName)); // รายงานค่าใช้จ่ายอื่น ๆ
-                                    
+
                 case "menu_sync_data_saleout": return (new _singhaDataSyncControl(2));
                 case "menu_sync_data_stock": return (new _singhaDataSyncControl(3));
 
@@ -134,7 +134,7 @@ namespace SINGHAReport
                 case "menu_saletools_payment_type": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UGF5bWVudFR5cGUuYXNweA==");
                 case "menu_saletools_survey_type": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=c3VydmV5dHlwZS5hc3B4");
                 case "menu_saletools_delivery_days": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=RGVsaXZlcnlEYXlzLmFzcHg=");
-                case "menu_saletools_material_Type": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=TWF0VHlwZU1hc3Rlci5hc3B4");
+                case "menu_saletools_material_type": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=TWF0VHlwZU1hc3Rlci5hc3B4");
                 case "menu_saletools_display_type": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=RGlzcGxheVR5cGUuYXNweA==");
                 //case "menu_": return new _saleToolsWebControl(menuName, "");
                 //case "menu_ 9.3 Agent/DC": return new _saleToolsWebControl(menuName, "");
@@ -192,8 +192,32 @@ namespace SINGHAReport
 
                 case "menu_saletools_customer_pivot_report": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=cmVwb3J0QklDdXN0b21lci5hc3B4");
 
-                case "menu_saletools_issue_to_customer": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1JJkdDdXM9WQ==");
-                case "menu_saletools_receive_from_customer": return new _saleToolsWebControl(menuName, "login.aspx?&userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1HJkdDdXM9WQ==");
+                case "menu_saletools_issue_to_customer": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1JJkdDdXM9WQ==");
+                case "menu_saletools_receive_from_customer": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=QXBwcm92ZU5ldy5hc3B4P05ld09yZGVyPVkmVHlwZT1HJkdDdXM9WQ==");
+                case "menu_saletools_sale_target_config": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=U2FsZVRhcmdldEFsbC5hc3B4");
+
+                case "menu_saletools_report_discount_by_shop_and_product": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0RGlzY291bnRCeUNoYW5uZWxCeU1hdGVyaWFsLmFzcHg=");
+                case "menu_saletools_report_discount_changed": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0RGlzY291bnRBZGouYXNweA==");
+                case "menu_saletools_report_discount_by_product_group": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0RGlzY291bnRPbnRvcFN1bW1hcnkuYXNweA==");
+                case "menu_saletools_report_promotion_use_by_level": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0UHJvbW90aW9uRWFjaFVzZUJ5TGV2ZWwuYXNweA==");
+                case "menu_saletools_report_sale_report": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuU2FsZS5hc3B4P1JlcG9ydD0xJk5hbWU9U2FsZVZvbHVtbmJ5U2FsZQ==");
+                case "menu_saletools_report_sale_report_by_saleman": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuU2FsZS5hc3B4P1JlcG9ydD0yJk5hbWU9U2FsZVZhbHVlYnlTYWxl");
+                case "menu_saletools_report_sale_report_by_shop": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0zJk5hbWU9RWZmZWN0aXZlQ2FsbA==");
+                case "menu_saletools_report_purchase_by_shop_saleman": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD00Jk5hbWU9QWN0aXZlT3V0bGV0c19TYWxl");
+                case "menu_saletools_report_purchase_percent_by_shop_saleman": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD01Jk5hbWU9QWN0aXZlT3V0bGV0c190YXJnZXQ=");
+                case "menu_saletools_report_purchase_average_per_serway": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD02Jk5hbWU9QWN0aXZlT3V0bGV0c19Sb3V0ZQ==");
+                case "menu_saletools_report_sale_average_per_doc": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD03Jk5hbWU9QVZHU2FsZV9pbnZvaWNl");
+                case "menu_saletools_report_sale_product_average_per_doc": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD04Jk5hbWU9QVZHTnVtU2t1X2ludm9pY2U=");
+                case "menu_saletools_report_sale_groupproduct_amount": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD05Jk5hbWU9S2V5U2t1RGlz");
+                case "menu_saletools_report_sale_ratio_average_by_groupproduct_per_shop": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xMCZOYW1lPUtleVNLVV9UYXJnZXQ=");
+                case "menu_saletools_report_sale_ratio_average_by_groupproduct_per_shop_map": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xMSZuQU1FPUtleVNLVV9Sb3V0ZVBsYQ==");
+                case "menu_saletools_report_sale_ratio_groupproduct": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xMiZOYW1lPUtleVByb2R1Y3RHcm91cERpcw==");
+                case "menu_saletools_report_purchase_ratio_by_saleman": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xMyZOYW1lPUtleVByb2R1Y3RHcm91cERpc19UYXJnZXQ=");
+                case "menu_saletools_report_purchase_ratio_in_map": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xNCZOYW1lPUtleVByb2R1Y3RHcm91cERpc19Sb3V0ZVBsYQ==");
+                case "menu_saletools_report_shop_in_month": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xNSZOYW1lPURpc2J5RGlz");
+                case "menu_saletools_report_shop_in_month_byamper": return new _saleToolsWebControl(menuName, "login.aspx?userid=admagent&url=UmVwb3J0dmFuc2FsZS5hc3B4P1JlcG9ydD0xNiZOYW1lPURpc0J5UHJv");
+
+
             }
             return null;
         }

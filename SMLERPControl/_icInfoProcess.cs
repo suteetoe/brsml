@@ -93,7 +93,7 @@ namespace SMLERPControl
             string __fieldList0 = "";
             string __fieldList1 = "";
             string __fieldList2 = "";
-            string __fieldSumOfCost = (costMode == _g.g._productCostType.ปรกติ) ? _g.d.ic_trans_detail._sum_of_cost : _g.d.ic_trans_detail._sum_of_cost_1;
+            string __fieldSumOfCost = (costMode == _g.g._productCostType.ปรกติ) ? "(" + _g.d.ic_trans_detail._sum_of_cost + "+profit_lost_cost_amount)" : "(" + _g.d.ic_trans_detail._sum_of_cost_1 + "+profit_lost_cost_amount)";
             string __wareHouseAndLocationQuery = ((wareHouseList.Length == 0) ? "" : " and " + (_g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._wh_code + " in (" + wareHouseList + ")")) + ((locationList.Length == 0) ? "" : " and " + (_g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._shelf_code + " in (" + locationList + ")"));
 
             string __serialQuery = (_serialOnly) ? " and " + _g.d.ic_trans_detail._is_serial_number + "=1 " : "";
@@ -492,7 +492,7 @@ namespace SMLERPControl
             string __fieldList0 = "";
             string __fieldList1 = "";
             string __fieldList2 = "";
-            string __fieldSumOfCost = _g.d.ic_trans_detail._sum_of_cost; // (costMode == _g.g._productCostType.ปรกติ) ? _g.d.ic_trans_detail._sum_of_cost : _g.d.ic_trans_detail._sum_of_cost_1;
+            string __fieldSumOfCost = _g.d.ic_trans_detail._sum_of_cost;// + "+profit_lost_cost_amount"; // (costMode == _g.g._productCostType.ปรกติ) ? _g.d.ic_trans_detail._sum_of_cost : _g.d.ic_trans_detail._sum_of_cost_1;
             string __wareHouseAndLocationQuery = ((wareHouseList.Length == 0) ? "" : " and " + (_g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._wh_code + " in (" + wareHouseList + ")")) + ((locationList.Length == 0) ? "" : " and " + (_g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._shelf_code + " in (" + locationList + ")"));
 
 

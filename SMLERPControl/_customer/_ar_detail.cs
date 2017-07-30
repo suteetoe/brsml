@@ -6,6 +6,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using System.Globalization;
 
 /*
 * @author MooAe 
@@ -18,6 +19,8 @@ namespace SMLERPControl._customer
     public partial class _ar_detail : UserControl
     {
         MyLib._myFrameWork _myFrameWork = new MyLib._myFrameWork();
+        decimal _creditAmount = 0M;
+        int _creditStatus = 0;
 
         public _ar_detail()
         {
@@ -340,10 +343,33 @@ namespace SMLERPControl._customer
                                 if (_g.g._companyProfile._arm_send_ar_change && this._myManageData1._mode == 2)
                                 {
                                     StringBuilder __message = new StringBuilder();
-                                    string __sendTo = _g.g._companyProfile._arm_send_cn_to;
+                                    string __sendTo = _g.g._companyProfile._arm_send_ar_change_to;
 
                                     // get granch
-                                    __message.Append("แก้ไขลูกค้า " + this._screenTop._getDataStr(_g.d.ar_customer._name_1) + "(" + this._screenTop._getDataStr(_g.d.ar_customer._code) + ") โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") ");
+                                    //__message.Append("แก้ไขลูกค้า " + this._screenTop._getDataStr(_g.d.ar_customer._name_1) + "(" + this._screenTop._getDataStr(_g.d.ar_customer._code) + ") โดย " + MyLib._myGlobal._userName + "(" + MyLib._myGlobal._userCode + ") ");
+
+                                    string __editMessage = "";
+
+                                    if (MyLib._myGlobal._intPhase(this._screen_ar_detail_2._getDataStr(_g.d.ar_customer_detail._credit_status)) != this._creditStatus)
+                                    {
+                                        __editMessage = "สถานะเครดิต " + ((MyLib._myGlobal._intPhase(this._screen_ar_detail_2._getDataStr(_g.d.ar_customer_detail._credit_status)) == 0) ? "เปิด" : (MyLib._myGlobal._intPhase(this._screen_ar_detail_2._getDataStr(_g.d.ar_customer_detail._credit_status)) == 2) ? "ปิดชั่วคราว" : "ปิด");
+                                    }
+
+                                    if (this._screen_ar_detail_2._getDataNumber(_g.d.ar_customer_detail._credit_money) != this._creditAmount)
+                                    {
+                                        if (__editMessage.Length > 0)
+                                        {
+                                            __editMessage += " ";
+                                        }
+                                        __editMessage += "วงเงินเครดิต " + this._creditAmount.ToString("#,###,##0") + " แก้ไขเป็น " + this._screen_ar_detail_2._getDataNumber(_g.d.ar_customer_detail._credit_money).ToString("#,###,##0");
+                                    }
+
+                                    __message.Append(string.Format("แก้ไขข้อมูลลูกหนี้ {0} {1} {2} User : {3} {4}",
+                                        this._screenTop._getDataStr(_g.d.ar_customer._code)
+                                        , this._screenTop._getDataStr(_g.d.ar_customer._name_1)
+                                        , __editMessage
+                                        , MyLib._myGlobal._userCode
+                                        , DateTime.Now.ToString("yyyyMMddHHmmss", new CultureInfo("en-US"))));
 
                                     DataTable __sendCancelBranch = _myFrameWork._queryShort("select " + _g.d.erp_branch_list._arm_send_ar_change_to + " from " + _g.d.erp_branch_list._table + " where " + _g.d.erp_branch_list._code + " = \'" + MyLib._myGlobal._branchCode + "\' ").Tables[0];
                                     if (__sendCancelBranch.Rows.Count > 0 && __sendCancelBranch.Rows[0][0].ToString().Length > 0)
@@ -408,6 +434,9 @@ namespace SMLERPControl._customer
 
         void _myManageData1__clearData()
         {
+            this._creditAmount = 0M;
+            this._creditStatus = 0;
+
             this._screenTop._clear();
             this._screen_ar_detail_1._clear();
             this._screen_ar_detail_2._clear();
@@ -429,6 +458,9 @@ namespace SMLERPControl._customer
 
         void _myManageData1__newDataClick()
         {
+            this._creditAmount = 0M;
+            this._creditStatus = 0;
+
             this._screenTop._clear();
             this._screen_ar_detail_1._clear();
             this._screen_ar_detail_2._clear();
@@ -523,6 +555,11 @@ namespace SMLERPControl._customer
                 //    MyLib._myComboBox __reasonCombo = (MyLib._myComboBox)this._screen_ar_detail_2._getControl(_g.d.ar_customer_detail._close_reason);
                 //    __reasonCombo.Text = __getReason;
                 //}
+
+                this._creditAmount = this._screen_ar_detail_2._getDataNumber(_g.d.ar_customer_detail._credit_money);
+                this._creditStatus = MyLib._myGlobal._intPhase(this._screen_ar_detail_2._getDataStr(_g.d.ar_customer_detail._credit_status));
+
+
 
                 if (forEdit)
                 {

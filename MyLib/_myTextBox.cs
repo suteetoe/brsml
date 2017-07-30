@@ -426,6 +426,8 @@ namespace MyLib
         void textBox_LostFocus(object sender, EventArgs e)
         {
             this.textBox.BackColor = (_emtry) ? _defaultBackGround : Color.OldLace;
+            TextBox myTextBox = (TextBox)sender;
+            this.textBox.Text = myTextBox.Text;
             if (this.IsUpperCase)
             {
                 this.textBox.Text = this.textBox.Text.ToUpper();

@@ -298,6 +298,14 @@ namespace SMLAccount
                 if (_g.g._companyProfile._show_menu_by_permission)
                 {
                     _hideNode(this._mainMenuERP.Nodes);
+
+                    //foreach (TreeNode node in this._mainMenuERP.Nodes)
+                    //{
+                    //    if (node.Nodes.Count == 0)
+                    //    {
+                    //        node.Tag = (node.Tag != null) ? node.Tag + "&hide&" : "&hide&";
+                    //    }
+                    //}
                 }
             }
         }

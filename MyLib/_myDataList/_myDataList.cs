@@ -143,6 +143,9 @@ namespace MyLib
         public string _isLockRecord = "is_lock_record";
         public string _guidCode = "guid_code";
 
+        public string _isLockRecordShowColumn = "lock";
+
+
         // toe connect other server
         public string _webServiceURL = "";
         public string _ProviderName = "";
@@ -539,6 +542,20 @@ namespace MyLib
             }
         }
 
+        private bool _showIsLockColumnResult = false;
+        public Boolean _showIsLockColumn
+        {
+            get
+            {
+                return _showIsLockColumnResult;
+            }
+
+            set
+            {
+                _showIsLockColumnResult = value;
+            }
+        }
+
         BeforeDisplayRowReturn _gridData__beforeDisplayRow(_myGrid sender, int row, int columnNumber, string columnName, BeforeDisplayRowReturn senderRow, _myGrid._columnType columnType, ArrayList rowData)
         {
             BeforeDisplayRowReturn __result = senderRow;
@@ -547,8 +564,11 @@ namespace MyLib
                 string __getLockRecord = this._gridData._cellGet(row, this._isLockRecord).ToString();
                 if (__getLockRecord.Equals("1"))
                 {
-                    __result.newColor = Color.Maroon;
-                    this._gridData._cellGet(row, this._isLockRecord).ToString();
+                    if (_showIsLockColumnResult == false)
+                    {
+                        __result.newColor = Color.Maroon;
+                        //this._gridData._cellGet(row, this._isLockRecord).ToString();
+                    }
                 }
                 if (this._lockRecord)
                 {
@@ -1394,6 +1414,12 @@ namespace MyLib
                             int __column_width = (_gridData._width_by_persent) ? 5 : 40;
                             _gridData._addColumn("check", 11, 0, __column_width, false, false, false, false);
                         }
+
+                        if (this._showIsLockColumn)
+                        {
+                            _gridData._addColumn(this._isLockRecordShowColumn, 1, 5, 5, false, false, false, false);
+                        }
+
                         for (int row = 0; row < __dataRow.Length; row++)
                         {
                             string __column_name = __dataRow[row].ItemArray[__column_name_ordinal].ToString();
@@ -1473,6 +1499,7 @@ namespace MyLib
 
                         // field check ห้ามแก้เด็ดขาด
                         _gridData._addColumn(this._isLockRecord, 2, 0, 0, false, true, true, false);
+
                         //
                         if (_loadViewAddColumn != null)
                         {

@@ -299,8 +299,8 @@ namespace SMLProcess
             StringBuilder __query = new StringBuilder();
 
             __query.Append("select doc_date, doc_no, trans_flag, trans_type, ap_ar_code, pay_type" +
-            ", case when (pay_type =1) then cash_amount else 0 end as income_amount" +
-            ", case when (pay_type =2) then cash_amount else 0 end as pay_amount" +
+            ", case when ((trans_flag=300) or (trans_flag <> 301 and pay_type =1)) then cash_amount else 0 end as income_amount" +
+            ", case when ((trans_flag=301) or (trans_flag <> 300 and pay_type =2)) then cash_amount else 0 end as pay_amount" +
             ", case when(pay_type =1)then cash_amount else -1*cash_amount end as amount" +
             ", 0 as balance_amount " +
             " from cb_trans where cash_amount <> 0 and status=0 " + dateWhere);
