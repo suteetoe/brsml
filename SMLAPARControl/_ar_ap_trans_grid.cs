@@ -481,7 +481,7 @@ namespace SMLERPAPARControl
                     __where = " (true) or ( amount=0 and (select count(doc_no) from ap_ar_trans_detail where ap_ar_trans_detail.billing_no = temp3.doc_no ) = 0 ) ";
                 }
 
-                DataTable __getData = __process._arBalanceDoc(this._transControlType, 0, this._getCustCode(), this._getCustCode(), __docNo, __docNo, this._getProcessDate(), "", __where);
+                DataTable __getData = __process._arBalanceDoc(this._transControlType, 0, this._getCustCode(), this._getCustCode(), __docNo, __docNo, this._getProcessDate(), "", __where, false);
                 if (__getData != null && __getData.Rows.Count > 0)
                 {
                     DataRow __dataRow = __getData.Rows[0];

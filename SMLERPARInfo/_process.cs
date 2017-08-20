@@ -533,6 +533,12 @@ namespace SMLERPARAPInfo
 
         public string _createQuery(_apArConditionEnum mode, int dateMode, string custWhere, string docNoWhere, string dateWhereEnd)
         {
+            return this._createQuery(mode, dateMode, custWhere, docNoWhere, dateWhereEnd, true);
+        }
+
+        public string _createQuery(_apArConditionEnum mode, int dateMode, string custWhere, string docNoWhere, string dateWhereEnd, bool checkPayDate)
+        {
+
             string __fieldList = "";
             string __custWhereQuery = "";
             string __docNoWhereQuery = "";
@@ -600,7 +606,7 @@ namespace SMLERPARAPInfo
 
                 // toe เอา billing_date ออก
                 // and ic_trans.doc_date=ap_ar_trans_detail.billing_date
-                __queryDoc.Append("(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where coalesce(last_status, 0)=0 and trans_flag in (" + __transFlag2 + ") and ic_trans.doc_no=ap_ar_trans_detail.billing_no and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) + ")");
+                __queryDoc.Append("(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where coalesce(last_status, 0)=0 and trans_flag in (" + __transFlag2 + ") and ic_trans.doc_no=ap_ar_trans_detail.billing_no and ic_trans.trans_flag=ap_ar_trans_detail.bill_type " + ((checkPayDate) ? " and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) : "") + ")");
                 __queryDoc.Append(" as balance_amount");
                 // toe branch_code
                 __queryDoc.Append(",branch_code,remark");
@@ -662,7 +668,7 @@ namespace SMLERPARAPInfo
                 __queryDoc.Append("coalesce(total_amount,0) as amount,coalesce(total_amount,0)-");
                 // 2-หักจ่ายชำระหนี้ (ส่วนลดหนี้)
                 //  and ic_trans.doc_date=ap_ar_trans_detail.billing_date เช็คเฉพาะเลขที่ก็พอ
-                __queryDoc.Append("(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where coalesce(last_status, 0)=0 and trans_flag in (" + __payFlag + ") and ic_trans.doc_no=ap_ar_trans_detail.billing_no and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) + ")");
+                __queryDoc.Append("(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where coalesce(last_status, 0)=0 and trans_flag in (" + __payFlag + ") and ic_trans.doc_no=ap_ar_trans_detail.billing_no and ic_trans.trans_flag=ap_ar_trans_detail.bill_type " + ((checkPayDate) ? " and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) : "") + ")");
                 __queryDoc.Append(" as balance_amount");
                 __queryDoc.Append(",branch_code,remark");
                 __queryDoc.Append(" from ic_trans where coalesce(last_status, 0)=0 and (" + __debitTransFlag4.ToString() + ") and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) + __custWhereQuery + __docNoWhereQuery);
@@ -701,7 +707,7 @@ namespace SMLERPARAPInfo
                 __queryDoc.Append("-1*coalesce(total_amount,0) as amount,-1*(coalesce(total_amount,0)+");
                 // 2-หักจ่ายชำระหนี้ (ส่วนลดหนี้ และต้อง  + เพราะ sum_pay_money มีค่าเป็นลบ)
                 // and ic_trans.doc_date=ap_ar_trans_detail.billing_date เช็คเฉพาะเลขที่พอ
-                __queryDoc.Append("(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where coalesce(last_status, 0)=0 and trans_flag in (" + __payFlag + ") and ic_trans.doc_no=ap_ar_trans_detail.billing_no and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) + ")");
+                __queryDoc.Append("(select coalesce(sum(coalesce(sum_pay_money,0)),0) from ap_ar_trans_detail where coalesce(last_status, 0)=0 and trans_flag in (" + __payFlag + ") and ic_trans.doc_no=ap_ar_trans_detail.billing_no and ic_trans.trans_flag=ap_ar_trans_detail.bill_type " + ((checkPayDate) ? " and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) : "") + ")");
                 __queryDoc.Append(") as balance_amount");
                 __queryDoc.Append(",branch_code,remark");
                 __queryDoc.Append(" from ic_trans where coalesce(last_status, 0)=0 and (" + __debitTransFlag2.ToString() + ") and doc_date <= " + MyLib._myGlobal._sqlDateFunction(dateWhereEnd) + __custWhereQuery + __docNoWhereQuery);
@@ -961,6 +967,12 @@ namespace SMLERPARAPInfo
 
         public DataTable _arBalanceDoc(_g.g._transControlTypeEnum mode, int dateMode, string arCodeBegin, string arCodeEnd, string docNoBegin, string docNoEnd, DateTime dateEnd, string orderBy, string extraWhere)
         {
+            return _arBalanceDoc(mode, dateMode, arCodeBegin, arCodeEnd, docNoBegin, docNoEnd, dateEnd, orderBy, extraWhere, true);
+
+        }
+
+        public DataTable _arBalanceDoc(_g.g._transControlTypeEnum mode, int dateMode, string arCodeBegin, string arCodeEnd, string docNoBegin, string docNoEnd, DateTime dateEnd, string orderBy, string extraWhere, bool checkPayDate)
+        {
             try
             {
                 SMLERPARAPInfo._apArConditionEnum __processMode = _apArConditionEnum.ว่าง;
@@ -1001,7 +1013,7 @@ namespace SMLERPARAPInfo
                         break;
                 }
                 //
-                StringBuilder __queryDoc = new StringBuilder(this._createQuery(__processMode, dateMode, __custWhere, __docNoWhere, __dateWhereEnd));
+                StringBuilder __queryDoc = new StringBuilder(this._createQuery(__processMode, dateMode, __custWhere, __docNoWhere, __dateWhereEnd, checkPayDate));
                 //
                 string __dueDay = "";
                 MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();

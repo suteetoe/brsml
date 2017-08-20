@@ -436,7 +436,7 @@ namespace SMLERPAPARControl
 
             SMLERPARAPInfo._process __process = new SMLERPARAPInfo._process();
             this._resultGrid._clear();
-            DataTable __data = __process._arBalanceDoc(this._mode, 0, this._custCode, this._custCode, "", "", this._processDate, _sortColumn, __where.ToString());
+            DataTable __data = __process._arBalanceDoc(this._mode, 0, this._custCode, this._custCode, "", "", this._processDate, _sortColumn, __where.ToString(), false);
             if (__data != null)
             {
                 this._resultGrid._loadFromDataTable(__data);
