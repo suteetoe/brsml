@@ -24909,7 +24909,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="AP AR - Transection Detail" _version="SMLERP" _width="312" _height="1109" _x="338" _y="15">
+    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="AP AR - Transection Detail" _version="SMLERP" _width="312" _height="1157" _x="338" _y="15">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -25297,6 +25297,21 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="receipt_doc_date" _description="วันที่ใบเสร็จ" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sum_debt_amount_2" _description="จำนวนเงิน" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="balance_ref_2" _description="ยอดคงเหลือ" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sum_pay_money_2" _description="ยอดชำระ" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

@@ -45,7 +45,7 @@ namespace MyLib._databaseManage
                     } // for
                 }
                 //
-                __query = "select " + MyLib._d.sml_user_list._user_code + "," + MyLib._d.sml_user_list._user_name + "," + MyLib._d.sml_user_list._active_status + "," + MyLib._d.sml_user_list._user_password + "," + MyLib._d.sml_user_list._user_level + "," + MyLib._d.sml_user_list ._device_id+ " from " + MyLib._d.sml_user_list._table + " order by " + MyLib._d.sml_user_list._user_code;
+                __query = "select " + MyLib._d.sml_user_list._user_code + "," + MyLib._d.sml_user_list._user_name + "," + MyLib._d.sml_user_list._active_status + "," + MyLib._d.sml_user_list._user_password + "," + MyLib._d.sml_user_list._user_level + "," + MyLib._d.sml_user_list._device_id + " from " + MyLib._d.sml_user_list._table + " order by " + MyLib._d.sml_user_list._user_code;
                 __result = __myFrameWork._query(MyLib._myGlobal._mainDatabase, __query);
                 if (__result.Tables.Count > 0)
                 {
@@ -68,6 +68,16 @@ namespace MyLib._databaseManage
             }
             catch
             {
+            }
+
+            if (MyLib._myGlobal._userLevel == 2)
+            {
+                this._levelComboBox.Items.Clear();
+                this._levelComboBox.Items.AddRange(new object[] {
+            "User",
+            "Super User",
+            "Admin"});
+
             }
             _userRadio.Enabled = false;
             _groupRadio.Enabled = false;

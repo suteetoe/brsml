@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <PlatformTarget>x86</PlatformTarget>
     <TargetFrameworkProfile />
-    <ManifestCertificateThumbprint>00BC2C7FB87C5EA9423856FEDBE5AC612E245383</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>22C075265603302CDC86A5AB7BA34ED32CE54044</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>

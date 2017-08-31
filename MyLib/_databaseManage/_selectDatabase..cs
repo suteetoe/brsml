@@ -54,9 +54,58 @@ namespace MyLib._databaseManage
         string _admin_menu_trasnfer_data = "transfer_database";
         string _register = "register";
 
+
+        System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("User and Group", 1);
+        System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Group Manage", 2);
+        System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Resource Edit", 4);
+        System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Change Password", 3);
+        System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Group Permisions", 17);
+        System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("User Permissions", 16);
+        System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Database Group", 5);
+        System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Create new Database", 6);
+        System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Link Database", 7);
+        System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Database Access", 15);
+        System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem("Verify Database", 8);
+        System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem("Database Information", 14);
+        System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem("Transfer Database", 19);
+        System.Windows.Forms.ListViewGroup listViewGroup2 = new System.Windows.Forms.ListViewGroup("User Manage (Provider)", System.Windows.Forms.HorizontalAlignment.Left);
+        System.Windows.Forms.ListViewGroup listViewGroup3 = new System.Windows.Forms.ListViewGroup("Database Manage (Provider)", System.Windows.Forms.HorizontalAlignment.Left);
+
         public _selectDatabase()
         {
             InitializeComponent();
+
+            //this._listViewAdminMenu.Items.Clear();
+            listViewItem1.Group = listViewGroup2;
+            listViewItem1.StateImageIndex = 0;
+            listViewItem1.Tag = "user_and_group";
+            listViewItem2.Group = listViewGroup2;
+            listViewItem2.Tag = "group_manage";
+            listViewItem3.Group = listViewGroup2;
+            listViewItem3.Tag = "resource_edit";
+            listViewItem4.Group = listViewGroup2;
+            listViewItem4.Tag = "admin_change_password";
+            listViewItem5.Group = listViewGroup2;
+            listViewItem5.Tag = "group_permissions";
+            listViewItem6.Group = listViewGroup2;
+            listViewItem6.Tag = "user_permissions";
+            listViewItem7.Group = listViewGroup3;
+            listViewItem7.Tag = "database_group";
+            listViewItem8.Group = listViewGroup3;
+            listViewItem8.Tag = "create_new_database";
+            listViewItem9.Group = listViewGroup3;
+            listViewItem9.StateImageIndex = 0;
+            listViewItem9.Tag = "link_database";
+            listViewItem10.Group = listViewGroup3;
+            listViewItem10.Tag = "database_access";
+            listViewItem11.Group = listViewGroup3;
+            listViewItem11.Tag = "verify_database";
+            listViewItem12.Checked = true;
+            listViewItem12.Group = listViewGroup3;
+            listViewItem12.StateImageIndex = 9;
+            listViewItem12.Tag = "database_information";
+            listViewItem13.Group = listViewGroup3;
+            listViewItem13.Tag = "transfer_database";
 
             //  Initialize the AboutBox to display the product information from the assembly information.
             //  Change assembly information settings for your application through either:
@@ -558,6 +607,7 @@ namespace MyLib._databaseManage
 
         private void _checkInput(MyLib._myScreen myScreen, int mode)
         {
+            this._listViewAdminMenu.Items.Clear();
             string __data_provider_code = myScreen._getDataStr(_provider_code).ToUpper();
             string __data_database_group = myScreen._getDataStr(_database_group);
             string __data_user_code = myScreen._getDataStr(_user_code);
@@ -697,6 +747,43 @@ namespace MyLib._databaseManage
                                             __myFrameWork._databaseSelectType = __myFrameWork._setDataBaseCode();
                                             __myFrameWork._webserviceServerReConnect(false);
                                             MyLib._myGlobal._webServiceServer = __myFrameWork._findWebserviceServer(MyLib._myGlobal._webServiceServerList, "");
+
+                                            if (mode == 1)
+                                            {
+                                                // check level
+                                                if (MyLib._myGlobal._userLevel == 3)
+                                                {
+                                                    this._listViewAdminMenu.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+                                                        listViewItem1,
+                                                        listViewItem2,
+                                                        listViewItem3,
+                                                        listViewItem4,
+                                                        listViewItem5,
+                                                        listViewItem6,
+                                                        listViewItem7,
+                                                        listViewItem8,
+                                                        listViewItem9,
+                                                        listViewItem10,
+                                                        listViewItem11,
+                                                        listViewItem12,
+                                                        listViewItem13 });
+                                                }
+                                                else if (MyLib._myGlobal._userLevel == 2)
+                                                {
+                                                    this._listViewAdminMenu.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+                                                        listViewItem1,
+                                                        listViewItem2,
+                                                        listViewItem4,
+                                                        listViewItem5,
+                                                        listViewItem6});
+                                                }
+
+                                                _selectDatabaseChangeResource(0);
+                                                _languageSelect(MyLib._myGlobal._language);
+
+
+
+                                            }
                                         }
                                     }
                                 }

@@ -5132,7 +5132,7 @@
             treeNode974.Tag = "&singhareport&&1&&2&&12&&13&&3&";
             treeNode974.Text = "Real Time";
             treeNode975.Name = "menu_saletools_customer_gps_by_salesman";
-            treeNode975.Tag = "&singhareport&&1&&2&&12&&13&&3&&hide&";
+            treeNode975.Tag = "&singhareport&&1&&2&&12&&13&&3&";
             treeNode975.Text = "Customer GPS by salesman";
             treeNode976.Name = "menu_saletools_aap_analysis";
             treeNode976.Tag = "&singhareport&&1&&2&&12&&13&&3&";

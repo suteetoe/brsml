@@ -124,14 +124,14 @@
             this._myGroupBox2.Size = new System.Drawing.Size(279, 73);
             this._myGroupBox2.TabIndex = 1;
             this._myGroupBox2.TabStop = false;
-            this._myGroupBox2.Text = "รูปแบบการแสดง";
+            this._myGroupBox2.Text = "view_by";
             // 
             // _viewByList
             // 
             this._viewByList.AutoSize = true;
             this._viewByList.Location = new System.Drawing.Point(6, 43);
             this._viewByList.Name = "_viewByList";
-            this._viewByList.Size = new System.Drawing.Size(41, 17);
+            this._viewByList.Size = new System.Drawing.Size(43, 18);
             this._viewByList.TabIndex = 1;
             this._viewByList.Text = "List";
             this._viewByList.CheckedChanged += new System.EventHandler(this._viewByList_CheckedChanged);
@@ -142,7 +142,7 @@
             this._viewByIcon.Checked = true;
             this._viewByIcon.Location = new System.Drawing.Point(6, 20);
             this._viewByIcon.Name = "_viewByIcon";
-            this._viewByIcon.Size = new System.Drawing.Size(46, 17);
+            this._viewByIcon.Size = new System.Drawing.Size(49, 18);
             this._viewByIcon.TabIndex = 0;
             this._viewByIcon.TabStop = true;
             this._viewByIcon.Text = "Icon";
@@ -171,7 +171,7 @@
             this._myGroupBox1.Size = new System.Drawing.Size(279, 236);
             this._myGroupBox1.TabIndex = 0;
             this._myGroupBox1.TabStop = false;
-            this._myGroupBox1.Text = "รายละเอียด";
+            this._myGroupBox1.Text = "detail";
             // 
             // _deviceTextBox
             // 
@@ -189,7 +189,7 @@
             this._myLabel1.ResourceName = "device";
             this._myLabel1.Size = new System.Drawing.Size(65, 13);
             this._myLabel1.TabIndex = 13;
-            this._myLabel1.Text = "Device";
+            this._myLabel1.Text = "device";
             this._myLabel1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // _myFlowLayoutPanel1
@@ -206,19 +206,20 @@
             // 
             // _updateButton
             // 
+            this._updateButton._drawNewMethod = false;
             this._updateButton.AutoSize = true;
             this._updateButton.BackColor = System.Drawing.Color.Transparent;
-            this._updateButton.ButtonText = "ปรับปรุง";
-            this._updateButton.Location = new System.Drawing.Point(196, 0);
+            this._updateButton.ButtonText = "update";
+            this._updateButton.Location = new System.Drawing.Point(199, 0);
             this._updateButton.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this._updateButton.myImage = global::MyLib.Resource16x16.nav_up_blue;
             this._updateButton.myTextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this._updateButton.myUseVisualStyleBackColor = false;
             this._updateButton.Name = "_updateButton";
             this._updateButton.ResourceName = "update";
-            this._updateButton.Size = new System.Drawing.Size(76, 24);
+            this._updateButton.Size = new System.Drawing.Size(73, 24);
             this._updateButton.TabIndex = 6;
-            this._updateButton.Text = "ปรับปรุง";
+            this._updateButton.Text = "update";
             this._updateButton.UseVisualStyleBackColor = false;
             this._updateButton.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -231,7 +232,7 @@
             this.label1.ResourceName = "code";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "รหัส";
+            this.label1.Text = "code";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // _code
@@ -265,7 +266,7 @@
             this.label4.ResourceName = "password";
             this.label4.Size = new System.Drawing.Size(65, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "รหัสผ่าน";
+            this.label4.Text = "password";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
@@ -278,7 +279,7 @@
             this.label2.ResourceName = "name";
             this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "ชื่อ";
+            this.label2.Text = "name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label3
@@ -290,7 +291,7 @@
             this.label3.ResourceName = "level";
             this.label3.Size = new System.Drawing.Size(65, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "ระดับ";
+            this.label3.Text = "level";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // _levelComboBox
@@ -312,19 +313,20 @@
             this._userRadio.Location = new System.Drawing.Point(29, 179);
             this._userRadio.Name = "_userRadio";
             this._userRadio.ResourceName = "is_user";
-            this._userRadio.Size = new System.Drawing.Size(77, 18);
+            this._userRadio.Size = new System.Drawing.Size(62, 18);
             this._userRadio.TabIndex = 6;
-            this._userRadio.Text = "ให้เป็นผู้ใช้";
+            this._userRadio.Text = "is_user";
             // 
             // _active
             // 
+            this._active._isQuery = true;
             this._active.AutoSize = true;
             this._active.Location = new System.Drawing.Point(75, 92);
             this._active.Name = "_active";
             this._active.ResourceName = "login_active";
-            this._active.Size = new System.Drawing.Size(95, 18);
+            this._active.Size = new System.Drawing.Size(90, 18);
             this._active.TabIndex = 4;
-            this._active.Text = "เข้าใช้ระบบได้";
+            this._active.Text = "login_active";
             // 
             // _groupRadio
             // 
@@ -332,9 +334,9 @@
             this._groupRadio.Location = new System.Drawing.Point(152, 179);
             this._groupRadio.Name = "_groupRadio";
             this._groupRadio.ResourceName = "is_group";
-            this._groupRadio.Size = new System.Drawing.Size(78, 18);
+            this._groupRadio.Size = new System.Drawing.Size(71, 18);
             this._groupRadio.TabIndex = 7;
-            this._groupRadio.Text = "ให้เป็นกลุ่ม";
+            this._groupRadio.Text = "is_group";
             // 
             // toolStrip1
             // 
@@ -361,8 +363,8 @@
             this._buttonSave.Name = "_buttonSave";
             this._buttonSave.Padding = new System.Windows.Forms.Padding(1);
             this._buttonSave.ResourceName = "save_and_close";
-            this._buttonSave.Size = new System.Drawing.Size(131, 22);
-            this._buttonSave.Text = "บันทึกพร้อมปิดหน้าจอ";
+            this._buttonSave.Size = new System.Drawing.Size(109, 22);
+            this._buttonSave.Text = "save_and_close";
             this._buttonSave.Click += new System.EventHandler(this._buttonSave_Click);
             // 
             // toolStripSeparator2
@@ -377,8 +379,8 @@
             this._buttonNewGroup.Name = "_buttonNewGroup";
             this._buttonNewGroup.Padding = new System.Windows.Forms.Padding(1);
             this._buttonNewGroup.ResourceName = "new_group";
-            this._buttonNewGroup.Size = new System.Drawing.Size(89, 22);
-            this._buttonNewGroup.Text = "เพิ่มกลุ่มใหม่";
+            this._buttonNewGroup.Size = new System.Drawing.Size(88, 22);
+            this._buttonNewGroup.Text = "new_group";
             this._buttonNewGroup.Click += new System.EventHandler(this._buttonNewGroup_Click);
             // 
             // _buttonNewUser
@@ -388,8 +390,8 @@
             this._buttonNewUser.Name = "_buttonNewUser";
             this._buttonNewUser.Padding = new System.Windows.Forms.Padding(1);
             this._buttonNewUser.ResourceName = "new_user";
-            this._buttonNewUser.Size = new System.Drawing.Size(88, 22);
-            this._buttonNewUser.Text = "เพิ่มรหัสผู้ใช้";
+            this._buttonNewUser.Size = new System.Drawing.Size(78, 22);
+            this._buttonNewUser.Text = "new_user";
             this._buttonNewUser.Click += new System.EventHandler(this._buttonNewUser_Click);
             // 
             // _buttonDelete
@@ -399,8 +401,8 @@
             this._buttonDelete.Name = "_buttonDelete";
             this._buttonDelete.Padding = new System.Windows.Forms.Padding(1);
             this._buttonDelete.ResourceName = "delete_list";
-            this._buttonDelete.Size = new System.Drawing.Size(109, 22);
-            this._buttonDelete.Text = "ลบรายการที่เลือก";
+            this._buttonDelete.Size = new System.Drawing.Size(81, 22);
+            this._buttonDelete.Text = "delete_list";
             this._buttonDelete.Click += new System.EventHandler(this._buttonDelete_Click);
             // 
             // toolStripSeparator1
@@ -415,8 +417,8 @@
             this._buttonExit.Name = "_buttonExit";
             this._buttonExit.Padding = new System.Windows.Forms.Padding(1);
             this._buttonExit.ResourceName = "screen_close";
-            this._buttonExit.Size = new System.Drawing.Size(75, 22);
-            this._buttonExit.Text = "ปิดหน้าจอ";
+            this._buttonExit.Size = new System.Drawing.Size(95, 22);
+            this._buttonExit.Text = "screen_close";
             this._buttonExit.Click += new System.EventHandler(this._buttonExit_Click);
             // 
             // _userAndGroup
