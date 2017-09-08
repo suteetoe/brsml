@@ -34,6 +34,12 @@ namespace SMLERPIC
                         " and ic_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=1)");
                 //
                 __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_trans_detail set average_cost_1 = 0 where average_cost_1 is null ");
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_wms_trans_detail set stand_value=(select stand_value from ic_unit_use where ic_unit_use.ic_code=ic_wms_trans_detail.item_code and ic_unit_use.code=ic_wms_trans_detail.unit_code) " +
+                        " where stand_value<>(select stand_value from ic_unit_use where ic_unit_use.ic_code=ic_wms_trans_detail.item_code and ic_unit_use.code=ic_wms_trans_detail.unit_code) " +
+                        " and ic_wms_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=1)");
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_wms_trans_detail set divide_value=(select divide_value from ic_unit_use where ic_unit_use.ic_code=ic_wms_trans_detail.item_code and ic_unit_use.code=ic_wms_trans_detail.unit_code) " +
+                        " where divide_value<>(select divide_value from ic_unit_use where ic_unit_use.ic_code=ic_wms_trans_detail.item_code and ic_unit_use.code=ic_wms_trans_detail.unit_code) " +
+                        " and ic_wms_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=1)");
 
                 SMLERPGlobal._smlFrameWork __smlFrameWork = new SMLERPGlobal._smlFrameWork();
                 string __query = "select " + _g.d.ic_inventory._code + " from " + _g.d.ic_inventory._table + " where " + _g.d.ic_inventory._item_type + "<>5 order by " + _g.d.ic_inventory._code;
@@ -43,6 +49,8 @@ namespace SMLERPIC
                 {
                     __itemList.Add(__item.Rows[__row][_g.d.ic_inventory._code].ToString());
                 }
+                
+
                 if (__itemList.Count > 0)
                 {
                     int __count = 0;
