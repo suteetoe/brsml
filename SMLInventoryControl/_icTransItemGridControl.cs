@@ -6650,7 +6650,8 @@ namespace SMLInventoryControl
             {
                 if (itemCode.Length > 0)
                 {
-                    if (((barCode.Length > 0) || MyLib._myGlobal._OEMVersion.Equals("ais") || MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore) && _g.g._companyProfile._sync_wbservice_url.Trim().Length > 0 && _g.g._companyProfile._sync_product)
+                    if ((barCode.Length > 0 && _g.g._companyProfile._sync_wbservice_url.Trim().Length > 0 && _g.g._companyProfile._sync_product )
+                        || MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL"))
                     {
                         SMLProcess._syncClass __sync = new SMLProcess._syncClass();
                         string __findBarcode = (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore) ? itemCode : barCode;
@@ -6697,7 +6698,7 @@ namespace SMLInventoryControl
                     {
                         if (this._importWorking == false)
                         {
-                            if (MyLib._myGlobal._OEMVersion.Equals("ais"))
+                            if (MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL"))
                             {
                                 if (MessageBox.Show(MyLib._myGlobal._resource("ไม่พบรหัสสินค้า ทำการเพิ่มรายละเอียดสินค้าหรือไม่") + " : " + itemCode, "เตือน", MessageBoxButtons.YesNo) == DialogResult.Yes)
                                 {

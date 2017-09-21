@@ -170,7 +170,7 @@ namespace SMLERPIC
                 {
                     bool __found = false;
 
-                    if (MyLib._myGlobal._OEMVersion.Equals("ais") || ( _g.g._companyProfile._sync_wbservice_url.Trim().Length > 0 && _g.g._companyProfile._sync_product))
+                    if (MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL") || ( _g.g._companyProfile._sync_wbservice_url.Trim().Length > 0 && _g.g._companyProfile._sync_product))
                     {
 
                         SMLProcess._syncClass __sync = new SMLProcess._syncClass();

@@ -1516,6 +1516,46 @@ namespace _g
             /// ผู้รับ
             /// </summary>
             public static String _arm_send_ar_change_to = "arm_send_ar_change_to";
+            /// <summary>
+            /// ใช้ราคาแยกภาษีกรณีซื้อสินค้าภาษีศูนย์
+            /// </summary>
+            public static String _purchase_zero_vat_use_price1 = "purchase_zero_vat_use_price1";
+            /// <summary>
+            /// เสนอซื้อสินค้าแสดงช่องคลัง/ที่เก็บ
+            /// </summary>
+            public static String _pr_wh_shelf = "pr_wh_shelf";
+            /// <summary>
+            /// ลดหนี้ต้องอ้างอิงเอกสารทุกครั้ง
+            /// </summary>
+            public static String _cn_request_doc_ref = "cn_request_doc_ref";
+            /// <summary>
+            /// ตรวจสอบการป้อนเขตขนส่งกรณีส่งให้
+            /// </summary>
+            public static String _send_area_check = "send_area_check";
+            /// <summary>
+            /// ระบบซื้อ
+            /// </summary>
+            public static String _tab_pu = "tab_pu";
+            /// <summary>
+            /// ระบบ E-Order
+            /// </summary>
+            public static String _tab_eorder = "tab_eorder";
+            /// <summary>
+            /// ใช้ระบบ SML E-Order
+            /// </summary>
+            public static String _use_sml_eorder = "use_sml_eorder";
+            /// <summary>
+            /// SML E-Order API Key
+            /// </summary>
+            public static String _sml_eorder_api_key = "sml_eorder_api_key";
+            /// <summary>
+            /// ตรวจสอบสถานะการพิมพ์ใบสั่งจอง
+            /// </summary>
+            public static String _check_status_sr_print = "check_status_sr_print";
+            /// <summary>
+            /// จุดทศนิยมอัตราแลกเปลี่ยน
+            /// </summary>
+            public static String _exchange_rate_decimal = "exchange_rate_decimal";
         }
 
         /// <summary>
@@ -3360,6 +3400,10 @@ namespace _g
             /// เพิ่มเอง
             /// </summary>
             public static String _manual_add = "manual_add";
+            /// <summary>
+            /// เป็นเอกสารออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
         }
 
         /// <summary>
@@ -4679,6 +4723,10 @@ namespace _g
             /// มิติ 10
             /// </summary>
             public static String _dimension_10 = "dimension_10";
+            /// <summary>
+            /// ระยะเวลาสั่งสินค้า
+            /// </summary>
+            public static String _lead_time = "lead_time";
         }
 
         /// <summary>
@@ -7079,6 +7127,26 @@ namespace _g
             /// ไม่คำณวนปิดสถานะเครดิต
             /// </summary>
             public static String _disable_auto_close_credit = "disable_auto_close_credit";
+            /// <summary>
+            /// อ้างอิงรหัสเจ้าหนี้
+            /// </summary>
+            public static String _ap_code_ref = "ap_code_ref";
+            /// <summary>
+            /// ประเภทการขาย
+            /// </summary>
+            public static String _sale_type = "sale_type";
+            /// <summary>
+            /// ไม่เลือก
+            /// </summary>
+            public static String _sale_type_0 = "sale_type_0";
+            /// <summary>
+            /// ขายสด
+            /// </summary>
+            public static String _sale_type_1 = "sale_type_1";
+            /// <summary>
+            /// ขายเชื่อ
+            /// </summary>
+            public static String _sale_type_2 = "sale_type_2";
         }
 
         /// <summary>
@@ -11623,6 +11691,14 @@ namespace _g
             /// แยกแผนก
             /// </summary>
             public static String _department_split = "department_split";
+            /// <summary>
+            /// ค่าเสื่อมสะสม
+            /// </summary>
+            public static String _sum_depreciate = "sum_depreciate";
+            /// <summary>
+            /// มูลค่ายกมา
+            /// </summary>
+            public static String _as_come_value = "as_come_value";
         }
 
         /// <summary>
@@ -15939,6 +16015,22 @@ namespace _g
             /// ปรับปรุงปิดสินค้า
             /// </summary>
             public static String _adjust_end_product = "adjust_end_product";
+            /// <summary>
+            /// เป็นเอกสารที่ออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
+            /// <summary>
+            /// เหตุผล
+            /// </summary>
+            public static String _doc_reason = "doc_reason";
+            /// <summary>
+            /// เหตุผลการลดหนี้
+            /// </summary>
+            public static String _cn_reason = "cn_reason";
+            /// <summary>
+            /// เหตุผลการเพิ่มหนี้
+            /// </summary>
+            public static String _dn_reason = "dn_reason";
         }
 
         /// <summary>
@@ -17705,6 +17797,10 @@ namespace _g
             /// กำไรขาดทุน
             /// </summary>
             public static String _profit_lost_cost_amount = "profit_lost_cost_amount";
+            /// <summary>
+            /// เป็นเอกสารที่ออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
         }
 
         /// <summary>
@@ -18959,6 +19055,18 @@ namespace _g
             /// วันที่ใบเสร็จ
             /// </summary>
             public static String _receipt_doc_date = "receipt_doc_date";
+            /// <summary>
+            /// มูลค่าทั้งสิ้น
+            /// </summary>
+            public static String _total_net_value_2 = "total_net_value_2";
+            /// <summary>
+            /// มูลค่าตามอัตราแลกเปลี่ยนเดิม
+            /// </summary>
+            public static String _total_net_value_old = "total_net_value_old";
+            /// <summary>
+            /// ผลต่างจากอัตราแลกเปลี่ยน
+            /// </summary>
+            public static String _lost_profit_exchange_amount = "lost_profit_exchange_amount";
         }
 
         /// <summary>
@@ -19242,6 +19350,26 @@ namespace _g
             /// วันที่ใบเสร็จ
             /// </summary>
             public static String _receipt_doc_date = "receipt_doc_date";
+            /// <summary>
+            /// จำนวนเงิน
+            /// </summary>
+            public static String _sum_debt_amount_2 = "sum_debt_amount_2";
+            /// <summary>
+            /// ยอดคงเหลือ
+            /// </summary>
+            public static String _balance_ref_2 = "balance_ref_2";
+            /// <summary>
+            /// ยอดชำระ
+            /// </summary>
+            public static String _sum_pay_money_2 = "sum_pay_money_2";
+            /// <summary>
+            /// กำไรขาดทุนจากอัตราแลกเปลี่ยน
+            /// </summary>
+            public static String _lost_profit_exchange_amount = "lost_profit_exchange_amount";
+            /// <summary>
+            /// อัตราแลกเปลี่ยนเดิม
+            /// </summary>
+            public static String _exchange_rate_old = "exchange_rate_old";
         }
 
         /// <summary>
@@ -19473,6 +19601,10 @@ namespace _g
             /// รับเงิน
             /// </summary>
             public static String _receive_money = "receive_money";
+            /// <summary>
+            /// เป็นเอกสารออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
         }
 
         /// <summary>
@@ -19724,6 +19856,10 @@ namespace _g
             /// ชื่อสกุลเงิน
             /// </summary>
             public static String _currency_name = "currency_name";
+            /// <summary>
+            /// เป็นเอกสารออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
         }
 
         /// <summary>
@@ -26215,6 +26351,10 @@ namespace _g
             /// ห้ามขายสินค้าราคาศูนย์
             /// </summary>
             public static String _disable_sale_no_price = "disable_sale_no_price";
+            /// <summary>
+            /// ไม่พิมพ์เอกสารยกเลิกใบเสร็จ
+            /// </summary>
+            public static String _disable_print_cancel_doc = "disable_print_cancel_doc";
         }
 
         /// <summary>
@@ -35540,6 +35680,80 @@ namespace _g
             /// Line Number
             /// </summary>
             public static String _line_number = "line_number";
+        }
+
+        /// <summary>
+        /// sml_image_document
+        /// </summary>
+        public class sml_image_document
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "sml_image_document";
+            /// <summary>
+            /// รหัสรูปภาพ
+            /// </summary>
+            public static String _image_id = "image_id";
+            /// <summary>
+            /// ไฟล์ภาพ
+            /// </summary>
+            public static String _image_file = "image_file";
+            /// <summary>
+            /// ระบบ
+            /// </summary>
+            public static String _system_id = "system_id";
+            /// <summary>
+            /// GUID
+            /// </summary>
+            public static String _guid = "guid";
+            /// <summary>
+            /// Latitude
+            /// </summary>
+            public static String _latitude = "latitude";
+            /// <summary>
+            /// Longtitude
+            /// </summary>
+            public static String _longitude = "longitude";
+            /// <summary>
+            /// หมายเลขเครื่อง
+            /// </summary>
+            public static String _mac_address = "mac_address";
+            /// <summary>
+            /// รหัสพนักงาน
+            /// </summary>
+            public static String _user_code = "user_code";
+            /// <summary>
+            /// อ้างอิงเอกสารเลขที่
+            /// </summary>
+            public static String _refer_doc_no = "refer_doc_no";
+            /// <summary>
+            /// อ้างอิงเอกสารวันที่
+            /// </summary>
+            public static String _refer_trans_flag = "refer_trans_flag";
+        }
+
+        /// <summary>
+        /// กำหนดสาเหตุลดหนี้ เพิ่มหนี้
+        /// </summary>
+        public class erp_cn_reason
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "erp_cn_reason";
+            /// <summary>
+            /// รหัสเหตุผล
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ประเภทลดหนี้
+            /// </summary>
+            public static String _cn_type = "cn_type";
+            /// <summary>
+            /// เหตุผล
+            /// </summary>
+            public static String _name_1 = "name_1";
         }
     }
 }

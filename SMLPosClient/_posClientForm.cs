@@ -16541,7 +16541,7 @@ namespace SMLPosClient
         {
             MyLib._myGrid __source = (MyLib._myGrid)sender;
             this._reset();
-            if (this._findCust(this._holdBill[row]._custCode)== false)
+            if (this._findCust(this._holdBill[row]._custCode) == false)
             {
                 this._findAr(this._holdBill[row]._custCode);
             }
@@ -21291,6 +21291,8 @@ namespace SMLPosClient
                                                                 }
                                                             }
                                                         }
+
+
                                                         #endregion
 
                                                         // ค้นหาสมาชิก
@@ -21391,6 +21393,20 @@ namespace SMLPosClient
                                                                         __isOrderNumber = true;
                                                                         this._orderList.Add(__orderDocNo.ToUpper());
                                                                     }
+                                                                }
+                                                            }
+                                                        }
+
+                                                        if (__isCustCode == false && __isProduct == false && __isSaleCode == false && __isOrderNumber == false && __barCode.Length > 0)
+                                                        {
+                                                            if (MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL"))
+                                                            {
+                                                                SMLProcess._syncClass __sync = new SMLProcess._syncClass();
+                                                                //string __findBarcode = (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore) ? itemCode : barCode;
+                                                                if (__sync._findProduct(__barCode))
+                                                                {
+                                                                    this._command(source, "");
+                                                                    __isProduct = true;
                                                                 }
                                                             }
                                                         }

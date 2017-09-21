@@ -41,7 +41,7 @@ namespace SMLProcess
 
             try
             {
-                string __webServiceURL = (MyLib._myGlobal._OEMVersion.Equals("ais")) ? MyLib._myGlobal._masterWebservice : _g.g._companyProfile._sync_wbservice_url;
+                string __webServiceURL = (MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL")) ? MyLib._myGlobal._masterWebservice : _g.g._companyProfile._sync_wbservice_url;
 
                 MyLib._myFrameWork __myFrameWorkLocal = new MyLib._myFrameWork();
                 MyLib._myFrameWork __myFrameWorkMaster = new MyLib._myFrameWork(__webServiceURL, __masterProviderName, MyLib._myGlobal._databaseType.PostgreSql);
@@ -159,7 +159,7 @@ namespace SMLProcess
             string __masterProviderName = (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore) ? "SMLConfig" + _g.g._companyProfile._sync_provider_code.ToUpper() + ".xml" : "SMLConfigSMLMASTER.xml";
             try
             {
-                string __webServiceURL = (MyLib._myGlobal._OEMVersion.Equals("ais")) ? MyLib._myGlobal._masterWebservice : _g.g._companyProfile._sync_wbservice_url;
+                string __webServiceURL = (MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL")) ? MyLib._myGlobal._masterWebservice : _g.g._companyProfile._sync_wbservice_url;
 
                 MyLib._myFrameWork __myFrameWorkLocal = new MyLib._myFrameWork();
                 MyLib._myFrameWork __myFrameWorkMaster = new MyLib._myFrameWork(__webServiceURL, __masterProviderName, MyLib._myGlobal._databaseType.PostgreSql);
