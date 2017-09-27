@@ -4153,6 +4153,7 @@ namespace SMLInventoryControl
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __wareHouseCode, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __shelfCode, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._total_qty, __qty, false);
+                                        this._icTransScreenTop._enabedControl(_g.d.ic_trans._cust_code, false);
                                     }
                                 }
                                 this._searchUnitNameWareHouseNameShelfNameAll();
@@ -4200,6 +4201,7 @@ namespace SMLInventoryControl
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._total_qty, __qty, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._ref_row, __lineNumber, true);
+                                        this._icTransScreenTop._enabedControl(_g.d.ic_trans._cust_code, false);
                                     }
                                 }
                                 this._searchUnitNameWareHouseNameShelfNameAll();
@@ -6650,7 +6652,7 @@ namespace SMLInventoryControl
             {
                 if (itemCode.Length > 0)
                 {
-                    if ((barCode.Length > 0 && _g.g._companyProfile._sync_wbservice_url.Trim().Length > 0 && _g.g._companyProfile._sync_product )
+                    if ((barCode.Length > 0 && _g.g._companyProfile._sync_wbservice_url.Trim().Length > 0 && _g.g._companyProfile._sync_product)
                         || MyLib._myGlobal._programName.ToUpper().Equals("POS-RETAIL"))
                     {
                         SMLProcess._syncClass __sync = new SMLProcess._syncClass();
@@ -8978,7 +8980,17 @@ namespace SMLInventoryControl
                                 return;
                             }
                             break;
+                        case _g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก:
+                            {
+                                decimal __qty = (decimal)this._cellGet(row, __qtyColumnNumber);
+                                if (__qty < 0)
+                                {
+                                    MessageBox.Show(MyLib._myGlobal._resource("ห้ามฝากสินค้าจำนวนติดลบ"), MyLib._myGlobal._resource("เตือน"), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    this._cellUpdate(row, __qtyColumnNumber, 0M, false);
+                                }
 
+                            }
+                            break;
                     }
                 }
 

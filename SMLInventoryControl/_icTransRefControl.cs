@@ -1241,7 +1241,7 @@ namespace SMLInventoryControl
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                     __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.สินค้า_ขอโอน);
                     __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_ขอโอน);
-                    __extraWhere = " and " + _g.d.ic_trans._doc_success + "=0 ";
+                    __extraWhere = " and " + _g.d.ic_trans._doc_success + "=0 and " + _g.d.ic_trans._last_status + "=0 ";
                     break;
 
             }

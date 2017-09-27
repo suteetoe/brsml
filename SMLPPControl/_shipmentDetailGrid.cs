@@ -217,8 +217,10 @@ namespace SMLPPControl
                                         break;
                                 }
 
-
-
+                                if (_g.g._companyProfile._show_branch_doc_only && _g.g._companyProfile._change_branch_code == false)
+                                {
+                                    __extraWhere.Append(" and " + _g.d.ic_trans._branch_code + "=\'" + _g.g._companyProfile._branch_code + "\'");
+                                }
 
                                 //this._searchMaster._dataList.first
                                 this._searchMaster._name = __screenName;

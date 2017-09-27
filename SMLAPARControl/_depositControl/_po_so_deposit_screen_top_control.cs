@@ -761,28 +761,28 @@ namespace SMLERPAPARControl._depositControl
                         {
                             string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ).ToString();
                             string __transType = _g.g._transTypeGlobal._transType(_g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ).ToString();
-                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag;
+                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag + " and " + _g.d.ic_trans._last_status + "=0 and " + _g.d.ic_trans._doc_success + "=0 ";
                         }
                         break;
                     case _g.g._transControlTypeEnum.ขาย_เงินล่วงหน้า_คืน:
                         {
                             string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า).ToString();
                             string __transType = _g.g._transTypeGlobal._transType(_g.g._transControlTypeEnum.ขาย_เงินล่วงหน้า_คืน).ToString();
-                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag;
+                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag + " and " + _g.d.ic_trans._last_status + "=0 and " + _g.d.ic_trans._doc_success + "=0 ";
                         }
                         break;
                     case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า_รับคืน:
                         {
                             string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า).ToString();
                             string __transType = _g.g._transTypeGlobal._transType(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า).ToString();
-                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag;
+                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag + " and " + _g.d.ic_trans._last_status + "=0 and " + _g.d.ic_trans._doc_success + "=0 ";
                         }
                         break;
                     case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ_รับคืน:
                         {
                             string __transFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ).ToString();
                             string __transType = _g.g._transTypeGlobal._transType(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ).ToString();
-                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag;
+                            __where_query = _g.d.ic_trans._trans_type + "=" + __transType + " and " + _g.d.ic_trans._trans_flag + "=" + __transFlag + " and " + _g.d.ic_trans._last_status + "=0 and " + _g.d.ic_trans._doc_success + "=0 ";
                         }
                         break;
                 }

@@ -456,6 +456,7 @@ namespace SMLInventoryControl
                                                 }
                                                 this._icTransItemGrid._searchUnitNameWareHouseNameShelfNameAll();
 
+                                                this._icTransScreenTop._enabedControl(_g.d.ic_trans._cust_code, false);
                                             }
                                             else
                                             {
@@ -504,7 +505,7 @@ namespace SMLInventoryControl
                                                     this._icTransItemGrid._cellUpdate(__addr, _g.d.ic_trans_detail._qty, MyLib._myGlobal._decimalPhase(__detail[_g.d.ic_trans_detail._qty].ToString()), false);
                                                 }
                                                 this._icTransItemGrid._searchUnitNameWareHouseNameShelfNameAll();
-
+                                                this._icTransScreenTop._enabedControl(_g.d.ic_trans._cust_code, false);
                                             }
                                             else
                                             {

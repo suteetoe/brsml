@@ -1834,6 +1834,8 @@ namespace SMLProcess
                                     "select ref_doc_no as doc_no from ic_trans_detail as doc_ref where doc_ref.ref_doc_no = ic_trans.doc_no and doc_ref.trans_flag in (46,48) and doc_ref.last_status=0 " +
                                     " union all " +
                                     " select doc_no from ic_trans_detail as r2 where r2.doc_ref = ic_trans.doc_no and r2.trans_flag in (410,411) and r2.last_status=0 " +
+                                    " union all " +
+                                    " select doc_no from ic_wms_trans as r3 where r3.doc_ref = ic_trans.doc_no and r3.trans_flag in (521) and r3.last_status=0 " +
                                     ") as r3 )";
                                 __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
 

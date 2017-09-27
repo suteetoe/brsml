@@ -1430,6 +1430,10 @@ namespace SMLERPAPARControl._depositControl
                 string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __myQuery.ToString());
                 if (__result.Length == 0)
                 {
+                    string __docNoList = "";
+                    __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+                    __docNoList = this._docNoAdd(__docNoList, this._screenTop._getDataStr(_g.d.ic_trans._doc_ref));
+
                     _g.g._companyProfileLoad();
                     if (__processControl != null && __glManual == false && _g.g._companyProfile._gl_process_realtime == true) // (this._myManageData1._mode == 1 && _g.g._companyProfile._gl_process_realtime)
                     {
@@ -1444,7 +1448,7 @@ namespace SMLERPAPARControl._depositControl
                     }
 
                     SMLProcess._docFlow __process = new SMLProcess._docFlow();
-                    __process._processAll(_g.g._transControlTypeEnum.ว่าง, "", "");
+                    __process._processAll(this._icTransControlType, "", __docNoList);
                     //
                     MyLib._myGlobal._displayWarning(1, null);
                     this._screenTop._isChange = false;
@@ -1607,6 +1611,7 @@ namespace SMLERPAPARControl._depositControl
         {
             string __docNoList = "";
             __docNoList = this._docNoAdd(__docNoList, this._oldDocNo);
+            __docNoList = this._docNoAdd(__docNoList, this._screenTop._getDataStr(_g.d.ic_trans._doc_ref));
 
             // get ref doc and add to __docNoList
             //if (this._oldDocRef.Length > 0)

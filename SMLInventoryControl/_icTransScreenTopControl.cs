@@ -2054,9 +2054,13 @@ namespace SMLInventoryControl
                     }
                 }
             }
-            else
-                if (name.Equals(_g.d.ic_trans._doc_no))
+            else if (name.Equals(_g.d.ic_trans._doc_no))
             {
+                if (this._getDataStr(_g.d.ic_trans._tax_doc_date).ToString().Length == 0)
+                {
+                    this._setDataDate(_g.d.ic_trans._tax_doc_date, (this._getDataDate(_g.d.ic_trans._doc_date)));
+                }
+
                 // ต้องป้อนตัวหน้าก่อน เพื่อจะหารูปแบบเอกสาร
                 string __docNo = this._getDataStr(_g.d.ic_trans._doc_no);
                 string __docType = __docNo;
@@ -2149,15 +2153,15 @@ namespace SMLInventoryControl
                 }*/
             }
             else
-                    if (name.Equals(_g.d.ic_trans._doc_group) || name.Equals(_g.d.ic_trans._doc_ref) || name.Equals(_g.d.ic_trans._sale_code) || name.Equals(_g.d.ic_trans._sale_group) ||
-                        name.Equals(_g.d.ic_trans._department_code) || name.Equals(_g.d.ic_trans._adjust_reason))
+     if (name.Equals(_g.d.ic_trans._doc_group) || name.Equals(_g.d.ic_trans._doc_ref) || name.Equals(_g.d.ic_trans._sale_code) || name.Equals(_g.d.ic_trans._sale_group) ||
+         name.Equals(_g.d.ic_trans._department_code) || name.Equals(_g.d.ic_trans._adjust_reason))
             {
                 this._searchTextBox = (TextBox)sender;
                 this._searchName = __getControl._label._field_name;
                 this._search(true);
             }
             else
-                        if (__getControl._name.Equals(_g.d.ic_trans._expire_day))
+         if (__getControl._name.Equals(_g.d.ic_trans._expire_day))
             {
                 if (this._getDataNumber(_g.d.ic_trans._expire_day) > 0)
                 {
@@ -2170,7 +2174,7 @@ namespace SMLInventoryControl
                 }
             }
             else
-                            if (__getControl._name.Equals(_g.d.ic_trans._expire_date))
+             if (__getControl._name.Equals(_g.d.ic_trans._expire_date))
             {
                 DateTime dDate = MyLib._myGlobal._convertDate(this._getDataStr(_g.d.ic_trans._doc_date));
                 if ((dDate.Year > 1979))
@@ -2180,8 +2184,8 @@ namespace SMLInventoryControl
                 }
             }
             else
-                                //somruk
-                                if (__getControl._name.Equals(_g.d.ic_trans._doc_format_code))
+                 //somruk
+                 if (__getControl._name.Equals(_g.d.ic_trans._doc_format_code))
             {
                 string __docNo = this._getDataStr(_g.d.ic_trans._doc_format_code);
                 DataTable __getFormat = __myFrameWork._queryShort("select " + _g.d.erp_doc_format._format + "," + _g.d.erp_doc_format._code + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + "=\'" + __docNo + "\'").Tables[0];
@@ -4110,7 +4114,8 @@ namespace SMLInventoryControl
                         {
                             __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchArName));
                         }
-                        else {
+                        else
+                        {
                             __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(__querySearchApName));
                         }
                         __tableCount++;
