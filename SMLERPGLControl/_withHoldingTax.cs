@@ -472,7 +472,7 @@ namespace SMLERPGLControl
             decimal __taxRate = MyLib._myGlobal._decimalPhase(this._detailGrid._cellGet(row, _g.d.gl_wht_list_detail._tax_rate).ToString());
             decimal __taxValue = MyLib._myGlobal._decimalPhase(this._detailGrid._cellGet(row, _g.d.gl_wht_list_detail._tax_value).ToString());
             // กรณี อยู่ช่อง tax_value
-            if (column == this._detailGrid._findColumnByName(_g.d.gl_wht_list_detail._tax_value))
+            if (column == this._detailGrid._findColumnByName(_g.d.gl_wht_list_detail._tax_value) && __taxRate == 0)
             {
                 decimal __taxRateNew = (__amount == 0) ? 0M : ((__taxValue * 100M) / __amount);
                 this._detailGrid._cellUpdate(row, _g.d.gl_wht_list_detail._tax_rate, __taxRateNew, false);
@@ -536,7 +536,7 @@ namespace SMLERPGLControl
                     this._detailGrid._cellUpdate(__addr, _g.d.gl_wht_list_detail._income_type, __objectDetail._incomeType, false);
                     this._detailGrid._cellUpdate(__addr, _g.d.gl_wht_list_detail._amount, __objectDetail._amount, false);
                     this._detailGrid._cellUpdate(__addr, _g.d.gl_wht_list_detail._tax_rate, __objectDetail._taxRate, false);
-                    this._detailGrid._cellUpdate(__addr, _g.d.gl_wht_list_detail._tax_value, __objectDetail._taxValue, true);
+                    this._detailGrid._cellUpdate(__addr, _g.d.gl_wht_list_detail._tax_value, __objectDetail._taxValue, false);
                 }
                 this._refreshData();
                 this._onLoadData = false;
