@@ -1252,6 +1252,61 @@
       <script>
         ALTER TABLE ic_standard_cost  ADD CONSTRAINT ic_standard_cost_pk_ic_standard_cost_pk PRIMARY KEY(ic_code,date_start);
       </script>
+      <script>
+        CREATE OR REPLACE FUNCTION sml_ic_function_stock_balance_location_warehouse_cost(
+        end_date date,
+        item_code_list character varying,
+        warehouse_code_list character varying,
+        location_code_list character varying)
+        RETURNS TABLE(ic_code character varying, ic_name character varying, warehouse character varying, location character varying,balance_qty numeric, average_cost numeric)
+
+
+        AS $BODY$
+
+        declare query_text TEXT;
+        declare item_list_where TEXT;
+        declare warehouse_list_where TEXT;
+        declare location_list_where TEXT;
+
+        begin
+
+        if (length(item_code_list) = 0) then
+        item_list_where := &#39;&#39;;
+        else
+        item_list_where := &#39; where &#39; || gen_code_list(&#39;item_code&#39;,item_code_list);
+        end if;
+
+        if (length(warehouse_code_list) = 0) then
+        warehouse_list_where := &#39;&#39;;
+        else
+        if (length(item_list_where)=0) then
+        warehouse_list_where := &#39; where &#39;;
+        else
+        warehouse_list_where := &#39; and &#39;;
+        end if;
+        warehouse_list_where := warehouse_list_where || gen_code_list(&#39;wh_code&#39;,warehouse_code_list);
+        end if;
+
+        if (length(location_code_list) = 0) then
+        location_list_where := &#39;&#39;;
+        else
+        if (length(item_list_where||warehouse_list_where)=0) then
+        location_list_where := &#39; where &#39;;
+        else
+        location_list_where := &#39; and &#39;;
+        end if;
+        location_list_where := location_list_where || gen_code_list(&#39;shelf_code&#39;,location_code_list);
+        end if;
+
+        query_text = &#39;
+        SELECT item_code AS ic_code, (select name_1 from ic_inventory where ic_inventory.code = item_code) as ic_name, wh_code as warehouse, shelf_code as location, coalesce(balance_qty, 0) as balance_qty, COALESCE ( average_cost, 0 ) as average_cost FROM ( SELECT balance_location.item_code, balance_location.wh_code, balance_location.shelf_code, balance_location.balance_qty, warehouse_avg2.average_cost FROM ( SELECT item_code, wh_code, shelf_code, COALESCE ( SUM( calc_flag * ( CASE WHEN ( trans_flag IN ( 70, 54, 60, 58, 310, 12 ) OR ( trans_flag = 66 AND qty &gt; 0 ) OR ( trans_flag = 14 AND inquiry_type = 0 ) OR ( trans_flag = 48 AND inquiry_type &lt; 2 ) ) OR ( trans_flag IN ( 56, 68, 72, 44 ) OR ( trans_flag = 66 AND qty &lt; 0 ) OR ( trans_flag = 46 AND inquiry_type IN ( 0, 2 ) ) OR ( trans_flag = 16 AND inquiry_type IN ( 0, 2 ) ) OR ( trans_flag = 311 AND inquiry_type = 0 ) ) THEN qty * ( stand_value / divide_value ) ELSE 0 END ) ), 0 ) AS balance_qty, COALESCE ( SUM( calc_flag * ( CASE WHEN ( trans_flag IN ( 70, 54, 60, 58, 310, 12 ) OR ( trans_flag = 66 AND ( qty &gt; 0 OR sum_of_cost &gt; 0 ) ) OR ( trans_flag = 14 ) OR ( trans_flag = 48 AND inquiry_type &lt; 2 ) ) OR ( trans_flag IN ( 56, 68, 72, 44 ) OR ( trans_flag = 66 AND ( qty &lt; 0 OR sum_of_cost &lt; 0 ) ) OR ( trans_flag = 46 ) OR ( trans_flag = 16 ) OR ( trans_flag = 311 AND inquiry_type = 0 ) ) THEN CASE WHEN trans_flag = 66 AND qty &lt; 0 THEN - 1 * sum_of_cost ELSE sum_of_cost END ELSE 0 END ) ), 0 ) AS balance_amount FROM ic_trans_detail WHERE last_status = 0 AND doc_date_calc &lt;= &#39;&#39;&#39;||end_date||&#39;&#39;&#39; AND EXISTS ( SELECT CODE FROM ic_inventory WHERE ic_inventory.CODE = ic_trans_detail.item_code AND ic_inventory.item_type NOT IN ( 3, 5 ) ) GROUP BY item_code, wh_code, shelf_code ) AS balance_location LEFT JOIN ( SELECT item_code, wh_code, balance_qty, balance_amount, ( balance_amount / balance_qty ) AS average_cost FROM ( SELECT item_code, wh_code, COALESCE ( SUM( calc_flag * ( CASE WHEN ( trans_flag IN ( 70, 54, 60, 58, 310, 12 ) OR ( trans_flag = 66 AND qty &gt; 0 ) OR ( trans_flag = 14 AND inquiry_type = 0 ) OR ( trans_flag = 48 AND inquiry_type &lt; 2 ) ) OR ( trans_flag IN ( 56, 68, 72, 44 ) OR ( trans_flag = 66 AND qty &lt; 0 ) OR ( trans_flag = 46 AND inquiry_type IN ( 0, 2 ) ) OR ( trans_flag = 16 AND inquiry_type IN ( 0, 2 ) ) OR ( trans_flag = 311 AND inquiry_type = 0 ) ) THEN qty * ( stand_value / divide_value ) ELSE 0 END ) ), 0 ) AS balance_qty, COALESCE ( SUM( calc_flag * ( CASE WHEN ( trans_flag IN ( 70, 54, 60, 58, 310, 12 ) OR ( trans_flag = 66 AND ( qty &gt; 0 OR sum_of_cost &gt; 0 ) ) OR ( trans_flag = 14 ) OR ( trans_flag = 48 AND inquiry_type &lt; 2 ) ) OR ( trans_flag IN ( 56, 68, 72, 44 ) OR ( trans_flag = 66 AND ( qty &lt; 0 OR sum_of_cost &lt; 0 ) ) OR ( trans_flag = 46 ) OR ( trans_flag = 16 ) OR ( trans_flag = 311 AND inquiry_type = 0 ) ) THEN CASE  WHEN trans_flag = 66 AND qty &lt; 0 THEN - 1 * sum_of_cost ELSE sum_of_cost END ELSE 0 END ) ), 0 ) AS balance_amount FROM ic_trans_detail WHERE last_status = 0 AND doc_date_calc &lt;= &#39;&#39;&#39;||end_date||&#39;&#39;&#39; AND EXISTS ( SELECT CODE FROM ic_inventory WHERE ic_inventory.CODE = ic_trans_detail.item_code AND ic_inventory.item_type NOT IN ( 3, 5 ) ) GROUP BY item_code, wh_code ) AS warehouse_avg WHERE balance_qty &lt;&gt; 0 ) AS warehouse_avg2 ON warehouse_avg2.item_code = balance_location.item_code AND warehouse_avg2.wh_code = balance_location.wh_code ) AS stock_balance_2 &#39;||item_list_where||&#39; &#39;||warehouse_list_where||&#39; &#39;||location_list_where;
+        return query  execute(query_text);
+        end;
+
+        $BODY$
+        LANGUAGE plpgsql VOLATILE;
+      </script>
+
     </postgres>
   </after>
 </node>

@@ -128,8 +128,14 @@ namespace SMLERPGL
                         __query.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal._table + " set " + _g.d.gl_journal._is_pass + "=0 where " + _g.d.gl_journal._doc_no + "=\'" + __docNo + "\'"));
                     }
                 }
-                string __isPassQuery = "(select " + _g.d.gl_journal._is_pass + " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + ")";
-                __query.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=" + __isPassQuery + " where " +_g.d.gl_journal_detail._is_pass +" is null or "+ _g.d.gl_journal_detail._is_pass + "<>" + __isPassQuery));
+                //string __isPassQuery = "(select " + _g.d.gl_journal._is_pass + " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + ")";
+                //__query.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=" + __isPassQuery + " where " +_g.d.gl_journal_detail._is_pass +" is null or "+ _g.d.gl_journal_detail._is_pass + "<>" + __isPassQuery));
+
+
+                string __isPassQuery = "select is_pass from gl_journal where gl_journal.doc_no=gl_journal_detail.doc_no and is_pass = {0}";
+                __query.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=1 where " + _g.d.gl_journal_detail._is_pass + " <> 1 and exists(" + string.Format(__isPassQuery, "1") + ")"));
+                __query.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=0 where " + _g.d.gl_journal_detail._is_pass + " <> 0 and exists(" + string.Format(__isPassQuery, "0") + ") "));
+
                 __query.Append("</node>");
                 string __queryResult = this._myFrameWork._queryList(MyLib._myGlobal._databaseName, __query.ToString());
                 if (__queryResult.Length == 0)

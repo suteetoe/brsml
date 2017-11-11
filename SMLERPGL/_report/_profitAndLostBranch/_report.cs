@@ -172,8 +172,12 @@ namespace SMLERPGL._report._profitAndLostBranch
             if (this._getFromProcess == null)
             {
                 this.Cursor = Cursors.WaitCursor;
-                string __query = "select distinct branch_code,name_1 from (select case when branch_code is null or branch_code='' then 'XERR.' else branch_code end as branch_code,case when branch_code is null or branch_code='' then 'XERR.' else COALESCE((select name_1 from erp_branch_list where erp_branch_list.code=branch_code),'ERR.'||branch_code) end as name_1 from gl_journal_detail) as q1 order by branch_code";
+                //string __query = "select distinct branch_code,name_1 from (select case when branch_code is null or branch_code='' then 'XERR.' else branch_code end as branch_code,case when branch_code is null or branch_code='' then 'XERR.' else COALESCE((select name_1 from erp_branch_list where erp_branch_list.code=branch_code),'ERR.'||branch_code) end as name_1 from gl_journal_detail) as q1 order by branch_code";
+
+                string __query = "select DISTINCT  branch_code, name_1 from (select coalesce(branch_code, '') as branch_code, COALESCE((select name_1 from erp_branch_list where erp_branch_list.code=branch_code),'ERR.'|| coalesce(branch_code, '')) as name_1 from (select DISTINCT branch_code from gl_journal_detail) as q1) as q2";
+
                 DataTable __branchCodeTable = this._myFrameWork._queryShort(__query).Tables[0];
+
                 this._branchList = new List<_g.g._branchListStruct>();
                 for (int __row = 0; __row < __branchCodeTable.Rows.Count; __row++)
                 {

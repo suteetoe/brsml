@@ -2045,7 +2045,8 @@ namespace SMLERPTemplate
 
         public void mainMenuChangeResource(string beginNumber, int runNumber, TreeNode getNode)
         {
-            getNode.Text = String.Format("{0}{1}.{2}", beginNumber, (runNumber + 1), ((this._getResourceMenu) ? MyLib._myResource._findResource(getNode.Name, getNode.Text)._str : getNode.Text));
+            getNode.Text = String.Format("{0}{1}.{2}", beginNumber, (runNumber + 1), ((this._getResourceMenu) ? _getResourceMenuID(getNode.Name, getNode.Text) : getNode.Text));
+            //getNode.Text = String.Format("{0}{1}.{2}", beginNumber, (runNumber + 1), ((this._getResourceMenu) ? MyLib._myResource._findResource(getNode.Name, getNode.Text)._str : getNode.Text));
             beginNumber = String.Format("{0}{1}.", beginNumber, (runNumber + 1));
             //__menuXml.Append(getNode.Text+"\n");
             for (int __loop = 0; __loop < getNode.Nodes.Count; __loop++)
@@ -2053,6 +2054,12 @@ namespace SMLERPTemplate
                 getNode.ForeColor = Color.Blue;
                 mainMenuChangeResource(beginNumber, __loop, getNode.Nodes[__loop]);
             }
+        }
+
+        protected virtual string _getResourceMenuID(string code, string defaultName)
+        {
+            return MyLib._myResource._findResource(code, defaultName)._str;
+            //return code;
         }
 
         void _startup()
@@ -2487,11 +2494,11 @@ namespace SMLERPTemplate
                         this._mainMenu.__name = "MAIN";
                         this._mainMenu.Font = new Font(MyLib._myGlobal._myFont.FontFamily, MyLib._myGlobal._myFont.Size);
                         //__menuXml = new StringBuilder();
+                        _startup();
                         for (int loop = 0; loop < this._mainMenu.Nodes.Count; loop++)
                         {
                             mainMenuChangeResource("", loop, this._mainMenu.Nodes[loop]);
                         } // for
-                        _startup();
 
                         // Create Menu Bar
                         this._menuBar.Items.Clear();

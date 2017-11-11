@@ -100,6 +100,21 @@ namespace SMLAccount
 
         }
 
+        protected override string _getResourceMenuID(string code, string defaultName)
+        {
+            switch (code)
+            {
+                case "menu_setup_ic_group_main": return MyLib._myGlobal._resource("ประเภทของธุรกิจ");
+                case "menu_setup_ic_group_sub": return MyLib._myGlobal._resource("ประเภทหลักของผลิตภัณฑ์");
+                case "menu_setup_ic_brand": return MyLib._myGlobal._resource("กลุ่มผลิตภัณฑ์");
+                case "menu_setup_ic_model": return MyLib._myGlobal._resource("Fermentation");
+                case "menu_setup_ic_pattern": return MyLib._myGlobal._resource("ตราสินค้า");
+                case "menu_setup_ic_grade": return MyLib._myGlobal._resource("กลุ่มสินค้าย่อย/รสชาติ");
+                case "menu_setup_ic_design": return MyLib._myGlobal._resource("หน่วยนับ");
+                default:
+                    return base._getResourceMenuID(code, defaultName);
+            }
+        }
         public _mainForm()
         {
             InitializeComponent();
@@ -130,28 +145,32 @@ namespace SMLAccount
                 _hideMenuCannotAccess();
 
                 // change resource
-                MyLib._myResource._updateResource("menu_setup_ic_group_main", "ประเภทของธุรกิจ");
-                MyLib._myResource._updateResource("menu_setup_ic_group_sub", "ประเภทหลักของผลิตภัณฑ์");
-                MyLib._myResource._updateResource("menu_setup_ic_brand", "กลุ่มผลิตภัณฑ์");
-                MyLib._myResource._updateResource("menu_setup_ic_model", "Fermentation");
-                MyLib._myResource._updateResource("menu_setup_ic_pattern", "ตราสินค้า");
-                MyLib._myResource._updateResource("menu_setup_ic_grade", "กลุ่มสินค้าย่อย/รสชาติ");
-                MyLib._myResource._updateResource("menu_setup_ic_design", "หน่วยนับ");
+                /*
+                MyLib._myResource._updateResource("menu_setup_ic_group_main", MyLib._myGlobal._resource("ประเภทของธุรกิจ"));
+                MyLib._myResource._updateResource("menu_setup_ic_group_sub", MyLib._myGlobal._resource("ประเภทหลักของผลิตภัณฑ์"));
+                MyLib._myResource._updateResource("menu_setup_ic_brand", MyLib._myGlobal._resource("กลุ่มผลิตภัณฑ์"));
+                MyLib._myResource._updateResource("menu_setup_ic_model", MyLib._myGlobal._resource("Fermentation"));
+                MyLib._myResource._updateResource("menu_setup_ic_pattern", MyLib._myGlobal._resource("ตราสินค้า"));
+                MyLib._myResource._updateResource("menu_setup_ic_grade", MyLib._myGlobal._resource("กลุ่มสินค้าย่อย/รสชาติ"));
+                MyLib._myResource._updateResource("menu_setup_ic_design", MyLib._myGlobal._resource("หน่วยนับ"));
+                */
 
-                MyLib._myResource._updateResource("ic_inventory.item_brand", "กลุ่มผลิตภัณฑ์");
-                MyLib._myResource._updateResource("ic_inventory.item_design", "หน่วยนับ");
-                MyLib._myResource._updateResource("ic_inventory.group_main", "ประเภทของธุรกิจ");
-                MyLib._myResource._updateResource("ic_inventory.group_sub", "ประเภทหลักของผลิตภัณฑ์");
-                MyLib._myResource._updateResource("ic_inventory.item_model", "Fermentation");
-                MyLib._myResource._updateResource("ic_inventory.item_pattern", "ตราสินค้า");
-                MyLib._myResource._updateResource("ic_inventory.item_grade", "กลุ่มสินค้าย่อย/รสชาติ");
+                /*
+                MyLib._myResource._updateResource("ic_inventory.item_brand", MyLib._myGlobal._resource("กลุ่มผลิตภัณฑ์"));
+                MyLib._myResource._updateResource("ic_inventory.item_design", MyLib._myGlobal._resource("หน่วยนับ"));
+                MyLib._myResource._updateResource("ic_inventory.group_main", MyLib._myGlobal._resource("ประเภทของธุรกิจ"));
+                MyLib._myResource._updateResource("ic_inventory.group_sub", MyLib._myGlobal._resource("ประเภทหลักของผลิตภัณฑ์"));
+                MyLib._myResource._updateResource("ic_inventory.item_model", MyLib._myGlobal._resource("Fermentation"));
+                MyLib._myResource._updateResource("ic_inventory.item_pattern", MyLib._myGlobal._resource("ตราสินค้า"));
+                MyLib._myResource._updateResource("ic_inventory.item_grade", MyLib._myGlobal._resource("กลุ่มสินค้าย่อย/รสชาติ"));
 
-                MyLib._myResource._updateResource("erp_branch_list.sale_hub_approve", "ผู้อนุมัติ SINGHA ARM");
-                MyLib._myResource._updateResource("erp_credit_approve_level.sale_hub_auth", "SINGHA ARM User");
-                MyLib._myResource._updateResource("erp_option.sale_hub_approve", "ผู้อนุมัติ SINGHA ARM");
-                MyLib._myResource._updateResource("erp_option.salehub_approve", "ผ่านระบบ SINGHA ARM");
-                MyLib._myResource._updateResource("erp_option.sms_and_salehub_approve", "ผ่านระบบ SMS และ SINGHA ARM");
-                MyLib._myResource._updateResource("erp_user.sale_hub_user", "Sale Hub Users");
+                MyLib._myResource._updateResource("erp_branch_list.sale_hub_approve", MyLib._myGlobal._resource("ผู้อนุมัติ SINGHA ARM"));
+                MyLib._myResource._updateResource("erp_credit_approve_level.sale_hub_auth", MyLib._myGlobal._resource("SINGHA ARM User"));
+                MyLib._myResource._updateResource("erp_option.sale_hub_approve", MyLib._myGlobal._resource("ผู้อนุมัติ SINGHA ARM"));
+                MyLib._myResource._updateResource("erp_option.salehub_approve", MyLib._myGlobal._resource("ผ่านระบบ SINGHA ARM"));
+                MyLib._myResource._updateResource("erp_option.sms_and_salehub_approve", MyLib._myGlobal._resource("ผ่านระบบ SMS และ SINGHA ARM"));
+                MyLib._myResource._updateResource("erp_user.sale_hub_user", MyLib._myGlobal._resource("Sale Hub Users"));
+                */
 
                 // change index
                 MyLib._myFrameWork __myFremeWork = new _myFrameWork();
@@ -534,6 +553,24 @@ namespace SMLAccount
 
         void _mainForm_Load(object sender, EventArgs e)
         {
+
+            MyLib._myResource._updateResource("ic_inventory.item_brand", MyLib._myGlobal._resource("กลุ่มผลิตภัณฑ์"));
+            MyLib._myResource._updateResource("ic_inventory.item_design", MyLib._myGlobal._resource("หน่วยนับ"));
+            MyLib._myResource._updateResource("ic_inventory.group_main", MyLib._myGlobal._resource("ประเภทของธุรกิจ"));
+            MyLib._myResource._updateResource("ic_inventory.group_sub", MyLib._myGlobal._resource("ประเภทหลักของผลิตภัณฑ์"));
+            MyLib._myResource._updateResource("ic_inventory.item_model", MyLib._myGlobal._resource("Fermentation"));
+            MyLib._myResource._updateResource("ic_inventory.item_pattern", MyLib._myGlobal._resource("ตราสินค้า"));
+            MyLib._myResource._updateResource("ic_inventory.item_grade", MyLib._myGlobal._resource("กลุ่มสินค้าย่อย/รสชาติ"));
+
+            MyLib._myResource._updateResource("erp_branch_list.sale_hub_approve", MyLib._myGlobal._resource("ผู้อนุมัติ SINGHA ARM"));
+            MyLib._myResource._updateResource("erp_credit_approve_level.sale_hub_auth", MyLib._myGlobal._resource("SINGHA ARM User"));
+            MyLib._myResource._updateResource("erp_option.sale_hub_approve", MyLib._myGlobal._resource("ผู้อนุมัติ SINGHA ARM"));
+            MyLib._myResource._updateResource("erp_option.salehub_approve", MyLib._myGlobal._resource("ผ่านระบบ SINGHA ARM"));
+            MyLib._myResource._updateResource("erp_option.sms_and_salehub_approve", MyLib._myGlobal._resource("ผ่านระบบ SMS และ SINGHA ARM"));
+            MyLib._myResource._updateResource("erp_user.sale_hub_user", MyLib._myGlobal._resource("Sale Hub Users"));
+
+
+
             MyLib._myGlobal._mainSize = this.Size;
             //MyLib._myUtil._showTaskBarNotifier(this, "", "Welcome to SMLERP");
             // check is process

@@ -558,142 +558,149 @@ namespace SMLProcess
         {
             int __lastDetailLine = -1;
             _accountSumType __result = new _accountSumType();
-            for (int __loop = 0; __loop < branchList.Count; __loop++)
-            {
-                __result._branch.Add(new _glViewJounalDetailListBranchType());
-            }
-            _accountNode __getAccount = (_accountNode)getNode.Tag;
-            //            
-            _glViewJounalDetailListType __detailLine = new _glViewJounalDetailListType();
-            if (tableThisPeriod.Columns.IndexOf(_g.d.gl_journal_detail._account_code) != -1)
-            {
-                DataRow[] __getRowThisPeriod = tableThisPeriod.Select(_g.d.gl_journal_detail._account_code + "=\'" + __getAccount._code + "\'");
-                __detailLine._accountType = (__getRowThisPeriod.Length == 0) ? 0 : (int)int.Parse(__getRowThisPeriod[0].ItemArray[1].ToString());
-                __detailLine._debit = (__getRowThisPeriod.Length == 0) ? 0 : (decimal)Double.Parse(__getRowThisPeriod[0].ItemArray[2].ToString());
-                __detailLine._credit = (__getRowThisPeriod.Length == 0) ? 0 : (decimal)Double.Parse(__getRowThisPeriod[0].ItemArray[3].ToString());
-                // ดึงข้อมูลสาขา
-                for (int __loop = 0; __loop < branchList.Count; __loop++)
-                {
-                    if (((DataSet)getData[__loop + 1]).Tables[0].Rows.Count > 0)
-                    {
-                        DataRow[] __data = ((DataSet)getData[__loop + 1]).Tables[0].Select(_g.d.gl_journal_detail._account_code + "=\'" + __getAccount._code + "\'");
-                        _glViewJounalDetailListBranchType __branch = new _glViewJounalDetailListBranchType();
-                        __branch._branchCode = branchList[__loop]._code;
-                        __branch._debit = (__data.Length == 0) ? 0 : (decimal)Double.Parse(__data[0].ItemArray[2].ToString());
-                        __branch._credit = (__data.Length == 0) ? 0 : (decimal)Double.Parse(__data[0].ItemArray[3].ToString());
-                        __detailLine._branch.Add(__branch);
-                    }
-                    else
-                    {
-                        _glViewJounalDetailListBranchType __branch = new _glViewJounalDetailListBranchType();
-                        __branch._branchCode = branchList[__loop]._code;
-                        __branch._debit = 0;
-                        __branch._credit = 0;
-                        __detailLine._branch.Add(__branch);
 
-                    }
-                }
-            }
-            //
-            if (showDebitCredit == false)
+            try
             {
-                // ประจำงวด
-                decimal __calcBalance = __detailLine._debit - __detailLine._credit;
-                if (__calcBalance >= 0)
-                {
-                    __detailLine._debit = __calcBalance;
-                    __detailLine._credit = 0;
-                }
-                else
-                {
-                    __detailLine._credit = __calcBalance * -1;
-                    __detailLine._debit = 0;
-                }
-                //
                 for (int __loop = 0; __loop < branchList.Count; __loop++)
                 {
-                    decimal __calcBalance2 = __detailLine._branch[__loop]._debit - __detailLine._branch[__loop]._credit;
-                    if (__calcBalance2 >= 0)
-                    {
-                        __detailLine._branch[__loop]._debit = __calcBalance2;
-                        __detailLine._branch[__loop]._credit = 0;
-                    }
-                    else
-                    {
-                        __detailLine._branch[__loop]._credit = __calcBalance2 * -1;
-                        __detailLine._branch[__loop]._debit = 0;
-                    }
+                    __result._branch.Add(new _glViewJounalDetailListBranchType());
                 }
-            }
-            if (allData || __detailLine._debit != 0 || __detailLine._credit != 0 || __getAccount._accountStatus == 1)
-            {
-                __detailLine._lineType = _glViewJounalDetailListLineType.Detail;
-                __detailLine._accountCode = __getAccount._code;
-                __detailLine._accountName = __getAccount._name_1;
-                __detailLine._accountLevel = getNode.Level;
-                __detailLine._accountStatus = __getAccount._accountStatus;
-                __detailLine._show = true;
-                __lastDetailLine = result.Add(__detailLine);
-            }
-            //
-            for (int __loop = 0; __loop < getNode.Nodes.Count; __loop++)
-            {
-                _accountSumType __getResult = __glTrialBalanceBranchSumNode(getNode.Nodes[__loop], tableThisPeriod, getData, result, allData, showDebitCredit, branchList);
-                if (allData || __getResult._credit != 0 || __getResult._debit != 0)
+                _accountNode __getAccount = (_accountNode)getNode.Tag;
+                //            
+                _glViewJounalDetailListType __detailLine = new _glViewJounalDetailListType();
+                if (tableThisPeriod.Columns.IndexOf(_g.d.gl_journal_detail._account_code) != -1)
                 {
-                    __result._count++;
-                    __result._credit += __getResult._credit;
-                    __result._debit += __getResult._debit;
-                    for (int __loop2 = 0; __loop2 < branchList.Count; __loop2++)
-                    {
-                        __result._branch[__loop2]._debit += __getResult._branch[__loop2]._debit;
-                        __result._branch[__loop2]._credit += __getResult._branch[__loop2]._credit;
-                    }
-                }
-            }
-            // Sub Total
-            if (__getAccount._accountStatus == 1)
-            {
-                bool __nextStep = false;
-                if (__result._credit != 0 || __result._debit != 0)
-                {
-                    __nextStep = true;
-                }
-                if (allData || __nextStep)
-                {
-                    _glViewJounalDetailListType __totalLine = new _glViewJounalDetailListType();
-                    __totalLine._lineType = _glViewJounalDetailListLineType.SubTotal;
-                    __totalLine._accountCode = "";
-                    __totalLine._accountName = "รวม : " + __result._count.ToString() + " รายการ " + __getAccount._name_1 + " (" + __getAccount._code + ")";
-                    __totalLine._debit = __result._debit;
-                    __totalLine._credit = __result._credit;
-                    __totalLine._accountLevel = getNode.Level;
-                    __totalLine._accountStatus = __getAccount._accountStatus;
-                    __totalLine._accountType = __getAccount._accountType;
-                    __totalLine._show = true;
+                    DataRow[] __getRowThisPeriod = tableThisPeriod.Select(_g.d.gl_journal_detail._account_code + "=\'" + __getAccount._code + "\'");
+                    __detailLine._accountType = (__getRowThisPeriod.Length == 0) ? 0 : (int)int.Parse(__getRowThisPeriod[0].ItemArray[1].ToString());
+                    __detailLine._debit = (__getRowThisPeriod.Length == 0) ? 0 : (decimal)Double.Parse(__getRowThisPeriod[0].ItemArray[2].ToString());
+                    __detailLine._credit = (__getRowThisPeriod.Length == 0) ? 0 : (decimal)Double.Parse(__getRowThisPeriod[0].ItemArray[3].ToString());
+                    // ดึงข้อมูลสาขา
                     for (int __loop = 0; __loop < branchList.Count; __loop++)
                     {
-                        DataTable __data = ((DataSet)getData[__loop + 1]).Tables[0];
-                        _glViewJounalDetailListBranchType __branch = new _glViewJounalDetailListBranchType();
-                        __branch._branchCode = branchList[__loop]._code;
-                        __branch._debit = __result._branch[__loop]._debit;
-                        __branch._credit = __result._branch[__loop]._credit;
-                        __totalLine._branch.Add(__branch);
+                        if (((DataSet)getData[__loop + 1]).Tables[0].Rows.Count > 0)
+                        {
+                            DataRow[] __data = ((DataSet)getData[__loop + 1]).Tables[0].Select(_g.d.gl_journal_detail._account_code + "=\'" + __getAccount._code + "\'");
+                            _glViewJounalDetailListBranchType __branch = new _glViewJounalDetailListBranchType();
+                            __branch._branchCode = branchList[__loop]._code;
+                            __branch._debit = (__data.Length == 0) ? 0 : (decimal)Double.Parse(__data[0].ItemArray[2].ToString());
+                            __branch._credit = (__data.Length == 0) ? 0 : (decimal)Double.Parse(__data[0].ItemArray[3].ToString());
+                            __detailLine._branch.Add(__branch);
+                        }
+                        else
+                        {
+                            _glViewJounalDetailListBranchType __branch = new _glViewJounalDetailListBranchType();
+                            __branch._branchCode = branchList[__loop]._code;
+                            __branch._debit = 0;
+                            __branch._credit = 0;
+                            __detailLine._branch.Add(__branch);
+
+                        }
                     }
-                    result.Add(__totalLine);
                 }
-                // ลบออก ในกรณีที่ไม่มียอดรวม และไม่มีรายการเลย
-                if (__result._count == 0 && allData == false && __lastDetailLine != -1)
+                //
+                if (showDebitCredit == false)
                 {
-                    ((_glViewJounalDetailListType)result[__lastDetailLine])._show = false;
+                    // ประจำงวด
+                    decimal __calcBalance = __detailLine._debit - __detailLine._credit;
+                    if (__calcBalance >= 0)
+                    {
+                        __detailLine._debit = __calcBalance;
+                        __detailLine._credit = 0;
+                    }
+                    else
+                    {
+                        __detailLine._credit = __calcBalance * -1;
+                        __detailLine._debit = 0;
+                    }
+                    //
+                    for (int __loop = 0; __loop < branchList.Count; __loop++)
+                    {
+                        decimal __calcBalance2 = __detailLine._branch[__loop]._debit - __detailLine._branch[__loop]._credit;
+                        if (__calcBalance2 >= 0)
+                        {
+                            __detailLine._branch[__loop]._debit = __calcBalance2;
+                            __detailLine._branch[__loop]._credit = 0;
+                        }
+                        else
+                        {
+                            __detailLine._branch[__loop]._credit = __calcBalance2 * -1;
+                            __detailLine._branch[__loop]._debit = 0;
+                        }
+                    }
                 }
-            }
-            __result._credit += __detailLine._credit;
-            __result._debit += __detailLine._debit;
-            for (int __loop = 0; __loop < branchList.Count; __loop++)
+                if (allData || __detailLine._debit != 0 || __detailLine._credit != 0 || __getAccount._accountStatus == 1)
+                {
+                    __detailLine._lineType = _glViewJounalDetailListLineType.Detail;
+                    __detailLine._accountCode = __getAccount._code;
+                    __detailLine._accountName = __getAccount._name_1;
+                    __detailLine._accountLevel = getNode.Level;
+                    __detailLine._accountStatus = __getAccount._accountStatus;
+                    __detailLine._show = true;
+                    __lastDetailLine = result.Add(__detailLine);
+                }
+                //
+                for (int __loop = 0; __loop < getNode.Nodes.Count; __loop++)
+                {
+                    _accountSumType __getResult = __glTrialBalanceBranchSumNode(getNode.Nodes[__loop], tableThisPeriod, getData, result, allData, showDebitCredit, branchList);
+                    if (allData || __getResult._credit != 0 || __getResult._debit != 0)
+                    {
+                        __result._count++;
+                        __result._credit += __getResult._credit;
+                        __result._debit += __getResult._debit;
+                        for (int __loop2 = 0; __loop2 < branchList.Count; __loop2++)
+                        {
+                            __result._branch[__loop2]._debit += __getResult._branch[__loop2]._debit;
+                            __result._branch[__loop2]._credit += __getResult._branch[__loop2]._credit;
+                        }
+                    }
+                }
+                // Sub Total
+                if (__getAccount._accountStatus == 1)
+                {
+                    bool __nextStep = false;
+                    if (__result._credit != 0 || __result._debit != 0)
+                    {
+                        __nextStep = true;
+                    }
+                    if (allData || __nextStep)
+                    {
+                        _glViewJounalDetailListType __totalLine = new _glViewJounalDetailListType();
+                        __totalLine._lineType = _glViewJounalDetailListLineType.SubTotal;
+                        __totalLine._accountCode = "";
+                        __totalLine._accountName = "รวม : " + __result._count.ToString() + " รายการ " + __getAccount._name_1 + " (" + __getAccount._code + ")";
+                        __totalLine._debit = __result._debit;
+                        __totalLine._credit = __result._credit;
+                        __totalLine._accountLevel = getNode.Level;
+                        __totalLine._accountStatus = __getAccount._accountStatus;
+                        __totalLine._accountType = __getAccount._accountType;
+                        __totalLine._show = true;
+                        for (int __loop = 0; __loop < branchList.Count; __loop++)
+                        {
+                            DataTable __data = ((DataSet)getData[__loop + 1]).Tables[0];
+                            _glViewJounalDetailListBranchType __branch = new _glViewJounalDetailListBranchType();
+                            __branch._branchCode = branchList[__loop]._code;
+                            __branch._debit = __result._branch[__loop]._debit;
+                            __branch._credit = __result._branch[__loop]._credit;
+                            __totalLine._branch.Add(__branch);
+                        }
+                        result.Add(__totalLine);
+                    }
+                    // ลบออก ในกรณีที่ไม่มียอดรวม และไม่มีรายการเลย
+                    if (__result._count == 0 && allData == false && __lastDetailLine != -1)
+                    {
+                        ((_glViewJounalDetailListType)result[__lastDetailLine])._show = false;
+                    }
+                }
+                __result._credit += __detailLine._credit;
+                __result._debit += __detailLine._debit;
+                for (int __loop = 0; __loop < branchList.Count; __loop++)
+                {
+                    __result._branch[__loop]._credit += __detailLine._branch[__loop]._credit;
+                    __result._branch[__loop]._debit += __detailLine._branch[__loop]._debit;
+                }
+            }catch (Exception ex)
             {
-                __result._branch[__loop]._credit += __detailLine._branch[__loop]._credit;
-                __result._branch[__loop]._debit += __detailLine._branch[__loop]._debit;
+                MessageBox.Show("__glTrialBalanceBranchSumNode Error " + getNode.Text + " : \n" +  ex.Message);
             }
             return __result;
         }

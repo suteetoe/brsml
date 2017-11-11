@@ -1556,6 +1556,34 @@ namespace _g
             /// จุดทศนิยมอัตราแลกเปลี่ยน
             /// </summary>
             public static String _exchange_rate_decimal = "exchange_rate_decimal";
+            /// <summary>
+            /// แสดง SO/DR คงเหลือ
+            /// </summary>
+            public static String _check_so_dr_balande = "check_so_dr_balande";
+            /// <summary>
+            /// ใช้คูปองเต็มมูลค่าเท่านั้น
+            /// </summary>
+            public static String _coupon_full_amount = "coupon_full_amount";
+            /// <summary>
+            /// ผลต่างของราคาขายกับต้นทุน
+            /// </summary>
+            public static String _cost_over_sale_rate = "cost_over_sale_rate";
+            /// <summary>
+            /// เงื่อนไขการตรวจสอบนิติบุคคล
+            /// </summary>
+            public static String _check_branch_status_word = "check_branch_status_word";
+            /// <summary>
+            /// Report Web Service URL
+            /// </summary>
+            public static String _report_webservice_url = "report_webservice_url";
+            /// <summary>
+            /// ใช้ระบบคูปองรับคืนสินค้า
+            /// </summary>
+            public static String _cn_coupon_only = "cn_coupon_only";
+            /// <summary>
+            /// ซื้อ/รับ สินค้า ไม่อนุญาติให้แก้ไข กรณีอ้างอิงใบสั่งซื้อ 
+            /// </summary>
+            public static String _lock_pu_gr = "lock_pu_gr";
         }
 
         /// <summary>
@@ -3994,6 +4022,86 @@ namespace _g
             /// สินค้าสมนาคุณ
             /// </summary>
             public static String _is_premium = "is_premium";
+            /// <summary>
+            /// มิติ 26
+            /// </summary>
+            public static String _dimension_26 = "dimension_26";
+            /// <summary>
+            /// มิติ 27
+            /// </summary>
+            public static String _dimension_27 = "dimension_27";
+            /// <summary>
+            /// มิติ 28
+            /// </summary>
+            public static String _dimension_28 = "dimension_28";
+            /// <summary>
+            /// มิติ 29
+            /// </summary>
+            public static String _dimension_29 = "dimension_29";
+            /// <summary>
+            /// มิติ 30
+            /// </summary>
+            public static String _dimension_30 = "dimension_30";
+            /// <summary>
+            /// มิติ 31
+            /// </summary>
+            public static String _dimension_31 = "dimension_31";
+            /// <summary>
+            /// มิติ 32
+            /// </summary>
+            public static String _dimension_32 = "dimension_32";
+            /// <summary>
+            /// มิติ 33
+            /// </summary>
+            public static String _dimension_33 = "dimension_33";
+            /// <summary>
+            /// มิติ 34
+            /// </summary>
+            public static String _dimension_34 = "dimension_34";
+            /// <summary>
+            /// มิติ 35
+            /// </summary>
+            public static String _dimension_35 = "dimension_35";
+            /// <summary>
+            /// มิติ 36
+            /// </summary>
+            public static String _dimension_36 = "dimension_36";
+            /// <summary>
+            /// มิติ 37
+            /// </summary>
+            public static String _dimension_37 = "dimension_37";
+            /// <summary>
+            /// มิติ 38
+            /// </summary>
+            public static String _dimension_38 = "dimension_38";
+            /// <summary>
+            /// มิติ 39
+            /// </summary>
+            public static String _dimension_39 = "dimension_39";
+            /// <summary>
+            /// มิติ 40
+            /// </summary>
+            public static String _dimension_40 = "dimension_40";
+            /// <summary>
+            /// มิติ 41
+            /// </summary>
+            public static String _dimension_41 = "dimension_41";
+            /// <summary>
+            /// มิติ 42
+            /// </summary>
+            public static String _dimension_42 = "dimension_42";
+            /// <summary>
+            /// มิติ 43
+            /// </summary>
+            public static String _dimension_43 = "dimension_43";
+            /// <summary>
+            /// มิติ 44
+            /// </summary>
+            public static String _dimension_44 = "dimension_44";
+            /// <summary>
+            /// มิติ 45
+            /// </summary>
+            public static String _dimension_45 = "dimension_45";
         }
 
         /// <summary>
@@ -6469,6 +6577,10 @@ namespace _g
             /// Diamond
             /// </summary>
             public static String _tier_4 = "tier_4";
+            /// <summary>
+            /// วันเวลาทีแก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_time = "last_update_time";
         }
 
         /// <summary>
@@ -16031,6 +16143,10 @@ namespace _g
             /// เหตุผลการเพิ่มหนี้
             /// </summary>
             public static String _dn_reason = "dn_reason";
+            /// <summary>
+            /// ไม่กระทบภาษี
+            /// </summary>
+            public static String _no_tax = "no_tax";
         }
 
         /// <summary>
@@ -26355,6 +26471,14 @@ namespace _g
             /// ไม่พิมพ์เอกสารยกเลิกใบเสร็จ
             /// </summary>
             public static String _disable_print_cancel_doc = "disable_print_cancel_doc";
+            /// <summary>
+            /// ตำแหน่งจำนวนเริ่มต้น
+            /// </summary>
+            public static String _weight_qty_start = "weight_qty_start";
+            /// <summary>
+            /// ตำแหน่งจำนวนสิ้นสุด
+            /// </summary>
+            public static String _weight_qty_stop = "weight_qty_stop";
         }
 
         /// <summary>

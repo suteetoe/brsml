@@ -304,14 +304,15 @@ namespace SMLERPControl._customer
                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.ar_item_by_customer._table + " " + __dataListUpdate));
                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from " + _g.d.ar_customer_detail._table + " " + __dataListUpdate));
 
-                            if (_myManageData1._mode == 1)
-                            {
-                                __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _myManageData1._dataList._tableName + " (" + __getData1_1[0].ToString() + ") values (" + __getData1_1[1].ToString() + ")"));
-                            }
-                            else
-                            {
-                                __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _myManageData1._dataList._tableName + " set " + __getData1_1[2].ToString() + _myManageData1._dataList._whereString));
-                            }
+                            // ไม่จำเป็นต้องแก้ไข tab แรก
+                            //if (_myManageData1._mode == 1)
+                            //{
+                            //    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _myManageData1._dataList._tableName + " (" + __getData1_1[0].ToString() + ") values (" + __getData1_1[1].ToString() + ")"));
+                            //}
+                            //else
+                            //{
+                            //    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _myManageData1._dataList._tableName + " set " + __getData1_1[2].ToString() + _myManageData1._dataList._whereString));
+                            //}
 
 
                             string __extraField = "";
@@ -324,6 +325,7 @@ namespace SMLERPControl._customer
                             //    __extraValue = ",\'" + __reasonCombo.Text + "\'";
                             //}
                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer_detail._table + " (ar_code," + __getData1[0].ToString() + "," + __getData2[0].ToString() + "," + __getData3[0].ToString() + "," + __getData4[0].ToString() + "," + __getData5[0].ToString() + __extraField + ") values (" + __dataList_1 + "" + __getData1[1].ToString() + "," + __getData2[1].ToString() + "," + __getData3[1].ToString() + "," + __getData4[1].ToString() + "," + __getData5[1].ToString() + __extraValue + ")"));
+                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " +  _g.d.ar_customer._last_update_time + " = now() where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
 
 
                             string __result_images = this._getPicture1._updateImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));

@@ -2039,7 +2039,7 @@ namespace SMLInventoryControl
                         // ภาษีซื้อ
                         //__query = "select " + _g.d.gl_journal_vat_buy._vat_doc_no + " from " + _g.d.gl_journal_vat_buy._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._vat_doc_no) + "=\'" + __taxDocNo + "\' and " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._ap_code) + "=\'" + __custCode + "\' and " + _g.d.gl_journal_vat_buy._trans_flag + "=" + __transFlag.ToString();
                         // แก้ให้ตรวจ เฉพาะเลขที่ใบกำกับภาษีซื้อ
-                        __query = "select " + _g.d.gl_journal_vat_buy._vat_doc_no + " from " + _g.d.gl_journal_vat_buy._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._vat_doc_no) + "=\'" + __taxDocNo + "\' and " + _g.d.gl_journal_vat_buy._vat_effective_year + "=" + __year + " and " + _g.d.gl_journal_vat_buy._trans_flag + "=" + __transFlag.ToString();
+                        __query = "select " + _g.d.gl_journal_vat_buy._vat_doc_no + " from " + _g.d.gl_journal_vat_buy._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._vat_doc_no) + "=\'" + __taxDocNo + "\' " + ((__custCode.Length > 0) ? "  and " + MyLib._myGlobal._addUpper(_g.d.gl_journal_vat_buy._ap_code) + "=\'" + __custCode + "\' " : "") + " and  " + _g.d.gl_journal_vat_buy._vat_effective_year + "=" + __year + " and " + _g.d.gl_journal_vat_buy._trans_flag + "=" + __transFlag.ToString();
                     }
                     else
                     {

@@ -257,7 +257,7 @@ namespace SMLERPControl._customer
 
                                 if (_myManageData1._mode == 1)
                                 {
-                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer._table + " (" + __getData[0].ToString() + __saleShiftField + ") values (" + __getData[1].ToString() + __saleShiftValue + ")"));
+                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer._table + " (" + __getData[0].ToString() + __saleShiftField + "," + _g.d.ar_customer._last_update_time + ") values (" + __getData[1].ToString() + __saleShiftValue + ", now())"));
 
                                     string __detailField = _g.d.ar_customer_detail._ar_code + "," + _g.d.ar_customer_detail._tax_id + "," + _g.d.ar_customer_detail._card_id + "," + _g.d.ar_customer_detail._branch_type + "," + _g.d.ar_customer_detail._branch_code;
                                     string __detailValue = "\'" + _cust_code + "\', \'" + this._screenTop._getDataStr(_g.d.ar_customer._tax_id) + "\', \'" + this._screenTop._getDataStr(_g.d.ar_customer._card_id) + "\', \'" + this._screenTop._getDataStr(_g.d.ar_customer._branch_type) + "\', \'" + this._screenTop._getDataStr(_g.d.ar_customer._branch_code) + "\' ";
@@ -280,7 +280,7 @@ namespace SMLERPControl._customer
                                 }
                                 else
                                 {
-                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ar_customer._table + " set " + __getData[2].ToString() + __saleShiftUpdate + _myManageData1._dataList._whereString));
+                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ar_customer._table + " set " + __getData[2].ToString() + "," + _g.d.ar_customer._last_update_time + " = now() " + __saleShiftUpdate + _myManageData1._dataList._whereString));
 
                                     string __updateDetail = _g.d.ar_customer_detail._tax_id + "=\'" + this._screenTop._getDataStr(_g.d.ar_customer._tax_id) + "\'," +
                                         _g.d.ar_customer_detail._card_id + "=\'" + this._screenTop._getDataStr(_g.d.ar_customer._card_id) + "\'," +
