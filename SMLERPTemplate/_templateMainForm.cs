@@ -2611,6 +2611,7 @@ namespace SMLERPTemplate
                                 __isProcessDevice = true;
                             }
 
+                            /* โต๋เอาออกก่อน เพื่อความเร็ว 20171113
                             if (__isProcessDevice && MyLib._myGlobal._databaseName.Length > 0)
                             {
                                 this._doImportReportWord();
@@ -2625,21 +2626,12 @@ namespace SMLERPTemplate
                                     this._getReportServer.Start();
                                 }
 
-                            }
+                            }*/
 
 
 
                         }
-                        else
-                        {
-                            this._doImportReportWord();
-                            // toe thread import report
-                            this._doImportMasterFormDesign();
-
-                            this._getReportServer = new Thread(new ThreadStart(SMLFastReport._processImportReport._doImport));
-                            this._getReportServer.IsBackground = true;
-                            this._getReportServer.Start();
-                        }
+                        
                     }
                     //this._dock.SetWidth(__formLeft, _myGlobal._mainForm.Width / 2);
                 }

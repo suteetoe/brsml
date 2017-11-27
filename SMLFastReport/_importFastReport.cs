@@ -193,7 +193,7 @@ namespace SMLFastReport
 
                     // remove old
                     string _removeSql = string.Format("delete from " + _g.d.sml_fastreport._table + " where UPPER(" + _g.d.sml_fastreport._menuid + ") = '{0}'", __reportId.ToString().ToUpper());
-                    __myFrameWork._query(MyLib._myGlobal._databaseName, _removeSql);
+                    __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, _removeSql);
 
                     // import 
 

@@ -129,7 +129,7 @@ namespace SMLFastReport
                                     // insert to local
                                     string _delQuery = string.Format("delete from " + _g.d.sml_fastreport._table + " where UPPER(" + _g.d.sml_fastreport._menuid + ") = '{0}'", __masterMenuId.ToUpper());
                                     MyLib._myFrameWork __ws2 = new MyLib._myFrameWork();
-                                    __ws2._query(MyLib._myGlobal._databaseName, _delQuery);
+                                    __ws2._queryInsertOrUpdate(MyLib._myGlobal._databaseName, _delQuery);
 
                                     string _query = string.Format("insert into " + _g.d.sml_fastreport._table + "(" + _g.d.sml_fastreport._menuid + "," + _g.d.sml_fastreport._menuname + ", " + _g.d.sml_fastreport._timeupdate + "," + _g.d.sml_fastreport._guid_code + ", " + _g.d.sml_fastreport._report_type + "," + _g.d.sml_fastreport._is_system_report + ", " + _g.d.sml_fastreport._reportdata + ") VALUES('{0}','{1}', '{2}', '', {3}, 1,?)", __masterMenuId, __masterMenuName, __masterTimeUpdate, __masterMenuType);
                                     string __resultStr = __ws2._queryByteData(MyLib._myGlobal._databaseName, _query, new object[] { __getByte });

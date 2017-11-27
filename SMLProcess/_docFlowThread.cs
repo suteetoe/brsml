@@ -2828,7 +2828,11 @@ namespace SMLProcess
 
 
                                     SMLERPGlobal._smlFrameWork __process = new SMLERPGlobal._smlFrameWork();
-                                    __process._processChqCreditCard(MyLib._myGlobal._databaseName);
+                                    string __chqProcessResult = __process._processChqCreditCard(MyLib._myGlobal._databaseName);
+                                    if (__chqProcessResult.Length >0)
+                                    {
+                                        Console.WriteLine("CHQ Process Error : "+ __chqProcessResult);
+                                    }
 
                                 }
                                 break;
@@ -3093,7 +3097,11 @@ namespace SMLProcess
                                     break;
                                 default:
                                     SMLERPGlobal._smlFrameWork __process = new SMLERPGlobal._smlFrameWork();
-                                    __process._processChqCreditCard(MyLib._myGlobal._databaseName);
+                                    string __processResult = __process._processChqCreditCard(MyLib._myGlobal._databaseName);
+                                    if (__processResult.Length > 0)
+                                    {
+                                        Console.WriteLine("CHQ Process Error : " + __processResult);
+                                    }
                                     break;
                             }
                         }

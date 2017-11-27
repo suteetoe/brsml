@@ -1090,6 +1090,8 @@ namespace MyLib
             }
             return (__ds);
         }
+
+        public string _lastError = "";
         /// <summary>
         /// Query Database
         /// </summary>
@@ -1133,6 +1135,11 @@ namespace MyLib
                     if (__getString.IndexOf("?xml") != -1)
                     {
                         __ds = MyLib._myGlobal._convertStringToDataSet(__getString);
+                    }
+                    else
+                    {
+                        if (__getString.Length > 0)
+                            this._lastError = __getString;
                     }
                     /*XmlTextReader __readXml = new XmlTextReader(new StringReader(__getString));
                     // Convert MDataSet into a standard ADO.NET DataSet

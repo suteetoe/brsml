@@ -8671,7 +8671,13 @@ namespace SMLERPGL
                 string __dateEnd = this._conditionScreen._getDataStrQuery(_g.d.gl_resource._date_end);
                 string[] __queryArrayStr = this._processQuery(__dateBegin, __dateEnd);
                 string __queryStr1 = "select doc_date,count(*) as xcount from (" + __queryArrayStr[0].ToString() + ") as xxx group by doc_date order by doc_date";
-                DataTable __queryGet = __myFrameWork._queryShort(__queryStr1).Tables[0];
+
+                DataSet __queryGetDataSet = __myFrameWork._queryShort(__queryStr1);
+                if (__queryGetDataSet.Tables.Count == 0)
+                    MessageBox.Show("Error Query " + __myFrameWork._lastError + "\n" + __queryStr1);
+
+                DataTable __queryGet = __queryGetDataSet.Tables[0];
+
                 List<__selectDateProcess> __selectDate = new List<__selectDateProcess>();
                 int __recordCount = 0;
                 for (int __date = 0; __date < __queryGet.Rows.Count; __date++)
@@ -8699,9 +8705,16 @@ namespace SMLERPGL
                 }
                 //
                 StringBuilder __queryUpdate = new StringBuilder(MyLib._myGlobal._xmlHeader + "<node>");
-                __queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal._table + " set " + _g.d.gl_journal._is_pass + "=0 where " + _g.d.gl_journal._is_pass + " is null"));
-                string __isPassQuery = "(select " + _g.d.gl_journal._is_pass + " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + ")";
-                __queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=" + __isPassQuery + " where " + _g.d.gl_journal_detail._is_pass + " is null or " + _g.d.gl_journal_detail._is_pass + "<>" + __isPassQuery));
+
+                //__queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal._table + " set " + _g.d.gl_journal._is_pass + "=0 where " + _g.d.gl_journal._is_pass + " is null"));
+                //string __isPassQuery = "(select " + _g.d.gl_journal._is_pass + " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + ")";
+                //__queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=" + __isPassQuery + " where " + _g.d.gl_journal_detail._is_pass + " is null or " + _g.d.gl_journal_detail._is_pass + "<>" + __isPassQuery));
+
+                string __isPassQuery = "select is_pass from gl_journal where gl_journal.doc_no=gl_journal_detail.doc_no and is_pass = {0}";
+                __queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=1 where " + _g.d.gl_journal_detail._is_pass + " <> 1 and exists(" + string.Format(__isPassQuery, "1") + ")"));
+                __queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._is_pass + "=0 where " + _g.d.gl_journal_detail._is_pass + " <> 0 and exists(" + string.Format(__isPassQuery, "0") + ") "));
+
+
                 __queryUpdate.Append("</node>");
                 string __queryStr = __queryUpdate.ToString();
                 string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryStr);

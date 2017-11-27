@@ -310,7 +310,7 @@ namespace MyLib._databaseManage
                         DialogResult __truncateResult = MessageBox.Show("Reset superadmin password", "Reset", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2);
                         if (__truncateResult == System.Windows.Forms.DialogResult.Yes)
                         {
-                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._mainDatabase, "update sml_user_list set user_password=\'superadmin\' where upper(user_code)=\'SUPERADMIN\'");
+                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._mainDatabase, "update sml_user_list set user_password=\'superadmin\', user_level = 3 where upper(user_code)=\'SUPERADMIN\'");
                         }
                     }
 
@@ -340,7 +340,7 @@ namespace MyLib._databaseManage
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
             string __myQuery = MyLib._myGlobal._xmlHeader + "<node>";
             __myQuery += "<query>insert into " + MyLib._d.sml_user_list._table + " (" + MyLib._d.sml_user_list._user_code + "," + MyLib._d.sml_user_list._user_name + "," + MyLib._d.sml_user_list._active_status + ",";
-            __myQuery += MyLib._d.sml_user_list._user_password + "," + MyLib._d.sml_user_list._user_level + ") values (\'" + _admin_user + "\',\'" + _admin_user + "\',1,\'" + MyLib._myUtil._encrypt(_admin_user) + "\',2)</query>";
+            __myQuery += MyLib._d.sml_user_list._user_password + "," + MyLib._d.sml_user_list._user_level + ") values (\'" + _admin_user + "\',\'" + _admin_user + "\',1,\'" + MyLib._myUtil._encrypt(_admin_user) + "\',3)</query>";
             __myQuery += "</node>";
             string __resultQuery = __myFrameWork._queryList(MyLib._myGlobal._mainDatabase, __myQuery);
             if (__resultQuery.Length == 0)

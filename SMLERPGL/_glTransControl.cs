@@ -53,7 +53,7 @@ namespace SMLERPGL
             _myManageData1._dataListOpen = true;
             _myManageData1._calcArea();
             //_myManageData1._dataList._loadViewData(0);
-            _myManageData1._autoSize = true;
+            //_myManageData1._autoSize = true;
             _myManageData1._autoSizeHeight = 350;
 
             // screen
