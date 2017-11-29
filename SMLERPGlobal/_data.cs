@@ -482,6 +482,14 @@ namespace _g
             /// ARM Code
             /// </summary>
             public static String _arm_code = "arm_code";
+            /// <summary>
+            /// PROFIT CTR
+            /// </summary>
+            public static String _profit_ctr = "profit_ctr";
+            /// <summary>
+            /// COST CTR
+            /// </summary>
+            public static String _cost_ctr = "cost_ctr";
         }
 
         /// <summary>

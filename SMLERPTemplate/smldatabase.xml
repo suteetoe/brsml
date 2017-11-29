@@ -114,6 +114,8 @@
 <field name="region" thai="Region" eng="Region" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="club" thai="Club" eng="Club" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_code" thai="ARM Code" eng="ARM Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="profit_ctr" thai="PROFIT CTR" eng="PROFIT CTR" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="cost_ctr" thai="COST CTR" eng="COST CTR" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_department_list" thai="รายชื่อแผนก" eng="Department List" xversion="ALL" >
 <field name="code" thai="รหัสแผนก" eng="Department code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>

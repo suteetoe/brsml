@@ -168,6 +168,7 @@ namespace SMLERPConfig
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._workplace_2, 100);
             this._addTextBox(__row++, 0, 3, _g.d.erp_company_profile._address_1, 1, 100);
 
+
             __row += 2;
             this._addTextBox(__row++, 0, 3, _g.d.erp_company_profile._address_2, 1, 100);
 
@@ -177,6 +178,8 @@ namespace SMLERPConfig
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._tax_number, 100);
             this._addComboBox(__row++, 0, _g.d.erp_company_profile._branch_type, true, _g.g._ap_ar_branch_type, true);
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._branch_code, 100);
+            this._addTextBox(__row++, 0, _g.d.erp_company_profile._profit_ctr, 100);
+            this._addTextBox(__row++, 0, _g.d.erp_company_profile._cost_ctr, 100);
 
             if (MyLib._myGlobal._isVersionEnum != MyLib._myGlobal._versionType.SMLBIllFree)
             {

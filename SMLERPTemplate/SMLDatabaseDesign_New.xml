@@ -401,7 +401,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="597" _x="333" _y="485">
+    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="629" _x="333" _y="485">
       <_fields>
         <_fieldList _name="company_name_1" _description="ชื่อบริษัท" _descriptionEng="Company name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -579,6 +579,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="arm_code" _description="ARM Code" _descriptionEng="ARM Code" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="profit_ctr" _description="PROFIT CTR" _descriptionEng="PROFIT CTR" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="cost_ctr" _description="COST CTR" _descriptionEng="COST CTR" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
