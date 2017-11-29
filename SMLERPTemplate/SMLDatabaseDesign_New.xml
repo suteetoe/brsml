@@ -2520,7 +2520,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account" _description="ผังบัญชี" _descriptionEng="Chart of account" _version="SMLGL+SMLERP" _width="294" _height="773" _x="11" _y="214">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account" _description="ผังบัญชี" _descriptionEng="Chart of account" _version="SMLGL+SMLERP" _width="294" _height="789" _x="11" _y="214">
       <_fields>
         <_fieldList _name="code" _description="รหัสบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -2753,6 +2753,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="balance_mode_credit" _description="เครดิต" _descriptionEng="Credit" _type="1" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="interco" _description="INTERCO" _descriptionEng="INTERCO" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -4171,6 +4176,12 @@
             <_fields>vat_effective_year</_fields>
           </_fields>
         </_indexs>
+        <_indexs _name="gl_journal_vat_buy_doc_no_trans_flag" _custer="0" _unique="0" _fieldsDisplay="doc_no,trans_flag">
+          <_fields>
+            <_fields>doc_no</_fields>
+            <_fields>trans_flag</_fields>
+          </_fields>
+        </_indexs>
       </_indexs>
       <_afterCreated />
       <_afterVerify />
@@ -5543,7 +5554,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ap_supplier" _description="เจ้าหนี้" _descriptionEng="Supplier" _version="SMLERP" _width="267" _height="837" _x="13" _y="6">
+    <_tableList _moduleName="AP_AR" _name="ap_supplier" _description="เจ้าหนี้" _descriptionEng="Supplier" _version="SMLERP" _width="267" _height="853" _x="13" _y="6">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="AP Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -5798,6 +5809,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="branch_code" _description="เลขที่สาขา" _descriptionEng="Branch Code" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="interco" _description="INTERCO" _descriptionEng="INTERCO" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -7874,7 +7890,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer" _description="ลูกหนี้" _descriptionEng="customer" _version="SMLERP" _width="305" _height="1493" _x="664" _y="5">
+    <_tableList _moduleName="AP_AR" _name="ar_customer" _description="ลูกหนี้" _descriptionEng="customer" _version="SMLERP" _width="305" _height="1509" _x="664" _y="5">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -8333,7 +8349,12 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="last_update_time" _description="วันเวลาทีแก้ไขล่าสุด" _descriptionEng="Last Update Time" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="last_update_time" _description="วันเวลาทีแก้ไขล่าสุด" _descriptionEng="Last Update Time" _type="8" _length="0" _null="1" _resource_only="0" _default="now()">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="interco" _description="INTERCO" _descriptionEng="INTERCO" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

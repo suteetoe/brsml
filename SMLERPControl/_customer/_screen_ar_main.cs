@@ -167,6 +167,10 @@ namespace SMLERPControl._customer
                             }
 
                             this._addTextBox(__row++, 0, 2, 2, _g.d.ar_customer._remark, 2, 0, 0, true, false, true, true);
+                            __row++;
+                            this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._interco, 1, 0, 0, true, false);
+
+                            //   this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._interco, 2, 1, 0, true, false, true, true);
 
                             if (MyLib._myGlobal._OEMVersion == "tvdirect")
                             {
@@ -1089,6 +1093,7 @@ namespace SMLERPControl._customer
             this._addNumberBox(13, 0, 0, 0, _g.d.m_yourhealthy._bun, 1, 1, true);
             this._addNumberBox(14, 0, 0, 0, _g.d.m_yourhealthy._creatinine, 1, 1, true);
             this._addTextBox(15, 0, 2, 0, _g.d.m_yourhealthy._remark, 1, 0, 0, true, false, true, true);
+
 
             this.Dock = DockStyle.Fill;
             this.Invalidate();

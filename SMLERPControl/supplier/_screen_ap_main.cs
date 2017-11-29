@@ -108,6 +108,9 @@ namespace SMLERPControl.supplier
                     MyLib._myGroupBox _status_groupbox = this._addGroupBox(__row, 1, 1, 2, 1, _g.d.ap_supplier._status, true);
                     this._addRadioButtonOnGroupBox(0, 0, _status_groupbox, _g.d.ap_supplier._active, 0, true);
                     this._addRadioButtonOnGroupBox(0, 1, _status_groupbox, _g.d.ap_supplier._inactive, 1, false);
+                    __row++;
+                    __row++;
+                    this._addTextBox(__row++, 0, 1, 0, _g.d.ap_supplier._interco, 1, 0, 0, true, false);
 
                     __enableFullName(true);
                     break;

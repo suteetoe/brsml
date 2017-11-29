@@ -2256,6 +2256,10 @@ namespace _g
             /// เครดิต
             /// </summary>
             public static String _balance_mode_credit = "balance_mode_credit";
+            /// <summary>
+            /// INTERCO
+            /// </summary>
+            public static String _interco = "interco";
         }
 
         /// <summary>
@@ -4600,6 +4604,10 @@ namespace _g
             /// เลขที่สาขา
             /// </summary>
             public static String _branch_code = "branch_code";
+            /// <summary>
+            /// INTERCO
+            /// </summary>
+            public static String _interco = "interco";
         }
 
         /// <summary>
@@ -6581,6 +6589,10 @@ namespace _g
             /// วันเวลาทีแก้ไขล่าสุด
             /// </summary>
             public static String _last_update_time = "last_update_time";
+            /// <summary>
+            /// INTERCO
+            /// </summary>
+            public static String _interco = "interco";
         }
 
         /// <summary>
@@ -35879,5 +35891,7 @@ namespace _g
             /// </summary>
             public static String _name_1 = "name_1";
         }
+
+
     }
 }

@@ -584,7 +584,6 @@
     <None Include="Resources\window_edit.png" />
     <None Include="Resources\tag_yellow.png" />
     <None Include="Resources\delete21.png" />
-    <Content Include="myDLL\BarcodeLib.dll" />
     <Content Include="Resources\A_Barcode_Sm_N.png" />
     <Content Include="Resources\barcode.jpg" />
     <Content Include="Resources\checkbox.png" />
@@ -736,6 +735,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="myDLL\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
