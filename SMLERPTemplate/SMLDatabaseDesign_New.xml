@@ -4470,7 +4470,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Cash_Bank" _name="erp_pass_book" _description="สมุดธนาคาร" _descriptionEng="Pass Book" _version="CB" _width="332" _height="325" _x="17" _y="392">
+    <_tableList _moduleName="Cash_Bank" _name="erp_pass_book" _description="สมุดธนาคาร" _descriptionEng="Pass Book" _version="CB" _width="332" _height="341" _x="17" _y="392">
       <_fields>
         <_fieldList _name="code" _description="รหัสสมุด" _descriptionEng="Book Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -4563,6 +4563,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="max_chq_fee_amount" _description="ต่อมูลค่าเช็ค(บาท)" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_mobile" _description="ใช้กับmobile" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -46116,6 +46121,28 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="name_1" _description="เหตุผล" _descriptionEng="" _type="1" _length="255" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="GL" _name="gl_sap_account_code" _description="gl_sap_account_code" _descriptionEng="gl_sap_account_code" _version="" _width="250" _height="69" _x="1245" _y="22">
+      <_fields>
+        <_fieldList _name="code" _description="code" _descriptionEng="code" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sap_code" _description="sap_code" _descriptionEng="sap_code" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="guid_code" _descriptionEng="guid_code" _type="1" _length="35" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

@@ -3601,6 +3601,10 @@ namespace _g
             /// ต่อมูลค่าเช็ค(บาท)
             /// </summary>
             public static String _max_chq_fee_amount = "max_chq_fee_amount";
+            /// <summary>
+            /// ใช้กับmobile
+            /// </summary>
+            public static String _is_mobile = "is_mobile";
         }
 
         /// <summary>
@@ -35898,6 +35902,29 @@ namespace _g
             /// เหตุผล
             /// </summary>
             public static String _name_1 = "name_1";
+        }
+
+        /// <summary>
+        /// gl_sap_account_code
+        /// </summary>
+        public class gl_sap_account_code
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "gl_sap_account_code";
+            /// <summary>
+            /// code
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// sap_code
+            /// </summary>
+            public static String _sap_code = "sap_code";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
         }
 
 

@@ -923,6 +923,7 @@
 <field name="min_chq_fee_amount" thai="ต่อมูลค่าเช็ค(บาท)" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="max_chq_fee_rate" thai="อัตราค่าธรรมเนียมขั้นสูงสุดเช็คนอกเขต" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="max_chq_fee_amount" thai="ต่อมูลค่าเช็ค(บาท)" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="is_mobile" thai="ใช้กับmobile" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="erp_pass_book_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 </table>
 <table name="erp_pass_book_type" thai="ประเภทสมุดบัญชีธนาคาร" eng="Pass Book Type" xversion="CB" >
@@ -9160,5 +9161,10 @@
 <field name="code" thai="รหัสเหตุผล" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
 <field name="cn_type" thai="ประเภทลดหนี้" eng="0 ลดหนี้(เจ้าหนี้),1=เพิ่มหนี้(เจ้าหนี้),2=ลดหนี้(ลูกหนี้),3=เพิ่มหนี้(ลูกหนี้)" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
 <field name="name_1" thai="เหตุผล" eng="" type="varchar" length="255" indentity="no" allow_null="false" resource_only="false"></field>
+</table>
+<table name="gl_sap_account_code" thai="gl_sap_account_code" eng="gl_sap_account_code" xversion="" >
+<field name="code" thai="code" eng="code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="sap_code" thai="sap_code" eng="sap_code" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid_code" eng="guid_code" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 </node>
