@@ -169,7 +169,7 @@ namespace SMLERPControl._customer
                             this._addTextBox(__row++, 0, 2, 2, _g.d.ar_customer._remark, 2, 0, 0, true, false, true, true);
                             __row++;
                             this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._interco, 1, 0, 0, true, false);
-
+                            this._setUpper(_g.d.ar_customer._interco);
                             //   this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._interco, 2, 1, 0, true, false, true, true);
 
                             if (MyLib._myGlobal._OEMVersion == "tvdirect")

@@ -180,6 +180,8 @@ namespace SMLERPConfig
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._branch_code, 100);
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._profit_ctr, 100);
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._cost_ctr, 100);
+            this._setUpper(_g.d.erp_company_profile._profit_ctr);
+            this._setUpper(_g.d.erp_company_profile._cost_ctr);
 
             if (MyLib._myGlobal._isVersionEnum != MyLib._myGlobal._versionType.SMLBIllFree)
             {

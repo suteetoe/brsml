@@ -111,7 +111,7 @@ namespace SMLERPControl.supplier
                     __row++;
                     __row++;
                     this._addTextBox(__row++, 0, 1, 0, _g.d.ap_supplier._interco, 1, 0, 0, true, false);
-
+                    this._setUpper(_g.d.ap_supplier._interco);
                     __enableFullName(true);
                     break;
                 case _controlTypeEnum.ApDetail:
