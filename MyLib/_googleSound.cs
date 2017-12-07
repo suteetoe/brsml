@@ -64,28 +64,32 @@ namespace MyLib
                         __ms.Close();
                     }
                 }
-             //   _wplayer = new WMPLib.WindowsMediaPlayer();
-              // _wplayer.settings.rate = rate;
-             //  _wplayer.PlayStateChange += wplayer_PlayStateChange;
-             //   _wplayer.URL = __soundFileName;
-             //   _wplayer.controls.play();
+
+                //_wplayer = new WMPLib.WindowsMediaPlayer();
+                //_wplayer.settings.rate = rate;
+                //_wplayer.PlayStateChange += wplayer_PlayStateChange;
+                //_wplayer.URL = __soundFileName;
+                //_wplayer.controls.play();
+
             }
         }
 
         private static void wplayer_PlayStateChange(int NewState)
         {
-         //   if (_wplayer.playState == WMPLib.WMPPlayState.wmppsReady)
-         //   {
-         //       _play("",0);
-         //   }
-         //   if (_wplayer.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
-        //    {
-        //        if (_soundList.Count > 0)
-        //        {
-        //            _soundList.RemoveAt(0);
-         //       }
-         //       _play("",0);
-         //   }
+
+            //if (_wplayer.playState == WMPLib.WMPPlayState.wmppsReady)
+            //{
+            //    _play("",0);
+            //}
+            ////if (_wplayer.playState == WMPLib.WMPPlayState.wmppsMediaEnded)
+            //{
+            //    if (_soundList.Count > 0)
+            //    {
+            //        _soundList.RemoveAt(0);
+            //    }
+            //    _play("",0);
+            //}
+
         }
     }
 }

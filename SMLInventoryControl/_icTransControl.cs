@@ -8411,7 +8411,7 @@ namespace SMLInventoryControl
 
                     if (_g.g._companyProfile._ar_credit_chq_outstanding)
                     {
-                        decimal __chqOnHand = MyLib._myGlobal._intPhase(__creditTable.Rows[0]["chq_outstanding"].ToString());
+                        decimal __chqOnHand = MyLib._myGlobal._decimalPhase(__creditTable.Rows[0]["chq_outstanding"].ToString());
                         __credit_balance += __chqOnHand;
                     }
                 }
