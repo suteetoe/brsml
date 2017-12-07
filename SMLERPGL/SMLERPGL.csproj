@@ -91,6 +91,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_chart\_glSAPAccountCodeMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="_glTransControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
