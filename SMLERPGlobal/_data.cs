@@ -35914,11 +35914,11 @@ namespace _g
             /// </summary>
             public static String _table = "gl_sap_account_code";
             /// <summary>
-            /// code
+            /// รหัสผังบัญชี
             /// </summary>
             public static String _code = "code";
             /// <summary>
-            /// sap_code
+            /// SAP Code
             /// </summary>
             public static String _sap_code = "sap_code";
             /// <summary>

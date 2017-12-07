@@ -178,6 +178,7 @@ namespace SMLERPGL
 
                 case "menu_gl_end_of_period": return (new _glTransControl(_g.g._transControlTypeEnum.บัญชี_ประมวลผลสิ้นงวด));
                 case "menu_gl_end_of_year": return (new _glTransControl(_g.g._transControlTypeEnum.บัญชี_ประมวลผลสิ้นปี));
+                case "menu_gl_sap_account_code": return (new SMLERPGL._chart._glSAPAccountCodeMap(screenName));
             }
             return null;
         }
