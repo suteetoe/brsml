@@ -826,6 +826,8 @@ namespace SMLInventoryControl
                     this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, false, true, true, _g.d.ic_trans._ar_code);
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 1, 1, true, false, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
+                    this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_ref, 1, 1, 0, true, false, true);
+                    this._addDateBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true, true);
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._tax_doc_date, 1, true, true, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._tax_doc_no, 1, 1, 0, true, false, true);
                     this._addComboBox(__row++, 0, _g.d.ic_trans._vat_type, true, _g.g._vatType, true);
@@ -837,6 +839,7 @@ namespace SMLInventoryControl
                     this._addComboBox(__row++, 1, _g.d.ic_trans._vat_type, true, _g.g._vatType, true);
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 1, 1, true, false, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
+         
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._tax_doc_date, 1, true, true, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._tax_doc_no, 1, 1, 0, true, false, true);
                     break;
@@ -882,6 +885,8 @@ namespace SMLInventoryControl
                     this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 1, 4, true, false, false, true, true, _g.d.ic_trans._ap_code);
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 1, 1, true, false, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
+                    this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_ref, 1, 1, 0, true, false, true);
+                    this._addDateBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true, true);
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._tax_doc_date, 1, true, true, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._tax_doc_no, 1, 1, 0, true, false, true);
                     this._addComboBox(__row, 0, _g.d.ic_trans._inquiry_type, true, new string[] { _g.d.ic_trans._credit_purchase_other, _g.d.ic_trans._cash_purchase_other, _g.d.ic_trans._cash_purchase_service_other, _g.d.ic_trans._credit_purchase_service_other }, true);

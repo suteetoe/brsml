@@ -673,6 +673,7 @@
 <field name="quantity" thai="ปริมาณ" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="degree" thai="ดีกรี" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="is_product_boonrawd" thai="สินค้าบุญรอด" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="is_premium" thai="สินค้าพรีเมี่ยม" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ic_inventory_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 <index index_name="PK_inventory_name_1" field="name_1" ></index>
 <index index_name="PK_inventory_unit_standard_name" field="unit_standard_name" ></index>
@@ -923,7 +924,7 @@
 <field name="min_chq_fee_amount" thai="ต่อมูลค่าเช็ค(บาท)" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="max_chq_fee_rate" thai="อัตราค่าธรรมเนียมขั้นสูงสุดเช็คนอกเขต" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="max_chq_fee_amount" thai="ต่อมูลค่าเช็ค(บาท)" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="is_mobile" thai="ใช้กับmobile" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="mobile_use" thai="แสดงบน Mobile Sale" eng="" type="int" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="erp_pass_book_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 </table>
 <table name="erp_pass_book_type" thai="ประเภทสมุดบัญชีธนาคาร" eng="Pass Book Type" xversion="CB" >

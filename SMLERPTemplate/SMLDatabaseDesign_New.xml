@@ -2821,7 +2821,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_inventory" _description="สินค้า" _descriptionEng="Inventory" _version="SMLERP" _width="345" _height="1653" _x="16" _y="2">
+    <_tableList _moduleName="IC" _name="ic_inventory" _description="สินค้า" _descriptionEng="Inventory" _version="SMLERP" _width="345" _height="1669" _x="16" _y="2">
       <_fields>
         <_fieldList _name="code" _description="รหัสสินค้า" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -3333,6 +3333,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="is_product_boonrawd" _description="สินค้าบุญรอด" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_premium" _description="สินค้าพรีเมี่ยม" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -4567,7 +4572,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="is_mobile" _description="ใช้กับmobile" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="mobile_use" _description="แสดงบน Mobile Sale" _descriptionEng="" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

@@ -1306,6 +1306,9 @@
         $BODY$
         LANGUAGE plpgsql VOLATILE;
       </script>
+      <script>
+        ALTER TABLE erp_pass_book DROP COLUMN is_mobile;
+      </script>
 
     </postgres>
   </after>

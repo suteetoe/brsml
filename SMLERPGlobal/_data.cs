@@ -2718,6 +2718,10 @@ namespace _g
             /// สินค้าบุญรอด
             /// </summary>
             public static String _is_product_boonrawd = "is_product_boonrawd";
+            /// <summary>
+            /// สินค้าพรีเมี่ยม
+            /// </summary>
+            public static String _is_premium = "is_premium";
         }
 
         /// <summary>
@@ -3602,9 +3606,9 @@ namespace _g
             /// </summary>
             public static String _max_chq_fee_amount = "max_chq_fee_amount";
             /// <summary>
-            /// ใช้กับmobile
+            /// แสดงบน Mobile Sale
             /// </summary>
-            public static String _is_mobile = "is_mobile";
+            public static String _mobile_use = "mobile_use";
         }
 
         /// <summary>
@@ -35914,11 +35918,11 @@ namespace _g
             /// </summary>
             public static String _table = "gl_sap_account_code";
             /// <summary>
-            /// รหัสผังบัญชี
+            /// code
             /// </summary>
             public static String _code = "code";
             /// <summary>
-            /// SAP Code
+            /// sap_code
             /// </summary>
             public static String _sap_code = "sap_code";
             /// <summary>

@@ -717,6 +717,8 @@ namespace SMLERPIC
                                     else
                                     {
                                         __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ic_inventory_detail._table + " set " + _g.d.ic_inventory_detail._have_point + "=" + this._icMainPanel._icmainScreenTop._getDataStrQuery(_g.d.ic_inventory._have_point) + " where " + MyLib._myGlobal._addUpper(_g.d.ic_inventory_detail._ic_code) + "=\'" + __itemCode + "\'"));
+                                        __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ic_inventory_detail._table + " set " + _g.d.ic_inventory_detail._is_premium + "=" + this._icMainPanel._icmainScreenMoreControl._getDataStrQuery(_g.d.ic_inventory_detail._is_premium) + " where " + MyLib._myGlobal._addUpper(_g.d.ic_inventory_detail._ic_code) + "=\'" + __itemCode + "\'"));
+
                                     }
 
                                 }
