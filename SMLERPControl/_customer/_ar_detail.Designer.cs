@@ -36,6 +36,7 @@
             this.tab_ar_detail = new System.Windows.Forms.TabPage();
             this._grouper1 = new MyLib._grouper();
             this._myTabControl1 = new MyLib._myTabControl();
+            this._tabImageDetail = new MyLib._myTabControl();
             this.tab_detail = new System.Windows.Forms.TabPage();
             this._myPanel2 = new MyLib._myPanel();
             this._grouper3 = new MyLib._grouper();
@@ -59,11 +60,25 @@
             this._screen_ar_item_grid1 = new SMLERPControl._customer._screen_ar_grid();
             this.tab_image = new System.Windows.Forms.TabPage();
             this._getPicture1 = new SMLERPControl._getPicture();
+            this._getPicture2 = new SMLERPControl._getPicture();
+            this._getPicture3 = new SMLERPControl._getPicture();
+            this._getPicture4 = new SMLERPControl._getPicture();
+            this._getPicture5 = new SMLERPControl._getPicture();
+            this._getPicture6 = new SMLERPControl._getPicture();
+            this._getPicture7 = new SMLERPControl._getPicture();
             this._myToolbar = new System.Windows.Forms.ToolStrip();
             this._saveButton = new MyLib.ToolStripMyButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._closeButton = new MyLib.ToolStripMyButton();
             this._myPanel5 = new MyLib._myPanel();
+            this.tab_image_1 = new System.Windows.Forms.TabPage();
+            this.tab_image_2 = new System.Windows.Forms.TabPage();
+            this.tab_image_3 = new System.Windows.Forms.TabPage();
+            this.tab_image_4 = new System.Windows.Forms.TabPage();
+            this.tab_image_5 = new System.Windows.Forms.TabPage();
+            this.tab_image_6 = new System.Windows.Forms.TabPage();
+            this.tab_image_7 = new System.Windows.Forms.TabPage();
+
             this._myManageData1._form2.SuspendLayout();
             this._myManageData1.SuspendLayout();
             this._myPanel1.SuspendLayout();
@@ -72,6 +87,7 @@
             this.tab_ar_detail.SuspendLayout();
             this._grouper1.SuspendLayout();
             this._myTabControl1.SuspendLayout();
+            this._tabImageDetail.SuspendLayout();
             this.tab_detail.SuspendLayout();
             this._myPanel2.SuspendLayout();
             this._grouper3.SuspendLayout();
@@ -91,6 +107,13 @@
             this.tab_image.SuspendLayout();
             this._myToolbar.SuspendLayout();
             this._myPanel5.SuspendLayout();
+            this.tab_image_1.SuspendLayout();
+            this.tab_image_2.SuspendLayout();
+            this.tab_image_3.SuspendLayout();
+            this.tab_image_4.SuspendLayout();
+            this.tab_image_5.SuspendLayout();
+            this.tab_image_6.SuspendLayout();
+            this.tab_image_7.SuspendLayout();
             this.SuspendLayout();
             // 
             // _myManageData1
@@ -555,13 +578,48 @@
             // 
             // tab_image
             // 
-            this.tab_image.Controls.Add(this._getPicture1);
+            this.tab_image.Controls.Add(this._tabImageDetail);
             this.tab_image.Location = new System.Drawing.Point(4, 23);
             this.tab_image.Name = "tab_image";
             this.tab_image.Size = new System.Drawing.Size(517, 513);
             this.tab_image.TabIndex = 5;
             this.tab_image.Text = "6.tab_image";
             this.tab_image.UseVisualStyleBackColor = true;
+            //
+            // _tabImageDetail
+            //
+            //this._tabImageDetail.Controls.Add(this.tab_detail);
+            //this._tabImageDetail.Controls.Add(this.tab_paybill);
+            //this._tabImageDetail.Controls.Add(this.tab_dimension);
+            //this._tabImageDetail.Controls.Add(this.tab_contact);
+            //this._tabImageDetail.Controls.Add(this.tab_item);
+            //this._tabImageDetail.Controls.Add(this.tab_image);
+            this._tabImageDetail.Controls.Add(this.tab_image_1);
+            this._tabImageDetail.Controls.Add(this.tab_image_2);
+            this._tabImageDetail.Controls.Add(this.tab_image_3);
+            this._tabImageDetail.Controls.Add(this.tab_image_4);
+            this._tabImageDetail.Controls.Add(this.tab_image_5);
+            this._tabImageDetail.Controls.Add(this.tab_image_6);
+            this._tabImageDetail.Controls.Add(this.tab_image_7);
+            this._tabImageDetail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._tabImageDetail.Location = new System.Drawing.Point(5, 5);
+            this._tabImageDetail.Multiline = true;
+            this._tabImageDetail.Name = "_myTabControl1";
+            this._tabImageDetail.SelectedIndex = 0;
+            this._tabImageDetail.ShowTabNumber = true;
+            this._tabImageDetail.Size = new System.Drawing.Size(525, 540);
+            this._tabImageDetail.TabIndex = 0;
+            this._tabImageDetail.TableName = "ar_customer";
+            // 
+            // tab_image_1
+            // 
+            this.tab_image_1.Controls.Add(this._getPicture1);
+            this.tab_image_1.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_1.Name = "tab_image_1";
+            this.tab_image_1.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_1.TabIndex = 5;
+            this.tab_image_1.Text = "6.tab_image_1";
+            this.tab_image_1.UseVisualStyleBackColor = true;
             // 
             // _getPicture1
             // 
@@ -576,6 +634,150 @@
             this._getPicture1.Padding = new System.Windows.Forms.Padding(3);
             this._getPicture1.Size = new System.Drawing.Size(517, 514);
             this._getPicture1.TabIndex = 0;
+            // 
+            // tab_image
+            // 
+            this.tab_image_2.Controls.Add(this._getPicture2);
+            this.tab_image_2.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_2.Name = "tab_image_2";
+            this.tab_image_2.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_2.TabIndex = 5;
+            this.tab_image_2.Text = "6.tab_image_2";
+            this.tab_image_2.UseVisualStyleBackColor = true;
+            // 
+            // _getPicture2
+            // 
+            this._getPicture2._DisplayPictureAmount = 1;
+            this._getPicture2._isScanner = false;
+            this._getPicture2._isWebcam = true;
+            this._getPicture2.AutoSize = true;
+            this._getPicture2.BackColor = System.Drawing.Color.Transparent;
+            this._getPicture2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._getPicture2.Location = new System.Drawing.Point(0, 0);
+            this._getPicture2.Name = "_getPicture2";
+            this._getPicture2.Padding = new System.Windows.Forms.Padding(3);
+            this._getPicture2.Size = new System.Drawing.Size(517, 514);
+            this._getPicture2.TabIndex = 0;
+            // 
+            // tab_image_3
+            // 
+            this.tab_image_3.Controls.Add(this._getPicture3);
+            this.tab_image_3.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_3.Name = "tab_image_3";
+            this.tab_image_3.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_3.TabIndex = 5;
+            this.tab_image_3.Text = "6.tab_image_3";
+            this.tab_image_3.UseVisualStyleBackColor = true;
+            // 
+            // _getPicture3
+            // 
+            this._getPicture3._DisplayPictureAmount = 1;
+            this._getPicture3._isScanner = false;
+            this._getPicture3._isWebcam = true;
+            this._getPicture3.AutoSize = true;
+            this._getPicture3.BackColor = System.Drawing.Color.Transparent;
+            this._getPicture3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._getPicture3.Location = new System.Drawing.Point(0, 0);
+            this._getPicture3.Name = "_getPicture3";
+            this._getPicture3.Padding = new System.Windows.Forms.Padding(3);
+            this._getPicture3.Size = new System.Drawing.Size(517, 514);
+            this._getPicture3.TabIndex = 0;
+            // 
+            // tab_image_4
+            // 
+            this.tab_image_4.Controls.Add(this._getPicture4);
+            this.tab_image_4.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_4.Name = "tab_image_4";
+            this.tab_image_4.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_4.TabIndex = 5;
+            this.tab_image_4.Text = "6.tab_image_4";
+            this.tab_image_4.UseVisualStyleBackColor = true;
+            // 
+            // _getPicture4
+            // 
+            this._getPicture4._DisplayPictureAmount = 1;
+            this._getPicture4._isScanner = false;
+            this._getPicture4._isWebcam = true;
+            this._getPicture4.AutoSize = true;
+            this._getPicture4.BackColor = System.Drawing.Color.Transparent;
+            this._getPicture4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._getPicture4.Location = new System.Drawing.Point(0, 0);
+            this._getPicture4.Name = "_getPicture4";
+            this._getPicture4.Padding = new System.Windows.Forms.Padding(3);
+            this._getPicture4.Size = new System.Drawing.Size(517, 514);
+            this._getPicture4.TabIndex = 0;
+            // 
+            // tab_image_5
+            // 
+            this.tab_image_5.Controls.Add(this._getPicture5);
+            this.tab_image_5.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_5.Name = "tab_image_5";
+            this.tab_image_5.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_5.TabIndex = 5;
+            this.tab_image_5.Text = "6.tab_image_5";
+            this.tab_image_5.UseVisualStyleBackColor = true;
+            // 
+            // _getPicture5
+            // 
+            this._getPicture5._DisplayPictureAmount = 1;
+            this._getPicture5._isScanner = false;
+            this._getPicture5._isWebcam = true;
+            this._getPicture5.AutoSize = true;
+            this._getPicture5.BackColor = System.Drawing.Color.Transparent;
+            this._getPicture5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._getPicture5.Location = new System.Drawing.Point(0, 0);
+            this._getPicture5.Name = "_getPicture5";
+            this._getPicture5.Padding = new System.Windows.Forms.Padding(3);
+            this._getPicture5.Size = new System.Drawing.Size(517, 514);
+            this._getPicture5.TabIndex = 0;
+            // 
+            // tab_image
+            // 
+            this.tab_image_6.Controls.Add(this._getPicture6);
+            this.tab_image_6.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_6.Name = "tab_image_6";
+            this.tab_image_6.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_6.TabIndex = 5;
+            this.tab_image_6.Text = "6.tab_image_6";
+            this.tab_image_6.UseVisualStyleBackColor = true;
+            // 
+            // _getPicture6
+            // 
+            this._getPicture6._DisplayPictureAmount = 1;
+            this._getPicture6._isScanner = false;
+            this._getPicture6._isWebcam = true;
+            this._getPicture6.AutoSize = true;
+            this._getPicture6.BackColor = System.Drawing.Color.Transparent;
+            this._getPicture6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._getPicture6.Location = new System.Drawing.Point(0, 0);
+            this._getPicture6.Name = "_getPicture6";
+            this._getPicture6.Padding = new System.Windows.Forms.Padding(3);
+            this._getPicture6.Size = new System.Drawing.Size(517, 514);
+            this._getPicture6.TabIndex = 0;
+            // 
+            // tab_image
+            // 
+            this.tab_image_7.Controls.Add(this._getPicture7);
+            this.tab_image_7.Location = new System.Drawing.Point(4, 23);
+            this.tab_image_7.Name = "tab_image_7";
+            this.tab_image_7.Size = new System.Drawing.Size(517, 513);
+            this.tab_image_7.TabIndex = 5;
+            this.tab_image_7.Text = "6.tab_image_7";
+            this.tab_image_7.UseVisualStyleBackColor = true;
+            // 
+            // _getPicture7
+            // 
+            this._getPicture7._DisplayPictureAmount = 1;
+            this._getPicture7._isScanner = false;
+            this._getPicture7._isWebcam = true;
+            this._getPicture7.AutoSize = true;
+            this._getPicture7.BackColor = System.Drawing.Color.Transparent;
+            this._getPicture7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._getPicture7.Location = new System.Drawing.Point(0, 0);
+            this._getPicture7.Name = "_getPicture7";
+            this._getPicture7.Padding = new System.Windows.Forms.Padding(3);
+            this._getPicture7.Size = new System.Drawing.Size(517, 514);
+            this._getPicture7.TabIndex = 0;
             // 
             // _myToolbar
             // 
@@ -649,6 +851,7 @@
             this.tab_ar_detail.ResumeLayout(false);
             this._grouper1.ResumeLayout(false);
             this._myTabControl1.ResumeLayout(false);
+            this._tabImageDetail.ResumeLayout(false);
             this.tab_detail.ResumeLayout(false);
             this._myPanel2.ResumeLayout(false);
             this._myPanel2.PerformLayout();
@@ -713,7 +916,25 @@
         private System.Windows.Forms.TabPage tab_item;
         private _screen_ar_grid _screen_ar_item_grid1;
         private System.Windows.Forms.TabPage tab_image;
+        private MyLib._myTabControl _tabImageDetail;
+        private System.Windows.Forms.TabPage tab_image_detail;
+        private System.Windows.Forms.TabPage tab_image_1;
+        private System.Windows.Forms.TabPage tab_image_2;
+        private System.Windows.Forms.TabPage tab_image_3;
+        private System.Windows.Forms.TabPage tab_image_4;
+        private System.Windows.Forms.TabPage tab_image_5;
+        private System.Windows.Forms.TabPage tab_image_6;
+        private System.Windows.Forms.TabPage tab_image_7;
+
         private _getPicture _getPicture1;
+        private _getPicture _getPicture2;
+        private _getPicture _getPicture3;
+        private _getPicture _getPicture4;
+        private _getPicture _getPicture5;
+        private _getPicture _getPicture6;
+        private _getPicture _getPicture7;
+
+
         private MyLib._myPanel _myPanel3;
         private MyLib._myPanel _myPanel4;
         public MyLib.ToolStripMyButton _closeButton;
