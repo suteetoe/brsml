@@ -482,6 +482,14 @@ namespace _g
             /// ARM Code
             /// </summary>
             public static String _arm_code = "arm_code";
+            /// <summary>
+            /// PROFIT CTR
+            /// </summary>
+            public static String _profit_ctr = "profit_ctr";
+            /// <summary>
+            /// COST CTR
+            /// </summary>
+            public static String _cost_ctr = "cost_ctr";
         }
 
         /// <summary>
@@ -2256,6 +2264,10 @@ namespace _g
             /// เครดิต
             /// </summary>
             public static String _balance_mode_credit = "balance_mode_credit";
+            /// <summary>
+            /// INTERCO
+            /// </summary>
+            public static String _interco = "interco";
         }
 
         /// <summary>
@@ -2706,6 +2718,10 @@ namespace _g
             /// สินค้าบุญรอด
             /// </summary>
             public static String _is_product_boonrawd = "is_product_boonrawd";
+            /// <summary>
+            /// สินค้าพรีเมี่ยม
+            /// </summary>
+            public static String _is_premium = "is_premium";
         }
 
         /// <summary>
@@ -3589,6 +3605,10 @@ namespace _g
             /// ต่อมูลค่าเช็ค(บาท)
             /// </summary>
             public static String _max_chq_fee_amount = "max_chq_fee_amount";
+            /// <summary>
+            /// แสดงบน Mobile Sale
+            /// </summary>
+            public static String _mobile_use = "mobile_use";
         }
 
         /// <summary>
@@ -4600,6 +4620,10 @@ namespace _g
             /// เลขที่สาขา
             /// </summary>
             public static String _branch_code = "branch_code";
+            /// <summary>
+            /// INTERCO
+            /// </summary>
+            public static String _interco = "interco";
         }
 
         /// <summary>
@@ -6581,6 +6605,10 @@ namespace _g
             /// วันเวลาทีแก้ไขล่าสุด
             /// </summary>
             public static String _last_update_time = "last_update_time";
+            /// <summary>
+            /// INTERCO
+            /// </summary>
+            public static String _interco = "interco";
         }
 
         /// <summary>
@@ -35879,5 +35907,30 @@ namespace _g
             /// </summary>
             public static String _name_1 = "name_1";
         }
+
+        /// <summary>
+        /// gl_sap_account_code
+        /// </summary>
+        public class gl_sap_account_code
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "gl_sap_account_code";
+            /// <summary>
+            /// code
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// sap_code
+            /// </summary>
+            public static String _sap_code = "sap_code";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+
     }
 }

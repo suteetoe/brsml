@@ -19,6 +19,7 @@ namespace SMLERPGL._chart
             this._addTextBox(3, 1, 1, 0, _g.d.gl_chart_of_account._main_code, 1, 25, ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) ? 1 : 0), true, false, true, true, false);
             this._addTextBox(4, 0, 1, 0, _g.d.gl_chart_of_account._account_group, 1, 10, 1, true, false);
             this._addTextBox(4, 1, 1, 0, _g.d.gl_chart_of_account._cash_flow_group, 1, 25, 1, true, false);
+           
             MyLib._myGroupBox __accountTypeGroupBox = this._addGroupBox(5, 0, 5, 1, 1, _g.d.gl_chart_of_account._account_type, true);
             this._addRadioButtonOnGroupBox(0, 0, __accountTypeGroupBox, _g.g._accountType[0], 0, true);
             this._addRadioButtonOnGroupBox(1, 0, __accountTypeGroupBox, _g.g._accountType[1], 1, false);
@@ -49,6 +50,8 @@ namespace SMLERPGL._chart
             this._addCheckBox(15, 1, _g.d.gl_chart_of_account._project_status, false, true);
             this._addCheckBox(16, 1, _g.d.gl_chart_of_account._work_in_process_status, false, true);
             this._addCheckBox(17, 1, _g.d.gl_chart_of_account._active_status, false, true);
+            this._addTextBox(22, 0, 1, 0, _g.d.gl_chart_of_account._interco, 1, 0, 0, true, false);
+            this._setUpper(_g.d.gl_chart_of_account._interco);
             //
             if ((MyLib._myGlobal._OEMVersion.Equals("SINGHA")) == false)
             {

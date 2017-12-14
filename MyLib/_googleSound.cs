@@ -64,16 +64,19 @@ namespace MyLib
                         __ms.Close();
                     }
                 }
+
                 //_wplayer = new WMPLib.WindowsMediaPlayer();
                 //_wplayer.settings.rate = rate;
                 //_wplayer.PlayStateChange += wplayer_PlayStateChange;
                 //_wplayer.URL = __soundFileName;
                 //_wplayer.controls.play();
+
             }
         }
 
         private static void wplayer_PlayStateChange(int NewState)
         {
+
             //if (_wplayer.playState == WMPLib.WMPPlayState.wmppsReady)
             //{
             //    _play("",0);
@@ -86,6 +89,7 @@ namespace MyLib
             //    }
             //    _play("",0);
             //}
+
         }
     }
 }

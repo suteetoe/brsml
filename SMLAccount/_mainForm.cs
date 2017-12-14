@@ -1017,6 +1017,19 @@ namespace SMLAccount
             }
         }
 
+        void _selectMenuMap(string menuName, string screenName)
+        {
+            bool __selectTabFound = _selectTab(menuName);
+            if (__selectTabFound == false)
+            {
+                Control __getControl = SMLERPGL._selectMenu._getObject(menuName, screenName);
+                if (__getControl != null)
+                {
+                    _createAndSelectTab(menuName, menuName, screenName, __getControl);
+                }
+            }
+        }
+
 
         // toe
         public void openWelcomeScreen()
@@ -1341,6 +1354,7 @@ namespace SMLAccount
                         {
                             _selectMenuPP(menuName, __screenName);
                         }
+
                         else
                         {
                             if (tag.IndexOf("&as&") != -1)
@@ -1377,6 +1391,7 @@ namespace SMLAccount
                                     }
                                 }
                             }
+
                         }
                     }
                     else

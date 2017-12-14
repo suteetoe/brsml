@@ -249,6 +249,7 @@ namespace SMLERPConfig
             this._addTextBox(8, 0, 1, 0, _g.d.erp_pass_book._bank_branch, 2, 100, 1, true, false, false);
             this._addTextBox(9, 0, _g.d.erp_pass_book._tax_number, 10);
             this._addTextBox(10, 0, 2, 0, _g.d.erp_pass_book._remark, 2, 100);
+            this._addCheckBox(12, 0, _g.d.erp_pass_book._mobile_use, false, true);
 
             if (MyLib._myGlobal._OEMVersion == "imex" || MyLib._myGlobal._OEMVersion == "ims")
             {

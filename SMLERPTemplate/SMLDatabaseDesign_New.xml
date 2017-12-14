@@ -401,7 +401,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="597" _x="333" _y="485">
+    <_tableList _moduleName="Setup" _name="erp_company_profile" _description="รายละเอียดบริษัท" _descriptionEng="Company profile" _version="ALL" _width="314" _height="629" _x="333" _y="485">
       <_fields>
         <_fieldList _name="company_name_1" _description="ชื่อบริษัท" _descriptionEng="Company name" _type="1" _length="100" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -579,6 +579,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="arm_code" _description="ARM Code" _descriptionEng="ARM Code" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="profit_ctr" _description="PROFIT CTR" _descriptionEng="PROFIT CTR" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="cost_ctr" _description="COST CTR" _descriptionEng="COST CTR" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -2520,7 +2530,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account" _description="ผังบัญชี" _descriptionEng="Chart of account" _version="SMLGL+SMLERP" _width="294" _height="773" _x="11" _y="214">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account" _description="ผังบัญชี" _descriptionEng="Chart of account" _version="SMLGL+SMLERP" _width="294" _height="789" _x="11" _y="214">
       <_fields>
         <_fieldList _name="code" _description="รหัสบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -2757,6 +2767,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="interco" _description="INTERCO" _descriptionEng="INTERCO" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs>
         <_indexs _name="PK_CODE" _custer="1" _unique="1" _fieldsDisplay="code">
@@ -2806,7 +2821,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_inventory" _description="สินค้า" _descriptionEng="Inventory" _version="SMLERP" _width="345" _height="1653" _x="16" _y="2">
+    <_tableList _moduleName="IC" _name="ic_inventory" _description="สินค้า" _descriptionEng="Inventory" _version="SMLERP" _width="345" _height="1669" _x="16" _y="2">
       <_fields>
         <_fieldList _name="code" _description="รหัสสินค้า" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -3318,6 +3333,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="is_product_boonrawd" _description="สินค้าบุญรอด" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="is_premium" _description="สินค้าพรีเมี่ยม" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -4171,6 +4191,12 @@
             <_fields>vat_effective_year</_fields>
           </_fields>
         </_indexs>
+        <_indexs _name="gl_journal_vat_buy_doc_no_trans_flag" _custer="0" _unique="0" _fieldsDisplay="doc_no,trans_flag">
+          <_fields>
+            <_fields>doc_no</_fields>
+            <_fields>trans_flag</_fields>
+          </_fields>
+        </_indexs>
       </_indexs>
       <_afterCreated />
       <_afterVerify />
@@ -4449,7 +4475,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Cash_Bank" _name="erp_pass_book" _description="สมุดธนาคาร" _descriptionEng="Pass Book" _version="CB" _width="332" _height="325" _x="17" _y="392">
+    <_tableList _moduleName="Cash_Bank" _name="erp_pass_book" _description="สมุดธนาคาร" _descriptionEng="Pass Book" _version="CB" _width="332" _height="341" _x="17" _y="392">
       <_fields>
         <_fieldList _name="code" _description="รหัสสมุด" _descriptionEng="Book Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -4542,6 +4568,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="max_chq_fee_amount" _description="ต่อมูลค่าเช็ค(บาท)" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="mobile_use" _description="แสดงบน Mobile Sale" _descriptionEng="" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -5543,7 +5574,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ap_supplier" _description="เจ้าหนี้" _descriptionEng="Supplier" _version="SMLERP" _width="267" _height="837" _x="13" _y="6">
+    <_tableList _moduleName="AP_AR" _name="ap_supplier" _description="เจ้าหนี้" _descriptionEng="Supplier" _version="SMLERP" _width="267" _height="853" _x="13" _y="6">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="AP Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -5798,6 +5829,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="branch_code" _description="เลขที่สาขา" _descriptionEng="Branch Code" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="interco" _description="INTERCO" _descriptionEng="INTERCO" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -7874,7 +7910,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer" _description="ลูกหนี้" _descriptionEng="customer" _version="SMLERP" _width="305" _height="1493" _x="664" _y="5">
+    <_tableList _moduleName="AP_AR" _name="ar_customer" _description="ลูกหนี้" _descriptionEng="customer" _version="SMLERP" _width="305" _height="1509" _x="664" _y="5">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -8333,7 +8369,12 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="last_update_time" _description="วันเวลาทีแก้ไขล่าสุด" _descriptionEng="Last Update Time" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="last_update_time" _description="วันเวลาทีแก้ไขล่าสุด" _descriptionEng="Last Update Time" _type="8" _length="0" _null="1" _resource_only="0" _default="now()">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="interco" _description="INTERCO" _descriptionEng="INTERCO" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -46085,6 +46126,28 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="name_1" _description="เหตุผล" _descriptionEng="" _type="1" _length="255" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="GL" _name="gl_sap_account_code" _description="gl_sap_account_code" _descriptionEng="gl_sap_account_code" _version="" _width="250" _height="69" _x="1245" _y="22">
+      <_fields>
+        <_fieldList _name="code" _description="code" _descriptionEng="code" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sap_code" _description="sap_code" _descriptionEng="sap_code" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="guid_code" _descriptionEng="guid_code" _type="1" _length="35" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

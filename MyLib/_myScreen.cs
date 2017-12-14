@@ -1814,6 +1814,7 @@ namespace MyLib
         public void _addTextBox(int row, int column, int rowCount, int subColumn, string fieldName, int maxColumn, int maxLength)
         {
             _addTextBox(row, column, rowCount, subColumn, fieldName, maxColumn, maxLength, 0, true, false);
+            _setUpper("");
         }
 
         /// <summary>
@@ -1904,6 +1905,7 @@ namespace MyLib
             __newTextBox.TabStop = tabStop;
             __newTextBox._isGetData = isGetData;
             __newTextBox._searchFormat = searchFormat;
+          
             if (isPassword)
             {
                 __newTextBox.textBox.PasswordChar = '*';
