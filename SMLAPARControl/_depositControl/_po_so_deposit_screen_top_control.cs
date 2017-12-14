@@ -137,11 +137,16 @@ namespace SMLERPAPARControl._depositControl
                     this._addTextBox(1, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 25, 1, true, false, false);
                     this._addTextBox(1, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
                     this._addTextBox(2, 0, 1, 0, _g.d.ic_trans._cust_code, 1, 25, 4, true, false, false, true, true, _g.d.ic_trans._ar_code);
-                    this._addNumberBox(3, 0, 1, 0, _g.d.ic_trans._deposit_day, 1, 2, true, __formatNumberNone);
-                    this._addDateBox(3, 1, 1, 0, _g.d.ic_trans._deposit_date, 1, true, true);
-                    this._addTextBox(4, 1, 1, 0, _g.d.ic_trans._doc_ref, 1, 255, 0, true, false, true, true, true);
-                    this._addDateBox(4, 0, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true);
-                    this._addTextBox(5, 0, 2, 0, _g.d.ic_trans._remark, 2, 255, 0, true, false, true);
+                 
+                    this._addTextBox(3, 0, 1, 0, _g.d.ic_trans._sale_code, 1, 1, 1, true, false, true);
+                    this._addTextBox(3, 1, 1, 0, _g.d.ic_trans._sale_group, 1, 1, 1, true, false, true);
+                    this._addNumberBox(4, 0, 1, 0, _g.d.ic_trans._deposit_day, 1, 2, true, __formatNumberNone);
+                    this._addDateBox(4, 1, 1, 0, _g.d.ic_trans._deposit_date, 1, true, true);
+                    this._addTextBox(5, 1, 1, 0, _g.d.ic_trans._doc_ref, 1, 255, 0, true, false, true, true, true);
+                    this._addDateBox(5, 0, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true);
+                    this._addTextBox(6, 0, 2, 0, _g.d.ic_trans._remark, 2, 255, 0, true, false, true);
+
+
                     this._screen_code = "SD";
                     this._enabedControl(_g.d.ic_trans._doc_format_code, false);
                     this._processCredit = true;
