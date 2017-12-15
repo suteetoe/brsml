@@ -270,20 +270,20 @@ namespace SMLERPControl._customer
 
                 if (MyLib._myGlobal._checkChangeMaster())
                 {
-                    string getEmtry = this._screenTop._checkEmtryField();
-                    if (getEmtry.Length > 0)
-                    {
-                        MyLib._myGlobal._displayWarning(2, getEmtry);
-                    }
-                    else
+                    //string getEmtry = this._screenTop._checkEmtryField();
+                    //if (getEmtry.Length > 0)
+                    //{
+                    //    MyLib._myGlobal._displayWarning(2, getEmtry);
+                    //}
+                    //else
                     {
                         String __chkNewCode = this._screenTop._getDataStr(_g.d.ar_customer._code);
                         if (MyLib._myGlobal._chkAutoRunBeforSave(_myManageData1._mode, __chkNewCode, _g.d.ar_customer._table, _g.d.ar_customer._code))
                         {
-                            if (MyLib._myGlobal._isCheckRuningBeforSave)
-                            {
-                                this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code));
-                            }
+                            //if (MyLib._myGlobal._isCheckRuningBeforSave)
+                            //{
+                            //    this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code));
+                            //}
                             ArrayList __getData1_1 = this._screenTop._createQueryForDatabase();
                             ArrayList __getData1 = this._screen_ar_detail_1._createQueryForDatabase();
                             ArrayList __getData2 = this._screen_ar_detail_2._createQueryForDatabase();
@@ -329,6 +329,12 @@ namespace SMLERPControl._customer
 
 
                             string __result_images = this._getPicture1._updateImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                            string __result_images2 = this._getPicture2._updateImage("CONTRACT#6#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                            string __result_images3 = this._getPicture3._updateImage("CONTRACT#7#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                            string __result_images4 = this._getPicture4._updateImage("CONTRACT#8#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                            string __result_images5 = this._getPicture5._updateImage("CONTRACT#9#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                            string __result_images6 = this._getPicture6._updateImage("CONTRACT#10#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                            string __result_images7 = this._getPicture7._updateImage("CONTRACT#11#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
 
                             this._screen_ar_contact_grid1._updateRowIsChangeAll(true);
                             this._screen_ar_item_grid1._updateRowIsChangeAll(true);
@@ -549,6 +555,19 @@ namespace SMLERPControl._customer
                 this._screenTop._isChange = false;
                 _getPicture1._clearpic();
                 _getPicture1._loadImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                //เนสเพิ่มรูปภาพ อีก 6 ประเภท
+                _getPicture2._clearpic();
+                _getPicture2._loadImage("CONTRACT#6#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                _getPicture3._clearpic();
+                _getPicture3._loadImage("CONTRACT#7#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                _getPicture4._clearpic();
+                _getPicture4._loadImage("CONTRACT#8#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                _getPicture5._clearpic();
+                _getPicture5._loadImage("CONTRACT#9#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                _getPicture6._clearpic();
+                _getPicture6._loadImage("CONTRACT#10#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
+                _getPicture7._clearpic();
+                _getPicture7._loadImage("CONTRACT#11#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
 
                 //if (MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
                 //{

@@ -1703,6 +1703,13 @@
 <field name="tier_4" thai="Diamond" eng="Diamond" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="last_update_time" thai="วันเวลาทีแก้ไขล่าสุด" eng="Last Update Time" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="interco" thai="INTERCO" eng="INTERCO" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="tab_ar_picture" thai="รูปภาพ" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_certificate_book" thai="หนังสือรับรองบริษัท" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_pp20" thai="ภ.พ.20" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_Identity_card" thai="บัตรประจำตัวประชาชน" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_liquor_license" thai="ใบอนุญาตขายสุรา " eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_other_picture1" thai="อื่นๆ 1" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_other_picture2" thai="อื่นๆ 2" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <index index_name="ar_customer_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 <index index_name="ar_customer_tambon" field="tambon" ></index>
 <index index_name="ar_customer_amper" field="amper" ></index>

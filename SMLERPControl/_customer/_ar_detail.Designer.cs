@@ -72,7 +72,7 @@
             this._closeButton = new MyLib.ToolStripMyButton();
             this._myPanel5 = new MyLib._myPanel();
             this.tab_image_1 = new System.Windows.Forms.TabPage();
-            this.tab_image_2 = new System.Windows.Forms.TabPage();
+            this.tab_certificate_book = new System.Windows.Forms.TabPage();
             this.tab_image_3 = new System.Windows.Forms.TabPage();
             this.tab_image_4 = new System.Windows.Forms.TabPage();
             this.tab_image_5 = new System.Windows.Forms.TabPage();
@@ -108,7 +108,7 @@
             this._myToolbar.SuspendLayout();
             this._myPanel5.SuspendLayout();
             this.tab_image_1.SuspendLayout();
-            this.tab_image_2.SuspendLayout();
+            this.tab_certificate_book.SuspendLayout();
             this.tab_image_3.SuspendLayout();
             this.tab_image_4.SuspendLayout();
             this.tab_image_5.SuspendLayout();
@@ -595,7 +595,7 @@
             //this._tabImageDetail.Controls.Add(this.tab_item);
             //this._tabImageDetail.Controls.Add(this.tab_image);
             this._tabImageDetail.Controls.Add(this.tab_image_1);
-            this._tabImageDetail.Controls.Add(this.tab_image_2);
+            this._tabImageDetail.Controls.Add(this.tab_certificate_book);
             this._tabImageDetail.Controls.Add(this.tab_image_3);
             this._tabImageDetail.Controls.Add(this.tab_image_4);
             this._tabImageDetail.Controls.Add(this.tab_image_5);
@@ -604,7 +604,7 @@
             this._tabImageDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tabImageDetail.Location = new System.Drawing.Point(5, 5);
             this._tabImageDetail.Multiline = true;
-            this._tabImageDetail.Name = "_myTabControl1";
+            this._tabImageDetail.Name = "_tabImageDetail";
             this._tabImageDetail.SelectedIndex = 0;
             this._tabImageDetail.ShowTabNumber = true;
             this._tabImageDetail.Size = new System.Drawing.Size(525, 540);
@@ -615,10 +615,10 @@
             // 
             this.tab_image_1.Controls.Add(this._getPicture1);
             this.tab_image_1.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_1.Name = "tab_image_1";
+            this.tab_image_1.Name = "tab_ar_picture";
             this.tab_image_1.Size = new System.Drawing.Size(517, 513);
             this.tab_image_1.TabIndex = 5;
-            this.tab_image_1.Text = "6.tab_image_1";
+            this.tab_image_1.Text = "1.tab_ar_picture";
             this.tab_image_1.UseVisualStyleBackColor = true;
             // 
             // _getPicture1
@@ -637,13 +637,13 @@
             // 
             // tab_image
             // 
-            this.tab_image_2.Controls.Add(this._getPicture2);
-            this.tab_image_2.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_2.Name = "tab_image_2";
-            this.tab_image_2.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_2.TabIndex = 5;
-            this.tab_image_2.Text = "6.tab_image_2";
-            this.tab_image_2.UseVisualStyleBackColor = true;
+            this.tab_certificate_book.Controls.Add(this._getPicture2);
+            this.tab_certificate_book.Location = new System.Drawing.Point(4, 23);
+            this.tab_certificate_book.Name = "tab_certificate_book";
+            this.tab_certificate_book.Size = new System.Drawing.Size(517, 513);
+            this.tab_certificate_book.TabIndex = 5;
+            this.tab_certificate_book.Text = "2.tab_certificate_book";
+            this.tab_certificate_book.UseVisualStyleBackColor = true;
             // 
             // _getPicture2
             // 
@@ -663,10 +663,10 @@
             // 
             this.tab_image_3.Controls.Add(this._getPicture3);
             this.tab_image_3.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_3.Name = "tab_image_3";
+            this.tab_image_3.Name = "tab_pp20";
             this.tab_image_3.Size = new System.Drawing.Size(517, 513);
             this.tab_image_3.TabIndex = 5;
-            this.tab_image_3.Text = "6.tab_image_3";
+            this.tab_image_3.Text = "3.tab_pp20";
             this.tab_image_3.UseVisualStyleBackColor = true;
             // 
             // _getPicture3
@@ -687,10 +687,10 @@
             // 
             this.tab_image_4.Controls.Add(this._getPicture4);
             this.tab_image_4.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_4.Name = "tab_image_4";
+            this.tab_image_4.Name = "tab_Identity_card";
             this.tab_image_4.Size = new System.Drawing.Size(517, 513);
             this.tab_image_4.TabIndex = 5;
-            this.tab_image_4.Text = "6.tab_image_4";
+            this.tab_image_4.Text = "4.tab_Identity_card";
             this.tab_image_4.UseVisualStyleBackColor = true;
             // 
             // _getPicture4
@@ -711,10 +711,10 @@
             // 
             this.tab_image_5.Controls.Add(this._getPicture5);
             this.tab_image_5.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_5.Name = "tab_image_5";
+            this.tab_image_5.Name = "tab_liquor_license";
             this.tab_image_5.Size = new System.Drawing.Size(517, 513);
             this.tab_image_5.TabIndex = 5;
-            this.tab_image_5.Text = "6.tab_image_5";
+            this.tab_image_5.Text = "5.tab_liquor_license";
             this.tab_image_5.UseVisualStyleBackColor = true;
             // 
             // _getPicture5
@@ -735,10 +735,10 @@
             // 
             this.tab_image_6.Controls.Add(this._getPicture6);
             this.tab_image_6.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_6.Name = "tab_image_6";
+            this.tab_image_6.Name = "tab_other_picture1";
             this.tab_image_6.Size = new System.Drawing.Size(517, 513);
             this.tab_image_6.TabIndex = 5;
-            this.tab_image_6.Text = "6.tab_image_6";
+            this.tab_image_6.Text = "6.tab_other_picture1";
             this.tab_image_6.UseVisualStyleBackColor = true;
             // 
             // _getPicture6
@@ -759,10 +759,10 @@
             // 
             this.tab_image_7.Controls.Add(this._getPicture7);
             this.tab_image_7.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_7.Name = "tab_image_7";
+            this.tab_image_7.Name = "tab_other_picture2";
             this.tab_image_7.Size = new System.Drawing.Size(517, 513);
             this.tab_image_7.TabIndex = 5;
-            this.tab_image_7.Text = "6.tab_image_7";
+            this.tab_image_7.Text = "7.tab_other_picture2";
             this.tab_image_7.UseVisualStyleBackColor = true;
             // 
             // _getPicture7
@@ -919,7 +919,7 @@
         private MyLib._myTabControl _tabImageDetail;
         private System.Windows.Forms.TabPage tab_image_detail;
         private System.Windows.Forms.TabPage tab_image_1;
-        private System.Windows.Forms.TabPage tab_image_2;
+        private System.Windows.Forms.TabPage tab_certificate_book;
         private System.Windows.Forms.TabPage tab_image_3;
         private System.Windows.Forms.TabPage tab_image_4;
         private System.Windows.Forms.TabPage tab_image_5;
