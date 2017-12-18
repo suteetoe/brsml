@@ -270,20 +270,20 @@ namespace SMLERPControl._customer
 
                 if (MyLib._myGlobal._checkChangeMaster())
                 {
-                    //string getEmtry = this._screenTop._checkEmtryField();
-                    //if (getEmtry.Length > 0)
-                    //{
-                    //    MyLib._myGlobal._displayWarning(2, getEmtry);
-                    //}
-                    //else
+                    string getEmtry = this._screenTop._checkEmtryField();
+                    if (getEmtry.Length > 0)
+                    {
+                        MyLib._myGlobal._displayWarning(2, getEmtry);
+                    }
+                    else
                     {
                         String __chkNewCode = this._screenTop._getDataStr(_g.d.ar_customer._code);
                         if (MyLib._myGlobal._chkAutoRunBeforSave(_myManageData1._mode, __chkNewCode, _g.d.ar_customer._table, _g.d.ar_customer._code))
                         {
-                            //if (MyLib._myGlobal._isCheckRuningBeforSave)
-                            //{
-                            //    this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code));
-                            //}
+                            if (MyLib._myGlobal._isCheckRuningBeforSave)
+                            {
+                                this._screenTop._setDataStr(_g.d.ar_customer._code, MyLib._myGlobal._getAutoRun(_g.d.ar_customer._table, _g.d.ar_customer._code));
+                            }
                             ArrayList __getData1_1 = this._screenTop._createQueryForDatabase();
                             ArrayList __getData1 = this._screen_ar_detail_1._createQueryForDatabase();
                             ArrayList __getData2 = this._screen_ar_detail_2._createQueryForDatabase();
@@ -585,7 +585,15 @@ namespace SMLERPControl._customer
                 if (forEdit)
                 {
                     this._screenTop._focusFirst();
+                    this._getPicture1._setEnable(true);
+                    this._getPicture2._setEnable(true);
+                    this._getPicture3._setEnable(true);
+                    this._getPicture4._setEnable(true);
+                    this._getPicture5._setEnable(true);
+                    this._getPicture6._setEnable(true);
+                    this._getPicture7._setEnable(true);
                 }
+                
                 return (true);
             }
             catch (Exception)

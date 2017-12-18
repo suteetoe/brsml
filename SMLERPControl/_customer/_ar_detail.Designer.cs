@@ -71,13 +71,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._closeButton = new MyLib.ToolStripMyButton();
             this._myPanel5 = new MyLib._myPanel();
-            this.tab_image_1 = new System.Windows.Forms.TabPage();
+            this.tab_ar_picture = new System.Windows.Forms.TabPage();
             this.tab_certificate_book = new System.Windows.Forms.TabPage();
-            this.tab_image_3 = new System.Windows.Forms.TabPage();
-            this.tab_image_4 = new System.Windows.Forms.TabPage();
-            this.tab_image_5 = new System.Windows.Forms.TabPage();
-            this.tab_image_6 = new System.Windows.Forms.TabPage();
-            this.tab_image_7 = new System.Windows.Forms.TabPage();
+            this.tab_pp20 = new System.Windows.Forms.TabPage();
+            this.tab_Identity_card = new System.Windows.Forms.TabPage();
+            this.tab_liquor_license = new System.Windows.Forms.TabPage();
+            this.tab_other_picture1 = new System.Windows.Forms.TabPage();
+            this.tab_other_picture2 = new System.Windows.Forms.TabPage();
 
             this._myManageData1._form2.SuspendLayout();
             this._myManageData1.SuspendLayout();
@@ -107,13 +107,13 @@
             this.tab_image.SuspendLayout();
             this._myToolbar.SuspendLayout();
             this._myPanel5.SuspendLayout();
-            this.tab_image_1.SuspendLayout();
+            this.tab_ar_picture.SuspendLayout();
             this.tab_certificate_book.SuspendLayout();
-            this.tab_image_3.SuspendLayout();
-            this.tab_image_4.SuspendLayout();
-            this.tab_image_5.SuspendLayout();
-            this.tab_image_6.SuspendLayout();
-            this.tab_image_7.SuspendLayout();
+            this.tab_pp20.SuspendLayout();
+            this.tab_Identity_card.SuspendLayout();
+            this.tab_liquor_license.SuspendLayout();
+            this.tab_other_picture1.SuspendLayout();
+            this.tab_other_picture2.SuspendLayout();
             this.SuspendLayout();
             // 
             // _myManageData1
@@ -594,13 +594,13 @@
             //this._tabImageDetail.Controls.Add(this.tab_contact);
             //this._tabImageDetail.Controls.Add(this.tab_item);
             //this._tabImageDetail.Controls.Add(this.tab_image);
-            this._tabImageDetail.Controls.Add(this.tab_image_1);
+            this._tabImageDetail.Controls.Add(this.tab_ar_picture);
             this._tabImageDetail.Controls.Add(this.tab_certificate_book);
-            this._tabImageDetail.Controls.Add(this.tab_image_3);
-            this._tabImageDetail.Controls.Add(this.tab_image_4);
-            this._tabImageDetail.Controls.Add(this.tab_image_5);
-            this._tabImageDetail.Controls.Add(this.tab_image_6);
-            this._tabImageDetail.Controls.Add(this.tab_image_7);
+            this._tabImageDetail.Controls.Add(this.tab_pp20);
+            this._tabImageDetail.Controls.Add(this.tab_Identity_card);
+            this._tabImageDetail.Controls.Add(this.tab_liquor_license);
+            this._tabImageDetail.Controls.Add(this.tab_other_picture1);
+            this._tabImageDetail.Controls.Add(this.tab_other_picture2);
             this._tabImageDetail.Dock = System.Windows.Forms.DockStyle.Fill;
             this._tabImageDetail.Location = new System.Drawing.Point(5, 5);
             this._tabImageDetail.Multiline = true;
@@ -613,13 +613,13 @@
             // 
             // tab_image_1
             // 
-            this.tab_image_1.Controls.Add(this._getPicture1);
-            this.tab_image_1.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_1.Name = "tab_ar_picture";
-            this.tab_image_1.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_1.TabIndex = 5;
-            this.tab_image_1.Text = "1.tab_ar_picture";
-            this.tab_image_1.UseVisualStyleBackColor = true;
+            this.tab_ar_picture.Controls.Add(this._getPicture1);
+            this.tab_ar_picture.Location = new System.Drawing.Point(4, 23);
+            this.tab_ar_picture.Name = "tab_ar_picture";
+            this.tab_ar_picture.Size = new System.Drawing.Size(517, 513);
+            this.tab_ar_picture.TabIndex = 5;
+            this.tab_ar_picture.Text = "1.tab_ar_picture";
+            this.tab_ar_picture.UseVisualStyleBackColor = true;
             // 
             // _getPicture1
             // 
@@ -661,13 +661,13 @@
             // 
             // tab_image_3
             // 
-            this.tab_image_3.Controls.Add(this._getPicture3);
-            this.tab_image_3.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_3.Name = "tab_pp20";
-            this.tab_image_3.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_3.TabIndex = 5;
-            this.tab_image_3.Text = "3.tab_pp20";
-            this.tab_image_3.UseVisualStyleBackColor = true;
+            this.tab_pp20.Controls.Add(this._getPicture3);
+            this.tab_pp20.Location = new System.Drawing.Point(4, 23);
+            this.tab_pp20.Name = "tab_pp20";
+            this.tab_pp20.Size = new System.Drawing.Size(517, 513);
+            this.tab_pp20.TabIndex = 5;
+            this.tab_pp20.Text = "3.tab_pp20";
+            this.tab_pp20.UseVisualStyleBackColor = true;
             // 
             // _getPicture3
             // 
@@ -685,13 +685,13 @@
             // 
             // tab_image_4
             // 
-            this.tab_image_4.Controls.Add(this._getPicture4);
-            this.tab_image_4.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_4.Name = "tab_Identity_card";
-            this.tab_image_4.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_4.TabIndex = 5;
-            this.tab_image_4.Text = "4.tab_Identity_card";
-            this.tab_image_4.UseVisualStyleBackColor = true;
+            this.tab_Identity_card.Controls.Add(this._getPicture4);
+            this.tab_Identity_card.Location = new System.Drawing.Point(4, 23);
+            this.tab_Identity_card.Name = "tab_Identity_card";
+            this.tab_Identity_card.Size = new System.Drawing.Size(517, 513);
+            this.tab_Identity_card.TabIndex = 5;
+            this.tab_Identity_card.Text = "4.tab_Identity_card";
+            this.tab_Identity_card.UseVisualStyleBackColor = true;
             // 
             // _getPicture4
             // 
@@ -709,13 +709,13 @@
             // 
             // tab_image_5
             // 
-            this.tab_image_5.Controls.Add(this._getPicture5);
-            this.tab_image_5.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_5.Name = "tab_liquor_license";
-            this.tab_image_5.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_5.TabIndex = 5;
-            this.tab_image_5.Text = "5.tab_liquor_license";
-            this.tab_image_5.UseVisualStyleBackColor = true;
+            this.tab_liquor_license.Controls.Add(this._getPicture5);
+            this.tab_liquor_license.Location = new System.Drawing.Point(4, 23);
+            this.tab_liquor_license.Name = "tab_liquor_license";
+            this.tab_liquor_license.Size = new System.Drawing.Size(517, 513);
+            this.tab_liquor_license.TabIndex = 5;
+            this.tab_liquor_license.Text = "5.tab_liquor_license";
+            this.tab_liquor_license.UseVisualStyleBackColor = true;
             // 
             // _getPicture5
             // 
@@ -733,13 +733,13 @@
             // 
             // tab_image
             // 
-            this.tab_image_6.Controls.Add(this._getPicture6);
-            this.tab_image_6.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_6.Name = "tab_other_picture1";
-            this.tab_image_6.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_6.TabIndex = 5;
-            this.tab_image_6.Text = "6.tab_other_picture1";
-            this.tab_image_6.UseVisualStyleBackColor = true;
+            this.tab_other_picture1.Controls.Add(this._getPicture6);
+            this.tab_other_picture1.Location = new System.Drawing.Point(4, 23);
+            this.tab_other_picture1.Name = "tab_other_picture1";
+            this.tab_other_picture1.Size = new System.Drawing.Size(517, 513);
+            this.tab_other_picture1.TabIndex = 5;
+            this.tab_other_picture1.Text = "6.tab_other_picture1";
+            this.tab_other_picture1.UseVisualStyleBackColor = true;
             // 
             // _getPicture6
             // 
@@ -757,13 +757,13 @@
             // 
             // tab_image
             // 
-            this.tab_image_7.Controls.Add(this._getPicture7);
-            this.tab_image_7.Location = new System.Drawing.Point(4, 23);
-            this.tab_image_7.Name = "tab_other_picture2";
-            this.tab_image_7.Size = new System.Drawing.Size(517, 513);
-            this.tab_image_7.TabIndex = 5;
-            this.tab_image_7.Text = "7.tab_other_picture2";
-            this.tab_image_7.UseVisualStyleBackColor = true;
+            this.tab_other_picture2.Controls.Add(this._getPicture7);
+            this.tab_other_picture2.Location = new System.Drawing.Point(4, 23);
+            this.tab_other_picture2.Name = "tab_other_picture2";
+            this.tab_other_picture2.Size = new System.Drawing.Size(517, 513);
+            this.tab_other_picture2.TabIndex = 5;
+            this.tab_other_picture2.Text = "7.tab_other_picture2";
+            this.tab_other_picture2.UseVisualStyleBackColor = true;
             // 
             // _getPicture7
             // 
@@ -917,14 +917,14 @@
         private _screen_ar_grid _screen_ar_item_grid1;
         private System.Windows.Forms.TabPage tab_image;
         private MyLib._myTabControl _tabImageDetail;
-        private System.Windows.Forms.TabPage tab_image_detail;
-        private System.Windows.Forms.TabPage tab_image_1;
+       // private System.Windows.Forms.TabPage tab_image_detail;
+        private System.Windows.Forms.TabPage tab_ar_picture;
         private System.Windows.Forms.TabPage tab_certificate_book;
-        private System.Windows.Forms.TabPage tab_image_3;
-        private System.Windows.Forms.TabPage tab_image_4;
-        private System.Windows.Forms.TabPage tab_image_5;
-        private System.Windows.Forms.TabPage tab_image_6;
-        private System.Windows.Forms.TabPage tab_image_7;
+        private System.Windows.Forms.TabPage tab_pp20;
+        private System.Windows.Forms.TabPage tab_Identity_card;
+        private System.Windows.Forms.TabPage tab_liquor_license;
+        private System.Windows.Forms.TabPage tab_other_picture1;
+        private System.Windows.Forms.TabPage tab_other_picture2;
 
         private _getPicture _getPicture1;
         private _getPicture _getPicture2;
