@@ -19,8 +19,19 @@ namespace SMLProcess
         public _docFlowForm(_g.g._transControlTypeEnum icTransTypeEnum, string refTransFieldName, string refFieldName, string docNo)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterParent;
             // Create Object
+
             _docFlowObjectClass __docFlow = this._createTransDocFlow(icTransTypeEnum, refTransFieldName, refFieldName, docNo, Guid.NewGuid().ToString());
+            switch (icTransTypeEnum)
+            {
+                case _g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล:
+                case _g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล:
+                case _g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้:
+                    __docFlow = this._createArApTransDocFlow(icTransTypeEnum, refTransFieldName, refFieldName, docNo, "", Guid.NewGuid().ToString());
+                    break;
+            }
             if (__docFlow != null)
             {
                 // Create Control
@@ -47,6 +58,7 @@ namespace SMLProcess
                     }
                 }
             }
+
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -111,6 +123,15 @@ namespace SMLProcess
             string __queryDoc = "select " + _g.d.ic_trans._doc_date + "," + _g.d.ic_trans._doc_time + "," + _g.d.ic_trans._total_amount +
                  " from " + _g.d.ic_trans._table +
                  " where " + _g.d.ic_trans._doc_no + "=\'" + docNo + "\' and " + _g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString();
+
+            __queryDoc += " union all select " + _g.d.ap_ar_trans._doc_date + ", '00:00' as " + _g.d.ic_trans._doc_time + "," + _g.d.ap_ar_trans._total_net_value + " as " + _g.d.ic_trans._total_amount +
+                 " from " + _g.d.ap_ar_trans._table +
+                 " where " + _g.d.ap_ar_trans._doc_no + "=\'" + docNo + "\' and " + _g.d.ap_ar_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString();
+
+            __queryDoc += " union all select " + _g.d.ic_wms_trans._doc_date + ", '00:00' as " + _g.d.ic_wms_trans._doc_time + ",0 as " + _g.d.ic_trans._total_amount +
+              " from " + _g.d.ic_wms_trans._table +
+              " where " + _g.d.ic_wms_trans._doc_no + "=\'" + docNo + "\' and " + _g.d.ic_wms_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString();
+
             DataTable __data = __myFrameWork._queryShort(__queryDoc).Tables[0];
             if (__data.Rows.Count != 0)
             {
@@ -169,6 +190,11 @@ namespace SMLProcess
         /// <returns></returns>
         private DataTable _selectTransDetailRef(_g.g._transControlTypeEnum icTransTypeEnum, string refDetailFieldName, string refFieldName, string refDocNo)
         {
+            return _selectTransDetailRef(icTransTypeEnum, refDetailFieldName, refFieldName, refDocNo, "", "");
+        }
+
+        private DataTable _selectTransDetailRef(_g.g._transControlTypeEnum icTransTypeEnum, string refDetailFieldName, string refFieldName, string refDocNo, string cbReferField, string extraCBWhere)
+        {
             StringBuilder __query = new StringBuilder();
             __query.Append("select distinct " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._trans_flag);
             __query.Append(" from " + _g.d.ic_trans_detail._table);
@@ -179,14 +205,51 @@ namespace SMLProcess
                 __query.Append("select distinct " + _g.d.ic_trans._doc_no + " as " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans._trans_flag + " as " + _g.d.ic_trans_detail._trans_flag);
                 __query.Append(" from " + _g.d.ic_trans._table);
                 __query.Append(" where " + refFieldName + "=\'" + refDocNo + "\' and " + _g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString());
+
+                __query.Append(" union all ");
+                __query.Append("select distinct " + _g.d.ap_ar_trans._doc_no + " as " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ap_ar_trans._trans_flag + " as " + _g.d.ic_trans_detail._trans_flag);
+                __query.Append(" from " + _g.d.ap_ar_trans._table);
+                __query.Append(" where " + refFieldName + "=\'" + refDocNo + "\' and " + _g.d.ap_ar_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString());
+
+                __query.Append(" union all ");
+                __query.Append("select distinct " + _g.d.ic_wms_trans._doc_no + " as " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_wms_trans._trans_flag + " as " + _g.d.ic_trans_detail._trans_flag);
+                __query.Append(" from " + _g.d.ic_wms_trans._table);
+                __query.Append(" where " + refFieldName + "=\'" + refDocNo + "\' and " + _g.d.ic_wms_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString());
+
             }
+
+            if (cbReferField.Length > 0)
+            {
+                __query.Append(" union all ");
+                __query.Append("select distinct " + _g.d.cb_trans_detail._doc_no + " as " + _g.d.ic_trans_detail._doc_no + "," + _g.d.cb_trans_detail._trans_flag + " as " + _g.d.ic_trans_detail._trans_flag);
+                __query.Append(" from " + _g.d.cb_trans_detail._table);
+                __query.Append(" where " + cbReferField + "=\'" + refDocNo + "\' " + ((extraCBWhere.Length > 0) ? " and " + extraCBWhere : ""));
+
+            }
+
+            if (icTransTypeEnum == _g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก || icTransTypeEnum == _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก || icTransTypeEnum == _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก)
+            {
+                __query.Append(" union all ");
+                __query.Append("select distinct " + _g.d.ic_wms_trans_detail._doc_no + "," + _g.d.ic_wms_trans_detail._trans_flag);
+                __query.Append(" from " + _g.d.ic_wms_trans_detail._table);
+                __query.Append(" where " + refDetailFieldName + "=\'" + refDocNo + "\' and " + _g.d.ic_wms_trans_detail._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(icTransTypeEnum).ToString());
+
+            }
+
             StringBuilder __queryTemp = new StringBuilder();
             __queryTemp.Append("select distinct " + _g.d.ic_trans_detail._doc_no + "," + _g.d.ic_trans_detail._trans_flag);
             __queryTemp.Append(" from (" + __query.ToString() + ") as temp1");
-            return __myFrameWork._queryShort(__query.ToString()).Tables[0];
+
+
+            return __myFrameWork._queryShort(__queryTemp.ToString()).Tables[0];
         }
 
         private DataTable _selectTransRef(_g.g._transControlTypeEnum icTransTypeEnum, string refDetailFieldName, string refFieldName, string refDocNo)
+        {
+            return _selectTransRef(icTransTypeEnum, refDetailFieldName, refFieldName, refDocNo, "", "");
+        }
+
+        private DataTable _selectTransRef(_g.g._transControlTypeEnum icTransTypeEnum, string refDetailFieldName, string refFieldName, string refDocNo, string cbReferField, string extraCBWhere)
         {
             StringBuilder __query = new StringBuilder();
             __query.Append("select " + _g.d.ic_trans._doc_no + "," + _g.d.ic_trans_detail._trans_flag);
@@ -202,13 +265,22 @@ namespace SMLProcess
             //StringBuilder __queryTemp = new StringBuilder();
             //__queryTemp.Append("select distinct " + _g.d.ic_trans._doc_no + "," + _g.d.ic_trans_detail._trans_flag);
             //__queryTemp.Append(" from (" + __query.ToString() + ") as temp1");
+            if (cbReferField.Length > 0)
+            {
+                __query.Append(" union all ");
+                __query.Append("select distinct " + _g.d.cb_trans_detail._doc_no + " as " + _g.d.ic_trans_detail._doc_no + "," + _g.d.cb_trans_detail._trans_flag + " as " + _g.d.ic_trans_detail._trans_flag);
+                __query.Append(" from " + _g.d.cb_trans_detail._table);
+                __query.Append(" where " + cbReferField + "=\'" + refDocNo + "\' " + ((extraCBWhere.Length > 0) ? " and " + extraCBWhere : ""));
+
+            }
+
             return __myFrameWork._queryShort(__query.ToString()).Tables[0];
         }
 
         private DataTable _selectCBTransDetailRef(_g.g._transControlTypeEnum icTransTypeEnum, string refDetailFieldName, string refFieldName, string refDocNo, string extraWhere)
         {
             StringBuilder __query = new StringBuilder();
-            __query.Append("select " + _g.d.cb_trans_detail._doc_no + "," + _g.d.cb_trans_detail._trans_flag + "," + _g.d.cb_trans_detail._doc_date + "," + _g.d.cb_trans_detail._amount );
+            __query.Append("select " + _g.d.cb_trans_detail._doc_no + "," + _g.d.cb_trans_detail._trans_flag + "," + _g.d.cb_trans_detail._doc_date + "," + _g.d.cb_trans_detail._amount);
             __query.Append(" from " + _g.d.cb_trans_detail._table);
             __query.Append(" where " + refDetailFieldName + "=\'" + refDocNo + "\' ");
 
@@ -259,7 +331,7 @@ namespace SMLProcess
         //{
         //    switch(transTypeEnum)
         //    {
-                
+
         //    }
         //}
 
@@ -286,6 +358,7 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createApArTransCurrentNode(transTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._doc_ref, "", __getDocNo, "", __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
@@ -302,6 +375,7 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createApArTransCurrentNode(transTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
                         }
@@ -318,6 +392,7 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createApArTransCurrentNode(transTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._doc_ref, "", __getDocNo, "", __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
@@ -334,6 +409,7 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createApArTransCurrentNode(transTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
                         }
@@ -356,12 +432,285 @@ namespace SMLProcess
             switch (icTransTypeEnum)
             {
                 #region สินค้า
+                case _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ขอเบิกสินค้าวัตถุดิบ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_ขอเบิกสินค้าวัตถุดิบ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ขอเบิกสินค้าวัตถุดิบ_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_ขอโอน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_โอนออก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ขอโอน_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_โอนออก_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ตรวจนับสินค้า:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด, _g.d.ic_trans_detail._doc_ref, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก, _g.d.ic_trans_detail._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
                 #endregion
                 #region ซื้อ
                 case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า:
                     {
-                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo, _g.d.cb_trans_detail._trans_number, _g.d.cb_trans_detail._doc_type + "=5 ");
                         _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        string __next = "";
+                        _docFlowDetailObjectClass __getNextDoc = null;
+
                         for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
                         {
                             string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
@@ -372,10 +721,32 @@ namespace SMLProcess
 
                             if (__getDoc != null)
                             {
+                                __next = __getDoc._guidNext;
+                                __getNextDoc = __getDoc;
+
                                 //this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า_รับคืน, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                            else
+                            {
+                                if (__getNextDoc != null)
+                                {
+                                    _g.g._transControlTypeEnum __type = _g.g._transFlagGlobal._transFlagByNumber(MyLib._myGlobal._intPhase(__docTransRef.Rows[__row][_g.d.ic_trans_detail._trans_flag].ToString()));
+                                    _docFlowDetailObjectClass __getDocRef = this._createTransCurrentNode(__type, __getDocNo, docNo, __next);
+                                    _docFlowDetailObjectClass __getDocAPAR = this._createApArTransCurrentNode(__type, __getDocNo, docNo, __next);
+
+                                    if (__getDocRef != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocRef);
+                                    }
+
+                                    if (__getDocAPAR != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocAPAR);
+                                    }
+                                }
                             }
                         }
                         return __docFlow;
@@ -417,8 +788,6 @@ namespace SMLProcess
                         }
                         return __docFlow;*/
                     }
-
-             
                 case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า_ยกเลิก:
                     {
                         DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
@@ -467,23 +836,55 @@ namespace SMLProcess
                     }
                 case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ:
                     {
-                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo, _g.d.cb_trans_detail._trans_number, _g.d.cb_trans_detail._doc_type + "=6 ");
                         _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        string __next = "";
+                        _docFlowDetailObjectClass __getNextDoc = null;
                         for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
                         {
                             string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
                             _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                __next = __getDoc._guidNext;
+                                __getNextDoc = __getDoc;
                                 //this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ_รับคืน, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
+                            else
+                            {
+                                if (__getNextDoc != null)
+                                {
+                                    _g.g._transControlTypeEnum __type = _g.g._transFlagGlobal._transFlagByNumber(MyLib._myGlobal._intPhase(__docTransRef.Rows[__row][_g.d.ic_trans_detail._trans_flag].ToString()));
+                                    _docFlowDetailObjectClass __getDocRef = this._createTransCurrentNode(__type, __getDocNo, docNo, __next);
+                                    _docFlowDetailObjectClass __getDocAPAR = this._createApArTransCurrentNode(__type, __getDocNo, docNo, __next);
+
+                                    if (__getDocRef != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocRef);
+                                    }
+
+                                    if (__getDocAPAR != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocAPAR);
+                                    }
+                                }
+                            }
                         }
                         return __docFlow;
                     }
                 case _g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและบริการ_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าเพิ่มหนี้หรือราคาผิด_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด_ยกเลิก:
+
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_ตั้งหนี้_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_ลดหนี้_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด_ยกเลิก:
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_เพิ่มหนี้_ยกเลิก:
                     {
                         DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
                         _docFlowObjectClass __docFlow = new _docFlowObjectClass();
@@ -529,12 +930,9 @@ namespace SMLProcess
                         }
                         return __docFlow;
                     }
-
-                #endregion
-                #region ขาย
-                case _g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า:
+                case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ:
                     {
-                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
                         _docFlowObjectClass __docFlow = new _docFlowObjectClass();
                         for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
                         {
@@ -542,10 +940,284 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_อนุมัติ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_อนุมัติ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_อนุมัติ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_อนุมัติ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและบริการ_ยกเลิก, _g.d.ic_trans._doc_ref, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าเพิ่มหนี้หรือราคาผิด, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าเพิ่มหนี้หรือราคาผิด:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าเพิ่มหนี้หรือราคาผิด_ยกเลิก, _g.d.ic_trans._doc_ref, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด_ยกเลิก, _g.d.ic_trans._doc_ref, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_รับสินค้า_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ตั้งหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_ตั้งหนี้:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ตั้งหนี้_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_เพิ่มหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ลดหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_เพิ่มหนี้:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_เพิ่มหนี้_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_ลดหนี้:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ลดหนี้_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ส่งคืนสินค้าหรือราคาผิด_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                #endregion
+                #region ขาย
+                case _g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า:
+                    {
+                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo, _g.d.cb_trans_detail._trans_number, _g.d.cb_trans_detail._doc_type + "=5 ");
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        string __next = "";
+                        _docFlowDetailObjectClass __getNextDoc = null;
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __next = __getDoc._guidNext;
+                                __getNextDoc = __getDoc;
                                 //this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_เงินล่วงหน้า_คืน, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                            else
+                            {
+                                if (__getNextDoc != null)
+                                {
+                                    _g.g._transControlTypeEnum __type = _g.g._transFlagGlobal._transFlagByNumber(MyLib._myGlobal._intPhase(__docTransRef.Rows[__row][_g.d.ic_trans_detail._trans_flag].ToString()));
+                                    _docFlowDetailObjectClass __getDocRef = this._createTransCurrentNode(__type, __getDocNo, docNo, __next);
+                                    _docFlowDetailObjectClass __getDocAPAR = this._createApArTransCurrentNode(__type, __getDocNo, docNo, __next);
+
+                                    //this._addNode(__getNextDoc._nodes, this._createTransDocFlow(__type, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __next));
+                                    if (__getDocRef != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocRef);
+                                    }
+
+                                    if (__getDocAPAR != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocAPAR);
+                                    }
+
+
+                                    //if (__getDocRef != null)
+                                    //    __getDocRef._nodes.Add(__getDocRef);
+                                }
                             }
                         }
                         return __docFlow;
@@ -598,18 +1270,40 @@ namespace SMLProcess
                     }
                 case _g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ:
                     {
-                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        DataTable __docTransRef = this._selectTransRef(icTransTypeEnum, refDetalFieldName, "", docNo, _g.d.cb_trans_detail._trans_number, _g.d.cb_trans_detail._doc_type + "=6 ");
                         _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        string __next = "";
+                        _docFlowDetailObjectClass __getNextDoc = null;
                         for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
                         {
                             string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
                             _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
-                                //this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __next = __getDoc._guidNext;
+                                __getNextDoc = __getDoc;
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_เงินมัดจำ_คืน, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ_ยกเลิก, _g.d.ic_trans._doc_ref, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                            else
+                            {
+                                if (__getNextDoc != null)
+                                {
+                                    _g.g._transControlTypeEnum __type = _g.g._transFlagGlobal._transFlagByNumber(MyLib._myGlobal._intPhase(__docTransRef.Rows[__row][_g.d.ic_trans_detail._trans_flag].ToString()));
+                                    _docFlowDetailObjectClass __getDocRef = this._createTransCurrentNode(__type, __getDocNo, docNo, __next);
+                                    _docFlowDetailObjectClass __getDocAPAR = this._createApArTransCurrentNode(__type, __getDocNo, docNo, __next);
+
+                                    if (__getDocRef != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocRef);
+                                    }
+
+                                    if (__getDocAPAR != null)
+                                    {
+                                        __docFlow._docFlowDetailObject.Add(__getDocAPAR);
+                                    }
+                                }
                             }
                         }
                         return __docFlow;
@@ -660,186 +1354,6 @@ namespace SMLProcess
                         }
                         return __docFlow;
                     }
-                #endregion
-                // สินค้า
-                case _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                // ซื้อ
-                case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_อนุมัติ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_อนุมัติ:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_เสนอซื้อ_ยกเลิก:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_อนุมัติ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_อนุมัติ:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ_ยกเลิก:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
-                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าเพิ่มหนี้หรือราคาผิด, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
-                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
-                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าเพิ่มหนี้หรือราคาผิด:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                case _g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด:
-                    {
-                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
-                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
-                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
-                        {
-                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
-                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
-                            if (__getDoc != null)
-                            {
-                                __docFlow._docFlowDetailObject.Add(__getDoc);
-                            }
-                        }
-                        return __docFlow;
-                    }
-                // ขาย
                 case _g.g._transControlTypeEnum.ขาย_เสนอราคา:
                     {
                         DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
@@ -900,8 +1414,25 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า_อนุมัติ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_สั่งขาย, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ขาย_สั่งจองและสั่งซื้อสินค้า_อนุมัติ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
                         }
@@ -932,7 +1463,24 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_สั่งขาย_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_สั่งขาย_อนุมัติ, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ขาย_สั่งขาย_อนุมัติ:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
                         }
@@ -963,10 +1511,12 @@ namespace SMLProcess
                             _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
                             if (__getDoc != null)
                             {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_เพิ่มหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
                                 this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_wms_trans._doc_ref, __getDocNo, __getDoc._guidNext));
                                 __docFlow._docFlowDetailObject.Add(__getDoc);
                             }
                         }
@@ -1053,6 +1603,729 @@ namespace SMLProcess
                         }
                         return __docFlow;
                     }
+                #endregion
+                #region ลูกหนี้
+                case _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้อื่น:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้อื่น_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, "", docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้ยกมา:
+                case _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้ยกมา:
+                case _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้ยกมา:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล_ยกเลิก:
+                case _g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                #endregion
+                #region เจ้าหนี้
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้ยกมา:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้ยกมา:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้ยกมา:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้อื่น:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                if (icTransTypeEnum == _g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้อื่น)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                }
+                                else if (icTransTypeEnum == _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                }
+                                else if (icTransTypeEnum == _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                }
+
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ตั้งหนี้อื่น_ยกเลิก:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น_ยกเลิก:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+
+                case _g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล_ยกเลิก:
+                case _g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                #endregion
+                #region เงินสดธนาคาร
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                if (icTransTypeEnum == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                }
+                                else if (icTransTypeEnum == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                }
+                                else if (icTransTypeEnum == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                }
+
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_ใบรับวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_เพิ่มหนี้_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_เพิ่มหนี้:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                if (icTransTypeEnum == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_เพิ่มหนี้, _g.d.ic_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                }
+                                else if (icTransTypeEnum == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                }
+                                else if (icTransTypeEnum == _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_เพิ่มหนี้)
+                                {
+                                    this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_เพิ่มหนี้_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+                                }
+
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_ใบวางบิล, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, "", __getDoc._guidNext));
+                                this._addNode(__getDoc._nodes, this._createArApTransDocFlow(_g.g._transControlTypeEnum.ลูกหนี้_รับชำระหนี้, _g.d.ap_ar_trans_detail._billing_no, "", __getDocNo, _g.d.ap_ar_trans_detail._doc_ref + "=\'\' or " + _g.d.ap_ar_trans_detail._doc_ref + " is null", __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_ลดหนี้_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_รายได้อื่น_เพิ่มหนี้_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+
+                case _g.g._transControlTypeEnum.เงินสดย่อย_เบิกเงินสดย่อย:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดย่อย_เบิกเงินสดย่อย_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดย่อย_รับคืนเงินสดย่อย:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดย่อย_รับคืนเงินสดย่อย_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดย่อย_เบิกเงินสดย่อย_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดย่อย_รับคืนเงินสดย่อย_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินออกธนาคาร:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินออกธนาคาร, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินออกธนาคาร_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินเข้าธนาคาร_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+
+                #region เช็ค
+
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกมา:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกมา_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกมา:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกมา_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ฝาก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ฝาก_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ผ่าน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ผ่าน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกเลิก_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_คืน:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, _g.d.ic_trans._doc_no, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_คืน_ยกเลิก, _g.d.ic_trans_detail._ref_doc_no, _g.d.ic_trans._doc_ref, __getDocNo, __getDoc._guidNext));
+
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกมา_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_คืน_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ยกเลิก_ยกเลิก:
+
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกมา_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ฝาก_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ผ่าน_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_ยกเลิก_ยกเลิก:
+                case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_คืน_ยกเลิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                #endregion
+
+                #endregion
+
+                #region คลัง เบิก/ฝาก
+                case _g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก, _g.d.ic_wms_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                this._addNode(__getDoc._nodes, this._createTransDocFlow(_g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก, _g.d.ic_wms_trans_detail._ref_doc_no, "", __getDocNo, __getDoc._guidNext));
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+                case _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก:
+                    {
+                        DataTable __docTransRef = this._selectTransDetailRef(icTransTypeEnum, refDetalFieldName, refFieldName, docNo);
+                        _docFlowObjectClass __docFlow = new _docFlowObjectClass();
+                        for (int __row = 0; __row < __docTransRef.Rows.Count; __row++)
+                        {
+                            string __getDocNo = __docTransRef.Rows[__row][_g.d.ic_trans_detail._doc_no].ToString();
+                            _docFlowDetailObjectClass __getDoc = this._createTransCurrentNode(icTransTypeEnum, __getDocNo, docNo, guidParent);
+                            if (__getDoc != null)
+                            {
+                                __docFlow._docFlowDetailObject.Add(__getDoc);
+                            }
+                        }
+                        return __docFlow;
+                    }
+
+                    #endregion
             }
             return null;
         }

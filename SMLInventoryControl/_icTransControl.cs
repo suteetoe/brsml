@@ -2448,6 +2448,13 @@ namespace SMLInventoryControl
             try
             {
                 int __docColumn = grid._findColumnByName(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_no);
+
+                if (this._transControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก ||
+                    this._transControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก ||
+                    this._transControlType == _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก)
+                {
+                    __docColumn = grid._findColumnByName(_g.d.ic_wms_trans._table + "." + _g.d.ic_wms_trans._doc_no);
+                }
                 if (__docColumn != -1 && grid._selectRow != -1)
                 {
                     string __docNo = grid._cellGet(grid._selectRow, __docColumn).ToString();
