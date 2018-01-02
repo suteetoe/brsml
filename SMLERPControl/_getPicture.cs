@@ -569,6 +569,7 @@ namespace SMLERPControl
                
 
                 bool _xcheckedImage = false;
+         
                 if (getpic.Image != null)
                 {
                     if (getpic.Tag == null)
@@ -584,24 +585,46 @@ namespace SMLERPControl
                             xxSystem = System.Guid.NewGuid().ToString();
                         }
 
+                    }else {
+
+                        string __checkGuidDuplicateQuery = "select guid_code from " + __tabble + " where guid_code ='" + getpic.Tag.ToString() + "'";
+                        DataTable __resultCheck = __myFrameWork._queryShort(__checkGuidDuplicateQuery).Tables[0];
+                        if (__resultCheck.Rows.Count == 0)
+                        {
+                            string __checkGuidDuplicateQuery2 = "select guid_code from " + __tabble + " where guid_code ='" + xxSystem + "'";
+                            DataTable __resultCheck2 = __myFrameWork._queryShort(__checkGuidDuplicateQuery).Tables[0];
+                            if (__resultCheck.Rows.Count == 0)
+                            {
+                                break;
+                            }
+                            xxSystem = System.Guid.NewGuid().ToString();
+                        }
+                        else {
+                            string __qurey = "delete from " + __tabble + " where guid_code ='" + getpic.Tag.ToString() + "'";
+                            __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __qurey);
+
+                        }
+
                     }
 
                     _g.g.BMPXMLSerialization bmpx = new _g.g.BMPXMLSerialization(new Bitmap(getpic.Image));
                     getData = bmpx.BMPBytes;
                     TypeImage = new MyLib.SMLJAVAWS.imageType();
                     TypeImage._databyteImage = getData;
-                    TypeImage._code = (getpic.Tag != null && getpic.Tag.ToString() != "") ? getpic.Tag.ToString() : xxSystem;
+                    //TypeImage._code = (getpic.Tag != null && getpic.Tag.ToString() != "") ? getpic.Tag.ToString() : xxSystem;
+                    TypeImage._code = xxSystem;
 
                     xlist.Add(TypeImage);
                     if (_xcheckedImage) getpic.Image = null;
                     ListType = ((MyLib.SMLJAVAWS.imageType[])xlist.ToArray(typeof(MyLib.SMLJAVAWS.imageType)));
                 }
-                else if (getpic.Tag != null && getpic.Tag.ToString() != "")
-                {
-                    // delete from guid
-                    string __qurey = "delete from " + __tabble + " where guid_code ='" + getpic.Tag.ToString() + "'";
-                    __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __qurey);
-                }
+                //else if (getpic.Tag != null && getpic.Tag.ToString() != "")
+                //{
+                //    // delete from guid
+                //    string __qurey = "delete from " + __tabble + " where guid_code ='" + getpic.Tag.ToString() + "'";
+                //    __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __qurey);
+                //}
+          
             }
             string[] xfeild = { "image_id", "image_file", "guid_code" };//insert
             string xwhere = "image_id";//update

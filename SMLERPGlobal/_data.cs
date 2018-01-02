@@ -6609,6 +6609,34 @@ namespace _g
             /// INTERCO
             /// </summary>
             public static String _interco = "interco";
+            /// <summary>
+            /// รูปภาพ
+            /// </summary>
+            public static String _tab_ar_picture = "tab_ar_picture";
+            /// <summary>
+            /// หนังสือรับรองบริษัท
+            /// </summary>
+            public static String _tab_certificate_book = "tab_certificate_book";
+            /// <summary>
+            /// ภ.พ.20
+            /// </summary>
+            public static String _tab_pp20 = "tab_pp20";
+            /// <summary>
+            /// บัตรประจำตัวประชาชน
+            /// </summary>
+            public static String _tab_Identity_card = "tab_Identity_card";
+            /// <summary>
+            /// ใบอนุญาตขายสุรา 
+            /// </summary>
+            public static String _tab_liquor_license = "tab_liquor_license";
+            /// <summary>
+            /// อื่นๆ 1
+            /// </summary>
+            public static String _tab_other_picture1 = "tab_other_picture1";
+            /// <summary>
+            /// อื่นๆ 2
+            /// </summary>
+            public static String _tab_other_picture2 = "tab_other_picture2";
         }
 
         /// <summary>
