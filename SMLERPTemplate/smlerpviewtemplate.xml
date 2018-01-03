@@ -1649,4 +1649,39 @@
     <detail column_name="เลขที่เอกสาร" column_name_2="Doc_no" column_field_name="gl_trans.doc_no" column_field_sort="gl_trans.doc_no" column_width="30" column_type="varchar" column_align="left"></detail>
     <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="gl_trans.remark" column_field_sort="gl_trans.remark" column_width="20" column_type="float" column_align="left"></detail>
   </screen>
+  <screen screen_code="screen_ms_customer_type" name_1="Type" name_2="Customer Type" table_name="customer_type" table_list="customer_type" sort="customer_type.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="customer_type.code" column_field_sort="customer_type.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="customer_type.name_1" column_field_sort="customer_type.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="customer_type.name_2" column_field_sort="customer_type.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_ms_ar_channel" name_1="Channel" name_2="Ar channel" table_name="ar_channel" table_list="ar_channel" sort="ar_channel.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_channel.code" column_field_sort="ar_channel.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_channel.name_1" column_field_sort="ar_channel.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_channel.name_2" column_field_sort="ar_channel.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_ms_ar_location_type" name_1="Location" name_2="Ar Location Type" table_name="ar_location_type" table_list="ar_location_type" sort="ar_location_type.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_location_type.code" column_field_sort="ar_location_type.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_location_type.name_1" column_field_sort="ar_location_type.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_location_type.name_2" column_field_sort="ar_location_type.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_ms_ar_sub_type_1" name_1="Sub Type 1" name_2="Sub Type 1" table_name="ar_sub_type_1" table_list="ar_sub_type_1" sort="ar_sub_type_1.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_sub_type_1.code" column_field_sort="ar_sub_type_1.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_sub_type_1.name_1" column_field_sort="ar_sub_type_1.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_sub_type_1.name_2" column_field_sort="ar_sub_type_1.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_ms_ar_vehicle" name_1="Vehicle" name_2="Vehicle" table_name="ar_vehicle" table_list="ar_vehicle" sort="ar_vehicle.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_vehicle.code" column_field_sort="ar_vehicle.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_vehicle.name_1" column_field_sort="ar_vehicle.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_vehicle.name_2" column_field_sort="ar_vehicle.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_ms_ar_equipment" name_1="Equipment" name_2="Equipment" table_name="ar_equipment" table_list="ar_equipment" sort="ar_equipment.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_equipment.code" column_field_sort="ar_equipment.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_equipment.name_1" column_field_sort="ar_equipment.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_equipment.name_2" column_field_sort="ar_equipment.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_ms_ar_sub_equipment" name_1="Sub Equipment" name_2="Sub Equipment" table_name="ar_sub_equipment" table_list="ar_sub_equipment" sort="ar_sub_equipment.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_sub_equipment.code" column_field_sort="ar_sub_equipment.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_sub_equipment.name_1" column_field_sort="ar_sub_equipment.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_sub_equipment.name_2" column_field_sort="ar_sub_equipment.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
 </node>

@@ -808,7 +808,7 @@ namespace MyLib
                 Boolean __guid = true;
                 // ประกอบ query
                 Boolean __firstField = false;
-                for (int __loop = 0; __loop < _gridData._columnList.Count; __loop++)
+                for ( int __loop = 0; __loop < _gridData._columnList.Count; __loop++)
                 {
                     MyLib._myGrid._columnType __getColumnType = (MyLib._myGrid._columnType)_gridData._columnList[__loop];
                     if (__getColumnType._originalName.Length > 0 && __getColumnType._isQuery == true)

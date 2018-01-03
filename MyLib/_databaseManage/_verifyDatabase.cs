@@ -245,6 +245,7 @@ namespace MyLib._databaseManage
             MyLib._myFrameWork __myFrameWork = new _myFrameWork();
             __myFrameWork._sendXmlFile(MyLib._myGlobal._databaseStructFileName);
             __myFrameWork._sendXmlFile(MyLib._myGlobal._databaseVerifyXmlFileName);
+            __myFrameWork._sendXmlFile(MyLib._myGlobal._dataViewTemplateXmlFileName);
 
             this._totalDatabase = 0;
             for (int loop = 0; loop < _listViewDatabase.Items.Count; loop++)
@@ -334,6 +335,7 @@ namespace MyLib._databaseManage
             MyLib._myFrameWork __myFrameWork = new _myFrameWork();
             __myFrameWork._sendXmlFile(MyLib._myGlobal._databaseStructFileName);
             __myFrameWork._sendXmlFile(MyLib._myGlobal._databaseVerifyXmlFileName);
+            __myFrameWork._sendXmlFile(MyLib._myGlobal._dataViewTemplateXmlFileName);
         }
     }
 }

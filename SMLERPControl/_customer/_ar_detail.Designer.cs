@@ -79,6 +79,11 @@
             this.tab_other_picture1 = new System.Windows.Forms.TabPage();
             this.tab_other_picture2 = new System.Windows.Forms.TabPage();
 
+            this.tab_customer = new System.Windows.Forms.TabPage();
+            this._myPanelcustomer = new MyLib._myPanel();
+            this._groupercustomer = new MyLib._grouper();
+            this._screen_customer = new SMLERPControl._customer._screen_ar_main();
+
             this._myManageData1._form2.SuspendLayout();
             this._myManageData1.SuspendLayout();
             this._myPanel1.SuspendLayout();
@@ -115,6 +120,12 @@
             this.tab_other_picture1.SuspendLayout();
             this.tab_other_picture2.SuspendLayout();
             this.SuspendLayout();
+
+
+            this.tab_customer.SuspendLayout();
+            this._myPanelcustomer.SuspendLayout();
+            this._groupercustomer.SuspendLayout();
+
             // 
             // _myManageData1
             // 
@@ -233,6 +244,7 @@
             this._myTabControl1.Controls.Add(this.tab_contact);
             this._myTabControl1.Controls.Add(this.tab_item);
             this._myTabControl1.Controls.Add(this.tab_image);
+            this._myTabControl1.Controls.Add(this.tab_customer);
             this._myTabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this._myTabControl1.Location = new System.Drawing.Point(5, 5);
             this._myTabControl1.Multiline = true;
@@ -242,6 +254,71 @@
             this._myTabControl1.Size = new System.Drawing.Size(525, 540);
             this._myTabControl1.TabIndex = 0;
             this._myTabControl1.TableName = "ar_customer";
+            //-----------------------------------------------------------------------------------------------------------------------
+            // 
+            // tab_customer
+            // 
+            this.tab_customer.BackColor = System.Drawing.Color.Transparent;
+            this.tab_customer.Controls.Add(this._myPanelcustomer);
+            this.tab_customer.Location = new System.Drawing.Point(4, 23);
+            this.tab_customer.Name = "tab_customer";
+            this.tab_customer.Size = new System.Drawing.Size(517, 513);
+            this.tab_customer.TabIndex = 0;
+            this.tab_customer.Text = "7.tab_customer";
+            this.tab_customer.UseVisualStyleBackColor = true;
+            // 
+            // _myPanelcustomer
+            // 
+            this._myPanelcustomer._switchTabAuto = false;
+            this._myPanelcustomer.BeginColor = System.Drawing.Color.LightCyan;
+            this._myPanelcustomer.Controls.Add(this._groupercustomer);
+           // this._myPanelcustomer.Controls.Add(this._grouper2);
+            this._myPanelcustomer.CornerPicture = null;
+            this._myPanelcustomer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._myPanelcustomer.EndColor = System.Drawing.Color.PowderBlue;
+            this._myPanelcustomer.Location = new System.Drawing.Point(0, 0);
+            this._myPanelcustomer.Name = "_myPanelcustomer";
+            this._myPanelcustomer.Padding = new System.Windows.Forms.Padding(3);
+            this._myPanelcustomer.Size = new System.Drawing.Size(517, 513);
+            this._myPanelcustomer.TabIndex = 0;
+            // 
+            // _groupercustomer
+            // 
+            this._groupercustomer.AutoSize = true;
+            this._groupercustomer.BackgroundColor = System.Drawing.Color.Transparent;
+            this._groupercustomer.BackgroundGradientColor = System.Drawing.SystemColors.ControlLight;
+            this._groupercustomer.BackgroundGradientMode = MyLib._grouper.GroupBoxGradientMode.None;
+            this._groupercustomer.BorderColor = System.Drawing.Color.White;
+            this._groupercustomer.BorderThickness = 1F;
+            this._groupercustomer.Controls.Add(this._screen_customer);
+            this._groupercustomer.CustomGroupBoxColor = System.Drawing.Color.White;
+            this._groupercustomer.Dock = System.Windows.Forms.DockStyle.Top;
+            this._groupercustomer.GroupImage = null;
+            this._groupercustomer.GroupTitle = "";
+            this._groupercustomer.Location = new System.Drawing.Point(3, 128);
+            this._groupercustomer.Name = "_groupercustomer";
+            this._groupercustomer.Padding = new System.Windows.Forms.Padding(5);
+            this._groupercustomer.PaintGroupBox = false;
+            this._groupercustomer.RoundCorners = 10;
+            this._groupercustomer.ShadowColor = System.Drawing.Color.DarkGray;
+            this._groupercustomer.ShadowControl = false;
+            this._groupercustomer.ShadowThickness = 3;
+            this._groupercustomer.Size = new System.Drawing.Size(511, 104);
+            this._groupercustomer.TabIndex = 7;
+            // 
+            // _screen_customer
+            // 
+            this._screen_customer._controlName = SMLERPControl._customer._controlTypeEnum.Customer;
+            this._screen_customer._isChange = false;
+            this._screen_customer.AutoSize = true;
+            this._screen_customer.BackColor = System.Drawing.Color.Transparent;
+            this._screen_customer.Dock = System.Windows.Forms.DockStyle.Top;
+            this._screen_customer.Location = new System.Drawing.Point(5, 5);
+            this._screen_customer.Name = "_screen_customer";
+            this._screen_customer.Size = new System.Drawing.Size(501, 94);
+            this._screen_customer.TabIndex = 0;
+            //-----------------------------------------------------------------------------------------------------------------------
+
             // 
             // tab_detail
             // 
@@ -885,6 +962,12 @@
             this._myPanel5.PerformLayout();
             this.ResumeLayout(false);
 
+            this.tab_customer.ResumeLayout(false);
+            this._myPanelcustomer.ResumeLayout(false);
+            this._myPanelcustomer.PerformLayout();
+            this._groupercustomer.ResumeLayout(false);
+            this._groupercustomer.PerformLayout();
+
         }
 
         #endregion
@@ -943,5 +1026,10 @@
         private System.Windows.Forms.TabPage tab_ar_main;
         private System.Windows.Forms.TabPage tab_ar_detail;
         private MyLib._myPanel _myPanel5;
+
+        private System.Windows.Forms.TabPage tab_customer;
+        private MyLib._myPanel _myPanelcustomer;
+        private MyLib._grouper _groupercustomer;
+        private _screen_ar_main _screen_customer;
     }
 }

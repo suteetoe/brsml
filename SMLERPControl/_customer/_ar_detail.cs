@@ -290,6 +290,7 @@ namespace SMLERPControl._customer
                             ArrayList __getData3 = this._screen_ar_detail_3._createQueryForDatabase();
                             ArrayList __getData4 = this._screen_ar_detail_4._createQueryForDatabase();
                             ArrayList __getData5 = this._screen_ar_detail_5._createQueryForDatabase();
+                            ArrayList __getData6 = this._screen_customer._createQueryForDatabase();
 
                             string __dataList = this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + ",";
                             string __fieldList_1 = _g.d.ar_customer._code + ",";
@@ -324,7 +325,7 @@ namespace SMLERPControl._customer
                             //    __extraField = "," + _g.d.ar_customer_detail._close_reason;
                             //    __extraValue = ",\'" + __reasonCombo.Text + "\'";
                             //}
-                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer_detail._table + " (ar_code," + __getData1[0].ToString() + "," + __getData2[0].ToString() + "," + __getData3[0].ToString() + "," + __getData4[0].ToString() + "," + __getData5[0].ToString() + __extraField + ") values (" + __dataList_1 + "" + __getData1[1].ToString() + "," + __getData2[1].ToString() + "," + __getData3[1].ToString() + "," + __getData4[1].ToString() + "," + __getData5[1].ToString() + __extraValue + ")"));
+                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer_detail._table + " (ar_code," + __getData1[0].ToString() + "," + __getData2[0].ToString() + "," + __getData3[0].ToString() + "," + __getData4[0].ToString() + "," + __getData5[0].ToString() + "," + __getData6[0].ToString() + __extraField + ") values (" + __dataList_1 + "" + __getData1[1].ToString() + "," + __getData2[1].ToString() + "," + __getData3[1].ToString() + "," + __getData4[1].ToString() + "," + __getData5[1].ToString() + "," + __getData6[1].ToString() + __extraValue + ")"));
                              __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " +  _g.d.ar_customer._last_update_time + " = now() where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
 
 
@@ -525,6 +526,7 @@ namespace SMLERPControl._customer
                 this._screen_ar_detail_3._clear();
                 this._screen_ar_detail_4._clear();
                 this._screen_ar_detail_5._clear();
+                this._screen_customer._clear();
                 this._screen_ar_contact_grid1._clear();
                 this._screen_ar_item_grid1._clear();
 
@@ -544,6 +546,7 @@ namespace SMLERPControl._customer
                 this._screen_ar_detail_3._loadData(((DataSet)_getData[1]).Tables[0]);
                 this._screen_ar_detail_4._loadData(((DataSet)_getData[1]).Tables[0]);
                 this._screen_ar_detail_5._loadData(((DataSet)_getData[1]).Tables[0]);
+                this._screen_customer._loadData(((DataSet)_getData[1]).Tables[0]);
                 this._screen_ar_contact_grid1._loadFromDataTable(((DataSet)_getData[2]).Tables[0]);
                 this._screen_ar_item_grid1._loadFromDataTable(((DataSet)_getData[3]).Tables[0]);
                 this._screenTop._search(true);
@@ -552,6 +555,7 @@ namespace SMLERPControl._customer
                 this._screen_ar_detail_3._search(false);
                 this._screen_ar_detail_4._search(false);
                 this._screen_ar_detail_5._search(false);
+                this._screen_customer._search(false);
                 this._screenTop._isChange = false;
                 _getPicture1._clearpic();
                 _getPicture1._loadImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));

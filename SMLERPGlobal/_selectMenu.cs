@@ -1115,6 +1115,14 @@ namespace _g
 
                     __screenFull._finish();
                     return __screenFull;
+                case "menu_setup_customer_type": return (new _customerType(screenName));
+                case "menu_setup_ar_channel": return (new _arChannel(screenName));
+                case "menu_setup_ar_location_type": return (new _arLocationType(screenName));
+                case "menu_setup_ar_sub_type_1": return (new _arSubType1(screenName));
+                case "menu_setup_ar_vehicle": return (new _arVehicle(screenName));
+                case "menu_setup_ar_equipment": return (new _arEquipment(screenName));
+                case "menu_setup_ar_sub_equipment": return (new _arSubEquipment(screenName));
+
             }
 
             return null;

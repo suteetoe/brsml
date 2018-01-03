@@ -3583,6 +3583,14 @@ namespace _g
         public static string _search_master_ar_area_code = "screen_ms_ar_sale_area";// เขตการขาย
         public static string _search_master_ar_paybill_area_code = "screen_ms_ar_paybill_area";// เขตการขาย
 
+        public static string _search_master_customer_type = "screen_ms_customer_type";// เนส ประเภทลูกค้า
+        public static string _search_master_ar_channel = "screen_ms_ar_channel";// เนส ช่องทาง
+        public static string _search_master_ar_location_type = "screen_ms_ar_location_type";// เนส ปรถเถทสถานที่ตั้ง
+        public static string _search_master_ar_sub_type_1 = "screen_ms_ar_sub_type_1";// เนส 
+        public static string _search_master_ar_vehicle = "screen_ms_ar_vehicle";// เนส 
+        public static string _search_master_ar_equipment = "screen_ms_ar_equipment";// เนส 
+        public static string _search_master_ar_sub_equipment = "screen_ms_ar_sub_equipment";// เนส 
+
         public static string _search_master_ar_logistic_area = "screen_ms_ar_logistic_area";   //เอ้  เขตการขนส่ง
         public static string _search_master_ar_credit_approve = "screen_ms_ar_credit_approve";  //เอ้  เหตุผลอนุมัติวงเงิน
         public static string _search_master_ar_pay_bill_condition = "screen_ms_ar_pay_bill_condition"; // เงื่อนไขการวางบิล

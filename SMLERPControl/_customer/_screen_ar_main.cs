@@ -171,7 +171,7 @@ namespace SMLERPControl._customer
                             __row++;
                             this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._interco, 1, 0, 0, true, false);
                             this._setUpper(_g.d.ar_customer._interco);
-                            //   this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._interco, 2, 1, 0, true, false, true, true);
+                    
 
                             if (MyLib._myGlobal._OEMVersion == "tvdirect")
                             {
@@ -403,6 +403,25 @@ namespace SMLERPControl._customer
                     this._addComboBox(__row, 0, _g.d.ar_customer_detail._branch_type, true, _g.g._ap_ar_branch_type, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ar_customer_detail._branch_code, 1, 0, 0, true, false, true);
                     break;
+
+                case _controlTypeEnum.Customer:
+                    this._maxColumn = 2;
+                    this._table_name = _g.d.ar_customer_detail._table;
+               
+                    this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_channel_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(1, 1, 1, 0, _g.d.ar_customer_detail._customer_type_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(2, 0, 1, 0, _g.d.ar_customer_detail._ar_sub_type_1_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(2, 1, 1, 0, _g.d.ar_customer_detail._ar_vehicle_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(3, 0, 1, 0, _g.d.ar_customer_detail._ar_equipment_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(3, 1, 1, 0, _g.d.ar_customer_detail._ar_sub_equipment, 1, 0, 1, true, false, true);
+                    this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_location_type_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(5, 0, 1, 0, _g.d.ar_customer_detail._latitude, 1, 0, 0, true, false, true);
+                    this._addTextBox(5, 1, 1, 0, _g.d.ar_customer_detail._longitude, 1, 0, 0, true, false, true);
+                    this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._line_id, 1, 0, 0, true, false, true);
+                    this._addTextBox(6, 1, 1, 0, _g.d.ar_customer_detail._facebook, 1, 0, 0, true, false, true);
+                    this._addTextBox(7, 0, 1, 0, _g.d.ar_customer_detail._br_cust_code, 1, 0, 1, true, false, true);
+
+                    break;
             }
             this._textBoxChanged += new MyLib.TextBoxChangedHandler(_screenArControl__textBoxChanged);
             this._textBoxSearch += new MyLib.TextBoxSearchHandler(_screenArControl__textBoxSearch);
@@ -555,6 +574,44 @@ namespace SMLERPControl._customer
                     //
 
                     break;
+                case _controlTypeEnum.Customer:
+                    {
+                        MyLib._myTextBox __get_customer_type_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._customer_type_code);
+                        __get_customer_type_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_customer_type_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_sub_type_1_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_sub_type_1_code);
+                        __get_ar_sub_type_1_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_sub_type_1_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_channel_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_channel_code);
+                        __get_ar_channel_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_channel_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get__ar_location_type_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_location_type_code);
+                        __get__ar_location_type_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get__ar_location_type_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_vehicle_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_vehicle_code);
+                        __get_ar_vehicle_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_vehicle_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_equipment_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_equipment_code);
+                        __get_ar_equipment_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_equipment_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_sub_equipment = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_sub_equipment);
+                        __get_ar_sub_equipment.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_sub_equipment.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __getBrCustCodeControl = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._br_cust_code);
+                        if (__getBrCustCodeControl != null)
+                        {
+                            __getBrCustCodeControl.textBox.Enter += new EventHandler(textBox_Enter);
+                            __getBrCustCodeControl.textBox.Leave += new EventHandler(textBox_Leave);
+                        }
+                    }
+                    break;
             }
             this.Invalidate();
             this.ResumeLayout();
@@ -618,6 +675,57 @@ namespace SMLERPControl._customer
                     }
                 }
             }
+            else if (name.Equals(_g.d.ar_customer_detail._br_cust_code))
+            {
+                MyLib._myTextBox __textBox = (MyLib._myTextBox)((Control)sender).Parent;
+                string __arCode = __textBox._textFirst;
+                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                DataTable __getFormat = __myFrameWork._queryShort("select " + _g.d.erp_doc_format._format + "," + _g.d.erp_doc_format._code + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + "=\'" + __arCode + "\'").Tables[0];
+                if (__getFormat.Rows.Count > 0)
+                {
+                    string __format = __getFormat.Rows[0][0].ToString();
+                    string __docFormatCode = __getFormat.Rows[0][1].ToString();
+                    string __newArCode = _g.g._getAutoRun(_g.g._autoRunType.ลูกหนี้, __arCode, MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true), __format, _g.g._transControlTypeEnum.ว่าง, _g.g._transControlTypeEnum.ว่าง);
+                    this._setDataStr(_g.d.ar_customer_detail._br_cust_code, __newArCode, "", true);
+                }
+                else
+                {
+                    if (__arCode.Length > 0)
+                    {
+                        try
+                        {
+                            string __newArCode = __arCode;
+                            DataTable __dt = __myFrameWork._queryShort("select " + _g.d.ar_customer_detail._br_cust_code + " from " + _g.d.ar_customer_detail._table + " where " + _g.d.ar_customer_detail._br_cust_code + "<\'" + __arCode + "z\' order by " + _g.d.ar_customer_detail._br_cust_code + " desc limit 1").Tables[0];
+                            if (__dt.Rows.Count > 0)
+                            {
+                                string __getArCode = __dt.Rows[0][_g.d.ar_customer_detail._br_cust_code].ToString();
+                                if (__getArCode.Length > __arCode.Length)
+                                {
+                                    string __s1 = __getArCode.Substring(0, __arCode.Length);
+                                    if (__s1.Equals(__arCode))
+                                    {
+                                        string __s2 = __getArCode.Remove(0, __arCode.Length);
+                                        int __runningNumber = (int)MyLib._myGlobal._decimalPhase(__s2);
+                                        if (__runningNumber > 0)
+                                        {
+                                            StringBuilder __format = new StringBuilder();
+                                            for (int __loop = 0; __loop < __s2.Length; __loop++)
+                                            {
+                                                __format.Append("0");
+                                            }
+                                            __newArCode = __s1 + String.Format("{0:" + __format.ToString() + "}", ((decimal)(__runningNumber + 1)));
+                                            this._setDataStr(_g.d.ar_customer_detail._br_cust_code, __newArCode, "", true);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+            }
             else
             {
                 if (name.Equals(_g.d.ar_customer._tambon) ||
@@ -652,7 +760,15 @@ namespace SMLERPControl._customer
                   name.Equals(_g.d.ar_dealer._nationality) ||
                 name.Equals(_g.d.ar_dealer._branch_code) ||
                 name.Equals(_g.d.ar_customer_detail._group_sub_4) ||
-                    name.Equals(_g.d.ar_customer_detail._area_paybill))
+                    name.Equals(_g.d.ar_customer_detail._area_paybill) ||
+                //_controlTypeEnum.Customer
+                name.Equals(_g.d.ar_customer_detail._customer_type_code) ||
+                name.Equals(_g.d.ar_customer_detail._ar_sub_type_1_code) ||
+                name.Equals(_g.d.ar_customer_detail._ar_channel_code) ||
+                name.Equals(_g.d.ar_customer_detail._ar_vehicle_code) ||
+                name.Equals(_g.d.ar_customer_detail._ar_equipment_code) ||
+                name.Equals(_g.d.ar_customer_detail._ar_sub_equipment) ||
+                name.Equals(_g.d.ar_customer_detail._ar_location_type_code))
                 {
                     this._searchTextBox = (TextBox)sender;
                     this._searchName = name;
@@ -742,6 +858,11 @@ namespace SMLERPControl._customer
                 {
                     MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, true);
                 }
+                if (this._searchName.Equals(_g.d.ar_customer_detail._br_cust_code.ToLower()))
+                {
+                    string _where = MyLib._myGlobal._addUpper(_g.d.erp_doc_format._screen_code) + "=\'ARBR\'";
+                    MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false, true, _where);
+                }
                 else
                 {
                     MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false);
@@ -784,6 +905,25 @@ namespace SMLERPControl._customer
                         string __docFormatCode = __getFormat.Rows[0][1].ToString();
                         string __newArCode = _g.g._getAutoRun(_g.g._autoRunType.ว่าง, result, MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true), __format, _g.g._transControlTypeEnum.ว่าง, _g.g._transControlTypeEnum.ว่าง, _g.d.ar_customer._table, __getFormat.Rows[0][2].ToString(), _g.d.ar_customer._arm_code, "");
                         this._setDataStr(_g.d.ar_customer._arm_code, __newArCode, "", true);
+                    }
+                }
+                this._search_data_full.Visible = false;
+
+            }
+            else if(this._searchName.Equals(_g.d.ar_customer_detail._br_cust_code))
+            {
+                string result = (string)this._search_data_full._dataList._gridData._cellGet(row, 0);
+                if (result.Length != 0)
+                {
+                    // running arm code
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                    DataTable __getFormat = __myFrameWork._queryShort("select " + _g.d.erp_doc_format._format + "," + _g.d.erp_doc_format._code + "," + _g.d.erp_doc_format._doc_running + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + "=\'" + result + "\'").Tables[0];
+                    if (__getFormat.Rows.Count > 0)
+                    {
+                        string __format = __getFormat.Rows[0][0].ToString();
+                        string __docFormatCode = __getFormat.Rows[0][1].ToString();
+                        string __newArCode = _g.g._getAutoRun(_g.g._autoRunType.ว่าง, result, MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true), __format, _g.g._transControlTypeEnum.ว่าง, _g.g._transControlTypeEnum.ว่าง, _g.d.ar_customer_detail._table, __getFormat.Rows[0][2].ToString(), _g.d.ar_customer_detail._br_cust_code, "");
+                        this._setDataStr(_g.d.ar_customer_detail._br_cust_code, __newArCode, "", true);
                     }
                 }
                 this._search_data_full.Visible = false;
@@ -856,6 +996,16 @@ namespace SMLERPControl._customer
                         __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.m_nationality._name_1 + " from " + _g.d.m_nationality._table + " where " + _g.d.m_nationality._code + "=\'" + this._getDataStr(_g.d.ar_dealer._nationality) + "\'"));
                         __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.erp_branch_list._name_1 + " from " + _g.d.erp_branch_list._table + " where upper(" + _g.d.erp_branch_list._code + ")=\'" + this._getDataStr(_g.d.ar_dealer._branch_code) + "\'"));
                         break;
+                    case _controlTypeEnum.Customer:
+                        //_controlTypeEnum.Customer
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.customer_type._name_1 + " from " + _g.d.customer_type._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._customer_type_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_channel._name_1 + " from " + _g.d.ar_channel._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_channel_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_location_type._name_1 + " from " + _g.d.ar_location_type._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_location_type_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_sub_type_1._name_1 + " from " + _g.d.ar_sub_type_1._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_sub_type_1_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_vehicle._name_1 + " from " + _g.d.ar_vehicle._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_vehicle_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_equipment._name_1 + " from " + _g.d.ar_equipment._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_equipment_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_sub_equipment._name_1 + " from " + _g.d.ar_sub_equipment._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_sub_equipment) + "\'"));
+                        break;
                 }
                 __myquery.Append("</node>");
                 ArrayList _getData = _myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
@@ -907,6 +1057,16 @@ namespace SMLERPControl._customer
                         //_controlTypeEnum.ArDetailGroup
                         if (_searchAndWarning(_g.d.ar_dealer._nationality, (DataSet)_getData[0], warning) == false) { }
                         if (_searchAndWarning(_g.d.ar_dealer._branch_code, (DataSet)_getData[1], warning) == false) { }
+                        break;
+                    case _controlTypeEnum.Customer:
+                        //_controlTypeEnum.ArDetailGroup
+                        if (_searchAndWarning(_g.d.ar_customer_detail._customer_type_code, (DataSet)_getData[0], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_channel_code, (DataSet)_getData[1], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_location_type_code, (DataSet)_getData[2], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_sub_type_1_code, (DataSet)_getData[2], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_vehicle_code, (DataSet)_getData[2], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_equipment_code, (DataSet)_getData[2], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_sub_equipment, (DataSet)_getData[2], warning) == false) { }
                         break;
                 }
             }
@@ -1002,6 +1162,16 @@ namespace SMLERPControl._customer
                 case "ar_branch_code":
                     return _g.g._search_master_erp_branch_list;
                 case "arm_code": return _g.g._search_screen_erp_doc_format;
+                //_controlTypeEnum.Customer
+                case "customer_type_code": return _g.g._search_master_customer_type;
+                case "ar_channel_code": return _g.g._search_master_ar_channel;
+                case "ar_location_type_code": return _g.g._search_master_ar_location_type;
+                case "ar_sub_type_1_code": return _g.g._search_master_ar_sub_type_1;
+                case "ar_vehicle_code": return _g.g._search_master_ar_vehicle;
+                case "ar_equipment_code": return _g.g._search_master_ar_equipment;
+                case "ar_sub_equipment": return _g.g._search_master_ar_sub_equipment;
+                case "br_cust_code": return _g.g._search_screen_erp_doc_format;
+
 
             }
             return "";
@@ -1049,7 +1219,11 @@ namespace SMLERPControl._customer
         /// <summary>
         /// รายละเอียดภาษี
         /// </summary>
-        ArTaxOnly
+        ArTaxOnly,
+        /// <summary>
+        /// ลูกค้า
+        /// </summary>
+        Customer
     }
 
     public class _healthy_yourhealthy : MyLib._myScreen

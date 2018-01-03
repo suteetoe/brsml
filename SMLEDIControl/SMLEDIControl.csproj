@@ -48,9 +48,20 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BarcodeLib">
+      <HintPath>..\SMLReport\myDLL\BarcodeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="CodeVendor.Controls">
+      <HintPath>..\MyLib\myDLL\CodeVendor.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="SMLERPControl">
+      <HintPath>..\SMLERPControl\bin\x86\Debug\SMLERPControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -59,6 +70,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_ediFlatFile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_ediFlatFile.Designer.cs">
+      <DependentUpon>_ediFlatFile.cs</DependentUpon>
     </Compile>
     <Compile Include="_ediExport.cs">
       <SubType>UserControl</SubType>
@@ -86,6 +103,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="_ediFlatFile.resx">
+      <DependentUpon>_ediFlatFile.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_ediExport.resx">
       <DependentUpon>_ediExport.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +121,10 @@
       <Project>{bc8ac259-2673-4c2a-bff2-8d4b3a55c659}</Project>
       <Name>BRInterfaceControl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MyDock\MyDock.csproj">
+      <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
+      <Name>MyDock</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MyLib\MyLib.csproj">
       <Project>{5e55cf8e-f06f-4112-8f49-80d3f68bb75c}</Project>
       <Name>MyLib</Name>
@@ -108,6 +132,10 @@
     <ProjectReference Include="..\SMLERPGlobal\SMLERPGlobal.csproj">
       <Project>{41b81586-3b62-4c5f-89c8-74a21a53fa96}</Project>
       <Name>SMLERPGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLReport\SMLReport.csproj">
+      <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
+      <Name>SMLReport</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this._resultTextbox = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
             this._gridDocList = new MyLib._myGrid();
+            this.panel1 = new System.Windows.Forms.Panel();
             this._buttonExportPreview = new MyLib.VistaButton();
             this._buttonCheckAll = new MyLib.VistaButton();
             this._buttonUncheckAll = new MyLib.VistaButton();
+            this._resultTextbox = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this._buttonExport = new MyLib.VistaButton();
             this._myFlowLayoutPanel1 = new MyLib._myFlowLayoutPanel();
             this._buttonLoad = new MyLib.VistaButton();
@@ -72,35 +72,6 @@
             this.splitContainer1.SplitterDistance = 379;
             this.splitContainer1.TabIndex = 2;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this._buttonExportPreview);
-            this.panel1.Controls.Add(this._buttonCheckAll);
-            this.panel1.Controls.Add(this._buttonUncheckAll);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 347);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(891, 30);
-            this.panel1.TabIndex = 0;
-            // 
-            // _resultTextbox
-            // 
-            this._resultTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._resultTextbox.Location = new System.Drawing.Point(0, 0);
-            this._resultTextbox.Multiline = true;
-            this._resultTextbox.Name = "_resultTextbox";
-            this._resultTextbox.Size = new System.Drawing.Size(891, 396);
-            this._resultTextbox.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this._buttonExport);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 396);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(891, 30);
-            this.panel2.TabIndex = 1;
-            // 
             // _gridDocList
             // 
             this._gridDocList._extraWordShow = true;
@@ -116,6 +87,17 @@
             this._gridDocList.Size = new System.Drawing.Size(891, 347);
             this._gridDocList.TabIndex = 1;
             this._gridDocList.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this._buttonExportPreview);
+            this.panel1.Controls.Add(this._buttonCheckAll);
+            this.panel1.Controls.Add(this._buttonUncheckAll);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 347);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(891, 30);
+            this.panel1.TabIndex = 0;
             // 
             // _buttonExportPreview
             // 
@@ -159,6 +141,24 @@
             this._buttonUncheckAll.Text = "vistaButton3";
             this._buttonUncheckAll.UseVisualStyleBackColor = false;
             this._buttonUncheckAll.Click += new System.EventHandler(this._buttonUncheckAll_Click);
+            // 
+            // _resultTextbox
+            // 
+            this._resultTextbox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._resultTextbox.Location = new System.Drawing.Point(0, 0);
+            this._resultTextbox.Multiline = true;
+            this._resultTextbox.Name = "_resultTextbox";
+            this._resultTextbox.Size = new System.Drawing.Size(891, 396);
+            this._resultTextbox.TabIndex = 2;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this._buttonExport);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Location = new System.Drawing.Point(0, 396);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(891, 30);
+            this.panel2.TabIndex = 1;
             // 
             // _buttonExport
             // 
