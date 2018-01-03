@@ -16,7 +16,7 @@ namespace SMLERPControl
             this._addCheckBox(__row, 0, _g.d.ic_inventory._barcode_checker_print, false, true);
             this._addCheckBox(__row++, 1, _g.d.ic_inventory._is_product_boonrawd, false, true);
             this._addCheckBox(__row, 0, _g.d.ic_inventory._print_order_per_unit, false, true);
-            this._addCheckBox(__row++, 1, _g.d.ic_inventory._is_premium, false, true);
+            this._addCheckBox(__row++, 1, _g.d.ic_inventory._is_premium, false, true, false, false, "is_premium");
 
             //this._maxLabelWidth = new int[] { 40, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             this._addCheckBox(__row++, 0, _g.d.ic_inventory._is_eordershow, false, true);

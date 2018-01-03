@@ -178,8 +178,10 @@ namespace SMLERPConfig
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._tax_number, 100);
             this._addComboBox(__row++, 0, _g.d.erp_company_profile._branch_type, true, _g.g._ap_ar_branch_type, true);
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._branch_code, 100);
+            this._addTextBox(__row++, 0, _g.d.erp_company_profile._entity, 100);
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._profit_ctr, 100);
             this._addTextBox(__row++, 0, _g.d.erp_company_profile._cost_ctr, 100);
+            this._setUpper(_g.d.erp_company_profile._entity);
             this._setUpper(_g.d.erp_company_profile._profit_ctr);
             this._setUpper(_g.d.erp_company_profile._cost_ctr);
 

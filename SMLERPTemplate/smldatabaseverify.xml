@@ -1309,6 +1309,9 @@
       <script>
         ALTER TABLE erp_pass_book DROP COLUMN is_mobile;
       </script>
+      <script>
+        ALTER TABLE ic_inventory DROP COLUMN is_premium;
+      </script>
 
     </postgres>
   </after>

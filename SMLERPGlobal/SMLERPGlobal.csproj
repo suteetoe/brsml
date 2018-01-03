@@ -79,6 +79,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <Compile Include="_arEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arSubEquipment.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arVehicle.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arSubType1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="_changeCode\_changeApArCodeUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -90,6 +102,12 @@
     </Compile>
     <Compile Include="_changeCode\_itemCodeUserControl.Designer.cs">
       <DependentUpon>_itemCodeUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_arLocationType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arChannel.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="_data.cs" />
     <Compile Include="_dataPayroll.cs" />
@@ -111,6 +129,9 @@
     </Compile>
     <Compile Include="_global.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_customerType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="_icInfoFlag.cs" />
     <Compile Include="_ic_add_warehouse_shelf_form.cs">
       <SubType>Form</SubType>
@@ -250,11 +271,29 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="_arEquipment.resx">
+      <DependentUpon>_arEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arSubEquipment.resx">
+      <DependentUpon>_arSubEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arVehicle.resx">
+      <DependentUpon>_arVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arSubType1.resx">
+      <DependentUpon>_arSubType1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_changeCode\_changeApArCodeUserControl.resx">
       <DependentUpon>_changeApArCodeUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_changeCode\_itemCodeUserControl.resx">
       <DependentUpon>_itemCodeUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arLocationType.resx">
+      <DependentUpon>_arLocationType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arChannel.resx">
+      <DependentUpon>_arChannel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_docCancelForm.resx">
       <DependentUpon>_docCancelForm.cs</DependentUpon>
@@ -264,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_docFormatGeneralLedgerControl.resx">
       <DependentUpon>_docFormatGeneralLedgerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_customerType.resx">
+      <DependentUpon>_customerType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_ic_add_warehouse_shelf_form.resx">
       <DependentUpon>_ic_add_warehouse_shelf_form.cs</DependentUpon>

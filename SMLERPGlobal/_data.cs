@@ -490,6 +490,10 @@ namespace _g
             /// COST CTR
             /// </summary>
             public static String _cost_ctr = "cost_ctr";
+            /// <summary>
+            /// ENTITY
+            /// </summary>
+            public static String _entity = "entity";
         }
 
         /// <summary>
@@ -2722,6 +2726,14 @@ namespace _g
             /// สินค้าพรีเมี่ยม
             /// </summary>
             public static String _is_premium = "is_premium";
+            /// <summary>
+            /// TPU
+            /// </summary>
+            public static String _tpu_code = "tpu_code";
+            /// <summary>
+            /// GPU
+            /// </summary>
+            public static String _gpu_code = "gpu_code";
         }
 
         /// <summary>
@@ -6637,6 +6649,10 @@ namespace _g
             /// อื่นๆ 2
             /// </summary>
             public static String _tab_other_picture2 = "tab_other_picture2";
+            /// <summary>
+            /// ลูกค้า
+            /// </summary>
+            public static String _tab_customer = "tab_customer";
         }
 
         /// <summary>
@@ -7315,6 +7331,46 @@ namespace _g
             /// ขายเชื่อ
             /// </summary>
             public static String _sale_type_2 = "sale_type_2";
+            /// <summary>
+            /// line id
+            /// </summary>
+            public static String _line_id = "line_id";
+            /// <summary>
+            /// facebook
+            /// </summary>
+            public static String _facebook = "facebook";
+            /// <summary>
+            /// Type
+            /// </summary>
+            public static String _customer_type_code = "customer_type_code";
+            /// <summary>
+            /// Channel
+            /// </summary>
+            public static String _ar_channel_code = "ar_channel_code";
+            /// <summary>
+            /// ประเภทสถานที่ตั้ง
+            /// </summary>
+            public static String _ar_location_type_code = "ar_location_type_code";
+            /// <summary>
+            /// รหัสกลาง
+            /// </summary>
+            public static String _br_cust_code = "br_cust_code";
+            /// <summary>
+            /// Sub Type 1
+            /// </summary>
+            public static String _ar_sub_type_1_code = "ar_sub_type_1_code";
+            /// <summary>
+            /// Vehicle
+            /// </summary>
+            public static String _ar_vehicle_code = "ar_vehicle_code";
+            /// <summary>
+            /// Equipment
+            /// </summary>
+            public static String _ar_equipment_code = "ar_equipment_code";
+            /// <summary>
+            /// Sub Equipment
+            /// </summary>
+            public static String _ar_sub_equipment = "ar_sub_equipment";
         }
 
         /// <summary>
@@ -35953,6 +36009,199 @@ namespace _g
             /// sap_code
             /// </summary>
             public static String _sap_code = "sap_code";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// Type
+        /// </summary>
+        public class customer_type
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "customer_type";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+            /// <summary>
+            /// สถานะ
+            /// </summary>
+            public static String _status = "status";
+        }
+
+        /// <summary>
+        /// Channel
+        /// </summary>
+        public class ar_channel
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_channel";
+            /// <summary>
+            /// รหัส 
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// สถานที่ตั้ง
+        /// </summary>
+        public class ar_location_type
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_location_type";
+            /// <summary>
+            /// รหัส 
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// Sub Type 1
+        /// </summary>
+        public class ar_sub_type_1
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_sub_type_1";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// Vehicle
+        /// </summary>
+        public class ar_vehicle
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_vehicle";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// Equipment
+        /// </summary>
+        public class ar_equipment
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_equipment";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// guid_code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
+
+        /// <summary>
+        /// Sub Equipment
+        /// </summary>
+        public class ar_sub_equipment
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_sub_equipment";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ 1 
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
             /// <summary>
             /// guid_code
             /// </summary>
