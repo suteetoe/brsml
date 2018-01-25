@@ -41,6 +41,10 @@ namespace SMLERPIC
                         " where divide_value<>(select divide_value from ic_unit_use where ic_unit_use.ic_code=ic_wms_trans_detail.item_code and ic_unit_use.code=ic_wms_trans_detail.unit_code) " +
                         " and ic_wms_trans_detail.item_code in (select code from ic_inventory where ic_inventory.unit_type=1)");
 
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update ic_inventory set balance_qty =0 "+
+                    " where balance_qty <> 0 "+ 
+                    " and not exists(select item_code from ic_trans_detail where last_status = 0 and ic_inventory.code = ic_trans_detail.item_code) ");
+
                 SMLERPGlobal._smlFrameWork __smlFrameWork = new SMLERPGlobal._smlFrameWork();
                 string __query = "select " + _g.d.ic_inventory._code + " from " + _g.d.ic_inventory._table + " where " + _g.d.ic_inventory._item_type + "<>5 order by " + _g.d.ic_inventory._code;
                 DataTable __item = __myFrameWork._query(MyLib._myGlobal._databaseName, __query).Tables[0];
