@@ -6387,7 +6387,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="ic_shelf" _description="ที่เก็บสินค้า" _descriptionEng="Item Shelf" _version="" _width="233" _height="197" _x="289" _y="700">
+    <_tableList _moduleName="Master" _name="ic_shelf" _description="ที่เก็บสินค้า" _descriptionEng="Item Shelf" _version="" _width="233" _height="213" _x="286" _y="709" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -6440,6 +6440,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="stock_control" _description="อนุญาติให้ติดลบได้" _descriptionEng="No Stock Control" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark" _description="หมายเหตุ" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -14554,7 +14559,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="images_erp_user" _description="รูปภาพพนักงาน" _descriptionEng="images_erp_user" _version="ALL" _width="193" _height="85" _x="1220" _y="849">
+    <_tableList _moduleName="Setup" _name="images_erp_user" _description="รูปภาพพนักงาน" _descriptionEng="images_erp_user" _version="ALL" _width="193" _height="101" _x="1220" _y="849">
       <_fields>
         <_fieldList _name="image_id" _description="รหัส" _descriptionEng="Image ID" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -14572,6 +14577,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="guid_code" _description="GUID" _descriptionEng="guid_code" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="image_order" _description="ลำดับ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -16525,12 +16535,12 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="line_number" _description="เลขที่บรรทัด" _descriptionEng="Line Number" _type="5" _length="0" _null="0" _resource_only="0" _default="">
+        <_fieldList _name="line_number" _description="เลขที่บรรทัด" _descriptionEng="Line Number" _type="3" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="line_number_detail" _description="เลขที่บรรทัด" _descriptionEng="Line Number" _type="5" _length="0" _null="0" _resource_only="0" _default="">
+        <_fieldList _name="line_number_detail" _description="เลขที่บรรทัด" _descriptionEng="Line Number" _type="3" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -16560,7 +16570,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="period_number" _description="งวด" _descriptionEng="Period" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="period_number" _description="งวด" _descriptionEng="Period" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -16580,7 +16590,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="account_year" _description="ปีภาษี" _descriptionEng="" _type="5" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="account_year" _description="ปีภาษี" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -17612,7 +17622,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_resource" _description="รายละเอียดข้อความ" _descriptionEng="Inventory Resource" _version="SMLERP" _width="338" _height="3429" _x="743" _y="13">
+    <_tableList _moduleName="IC" _name="ic_resource" _description="รายละเอียดข้อความ" _descriptionEng="Inventory Resource" _version="SMLERP" _width="338" _height="3445" _x="743" _y="13">
       <_fields>
         <_fieldList _name="ic_name" _description="ชื่อสินค้า" _descriptionEng="Item Name" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -18679,12 +18689,17 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="doc_format_code_adjust" _description="รหัสเอกสารปรับปรุงเพิ่ม" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs />
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans" _description="รายวันทั้งหมด" _descriptionEng="IC - Transection" _version="SMLERP" _width="452" _height="5253" _x="593" _y="6">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans" _description="รายวันทั้งหมด" _descriptionEng="IC - Transection" _version="SMLERP" _width="452" _height="5285" _x="593" _y="6">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -20448,6 +20463,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="no_tax" _description="ไม่กระทบภาษี" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_format_code_adjust" _description="รหัสเอกสารปรับปรุงเพิ่ม" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="deposit_balance" _description="เงินมัดจำคงเหลือ" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -22371,7 +22396,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ref_line_number" _description="อ้างอิง บรรทัด" _descriptionEng="Ref Line Number" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ref_line_number" _description="อ้างอิง บรรทัด" _descriptionEng="Ref Line Number" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

@@ -113,7 +113,7 @@ namespace SMLERPControl._customer
                             }
                             __row++;
                             this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._name_1, 2, 0, 0, true, false, false);
-                            this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._name_2, 2, 0, 0, true, false, false);
+                            this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._name_2, 2, 0, 0, true, false, true);
                             this._addTextBox(__row++, 0, 1, 0, _g.d.ar_customer._name_eng_1, 2, 0, 0, true, false, true);
                             this._addTextBox(__row++, 0, 2, 0, _g.d.ar_customer._address, 2, 2, 0, true, false, true);
                             __row++;

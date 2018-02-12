@@ -23,6 +23,12 @@ namespace MyLib
         {
             InitializeComponent();
             this.Shown += new EventHandler(_searchDataFull_Shown);
+            this._dataList._buttonClose.Click += _buttonClose_Click;
+        }
+
+        private void _buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
         public string _name

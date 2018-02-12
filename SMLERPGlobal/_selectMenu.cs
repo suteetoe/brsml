@@ -678,6 +678,7 @@ namespace _g
                         __screenFull._addColumn(_g.d.ic_shelf._width, 10, 20);
                         __screenFull._addColumn(_g.d.ic_shelf._height, 10, 20);
                         __screenFull._addColumn(_g.d.ic_shelf._depth, 10, 20);
+                        __screenFull._addColumn(_g.d.ic_shelf._remark, 100, 40);
 
                         __screenFull._checkDataForDelete += (selectedRow) =>
                         {
