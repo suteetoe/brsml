@@ -27,6 +27,8 @@ namespace SMLERPControl._customer
         {
             this.SuspendLayout();
             InitializeComponent();
+    
+
             if (MyLib._myGlobal._isDesignMode == false)
             {
                 this._myToolbar.Font = new Font(MyLib._myGlobal._myFont.FontFamily, MyLib._myGlobal._myFont.Size);
@@ -55,6 +57,7 @@ namespace SMLERPControl._customer
             this._gridDealer._queryForUpdateCheck += new MyLib.QueryForUpdateCheckEventHandler(_gridDealer__queryForUpdateCheck);
             this._gridDealer._queryForInsertCheck += new MyLib.QueryForInsertCheckEventHandler(_gridDealer__queryForInsertCheck);
             this._gridDealer._queryForRowRemoveCheck += new MyLib.QueryForRowRemoveCheckEventHandler(_gridDealer__queryForRowRemoveCheck);
+
 
             _myManageData1._dataListOpen = true;
             _myManageData1._calcArea();
@@ -91,6 +94,20 @@ namespace SMLERPControl._customer
                 this._myManageData1._dataList._buttonLockDoc.Visible = true;
                 this._myManageData1._dataList._separatorLockDoc.Visible = true;
             }
+
+            //เนสปิดปุ่ม
+
+            Control arm_approve_Control = this._screenTop._getControl(_g.d.ar_customer._arm_approve);
+            Control arm_approve_date_codeControl = this._screenTop._getControl(_g.d.ar_customer._arm_approve_date);
+            Control arm_register_date_codeControl = this._screenTop._getControl(_g.d.ar_customer._arm_register_date);
+            arm_approve_Control.Enabled = false;
+            arm_approve_date_codeControl.Enabled = false;
+            arm_register_date_codeControl.Enabled = false;
+
+            
+
+
+
 
         }
 
@@ -548,7 +565,9 @@ namespace SMLERPControl._customer
 
                 this._gridDealer._loadFromDataTable(dealerData.Tables[0]);
                 Control codeControl = this._screenTop._getControl(_g.d.ar_customer._code);
+  
                 codeControl.Enabled = false;
+            
                 this._screenTop._search(true);
                 this._screenTop._isChange = false;
                 if (forEdit)

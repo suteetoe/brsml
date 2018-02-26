@@ -1956,6 +1956,11 @@ namespace _g
             /// </summary>
             public static String _lock_pu_gr = "lock_pu_gr";
 
+            /// <summary>
+            /// ซื้อ/รับสินค้า จาก PO เท่านั้น
+            /// </summary>
+            public static String _pu_from_po_only = "pu_from_po_only";
+
         }
 
         /// <summary>
@@ -2768,6 +2773,11 @@ namespace _g
             /// </summary>
             public static String _interco = "interco";
 
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
         }
 
         /// <summary>
@@ -3339,6 +3349,11 @@ namespace _g
             /// GPU
             /// </summary>
             public static String _gpu_code = "gpu_code";
+
+            /// <summary>
+            /// กลุ่มสินค้าย่อย2
+            /// </summary>
+            public static String _group_sub2 = "group_sub2";
 
         }
 
@@ -8076,6 +8091,16 @@ namespace _g
             /// </summary>
             public static String _tab_customer = "tab_customer";
 
+            /// <summary>
+            /// วันที่สมัคร ARM Code
+            /// </summary>
+            public static String _arm_register_date = "arm_register_date";
+
+            /// <summary>
+            /// สมัคร อาร์ม
+            /// </summary>
+            public static String _arm_register = "arm_register";
+
         }
 
         /// <summary>
@@ -11698,6 +11723,11 @@ namespace _g
             /// ชื่อที่ตั้งสินทรัพย์
             /// </summary>
             public static String _location_name = "location_name";
+
+            /// <summary>
+            /// รหัสผังบัญชี
+            /// </summary>
+            public static String _account_code = "account_code";
 
         }
 
@@ -18166,6 +18196,36 @@ namespace _g
             /// รหัสเอกสารปรับปรุงเพิ่ม
             /// </summary>
             public static String _doc_format_code_adjust = "doc_format_code_adjust";
+
+            /// <summary>
+            /// ราคาเก่า
+            /// </summary>
+            public static String _old_price = "old_price";
+
+            /// <summary>
+            /// ราคาสมาชิก 1
+            /// </summary>
+            public static String _price_member_1 = "price_member_1";
+
+            /// <summary>
+            /// ราคาสมาชิก 2
+            /// </summary>
+            public static String _price_member_2 = "price_member_2";
+
+            /// <summary>
+            /// ราคาสมาชิก 3
+            /// </summary>
+            public static String _price_member_3 = "price_member_3";
+
+            /// <summary>
+            /// ราคาสมาชิก 4
+            /// </summary>
+            public static String _price_member_4 = "price_member_4";
+
+            /// <summary>
+            /// ชนิดเอกสาร
+            /// </summary>
+            public static String _document_type = "document_type";
 
         }
 
@@ -43446,6 +43506,1611 @@ namespace _g
             /// </summary>
             public static String _by_year = "by_year";
 
+            /// <summary>
+            /// ประเภทรายวัน
+            /// </summary>
+            public static String _trans_type = "trans_type";
+
+            /// <summary>
+            /// กลุ่มเอกสาร
+            /// </summary>
+            public static String _doc_group = "doc_group";
+
+            /// <summary>
+            /// เอกสารอ้างอิง
+            /// </summary>
+            public static String _doc_ref = "doc_ref";
+
+            /// <summary>
+            /// เอกสารอ้างอิงวันที่
+            /// </summary>
+            public static String _doc_ref_date = "doc_ref_date";
+
+            /// <summary>
+            /// เลขที่ใบกำกับ
+            /// </summary>
+            public static String _tax_doc_no = "tax_doc_no";
+
+            /// <summary>
+            /// วันที่ใบกำกับ
+            /// </summary>
+            public static String _tax_doc_date = "tax_doc_date";
+
+            /// <summary>
+            /// ประเภทรายการ
+            /// </summary>
+            public static String _inquiry_type = "inquiry_type";
+
+            /// <summary>
+            /// ประเภทภาษี
+            /// </summary>
+            public static String _vat_type = "vat_type";
+
+            /// <summary>
+            /// ลูกหนี้/เจ้าหนี้
+            /// </summary>
+            public static String _cust_code = "cust_code";
+
+            /// <summary>
+            /// ผู้ติดต่อ
+            /// </summary>
+            public static String _contactor = "contactor";
+
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _branch_code = "branch_code";
+
+            /// <summary>
+            /// โครงการ
+            /// </summary>
+            public static String _project_code = "project_code";
+
+            /// <summary>
+            /// ฝ่าย
+            /// </summary>
+            public static String _side_code = "side_code";
+
+            /// <summary>
+            /// แผนก
+            /// </summary>
+            public static String _department_code = "department_code";
+
+            /// <summary>
+            /// เขตการขาย
+            /// </summary>
+            public static String _sale_area_code = "sale_area_code";
+
+            /// <summary>
+            /// พนักงานขาย
+            /// </summary>
+            public static String _sale_code = "sale_code";
+
+            /// <summary>
+            /// ประเภทการส่ง
+            /// </summary>
+            public static String _send_type = "send_type";
+
+            /// <summary>
+            /// รับ/ส่ง ภายใน(วัน)
+            /// </summary>
+            public static String _send_day = "send_day";
+
+            /// <summary>
+            /// วันที่รับ/ส่งสินค้า
+            /// </summary>
+            public static String _send_date = "send_date";
+
+            /// <summary>
+            /// วันที่หมดอายุ
+            /// </summary>
+            public static String _expire_date = "expire_date";
+
+            /// <summary>
+            /// วันเครดิต
+            /// </summary>
+            public static String _credit_day = "credit_day";
+
+            /// <summary>
+            /// วันที่ครบกำหนด
+            /// </summary>
+            public static String _due_date = "due_date";
+
+            /// <summary>
+            /// ลูกค้าตอบกลับ
+            /// </summary>
+            public static String _answer_type = "answer_type";
+
+            /// <summary>
+            /// ค่าขนส่ง
+            /// </summary>
+            public static String _transport_value = "transport_value";
+
+            /// <summary>
+            /// ส่วนลด
+            /// </summary>
+            public static String _discount_word = "discount_word";
+
+            /// <summary>
+            /// อัตราภาษี
+            /// </summary>
+            public static String _vat_rate = "vat_rate";
+
+            /// <summary>
+            /// รหัสสกุลเงิน
+            /// </summary>
+            public static String _currency_code = "currency_code";
+
+            /// <summary>
+            /// อัตราแลกเปลี่ยน
+            /// </summary>
+            public static String _exchange_rate = "exchange_rate";
+
+            /// <summary>
+            /// ต้นทุนสินค้า
+            /// </summary>
+            public static String _total_cost = "total_cost";
+
+            /// <summary>
+            /// มูลค่าสินค้า
+            /// </summary>
+            public static String _total_value = "total_value";
+
+            /// <summary>
+            /// มูลค่าส่วนลด
+            /// </summary>
+            public static String _total_discount = "total_discount";
+
+            /// <summary>
+            /// ภาษีมูลค่าเพิ่ม
+            /// </summary>
+            public static String _total_vat_value = "total_vat_value";
+
+            /// <summary>
+            /// มูลค่าหลังคิดภาษี
+            /// </summary>
+            public static String _total_after_vat = "total_after_vat";
+
+            /// <summary>
+            /// มูลค่ายกเว้นภาษี
+            /// </summary>
+            public static String _total_except_vat = "total_except_vat";
+
+            /// <summary>
+            /// ยอดเงินคงเหลือ
+            /// </summary>
+            public static String _balance_amount = "balance_amount";
+
+            /// <summary>
+            /// เหตุผลการปรับปรุง
+            /// </summary>
+            public static String _adjust_reason = "adjust_reason";
+
+            /// <summary>
+            /// กลุ่มผู้อนุมัติ
+            /// </summary>
+            public static String _approve_code = "approve_code";
+
+            /// <summary>
+            /// วันที่อนุมัติ
+            /// </summary>
+            public static String _approve_date = "approve_date";
+
+            /// <summary>
+            /// สถานะ
+            /// </summary>
+            public static String _status = "status";
+
+            /// <summary>
+            /// รหัสลูกค้า/ลูกหนี้
+            /// </summary>
+            public static String _ar_code = "ar_code";
+
+            /// <summary>
+            /// รหัสเจ้าหนี้
+            /// </summary>
+            public static String _ap_code = "ap_code";
+
+            /// <summary>
+            /// ผู้ขออนุมัติ
+            /// </summary>
+            public static String _user_request = "user_request";
+
+            /// <summary>
+            /// จำนวนวันหมดอายุ
+            /// </summary>
+            public static String _expire_day = "expire_day";
+
+            /// <summary>
+            /// แจ้งส่งทาง อีเมล์
+            /// </summary>
+            public static String _send_mail = "send_mail";
+
+            /// <summary>
+            /// แจ้งส่งทาง SMS
+            /// </summary>
+            public static String _send_sms = "send_sms";
+
+            /// <summary>
+            /// อ้างอิงเอกสาร
+            /// </summary>
+            public static String _doc_ref_trans = "doc_ref_trans";
+
+            /// <summary>
+            /// เลขที่ใบเบิก
+            /// </summary>
+            public static String _doc_ref_requisition = "doc_ref_requisition";
+
+            /// <summary>
+            /// แยกตามหน่วยนับ
+            /// </summary>
+            public static String _condition_pack_1 = "condition_pack_1";
+
+            /// <summary>
+            /// เลขที่ใบขอตรวจนับ
+            /// </summary>
+            public static String _doc_ref_check_stock = "doc_ref_check_stock";
+
+            /// <summary>
+            /// เลขที่ใบโอนออก
+            /// </summary>
+            public static String _doc_ref_transfer_out = "doc_ref_transfer_out";
+
+            /// <summary>
+            /// ภาษีอัตราศูนย์
+            /// </summary>
+            public static String _zero_vat = "zero_vat";
+
+            /// <summary>
+            /// ยกเว้นภาษี
+            /// </summary>
+            public static String _exc_vat = "exc_vat";
+
+            /// <summary>
+            /// ภาษีมูลค่าเพิ่ม
+            /// </summary>
+            public static String _normal_vat = "normal_vat";
+
+            /// <summary>
+            /// ภาษีแยกนอก
+            /// </summary>
+            public static String _exclude_vat = "exclude_vat";
+
+            /// <summary>
+            /// ภาษีรวมใน
+            /// </summary>
+            public static String _include_vat = "include_vat";
+
+            /// <summary>
+            /// วันที่ครบกำหนด
+            /// </summary>
+            public static String _credit_date = "credit_date";
+
+            /// <summary>
+            /// รับเอง
+            /// </summary>
+            public static String _ownreceive = "ownreceive";
+
+            /// <summary>
+            /// ส่งให้
+            /// </summary>
+            public static String _sendto = "sendto";
+
+            /// <summary>
+            /// ยอดก่อนภาษี
+            /// </summary>
+            public static String _total_before_vat = "total_before_vat";
+
+            /// <summary>
+            /// ซื้อสินค้าเงินเชื่อ
+            /// </summary>
+            public static String _credit_purchase = "credit_purchase";
+
+            /// <summary>
+            /// ซื้อสินค้าเงินสด
+            /// </summary>
+            public static String _cash_purchase = "cash_purchase";
+
+            /// <summary>
+            /// ซื้อสินค้าเงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _credit_purchase_service = "credit_purchase_service";
+
+            /// <summary>
+            /// ซื้อสินค้าเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _cash_purchase_service = "cash_purchase_service";
+
+            /// <summary>
+            /// ค่าใช้จ่ายเงินเชื่อ
+            /// </summary>
+            public static String _credit_purchase_other = "credit_purchase_other";
+
+            /// <summary>
+            /// ค่าใช้จ่ายเงินสด
+            /// </summary>
+            public static String _cash_purchase_other = "cash_purchase_other";
+
+            /// <summary>
+            /// ค่าใช้จ่ายเงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _credit_purchase_service_other = "credit_purchase_service_other";
+
+            /// <summary>
+            /// ค่าใช้จ่ายเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _cash_purchase_service_other = "cash_purchase_service_other";
+
+            /// <summary>
+            /// ขายเงินเชื่อ
+            /// </summary>
+            public static String _credit_sale = "credit_sale";
+
+            /// <summary>
+            /// ขายเงินสด
+            /// </summary>
+            public static String _cash_sale = "cash_sale";
+
+            /// <summary>
+            /// ขายสินค้าเงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _credit_sale_service = "credit_sale_service";
+
+            /// <summary>
+            /// ขายสินค้าเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _cash_sale_service = "cash_sale_service";
+
+            /// <summary>
+            /// รายได้เงินเชื่อ
+            /// </summary>
+            public static String _credit_sale_other = "credit_sale_other";
+
+            /// <summary>
+            /// รายได้เงินสด
+            /// </summary>
+            public static String _cash_sale_other = "cash_sale_other";
+
+            /// <summary>
+            /// รายได้เงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _credit_sale_service_other = "credit_sale_service_other";
+
+            /// <summary>
+            /// รายได้เงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _cash_sale_service_other = "cash_sale_service_other";
+
+            /// <summary>
+            /// การจัดสรร
+            /// </summary>
+            public static String _allocate_code = "allocate_code";
+
+            /// <summary>
+            /// งาน
+            /// </summary>
+            public static String _job_code = "job_code";
+
+            /// <summary>
+            /// วันที่ส่งของ
+            /// </summary>
+            public static String _delivery_date = "delivery_date";
+
+            /// <summary>
+            /// เลขที่ใบจ่ายเงินล่วงหน้า
+            /// </summary>
+            public static String _deposit_no = "deposit_no";
+
+            /// <summary>
+            /// เงินชำระ
+            /// </summary>
+            public static String _pay_amount = "pay_amount";
+
+            /// <summary>
+            /// จำนวนเงินคืน
+            /// </summary>
+            public static String _money = "money";
+
+            /// <summary>
+            /// รับ/จ่ายชำระหนี้ (เงินสด)
+            /// </summary>
+            public static String _sum_pay_money_cash = "sum_pay_money_cash";
+
+            /// <summary>
+            /// รับ/จ่ายชำระหนี้ (เช็ค)
+            /// </summary>
+            public static String _sum_pay_money_chq = "sum_pay_money_chq";
+
+            /// <summary>
+            /// รับ/จ่ายชำระหนี้ (บัตรเครดิต)
+            /// </summary>
+            public static String _sum_pay_money_credit = "sum_pay_money_credit";
+
+            /// <summary>
+            /// รับ/จ่ายชำระหนี้ (เงินโอน)
+            /// </summary>
+            public static String _sum_pay_money_transfer = "sum_pay_money_transfer";
+
+            /// <summary>
+            /// รับชำระ (เงินสด)
+            /// </summary>
+            public static String _sum_pay_money_cash_in = "sum_pay_money_cash_in";
+
+            /// <summary>
+            /// รับชำระ (เช็ค)
+            /// </summary>
+            public static String _sum_pay_money_chq_in = "sum_pay_money_chq_in";
+
+            /// <summary>
+            /// รับชำระ (บัตรเครดิต)
+            /// </summary>
+            public static String _sum_pay_money_credit_in = "sum_pay_money_credit_in";
+
+            /// <summary>
+            /// รับชำระ (เงินโอน)
+            /// </summary>
+            public static String _sum_pay_money_transfer_in = "sum_pay_money_transfer_in";
+
+            /// <summary>
+            /// จ่ายชำระ (เงินสด)
+            /// </summary>
+            public static String _sum_pay_money_cash_out = "sum_pay_money_cash_out";
+
+            /// <summary>
+            /// จ่ายชำระ (เช็ค)
+            /// </summary>
+            public static String _sum_pay_money_chq_out = "sum_pay_money_chq_out";
+
+            /// <summary>
+            /// จ่ายชำระ (บัตรเครดิต)
+            /// </summary>
+            public static String _sum_pay_money_credit_out = "sum_pay_money_credit_out";
+
+            /// <summary>
+            /// จ่ายชำระ (เงินโอน)
+            /// </summary>
+            public static String _sum_pay_money_transfer_out = "sum_pay_money_transfer_out";
+
+            /// <summary>
+            /// ผลต่างยอดชำระ
+            /// </summary>
+            public static String _sum_pay_money_diff = "sum_pay_money_diff";
+
+            /// <summary>
+            /// รับคืนจากขายเงินสด
+            /// </summary>
+            public static String _ret_cash = "ret_cash";
+
+            /// <summary>
+            /// รับคืนจากขายเงินเชื่อ
+            /// </summary>
+            public static String _ret_credit = "ret_credit";
+
+            /// <summary>
+            /// ลดหนี้จากขายเงินสด (ไม่กระทบสต๊อก)
+            /// </summary>
+            public static String _ret_cash_1 = "ret_cash_1";
+
+            /// <summary>
+            /// ลดหนี้จากขายเงินเชื่อ (ไม่กระทบสต๊อก)
+            /// </summary>
+            public static String _ret_credit_1 = "ret_credit_1";
+
+            /// <summary>
+            /// รับคืนจากขายสินค้าเงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _ret_cash_service = "ret_cash_service";
+
+            /// <summary>
+            /// รับคืนจากขายสินค้าเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _ret_credit_service = "ret_credit_service";
+
+            /// <summary>
+            /// ลดหนี้รายได้เงินเชื่อ
+            /// </summary>
+            public static String _ret_credit_other = "ret_credit_other";
+
+            /// <summary>
+            /// ลดหนี้รายได้เงินสด
+            /// </summary>
+            public static String _ret_cash_other = "ret_cash_other";
+
+            /// <summary>
+            /// ลดหนี้รายได้เงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _ret_cash_service_other = "ret_cash_service_other";
+
+            /// <summary>
+            /// ลดหนี้รายได้เงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _ret_credit_service_other = "ret_credit_service_other";
+
+            /// <summary>
+            /// เพิ่มหนี้จากการขายเงินเชื่อ
+            /// </summary>
+            public static String _invoice_add_credit = "invoice_add_credit";
+
+            /// <summary>
+            /// เพิ่มหนี้จากการขายเงินเชื่อ (ไม่กระทบสต๊อก)
+            /// </summary>
+            public static String _invoice_add_credit_1 = "invoice_add_credit_1";
+
+            /// <summary>
+            /// เพิ่มหนี้จากการขายสินค้าเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _invoice_add_credit_service = "invoice_add_credit_service";
+
+            /// <summary>
+            /// เพิ่มหนี้จากรายได้อื่นเงินเชื่อ
+            /// </summary>
+            public static String _invoice_add_credit_other = "invoice_add_credit_other";
+
+            /// <summary>
+            /// เพิ่มหนี้จากรายได้อื่นเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _invoice_add_credit_service_other = "invoice_add_credit_service_other";
+
+            /// <summary>
+            /// ลดหนี้ค่าใช้จ่ายเงินเชื่อ
+            /// </summary>
+            public static String _reduction_expense_other_credit = "reduction_expense_other_credit";
+
+            /// <summary>
+            /// ลดหนี้ค่าใช้จ่ายเงินสด
+            /// </summary>
+            public static String _reduction_expense_other_cash = "reduction_expense_other_cash";
+
+            /// <summary>
+            /// ลดหนี้ค่าใช้จ่ายเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _reduction_expense_other_credit_service = "reduction_expense_other_credit_service";
+
+            /// <summary>
+            /// ลดหนี้ค่าใช้จ่ายเงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _reduction_expense_other_cash_service = "reduction_expense_other_cash_service";
+
+            /// <summary>
+            /// เพิ่มหนี้ค่าใช้จ่ายเงินเชื่อ
+            /// </summary>
+            public static String _invoice_add_expense_other_credit = "invoice_add_expense_other_credit";
+
+            /// <summary>
+            /// เพิ่มหนี้ค่าใช้จ่ายเงินสด
+            /// </summary>
+            public static String _invoice_add_expense_other_cash = "invoice_add_expense_other_cash";
+
+            /// <summary>
+            /// เพิ่มหนี้ค่าใช้จ่ายเงินเชื่อ (สินค้าบริการ)
+            /// </summary>
+            public static String _invoice_add_expense_other_credit_service = "invoice_add_expense_other_credit_service";
+
+            /// <summary>
+            /// เพิ่มหนี้ค่าใช้จ่ายเงินสด (สินค้าบริการ)
+            /// </summary>
+            public static String _invoice_add_expense_other_cash_service = "invoice_add_expense_other_cash_service";
+
+            /// <summary>
+            /// ยอดคงเหลือ(ตามสกุลเงิน)
+            /// </summary>
+            public static String _currency_money = "currency_money";
+
+            /// <summary>
+            /// ยอดหนี้รวมภาษี
+            /// </summary>
+            public static String _total_debt_amount = "total_debt_amount";
+
+            /// <summary>
+            /// ชื่อพนักงานขาย
+            /// </summary>
+            public static String _sale_name = "sale_name";
+
+            /// <summary>
+            /// เลขที่ใบจ่ายล่วงหน้า
+            /// </summary>
+            public static String _buy_deposit = "buy_deposit";
+
+            /// <summary>
+            /// เลขที่ใบจ่ายมัดจำ
+            /// </summary>
+            public static String _buy_deposit2 = "buy_deposit2";
+
+            /// <summary>
+            /// เลขที่ใบรับล่วงหน้า
+            /// </summary>
+            public static String _sell_deposit = "sell_deposit";
+
+            /// <summary>
+            /// เลขที่ใบรับมัดจำ
+            /// </summary>
+            public static String _sell_deposit2 = "sell_deposit2";
+
+            /// <summary>
+            /// จำนวนจ่ายเงินล่วงหน้า
+            /// </summary>
+            public static String _pay_deposit_buy = "pay_deposit_buy";
+
+            /// <summary>
+            /// จำนวนเงินจ่ายมัดจำ
+            /// </summary>
+            public static String _pay_deposit_buy2 = "pay_deposit_buy2";
+
+            /// <summary>
+            /// จำนวนเงินรับล่วงหน้า
+            /// </summary>
+            public static String _pay_deposit_sell = "pay_deposit_sell";
+
+            /// <summary>
+            /// จำนวนเงินรับมัดจำ
+            /// </summary>
+            public static String _pay_deposit_sell2 = "pay_deposit_sell2";
+
+            /// <summary>
+            /// จ่ายคืนเงินล่วงหน้า
+            /// </summary>
+            public static String _deposit_buy = "deposit_buy";
+
+            /// <summary>
+            /// จ่ายคืนเงินมัดจำ
+            /// </summary>
+            public static String _deposit_buy2 = "deposit_buy2";
+
+            /// <summary>
+            /// รับคืนเงินล่วงหน้า
+            /// </summary>
+            public static String _deposit_sell = "deposit_sell";
+
+            /// <summary>
+            /// รับคืนเงินมัดจำ
+            /// </summary>
+            public static String _deposit_sell2 = "deposit_sell2";
+
+            /// <summary>
+            /// ตั้งหนี้ยกมา
+            /// </summary>
+            public static String _po_debt_balance = "po_debt_balance";
+
+            /// <summary>
+            /// ลดหนี้ยกมา
+            /// </summary>
+            public static String _po_cn_balance = "po_cn_balance";
+
+            /// <summary>
+            /// ซื้อสินค้า
+            /// </summary>
+            public static String _po_purchase = "po_purchase";
+
+            /// <summary>
+            /// เพิ่มสินค้า/เพิ่มหนี้
+            /// </summary>
+            public static String _po_addition_debt = "po_addition_debt";
+
+            /// <summary>
+            /// บิลขาย
+            /// </summary>
+            public static String _so_billing = "so_billing";
+
+            /// <summary>
+            /// เพิ่มสินค้า/เพิ่มหนี้
+            /// </summary>
+            public static String _so_addition_debt = "so_addition_debt";
+
+            /// <summary>
+            /// ตั้งหนี้
+            /// </summary>
+            public static String _so_debt_balance = "so_debt_balance";
+
+            /// <summary>
+            /// ลดหนี้
+            /// </summary>
+            public static String _so_cn_balance = "so_cn_balance";
+
+            /// <summary>
+            /// ประเภทการขาย
+            /// </summary>
+            public static String _sale_type = "sale_type";
+
+            /// <summary>
+            /// ประเภทการส่งคืน
+            /// </summary>
+            public static String _payable_add_type = "payable_add_type";
+
+            /// <summary>
+            /// เพิ่มหนี้เจ้าหนี้, เพิ่มสินค้า
+            /// </summary>
+            public static String _payable_add_type_1 = "payable_add_type_1";
+
+            /// <summary>
+            /// เพิ่มหนี้เจ้าหนี้, ราคาผิด (ไม่มีผลกับสต๊อกสินค้า)
+            /// </summary>
+            public static String _payable_add_type_2 = "payable_add_type_2";
+
+            /// <summary>
+            /// ลดหนี้เจ้าหนี้, ลดสินค้า
+            /// </summary>
+            public static String _payable_sub_type_1 = "payable_sub_type_1";
+
+            /// <summary>
+            /// ลดหนี้เจ้าหนี้, ราคาผิด (ไม่มีผลกับสต๊อกสินค้า)
+            /// </summary>
+            public static String _payable_sub_type_2 = "payable_sub_type_2";
+
+            /// <summary>
+            /// เลขที่ใบสั่งซื้อ
+            /// </summary>
+            public static String _doc_no_po = "doc_no_po";
+
+            /// <summary>
+            /// วันที่ใบสั่งซื้อ
+            /// </summary>
+            public static String _doc_date_po = "doc_date_po";
+
+            /// <summary>
+            /// ประเภทการยกเลิก
+            /// </summary>
+            public static String _cancel_type = "cancel_type";
+
+            /// <summary>
+            /// ยกเลิกทั้งหมด
+            /// </summary>
+            public static String _cancel_type_1 = "cancel_type_1";
+
+            /// <summary>
+            /// ยกเลิกรายสินค้า
+            /// </summary>
+            public static String _cancel_type_2 = "cancel_type_2";
+
+            /// <summary>
+            /// สถานะ
+            /// </summary>
+            public static String _last_status = "last_status";
+
+            /// <summary>
+            /// มีการอ้างอิงแล้ว
+            /// </summary>
+            public static String _used_status = "used_status";
+
+            /// <summary>
+            /// สิ้นสุด
+            /// </summary>
+            public static String _doc_success = "doc_success";
+
+            /// <summary>
+            /// เลขที่ใบจ่ายล่วงหน้า
+            /// </summary>
+            public static String _doc_advance_in_no = "doc_advance_in_no";
+
+            /// <summary>
+            /// วันที่ใบจ่ายล่วงหน้า
+            /// </summary>
+            public static String _doc_advance_in_date = "doc_advance_in_date";
+
+            /// <summary>
+            /// เลขที่ใบซื้อ
+            /// </summary>
+            public static String _doc_purchase_no = "doc_purchase_no";
+
+            /// <summary>
+            /// วันที่ใบซื้อ
+            /// </summary>
+            public static String _doc_purchase_date = "doc_purchase_date";
+
+            /// <summary>
+            /// ใบเพิ่มหนี้
+            /// </summary>
+            public static String _doc_purchase_debit_no = "doc_purchase_debit_no";
+
+            /// <summary>
+            /// วันที่เพิ่มหนี้
+            /// </summary>
+            public static String _doc_purchase_debit_date = "doc_purchase_debit_date";
+
+            /// <summary>
+            /// ใบลดหนี้
+            /// </summary>
+            public static String _doc_purchase_credit_no = "doc_purchase_credit_no";
+
+            /// <summary>
+            /// วันที่ลดหนี้
+            /// </summary>
+            public static String _doc_purchase_credit_date = "doc_purchase_credit_date";
+
+            /// <summary>
+            /// ใบเสนอราคา
+            /// </summary>
+            public static String _doc_quotation_no = "doc_quotation_no";
+
+            /// <summary>
+            /// วันที่ใบเสนอราคา
+            /// </summary>
+            public static String _doc_quotation_date = "doc_quotation_date";
+
+            /// <summary>
+            /// เลขที่ใบสั่งจอง
+            /// </summary>
+            public static String _doc_inquiry_no = "doc_inquiry_no";
+
+            /// <summary>
+            /// วันที่ใบสั่งจอง
+            /// </summary>
+            public static String _doc_inquiry_date = "doc_inquiry_date";
+
+            /// <summary>
+            /// เลขที่ใบสั่งขาย
+            /// </summary>
+            public static String _doc_saleorder_no = "doc_saleorder_no";
+
+            /// <summary>
+            /// วันที่ใบสั่งขาย
+            /// </summary>
+            public static String _doc_saleorder_date = "doc_saleorder_date";
+
+            /// <summary>
+            /// เลขที่ใบรับเงินล่วงหน้า
+            /// </summary>
+            public static String _doc_advance_so_no = "doc_advance_so_no";
+
+            /// <summary>
+            /// วันที่ใบรับเงินล่วงหน้า
+            /// </summary>
+            public static String _doc_advance_so_date = "doc_advance_so_date";
+
+            /// <summary>
+            /// เลขที่ใบคืนเงินล่วงหน้า
+            /// </summary>
+            public static String _doc_advance_so_return_no = "doc_advance_so_return_no";
+
+            /// <summary>
+            /// วันที่ใบคืนเงินล่วงหน้า
+            /// </summary>
+            public static String _doc_advance_so_return_date = "doc_advance_so_return_date";
+
+            /// <summary>
+            /// เลขที่ใบขายสินค้า/บริการ
+            /// </summary>
+            public static String _doc_invoice_no = "doc_invoice_no";
+
+            /// <summary>
+            /// วันที่ใบขายสินค้า/บริการ
+            /// </summary>
+            public static String _doc_invoice_date = "doc_invoice_date";
+
+            /// <summary>
+            /// เลขที่ใบเพิ่มหนี้
+            /// </summary>
+            public static String _doc_ar_debit_note_no = "doc_ar_debit_note_no";
+
+            /// <summary>
+            /// วันที่ใบเพิ่มหนี้
+            /// </summary>
+            public static String _doc_ar_debit_note_date = "doc_ar_debit_note_date";
+
+            /// <summary>
+            /// เลขที่ใบลดหนี้
+            /// </summary>
+            public static String _doc_ar_credit_note_no = "doc_ar_credit_note_no";
+
+            /// <summary>
+            /// วันที่ใบลดหนี้
+            /// </summary>
+            public static String _doc_ar_credit_note_date = "doc_ar_credit_note_date";
+
+            /// <summary>
+            /// ประเภทการเพิ่มหนี้
+            /// </summary>
+            public static String _sale_add_type = "sale_add_type";
+
+            /// <summary>
+            /// บันทึกยอดรวมเอง
+            /// </summary>
+            public static String _total_manual = "total_manual";
+
+            /// <summary>
+            /// มูลค่าหลังหักส่วนลด
+            /// </summary>
+            public static String _total_after_discount = "total_after_discount";
+
+            /// <summary>
+            /// ชื่อลูกหนี้/เจ้าหนี้
+            /// </summary>
+            public static String _cust_name = "cust_name";
+
+            /// <summary>
+            /// ชื่อเจ้าหนี้
+            /// </summary>
+            public static String _ap_name = "ap_name";
+
+            /// <summary>
+            /// ยอดรวม
+            /// </summary>
+            public static String _sum_total = "sum_total";
+
+            /// <summary>
+            /// ชื่อลูกหนี้
+            /// </summary>
+            public static String _ar_name = "ar_name";
+
+            /// <summary>
+            /// รายละเอียด
+            /// </summary>
+            public static String _tab_detail = "tab_detail";
+
+            /// <summary>
+            /// เพิ่มเติม
+            /// </summary>
+            public static String _tab_more = "tab_more";
+
+            /// <summary>
+            /// ระงับชั่วคราว
+            /// </summary>
+            public static String _on_hold = "on_hold";
+
+            /// <summary>
+            /// ข้อความเพิ่มเติม
+            /// </summary>
+            public static String _extra_word = "extra_word";
+
+            /// <summary>
+            /// ขนส่งโดย
+            /// </summary>
+            public static String _transport_code = "transport_code";
+
+            /// <summary>
+            /// ผู้สั่งซื้อ
+            /// </summary>
+            public static String _purchase_name = "purchase_name";
+
+            /// <summary>
+            /// รายละเอียดการจ่ายเงิน
+            /// </summary>
+            public static String _tab_pay_out = "tab_pay_out";
+
+            /// <summary>
+            /// รายละเอียดการรับเงิน
+            /// </summary>
+            public static String _tab_pay_in = "tab_pay_in";
+
+            /// <summary>
+            /// ต้องการภายใน (วัน)
+            /// </summary>
+            public static String _want_day = "want_day";
+
+            /// <summary>
+            /// ต้องการภายใน (วันที่)
+            /// </summary>
+            public static String _want_date = "want_date";
+
+            /// <summary>
+            /// ระยะเวลาภายใน (วัน)
+            /// </summary>
+            public static String _deposit_day = "deposit_day";
+
+            /// <summary>
+            /// ระยะเวลาภายใน (วันที่)
+            /// </summary>
+            public static String _deposit_date = "deposit_date";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark2 = "remark2";
+
+            /// <summary>
+            /// ภาษีหัก ณ. ที่จ่าย
+            /// </summary>
+            public static String _tab_wht_in = "tab_wht_in";
+
+            /// <summary>
+            /// ภาษีถูกหัก ณ. ที่จ่าย
+            /// </summary>
+            public static String _tab_wht_out = "tab_wht_out";
+
+            /// <summary>
+            /// ภาษีมูลค่าเพิ่ม
+            /// </summary>
+            public static String _tab_vat = "tab_vat";
+
+            /// <summary>
+            /// กลุ่มพนักงานขาย
+            /// </summary>
+            public static String _sale_group = "sale_group";
+
+            /// <summary>
+            /// เลขที่ใบเสนอซื้อ
+            /// </summary>
+            public static String _doc_po_request = "doc_po_request";
+
+            /// <summary>
+            /// ไม่อนุมัติ
+            /// </summary>
+            public static String _not_approve_1 = "not_approve_1";
+
+            /// <summary>
+            /// ผู้อนุมัติ
+            /// </summary>
+            public static String _user_approve = "user_approve";
+
+            /// <summary>
+            /// ผู้ยกเลิก
+            /// </summary>
+            public static String _user_cancel = "user_cancel";
+
+            /// <summary>
+            /// ประเภทการรับคืน
+            /// </summary>
+            public static String _sale_return_type = "sale_return_type";
+
+            /// <summary>
+            /// สถานะการอนุมัติ
+            /// </summary>
+            public static String _approve_status = "approve_status";
+
+            /// <summary>
+            /// สถานะหมดอายุ
+            /// </summary>
+            public static String _expire_status = "expire_status";
+
+            /// <summary>
+            /// ปัดเศษ
+            /// </summary>
+            public static String _sum_pay_rounding = "sum_pay_rounding";
+
+            /// <summary>
+            /// เงินสดย่อย
+            /// </summary>
+            public static String _sum_petty_cash = "sum_petty_cash";
+
+            /// <summary>
+            /// เงินรับล่วงหน้า
+            /// </summary>
+            public static String _sum_deposit = "sum_deposit";
+
+            /// <summary>
+            /// เงินมัดจำ
+            /// </summary>
+            public static String _sum_advance = "sum_advance";
+
+            /// <summary>
+            /// ยอดเงินนำไปใช้
+            /// </summary>
+            public static String _sum_used = "sum_used";
+
+            /// <summary>
+            /// ตัดเงินมัดจำ
+            /// </summary>
+            public static String _advance_amount = "advance_amount";
+
+            /// <summary>
+            /// เงินมัดจำ
+            /// </summary>
+            public static String _tab_advance = "tab_advance";
+
+            /// <summary>
+            /// เลขที่ใบรับคืนจ่ายเงินล่วงหน้า
+            /// </summary>
+            public static String _doc_ref_name_1 = "doc_ref_name_1";
+
+            /// <summary>
+            /// เลขที่ใบรับคืนเงินมัดจำ
+            /// </summary>
+            public static String _doc_ref_name_2 = "doc_ref_name_2";
+
+            /// <summary>
+            /// รายละเอียดการจ่าย
+            /// </summary>
+            public static String _tab_pay = "tab_pay";
+
+            /// <summary>
+            /// ภาษีหัก ณ. ที่จ่าย
+            /// </summary>
+            public static String _tab_wht = "tab_wht";
+
+            /// <summary>
+            /// สถานะ 2
+            /// </summary>
+            public static String _used_status_2 = "used_status_2";
+
+            /// <summary>
+            /// หมายเหตุ 2
+            /// </summary>
+            public static String _remark_2 = "remark_2";
+
+            /// <summary>
+            /// หมายเหตุ 3
+            /// </summary>
+            public static String _remark_3 = "remark_3";
+
+            /// <summary>
+            /// ประเภทการลดหนี้
+            /// </summary>
+            public static String _return_type = "return_type";
+
+            /// <summary>
+            /// มูลค่าเอกสารเดิม
+            /// </summary>
+            public static String _ref_amount = "ref_amount";
+
+            /// <summary>
+            /// มูลค่าที่ถูกต้อง
+            /// </summary>
+            public static String _ref_new_amount = "ref_new_amount";
+
+            /// <summary>
+            /// ผลต่าง
+            /// </summary>
+            public static String _ref_diff = "ref_diff";
+
+            /// <summary>
+            /// แต้ม
+            /// </summary>
+            public static String _sum_point = "sum_point";
+
+            /// <summary>
+            /// Cashier
+            /// </summary>
+            public static String _cashier_code = "cashier_code";
+
+            /// <summary>
+            /// จากระบบ POS
+            /// </summary>
+            public static String _is_pos = "is_pos";
+
+            /// <summary>
+            /// หมายเลขเครื่อง POS
+            /// </summary>
+            public static String _pos_id = "pos_id";
+
+            /// <summary>
+            /// รหัสสมาชิก
+            /// </summary>
+            public static String _member_code = "member_code";
+
+            /// <summary>
+            /// เลขที่เอกสารเปรียบเทียบ
+            /// </summary>
+            public static String _doc_no_guid = "doc_no_guid";
+
+            /// <summary>
+            /// 0=อย่างย่อ,1=อย่างเต็ม
+            /// </summary>
+            public static String _pos_bill_type = "pos_bill_type";
+
+            /// <summary>
+            /// 0=ปรกติ,1=ใบแทน
+            /// </summary>
+            public static String _pos_bill_change = "pos_bill_change";
+
+            /// <summary>
+            /// ประเภทเอกสาร
+            /// </summary>
+            public static String _doc_type = "doc_type";
+
+            /// <summary>
+            /// ซื้อสินค้า
+            /// </summary>
+            public static String _doc_type_purchase = "doc_type_purchase";
+
+            /// <summary>
+            /// รับสินค้าสำเร็จรูป
+            /// </summary>
+            public static String _doc_type_finish_good = "doc_type_finish_good";
+
+            /// <summary>
+            /// รับจากใบสั่งซื้อ
+            /// </summary>
+            public static String _wh_in_1 = "wh_in_1";
+
+            /// <summary>
+            /// รับจากการซื้อ
+            /// </summary>
+            public static String _wh_in_2 = "wh_in_2";
+
+            /// <summary>
+            /// รับจากการเพิ่มหนี้
+            /// </summary>
+            public static String _wh_in_3 = "wh_in_3";
+
+            /// <summary>
+            /// ประเภทเอกสารรับ
+            /// </summary>
+            public static String _wh_in = "wh_in";
+
+            /// <summary>
+            /// ส่งคืนจากใบรับสินค้า (คลัง)
+            /// </summary>
+            public static String _wh_out_1 = "wh_out_1";
+
+            /// <summary>
+            /// ส่งคืนจากใบส่งคืน (บัญชี)
+            /// </summary>
+            public static String _wh_out_2 = "wh_out_2";
+
+            /// <summary>
+            /// ส่งคืนจากใบลดหนี้ (บัญชี)
+            /// </summary>
+            public static String _wh_out_3 = "wh_out_3";
+
+            /// <summary>
+            /// ประเภทเอกสารออก
+            /// </summary>
+            public static String _wh_out = "wh_out";
+
+            /// <summary>
+            /// รับสินค้าสำเร็จรูป
+            /// </summary>
+            public static String _wh_in_4 = "wh_in_4";
+
+            /// <summary>
+            /// รับคืนวัตถุดิบ
+            /// </summary>
+            public static String _wh_in_5 = "wh_in_5";
+
+            /// <summary>
+            /// เตือนย้อนหลัง (วัน)
+            /// </summary>
+            public static String _recheck_count_day = "recheck_count_day";
+
+            /// <summary>
+            /// เปิดระบบเตือนตรวจนับซ้ำ
+            /// </summary>
+            public static String _recheck_count = "recheck_count";
+
+            /// <summary>
+            /// คลัง
+            /// </summary>
+            public static String _wh_from = "wh_from";
+
+            /// <summary>
+            /// พื้นที่เก็บ
+            /// </summary>
+            public static String _location_from = "location_from";
+
+            /// <summary>
+            /// คลังปลายทาง
+            /// </summary>
+            public static String _wh_to = "wh_to";
+
+            /// <summary>
+            /// ที่เก็บปลายทาง
+            /// </summary>
+            public static String _location_to = "location_to";
+
+            /// <summary>
+            /// สร้างโดยโปรแกรม
+            /// </summary>
+            public static String _auto_create = "auto_create";
+
+            /// <summary>
+            /// ส่งคืนสินค้า
+            /// </summary>
+            public static String _payable_sub_type_1_1 = "payable_sub_type_1_1";
+
+            /// <summary>
+            /// ราคาผิด (ไม่มีผลกับสต๊อกสินค้า)
+            /// </summary>
+            public static String _payable_sub_type_1_2 = "payable_sub_type_1_2";
+
+            /// <summary>
+            /// ส่งคืนเงินสด
+            /// </summary>
+            public static String _payable_sub_type_3 = "payable_sub_type_3";
+
+            /// <summary>
+            /// ราคาผิดเงินสด (ไม่มีผลกับสต๊อกสินค้า)
+            /// </summary>
+            public static String _payable_sub_type_4 = "payable_sub_type_4";
+
+            /// <summary>
+            /// เพิ่มหนี้รายได้อื่นๆ เงินสด
+            /// </summary>
+            public static String _invoice_add_cash_other = "invoice_add_cash_other";
+
+            /// <summary>
+            /// เพิ่มหนี้รายได้อื่นๆเงินสด (ค่าบริการ)
+            /// </summary>
+            public static String _invoice_add_cash_service_other = "invoice_add_cash_service_other";
+
+            /// <summary>
+            /// ยอดตั้งหนี้
+            /// </summary>
+            public static String _total_dept_amount = "total_dept_amount";
+
+            /// <summary>
+            /// ยอดลดหนี้
+            /// </summary>
+            public static String _debt_reduction_amount = "debt_reduction_amount";
+
+            /// <summary>
+            /// ยอดเพิ่มหนี้
+            /// </summary>
+            public static String _increase_the_debt_amount = "increase_the_debt_amount";
+
+            /// <summary>
+            /// ยอดจ่ายชำระ
+            /// </summary>
+            public static String _pay_debt_amount = "pay_debt_amount";
+
+            /// <summary>
+            /// เกินกำหนด
+            /// </summary>
+            public static String _due_day_over = "due_day_over";
+
+            /// <summary>
+            /// สั่งจัดสินค้า
+            /// </summary>
+            public static String _send_to_pick_and_pack = "send_to_pick_and_pack";
+
+            /// <summary>
+            /// GL
+            /// </summary>
+            public static String _tab_gl = "tab_gl";
+
+            /// <summary>
+            /// ชื่อลูกค้า (อังกฤษ)
+            /// </summary>
+            public static String _cust_name_en = "cust_name_en";
+
+            /// <summary>
+            /// Service Charge
+            /// </summary>
+            public static String _service_charge_word = "service_charge_word";
+
+            /// <summary>
+            /// มูลค่า Service Charge
+            /// </summary>
+            public static String _total_service_charge = "total_service_charge";
+
+            /// <summary>
+            /// รอบการขาย
+            /// </summary>
+            public static String _sale_shift_id = "sale_shift_id";
+
+            /// <summary>
+            /// ผู้สร้างเอกสาร
+            /// </summary>
+            public static String _creator_code = "creator_code";
+
+            /// <summary>
+            /// ผู้แก้ไขเอกสารล่าสุด
+            /// </summary>
+            public static String _last_editor_code = "last_editor_code";
+
+            /// <summary>
+            /// วันที่สร้างเอกสาร
+            /// </summary>
+            public static String _create_datetime = "create_datetime";
+
+            /// <summary>
+            /// วันที่แก้ไขล่าสุด
+            /// </summary>
+            public static String _lastedit_datetime = "lastedit_datetime";
+
+            /// <summary>
+            /// เลขที่ใบรับเงินมัดจำ
+            /// </summary>
+            public static String _deposit_doc = "deposit_doc";
+
+            /// <summary>
+            /// วันที่ใบรับเงินมัดจำ
+            /// </summary>
+            public static String _deposit_doc_date = "deposit_doc_date";
+
+            /// <summary>
+            /// เลขที่ใบคืนเงินมัดจำ
+            /// </summary>
+            public static String _deposit_return_doc = "deposit_return_doc";
+
+            /// <summary>
+            /// วันที่ใบคืนเงินมัดจำ
+            /// </summary>
+            public static String _deposit_return_doc_date = "deposit_return_doc_date";
+
+            /// <summary>
+            /// หมายเลขโต๊ะ
+            /// </summary>
+            public static String _table_number = "table_number";
+
+            /// <summary>
+            /// GUID กะ
+            /// </summary>
+            public static String _period_guid = "period_guid";
+
+            /// <summary>
+            /// ถึงสาขา
+            /// </summary>
+            public static String _branch_code_to = "branch_code_to";
+
+            /// <summary>
+            /// ถึงการจัดสรร
+            /// </summary>
+            public static String _allocate_code_to = "allocate_code_to";
+
+            /// <summary>
+            /// ถึงโครงการ
+            /// </summary>
+            public static String _project_code_to = "project_code_to";
+
+            /// <summary>
+            /// ถึงงาน
+            /// </summary>
+            public static String _job_code_to = "job_code_to";
+
+            /// <summary>
+            /// ถึงฝ่าย
+            /// </summary>
+            public static String _side_code_to = "side_code_to";
+
+            /// <summary>
+            /// ถึงแผนก
+            /// </summary>
+            public static String _department_code_to = "department_code_to";
+
+            /// <summary>
+            /// หมายเลขโทรศัพท์
+            /// </summary>
+            public static String _point_telephone = "point_telephone";
+
+            /// <summary>
+            /// ยอดแต้มสะสมระบบกลาง
+            /// </summary>
+            public static String _sum_point_2 = "sum_point_2";
+
+            /// <summary>
+            /// การจัดส่ง
+            /// </summary>
+            public static String _tab_shipment = "tab_shipment";
+
+            /// <summary>
+            /// หมายเหตุ 4
+            /// </summary>
+            public static String _remark_4 = "remark_4";
+
+            /// <summary>
+            /// หมายเหตุ 5
+            /// </summary>
+            public static String _remark_5 = "remark_5";
+
+            /// <summary>
+            /// ภาษีซื้อ
+            /// </summary>
+            public static String _tab_vat_buy = "tab_vat_buy";
+
+            /// <summary>
+            /// ภาษีขาย
+            /// </summary>
+            public static String _tab_vat_sale = "tab_vat_sale";
+
+            /// <summary>
+            /// บันทึกรายการภาษีเอง
+            /// </summary>
+            public static String _is_manual_vat = "is_manual_vat";
+
+            /// <summary>
+            /// สมุดเงินฝาก
+            /// </summary>
+            public static String _pass_book_code = "pass_book_code";
+
+            /// <summary>
+            /// มูลค่าสุทธิ
+            /// </summary>
+            public static String _total_amount_2 = "total_amount_2";
+
+            /// <summary>
+            /// พนักงานขนส่ง
+            /// </summary>
+            public static String _sender_code = "sender_code";
+
+            /// <summary>
+            /// เอกสารยกเลิก
+            /// </summary>
+            public static String _is_cancel = "is_cancel";
+
+            /// <summary>
+            /// ผู้ยกเลิกเอกสาร
+            /// </summary>
+            public static String _cancel_code = "cancel_code";
+
+            /// <summary>
+            /// เวลายกเลิกเอกสาร
+            /// </summary>
+            public static String _cancel_datetime = "cancel_datetime";
+
+            /// <summary>
+            /// จ่ายมัดจำเงินสด
+            /// </summary>
+            public static String _deposit_payment_cash = "deposit_payment_cash";
+
+            /// <summary>
+            /// จ่ายมัดจำเงินเชื่อ
+            /// </summary>
+            public static String _deposit_payment_credit = "deposit_payment_credit";
+
+            /// <summary>
+            /// ผู้ขอโอน
+            /// </summary>
+            public static String _user_request_transfer = "user_request_transfer";
+
+            /// <summary>
+            /// ระงับเอกสาร
+            /// </summary>
+            public static String _is_hold = "is_hold";
+
+            /// <summary>
+            /// อนุมัติโดยอัตโนมัติ
+            /// </summary>
+            public static String _auto_approved = "auto_approved";
+
+            /// <summary>
+            /// โอนมาจากPOS
+            /// </summary>
+            public static String _pos_transfer = "pos_transfer";
+
+            /// <summary>
+            /// ปิดเอกสาร
+            /// </summary>
+            public static String _doc_close = "doc_close";
+
+            /// <summary>
+            /// ประเภทเอกสาร
+            /// </summary>
+            public static String _ref_doc_type = "ref_doc_type";
+
+            /// <summary>
+            /// ARM
+            /// </summary>
+            public static String _is_arm = "is_arm";
+
+            /// <summary>
+            /// ปรับปรุงสินค้า
+            /// </summary>
+            public static String _adjust_normal = "adjust_normal";
+
+            /// <summary>
+            /// ปรับปรุงยกมาสินค้า
+            /// </summary>
+            public static String _adjust_stock_balance = "adjust_stock_balance";
+
+            /// <summary>
+            /// ปรับปรุงปิดสินค้า
+            /// </summary>
+            public static String _adjust_end_product = "adjust_end_product";
+
+            /// <summary>
+            /// เป็นเอกสารที่ออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
+
+            /// <summary>
+            /// เหตุผล
+            /// </summary>
+            public static String _doc_reason = "doc_reason";
+
+            /// <summary>
+            /// เหตุผลการลดหนี้
+            /// </summary>
+            public static String _cn_reason = "cn_reason";
+
+            /// <summary>
+            /// เหตุผลการเพิ่มหนี้
+            /// </summary>
+            public static String _dn_reason = "dn_reason";
+
+            /// <summary>
+            /// ไม่กระทบภาษี
+            /// </summary>
+            public static String _no_tax = "no_tax";
+
+            /// <summary>
+            /// รหัสเอกสารปรับปรุงเพิ่ม
+            /// </summary>
+            public static String _doc_format_code_adjust = "doc_format_code_adjust";
+
+            /// <summary>
+            /// เงินมัดจำคงเหลือ
+            /// </summary>
+            public static String _deposit_balance = "deposit_balance";
+
         }
 
         /// <summary>
@@ -43501,6 +45166,866 @@ namespace _g
             /// Line Number
             /// </summary>
             public static String _line_number = "line_number";
+
+            /// <summary>
+            /// รหัสสินทรัพย์
+            /// </summary>
+            public static String _asset_code = "asset_code";
+
+            /// <summary>
+            /// ชื่อสินทรัพย์
+            /// </summary>
+            public static String _asset_name = "asset_name";
+
+            /// <summary>
+            /// มูลค่าสินทรัพย์
+            /// </summary>
+            public static String _asset_value = "asset_value";
+
+            /// <summary>
+            /// ค่าเสื่อม
+            /// </summary>
+            public static String _asset_depreciation = "asset_depreciation";
+
+            /// <summary>
+            /// มูลค่าคงเหลือ
+            /// </summary>
+            public static String _asset_balance_value = "asset_balance_value";
+
+            /// <summary>
+            /// ราคาขาย
+            /// </summary>
+            public static String _sale_price = "sale_price";
+
+            /// <summary>
+            /// ประเภทรายวัน
+            /// </summary>
+            public static String _trans_type = "trans_type";
+
+            /// <summary>
+            /// กลุ่มเอกสาร
+            /// </summary>
+            public static String _doc_group = "doc_group";
+
+            /// <summary>
+            /// เอกสารอ้างอิง
+            /// </summary>
+            public static String _doc_ref = "doc_ref";
+
+            /// <summary>
+            /// ลูกหนี้/เจ้าหนี้
+            /// </summary>
+            public static String _cust_code = "cust_code";
+
+            /// <summary>
+            /// ประเภทการซื้อ
+            /// </summary>
+            public static String _inquiry_type = "inquiry_type";
+
+            /// <summary>
+            /// หน่วยนับ
+            /// </summary>
+            public static String _unit_code = "unit_code";
+
+            /// <summary>
+            /// ต้นทุน
+            /// </summary>
+            public static String _cost = "cost";
+
+            /// <summary>
+            /// จำนวน
+            /// </summary>
+            public static String _qty = "qty";
+
+            /// <summary>
+            /// ราคา
+            /// </summary>
+            public static String _price = "price";
+
+            /// <summary>
+            /// ส่วนลด
+            /// </summary>
+            public static String _discount = "discount";
+
+            /// <summary>
+            /// รวมต้นทุน
+            /// </summary>
+            public static String _sum_of_cost = "sum_of_cost";
+
+            /// <summary>
+            /// วันที่ต้องการ
+            /// </summary>
+            public static String _due_date = "due_date";
+
+            /// <summary>
+            /// สถานะ
+            /// </summary>
+            public static String _status = "status";
+
+            /// <summary>
+            /// อ้างอิง
+            /// </summary>
+            public static String _ref_doc_no = "ref_doc_no";
+
+            /// <summary>
+            /// อ้างอิง วันที่
+            /// </summary>
+            public static String _ref_doc_date = "ref_doc_date";
+
+            /// <summary>
+            /// อ้างอิง บรรทัด
+            /// </summary>
+            public static String _ref_line_number = "ref_line_number";
+
+            /// <summary>
+            /// อ้างอิง เจ้าหนี้/ลูกหนี้
+            /// </summary>
+            public static String _ref_cust_code = "ref_cust_code";
+
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _branch_code = "branch_code";
+
+            /// <summary>
+            /// คลัง
+            /// </summary>
+            public static String _wh_code = "wh_code";
+
+            /// <summary>
+            /// พื้นที่เก็บ
+            /// </summary>
+            public static String _shelf_code = "shelf_code";
+
+            /// <summary>
+            /// คลัง
+            /// </summary>
+            public static String _wh_code_2 = "wh_code_2";
+
+            /// <summary>
+            /// พื้นที่เก็บ
+            /// </summary>
+            public static String _shelf_code_2 = "shelf_code_2";
+
+            /// <summary>
+            /// แผนกที่ขออนุมัติ
+            /// </summary>
+            public static String _department_code = "department_code";
+
+            /// <summary>
+            /// จำนวนอนุมัติ
+            /// </summary>
+            public static String _approval_qty = "approval_qty";
+
+            /// <summary>
+            /// ภาษีมูลค่าเพิ่ม
+            /// </summary>
+            public static String _total_vat_value = "total_vat_value";
+
+            /// <summary>
+            /// จำนวนยกเลิก
+            /// </summary>
+            public static String _cancel_qty = "cancel_qty";
+
+            /// <summary>
+            /// จำนวนคงเหลือ
+            /// </summary>
+            public static String _total_qty = "total_qty";
+
+            /// <summary>
+            /// ตัวตั้ง
+            /// </summary>
+            public static String _stand_value = "stand_value";
+
+            /// <summary>
+            /// ตัวหาร
+            /// </summary>
+            public static String _divide_value = "divide_value";
+
+            /// <summary>
+            /// อัตราส่วน
+            /// </summary>
+            public static String _ratio = "ratio";
+
+            /// <summary>
+            /// มิติ
+            /// </summary>
+            public static String _dimension = "dimension";
+
+            /// <summary>
+            /// รูปแบบสินค้า
+            /// </summary>
+            public static String _ic_pattern = "ic_pattern";
+
+            /// <summary>
+            /// สีสินค้า
+            /// </summary>
+            public static String _ic_color = "ic_color";
+
+            /// <summary>
+            /// ขนาดสินค้า
+            /// </summary>
+            public static String _ic_size = "ic_size";
+
+            /// <summary>
+            /// หน่วยนับที่ใช้
+            /// </summary>
+            public static String _approval_unit = "approval_unit";
+
+            /// <summary>
+            /// เพิ่มเติม
+            /// </summary>
+            public static String _extra = "extra";
+
+            /// <summary>
+            /// ความสำคัญ
+            /// </summary>
+            public static String _priority_level = "priority_level";
+
+            /// <summary>
+            /// ปรกติ
+            /// </summary>
+            public static String _priority_level_1 = "priority_level_1";
+
+            /// <summary>
+            /// ด่วน
+            /// </summary>
+            public static String _priority_level_2 = "priority_level_2";
+
+            /// <summary>
+            /// ด่วนมาก
+            /// </summary>
+            public static String _priority_level_3 = "priority_level_3";
+
+            /// <summary>
+            /// ด่วนมากพิเศษ
+            /// </summary>
+            public static String _priority_level_4 = "priority_level_4";
+
+            /// <summary>
+            /// ยอดที่ตรวจนับได้
+            /// </summary>
+            public static String _check_stock_1 = "check_stock_1";
+
+            /// <summary>
+            /// ผลต่าง
+            /// </summary>
+            public static String _check_stock_2 = "check_stock_2";
+
+            /// <summary>
+            /// ชื่อหน่วยนับ
+            /// </summary>
+            public static String _unit_name = "unit_name";
+
+            /// <summary>
+            /// ชื่อคลัง
+            /// </summary>
+            public static String _wh_name = "wh_name";
+
+            /// <summary>
+            /// ชื่อพื้นที่เก็บ
+            /// </summary>
+            public static String _shelf_name = "shelf_name";
+
+            /// <summary>
+            /// ประเภทหน่วยนับ
+            /// </summary>
+            public static String _unit_type = "unit_type";
+
+            /// <summary>
+            /// บวกหรือลบ (1=บวก,-1=ลบ)
+            /// </summary>
+            public static String _calc_flag = "calc_flag";
+
+            /// <summary>
+            /// สถานะล่าสุด (0=Normal,1=ยกเลิก)
+            /// </summary>
+            public static String _last_status = "last_status";
+
+            /// <summary>
+            /// จากคลัง
+            /// </summary>
+            public static String _wh_name_out = "wh_name_out";
+
+            /// <summary>
+            /// จากที่เก็บ
+            /// </summary>
+            public static String _shelf_name_out = "shelf_name_out";
+
+            /// <summary>
+            /// เข้าคลัง
+            /// </summary>
+            public static String _wh_name_in = "wh_name_in";
+
+            /// <summary>
+            /// เข้าที่เก็บ
+            /// </summary>
+            public static String _shelf_name_in = "shelf_name_in";
+
+            /// <summary>
+            /// เลขที่ใบเบิก
+            /// </summary>
+            public static String _doc_ref_requisition = "doc_ref_requisition";
+
+            /// <summary>
+            /// ชื่อคลัง
+            /// </summary>
+            public static String _wh_name_2 = "wh_name_2";
+
+            /// <summary>
+            /// ชื่อพื้นที่เก็บ
+            /// </summary>
+            public static String _shelf_name_2 = "shelf_name_2";
+
+            /// <summary>
+            /// บรรทัดอ้างอิง (สินค้าชุด) 
+            /// </summary>
+            public static String _set_ref_line = "set_ref_line";
+
+            /// <summary>
+            /// ราคาอ้างอิง (สินค้าชุด)
+            /// </summary>
+            public static String _set_ref_price = "set_ref_price";
+
+            /// <summary>
+            /// จำนวนอ้างอิง (สินค้าชุด)
+            /// </summary>
+            public static String _set_ref_qty = "set_ref_qty";
+
+            /// <summary>
+            /// ประเภทสินค้า
+            /// </summary>
+            public static String _item_type = "item_type";
+
+            /// <summary>
+            /// เลขที่ใบสั่งซื้อ
+            /// </summary>
+            public static String _doc_ref_purchase_order = "doc_ref_purchase_order";
+
+            /// <summary>
+            /// เลขที่ใบเสนอราคา
+            /// </summary>
+            public static String _doc_ref_sale_order = "doc_ref_sale_order";
+
+            /// <summary>
+            /// ประเภทภาษี (0=แยกนอก,1=รวมใน,2=อัตรา 0)
+            /// </summary>
+            public static String _vat_type = "vat_type";
+
+            /// <summary>
+            /// เลขที่ใบซื้อสินค้า/สินค้าบริการ
+            /// </summary>
+            public static String _doc_ref_purchase = "doc_ref_purchase";
+
+            /// <summary>
+            /// ประเภทเอกสาร
+            /// </summary>
+            public static String _doc_ref_type = "doc_ref_type";
+
+            /// <summary>
+            /// สินค้าหลัก
+            /// </summary>
+            public static String _item_code_main = "item_code_main";
+
+            /// <summary>
+            /// ref_row
+            /// </summary>
+            public static String _ref_row = "ref_row";
+
+            /// <summary>
+            /// ref_guid
+            /// </summary>
+            public static String _ref_guid = "ref_guid";
+
+            /// <summary>
+            /// 1=ของแถม
+            /// </summary>
+            public static String _is_permium = "is_permium";
+
+            /// <summary>
+            /// ให้ดึงราคาขาย (1=ดึง)
+            /// </summary>
+            public static String _is_get_price = "is_get_price";
+
+            /// <summary>
+            /// ราคาทุนเฉลี่ย
+            /// </summary>
+            public static String _average_cost = "average_cost";
+
+            /// <summary>
+            /// รวมมูลค่า
+            /// </summary>
+            public static String _sum_amount_exclude_vat = "sum_amount_exclude_vat";
+
+            /// <summary>
+            /// วันที่สำหรับคำนวณ
+            /// </summary>
+            public static String _doc_date_calc = "doc_date_calc";
+
+            /// <summary>
+            /// เวลาสำหรับคำนวณ
+            /// </summary>
+            public static String _doc_time_calc = "doc_time_calc";
+
+            /// <summary>
+            /// กำไรขั้นต้น
+            /// </summary>
+            public static String _profit = "profit";
+
+            /// <summary>
+            /// มูลค่าส่วนลด
+            /// </summary>
+            public static String _discount_amount = "discount_amount";
+
+            /// <summary>
+            /// ราคาไม่รวมภาษี
+            /// </summary>
+            public static String _price_exclude_vat = "price_exclude_vat";
+
+            /// <summary>
+            /// รายละเอียดลูกหนี้/ลูกค้า
+            /// </summary>
+            public static String _ar_detail = "ar_detail";
+
+            /// <summary>
+            /// รายละเอียดเจ้าหนี้
+            /// </summary>
+            public static String _ap_detail = "ap_detail";
+
+            /// <summary>
+            /// ประเภทภาษี
+            /// </summary>
+            public static String _vat_type_word = "vat_type_word";
+
+            /// <summary>
+            /// รหัสผู้อนุมัติ
+            /// </summary>
+            public static String _user_approve = "user_approve";
+
+            /// <summary>
+            /// ประเภทราคา
+            /// </summary>
+            public static String _price_type = "price_type";
+
+            /// <summary>
+            /// กลุ่มราคา
+            /// </summary>
+            public static String _price_mode = "price_mode";
+
+            /// <summary>
+            /// ราคาอนุมัติ
+            /// </summary>
+            public static String _approval_price = "approval_price";
+
+            /// <summary>
+            /// ตัวเลข 1
+            /// </summary>
+            public static String _temp_float_1 = "temp_float_1";
+
+            /// <summary>
+            /// ตัวเลข 2
+            /// </summary>
+            public static String _temp_float_2 = "temp_float_2";
+
+            /// <summary>
+            /// ตัวอักษร 1
+            /// </summary>
+            public static String _temp_string_1 = "temp_string_1";
+
+            /// <summary>
+            /// จำนวนสั่งซื้อ
+            /// </summary>
+            public static String _po_qty = "po_qty";
+
+            /// <summary>
+            /// จำนวนสั่งซื้อคงเหลือ
+            /// </summary>
+            public static String _po_qty_2 = "po_qty_2";
+
+            /// <summary>
+            /// เลขที่ใบรับ
+            /// </summary>
+            public static String _doc_ref_receive_no = "doc_ref_receive_no";
+
+            /// <summary>
+            /// มูลค่าอนุมัติ
+            /// </summary>
+            public static String _approval_sum_amount = "approval_sum_amount";
+
+            /// <summary>
+            /// ส่วนลดอนุมัติ
+            /// </summary>
+            public static String _approval_discount = "approval_discount";
+
+            /// <summary>
+            /// รหัสค่าใช้จ่าย
+            /// </summary>
+            public static String _expense_code = "expense_code";
+
+            /// <summary>
+            /// ชื่อค่าใช้จ่าย
+            /// </summary>
+            public static String _expense_name = "expense_name";
+
+            /// <summary>
+            /// คำอธิบายรายการ
+            /// </summary>
+            public static String _detail = "detail";
+
+            /// <summary>
+            /// จำนวนเงิน
+            /// </summary>
+            public static String _amount2 = "amount2";
+
+            /// <summary>
+            /// หน่วยต้นทุนตัวตั้ง
+            /// </summary>
+            public static String _average_cost_stand = "average_cost_stand";
+
+            /// <summary>
+            /// หน่วยต้นทุนตัวหาร
+            /// </summary>
+            public static String _average_cost_div = "average_cost_div";
+
+            /// <summary>
+            /// หมายเลขเครื่อง
+            /// </summary>
+            public static String _serial_number = "serial_number";
+
+            /// <summary>
+            /// รหัสรายได้
+            /// </summary>
+            public static String _income_code = "income_code";
+
+            /// <summary>
+            /// ชื่อรายได้
+            /// </summary>
+            public static String _income_name = "income_name";
+
+            /// <summary>
+            /// มีหมายเลขเครื่อง
+            /// </summary>
+            public static String _is_serial_number = "is_serial_number";
+
+            /// <summary>
+            /// รหัสเงินสดย่อย
+            /// </summary>
+            public static String _cash_sub_code = "cash_sub_code";
+
+            /// <summary>
+            /// ชื่อเงินสดย่อย
+            /// </summary>
+            public static String _cash_sub_name = "cash_sub_name";
+
+            /// <summary>
+            /// สมุดเงินฝาก
+            /// </summary>
+            public static String _book_bank_code = "book_bank_code";
+
+            /// <summary>
+            /// ธนาคาร
+            /// </summary>
+            public static String _bank_name = "bank_name";
+
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _bank_branch = "bank_branch";
+
+            /// <summary>
+            /// เลขที่เช็ค
+            /// </summary>
+            public static String _chq_number = "chq_number";
+
+            /// <summary>
+            /// สถานะ
+            /// </summary>
+            public static String _chq_flag = "chq_flag";
+
+            /// <summary>
+            /// ค่าใช้จ่าย
+            /// </summary>
+            public static String _expense = "expense";
+
+            /// <summary>
+            /// เลขที่บัตรเครดิต
+            /// </summary>
+            public static String _credit_card_no = "credit_card_no";
+
+            /// <summary>
+            /// Barcode
+            /// </summary>
+            public static String _barcode = "barcode";
+
+            /// <summary>
+            /// หมายเลขส่วนลด
+            /// </summary>
+            public static String _discount_number = "discount_number";
+
+            /// <summary>
+            /// มีการแก้ไขราคา
+            /// </summary>
+            public static String _price_changed = "price_changed";
+
+            /// <summary>
+            /// มีการแก้ไขส่วนลด
+            /// </summary>
+            public static String _discount_changed = "discount_changed";
+
+            /// <summary>
+            /// ราคาเริ่มต้น
+            /// </summary>
+            public static String _price_default = "price_default";
+
+            /// <summary>
+            /// ประเภทภาษี (0=มีภาษี,1=ยกเว้น)
+            /// </summary>
+            public static String _tax_type = "tax_type";
+
+            /// <summary>
+            /// จาก POS
+            /// </summary>
+            public static String _is_pos = "is_pos";
+
+            /// <summary>
+            /// สร้างโดยโปรแกรม
+            /// </summary>
+            public static String _auto_create = "auto_create";
+
+            /// <summary>
+            /// หมดอายุ
+            /// </summary>
+            public static String _date_expire = "date_expire";
+
+            /// <summary>
+            /// ต้นทุนแฝงบริหาร
+            /// </summary>
+            public static String _hidden_cost_1 = "hidden_cost_1";
+
+            /// <summary>
+            /// ต้นทุนแฝงบริหารไม่รวมภาษี
+            /// </summary>
+            public static String _hidden_cost_1_exclude_vat = "hidden_cost_1_exclude_vat";
+
+            /// <summary>
+            /// ต้นทุนแฝงบัญชี
+            /// </summary>
+            public static String _hidden_cost_2 = "hidden_cost_2";
+
+            /// <summary>
+            /// ต้นทุนแฝงบัญชีไม่รวมภาษี
+            /// </summary>
+            public static String _hidden_cost_2_exclude_vat = "hidden_cost_2_exclude_vat";
+
+            /// <summary>
+            /// ต้นทุนรวมต้นทุนแฝงบริหาร
+            /// </summary>
+            public static String _sum_of_cost_1 = "sum_of_cost_1";
+
+            /// <summary>
+            /// ทุนแฝง
+            /// </summary>
+            public static String _hidden_cost_1_name_1 = "hidden_cost_1_name_1";
+
+            /// <summary>
+            /// ราคาทุนเฉลี่ยแฝง
+            /// </summary>
+            public static String _average_cost_1 = "average_cost_1";
+
+            /// <summary>
+            /// รายได้แฝง
+            /// </summary>
+            public static String _hidden_cost_1_name_2 = "hidden_cost_1_name_2";
+
+            /// <summary>
+            /// ใบรับสินค้า
+            /// </summary>
+            public static String _doc_ref_partial = "doc_ref_partial";
+
+            /// <summary>
+            /// รหัสพนักงานขาย
+            /// </summary>
+            public static String _sale_code = "sale_code";
+
+            /// <summary>
+            /// กลุ่มพนักงานขาย
+            /// </summary>
+            public static String _sale_group = "sale_group";
+
+            /// <summary>
+            /// วันครบกำหนด
+            /// </summary>
+            public static String _date_due = "date_due";
+
+            /// <summary>
+            /// เลข LOT
+            /// </summary>
+            public static String _lot_number_1 = "lot_number_1";
+
+            /// <summary>
+            /// ชื่อสินค้า (อังกฤษ)
+            /// </summary>
+            public static String _item_name_en = "item_name_en";
+
+            /// <summary>
+            /// หน่วยนับ (อังกฤษ)
+            /// </summary>
+            public static String _unit_name_en = "unit_name_en";
+
+            /// <summary>
+            /// รหัสสินค้า
+            /// </summary>
+            public static String _item_code_2 = "item_code_2";
+
+            /// <summary>
+            /// จากสมุดเงินฝาก
+            /// </summary>
+            public static String _book_bank_code_out = "book_bank_code_out";
+
+            /// <summary>
+            /// เข้าสมุดเงินฝาก
+            /// </summary>
+            public static String _book_bank_code_in = "book_bank_code_in";
+
+            /// <summary>
+            /// ธนาคาร
+            /// </summary>
+            public static String _bank_name_2 = "bank_name_2";
+
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _bank_branch_2 = "bank_branch_2";
+
+            /// <summary>
+            /// ใช้ระบบวันหมดอายุ
+            /// </summary>
+            public static String _use_expire = "use_expire";
+
+            /// <summary>
+            /// รอบการขาย
+            /// </summary>
+            public static String _sale_shift_id = "sale_shift_id";
+
+            /// <summary>
+            /// ราคากลาง
+            /// </summary>
+            public static String _price_base = "price_base";
+
+            /// <summary>
+            /// ผู้สร้างเอกสาร
+            /// </summary>
+            public static String _creator_code = "creator_code";
+
+            /// <summary>
+            /// ผู้แก้ไขเอกสารล่าสุด
+            /// </summary>
+            public static String _last_editor_code = "last_editor_code";
+
+            /// <summary>
+            /// วันที่สร้างเอกสาร
+            /// </summary>
+            public static String _create_datetime = "create_datetime";
+
+            /// <summary>
+            /// วันที่แก้ไขล่าสุด
+            /// </summary>
+            public static String _lastedit_datetime = "lastedit_datetime";
+
+            /// <summary>
+            /// ค่าธรรมเนียม
+            /// </summary>
+            public static String _fee_amount = "fee_amount";
+
+            /// <summary>
+            /// ยอดโอนเงิน
+            /// </summary>
+            public static String _transfer_amount = "transfer_amount";
+
+            /// <summary>
+            /// อัตราส่วนราคาสินค้าชุด
+            /// </summary>
+            public static String _price_set_ratio = "price_set_ratio";
+
+            /// <summary>
+            /// จำนวนพิมพ์
+            /// </summary>
+            public static String _print_qty = "print_qty";
+
+            /// <summary>
+            /// วันที่ผลิต
+            /// </summary>
+            public static String _mfd_date = "mfd_date";
+
+            /// <summary>
+            /// ผู้ผลิต
+            /// </summary>
+            public static String _mfn_name = "mfn_name";
+
+            /// <summary>
+            /// จำนวนเริ่มต้น
+            /// </summary>
+            public static String _start_qty = "start_qty";
+
+            /// <summary>
+            /// จำนวนสินสุด
+            /// </summary>
+            public static String _end_qty = "end_qty";
+
+            /// <summary>
+            /// แผนก
+            /// </summary>
+            public static String _department = "department";
+
+            /// <summary>
+            /// การจัดสรร
+            /// </summary>
+            public static String _allocate = "allocate";
+
+            /// <summary>
+            /// โครงการ
+            /// </summary>
+            public static String _project = "project";
+
+            /// <summary>
+            /// ราคา
+            /// </summary>
+            public static String _price_2 = "price_2";
+
+            /// <summary>
+            /// รวมมูลค่า
+            /// </summary>
+            public static String _sum_amount_2 = "sum_amount_2";
+
+            /// <summary>
+            /// Price Guid
+            /// </summary>
+            public static String _price_guid = "price_guid";
+
+            /// <summary>
+            /// มูลค่าส่วนลด
+            /// </summary>
+            public static String _discount_amount_2 = "discount_amount_2";
+
+            /// <summary>
+            /// กำหนดต้นทุนเอง
+            /// </summary>
+            public static String _is_lock_cost = "is_lock_cost";
+
+            /// <summary>
+            /// ต้นทุน
+            /// </summary>
+            public static String _sum_of_cost_fix = "sum_of_cost_fix";
+
+            /// <summary>
+            /// กำไรขาดทุน
+            /// </summary>
+            public static String _profit_lost_cost_amount = "profit_lost_cost_amount";
+
+            /// <summary>
+            /// เป็นเอกสารที่ออกแทน
+            /// </summary>
+            public static String _is_doc_copy = "is_doc_copy";
 
         }
 
@@ -44170,6 +46695,88 @@ namespace _g
             /// guid_code
             /// </summary>
             public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// sync branch list server
+        /// </summary>
+        public class sync_branch_list_server
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "sync_branch_list_server";
+            /// <summary>
+            /// Branch Code
+            /// </summary>
+            public static String _branch_code = "branch_code";
+
+            /// <summary>
+            /// Server Url
+            /// </summary>
+            public static String _server_url = "server_url";
+
+            /// <summary>
+            /// Provider Code
+            /// </summary>
+            public static String _provider_code = "provider_code";
+
+            /// <summary>
+            /// DB name
+            /// </summary>
+            public static String _db_name = "db_name";
+
+        }
+
+        /// <summary>
+        /// กลุ่มสินค้าย่อย2
+        /// </summary>
+        public class ic_group_sub2
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ic_group_sub2";
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _sub_no = "sub_no";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _status = "status";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _main_group = "main_group";
+
+            /// <summary>
+            /// 
+            /// </summary>
+            public static String _ic_group_sub_code = "ic_group_sub_code";
 
         }
 

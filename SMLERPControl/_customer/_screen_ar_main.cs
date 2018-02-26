@@ -63,6 +63,7 @@ namespace SMLERPControl._customer
             this._chartOfAccountScreen = new _g._searchChartOfAccountDialog();
             this._chartOfAccountScreen._searchEnterKeyPress += new MyLib.SearchEnterKeyPressEventHandler(_chartOfAccountScreen__searchEnterKeyPress);
             this._chartOfAccountScreen._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_chartOfAccount_gridData__mouseClick);
+
         }
 
         void _build()
@@ -156,6 +157,9 @@ namespace SMLERPControl._customer
                             {
                                 this._addTextBox(__row, 0, 1, 0, _g.d.ar_customer._arm_code, 1, 10, 1, true, false);
                                 this._addComboBox(__row++, 1, _g.d.ar_customer._arm_tier, true, new string[] { _g.d.ar_customer._tier_0, _g.d.ar_customer._tier_1, _g.d.ar_customer._tier_2, _g.d.ar_customer._tier_3, _g.d.ar_customer._tier_4 }, false);
+                                this._addCheckBox(__row, 0, _g.d.ar_customer._arm_register, false, true);
+                                this._addDateBox(__row, 1, 1, 1, _g.d.ar_customer._arm_register_date, 1, true);
+                                __row++;
                                 this._addCheckBox(__row, 0, _g.d.ar_customer._arm_approve, false, true);
                                 this._addDateBox(__row++, 1, 1, 1, _g.d.ar_customer._arm_approve_date, 1, true);
                                 this._addTextBox(__row, 0, 1, 0, _g.d.ar_customer._ar_code_main, 1, 1, 4, true, false, true);
@@ -425,6 +429,8 @@ namespace SMLERPControl._customer
             }
             this._textBoxChanged += new MyLib.TextBoxChangedHandler(_screenArControl__textBoxChanged);
             this._textBoxSearch += new MyLib.TextBoxSearchHandler(_screenArControl__textBoxSearch);
+            this._checkBoxChanged += _screen_ar_main__checkBoxChanged;
+
             this.Dock = DockStyle.Top;
             this.AutoSize = true;
             switch (this._controlName)
@@ -615,6 +621,25 @@ namespace SMLERPControl._customer
             }
             this.Invalidate();
             this.ResumeLayout();
+        }
+
+        private void _screen_ar_main__checkBoxChanged(object sender, string name)
+        {
+            if (name.Equals(_g.d.ar_customer._arm_register))
+            {
+                DateTime __today = DateTime.Now;
+                MyLib._myCheckBox __get__arm_register = (MyLib._myCheckBox)this._getControl(_g.d.ar_customer._arm_register);
+                MyLib._myDateBox __get__arm_register_date = (MyLib._myDateBox)this._getControl(_g.d.ar_customer._arm_register_date);
+                if (__get__arm_register.Checked == true)
+                {
+                    this._setDataDate(_g.d.ar_customer._arm_register_date, __today);
+                }
+                else {
+                    __get__arm_register_date.textBox.Text = "";
+                }
+            
+                
+            }
         }
 
         void _screenArControl__textBoxChanged(object sender, string name)
@@ -851,8 +876,23 @@ namespace SMLERPControl._customer
                 }
                 else if (this._searchName.Equals(_g.d.ar_customer._arm_code))
                 {
-                    string _where = MyLib._myGlobal._addUpper(_g.d.erp_doc_format._screen_code) + "=\'ARMCODE\'";
-                    MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false, true, _where);
+                    // running arm code
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                    DataTable __getFormat = __myFrameWork._queryShort("select " + _g.d.erp_doc_format._format + "," + _g.d.erp_doc_format._code + "," + _g.d.erp_doc_format._doc_running + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._screen_code + "=\'ARMCODE\'").Tables[0];
+
+                    if (__getFormat.Rows.Count == 1)
+                    {
+                        string __format = __getFormat.Rows[0][0].ToString();
+                        string __docFormatCode = __getFormat.Rows[0][1].ToString();
+                        string __newArCode = _g.g._getAutoRun(_g.g._autoRunType.ว่าง, "ARMCODE", MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true), __format, _g.g._transControlTypeEnum.ว่าง, _g.g._transControlTypeEnum.ว่าง, _g.d.ar_customer._table, __getFormat.Rows[0][2].ToString(), _g.d.ar_customer._arm_code, "");
+                        this._setDataStr(_g.d.ar_customer._arm_code, __newArCode, "", true);
+                       
+                    }
+                    else
+                    {
+                        string _where = MyLib._myGlobal._addUpper(_g.d.erp_doc_format._screen_code) + "=\'ARMCODE\'";
+                        MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false, true, _where);
+                    }
                 }
                 else if (this._searchName.Equals(_g.d.ar_customer._ar_branch_code))
                 {
@@ -865,7 +905,10 @@ namespace SMLERPControl._customer
                 }
                 else
                 {
-                    MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false);
+                    if (!this._searchName.Equals(_g.d.ar_customer._arm_code)) {
+                        MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false);
+                    }
+                        
                 }
             }
         }
@@ -899,6 +942,7 @@ namespace SMLERPControl._customer
                     // running arm code
                     MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
                     DataTable __getFormat = __myFrameWork._queryShort("select " + _g.d.erp_doc_format._format + "," + _g.d.erp_doc_format._code + "," + _g.d.erp_doc_format._doc_running + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + "=\'" + result + "\'").Tables[0];
+
                     if (__getFormat.Rows.Count > 0)
                     {
                         string __format = __getFormat.Rows[0][0].ToString();
@@ -906,6 +950,7 @@ namespace SMLERPControl._customer
                         string __newArCode = _g.g._getAutoRun(_g.g._autoRunType.ว่าง, result, MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true), __format, _g.g._transControlTypeEnum.ว่าง, _g.g._transControlTypeEnum.ว่าง, _g.d.ar_customer._table, __getFormat.Rows[0][2].ToString(), _g.d.ar_customer._arm_code, "");
                         this._setDataStr(_g.d.ar_customer._arm_code, __newArCode, "", true);
                     }
+             
                 }
                 this._search_data_full.Visible = false;
 
@@ -1510,6 +1555,11 @@ namespace SMLERPControl._customer
             }
             this._search(true);
             SendKeys.Send("{TAB}");
+        }
+
+        void checkbox_arm_register(object sender, EventArgs e)
+        {
+            
         }
     }
 
