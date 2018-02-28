@@ -69,6 +69,9 @@ namespace MyLib
         public Boolean IsUpperCase { get { return IsUpperCaseResult; } set { IsUpperCaseResult = value; } }
         private Boolean IsUpperCaseResult = false;
         private Boolean _isTimeResult = false;
+
+        public String _toolTipsText = "";
+
         /// <summary>
         /// เป็นการป้อนรูปแบบเวลาหรือไม่
         /// </summary>
