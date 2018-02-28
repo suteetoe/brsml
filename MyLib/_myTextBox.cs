@@ -70,7 +70,33 @@ namespace MyLib
         private Boolean IsUpperCaseResult = false;
         private Boolean _isTimeResult = false;
 
-        public String _toolTipsText = "";
+        private System.Windows.Forms.ToolTip _toolTip;
+
+
+        private string _toolTipsTextResult;
+        public String _toolTipsText
+        {
+            get
+            {
+                return this._toolTipsTextResult;
+            }
+            set
+            {
+                this._toolTipsTextResult = value;
+
+                if (_toolTip == null)
+                {
+                    this._toolTip = new ToolTip();
+                    this._toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+                    this._toolTip.ToolTipTitle = "Tips";
+
+                }
+
+                this._toolTip.SetToolTip(this.textBox, this._toolTipsTextResult);
+                //this._toolTip.ToolTipTitle = _toolTipsTextResult;
+
+            }
+        }
 
         /// <summary>
         /// เป็นการป้อนรูปแบบเวลาหรือไม่

@@ -93,10 +93,24 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\MyLib\myDLL\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonLib">
+      <HintPath>..\JsonLib\bin\x86\Debug\JsonLib.dll</HintPath>
+    </Reference>
+    <Reference Include="MyDock">
+      <HintPath>..\MyDock\bin\x86\Debug\MyDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\MyLib\myDLL\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -107,10 +121,19 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,6 +159,10 @@
     <ProjectReference Include="..\HTMLwysiwygLib\HTMLwysiwygLib.csproj">
       <Project>{e1826c5b-d05c-400d-8223-d401d8a04061}</Project>
       <Name>HTMLwysiwygLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyLib\MyLib.csproj">
+      <Project>{5E55CF8E-F06F-4112-8F49-80D3F68BB75C}</Project>
+      <Name>MyLib</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
