@@ -46719,29 +46719,29 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_shoptype2" _description="AR Shoptype2" _descriptionEng="AR Shoptype2" _version="" _width="184" _height="101" _x="1350" _y="977" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="AP_AR" _name="ar_shoptype2" _description="AR Shoptype2" _descriptionEng="AR Shoptype2" _version="" _width="200" _height="101" _x="1350" _y="977" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
-        <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="0" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="name_1" _description="ชื่อ 1" _descriptionEng="" _type="0" _length="255" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="name_1" _description="ชื่อ 1" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="name_2" _description="ชื่อ 2" _descriptionEng="" _type="0" _length="255" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="name_2" _description="ชื่อ 2" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="remark" _description="หมายเหตุ" _descriptionEng="" _type="0" _length="255" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="remark" _description="หมายเหตุ" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="guid_code" _description="guid code" _descriptionEng="" _type="0" _length="35" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="guid_code" _description="guid code" _descriptionEng="" _type="1" _length="35" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
