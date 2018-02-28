@@ -46780,6 +46780,263 @@ namespace _g
 
         }
 
+        /// <summary>
+        /// Ar Project
+        /// </summary>
+        public class ar_project
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_project";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// AR Shoptype1
+        /// </summary>
+        public class ar_shoptype1
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_shoptype1";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// AR Shoptype2
+        /// </summary>
+        public class ar_shoptype2
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_shoptype2";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// AR Shoptype3
+        /// </summary>
+        public class ar_shoptype3
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_shoptype3";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// AR Shoptype4
+        /// </summary>
+        public class ar_shoptype4
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_shoptype4";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// AR Shoptype5
+        /// </summary>
+        public class ar_shoptype5
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_shoptype5";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// Sub AR Shoptype5
+        /// </summary>
+        public class sub_ar_shoptype5
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "sub_ar_shoptype5";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// รหัส AR Shoptype5
+            /// </summary>
+            public static String _ar_shoptype5_code = "ar_shoptype5_code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// หมายเหตุ
+            /// </summary>
+            public static String _remark = "remark";
+
+            /// <summary>
+            /// guid code
+            /// </summary>
+            public static String _guid_code = "guid_code";
+
+        }
+
 
     }
 }

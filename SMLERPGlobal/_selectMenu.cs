@@ -1123,6 +1123,52 @@ namespace _g
                 case "menu_setup_ar_vehicle": return (new _arVehicle(screenName));
                 case "menu_setup_ar_equipment": return (new _arEquipment(screenName));
                 case "menu_setup_ar_sub_equipment": return (new _arSubEquipment(screenName));
+                case "menu_setup_ar_project": return (new _arProject(screenName));
+                case "menu_setup_ar_shoptype1": return (new _arShopType1(screenName));
+                case "menu_setup_ar_shoptype2": return (new _arShopType2(screenName));
+                case "menu_setup_ar_shoptype3": return (new _arShopType3(screenName));
+                case "menu_setup_ar_shoptype4": return (new _arShopType4(screenName));
+                case "menu_setup_ar_shoptype5": return (new _arShopType5(screenName));
+                case "menu_setup_sub_ar_shoptype5":
+                    __screenFull = new MyLib._manageMasterCodeFull();
+                    //
+                    __screenFull._manageDataScreen._topPanel.BorderStyle = BorderStyle.FixedSingle;
+                    __screenFull._manageDataScreen._topPanel.Padding = new Padding(5, 5, 5, 5);
+                    //
+                    MyLib._myLabel __selectSpecialChannelLabel = new MyLib._myLabel();
+                    __screenFull._manageDataScreen._topPanel.Controls.Add(__selectSpecialChannelLabel);
+                    __selectSpecialChannelLabel.ResourceName = "Special Channel";
+                    __selectSpecialChannelLabel.TextAlign = ContentAlignment.BottomRight;
+                    __selectSpecialChannelLabel.Invalidate();
+                    //
+                    MyLib._myComboBox __selecSpecialChannel = new MyLib._myComboBox();
+                    __screenFull._manageDataScreen._topPanel.Controls.Add(__selecSpecialChannel);
+                    MyLib._myFrameWork __myFrameProdctGroup2 = new MyLib._myFrameWork();
+                    DataSet __getProductGroup2 = __myFrameProdctGroup2._query(MyLib._myGlobal._databaseName, "select " + _g.d.ar_shoptype5._code + "," + _g.d.ar_shoptype5._name_1 + " from " + _g.d.ar_shoptype5._table + " order by " + _g.d.ar_shoptype5._code);
+                    __selecSpecialChannel.DropDownStyle = ComboBoxStyle.DropDownList;
+                    __selecSpecialChannel.Width = 200;
+                    __selecSpecialChannel.SelectedIndexChanged += new EventHandler(__selecSpecialChannel_SelectedIndexChanged);
+                    __selecSpecialChannel.Items.Add(MyLib._myGlobal._resource("กรุณาเลือก Special Channel"));
+                    __selecSpecialChannel.SelectedIndex = 0;
+
+
+
+                    for (int __row = 0; __row < __getProductGroup2.Tables[0].Rows.Count; __row++)
+                    {
+                        __selecSpecialChannel.Items.Add(__getProductGroup2.Tables[0].Rows[__row][0].ToString() + "," + __getProductGroup2.Tables[0].Rows[__row][1].ToString());
+                    }
+
+                    __screenFull._labelTitle.Text = screenName;
+                    __screenFull._dataTableName = _g.d.sub_ar_shoptype5._table;
+                    __screenFull._addColumn(_g.d.sub_ar_shoptype5._code, 10, 20);
+                    __screenFull._inputScreen._setUpper(_g.d.sub_ar_shoptype5._code);
+                    __screenFull._addColumn(_g.d.sub_ar_shoptype5._name_1, 100, 40);
+                    __screenFull._addColumn(_g.d.sub_ar_shoptype5._name_2, 100, 40);
+                    __screenFull._addColumn(_g.d.sub_ar_shoptype5._remark, 100, 40);
+                    __screenFull._finish();
+
+                    return __screenFull;
+                    //return (new _arSubShopType5(screenName));
 
             }
 
@@ -1521,6 +1567,32 @@ namespace _g
                 __manageMasterCodeFull._extraUpdateQuery = _g.d.ic_group_sub._main_group + "=\'" + __split[0].ToString() + "\',";
                 __manageMasterCodeFull._extraUpdateWhere = "and " + _g.d.ic_group_sub._table + "." + _g.d.ic_group_sub._main_group + "=\'" + __split[0].ToString() + "\'";
                 __manageData._dataList._extraWhere = _g.d.ic_group_sub._table + "." + _g.d.ic_group_sub._main_group + "=\'" + __split[0].ToString() + "\'";
+                __manageData._dataList._loadViewData(0);
+            }
+            else
+            {
+                __manageData._dataList.Enabled = false;
+                __manageMasterCodeFull._toolBar.Enabled = false;
+            }
+        }
+
+        void __selecSpecialChannel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Control __p1 = ((Control)sender).Parent;
+            Control __p2 = __p1.Parent;
+            MyLib._myManageData __manageData = (MyLib._myManageData)__p2.Parent.Parent.Parent.Parent.Parent.Parent;
+            MyLib._manageMasterCodeFull __manageMasterCodeFull = (MyLib._manageMasterCodeFull)((Control)__manageData).Parent;
+            MyLib._myComboBox __comboBox = (MyLib._myComboBox)sender;
+            if (__comboBox.SelectedIndex > 0)
+            {
+                __manageData._dataList.Enabled = true;
+                __manageMasterCodeFull._toolBar.Enabled = true;
+                __manageMasterCodeFull._extraInsertField = _g.d.sub_ar_shoptype5._ar_shoptype5_code + ",";
+                string[] __split = __comboBox.SelectedItem.ToString().Split(',');
+                __manageMasterCodeFull._extraInsertData = "\'" + __split[0].ToString() + "\',";
+                __manageMasterCodeFull._extraUpdateQuery = _g.d.sub_ar_shoptype5._ar_shoptype5_code + "=\'" + __split[0].ToString() + "\',";
+                __manageMasterCodeFull._extraUpdateWhere = "and " + _g.d.sub_ar_shoptype5._table + "." + _g.d.sub_ar_shoptype5._ar_shoptype5_code + "=\'" + __split[0].ToString() + "\'";
+                __manageData._dataList._extraWhere = _g.d.sub_ar_shoptype5._table + "." + _g.d.sub_ar_shoptype5._ar_shoptype5_code + "=\'" + __split[0].ToString() + "\'";
                 __manageData._dataList._loadViewData(0);
             }
             else

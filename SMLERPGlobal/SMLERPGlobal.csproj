@@ -82,6 +82,27 @@
     <Compile Include="_arEquipment.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="_arShopType1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arShopType2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arShopType3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arShopType4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arSupShopType5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arShopType5.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arProject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="_arSubEquipment.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,6 +294,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_arEquipment.resx">
       <DependentUpon>_arEquipment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType1.resx">
+      <DependentUpon>_arShopType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType2.resx">
+      <DependentUpon>_arShopType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType3.resx">
+      <DependentUpon>_arShopType3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType4.resx">
+      <DependentUpon>_arShopType4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arSupShopType5.resx">
+      <DependentUpon>_arSupShopType5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType5.resx">
+      <DependentUpon>_arShopType5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arProject.resx">
+      <DependentUpon>_arProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_arSubEquipment.resx">
       <DependentUpon>_arSubEquipment.cs</DependentUpon>

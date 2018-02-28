@@ -411,14 +411,16 @@ namespace SMLERPControl._customer
                 case _controlTypeEnum.Customer:
                     this._maxColumn = 2;
                     this._table_name = _g.d.ar_customer_detail._table;
-               
-                    this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_channel_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(1, 1, 1, 0, _g.d.ar_customer_detail._customer_type_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(2, 0, 1, 0, _g.d.ar_customer_detail._ar_sub_type_1_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(2, 1, 1, 0, _g.d.ar_customer_detail._ar_vehicle_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(3, 0, 1, 0, _g.d.ar_customer_detail._ar_equipment_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(3, 1, 1, 0, _g.d.ar_customer_detail._ar_sub_equipment, 1, 0, 1, true, false, true);
-                    this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_location_type_code, 1, 0, 1, true, false, true);
+
+                    //this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_channel_code, 1, 0, 1, true, false, true);
+                    //this._addTextBox(1, 1, 1, 0, _g.d.ar_customer_detail._customer_type_code, 1, 0, 1, true, false, true);
+                    //this._addTextBox(2, 0, 1, 0, _g.d.ar_customer_detail._ar_sub_type_1_code, 1, 0, 1, true, false, true);
+                    //this._addTextBox(2, 1, 1, 0, _g.d.ar_customer_detail._ar_vehicle_code, 1, 0, 1, true, false, true);
+                    //this._addTextBox(3, 0, 1, 0, _g.d.ar_customer_detail._ar_equipment_code, 1, 0, 1, true, false, true);
+                    //this._addTextBox(3, 1, 1, 0, _g.d.ar_customer_detail._ar_sub_equipment, 1, 0, 1, true, false, true);
+                    //this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_location_type_code, 1, 0, 1, true, false, true);
+
+
                     this._addTextBox(5, 0, 1, 0, _g.d.ar_customer_detail._latitude, 1, 0, 0, true, false, true);
                     this._addTextBox(5, 1, 1, 0, _g.d.ar_customer_detail._longitude, 1, 0, 0, true, false, true);
                     this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._line_id, 1, 0, 0, true, false, true);

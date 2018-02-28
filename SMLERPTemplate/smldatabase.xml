@@ -9758,4 +9758,54 @@
 <field name="main_group" thai="" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
 <field name="ic_group_sub_code" thai="" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
 </table>
+<table name="ar_project" thai="Ar Project" eng="Ar Project" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype1" thai="AR Shoptype1" eng="AR Shoptype1" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype2" thai="AR Shoptype2" eng="AR Shoptype2" xversion="" >
+<field name="code" thai="รหัส" eng="" type="char" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="char" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="char" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="char" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="char" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype3" thai="AR Shoptype3" eng="AR Shoptype3" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype4" thai="AR Shoptype4" eng="AR Shoptype4" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype5" thai="AR Shoptype5" eng="AR Shoptype5" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="sub_ar_shoptype5" thai="Sub AR Shoptype5" eng="Sub AR Shoptype5" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype5_code" thai="รหัส AR Shoptype5" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
 </node>
