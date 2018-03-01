@@ -74,7 +74,8 @@ namespace SMLERPControl._customer
             //
             this._screenTop.Enabled = false;
 
-            Control ar_project_code_Control = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_project_code);
+            Control _arm_approve_date_Control = this._screen_customer._getControl(_g.d.ar_customer_detail._arm_approve_date);
+            _arm_approve_date_Control.Enabled = false;
 
         }
 
@@ -330,7 +331,7 @@ namespace SMLERPControl._customer
                             //}
                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer_detail._table + " (ar_code," + __getData1[0].ToString() + "," + __getData2[0].ToString() + "," + __getData3[0].ToString() + "," + __getData4[0].ToString() + "," + __getData5[0].ToString() + "," + __getData6[0].ToString() + __extraField + ") values (" + __dataList_1 + "" + __getData1[1].ToString() + "," + __getData2[1].ToString() + "," + __getData3[1].ToString() + "," + __getData4[1].ToString() + "," + __getData5[1].ToString() + "," + __getData6[1].ToString() + __extraValue + ")"));
                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " +  _g.d.ar_customer._last_update_time + " = now() where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
-                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._arm_tier + " = "+ this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._arm_tier) +"," + _g.d.ar_customer._arm_approve_date +" = '" + this._screen_customer._getDataDate(_g.d.ar_customer_detail._arm_approve_date) + "' where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
+                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._arm_tier + " = "+ this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._arm_tier) +" where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
 
 
                             string __result_images = this._getPicture1._updateImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));
