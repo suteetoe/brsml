@@ -1904,6 +1904,20 @@
 <field name="ar_vehicle_code" thai="Vehicle" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_equipment_code" thai="Equipment" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_sub_equipment" thai="Sub Equipment" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_project_code" thai="โครงการ" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype1_code" thai="Wholesale" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype2_code" thai="Retail" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype3_code" thai="Local MT" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype4_code" thai="On-Premise,HORECA" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype5_code" thai="Special Channel" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="sub_ar_shoptype5_code" thai="Sub Special Channel" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="arm_tier" thai="Tier" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="arm_approve_date" thai="วันที่อนุมัติ ARM Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tier_0" thai="None" eng="None" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tier_1" thai="Silver" eng="Silver" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tier_2" thai="Gold" eng="Gold" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tier_3" thai="Platinum" eng="Platinum" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tier_4" thai="Diamond" eng="Diamond" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <index index_name="ar_customer_detail_PK_CODE" field="ar_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_contactor" thai="ผู้ติดต่อ (ลูกหนี้)" eng="Contactor" xversion="SMLERP" >
@@ -9807,5 +9821,15 @@
 <field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="sml_tooltip" thai="SML Tooltip" eng="SML Tooltip" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_3" thai="ชื่อ 3" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_4" thai="ชื่อ 4" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_5" thai="ชื่อ 5" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_6" thai="ชื่อ 6" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="status" thai="สถานะ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 </node>

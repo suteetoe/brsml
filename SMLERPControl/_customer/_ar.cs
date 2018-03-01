@@ -27,7 +27,6 @@ namespace SMLERPControl._customer
         {
             this.SuspendLayout();
             InitializeComponent();
-    
 
             if (MyLib._myGlobal._isDesignMode == false)
             {

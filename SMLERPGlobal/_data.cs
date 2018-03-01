@@ -8993,6 +8993,76 @@ namespace _g
             /// </summary>
             public static String _ar_sub_equipment = "ar_sub_equipment";
 
+            /// <summary>
+            /// โครงการ
+            /// </summary>
+            public static String _ar_project_code = "ar_project_code";
+
+            /// <summary>
+            /// Wholesale
+            /// </summary>
+            public static String _ar_shoptype1_code = "ar_shoptype1_code";
+
+            /// <summary>
+            /// Retail
+            /// </summary>
+            public static String _ar_shoptype2_code = "ar_shoptype2_code";
+
+            /// <summary>
+            /// Local MT
+            /// </summary>
+            public static String _ar_shoptype3_code = "ar_shoptype3_code";
+
+            /// <summary>
+            /// On-Premise,HORECA
+            /// </summary>
+            public static String _ar_shoptype4_code = "ar_shoptype4_code";
+
+            /// <summary>
+            /// Special Channel
+            /// </summary>
+            public static String _ar_shoptype5_code = "ar_shoptype5_code";
+
+            /// <summary>
+            /// Sub Special Channel
+            /// </summary>
+            public static String _sub_ar_shoptype5_code = "sub_ar_shoptype5_code";
+
+            /// <summary>
+            /// Tier
+            /// </summary>
+            public static String _arm_tier = "arm_tier";
+
+            /// <summary>
+            /// วันที่อนุมัติ ARM Code
+            /// </summary>
+            public static String _arm_approve_date = "arm_approve_date";
+
+            /// <summary>
+            /// None
+            /// </summary>
+            public static String _tier_0 = "tier_0";
+
+            /// <summary>
+            /// Silver
+            /// </summary>
+            public static String _tier_1 = "tier_1";
+
+            /// <summary>
+            /// Gold
+            /// </summary>
+            public static String _tier_2 = "tier_2";
+
+            /// <summary>
+            /// Platinum
+            /// </summary>
+            public static String _tier_3 = "tier_3";
+
+            /// <summary>
+            /// Diamond
+            /// </summary>
+            public static String _tier_4 = "tier_4";
+
         }
 
         /// <summary>
@@ -47034,6 +47104,57 @@ namespace _g
             /// guid code
             /// </summary>
             public static String _guid_code = "guid_code";
+
+        }
+
+        /// <summary>
+        /// SML Tooltip
+        /// </summary>
+        public class sml_tooltip
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "sml_tooltip";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+
+            /// <summary>
+            /// ชื่อ 1
+            /// </summary>
+            public static String _name_1 = "name_1";
+
+            /// <summary>
+            /// ชื่อ 2
+            /// </summary>
+            public static String _name_2 = "name_2";
+
+            /// <summary>
+            /// ชื่อ 3
+            /// </summary>
+            public static String _name_3 = "name_3";
+
+            /// <summary>
+            /// ชื่อ 4
+            /// </summary>
+            public static String _name_4 = "name_4";
+
+            /// <summary>
+            /// ชื่อ 5
+            /// </summary>
+            public static String _name_5 = "name_5";
+
+            /// <summary>
+            /// ชื่อ 6
+            /// </summary>
+            public static String _name_6 = "name_6";
+
+            /// <summary>
+            /// สถานะ
+            /// </summary>
+            public static String _status = "status";
 
         }
 

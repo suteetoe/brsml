@@ -1684,10 +1684,119 @@
     <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_sub_equipment.name_1" column_field_sort="ar_sub_equipment.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
     <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_sub_equipment.name_2" column_field_sort="ar_sub_equipment.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
   </screen>
-  <screen screen_code="screen_sale_assets" name_1="ขายสินทรัพย์" name_2="Asset Sale" table_name="ic_trans" table_list="ic_trans" sort="ic_trans.doc_no" filter="" width_by_persent="true">
-    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" column_field_sort="ic_trans.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
-    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" column_field_sort="ic_trans.doc_date" column_width="20" column_type="date" column_align="left"></detail>
-    <detail column_name="มูลค่าสุทธิ" column_name_2="Total Amount"  column_field_name="ic_trans.total_amount" column_field_sort="ic_trans.total_amount" column_width="20" column_type="float" column_align="right" format="m02"></detail>
-    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ic_trans.remark" column_field_sort="ic_trans.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  <screen screen_code="screen_receive_product_purchase" name_1="รับสินค้า" name_2="Receive Product From Purchase" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_date,ic_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="center"></detail>
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="รายละเอียดเจ้าหนี้" column_name_2="AP Code" column_resource="ic_trans.ap_code"  column_field_name="(ic_trans.cust_code ||&apos;~&apos; || (select name_1 from ap_supplier where ap_supplier.code=ic_trans.cust_code))" column_field_sort="ic_trans.cust_code" column_width="45" column_type="varchar" column_align="left"></detail>
+    <detail column_name="มูลค่า" column_name_2="Sum_value"  column_field_name="ic_trans.total_amount" column_field_sort="ic_trans.total_amount" column_width="20" column_type="float" column_align="left"></detail>
+    <detail column_name="used" column_name_2="used"  column_field_name="ic_trans.used_status" column_field_sort="ic_trans.used_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="used2" column_name_2="used"  column_field_name="ic_trans.used_status_2" column_field_sort="ic_trans.used_status_2" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="laststatus" column_name_2="laststatus"  column_field_name="ic_trans.last_status" column_field_sort="ic_trans.last_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="docsuccess" column_name_2="docsuccess"  column_field_name="ic_trans.doc_success" column_field_sort="ic_trans.doc_success" column_width="0" column_type="int" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_debt_receive_product" name_1="ตั้งหนี้จากการรับสินค้า" name_2="Debt From Products Receive" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_date,ic_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="center"></detail>
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="รายละเอียดเจ้าหนี้" column_name_2="AP Code" column_resource="ic_trans.ap_code"  column_field_name="(ic_trans.cust_code ||&apos;~&apos; || (select name_1 from ap_supplier where ap_supplier.code=ic_trans.cust_code))" column_field_sort="ic_trans.cust_code" column_width="45" column_type="varchar" column_align="left"></detail>
+    <detail column_name="มูลค่า" column_name_2="Sum_value"  column_field_name="ic_trans.total_amount" column_field_sort="ic_trans.total_amount" column_width="20" column_type="float" column_align="left"></detail>
+    <detail column_name="used" column_name_2="used"  column_field_name="ic_trans.used_status" column_field_sort="ic_trans.used_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="used2" column_name_2="used"  column_field_name="ic_trans.used_status_2" column_field_sort="ic_trans.used_status_2" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="laststatus" column_name_2="laststatus"  column_field_name="ic_trans.last_status" column_field_sort="ic_trans.last_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="docsuccess" column_name_2="docsuccess"  column_field_name="ic_trans.doc_success" column_field_sort="ic_trans.doc_success" column_width="0" column_type="int" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_so_deposit_cancel" name_1="ยกเลิกเงินมัดจำ" name_2="DepositMoney" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="center"></detail>
+    <detail column_name="ลูกหนี้" column_name_2="AR Code"  column_resource="ic_trans.ar_code" column_field_name="(ic_trans.cust_code ||&apos;~&apos; || (select name_1 from ar_customer where code = ic_trans.cust_code))" 	column_field_sort="ic_trans.cust_code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="เลขที่เอกสารอ้างอิง" column_name_2="Doc Ref" column_field_name="ic_trans.doc_ref" 	column_field_sort="ic_trans.doc_ref" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสารอ้างอิง" column_name_2="Doc Ref Date"  column_field_name="ic_trans.doc_ref_date" 	column_field_sort="ic_trans.doc_ref_date,ic_trans.doc_ref" column_width="20" column_type="date" column_align="center"></detail>
+  </screen>
+  <screen screen_code="screen_so_deposit_return" name_1="คืนมัดจำ" name_2="DepositMoney" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="center"></detail>
+    <detail column_name="ลูกหนี้" column_name_2="AR Code"  column_resource="ic_trans.ar_code" column_field_name="(ic_trans.cust_code ||&apos;~&apos; || (select name_1 from ar_customer where code = ic_trans.cust_code))" 	column_field_sort="ic_trans.cust_code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="มูลค่า" column_name_2="Money Balance"  column_field_name="ic_trans.total_amount" 	column_field_sort="ic_trans.total_amount" column_width="20" column_type="float" column_align="rigth" format="m02"></detail>
+    <detail column_name="used" column_name_2="used"  column_field_name="ic_trans.used_status" column_field_sort="ic_trans.used_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="used2" column_name_2="used"  column_field_name="ic_trans.used_status_2" column_field_sort="ic_trans.used_status_2" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="laststatus" column_name_2="laststatus"  column_field_name="ic_trans.last_status" column_field_sort="ic_trans.last_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="docsuccess" column_name_2="docsuccess"  column_field_name="ic_trans.doc_success" column_field_sort="ic_trans.doc_success" column_width="0" column_type="int" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_so_deposit_return_cancel" name_1="ยกเลิกคืนเงินมัดจำ" name_2="DepositMoney" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="center"></detail>
+    <detail column_name="ลูกหนี้" column_name_2="AR Code"  column_resource="ic_trans.ar_code" column_field_name="(ic_trans.cust_code ||&apos;~&apos; || (select name_1 from ar_customer where code = ic_trans.cust_code))" 	column_field_sort="ic_trans.cust_code" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="เลขที่เอกสารอ้างอิง" column_name_2="Doc Ref" column_field_name="ic_trans.doc_ref" 	column_field_sort="ic_trans.doc_ref" column_width="15" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสารอ้างอิง" column_name_2="Doc Ref Date"  column_field_name="ic_trans.doc_ref_date" 	column_field_sort="ic_trans.doc_ref_date,ic_trans.doc_ref" column_width="20" column_type="date" column_align="center"></detail>
+  </screen>
+  <screen screen_code="screen_so_credit_note" name_1="ใบลดหนี้" name_2="Quotation" table_name="ic_trans" 	table_list="ic_trans" sort="ic_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="ic_trans.doc_date" 	column_field_sort="ic_trans.doc_date,ic_trans.doc_no" column_width="20" column_type="date" column_align="center"></detail>
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="ic_trans.doc_no" 	column_field_sort="ic_trans.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="รายละเอียดลูกค้า/ลูกหนี้" column_name_2="AR Code"  column_resource="ic_trans.ar_code" column_field_name="(ic_trans.cust_code ||&apos;~&apos; || (select name_1 from ar_customer where ar_customer.code=ic_trans.cust_code))" column_field_sort="ic_trans.cust_code" column_width="45" column_type="varchar" column_align="left"></detail>
+    <detail column_name="รวมมูลค่าสินค้า" column_name_2="Sum_value"  column_field_name="ic_trans.total_amount" column_field_sort="ic_trans.total_amount" column_width="20" column_type="float" column_align="left"></detail>
+    <detail column_name="used" column_name_2="used"  column_field_name="ic_trans.used_status" column_field_sort="ic_trans.used_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="used2" column_name_2="used"  column_field_name="ic_trans.used_status_2" column_field_sort="ic_trans.used_status_2" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="laststatus" column_name_2="laststatus"  column_field_name="ic_trans.last_status" column_field_sort="ic_trans.last_status" column_width="0" column_type="int" column_align="left"></detail>
+    <detail column_name="docsuccess" column_name_2="docsuccess"  column_field_name="ic_trans.doc_success" column_field_sort="ic_trans.doc_success" column_width="0" column_type="int" column_align="left"></detail>
+  </screen>
+  <screen screen_code="screen_assets_sale" name_1="ขายสินทรัพย์" name_2="Asset Sale" table_name="as_trans" table_list="as_trans" sort="as_trans.doc_no" filter="" width_by_persent="true">
+    <detail column_name="เลขที่เอกสาร" column_name_2="Doc No" column_field_name="as_trans.doc_no" column_field_sort="as_trans.doc_no" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="วันที่เอกสาร" column_name_2="Doc Date"  column_field_name="as_trans.doc_date" column_field_sort="as_trans.doc_date" column_width="20" column_type="date" column_align="left"></detail>
+    <detail column_name="มูลค่าสุทธิ" column_name_2="Total Amount"  column_field_name="as_trans.total_amount" column_field_sort="as_trans.total_amount" column_width="20" column_type="float" column_align="right" format="m02"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="as_trans.remark" column_field_sort="as_trans.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ic_group_sub2" name_1="กลุ่มสินค้าย่อย2" name_2="Item Group Sub2" table_name="ic_group_sub2" table_list="ic_group_sub2" 	sort="ic_group_sub2.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ic_group_sub2.code" column_field_sort="ic_group_sub2.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ic_group_sub2.name_1" column_field_sort="ic_group_sub2.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ic_group_sub2.name_2" column_field_sort="ic_group_sub2.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_project" name_1="โครงการ" name_2="Ar Project" table_name="ar_project" table_list="ar_project" sort="ar_project.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_project.code" column_field_sort="ar_project.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_project.name_1" column_field_sort="ar_project.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_project.name_2" column_field_sort="ar_project.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_project.remark" column_field_sort="ar_project.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype1" name_1="Wholesale" name_2="Wholesale" table_name="ar_shoptype1" table_list="ar_shoptype1" sort="ar_shoptype1.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype1.code" column_field_sort="ar_shoptype1.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype1.name_1" column_field_sort="ar_shoptype1.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype1.name_2" column_field_sort="ar_shoptype1.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype1.remark" column_field_sort="ar_shoptype1.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype2" name_1="Retail" name_2="Retail" table_name="ar_shoptype2" table_list="ar_shoptype2" sort="ar_shoptype2.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype2.code" column_field_sort="ar_shoptype2.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype2.name_1" column_field_sort="ar_shoptype2.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype2.name_2" column_field_sort="ar_shoptype2.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype2.remark" column_field_sort="ar_shoptype2.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype3" name_1="Local MT" name_2="Local MT" table_name="ar_shoptype3" table_list="ar_shoptype3" sort="ar_shoptype3.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype3.code" column_field_sort="ar_shoptype3.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype3.name_1" column_field_sort="ar_shoptype3.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype3.name_2" column_field_sort="ar_shoptype3.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype3.remark" column_field_sort="ar_shoptype3.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype4" name_1="On-Premise,HORECA" name_2="On-Premise,HORECA" table_name="ar_shoptype4" table_list="ar_shoptype4" sort="ar_shoptype4.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype4.code" column_field_sort="ar_shoptype4.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype4.name_1" column_field_sort="ar_shoptype4.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype4.name_2" column_field_sort="ar_shoptype4.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype4.remark" column_field_sort="ar_shoptype4.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype5" name_1="Special Channel" name_2="Special Channel" table_name="ar_shoptype5" table_list="ar_shoptype5" sort="ar_shoptype5.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype5.code" column_field_sort="ar_shoptype5.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype5.name_1" column_field_sort="ar_shoptype5.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype5.name_2" column_field_sort="ar_shoptype5.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype5.remark" column_field_sort="ar_shoptype5.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_sub_ar_shoptype5" name_1="Sub Special Channel" name_2="Sub Special Channel" table_name="sub_ar_shoptype5" table_list="sub_ar_shoptype5" sort="sub_ar_shoptype5.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="sub_ar_shoptype5.code" column_field_sort="sub_ar_shoptype5.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="sub_ar_shoptype5.name_1" column_field_sort="sub_ar_shoptype5.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="sub_ar_shoptype5.name_2" column_field_sort="sub_ar_shoptype5.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="sub_ar_shoptype5.remark" column_field_sort="sub_ar_shoptype5.remark" column_width="40" column_type="varchar" column_align="left"></detail>
   </screen>
 </node>

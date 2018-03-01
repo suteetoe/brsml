@@ -8703,7 +8703,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2181" _x="989" _y="8">
+    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2405" _x="989" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -9376,6 +9376,76 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="ar_sub_equipment" _description="Sub Equipment" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_project_code" _description="โครงการ" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_shoptype1_code" _description="Wholesale" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_shoptype2_code" _description="Retail" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_shoptype3_code" _description="Local MT" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_shoptype4_code" _description="On-Premise,HORECA" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_shoptype5_code" _description="Special Channel" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sub_ar_shoptype5_code" _description="Sub Special Channel" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_tier" _description="Tier" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="arm_approve_date" _description="วันที่อนุมัติ ARM Code" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tier_0" _description="None" _descriptionEng="None" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tier_1" _description="Silver" _descriptionEng="Silver" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tier_2" _description="Gold" _descriptionEng="Gold" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tier_3" _description="Platinum" _descriptionEng="Platinum" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tier_4" _description="Diamond" _descriptionEng="Diamond" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -46875,6 +46945,53 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="guid_code" _description="guid code" _descriptionEng="" _type="1" _length="35" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Master" _name="sml_tooltip" _description="SML Tooltip" _descriptionEng="SML Tooltip" _version="" _width="170" _height="149" _x="1128" _y="945" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+      <_fields>
+        <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_1" _description="ชื่อ 1" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_2" _description="ชื่อ 2" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_3" _description="ชื่อ 3" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_4" _description="ชื่อ 4" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_5" _description="ชื่อ 5" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_6" _description="ชื่อ 6" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="status" _description="สถานะ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

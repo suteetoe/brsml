@@ -420,12 +420,22 @@ namespace SMLERPControl._customer
                     //this._addTextBox(3, 1, 1, 0, _g.d.ar_customer_detail._ar_sub_equipment, 1, 0, 1, true, false, true);
                     //this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_location_type_code, 1, 0, 1, true, false, true);
 
-
-                    this._addTextBox(5, 0, 1, 0, _g.d.ar_customer_detail._latitude, 1, 0, 0, true, false, true);
-                    this._addTextBox(5, 1, 1, 0, _g.d.ar_customer_detail._longitude, 1, 0, 0, true, false, true);
-                    this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._line_id, 1, 0, 0, true, false, true);
-                    this._addTextBox(6, 1, 1, 0, _g.d.ar_customer_detail._facebook, 1, 0, 0, true, false, true);
-                    this._addTextBox(7, 0, 1, 0, _g.d.ar_customer_detail._br_cust_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_project_code, 1, 0, 1, true, false, true);
+                    this._addComboBox(1, 1, _g.d.ar_customer_detail._arm_tier, 1, true, new string[] { _g.d.ar_customer_detail._tier_0, _g.d.ar_customer_detail._tier_1, _g.d.ar_customer_detail._tier_2, _g.d.ar_customer_detail._tier_3, _g.d.ar_customer_detail._tier_4 }, false, "arm_tier", true, false);
+                    //this._addDateBox(2, 0, 1, 1, _g.d.ar_customer_detail._arm_approve_date, 1, true,true,false);
+                    this._addDateBox(2, 0, 1, 0, _g.d.ar_customer_detail._arm_approve_date, 1, true, true, false, _g.d.ar_customer_detail._arm_approve_date);
+                    this._addTextBox(3, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype1_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype2_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(5, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype3_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype4_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(7, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype5_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(7, 1, 1, 0, _g.d.ar_customer_detail._sub_ar_shoptype5_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(8, 0, 1, 0, _g.d.ar_customer_detail._latitude, 1, 0, 0, true, false, true);
+                    this._addTextBox(8, 1, 1, 0, _g.d.ar_customer_detail._longitude, 1, 0, 0, true, false, true);
+                    this._addTextBox(9, 0, 1, 0, _g.d.ar_customer_detail._line_id, 1, 0, 0, true, false, true);
+                    this._addTextBox(9, 1, 1, 0, _g.d.ar_customer_detail._facebook, 1, 0, 0, true, false, true);
+                    this._addTextBox(10, 0, 1, 0, _g.d.ar_customer_detail._br_cust_code, 1, 0, 1, true, false, true);
+                    
 
                     break;
             }
@@ -584,33 +594,71 @@ namespace SMLERPControl._customer
                     break;
                 case _controlTypeEnum.Customer:
                     {
-                        MyLib._myTextBox __get_customer_type_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._customer_type_code);
-                        __get_customer_type_code.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get_customer_type_code.textBox.Leave += new EventHandler(textBox_Leave);
 
-                        MyLib._myTextBox __get_ar_sub_type_1_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_sub_type_1_code);
-                        __get_ar_sub_type_1_code.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get_ar_sub_type_1_code.textBox.Leave += new EventHandler(textBox_Leave);
+                        //this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_channel_code, 1, 0, 1, true, false, true);
+                        //this._addTextBox(1, 1, 1, 0, _g.d.ar_customer_detail._customer_type_code, 1, 0, 1, true, false, true);
+                        //this._addTextBox(2, 0, 1, 0, _g.d.ar_customer_detail._ar_sub_type_1_code, 1, 0, 1, true, false, true);
+                        //this._addTextBox(2, 1, 1, 0, _g.d.ar_customer_detail._ar_vehicle_code, 1, 0, 1, true, false, true);
+                        //this._addTextBox(3, 0, 1, 0, _g.d.ar_customer_detail._ar_equipment_code, 1, 0, 1, true, false, true);
+                        //this._addTextBox(3, 1, 1, 0, _g.d.ar_customer_detail._ar_sub_equipment, 1, 0, 1, true, false, true);
+                        //this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_location_type_code, 1, 0, 1, true, false, true);
+                        //MyLib._myTextBox __get_customer_type_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._customer_type_code);
+                        //__get_customer_type_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get_customer_type_code.textBox.Leave += new EventHandler(textBox_Leave);
 
-                        MyLib._myTextBox __get_ar_channel_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_channel_code);
-                        __get_ar_channel_code.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get_ar_channel_code.textBox.Leave += new EventHandler(textBox_Leave);
+                        //MyLib._myTextBox __get_ar_sub_type_1_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_sub_type_1_code);
+                        //__get_ar_sub_type_1_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get_ar_sub_type_1_code.textBox.Leave += new EventHandler(textBox_Leave);
 
-                        MyLib._myTextBox __get__ar_location_type_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_location_type_code);
-                        __get__ar_location_type_code.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get__ar_location_type_code.textBox.Leave += new EventHandler(textBox_Leave);
+                        //MyLib._myTextBox __get_ar_channel_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_channel_code);
+                        //__get_ar_channel_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get_ar_channel_code.textBox.Leave += new EventHandler(textBox_Leave);
 
-                        MyLib._myTextBox __get_ar_vehicle_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_vehicle_code);
-                        __get_ar_vehicle_code.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get_ar_vehicle_code.textBox.Leave += new EventHandler(textBox_Leave);
+                        //MyLib._myTextBox __get__ar_location_type_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_location_type_code);
+                        //__get__ar_location_type_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get__ar_location_type_code.textBox.Leave += new EventHandler(textBox_Leave);
 
-                        MyLib._myTextBox __get_ar_equipment_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_equipment_code);
-                        __get_ar_equipment_code.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get_ar_equipment_code.textBox.Leave += new EventHandler(textBox_Leave);
+                        //MyLib._myTextBox __get_ar_vehicle_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_vehicle_code);
+                        //__get_ar_vehicle_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get_ar_vehicle_code.textBox.Leave += new EventHandler(textBox_Leave);
 
-                        MyLib._myTextBox __get_ar_sub_equipment = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_sub_equipment);
-                        __get_ar_sub_equipment.textBox.Enter += new EventHandler(textBox_Enter);
-                        __get_ar_sub_equipment.textBox.Leave += new EventHandler(textBox_Leave);
+                        //MyLib._myTextBox __get_ar_equipment_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_equipment_code);
+                        //__get_ar_equipment_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get_ar_equipment_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        //MyLib._myTextBox __get_ar_sub_equipment = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_sub_equipment);
+                        //__get_ar_sub_equipment.textBox.Enter += new EventHandler(textBox_Enter);
+                        //__get_ar_sub_equipment.textBox.Leave += new EventHandler(textBox_Leave);
+
+
+                        MyLib._myTextBox __get_ar_project_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_project_code);
+                        __get_ar_project_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_project_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_shoptype1_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_shoptype1_code);
+                        __get_ar_shoptype1_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_shoptype1_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_shoptype2_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_shoptype2_code);
+                        __get_ar_shoptype2_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_shoptype2_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_shoptype3_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_shoptype3_code);
+                        __get_ar_shoptype3_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_shoptype3_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_shoptype4_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_shoptype4_code);
+                        __get_ar_shoptype4_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_shoptype4_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_ar_shoptype5_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_shoptype5_code);
+                        __get_ar_shoptype5_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_ar_shoptype5_code.textBox.Leave += new EventHandler(textBox_Leave);
+
+                        MyLib._myTextBox __get_sub_ar_shoptype5_code = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._ar_shoptype5_code);
+                        __get_sub_ar_shoptype5_code.textBox.Enter += new EventHandler(textBox_Enter);
+                        __get_sub_ar_shoptype5_code.textBox.Leave += new EventHandler(textBox_Leave);
+
 
                         MyLib._myTextBox __getBrCustCodeControl = (MyLib._myTextBox)this._getControl(_g.d.ar_customer_detail._br_cust_code);
                         if (__getBrCustCodeControl != null)
@@ -795,6 +843,14 @@ namespace SMLERPControl._customer
                 name.Equals(_g.d.ar_customer_detail._ar_vehicle_code) ||
                 name.Equals(_g.d.ar_customer_detail._ar_equipment_code) ||
                 name.Equals(_g.d.ar_customer_detail._ar_sub_equipment) ||
+
+                 name.Equals(_g.d.ar_customer_detail._ar_project_code) ||
+                  name.Equals(_g.d.ar_customer_detail._ar_shoptype1_code) ||
+                   name.Equals(_g.d.ar_customer_detail._ar_shoptype2_code) ||
+                    name.Equals(_g.d.ar_customer_detail._ar_shoptype3_code) ||
+                     name.Equals(_g.d.ar_customer_detail._ar_shoptype4_code) ||
+                      name.Equals(_g.d.ar_customer_detail._ar_shoptype5_code) ||
+                       name.Equals(_g.d.ar_customer_detail._sub_ar_shoptype5_code) ||
                 name.Equals(_g.d.ar_customer_detail._ar_location_type_code))
                 {
                     this._searchTextBox = (TextBox)sender;
@@ -841,6 +897,10 @@ namespace SMLERPControl._customer
                     this._search_data_full._dataList._loadViewFormat(this._search_data_full._name, MyLib._myGlobal._userSearchScreenGroup, false);
                     this._search_data_full._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_gridData__mouseClick);
                     this._search_data_full._searchEnterKeyPress += new MyLib.SearchEnterKeyPressEventHandler(_search_data_full__searchEnterKeyPress);
+                    if (this._searchName.Equals(_g.d.ar_customer_detail._sub_ar_shoptype5_code))
+                    {
+                        this._search_data_full._dataList._extraWhere = _g.d.sub_ar_shoptype5._ar_shoptype5_code + "=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_shoptype5_code).ToString() + "\'";
+                    }
                     this._search_data_full._dataList._refreshData();
                 }
                 if (this._searchName.Equals(_g.d.ar_customer._code.ToLower()))
@@ -908,6 +968,8 @@ namespace SMLERPControl._customer
                 else
                 {
                     if (!this._searchName.Equals(_g.d.ar_customer._arm_code)) {
+              
+                       
                         MyLib._myGlobal._startSearchBox(this, __getControl, label_name, this._search_data_full, false);
                     }
                         
@@ -1052,6 +1114,13 @@ namespace SMLERPControl._customer
                         __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_vehicle._name_1 + " from " + _g.d.ar_vehicle._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_vehicle_code) + "\'"));
                         __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_equipment._name_1 + " from " + _g.d.ar_equipment._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_equipment_code) + "\'"));
                         __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_sub_equipment._name_1 + " from " + _g.d.ar_sub_equipment._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_sub_equipment) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_project._name_1 + " from " + _g.d.ar_project._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_project_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_shoptype1._name_1 + " from " + _g.d.ar_shoptype1._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_shoptype1_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_shoptype2._name_1 + " from " + _g.d.ar_shoptype2._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_shoptype2_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_shoptype3._name_1 + " from " + _g.d.ar_shoptype3._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_shoptype3_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_shoptype4._name_1 + " from " + _g.d.ar_shoptype4._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_shoptype4_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_shoptype5._name_1 + " from " + _g.d.ar_shoptype5._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._ar_shoptype5_code) + "\'"));
+                        __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.sub_ar_shoptype5._name_1 + " from " + _g.d.sub_ar_shoptype5._table + " where code=\'" + this._getDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code) + "\'"));
                         break;
                 }
                 __myquery.Append("</node>");
@@ -1110,10 +1179,18 @@ namespace SMLERPControl._customer
                         if (_searchAndWarning(_g.d.ar_customer_detail._customer_type_code, (DataSet)_getData[0], warning) == false) { }
                         if (_searchAndWarning(_g.d.ar_customer_detail._ar_channel_code, (DataSet)_getData[1], warning) == false) { }
                         if (_searchAndWarning(_g.d.ar_customer_detail._ar_location_type_code, (DataSet)_getData[2], warning) == false) { }
-                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_sub_type_1_code, (DataSet)_getData[2], warning) == false) { }
-                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_vehicle_code, (DataSet)_getData[2], warning) == false) { }
-                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_equipment_code, (DataSet)_getData[2], warning) == false) { }
-                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_sub_equipment, (DataSet)_getData[2], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_sub_type_1_code, (DataSet)_getData[3], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_vehicle_code, (DataSet)_getData[4], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_equipment_code, (DataSet)_getData[5], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_sub_equipment, (DataSet)_getData[6], warning) == false) { }
+
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_project_code, (DataSet)_getData[7], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_shoptype1_code, (DataSet)_getData[8], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_shoptype2_code, (DataSet)_getData[9], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_shoptype3_code, (DataSet)_getData[10], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_shoptype4_code, (DataSet)_getData[11], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._ar_shoptype5_code, (DataSet)_getData[12], warning) == false) { }
+                        if (_searchAndWarning(_g.d.ar_customer_detail._sub_ar_shoptype5_code, (DataSet)_getData[13], warning) == false) { }
                         break;
                 }
             }
@@ -1218,6 +1295,14 @@ namespace SMLERPControl._customer
                 case "ar_equipment_code": return _g.g._search_master_ar_equipment;
                 case "ar_sub_equipment": return _g.g._search_master_ar_sub_equipment;
                 case "br_cust_code": return _g.g._search_screen_erp_doc_format;
+
+                case "ar_project_code": return _g.g._search_master_ar_project;
+                case "ar_shoptype1_code": return _g.g._search_master_ar_shoptype1;
+                case "ar_shoptype2_code": return _g.g._search_master_ar_shoptype2;
+                case "ar_shoptype3_code": return _g.g._search_master_ar_shoptype3;
+                case "ar_shoptype4_code": return _g.g._search_master_ar_shoptype4;
+                case "ar_shoptype5_code": return _g.g._search_master_ar_shoptype5;
+                case "sub_ar_shoptype5_code": return _g.g._search_master_sub_ar_shoptype5;
 
 
             }

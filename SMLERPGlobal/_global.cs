@@ -3600,6 +3600,15 @@ namespace _g
         public static string _search_master_ar_equipment = "screen_ms_ar_equipment";// เนส 
         public static string _search_master_ar_sub_equipment = "screen_ms_ar_sub_equipment";// เนส 
 
+        public static string _search_master_ar_project = "screen_ms_ar_project";// เนส 
+        public static string _search_master_ar_shoptype1 = "screen_ms_ar_shoptype1";// เนส 
+        public static string _search_master_ar_shoptype2 = "screen_ms_ar_shoptype2";// เนส 
+        public static string _search_master_ar_shoptype3 = "screen_ms_ar_shoptype3";// เนส 
+        public static string _search_master_ar_shoptype4 = "screen_ms_ar_shoptype4";// เนส 
+        public static string _search_master_ar_shoptype5 = "screen_ms_ar_shoptype5";// เนส 
+        public static string _search_master_sub_ar_shoptype5 = "screen_ms_sub_ar_shoptype5";// เนส 
+
+
         public static string _search_master_ar_logistic_area = "screen_ms_ar_logistic_area";   //เอ้  เขตการขนส่ง
         public static string _search_master_ar_credit_approve = "screen_ms_ar_credit_approve";  //เอ้  เหตุผลอนุมัติวงเงิน
         public static string _search_master_ar_pay_bill_condition = "screen_ms_ar_pay_bill_condition"; // เงื่อนไขการวางบิล

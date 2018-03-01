@@ -164,7 +164,7 @@
             System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("กำหนด Wholesale");
             System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("กำหนด Retail");
             System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("กำหนด Local MT");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("กำหนด On-Premise & HORECA");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("กำหนด On-Premise,HORECA");
             System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("กำหนด Special Channel");
             System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("กำหนด Sub Special Channel");
             System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("ระบบลูกหนี้", new System.Windows.Forms.TreeNode[] {
@@ -2450,7 +2450,7 @@
             treeNode79.Text = "กำหนด Local MT";
             treeNode80.Name = "menu_setup_ar_shoptype4";
             treeNode80.Tag = "&1&&2&&12&&13&&3&";
-            treeNode80.Text = "กำหนด On-Premise & HORECA";
+            treeNode80.Text = "กำหนด On-Premise,HORECA";
             treeNode81.Name = "menu_setup_ar_shoptype5";
             treeNode81.Tag = "&1&&2&&12&&13&&3&";
             treeNode81.Text = "กำหนด Special Channel";

@@ -1459,6 +1459,7 @@ namespace MyLib
 
         public void _setDataStr(string fieldName, string value)
         {
+
             _setDataStr(fieldName, value, "", false);
         }
 
@@ -2292,6 +2293,9 @@ namespace MyLib
         {
             _addDateBox(row, column, rowCount, subColumn, fieldName, maxColumn, displayLabel, isEmtry, isQuery, fieldName);
         }
+
+      
+
         public void _addDateBox(int row, int column, int rowCount, int subColumn, string fieldName, int maxColumn, Boolean displayLabel, Boolean isEmtry, Boolean isQuery, string resourceFieldName)
         {
             string __label_name = "";
