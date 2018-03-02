@@ -9063,6 +9063,11 @@ namespace _g
             /// </summary>
             public static String _tier_4 = "tier_4";
 
+            /// <summary>
+            /// Customer Channel
+            /// </summary>
+            public static String _ar_customer_channel = "ar_customer_channel";
+
         }
 
         /// <summary>
@@ -47157,7 +47162,6 @@ namespace _g
             public static String _status = "status";
 
         }
-
 
 
     }

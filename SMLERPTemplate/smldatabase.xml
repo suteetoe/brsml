@@ -1918,6 +1918,7 @@
 <field name="tier_2" thai="Gold" eng="Gold" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="tier_3" thai="Platinum" eng="Platinum" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="tier_4" thai="Diamond" eng="Diamond" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="ar_customer_channel" thai="Customer Channel" eng="Customer Channel" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <index index_name="ar_customer_detail_PK_CODE" field="ar_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_contactor" thai="ผู้ติดต่อ (ลูกหนี้)" eng="Contactor" xversion="SMLERP" >

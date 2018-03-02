@@ -422,20 +422,21 @@ namespace SMLERPControl._customer
 
                     this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_project_code, 1, 0, 1, true, false, true);
                     this._addComboBox(1, 1, _g.d.ar_customer_detail._arm_tier, 1, true, new string[] { _g.d.ar_customer_detail._tier_0, _g.d.ar_customer_detail._tier_1, _g.d.ar_customer_detail._tier_2, _g.d.ar_customer_detail._tier_3, _g.d.ar_customer_detail._tier_4 }, false, "arm_tier", true, false);
-                    //this._addDateBox(2, 0, 1, 1, _g.d.ar_customer_detail._arm_approve_date, 1, true,true,false);
                     this._addDateBox(2, 0, 1, 0, _g.d.ar_customer_detail._arm_approve_date, 1, true, true, false, _g.d.ar_customer_detail._arm_approve_date);
-                    this._addTextBox(3, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype1_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype2_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(5, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype3_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype4_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(7, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype5_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(7, 1, 1, 0, _g.d.ar_customer_detail._sub_ar_shoptype5_code, 1, 0, 1, true, false, true);
-                    this._addTextBox(8, 0, 1, 0, _g.d.ar_customer_detail._latitude, 1, 0, 0, true, false, true);
-                    this._addTextBox(8, 1, 1, 0, _g.d.ar_customer_detail._longitude, 1, 0, 0, true, false, true);
-                    this._addTextBox(9, 0, 1, 0, _g.d.ar_customer_detail._line_id, 1, 0, 0, true, false, true);
-                    this._addTextBox(9, 1, 1, 0, _g.d.ar_customer_detail._facebook, 1, 0, 0, true, false, true);
-                    this._addTextBox(10, 0, 1, 0, _g.d.ar_customer_detail._br_cust_code, 1, 0, 1, true, false, true);
-                    
+                    MyLib._addLabelReturn __labelcustomer = this._addLabel(3, 0, "", _g.d.ar_customer_detail._ar_customer_channel, _g.d.ar_customer_detail._ar_customer_channel);
+                    this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype1_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(5, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype2_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype3_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(7, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype4_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(8, 0, 1, 0, _g.d.ar_customer_detail._ar_shoptype5_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(8, 1, 1, 0, _g.d.ar_customer_detail._sub_ar_shoptype5_code, 1, 0, 1, true, false, true);
+                    this._addTextBox(9, 0, 1, 0, _g.d.ar_customer_detail._latitude, 1, 0, 0, true, false, true);
+                    this._addTextBox(9, 1, 1, 0, _g.d.ar_customer_detail._longitude, 1, 0, 0, true, false, true);
+                    this._addTextBox(10, 0, 1, 0, _g.d.ar_customer_detail._line_id, 1, 0, 0, true, false, true);
+                    this._addTextBox(10, 1, 1, 0, _g.d.ar_customer_detail._facebook, 1, 0, 0, true, false, true);
+                    this._addTextBox(11, 0, 1, 0, _g.d.ar_customer_detail._br_cust_code, 1, 0, 1, true, false, true);
+               
+
 
                     break;
             }
@@ -858,6 +859,54 @@ namespace SMLERPControl._customer
                     this._search(true);
                 }
             }
+            if (name.Equals(_g.d.ar_customer_detail._ar_shoptype1_code) && !sender.Equals(" "))
+            {
+
+
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+            }
+            else
+                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype2_code) && !sender.Equals(" "))
+            {
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+            }
+            else
+                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype3_code) && !sender.Equals(" "))
+            {
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "","", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "","", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+            }
+            else
+                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype4_code) && !sender.Equals(" "))
+            {
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+            }
+            else
+                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype5_code) && !sender.Equals(" "))
+            {
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+            }
+
+
         }
 
         void textBox_Leave(object sender, EventArgs e)
@@ -986,7 +1035,7 @@ namespace SMLERPControl._customer
         {
             MyLib._myDataList __getParent1 = (MyLib._myDataList)((MyLib._myGrid)sender).Parent;
             MyLib._searchDataFull __getParent2 = (MyLib._searchDataFull)__getParent1.Parent;
-            this._searchAll(__getParent2._name, e._row);
+               this._searchAll(__getParent2._name, e._row);
         }
 
         void _searchByParent(object sender, int row)
@@ -998,6 +1047,7 @@ namespace SMLERPControl._customer
 
         void _searchAll(string name, int row)
         {
+
             if (this._searchName.Equals(_g.d.ar_customer._arm_code))
             {
                 string result = (string)this._search_data_full._dataList._gridData._cellGet(row, 0);
@@ -1644,10 +1694,6 @@ namespace SMLERPControl._customer
             SendKeys.Send("{TAB}");
         }
 
-        void checkbox_arm_register(object sender, EventArgs e)
-        {
-            
-        }
     }
 
 }
