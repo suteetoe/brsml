@@ -8994,22 +8994,22 @@ namespace _g
             public static String _ar_sub_equipment = "ar_sub_equipment";
 
             /// <summary>
-            /// โครงการ
+            /// ชื่อโครงการ
             /// </summary>
             public static String _ar_project_code = "ar_project_code";
 
             /// <summary>
-            /// Wholesale
+            /// ค้าส่ง
             /// </summary>
             public static String _ar_shoptype1_code = "ar_shoptype1_code";
 
             /// <summary>
-            /// Retail
+            /// ค้าปลีก
             /// </summary>
             public static String _ar_shoptype2_code = "ar_shoptype2_code";
 
             /// <summary>
-            /// Local MT
+            /// ห้างท้องถิ่น
             /// </summary>
             public static String _ar_shoptype3_code = "ar_shoptype3_code";
 
@@ -9019,7 +9019,7 @@ namespace _g
             public static String _ar_shoptype4_code = "ar_shoptype4_code";
 
             /// <summary>
-            /// Special Channel
+            /// ช่องทางพิเศษ
             /// </summary>
             public static String _ar_shoptype5_code = "ar_shoptype5_code";
 
@@ -9067,6 +9067,11 @@ namespace _g
             /// Customer Channel
             /// </summary>
             public static String _ar_customer_channel = "ar_customer_channel";
+
+            /// <summary>
+            /// โครงการ
+            /// </summary>
+            public static String _ar_project_code_name = "ar_project_code_name";
 
         }
 
@@ -47160,6 +47165,11 @@ namespace _g
             /// สถานะ
             /// </summary>
             public static String _status = "status";
+
+            /// <summary>
+            /// กลุ่มข้อมูล
+            /// </summary>
+            public static String _data_group = "data_group";
 
         }
 

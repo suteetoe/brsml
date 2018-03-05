@@ -8703,7 +8703,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2421" _x="989" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2437" _x="989" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -9380,22 +9380,22 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_project_code" _description="โครงการ" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_project_code" _description="ชื่อโครงการ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_shoptype1_code" _description="Wholesale" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_shoptype1_code" _description="ค้าส่ง" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_shoptype2_code" _description="Retail" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_shoptype2_code" _description="ค้าปลีก" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_shoptype3_code" _description="Local MT" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_shoptype3_code" _description="ห้างท้องถิ่น" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -9405,7 +9405,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_shoptype5_code" _description="Special Channel" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_shoptype5_code" _description="ช่องทางพิเศษ" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -9451,6 +9451,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="ar_customer_channel" _description="Customer Channel" _descriptionEng="Customer Channel" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ar_project_code_name" _description="โครงการ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -46959,7 +46964,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="sml_tooltip" _description="SML Tooltip" _descriptionEng="SML Tooltip" _version="" _width="170" _height="149" _x="1128" _y="945" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Master" _name="sml_tooltip" _description="SML Tooltip" _descriptionEng="SML Tooltip" _version="" _width="206" _height="165" _x="1128" _y="945" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -46997,6 +47002,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="status" _description="สถานะ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="data_group" _description="กลุ่มข้อมูล" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

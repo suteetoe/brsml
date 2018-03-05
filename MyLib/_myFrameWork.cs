@@ -1760,6 +1760,23 @@ namespace MyLib
                     __xDataSet.Tables.Add(__newTable);
                     __ret = __xDataSet.Tables[0];
                 }
+                //string __query2 = string.Concat("select code,name_1,name_2,name_3,name_4,name_5,name_6 from sml_tooltip where data_group=\'", dataGroup.ToUpper(), "\' order by code");
+                //DataSet __xDataSet2 = _query(this._mainDatabase, __query2);
+                //DataTable __ret2 = __xDataSet2.Tables[0];
+                //if (__ret2.Columns.Count == 0)
+                //{
+                //    __xDataSet = new DataSet();
+                //    DataTable __newTable = new DataTable();
+                //    __newTable.Columns.Add("code");
+                //    __newTable.Columns.Add("name_1");
+                //    __newTable.Columns.Add("name_2");
+                //    __newTable.Columns.Add("name_3");
+                //    __newTable.Columns.Add("name_4");
+                //    __newTable.Columns.Add("name_5");
+                //    __newTable.Columns.Add("name_6");
+                //    __xDataSet.Tables.Add(__newTable);
+                //    __ret = __xDataSet.Tables[0];
+                //}
                 try
                 {
                     __ret.PrimaryKey = new DataColumn[] { __ret.Columns[0] };
