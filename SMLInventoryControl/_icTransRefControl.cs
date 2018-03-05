@@ -970,6 +970,32 @@ namespace SMLInventoryControl
                                 }
                             }
                             break;
+                        case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
+                        case _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก:
+                            {
+                                string __query = "select " + _g.d.ic_trans._last_status + "," + _g.d.ic_trans._doc_success +  " from " + _g.d.ic_wms_trans._table + " where " + _g.d.ic_trans._doc_no + "=\'" + __billNo + "\' ";
+                                DataTable __getData = __myFrameWork._queryShort(__query).Tables[0];
+                                if (__getData.Rows.Count > 0)
+                                {
+                                    int __lastStatus = MyLib._myGlobal._intPhase(__getData.Rows[0][_g.d.ic_trans._last_status].ToString());
+                                    if (__lastStatus == 1)
+                                    {
+                                        MessageBox.Show(MyLib._myGlobal._resource("เอกสารยกเลิกไม่สามารถอ้างอิงได้"));
+                                        this._transGrid._cellUpdate(row, __billNoColumnNumber, "", true);
+                                    }
+                                    else
+                                    {
+                                        // เอกสารใช้ไปหมดแล้ว
+                                        int __sucessStatus = MyLib._myGlobal._intPhase(__getData.Rows[0][_g.d.ic_trans._doc_success].ToString());
+                                        if (__sucessStatus == 1)
+                                        {
+                                            MessageBox.Show(MyLib._myGlobal._resource("เอกสารไม่สามารถอ้างอิงได้"));
+                                            this._transGrid._cellUpdate(row, __billNoColumnNumber, "", true);
+                                        }
+                                    }
+                                }
+                            }
+                            break;
                     }
                     //
                 }
@@ -1222,7 +1248,7 @@ namespace SMLInventoryControl
                         __templateName = "screen_wms_product_deposit";
                         __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.คลัง_รับฝาก_ฝาก);
                         __transTableName = _g.d.ic_wms_trans._table;
-                        __extraWhere = " and " + _g.d.ic_wms_trans._cust_code + "=\'" + cust_code + "\' and coalesce(" + _g.d.ic_wms_trans._doc_success + ", 0) = 0";
+                        __extraWhere = " and " + _g.d.ic_wms_trans._cust_code + "=\'" + cust_code + "\' and last_status = 0 and coalesce(" + _g.d.ic_wms_trans._doc_success + ", 0) = 0";
                     }
                     break;
                 case _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก:
