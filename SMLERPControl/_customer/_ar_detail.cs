@@ -75,8 +75,20 @@ namespace SMLERPControl._customer
             this._screenTop.Enabled = false;
 
             Control _arm_approve_date_Control = this._screen_customer._getControl(_g.d.ar_customer_detail._arm_approve_date);
-            _arm_approve_date_Control.Enabled = false;
+            Control _arm_ar_shoptype1_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype1_code);
+            Control _arm_ar_shoptype2_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype2_code);
+            Control _arm_ar_shoptype3_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype3_code);
+            Control _arm_ar_shoptype4_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype4_code);
+            Control _arm_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype5_code);
+            Control _arm_sub_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._sub_ar_shoptype5_code);
 
+            _arm_approve_date_Control.Enabled = false;
+            _arm_ar_shoptype1_code.Enabled = false;
+            _arm_ar_shoptype2_code.Enabled = false;
+            _arm_ar_shoptype3_code.Enabled = false;
+            _arm_ar_shoptype4_code.Enabled = false;
+            _arm_ar_shoptype5_code.Enabled = false;
+            _arm_sub_ar_shoptype5_code.Enabled = false;
         }
 
         bool _screen_ar_detail_5__checkKeyDownReturn(object sender, Keys keyData)

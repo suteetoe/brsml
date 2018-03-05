@@ -394,7 +394,7 @@ namespace MyLib
                     }
                 }
                 else
- if (__getControl.GetType() == typeof(_myComboBox))
+                    if (__getControl.GetType() == typeof(_myComboBox))
                 {
                     _myComboBox __getComboBox = (_myComboBox)__getControl;
                     int __calcWidth = (this._calcColumnWidth() - (this._maxLabelWidth[__getComboBox._column])) + (this._calcColumnWidth() * (__getComboBox._maxColumn - 1));
@@ -2229,6 +2229,7 @@ namespace MyLib
         public event CheckKeyDownReturnHandler _checkKeyDownReturn;
         public event AfterRefreshHandler _afterRefresh;
         public event AfterClearHandler _afterClear;
+       
 
         public void _addNumberBox(int row, int column, int rowCount, int subColumn, string fieldName, int maxColumn, int point, Boolean displayLabel)
         {
