@@ -160,14 +160,13 @@
             System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("กดหนด Equipment");
             System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("กำหนด Sub Equipment");
             System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("กำหนดสถานที่ตั้งลูกค้า");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("กำหนด โครงการ");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("กำหนด Wholesale");
-            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("กำหนด Retail");
-            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("กำหนด Local MT");
-            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("กำหนด On-Premise,HORECA");
-            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("กำหนด Special Channel");
-            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("กำหนด Sub Special Channel");
-            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("ระบบลูกหนี้", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("กำหนด Wholesale");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("กำหนด Retail");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("กำหนด Local MT");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("กำหนด On-Premise,HORECA");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("กำหนด Special Channel");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("กำหนด Sub Special Channel");
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("ระบบลูกหนี้", new System.Windows.Forms.TreeNode[] {
             treeNode61,
             treeNode62,
             treeNode63,
@@ -188,18 +187,18 @@
             treeNode78,
             treeNode79,
             treeNode80,
-            treeNode81,
-            treeNode82});
-            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("กำหนดธนาคาร");
-            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("กำหนดสาขาธนาคาร");
-            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("ประเภทสมุดเงินฝาก");
-            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("ตัวย่อในสมุดเงินฝาก");
-            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("กำหนดประเภทรายได้");
-            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("กำหนดประเภทค่าใช้จ่าย");
-            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("ประเภทบัตรเครดิต");
-            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("กำหนดเงินวงสดย่อย");
-            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("รายละเอียดคูปอง");
-            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("ระบบเงินสด-ธนาคาร", new System.Windows.Forms.TreeNode[] {
+            treeNode81});
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("กำหนดธนาคาร");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("กำหนดสาขาธนาคาร");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("ประเภทสมุดเงินฝาก");
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("ตัวย่อในสมุดเงินฝาก");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("กำหนดประเภทรายได้");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("กำหนดประเภทค่าใช้จ่าย");
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("ประเภทบัตรเครดิต");
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("กำหนดเงินวงสดย่อย");
+            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("รายละเอียดคูปอง");
+            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("ระบบเงินสด-ธนาคาร", new System.Windows.Forms.TreeNode[] {
+            treeNode83,
             treeNode84,
             treeNode85,
             treeNode86,
@@ -207,32 +206,32 @@
             treeNode88,
             treeNode89,
             treeNode90,
-            treeNode91,
-            treeNode92});
-            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("กำหนดประเภทสินทรัพย์");
-            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("กำหนดตำแหน่งที่ตั้งสินทรัพย์");
-            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("กำหนดการบำรุงรักษาสินทรัพย์");
-            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("กำหนดหน่วยการบำรุงรักษาสินทรัพย์");
-            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("กำหนดประเภทการตัดจำหน่าย");
-            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("ระบบสินทรัพย์", new System.Windows.Forms.TreeNode[] {
+            treeNode91});
+            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("กำหนดประเภทสินทรัพย์");
+            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("กำหนดตำแหน่งที่ตั้งสินทรัพย์");
+            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("กำหนดการบำรุงรักษาสินทรัพย์");
+            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("กำหนดหน่วยการบำรุงรักษาสินทรัพย์");
+            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("กำหนดประเภทการตัดจำหน่าย");
+            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("ระบบสินทรัพย์", new System.Windows.Forms.TreeNode[] {
+            treeNode93,
             treeNode94,
             treeNode95,
             treeNode96,
-            treeNode97,
-            treeNode98});
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("กำหนดงวดบัญชี");
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("กำหนดสมุดบัญชี");
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("กำหนดประเภทบัญชี", -2, -2);
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("กำหนดกลุ่มบัญชี");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("กำหนดกลุ่มบัญชีกระแสเงินสด");
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("กำหนดกลุ่มภาษี");
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("กำหนดประเภทภาษี");
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("กำหนดหน่วยงาน");
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("กำหนดการจัดสรร");
-            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("กำหนดโครงการ");
-            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("กำหนดงาน");
-            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("ออกแบบงบการเงิน");
-            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("ระบบบัญชี", new System.Windows.Forms.TreeNode[] {
+            treeNode97});
+            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("กำหนดงวดบัญชี");
+            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("กำหนดสมุดบัญชี");
+            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("กำหนดประเภทบัญชี", -2, -2);
+            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("กำหนดกลุ่มบัญชี");
+            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("กำหนดกลุ่มบัญชีกระแสเงินสด");
+            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("กำหนดกลุ่มภาษี");
+            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("กำหนดประเภทภาษี");
+            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("กำหนดหน่วยงาน");
+            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("กำหนดการจัดสรร");
+            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("กำหนดโครงการ");
+            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("กำหนดงาน");
+            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("ออกแบบงบการเงิน");
+            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("ระบบบัญชี", new System.Windows.Forms.TreeNode[] {
+            treeNode99,
             treeNode100,
             treeNode101,
             treeNode102,
@@ -243,22 +242,22 @@
             treeNode107,
             treeNode108,
             treeNode109,
-            treeNode110,
-            treeNode111});
-            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("สร้าง/แก้ไขแบบฟอร์ม");
-            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("ออกแบบรายงาน");
-            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("กำหนดรูปแบบการค้นหาข้อมูล");
-            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("ตรวจสอบโครงสร้างฐานข้อมูล");
-            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("ลดขนาดข้อมูล");
-            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("สำรองข้อมูล");
-            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("นำข้อมูลสำรองกลับมาใช้");
-            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสผ่าน");
-            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("กำหนดผู้มีสิทธิเข้าใช้ข้อมูล");
-            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("กำหนดสิทธิการใช้งาน");
-            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("แสดงโครงสร้างฐานข้อมูลทั้งหมด");
-            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("ตรวจสอบและปรับปรุงข้อมูล");
-            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("ใช้คำสั่ง Query");
-            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("ระบบข้อมูล", new System.Windows.Forms.TreeNode[] {
+            treeNode110});
+            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("สร้าง/แก้ไขแบบฟอร์ม");
+            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("ออกแบบรายงาน");
+            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("กำหนดรูปแบบการค้นหาข้อมูล");
+            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("ตรวจสอบโครงสร้างฐานข้อมูล");
+            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("ลดขนาดข้อมูล");
+            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("สำรองข้อมูล");
+            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("นำข้อมูลสำรองกลับมาใช้");
+            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสผ่าน");
+            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("กำหนดผู้มีสิทธิเข้าใช้ข้อมูล");
+            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("กำหนดสิทธิการใช้งาน");
+            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("แสดงโครงสร้างฐานข้อมูลทั้งหมด");
+            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("ตรวจสอบและปรับปรุงข้อมูล");
+            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("ใช้คำสั่ง Query");
+            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("ระบบข้อมูล", new System.Windows.Forms.TreeNode[] {
+            treeNode114,
             treeNode115,
             treeNode116,
             treeNode117,
@@ -268,29 +267,29 @@
             treeNode121,
             treeNode122,
             treeNode123,
-            treeNode124,
-            treeNode125});
-            System.Windows.Forms.TreeNode treeNode127 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสสินค้า");
-            System.Windows.Forms.TreeNode treeNode128 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสเจ้าหนี้");
-            System.Windows.Forms.TreeNode treeNode129 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสลูกหนี้");
-            System.Windows.Forms.TreeNode treeNode130 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัส", new System.Windows.Forms.TreeNode[] {
+            treeNode124});
+            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสสินค้า");
+            System.Windows.Forms.TreeNode treeNode127 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสเจ้าหนี้");
+            System.Windows.Forms.TreeNode treeNode128 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัสลูกหนี้");
+            System.Windows.Forms.TreeNode treeNode129 = new System.Windows.Forms.TreeNode("เปลี่ยนรหัส", new System.Windows.Forms.TreeNode[] {
+            treeNode126,
             treeNode127,
-            treeNode128,
-            treeNode129});
-            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("แสดงหน้าจอการใช้งาน");
-            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("นำเข้าแบบฟอร์ม");
-            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("แสดงหน้าจอการใช้งาน (ย้อนหลัง)");
-            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("เข้าใช้ฐานข้อมูล");
-            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("เข้าออกระบบ");
-            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("ข้อมูลรายวัน");
-            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("ข้อมูลหลัก");
-            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("ประวัติการใช้งาน", new System.Windows.Forms.TreeNode[] {
+            treeNode128});
+            System.Windows.Forms.TreeNode treeNode130 = new System.Windows.Forms.TreeNode("แสดงหน้าจอการใช้งาน");
+            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("นำเข้าแบบฟอร์ม");
+            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("แสดงหน้าจอการใช้งาน (ย้อนหลัง)");
+            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("เข้าใช้ฐานข้อมูล");
+            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("เข้าออกระบบ");
+            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("ข้อมูลรายวัน");
+            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("ข้อมูลหลัก");
+            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("ประวัติการใช้งาน", new System.Windows.Forms.TreeNode[] {
+            treeNode132,
             treeNode133,
             treeNode134,
             treeNode135,
-            treeNode136,
-            treeNode137});
-            System.Windows.Forms.TreeNode treeNode139 = new System.Windows.Forms.TreeNode("นำเข้าข้อมูลหลัก");
+            treeNode136});
+            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("นำเข้าข้อมูลหลัก");
+            System.Windows.Forms.TreeNode treeNode139 = new System.Windows.Forms.TreeNode("นำเข้าข้อมูลจาก SINGHA Master");
             System.Windows.Forms.TreeNode treeNode140 = new System.Windows.Forms.TreeNode("นำเข้ารายงาน");
             System.Windows.Forms.TreeNode treeNode141 = new System.Windows.Forms.TreeNode("นำเข้ารายงานสาขา");
             System.Windows.Forms.TreeNode treeNode142 = new System.Windows.Forms.TreeNode("นำเข้ารูปภาพสินค้า");
@@ -298,10 +297,11 @@
             System.Windows.Forms.TreeNode treeNode144 = new System.Windows.Forms.TreeNode("หน้าจอเริ่มต้น");
             System.Windows.Forms.TreeNode treeNode145 = new System.Windows.Forms.TreeNode("นำเข้าข้อมูลจากรูปภาพ");
             System.Windows.Forms.TreeNode treeNode146 = new System.Windows.Forms.TreeNode("เครื่องมือ", new System.Windows.Forms.TreeNode[] {
-            treeNode126,
+            treeNode125,
+            treeNode129,
             treeNode130,
             treeNode131,
-            treeNode132,
+            treeNode137,
             treeNode138,
             treeNode139,
             treeNode140,
@@ -315,12 +315,12 @@
             treeNode47,
             treeNode55,
             treeNode60,
-            treeNode83,
-            treeNode93,
-            treeNode99,
+            treeNode82,
+            treeNode92,
+            treeNode98,
+            treeNode111,
             treeNode112,
             treeNode113,
-            treeNode114,
             treeNode146});
             System.Windows.Forms.TreeNode treeNode148 = new System.Windows.Forms.TreeNode("ข้อมูลสินค้า");
             System.Windows.Forms.TreeNode treeNode149 = new System.Windows.Forms.TreeNode("ข้อมูลสินค้า (แสดงตามบาร์โค๊ด)");
@@ -2436,232 +2436,232 @@
             treeNode75.Name = "menu_setup_ar_location_type";
             treeNode75.Tag = "&1&&2&&12&&13&&3&";
             treeNode75.Text = "กำหนดสถานที่ตั้งลูกค้า";
-            treeNode76.Name = "menu_setup_ar_project";
+            treeNode76.Name = "menu_setup_ar_shoptype1";
             treeNode76.Tag = "&1&&2&&12&&13&&3&";
-            treeNode76.Text = "กำหนด โครงการ";
-            treeNode77.Name = "menu_setup_ar_shoptype1";
+            treeNode76.Text = "กำหนด Wholesale";
+            treeNode77.Name = "menu_setup_ar_shoptype2";
             treeNode77.Tag = "&1&&2&&12&&13&&3&";
-            treeNode77.Text = "กำหนด Wholesale";
-            treeNode78.Name = "menu_setup_ar_shoptype2";
+            treeNode77.Text = "กำหนด Retail";
+            treeNode78.Name = "menu_setup_ar_shoptype3";
             treeNode78.Tag = "&1&&2&&12&&13&&3&";
-            treeNode78.Text = "กำหนด Retail";
-            treeNode79.Name = "menu_setup_ar_shoptype3";
+            treeNode78.Text = "กำหนด Local MT";
+            treeNode79.Name = "menu_setup_ar_shoptype4";
             treeNode79.Tag = "&1&&2&&12&&13&&3&";
-            treeNode79.Text = "กำหนด Local MT";
-            treeNode80.Name = "menu_setup_ar_shoptype4";
+            treeNode79.Text = "กำหนด On-Premise,HORECA";
+            treeNode80.Name = "menu_setup_ar_shoptype5";
             treeNode80.Tag = "&1&&2&&12&&13&&3&";
-            treeNode80.Text = "กำหนด On-Premise,HORECA";
-            treeNode81.Name = "menu_setup_ar_shoptype5";
+            treeNode80.Text = "กำหนด Special Channel";
+            treeNode81.Name = "menu_setup_sub_ar_shoptype5";
             treeNode81.Tag = "&1&&2&&12&&13&&3&";
-            treeNode81.Text = "กำหนด Special Channel";
-            treeNode82.Name = "menu_setup_sub_ar_shoptype5";
+            treeNode81.Text = "กำหนด Sub Special Channel";
+            treeNode82.Name = "menu_setup_ar";
             treeNode82.Tag = "&1&&2&&12&&13&&3&";
-            treeNode82.Text = "กำหนด Sub Special Channel";
-            treeNode83.Name = "menu_setup_ar";
+            treeNode82.Text = "ระบบลูกหนี้";
+            treeNode83.Name = "menu_setup_bank";
             treeNode83.Tag = "&1&&2&&12&&13&&3&";
-            treeNode83.Text = "ระบบลูกหนี้";
-            treeNode84.Name = "menu_setup_bank";
-            treeNode84.Tag = "&1&&2&&12&&13&&3&";
-            treeNode84.Text = "กำหนดธนาคาร";
-            treeNode85.Name = "menu_setup_bank_branch";
-            treeNode85.Tag = "&config&&1&&2&&12&&13&&3&";
-            treeNode85.Text = "กำหนดสาขาธนาคาร";
-            treeNode86.Name = "menu_book_bank_type";
-            treeNode86.Tag = "&1&&2&&12&&13&&3&";
-            treeNode86.Text = "ประเภทสมุดเงินฝาก";
-            treeNode87.Name = "menu_book_bank_trans_type";
-            treeNode87.Tag = "&line&&1&&2&&12&&13&&3&";
-            treeNode87.Text = "ตัวย่อในสมุดเงินฝาก";
-            treeNode88.ImageKey = "moneybag_dollar.png";
-            treeNode88.Name = "menu_income_list";
-            treeNode88.SelectedImageKey = "moneybag_dollar.png";
+            treeNode83.Text = "กำหนดธนาคาร";
+            treeNode84.Name = "menu_setup_bank_branch";
+            treeNode84.Tag = "&config&&1&&2&&12&&13&&3&";
+            treeNode84.Text = "กำหนดสาขาธนาคาร";
+            treeNode85.Name = "menu_book_bank_type";
+            treeNode85.Tag = "&1&&2&&12&&13&&3&";
+            treeNode85.Text = "ประเภทสมุดเงินฝาก";
+            treeNode86.Name = "menu_book_bank_trans_type";
+            treeNode86.Tag = "&line&&1&&2&&12&&13&&3&";
+            treeNode86.Text = "ตัวย่อในสมุดเงินฝาก";
+            treeNode87.ImageKey = "moneybag_dollar.png";
+            treeNode87.Name = "menu_income_list";
+            treeNode87.SelectedImageKey = "moneybag_dollar.png";
+            treeNode87.Tag = "&1&&2&&12&&13&&3&";
+            treeNode87.Text = "กำหนดประเภทรายได้";
+            treeNode88.ImageKey = "book_red.png";
+            treeNode88.Name = "menu_expenses_list";
+            treeNode88.SelectedImageKey = "book_red.png";
             treeNode88.Tag = "&1&&2&&12&&13&&3&";
-            treeNode88.Text = "กำหนดประเภทรายได้";
-            treeNode89.ImageKey = "book_red.png";
-            treeNode89.Name = "menu_expenses_list";
-            treeNode89.SelectedImageKey = "book_red.png";
+            treeNode88.Text = "กำหนดประเภทค่าใช้จ่าย";
+            treeNode89.Name = "menu_setup_credit_type";
             treeNode89.Tag = "&1&&2&&12&&13&&3&";
-            treeNode89.Text = "กำหนดประเภทค่าใช้จ่าย";
-            treeNode90.Name = "menu_setup_credit_type";
-            treeNode90.Tag = "&1&&2&&12&&13&&3&";
-            treeNode90.Text = "ประเภทบัตรเครดิต";
-            treeNode91.Name = "menu_petty_cash";
-            treeNode91.Tag = "&cashbank&&1&&2&&12&&13&&3&";
-            treeNode91.Text = "กำหนดเงินวงสดย่อย";
-            treeNode92.Name = "menu_coupon_list";
-            treeNode92.Tag = "&pos&&1&&2&&12&&13&&3&&6&&9&&7&&8&";
-            treeNode92.Text = "รายละเอียดคูปอง";
-            treeNode93.Name = "menu_cash_bank";
+            treeNode89.Text = "ประเภทบัตรเครดิต";
+            treeNode90.Name = "menu_petty_cash";
+            treeNode90.Tag = "&cashbank&&1&&2&&12&&13&&3&";
+            treeNode90.Text = "กำหนดเงินวงสดย่อย";
+            treeNode91.Name = "menu_coupon_list";
+            treeNode91.Tag = "&pos&&1&&2&&12&&13&&3&&6&&9&&7&&8&";
+            treeNode91.Text = "รายละเอียดคูปอง";
+            treeNode92.Name = "menu_cash_bank";
+            treeNode92.Tag = "&1&&2&&12&&13&&3&";
+            treeNode92.Text = "ระบบเงินสด-ธนาคาร";
+            treeNode93.Name = "menu_asset_setup_type";
             treeNode93.Tag = "&1&&2&&12&&13&&3&";
-            treeNode93.Text = "ระบบเงินสด-ธนาคาร";
-            treeNode94.Name = "menu_asset_setup_type";
+            treeNode93.Text = "กำหนดประเภทสินทรัพย์";
+            treeNode94.Name = "menu_asset_setup_location";
             treeNode94.Tag = "&1&&2&&12&&13&&3&";
-            treeNode94.Text = "กำหนดประเภทสินทรัพย์";
-            treeNode95.Name = "menu_asset_setup_location";
+            treeNode94.Text = "กำหนดตำแหน่งที่ตั้งสินทรัพย์";
+            treeNode95.Name = "menu_asset_setup_maintain";
             treeNode95.Tag = "&1&&2&&12&&13&&3&";
-            treeNode95.Text = "กำหนดตำแหน่งที่ตั้งสินทรัพย์";
-            treeNode96.Name = "menu_asset_setup_maintain";
+            treeNode95.Text = "กำหนดการบำรุงรักษาสินทรัพย์";
+            treeNode96.Name = "menu_asset_setup_maintain_unit";
             treeNode96.Tag = "&1&&2&&12&&13&&3&";
-            treeNode96.Text = "กำหนดการบำรุงรักษาสินทรัพย์";
-            treeNode97.Name = "menu_asset_setup_maintain_unit";
+            treeNode96.Text = "กำหนดหน่วยการบำรุงรักษาสินทรัพย์";
+            treeNode97.Name = "menu_asset_setup_retire";
             treeNode97.Tag = "&1&&2&&12&&13&&3&";
-            treeNode97.Text = "กำหนดหน่วยการบำรุงรักษาสินทรัพย์";
-            treeNode98.Name = "menu_asset_setup_retire";
+            treeNode97.Text = "กำหนดประเภทการตัดจำหน่าย";
+            treeNode98.Name = "menu_setup_asset";
             treeNode98.Tag = "&1&&2&&12&&13&&3&";
-            treeNode98.Text = "กำหนดประเภทการตัดจำหน่าย";
-            treeNode99.Name = "menu_setup_asset";
-            treeNode99.Tag = "&1&&2&&12&&13&&3&";
-            treeNode99.Text = "ระบบสินทรัพย์";
-            treeNode100.ImageKey = "calendar.png";
-            treeNode100.Name = "menu_account_period";
-            treeNode100.SelectedImageKey = "calendar.png";
-            treeNode100.Tag = "&config&&1&&2&&12&&13&&3&&line&";
-            treeNode100.Text = "กำหนดงวดบัญชี";
-            treeNode101.ImageKey = "book_open.png";
-            treeNode101.Name = "menu_setup_gl_journal_book";
-            treeNode101.SelectedImageKey = "book_open.png";
+            treeNode98.Text = "ระบบสินทรัพย์";
+            treeNode99.ImageKey = "calendar.png";
+            treeNode99.Name = "menu_account_period";
+            treeNode99.SelectedImageKey = "calendar.png";
+            treeNode99.Tag = "&config&&1&&2&&12&&13&&3&&line&";
+            treeNode99.Text = "กำหนดงวดบัญชี";
+            treeNode100.ImageKey = "book_open.png";
+            treeNode100.Name = "menu_setup_gl_journal_book";
+            treeNode100.SelectedImageKey = "book_open.png";
+            treeNode100.Tag = "&1&&2&&12&&13&&3&";
+            treeNode100.Text = "กำหนดสมุดบัญชี";
+            treeNode101.ImageIndex = -2;
+            treeNode101.Name = "menu_setup_gl_account_type";
+            treeNode101.SelectedImageIndex = -2;
             treeNode101.Tag = "&1&&2&&12&&13&&3&";
-            treeNode101.Text = "กำหนดสมุดบัญชี";
-            treeNode102.ImageIndex = -2;
-            treeNode102.Name = "menu_setup_gl_account_type";
-            treeNode102.SelectedImageIndex = -2;
+            treeNode101.Text = "กำหนดประเภทบัญชี";
+            treeNode102.Name = "menu_setup_gl_account_group";
             treeNode102.Tag = "&1&&2&&12&&13&&3&";
-            treeNode102.Text = "กำหนดประเภทบัญชี";
-            treeNode103.Name = "menu_setup_gl_account_group";
-            treeNode103.Tag = "&1&&2&&12&&13&&3&";
-            treeNode103.Text = "กำหนดกลุ่มบัญชี";
-            treeNode104.Name = "menu_setup_gl_group_for_cash_flow";
-            treeNode104.Tag = "&line&&1&&2&&12&&13&&3&";
-            treeNode104.Text = "กำหนดกลุ่มบัญชีกระแสเงินสด";
-            treeNode105.ImageKey = "windows.png";
-            treeNode105.Name = "menu_tax_group";
-            treeNode105.SelectedImageKey = "windows.png";
+            treeNode102.Text = "กำหนดกลุ่มบัญชี";
+            treeNode103.Name = "menu_setup_gl_group_for_cash_flow";
+            treeNode103.Tag = "&line&&1&&2&&12&&13&&3&";
+            treeNode103.Text = "กำหนดกลุ่มบัญชีกระแสเงินสด";
+            treeNode104.ImageKey = "windows.png";
+            treeNode104.Name = "menu_tax_group";
+            treeNode104.SelectedImageKey = "windows.png";
+            treeNode104.Tag = "&1&&2&&12&&13&&3&";
+            treeNode104.Text = "กำหนดกลุ่มภาษี";
+            treeNode105.Name = "menu_tax_type";
             treeNode105.Tag = "&1&&2&&12&&13&&3&";
-            treeNode105.Text = "กำหนดกลุ่มภาษี";
-            treeNode106.Name = "menu_tax_type";
-            treeNode106.Tag = "&1&&2&&12&&13&&3&";
-            treeNode106.Text = "กำหนดประเภทภาษี";
-            treeNode107.Name = "menu_setup_side";
+            treeNode105.Text = "กำหนดประเภทภาษี";
+            treeNode106.Name = "menu_setup_side";
+            treeNode106.Tag = "&config&&1&&2&&12&&13&&3&";
+            treeNode106.Text = "กำหนดหน่วยงาน";
+            treeNode107.Name = "menu_setup_allocate";
             treeNode107.Tag = "&config&&1&&2&&12&&13&&3&";
-            treeNode107.Text = "กำหนดหน่วยงาน";
-            treeNode108.Name = "menu_setup_allocate";
+            treeNode107.Text = "กำหนดการจัดสรร";
+            treeNode108.Name = "menu_setup_project";
             treeNode108.Tag = "&config&&1&&2&&12&&13&&3&";
-            treeNode108.Text = "กำหนดการจัดสรร";
-            treeNode109.Name = "menu_setup_project";
+            treeNode108.Text = "กำหนดโครงการ";
+            treeNode109.Name = "menu_setup_job";
             treeNode109.Tag = "&config&&1&&2&&12&&13&&3&";
-            treeNode109.Text = "กำหนดโครงการ";
-            treeNode110.Name = "menu_setup_job";
-            treeNode110.Tag = "&config&&1&&2&&12&&13&&3&";
-            treeNode110.Text = "กำหนดงาน";
-            treeNode111.Name = "menu_gl_report_design";
-            treeNode111.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode111.Text = "ออกแบบงบการเงิน";
-            treeNode112.ImageKey = "form_green.png";
-            treeNode112.Name = "menu_setup_gl";
-            treeNode112.SelectedImageKey = "form_green.png";
+            treeNode109.Text = "กำหนดงาน";
+            treeNode110.Name = "menu_gl_report_design";
+            treeNode110.Tag = "&gl&&1&&2&&12&&13&&3&";
+            treeNode110.Text = "ออกแบบงบการเงิน";
+            treeNode111.ImageKey = "form_green.png";
+            treeNode111.Name = "menu_setup_gl";
+            treeNode111.SelectedImageKey = "form_green.png";
+            treeNode111.Tag = "&1&&2&&12&&13&&3&";
+            treeNode111.Text = "ระบบบัญชี";
+            treeNode112.Name = "menu_form_edit";
             treeNode112.Tag = "&1&&2&&12&&13&&3&";
-            treeNode112.Text = "ระบบบัญชี";
-            treeNode113.Name = "menu_form_edit";
+            treeNode112.Text = "สร้าง/แก้ไขแบบฟอร์ม";
+            treeNode113.Name = "fast_report_designer";
             treeNode113.Tag = "&1&&2&&12&&13&&3&";
-            treeNode113.Text = "สร้าง/แก้ไขแบบฟอร์ม";
-            treeNode114.Name = "fast_report_designer";
+            treeNode113.Text = "ออกแบบรายงาน";
+            treeNode114.Name = "menu_view_manager_custom";
             treeNode114.Tag = "&1&&2&&12&&13&&3&";
-            treeNode114.Text = "ออกแบบรายงาน";
-            treeNode115.Name = "menu_view_manager_custom";
+            treeNode114.Text = "กำหนดรูปแบบการค้นหาข้อมูล";
+            treeNode115.ImageKey = "data_ok.png";
+            treeNode115.Name = "menu_verify_database";
+            treeNode115.SelectedImageKey = "data_ok.png";
             treeNode115.Tag = "&1&&2&&12&&13&&3&";
-            treeNode115.Text = "กำหนดรูปแบบการค้นหาข้อมูล";
-            treeNode116.ImageKey = "data_ok.png";
-            treeNode116.Name = "menu_verify_database";
-            treeNode116.SelectedImageKey = "data_ok.png";
+            treeNode115.Text = "ตรวจสอบโครงสร้างฐานข้อมูล";
+            treeNode116.ImageKey = "data_replace.png";
+            treeNode116.Name = "menu_shink_database";
+            treeNode116.SelectedImageKey = "data_replace.png";
             treeNode116.Tag = "&1&&2&&12&&13&&3&";
-            treeNode116.Text = "ตรวจสอบโครงสร้างฐานข้อมูล";
-            treeNode117.ImageKey = "data_replace.png";
-            treeNode117.Name = "menu_shink_database";
-            treeNode117.SelectedImageKey = "data_replace.png";
+            treeNode116.Text = "ลดขนาดข้อมูล";
+            treeNode117.ImageKey = "data_out.png";
+            treeNode117.Name = "data_backup";
+            treeNode117.SelectedImageKey = "data_out.png";
             treeNode117.Tag = "&1&&2&&12&&13&&3&";
-            treeNode117.Text = "ลดขนาดข้อมูล";
-            treeNode118.ImageKey = "data_out.png";
-            treeNode118.Name = "data_backup";
-            treeNode118.SelectedImageKey = "data_out.png";
+            treeNode117.Text = "สำรองข้อมูล";
+            treeNode118.ImageKey = "data_into.png";
+            treeNode118.Name = "data_restore";
+            treeNode118.SelectedImageKey = "data_into.png";
             treeNode118.Tag = "&1&&2&&12&&13&&3&";
-            treeNode118.Text = "สำรองข้อมูล";
-            treeNode119.ImageKey = "data_into.png";
-            treeNode119.Name = "data_restore";
-            treeNode119.SelectedImageKey = "data_into.png";
+            treeNode118.Text = "นำข้อมูลสำรองกลับมาใช้";
+            treeNode119.ImageKey = "key1.png";
+            treeNode119.Name = "menu_change_password";
+            treeNode119.SelectedImageKey = "key1.png";
             treeNode119.Tag = "&1&&2&&12&&13&&3&";
-            treeNode119.Text = "นำข้อมูลสำรองกลับมาใช้";
-            treeNode120.ImageKey = "key1.png";
-            treeNode120.Name = "menu_change_password";
-            treeNode120.SelectedImageKey = "key1.png";
-            treeNode120.Tag = "&1&&2&&12&&13&&3&";
-            treeNode120.Text = "เปลี่ยนรหัสผ่าน";
-            treeNode121.ImageKey = "user1.png";
-            treeNode121.Name = "Node9";
-            treeNode121.SelectedImageKey = "user1.png";
+            treeNode119.Text = "เปลี่ยนรหัสผ่าน";
+            treeNode120.ImageKey = "user1.png";
+            treeNode120.Name = "Node9";
+            treeNode120.SelectedImageKey = "user1.png";
+            treeNode120.Tag = "&hide&";
+            treeNode120.Text = "กำหนดผู้มีสิทธิเข้าใช้ข้อมูล";
+            treeNode121.ImageKey = "user1_preferences.png";
+            treeNode121.Name = "Node10";
+            treeNode121.SelectedImageKey = "user1_preferences.png";
             treeNode121.Tag = "&hide&";
-            treeNode121.Text = "กำหนดผู้มีสิทธิเข้าใช้ข้อมูล";
-            treeNode122.ImageKey = "user1_preferences.png";
-            treeNode122.Name = "Node10";
-            treeNode122.SelectedImageKey = "user1_preferences.png";
-            treeNode122.Tag = "&hide&";
-            treeNode122.Text = "กำหนดสิทธิการใช้งาน";
-            treeNode123.ImageKey = "data_table.png";
-            treeNode123.Name = "menu_database_struct";
-            treeNode123.SelectedImageKey = "data_table.png";
-            treeNode123.Tag = "&1&&2&&12&&13&&3&";
-            treeNode123.Text = "แสดงโครงสร้างฐานข้อมูลทั้งหมด";
-            treeNode124.Name = "menu_checking_ic_trans";
-            treeNode124.Tag = "&icinfo&&1&&2&&12&&13&&3&";
-            treeNode124.Text = "ตรวจสอบและปรับปรุงข้อมูล";
-            treeNode125.ImageKey = "data_view.png";
-            treeNode125.Name = "menu_query";
-            treeNode125.SelectedImageKey = "data_view.png";
+            treeNode121.Text = "กำหนดสิทธิการใช้งาน";
+            treeNode122.ImageKey = "data_table.png";
+            treeNode122.Name = "menu_database_struct";
+            treeNode122.SelectedImageKey = "data_table.png";
+            treeNode122.Tag = "&1&&2&&12&&13&&3&";
+            treeNode122.Text = "แสดงโครงสร้างฐานข้อมูลทั้งหมด";
+            treeNode123.Name = "menu_checking_ic_trans";
+            treeNode123.Tag = "&icinfo&&1&&2&&12&&13&&3&";
+            treeNode123.Text = "ตรวจสอบและปรับปรุงข้อมูล";
+            treeNode124.ImageKey = "data_view.png";
+            treeNode124.Name = "menu_query";
+            treeNode124.SelectedImageKey = "data_view.png";
+            treeNode124.Tag = "&1&&2&&12&&13&&3&";
+            treeNode124.Text = "ใช้คำสั่ง Query";
+            treeNode125.ImageKey = "data_copy.png";
+            treeNode125.Name = "menu_database";
+            treeNode125.SelectedImageKey = "data_copy.png";
             treeNode125.Tag = "&1&&2&&12&&13&&3&";
-            treeNode125.Text = "ใช้คำสั่ง Query";
-            treeNode126.ImageKey = "data_copy.png";
-            treeNode126.Name = "menu_database";
-            treeNode126.SelectedImageKey = "data_copy.png";
+            treeNode125.Text = "ระบบข้อมูล";
+            treeNode126.Name = "menu_change_code_item";
             treeNode126.Tag = "&1&&2&&12&&13&&3&";
-            treeNode126.Text = "ระบบข้อมูล";
-            treeNode127.Name = "menu_change_code_item";
+            treeNode126.Text = "เปลี่ยนรหัสสินค้า";
+            treeNode127.Name = "menu_change_code_supplier";
             treeNode127.Tag = "&1&&2&&12&&13&&3&";
-            treeNode127.Text = "เปลี่ยนรหัสสินค้า";
-            treeNode128.Name = "menu_change_code_supplier";
+            treeNode127.Text = "เปลี่ยนรหัสเจ้าหนี้";
+            treeNode128.Name = "menu_change_code_customer";
             treeNode128.Tag = "&1&&2&&12&&13&&3&";
-            treeNode128.Text = "เปลี่ยนรหัสเจ้าหนี้";
-            treeNode129.Name = "menu_change_code_customer";
+            treeNode128.Text = "เปลี่ยนรหัสลูกหนี้";
+            treeNode129.Name = "menu_change_code";
             treeNode129.Tag = "&1&&2&&12&&13&&3&";
-            treeNode129.Text = "เปลี่ยนรหัสลูกหนี้";
-            treeNode130.Name = "menu_change_code";
+            treeNode129.Text = "เปลี่ยนรหัส";
+            treeNode130.Name = "menu_view_capture_screen_realtime";
             treeNode130.Tag = "&1&&2&&12&&13&&3&";
-            treeNode130.Text = "เปลี่ยนรหัส";
-            treeNode131.Name = "menu_view_capture_screen_realtime";
+            treeNode130.Text = "แสดงหน้าจอการใช้งาน";
+            treeNode131.Name = "menu_import_formdesign";
             treeNode131.Tag = "&1&&2&&12&&13&&3&";
-            treeNode131.Text = "แสดงหน้าจอการใช้งาน";
-            treeNode132.Name = "menu_import_formdesign";
+            treeNode131.Text = "นำเข้าแบบฟอร์ม";
+            treeNode132.Name = "menu_view_capture_screen";
             treeNode132.Tag = "&1&&2&&12&&13&&3&";
-            treeNode132.Text = "นำเข้าแบบฟอร์ม";
-            treeNode133.Name = "menu_view_capture_screen";
-            treeNode133.Tag = "&1&&2&&12&&13&&3&";
-            treeNode133.Text = "แสดงหน้าจอการใช้งาน (ย้อนหลัง)";
-            treeNode134.Name = "menu_audit_login";
+            treeNode132.Text = "แสดงหน้าจอการใช้งาน (ย้อนหลัง)";
+            treeNode133.Name = "menu_audit_login";
+            treeNode133.Tag = "&audit&&1&&2&&12&&13&&3&";
+            treeNode133.Text = "เข้าใช้ฐานข้อมูล";
+            treeNode134.Name = "menu_audit_menu";
             treeNode134.Tag = "&audit&&1&&2&&12&&13&&3&";
-            treeNode134.Text = "เข้าใช้ฐานข้อมูล";
-            treeNode135.Name = "menu_audit_menu";
+            treeNode134.Text = "เข้าออกระบบ";
+            treeNode135.Name = "menu_audit_trans";
             treeNode135.Tag = "&audit&&1&&2&&12&&13&&3&";
-            treeNode135.Text = "เข้าออกระบบ";
-            treeNode136.Name = "menu_audit_trans";
+            treeNode135.Text = "ข้อมูลรายวัน";
+            treeNode136.Name = "menu_audit_master";
             treeNode136.Tag = "&audit&&1&&2&&12&&13&&3&";
-            treeNode136.Text = "ข้อมูลรายวัน";
-            treeNode137.Name = "menu_audit_master";
-            treeNode137.Tag = "&audit&&1&&2&&12&&13&&3&";
-            treeNode137.Text = "ข้อมูลหลัก";
-            treeNode138.Name = "menu_audit";
-            treeNode138.Tag = "&1&&2&&12&&13&&3&";
-            treeNode138.Text = "ประวัติการใช้งาน";
-            treeNode139.Name = "menu_import_data_master";
-            treeNode139.Tag = "&1&&2&&12&&13&&3&";
-            treeNode139.Text = "นำเข้าข้อมูลหลัก";
+            treeNode136.Text = "ข้อมูลหลัก";
+            treeNode137.Name = "menu_audit";
+            treeNode137.Tag = "&1&&2&&12&&13&&3&";
+            treeNode137.Text = "ประวัติการใช้งาน";
+            treeNode138.Name = "menu_import_data_master";
+            treeNode138.Tag = "&singhasyncmaster&&2&&12&&13&&3&";
+            treeNode138.Text = "นำเข้าข้อมูลหลัก";
+            treeNode139.Name = "menu_import_data_ singha_master";
+            treeNode139.Tag = "&singhasyncmaster&&2&&12&&13&&3&";
+            treeNode139.Text = "นำเข้าข้อมูลจาก SINGHA Master";
             treeNode140.Name = "menu_import_report";
             treeNode140.Tag = "&menu_import_report&&1&&2&&12&&13&&3&";
             treeNode140.Text = "นำเข้ารายงาน";

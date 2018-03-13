@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <PlatformTarget>x86</PlatformTarget>
     <TargetFrameworkProfile />
-    <ManifestCertificateThumbprint>289F839645D5C699B3553382CCEAD83ADEBCFD8E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>3B3B096B4F5056837AF7692D21AB7136C99F9C3C</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
@@ -318,6 +318,10 @@
     <ProjectReference Include="..\SMLReport\SMLReport.csproj">
       <Project>{47EA8CA3-3FBF-4E90-A811-AB61F48EC9D6}</Project>
       <Name>SMLReport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SMLSINGHAControl\SMLSINGHAControl.csproj">
+      <Project>{4d211c6b-0cb7-4718-8567-78beba69c114}</Project>
+      <Name>SMLSINGHAControl</Name>
     </ProjectReference>
     <ProjectReference Include="..\SMLTransportLabel\SMLTransportLabel.csproj">
       <Project>{2B8BE631-35AD-48DC-9D77-35B785A9F7DF}</Project>

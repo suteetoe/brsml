@@ -9024,7 +9024,7 @@ namespace _g
             public static String _ar_shoptype5_code = "ar_shoptype5_code";
 
             /// <summary>
-            /// Sub Special Channel
+            /// ช่องทางพิเศษย่อย
             /// </summary>
             public static String _sub_ar_shoptype5_code = "sub_ar_shoptype5_code";
 
@@ -47172,6 +47172,8 @@ namespace _g
             public static String _data_group = "data_group";
 
         }
+
+
 
 
     }
