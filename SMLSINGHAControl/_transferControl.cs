@@ -14,7 +14,7 @@ namespace SMLSINGHAControl
     public partial class _transferControl : UserControl
     {
         protected synctablename type = synctablename.Null;
-        protected string uri = "";
+        
         public synctablename _type
         {
             get { return this.type; }
@@ -31,56 +31,19 @@ namespace SMLSINGHAControl
         }
         protected virtual void _build()
         {
-           
+             // this.uri = "http://dev.smlsoft.com:7400/getdb/erp_expenses_list";
         }
 
-        public void _loaddata()
+        private void button_selectAll_Click(object sender, EventArgs e)
         {
-            //_singhaGridGetdata._priceStruct __result = new _singhaGridGetdata._priceStruct();
-
-            WebClient __n = new WebClient();
-
-            // string __url = __urlServerSplit[0] + "http://dev.smlsoft.com:7400/getdb/erp_expenses_list";
-
-            string __getCompanyRestUrl = uri; //"http://192.168.2.98:7400/getdb/erp_expenses_list";
-            _restClient __rest = new _restClient(__getCompanyRestUrl);
-            string __response = __rest.MakeRequest();
-
-
-            JsonValue __jsonObject = JsonValue.Parse(__response);
-
-            if (__jsonObject.Count > 0) {
-                this._preparedata(__jsonObject);
-            }
-
+            
         }
 
-        protected virtual  void _preparedata(JsonValue jObj)
+        private void button_selectNone_Click(object sender, EventArgs e)
         {
 
         }
-
-        protected virtual void _process()
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this._loaddata();
-        }
-
-        private void button_process_Click(object sender, EventArgs e)
-        {
-            this._process();
-        }
-    }
-    public enum synctablename
-    {
-        erp_expenses_list,
-        erp_bank,
-        Null
-
 
     }
+   
 }

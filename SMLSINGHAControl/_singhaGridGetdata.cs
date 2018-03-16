@@ -18,8 +18,10 @@ namespace SMLSINGHAControl
         }
         public void _build()
         {
-            this._addColumn("code", 1, 255, 25, true, false, true, false);
-            this._addColumn("name", 1, 255, 25, true, false, true, false);
+            this._addColumn("check", 11, 0, 25, true, false, false, false);
+            this._addColumn("Master Name", 1, 255, 25, true, false, true, false);
+            this._addColumn("Table Name", 1, 255, 25, true, false, true, false);
+            this._addColumn("Status", 1, 255, 25, true, false, true, false);
         }
 
         public class _priceStruct
