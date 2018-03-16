@@ -9380,7 +9380,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_project_code" _description="ชื่อโครงการ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_project_code" _description="ชื่อโครงการ" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -9410,7 +9410,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="sub_ar_shoptype5_code" _description="Sub Special Channel" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="sub_ar_shoptype5_code" _description="ช่องทางพิเศษย่อย" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

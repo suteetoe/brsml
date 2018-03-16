@@ -1904,13 +1904,13 @@
 <field name="ar_vehicle_code" thai="Vehicle" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_equipment_code" thai="Equipment" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_sub_equipment" thai="Sub Equipment" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="ar_project_code" thai="ชื่อโครงการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_project_code" thai="ชื่อโครงการ" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_shoptype1_code" thai="ค้าส่ง" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_shoptype2_code" thai="ค้าปลีก" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_shoptype3_code" thai="ห้างท้องถิ่น" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_shoptype4_code" thai="On-Premise,HORECA" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_shoptype5_code" thai="ช่องทางพิเศษ" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="sub_ar_shoptype5_code" thai="Sub Special Channel" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="sub_ar_shoptype5_code" thai="ช่องทางพิเศษย่อย" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_tier" thai="Tier" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="arm_approve_date" thai="วันที่อนุมัติ ARM Code" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="tier_0" thai="None" eng="None" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>

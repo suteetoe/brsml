@@ -558,7 +558,6 @@ namespace SMLERPControl._customer
                     this._screenTop._setDataStr(_g.d.ar_customer._tax_id, getData.Tables[0].Rows[0][_g.d.ar_customer._tax_id].ToString());
                     this._screenTop._setDataStr(_g.d.ar_customer._card_id, getData.Tables[0].Rows[0][_g.d.ar_customer._card_id].ToString());
                     this._screenTop._setDataStr(_g.d.ar_customer._branch_code, getData.Tables[0].Rows[0][_g.d.ar_customer._branch_code].ToString());
-
                     this._screenTop._setComboBox(_g.d.ar_customer._branch_type, MyLib._myGlobal._intPhase(getData.Tables[0].Rows[0][_g.d.ar_customer._tax_id].ToString()));
                 }
 

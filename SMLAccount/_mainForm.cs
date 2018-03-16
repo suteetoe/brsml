@@ -1106,6 +1106,19 @@ namespace SMLAccount
             }
         }
 
+        void _selectMenuSINGHASyncMaster(string menuName, string screenName)
+        {
+            bool __selectTabFound = _selectTab(menuName);
+            if (__selectTabFound == false)
+            {
+                Control __getControl = SMLSINGHAControl._selectMenu._getObject(menuName, screenName);
+                if (__getControl != null)
+                {
+                    _createAndSelectTab(menuName, menuName, screenName, __getControl);
+                }
+            }
+        }
+
         public override void _activeMenu(string mainMenuId, string menuName, string tag)
         {
             try
@@ -1376,6 +1389,10 @@ namespace SMLAccount
                                 else if (tag.IndexOf("&singhareport&") != -1)
                                 {
                                     _selectMenuSINGHAReport(menuName, __screenName);
+                                }
+                                else if (tag.IndexOf("&singhasyncmaster&") != -1)
+                                {
+                                    _selectMenuSINGHASyncMaster(menuName, __screenName);
                                 }
                                 else
                                 {
