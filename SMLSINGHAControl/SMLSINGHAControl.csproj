@@ -65,16 +65,11 @@
     <Compile Include="_singhaMasterTransfer.Designer.cs">
       <DependentUpon>_singhaMasterTransfer.cs</DependentUpon>
     </Compile>
-    <Compile Include="_branch_list.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="_branch_list.cs" />
     <Compile Include=".Designer.cs">
       <DependentUpon>_branch_list.cs</DependentUpon>
-      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="_transferControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="_transferControl.cs" />
     <Compile Include="_transferControl.Designer.cs">
       <DependentUpon>_transferControl.cs</DependentUpon>
     </Compile>
