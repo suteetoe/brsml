@@ -44,20 +44,6 @@ namespace SMLSINGHAControl
             this.table.Add(new synctablelist("sub_ar_shoptype5", "ช่องทางพิเศษย่อย", 14));
 
 
-            //this.table.Add(new synctablelist("erp_bank", "ธนาคาร"));
-            //this.table.Add(new synctablelist("erp_bank_branch", "สาขาธนาคาร"));
-            //this.table.Add(new synctablelist("erp_income_list", "รายได้อื่นๆ"));
-            //this.table.Add(new synctablelist("erp_expenses_list", "ค่าใช้จ่ายอื่นๆ"));
-            //this.table.Add(new synctablelist("gl_chart_of_account", "รหัสผังบัญชี"));
-            //this.table.Add(new synctablelist("ar_type", "ประเภทลูกหนี้"));
-            //this.table.Add(new synctablelist("ar_dimension", "มิติ ลูกหนี้ 1"));
-            //this.table.Add(new synctablelist("ar_project", "โครงการ"));
-            //this.table.Add(new synctablelist("ar_shoptype1", "ค้าส่ง"));
-            //this.table.Add(new synctablelist("ar_shoptype2", "ค้าปลีก"));
-            //this.table.Add(new synctablelist("ar_shoptype3", "ห้างท้องถิ่น"));
-            //this.table.Add(new synctablelist("ar_shoptype4", "On-Premise,HORECA"));
-            //this.table.Add(new synctablelist("ar_shoptype5", "ช่องทางพิเศษ"));
-            //this.table.Add(new synctablelist("sub_ar_shoptype5", "ช่องทางพิเศษย่อย"));
 
 
             foreach (synctablelist suit in table)
@@ -83,6 +69,7 @@ namespace SMLSINGHAControl
             {
                 this._transferControl1._singhaGridGetdata1._cellUpdate(row, 0, 0, true);
             }
+            this._transferControl1._singhaGridGetdata1.Invalidate();
         }
 
         private void Button_selectAll_Click(object sender, EventArgs e)
@@ -91,6 +78,7 @@ namespace SMLSINGHAControl
             {
                 this._transferControl1._singhaGridGetdata1._cellUpdate(row, 0, 1, true);
             }
+            this._transferControl1._singhaGridGetdata1.Invalidate();
         }
 
         internal void _setlog(string newLogdata)
@@ -114,18 +102,25 @@ namespace SMLSINGHAControl
             {
                 if (this._transferControl1._singhaGridGetdata1._cellGet(row, 0).ToString().Equals("1"))
                 {
+                    this._transferControl1._singhaGridGetdata1._cellUpdate(row, 3, "wait", true);
 
                     string __tableName = this._transferControl1._singhaGridGetdata1._cellGet(row, 1).ToString();
                     _processImport __process = new _processImport(__tableName);
-                     __process._process();
-                   // this._setlog(__process._setlog(""));
+                    __process._output += (str) => {
+                        this.Invoke(log, new object[] { str });
+                    };
+                    __process._process();
 
-                    this.Invoke(log, new object[] { __process._setlog("------------------------------------------------------------------------------------------------------------------------------------------------------------------") });
-
-                
-
+                     //   this.Invoke(log, new object[] { __process._setlog("------------------------------------------------------------------------------------------------------------------------------------------------------------------") });
+                  
+                    this._transferControl1._singhaGridGetdata1._cellUpdate(row, 3, "success", true);
                 }
             }
+        }
+
+        private void __process__output(string text)
+        {
+            throw new NotImplementedException();
         }
 
         private void _transferControl1_Load(object sender, EventArgs e)

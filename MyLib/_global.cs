@@ -45,11 +45,11 @@ namespace MyLib
         /// </summary>
         public static Boolean _menuAll = false;
         public static int _subVersion = 1; // 0=รุ่นปัจจุบัน,1=เก่ากว่า  (สุริวงศ์ =0 เท่านั้น)
-        /*public static int _pointForQty = 2;
-        public static int _pointForPrice = 2;
-        public static int _pointForAmount = 2;
-        public static double _vatRate = 7.0;*/
-
+                                           /*public static int _pointForQty = 2;
+                                           public static int _pointForPrice = 2;
+                                           public static int _pointForAmount = 2;
+                                           public static double _vatRate = 7.0;*/
+        public static string _syncMasterUrl = "http://dev.smlsoft.com::7400/getdb/";
         public static Boolean _save_logs = false;
         // toe
         /// <summary>

@@ -16,7 +16,7 @@ namespace SMLSINGHAControl
         MyLib._myFrameWork _myFrameWork = new MyLib._myFrameWork();
         _singhaMasterTransfer _singhaMasterTransfer = new _singhaMasterTransfer();
         JsonValue _resultObject = null;
-        protected string uri = "http://192.168.2.98:7400/getdb/";
+     //   protected string uri = "http://192.168.2.98:7400/getdb/";
         public String tableName = "";
 
 
@@ -46,7 +46,7 @@ namespace SMLSINGHAControl
 
             // string __url = __urlServerSplit[0] + "http://dev.smlsoft.com:7400/getdb/erp_expenses_list";
 
-            string __getCompanyRestUrl = uri + this.tableName; //"http://192.168.2.98:7400/getdb/erp_expenses_list";
+            string __getCompanyRestUrl = MyLib._myGlobal._syncMasterUrl + this.tableName; //"http://192.168.2.98:7400/getdb/erp_expenses_list";
             _restClient __rest = new _restClient(__getCompanyRestUrl);
             string __response = __rest.MakeRequest();
 
@@ -67,7 +67,7 @@ namespace SMLSINGHAControl
 
             if (jObj.Count > 0)
             {
-                this._setlog("Prepare " + this.tableName + " start time" + __today + Environment.NewLine);
+                this._setlog("Prepare " + this.tableName + " start time" + __today );
 
 
                 string __value_code = "";
@@ -84,15 +84,15 @@ namespace SMLSINGHAControl
                 StringBuilder __myqueryinsert = new StringBuilder();
                 __myqueryinsert.Append(MyLib._myGlobal._xmlHeader + "<node>");
 
-              
-                this._setlog("จำนวนข้อมูลของเดิมมี : " + getData.Tables[0].Rows.Count + "" + Environment.NewLine);
+
+                this._setlog("จำนวนข้อมูลของเดิมมี : " + getData.Tables[0].Rows.Count + "" );
                 for (int __row2 = 0; __row2 < getData.Tables[0].Rows.Count; __row2++)
                 {
-                   
-                    this._setlog("data value :" + getData.Tables[0].Rows[__row2]["code"].ToString() + ":" + getData.Tables[0].Rows[__row2]["name_1"].ToString() + Environment.NewLine);
+
+                    this._setlog("data value :" + getData.Tables[0].Rows[__row2]["code"].ToString() + ":" + getData.Tables[0].Rows[__row2]["name_1"].ToString() );
                 }
 
-                this._setlog("จำนวนข้อมูลของ Master มี : " + jObj.Count + "" + Environment.NewLine);
+                this._setlog("จำนวนข้อมูลของ Master มี : " + jObj.Count + "" );
                 int count = 0;
                 int count2 = 0;
                 for (int __row1 = 0; __row1 < jObj.Count; __row1++)
@@ -100,7 +100,7 @@ namespace SMLSINGHAControl
                     __value_code = jObj[__row1]["code"].ToString().Replace("\"", string.Empty);
                     __value_name = jObj[__row1]["name_1"].ToString().Replace("\"", string.Empty);
                     int checkrow = 0;
-                    this._setlog("Master value :" + __value_code + ":" + __value_name + Environment.NewLine);
+                    this._setlog("Master value :" + __value_code + ":" + __value_name );
                     if (getData.Tables.Count > 0)
                     {
 
@@ -123,16 +123,16 @@ namespace SMLSINGHAControl
 
                 }
                 __myqueryinsert.Append("</node>");
-                this._setlog("ข้อมูลที่ซ้ำกันทั้งหมด : " + count2 + "" + Environment.NewLine);
-                this._setlog("ข้อมูลที่นำเข้าทั้งหมด : " + count + "" + Environment.NewLine);
+                this._setlog("ข้อมูลที่ซ้ำกันทั้งหมด : " + count2 + "" );
+                this._setlog("ข้อมูลที่นำเข้าทั้งหมด : " + count + "" );
                 string result = _myFrameWork._queryList(MyLib._myGlobal._databaseName, __myqueryinsert.ToString());
                 if (result.Length == 0)
                 {
-                    this._setlog("Prepare " + this.tableName + " success !!" + __today + Environment.NewLine);
+                    this._setlog("Prepare " + this.tableName + " success !!" + __today );
                 }
                 else
                 {
-                    this._setlog("Prepare " + this.tableName + " error :" + result + Environment.NewLine);
+                    this._setlog("Prepare " + this.tableName + " error :" + result );
                 }
 
 
@@ -145,17 +145,20 @@ namespace SMLSINGHAControl
         }
 
         StringBuilder __mylog = new StringBuilder();
-        public string _setlog(string log)
+        public void _setlog(string log)
         {
-            __mylog.Append(log);
-            return __mylog.ToString();
+            if (_output != null) {
+                _output(log);
+            }
         }
 
         protected virtual void _process_import()
         {
-            // 
             Console.WriteLine("process Import");
         }
+
+        public delegate void _processOutput(string text);
+        public event _processOutput _output;
 
 
     }

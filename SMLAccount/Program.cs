@@ -213,7 +213,8 @@ namespace SMLAccount
                             __computerName.Equals("acer_viroon") ||
                             __computerName.Equals("somkidsml-pc") ||
                             // __computerName.Equals("suphot") ||
-                            __computerName.IndexOf("toe-pc") != -1
+                            __computerName.IndexOf("toe-pc") != -1 ||
+                            __computerName.Equals("desktop-3j5lcil")
                             // __computerName.Equals("mozart"))
                             )
                         {
@@ -229,6 +230,14 @@ namespace SMLAccount
                             }
                             MyLib._myGlobal._connectMySqlForResource = false;
 
+                            if (__computerName.Equals("desktop-3j5lcil")) {
+                                DialogResult __select = MessageBox.Show("ต้องการจะเทสของเราเอง ", "Msg", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button1);
+                                if(__select == DialogResult.Yes)
+                                {
+                                    MyLib._myGlobal._syncMasterUrl = "http://192.168.2.98:7400/getdb/";
+                                }
+                            }
+                            
                             //__autoLogin = true;
                         }
                     }
