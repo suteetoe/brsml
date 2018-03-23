@@ -517,6 +517,7 @@ namespace SMLERPConfig
                     this._addTextBox(__row++, 0, _g.d.erp_option._price_list_serial_process, 0);
 
                 }
+                this._addTextBox(__row++, 0, _g.d.erp_option._sync_master_url, 0);
             }
         }
     }
@@ -875,4 +876,5 @@ namespace SMLERPConfig
             }
         }
     }
+
 }

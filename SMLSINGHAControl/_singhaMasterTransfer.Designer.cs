@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_singhaMasterTransfer));
             this._myToolBar = new System.Windows.Forms.ToolStrip();
             this.Close_Button1 = new System.Windows.Forms.ToolStripButton();
             this._myPanel1 = new MyLib._myPanel();
@@ -54,10 +55,12 @@
             // 
             // Close_Button1
             // 
+            this.Close_Button1.Image = ((System.Drawing.Image)(resources.GetObject("Close_Button1.Image")));
             this.Close_Button1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Close_Button1.Name = "Close_Button1";
-            this.Close_Button1.Size = new System.Drawing.Size(56, 22);
+            this.Close_Button1.Size = new System.Drawing.Size(72, 22);
             this.Close_Button1.Text = "ปิดหน้าจอ";
+            this.Close_Button1.Click += new System.EventHandler(this.Close_Button1_Click);
             // 
             // _myPanel1
             // 

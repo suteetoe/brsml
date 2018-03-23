@@ -3461,6 +3461,10 @@ namespace _g
             /// ผู้รับ
             /// </summary>
             public String _arm_send_ar_change_to = "";
+            /// <summary>
+            /// sync master url 
+            /// </summary>
+            public String _sync_master_url = "";
         }
 
         //
@@ -4000,7 +4004,8 @@ namespace _g
                 + _g.d.erp_company_profile._fax_number + ","
                 + _g.d.erp_company_profile._workplace_1 + ","
                 + _g.d.erp_company_profile._branch_type + ","
-                + _g.d.erp_company_profile._branch_code
+                + _g.d.erp_company_profile._branch_code 
+                + _g.d.erp_company_profile._branch_code 
 
                 + " from " + _g.d.erp_company_profile._table;
             try
@@ -4228,6 +4233,8 @@ namespace _g
                 _companyProfile._arm_send_cancel_doc_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_cancel_doc_to].ToString();
                 _companyProfile._arm_send_cn_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_cn_to].ToString();
                 _companyProfile._arm_send_ar_change_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_ar_change_to].ToString();
+                _companyProfile._sync_master_url = __dataResult.Rows[0][_g.d.erp_option._sync_master_url].ToString();
+                MyLib._myGlobal._syncMasterUrlOption = _companyProfile._sync_master_url;
 
 
                 if (MyLib._myGlobal._programName.Equals("SML CM"))

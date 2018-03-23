@@ -42,10 +42,10 @@
             this.tab_mis = new System.Windows.Forms.TabPage();
             this._dashboardConfigScreen1 = new SMLERPConfig._dashboardConfigScreen();
             this.tab_arm = new System.Windows.Forms.TabPage();
+            this._optionSINGHAARMScreen1 = new SMLERPConfig._optionSINGHAARMScreen();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this._buttonSave = new MyLib.ToolStripMyButton();
             this._buttonClose = new MyLib.ToolStripMyButton();
-            this._optionSINGHAARMScreen1 = new SMLERPConfig._optionSINGHAARMScreen();
             this._myPanel1.SuspendLayout();
             this._myTabControl1.SuspendLayout();
             this.tab_gl.SuspendLayout();
@@ -211,6 +211,16 @@
             this.tab_arm.Text = "6.tab_arm";
             this.tab_arm.UseVisualStyleBackColor = true;
             // 
+            // _optionSINGHAARMScreen1
+            // 
+            this._optionSINGHAARMScreen1._isChange = false;
+            this._optionSINGHAARMScreen1.BackColor = System.Drawing.Color.Transparent;
+            this._optionSINGHAARMScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._optionSINGHAARMScreen1.Location = new System.Drawing.Point(0, 0);
+            this._optionSINGHAARMScreen1.Name = "_optionSINGHAARMScreen1";
+            this._optionSINGHAARMScreen1.Size = new System.Drawing.Size(706, 584);
+            this._optionSINGHAARMScreen1.TabIndex = 0;
+            // 
             // toolStrip1
             // 
             this.toolStrip1.BackgroundImage = global::SMLERPConfig.Resource16x16.bt03;
@@ -245,16 +255,6 @@
             this._buttonClose.Size = new System.Drawing.Size(74, 22);
             this._buttonClose.Text = "ปิดหน้าจอ";
             this._buttonClose.Click += new System.EventHandler(this._buttonClose_Click);
-            // 
-            // _optionSINGHAARMScreen1
-            // 
-            this._optionSINGHAARMScreen1._isChange = false;
-            this._optionSINGHAARMScreen1.BackColor = System.Drawing.Color.Transparent;
-            this._optionSINGHAARMScreen1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._optionSINGHAARMScreen1.Location = new System.Drawing.Point(0, 0);
-            this._optionSINGHAARMScreen1.Name = "_optionSINGHAARMScreen1";
-            this._optionSINGHAARMScreen1.Size = new System.Drawing.Size(706, 584);
-            this._optionSINGHAARMScreen1.TabIndex = 0;
             // 
             // _option
             // 

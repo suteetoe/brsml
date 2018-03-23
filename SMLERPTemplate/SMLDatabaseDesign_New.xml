@@ -22,6 +22,7 @@
     <anyType xsi:type="xsd:string">EDI</anyType>
     <anyType xsi:type="xsd:string">Draft</anyType>
     <anyType xsi:type="xsd:string">Utility</anyType>
+    <anyType xsi:type="xsd:string">Cloud</anyType>
   </_module>
   <_tables>
     <_tableList _moduleName="Setup" _name="erp_account_period" _description="งวดบัญชี" _descriptionEng="Account period" _version="ALL" _width="227" _height="101" _x="329" _y="10">
@@ -783,7 +784,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3813" _x="400" _y="1096" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3829" _x="400" _y="1096" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1966,6 +1967,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="pu_from_po_only" _description="ซื้อ/รับสินค้า จาก PO เท่านั้น" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sync_master_url" _description="Master Center URL" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -47007,6 +47013,18 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="data_group" _description="กลุ่มข้อมูล" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Cloud" _name="cloud_config" _description="Cloud Config" _descriptionEng="Cloud Config" _version="" _width="240" _height="37" _x="8" _y="7" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+      <_fields>
+        <_fieldList _name="schema_update" _description="Schema Update" _descriptionEng="Schema Update" _type="8" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

@@ -20,7 +20,7 @@ namespace MyLib
         public static Boolean _isDesignMode = true;
         public static List<_providerListClass> _providerList = new List<_providerListClass>();
         public static List<_printerListClass> _printerList = new List<_printerListClass>();
-        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 12, 37);
+        public static DateTime _xmlUpdate = new DateTime(2012, 5, 1, 2, 12, 39);
         public static Boolean _autoLogin = false;
         public static Boolean _useNoVat = false;
         public static string _programName = "";
@@ -50,6 +50,7 @@ namespace MyLib
                                            public static int _pointForAmount = 2;
                                            public static double _vatRate = 7.0;*/
         public static string _syncMasterUrl = "http://dev.smlsoft.com:7400/getdb/";
+        public static string _syncMasterUrlOption = "";
         public static Boolean _save_logs = false;
         // toe
         /// <summary>
