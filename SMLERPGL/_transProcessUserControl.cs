@@ -7161,12 +7161,14 @@ namespace SMLERPGL
                                                                 __debit = __total_cost;
                                                             else
                                                                 __credit = __total_cost;
+                                                            __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, __isDebit, __custCode, __custName, "");
                                                             break;
                                                         case 103:// สินค้าคงเหลือ Perpetual                                                    
                                                             if (__isDebit)
                                                                 __debit = __total_cost;
                                                             else
                                                                 __credit = __total_cost;
+                                                            __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, __isDebit, __custCode, __custName, "");
                                                             break;
                                                         default:
                                                             this._resultGrid._cellUpdate(this._resultGrid._addRow(), this._resultFieldName, __transFlagCompare.ToString() + " " + __actionCode.ToString() + " case not found code : " + __docFormatCode + " : " + __docNo + " : " + __transFlagCompare.ToString(), false);
@@ -7273,12 +7275,14 @@ namespace SMLERPGL
                                                                 __debit = __total_cost;
                                                             else
                                                                 __credit = __total_cost;
+                                                            __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, __isDebit, __custCode, __custName, "");
                                                             break;
                                                         case 103:// สินค้าคงเหลือ Perpetual                                                    
                                                             if (__isDebit)
                                                                 __debit = __total_cost;
                                                             else
                                                                 __credit = __total_cost;
+                                                            __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, __isDebit, __custCode, __custName, "");
                                                             break;
                                                         default:
                                                             this._resultGrid._cellUpdate(this._resultGrid._addRow(), this._resultFieldName, __transFlagCompare.ToString() + " " + __actionCode.ToString() + " case not found code : " + __docFormatCode + " : " + __docNo + " : " + __transFlagCompare.ToString(), false);
