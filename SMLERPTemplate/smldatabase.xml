@@ -394,6 +394,7 @@
 <field name="cn_coupon_only" thai="ใช้ระบบคูปองรับคืนสินค้า" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="lock_pu_gr" thai="ซื้อ/รับ สินค้า ไม่อนุญาติให้แก้ไข กรณีอ้างอิงใบสั่งซื้อ " eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="pu_from_po_only" thai="ซื้อ/รับสินค้า จาก PO เท่านั้น" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="sync_master_url" thai="Master Center URL" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -9834,5 +9835,8 @@
 <field name="name_6" thai="ชื่อ 6" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="status" thai="สถานะ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="data_group" thai="กลุ่มข้อมูล" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="cloud_config" thai="Cloud Config" eng="Cloud Config" xversion="" >
+<field name="schema_update" thai="Schema Update" eng="Schema Update" type="datetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 </node>

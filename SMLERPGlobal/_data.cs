@@ -1961,6 +1961,11 @@ namespace _g
             /// </summary>
             public static String _pu_from_po_only = "pu_from_po_only";
 
+            /// <summary>
+            /// Master Center URL
+            /// </summary>
+            public static String _sync_master_url = "sync_master_url";
+
         }
 
         /// <summary>
@@ -47173,6 +47178,21 @@ namespace _g
 
         }
 
+        /// <summary>
+        /// Cloud Config
+        /// </summary>
+        public class cloud_config
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "cloud_config";
+            /// <summary>
+            /// Schema Update
+            /// </summary>
+            public static String _schema_update = "schema_update";
+
+        }
 
 
 

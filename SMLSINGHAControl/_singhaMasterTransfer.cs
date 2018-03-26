@@ -42,9 +42,7 @@ namespace SMLSINGHAControl
             this.table.Add(new synctablelist("ar_shoptype4", "On-Premise,HORECA", 12));
             this.table.Add(new synctablelist("ar_shoptype5", "ช่องทางพิเศษ", 13));
             this.table.Add(new synctablelist("sub_ar_shoptype5", "ช่องทางพิเศษย่อย", 14));
-
-
-
+            this.table.Add(new synctablelist("ic_inventory", "สินค้า", 15));
 
             foreach (synctablelist suit in table)
             {
@@ -105,33 +103,43 @@ namespace SMLSINGHAControl
                     this._transferControl1._singhaGridGetdata1._cellUpdate(row, 3, "wait", true);
 
                     string __tableName = this._transferControl1._singhaGridGetdata1._cellGet(row, 1).ToString();
-                    _processImport __process = new _processImport(__tableName);
-                    __process._output += (str) => {
-                        this.Invoke(log, new object[] { str });
-                    };
-                    __process._process();
+                 
+                    if (__tableName.Equals("ic_inventory"))
+                    {
+                        _processImportInventory __processInventory = new _processImportInventory(__tableName);
+                        __processInventory._output += (str) => {
+                            this.Invoke(log, new object[] { str });
+                        };
+                        __processInventory._processInventory();
+                    }
+                    else {
+                        _processImport __process = new _processImport(__tableName);
+                        __process._output += (str) => {
+                            this.Invoke(log, new object[] { str });
+                        };
+                        __process._process();
+                    }
+                 
 
                      //   this.Invoke(log, new object[] { __process._setlog("------------------------------------------------------------------------------------------------------------------------------------------------------------------") });
                   
                     this._transferControl1._singhaGridGetdata1._cellUpdate(row, 3, "success", true);
+                    this._transferControl1._singhaGridGetdata1._cellUpdate(row, 0, 0, true);
                 }
             }
         }
 
-        private void __process__output(string text)
-        {
-            throw new NotImplementedException();
-        }
+
 
         private void _transferControl1_Load(object sender, EventArgs e)
         {
 
         }
 
-    
-
-
-
+        private void Close_Button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 
     public class synctablelist
