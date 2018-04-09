@@ -8,25 +8,28 @@ using System.Windows.Forms;
 using System.Json;
 using System.Net;
 using System.Threading;
+using MyLib;
+using System.Collections;
 
 namespace SMLSINGHAControl
 {
     public partial class _singhaMasterTransfer : UserControl
     {
         List<synctablelist> table = new List<synctablelist>();
-
+        private _fromfilterdetail __fromfilterdetail;
         delegate void _writeProcessOutput(string s);
         event _writeProcessOutput log;
         public _singhaMasterTransfer()
         {
             InitializeComponent();
             this.textBox_log.ScrollBars = ScrollBars.Both;
-
             this.log += _setlog;
-
             this._transferControl1.button_process.Click += Button_process_Click;
             this._transferControl1.button_selectAll.Click += Button_selectAll_Click;
             this._transferControl1.button_selectNone.Click += Button_selectNone_Click;
+            this._transferControl1._singhaGridGetdata1._mouseClickClip += new MyLib.ClipMouseClickHandler(_glDetailGrid__mouseClickClip);
+            this._transferControl1._singhaGridGetdata1._afterAddRow += new MyLib.AfterAddRowEventHandler(_glDetailGrid__afterAddRow);
+
 
             this.table.Add(new synctablelist("erp_bank", "ธนาคาร", 1));
             this.table.Add(new synctablelist("erp_bank_branch", "สาขาธนาคาร", 2));
@@ -43,6 +46,9 @@ namespace SMLSINGHAControl
             this.table.Add(new synctablelist("ar_shoptype5", "ช่องทางพิเศษ", 13));
             this.table.Add(new synctablelist("sub_ar_shoptype5", "ช่องทางพิเศษย่อย", 14));
             this.table.Add(new synctablelist("ic_inventory", "สินค้า", 15));
+            this.table.Add(new synctablelist("ic_unit", "หน่วยนับสินค้า", 16));
+
+
 
             foreach (synctablelist suit in table)
             {
@@ -56,10 +62,39 @@ namespace SMLSINGHAControl
             }
         }
 
-  
+        private void _buttonConfirm_Click(object sender, EventArgs e)
+        {
+            //_glDetailExtraObject __getObject = (_glDetailExtraObject)this._transferControl1._singhaGridGetdata1._cellGet(this._transferControl1._singhaGridGetdata1._selectRow,4);
+            string __tablename = this._transferControl1._singhaGridGetdata1._cellGet(this._transferControl1._singhaGridGetdata1._selectRow, "Master Name").ToString();
+            //__getObject._deteilList.Clear();
+            //__getObject._deteilList.Add(__fromfilterdetail._selectdata(__fromfilterdetail._getddata(__tablename)));
 
-     
+            JsonArray __result = new JsonArray();
+            __result.Clear();
+            __result.Add(__fromfilterdetail._selectdata(__fromfilterdetail._getddata(__tablename)));
+            this._transferControl1._singhaGridGetdata1._cellUpdate(this._transferControl1._singhaGridGetdata1._selectRow, "Filter", __result,  true);
+            __fromfilterdetail.Close();
+        }
+ 
 
+        private void _glDetailGrid__afterAddRow(object sender, int row)
+        {
+            // เพิ่ม Object เพื่อรองรับการทำงานต่อไป
+            //MyLib._myGrid __grid = (MyLib._myGrid)sender;
+            //__grid._cellUpdate(row, _g.d.gl_journal_detail._dimension, new _glDetailExtraObject(), false);
+
+        }
+    
+
+        private void _glDetailGrid__mouseClickClip(object sender, GridCellEventArgs e)
+        {
+            MyLib._myGrid __grid = (MyLib._myGrid)sender;
+            string __tablename = __grid._cellGet(e._row, "Master Name").ToString();
+            __fromfilterdetail = new _fromfilterdetail();
+            __fromfilterdetail._buttonConfirm.Click += new EventHandler(_buttonConfirm_Click);
+            __fromfilterdetail._buil(__tablename);
+            __fromfilterdetail.ShowDialog();
+        }
 
         private void Button_selectNone_Click(object sender, EventArgs e)
         {
@@ -101,26 +136,39 @@ namespace SMLSINGHAControl
                 if (this._transferControl1._singhaGridGetdata1._cellGet(row, 0).ToString().Equals("1"))
                 {
                     this._transferControl1._singhaGridGetdata1._cellUpdate(row, 3, "wait", true);
-
+                    JsonArray _getfilter = (JsonArray)this._transferControl1._singhaGridGetdata1._cellGet(row, 4);
                     string __tableName = this._transferControl1._singhaGridGetdata1._cellGet(row, 1).ToString();
-                 
+               
                     if (__tableName.Equals("ic_inventory"))
                     {
                         _processImportInventory __processInventory = new _processImportInventory(__tableName);
                         __processInventory._output += (str) => {
                             this.Invoke(log, new object[] { str });
                         };
-                        __processInventory._processInventory();
+                        if (_getfilter == null)
+                        {
+                            __processInventory._processInventory(); 
+                        }
+                        else
+                        {
+                            __processInventory._processfilterInventory(_getfilter);
+                        }
+                      
                     }
                     else {
                         _processImport __process = new _processImport(__tableName);
                         __process._output += (str) => {
                             this.Invoke(log, new object[] { str });
                         };
-                        __process._process();
+                        if (_getfilter == null)
+                        {
+                            __process._process(); 
+                        }
+                        else
+                        {
+                            __process._processfilter(_getfilter);
+                        }
                     }
-                 
-
                      //   this.Invoke(log, new object[] { __process._setlog("------------------------------------------------------------------------------------------------------------------------------------------------------------------") });
                   
                     this._transferControl1._singhaGridGetdata1._cellUpdate(row, 3, "success", true);
@@ -131,15 +179,11 @@ namespace SMLSINGHAControl
 
 
 
-        private void _transferControl1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void Close_Button1_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
+
     }
 
     public class synctablelist
@@ -154,6 +198,12 @@ namespace SMLSINGHAControl
             this.name = name;
             this.table_enum = table_enum;
         }
+    }
+
+    public class _glDetailExtraObject
+    {
+        public ArrayList _deteilList = new ArrayList();
+
     }
 
     public enum synctablename

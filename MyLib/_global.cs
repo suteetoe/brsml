@@ -50,7 +50,6 @@ namespace MyLib
                                            public static int _pointForAmount = 2;
                                            public static double _vatRate = 7.0;*/
         public static string _syncMasterUrl = "http://dev.smlsoft.com:7400/getdb/";
-        public static string _syncMasterUrlOption = "";
         public static Boolean _save_logs = false;
         // toe
         /// <summary>

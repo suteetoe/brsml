@@ -4234,7 +4234,6 @@ namespace _g
                 _companyProfile._arm_send_cn_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_cn_to].ToString();
                 _companyProfile._arm_send_ar_change_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_ar_change_to].ToString();
                 _companyProfile._sync_master_url = __dataResult.Rows[0][_g.d.erp_option._sync_master_url].ToString();
-                MyLib._myGlobal._syncMasterUrlOption = _companyProfile._sync_master_url;
 
 
                 if (MyLib._myGlobal._programName.Equals("SML CM"))

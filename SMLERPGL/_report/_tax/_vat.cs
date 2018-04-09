@@ -522,7 +522,7 @@ namespace SMLERPGL._tax
                                     if (__docType.Length > 0)
                                         __extraWhere2 += " and ";
 
-                                    __extraWhere2 += " (case when gl_journal_vat_buy.trans_flag not in (239,19) then (select branch_code from ic_trans where ic_trans.doc_no = gl_journal_vat_buy.doc_no and trans_flag = gl_journal_vat_buy.trans_flag ) else (select branch_code from ap_ar_trans where ap_ar_trans.doc_no = gl_journal_vat_buy.doc_no and ap_ar_trans.trans_flag = gl_journal_vat_buy.trans_flag ) end) in (" + _whereInPack(__branchCode) + ") ";
+                                    __extraWhere2 += " (case when gl_journal_vat_buy.trans_flag not in (239,19) then (case when gl_journal_vat_buy.trans_flag in (1999) then (select branch_code from gl_journal where gl_journal.doc_no = gl_journal_vat_buy.doc_no ) else (select branch_code from ic_trans where ic_trans.doc_no = gl_journal_vat_buy.doc_no and trans_flag = gl_journal_vat_buy.trans_flag )end ) else (select branch_code from ap_ar_trans where ap_ar_trans.doc_no = gl_journal_vat_buy.doc_no and ap_ar_trans.trans_flag = gl_journal_vat_buy.trans_flag) end) in(" + _whereInPack(__branchCode) + ") ";
                                 }
 
                                 string __vatGroup = MyLib._myUtil._genCodeList(_g.d.gl_journal_vat_buy._vat_group, this._form_condition._conditionScreenTop._getDataStr(_g.d.resource_report_vat._vat_group).ToString());

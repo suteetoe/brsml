@@ -51,6 +51,12 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_fromfilterdetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_fromfilterdetail.Designer.cs">
+      <DependentUpon>_fromfilterdetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="_processImportInventory.cs" />
     <Compile Include="_processImport.cs" />
     <Compile Include="_singhaGridGetdata.cs">
@@ -92,6 +98,9 @@
     <EmbeddedResource Include="_branch_list.resx">
       <DependentUpon>_branch_list.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_fromfilterdetail.resx">
+      <DependentUpon>_fromfilterdetail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="_singhaMasterTransfer.resx">
       <DependentUpon>_singhaMasterTransfer.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +133,12 @@
       <Project>{41b81586-3b62-4c5f-89c8-74a21a53fa96}</Project>
       <Name>SMLERPGlobal</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

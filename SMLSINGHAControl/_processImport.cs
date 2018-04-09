@@ -31,10 +31,14 @@ namespace SMLSINGHAControl
         public virtual void _process()
         {
             this._loaddata();
-
-            this._preparedata(this._resultObject);
+           // this._preparedata(this._resultObject);
             this._process_import(this._preparedata(this._resultObject));
 
+        }
+
+        public void _processfilter(JsonArray _jObj)
+        {
+            this._process_import(this._preparedata(_jObj[0]));
         }
 
         protected virtual void _loaddata()
@@ -42,9 +46,9 @@ namespace SMLSINGHAControl
             WebClient __n = new WebClient();
             string __getCompanyRestUrl = MyLib._myGlobal._syncMasterUrl + this.tableName; //http://localhost:9000/getdb/ MyLib._myGlobal._syncMasterUrl
 
-            if (MyLib._myGlobal._syncMasterUrlOption != "")
+            if (_g.g._companyProfile._sync_master_url != "")
             {
-                __getCompanyRestUrl = MyLib._myGlobal._syncMasterUrlOption + this.tableName;
+                __getCompanyRestUrl = _g.g._companyProfile._sync_master_url + this.tableName;
             }
             try
             {
@@ -94,8 +98,7 @@ namespace SMLSINGHAControl
                     ArrayList _getDatafromquery = _myFrameWork._queryListGetData(_myGlobal._databaseName, __myquery.ToString());
                     DataSet getData = (DataSet)_getDatafromquery[0];
 
-                    StringBuilder __setjson = new StringBuilder();
-                    __setjson.Append("[");
+                   
                     //this._setlog("===================== จำนวนข้อมูลของเดิมมี : " + getData.Tables[0].Rows.Count + "=====================");
                     //for (int __row2 = 0; __row2 < getData.Tables[0].Rows.Count; __row2++)
                     //{
@@ -109,8 +112,10 @@ namespace SMLSINGHAControl
                     {
                         int checkrow = 0;
                         //JsonValue __obj = jObj[__row1];
-                        __value_code = jObj[__row1]["code"].ToString().Replace("\"", string.Empty);
-                        __value_name = jObj[__row1]["name_1"].ToString().Replace("\"", string.Empty);
+                        __value_code = _checkjson(jObj[__row1]["code"]);
+                        __value_name = _checkjson(jObj[__row1]["name_1"]);
+                        //__value_code = jObj[__row1]["code"].ToString().Replace("\"", string.Empty);
+                        //__value_name = jObj[__row1]["name_1"].ToString().Replace("\"", string.Empty);
                         //this._setlog("Master value :" + __value_code + ":" + __value_name);
                         if (getData.Tables.Count > 0)
                         {
@@ -152,15 +157,24 @@ namespace SMLSINGHAControl
 
             string __value_code = "";
             string __value_name = "";
+            string __value_sub_ar_shoptype5 = "";
+            string __sub_ar_shoptype5 = "";
+
             try
             {
                 for (int __row1 = 0; __row1 < jObj.Count; __row1++)
                 {
-                    __value_code = jObj[__row1]["code"].ToString().Replace("\"", string.Empty);
-                    __value_name = jObj[__row1]["name_1"].ToString().Replace("\"", string.Empty);
+                    __value_code = _checkjson(jObj[__row1]["code"]);
+                    __value_name = _checkjson(jObj[__row1]["name_1"]);
+                    if (this.tableName.Equals("sub_ar_shoptype5")) {
+                        __sub_ar_shoptype5 = ",ar_shoptype5_code";
+                        __value_sub_ar_shoptype5 = ",'"+_checkjson(jObj[__row1]["ar_shoptype5_code"])+"'";
+                    }
+                    //__value_code = jObj[__row1]["code"].ToString().Replace("\"", string.Empty);
+                    //__value_name = jObj[__row1]["name_1"].ToString().Replace("\"", string.Empty);
                     StringBuilder __myqueryinsert = new StringBuilder();
                     __myqueryinsert.Append(MyLib._myGlobal._xmlHeader + "<node>");
-                    __myqueryinsert.Append(MyLib._myUtil._convertTextToXmlForQuery("INSERT INTO " + this.tableName + " (code, name_1) VALUES ('" + __value_code + "',' " + __value_name + "')"));
+                    __myqueryinsert.Append(MyLib._myUtil._convertTextToXmlForQuery("INSERT INTO " + this.tableName + " (code, name_1"+__sub_ar_shoptype5+") VALUES ('"+__value_code+"','"+__value_name+"'"+__value_sub_ar_shoptype5+")"));
                     __myqueryinsert.Append("</node>");
                     string result = _myFrameWork._queryList(MyLib._myGlobal._databaseName, __myqueryinsert.ToString());
                     if (result.Length == 0)
@@ -189,6 +203,16 @@ namespace SMLSINGHAControl
             {
                 _output(log);
             }
+        }
+
+        protected virtual String _checkjson(JsonValue _getvalue)
+        {
+            string _value = "";
+            if (_getvalue != null)
+            {
+                _value = _getvalue.ToString().Replace("\"", string.Empty);
+            }
+            return _value;
         }
 
         public delegate void _processOutput(string text);
