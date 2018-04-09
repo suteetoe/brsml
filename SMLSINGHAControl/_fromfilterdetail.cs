@@ -112,11 +112,17 @@ namespace SMLSINGHAControl
                 {
                     // add row to datatable;
 
-                    //__value_code = _resultObject[__row1]["code"].ToString().Replace("\"", string.Empty);
-                    //__value_name = _resultObject[__row1]["name_1"].ToString().Replace("\"", string.Empty);
+                    __value_code = _resultObject[__row1]["code"].ToString().Replace("\"", string.Empty);
+                    __value_name = _resultObject[__row1]["name_1"].ToString().Replace("\"", string.Empty);
                     //int row1 = this._singhaGridGetdata1._addRow();
                     //this._singhaGridGetdata1._cellUpdate(row1, 1, __value_code, true);
                     //this._singhaGridGetdata1._cellUpdate(row1, 2, __value_name, true);
+                    _tableFilter.Rows.Add(
+                        "0",
+                        __value_code,
+                        __value_name,
+                         _resultObject[__row1].ToString()
+                        );
                 }
 
                 this._loadDataToGrid("");
