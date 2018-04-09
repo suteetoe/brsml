@@ -14,8 +14,10 @@ namespace SMLSINGHAControl
     public partial class _fromfilterdetail : Form
     {
         string _tablename = "";
-        int _row ;
+        int _row;
         JsonValue _resultObject = null;
+        DataTable _tableFilter;
+
         public _fromfilterdetail()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace SMLSINGHAControl
             this._tablename = tablename;
             _createGrid();
             _loaddata(_tablename);
-          
+
         }
 
         public void _createGrid()
@@ -35,6 +37,45 @@ namespace SMLSINGHAControl
             this._singhaGridGetdata1._addColumn("check", 11, 0, 20, true, false, false, false);
             this._singhaGridGetdata1._addColumn("Code", 1, 255, 40, true, false, true, false);
             this._singhaGridGetdata1._addColumn("Name", 1, 255, 40, true, false, true, false);
+            this._singhaGridGetdata1._alterCellUpdate += _singhaGridGetdata1__alterCellUpdate;
+
+            _tableFilter = new DataTable();
+            _tableFilter.Columns.Add(new DataColumn("check", typeof(string)));
+            _tableFilter.Columns.Add(new DataColumn("code", typeof(string)));
+            _tableFilter.Columns.Add(new DataColumn("name", typeof(string)));
+            _tableFilter.Columns.Add(new DataColumn("json", typeof(string)));
+        }
+
+        private void _singhaGridGetdata1__alterCellUpdate(object sender, int row, int column)
+        {
+            if (row > -1 && row < this._singhaGridGetdata1._rowData.Count - 1)
+            {
+                string __checked = this._singhaGridGetdata1._cellGet(row, 0).ToString();
+                string __code = this._singhaGridGetdata1._cellGet(row, "code").ToString();
+
+                DataRow[] __row = _tableFilter.Select("code=\'" + __code + "\'");
+                if (__row.Length > 0)
+                {
+                    foreach (DataRow dataRow in __row)
+                    {
+                        dataRow["check"] = __checked;
+                    }
+                }
+            }
+        }
+
+        void _loadDataToGrid(string searchString)
+        {
+            if (searchString.Length > 0)
+            {
+                DataRow[] __rows = this._tableFilter.Select();
+                this._singhaGridGetdata1._loadFromDataTable(_tableFilter, __rows);
+            }
+            else
+            {
+                this._singhaGridGetdata1._loadFromDataTable(_tableFilter);
+            }
+
         }
 
         public void _loaddata(string _tablename)
@@ -69,20 +110,27 @@ namespace SMLSINGHAControl
                 string __value_name = "";
                 for (int __row1 = 0; __row1 < _resultObject.Count; __row1++)
                 {
-                    __value_code = _resultObject[__row1]["code"].ToString().Replace("\"", string.Empty);
-                    __value_name = _resultObject[__row1]["name_1"].ToString().Replace("\"", string.Empty);
-                    int row1 = this._singhaGridGetdata1._addRow();
-                    this._singhaGridGetdata1._cellUpdate(row1, 1, __value_code, true);
-                    this._singhaGridGetdata1._cellUpdate(row1, 2, __value_name, true);
+                    // add row to datatable;
+
+                    //__value_code = _resultObject[__row1]["code"].ToString().Replace("\"", string.Empty);
+                    //__value_name = _resultObject[__row1]["name_1"].ToString().Replace("\"", string.Empty);
+                    //int row1 = this._singhaGridGetdata1._addRow();
+                    //this._singhaGridGetdata1._cellUpdate(row1, 1, __value_code, true);
+                    //this._singhaGridGetdata1._cellUpdate(row1, 2, __value_name, true);
                 }
+
+                this._loadDataToGrid("");
             }
+
+
+            // make primary key
 
         }
 
         public virtual JsonValue _getddata(string _tablename)
         {
             WebClient __n = new WebClient();
-            string __getCompanyRestUrl = MyLib._myGlobal._syncMasterUrl + _tablename; 
+            string __getCompanyRestUrl = MyLib._myGlobal._syncMasterUrl + _tablename;
 
             if (_g.g._companyProfile._sync_master_url != "")
             {
@@ -98,7 +146,7 @@ namespace SMLSINGHAControl
                 {
                     this._resultObject = __jsonObject;
                 }
-               
+
             }
             catch (Exception __ex)
             {
