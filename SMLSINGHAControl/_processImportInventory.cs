@@ -124,7 +124,7 @@ namespace SMLSINGHAControl
                     //DataSet getData2 = (DataSet)_getDatafromquery3[0];
                     //DataSet getData3 = (DataSet)_getDatafromquery4[0];
 
-                    base._setlog("===================== จำนวนข้อมูลของ Master มี : " + jObj.Count + "=====================");
+                    base._setlog("===================== จำนวนข้อมูลของ Master มี : " + jObj.Count+1 + "=====================");
                     int count = 0;
                     int count2 = 0;
                     for (int __row1 = 0; __row1 < jObj.Count; __row1++)

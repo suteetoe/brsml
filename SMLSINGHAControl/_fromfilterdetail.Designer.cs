@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(_fromfilterdetail));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this._buttonConfirm = new MyLib.ToolStripMyButton();
             this._buttonClose = new MyLib.ToolStripMyButton();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this._TextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
+            this._button_SelectAll = new System.Windows.Forms.ToolStripButton();
+            this._button_SelectNone = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this._singhaGridGetdata1 = new SMLSINGHAControl._singhaGridGetdata();
             this.toolStrip1.SuspendLayout();
@@ -44,7 +49,11 @@
             this.toolStrip1.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this._buttonConfirm,
-            this._buttonClose});
+            this._buttonClose,
+            this.toolStripLabel1,
+            this._TextBoxSearch,
+            this._button_SelectAll,
+            this._button_SelectNone});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(789, 25);
@@ -61,7 +70,6 @@
             this._buttonConfirm.ResourceName = "";
             this._buttonConfirm.Size = new System.Drawing.Size(126, 22);
             this._buttonConfirm.Text = "ยืนยันและปิดหน้าจอ";
-            
             // 
             // _buttonClose
             // 
@@ -74,6 +82,35 @@
             this._buttonClose.Size = new System.Drawing.Size(130, 22);
             this._buttonClose.Text = "ยกเลิกและปิดหน้าจอ";
             this._buttonClose.Click += new System.EventHandler(this._buttonClose_Click);
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(35, 22);
+            this.toolStripLabel1.Text = "ค้นหา";
+            // 
+            // _TextBoxSearch
+            // 
+            this._TextBoxSearch.Name = "_TextBoxSearch";
+            this._TextBoxSearch.Size = new System.Drawing.Size(100, 25);
+            // 
+            // _button_SelectAll
+            // 
+            this._button_SelectAll.Image = ((System.Drawing.Image)(resources.GetObject("_button_SelectAll.Image")));
+            this._button_SelectAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._button_SelectAll.Name = "_button_SelectAll";
+            this._button_SelectAll.Size = new System.Drawing.Size(77, 22);
+            this._button_SelectAll.Text = "Select All";
+            this._button_SelectAll.Click += new System.EventHandler(this._button_SelectAll_Click);
+            // 
+            // _button_SelectNone
+            // 
+            this._button_SelectNone.Image = ((System.Drawing.Image)(resources.GetObject("_button_SelectNone.Image")));
+            this._button_SelectNone.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this._button_SelectNone.Name = "_button_SelectNone";
+            this._button_SelectNone.Size = new System.Drawing.Size(98, 22);
+            this._button_SelectNone.Text = "Select  None";
+            this._button_SelectNone.Click += new System.EventHandler(this._button_SelectNone_Click);
             // 
             // panel1
             // 
@@ -124,5 +161,9 @@
         private MyLib.ToolStripMyButton _buttonClose;
         private System.Windows.Forms.Panel panel1;
         private _singhaGridGetdata _singhaGridGetdata1;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripTextBox _TextBoxSearch;
+        public System.Windows.Forms.ToolStripButton _button_SelectAll;
+        public System.Windows.Forms.ToolStripButton _button_SelectNone;
     }
 }

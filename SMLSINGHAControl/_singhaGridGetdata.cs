@@ -16,6 +16,9 @@ namespace SMLSINGHAControl
         {
             this._build();
         }
+
+        public object CurrentCell { get; internal set; }
+
         public void _build()
         {
             this._addColumn("check", 11, 0, 20, true, false, false, false);

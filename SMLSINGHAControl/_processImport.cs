@@ -89,7 +89,6 @@ namespace SMLSINGHAControl
                     this._setlog("====================================================================================================================================================================================================");
 
                     string __value_code = "";
-                    string __value_name = "";
 
                     StringBuilder __myquery = new StringBuilder();
                     __myquery.Append(MyLib._myGlobal._xmlHeader + "<node>");
@@ -113,7 +112,7 @@ namespace SMLSINGHAControl
                         int checkrow = 0;
                         //JsonValue __obj = jObj[__row1];
                         __value_code = _checkjson(jObj[__row1]["code"]);
-                        __value_name = _checkjson(jObj[__row1]["name_1"]);
+                       
                         //__value_code = jObj[__row1]["code"].ToString().Replace("\"", string.Empty);
                         //__value_name = jObj[__row1]["name_1"].ToString().Replace("\"", string.Empty);
                         //this._setlog("Master value :" + __value_code + ":" + __value_name);

@@ -71,7 +71,7 @@ namespace SMLSINGHAControl
 
             JsonArray __result = new JsonArray();
             __result.Clear();
-            __result.Add(__fromfilterdetail._selectdata(__fromfilterdetail._getddata(__tablename)));
+            __result.Add(__fromfilterdetail._selectdata());
             this._transferControl1._singhaGridGetdata1._cellUpdate(this._transferControl1._singhaGridGetdata1._selectRow, "Filter", __result,  true);
             __fromfilterdetail.Close();
         }
@@ -95,6 +95,8 @@ namespace SMLSINGHAControl
             __fromfilterdetail._buil(__tablename);
             __fromfilterdetail.ShowDialog();
         }
+
+
 
         private void Button_selectNone_Click(object sender, EventArgs e)
         {

@@ -21,7 +21,19 @@ namespace SMLSINGHAControl
         public _fromfilterdetail()
         {
             InitializeComponent();
+            this._TextBoxSearch.KeyDown += TextBox1_KeyDown;
         }
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                _loadDataToGrid(this._TextBoxSearch.Text);
+            }
+        }
+
+
+
         public void _buil(string tablename)
         {
             this._tablename = tablename;
@@ -43,12 +55,12 @@ namespace SMLSINGHAControl
             _tableFilter.Columns.Add(new DataColumn("check", typeof(string)));
             _tableFilter.Columns.Add(new DataColumn("code", typeof(string)));
             _tableFilter.Columns.Add(new DataColumn("name", typeof(string)));
-            _tableFilter.Columns.Add(new DataColumn("json", typeof(string)));
+            _tableFilter.Columns.Add(new DataColumn("json", typeof(JsonValue)));
         }
 
         private void _singhaGridGetdata1__alterCellUpdate(object sender, int row, int column)
         {
-            if (row > -1 && row < this._singhaGridGetdata1._rowData.Count - 1)
+            if (row > -1 && row < this._singhaGridGetdata1._rowData.Count)
             {
                 string __checked = this._singhaGridGetdata1._cellGet(row, 0).ToString();
                 string __code = this._singhaGridGetdata1._cellGet(row, "code").ToString();
@@ -68,7 +80,8 @@ namespace SMLSINGHAControl
         {
             if (searchString.Length > 0)
             {
-                DataRow[] __rows = this._tableFilter.Select();
+                String __searchKey = " code like \'%" + searchString + "%\' or name like \'%" + searchString + "%\' ";
+                DataRow[] __rows = this._tableFilter.Select(__searchKey);
                 this._singhaGridGetdata1._loadFromDataTable(_tableFilter, __rows);
             }
             else
@@ -121,7 +134,7 @@ namespace SMLSINGHAControl
                         "0",
                         __value_code,
                         __value_name,
-                         _resultObject[__row1].ToString()
+                         _resultObject[__row1]
                         );
                 }
 
@@ -170,29 +183,38 @@ namespace SMLSINGHAControl
         }
 
 
-        public virtual JsonArray _selectdata(JsonValue _resultObject)
+        public virtual JsonArray _selectdata()
         {
             JsonArray __result = new JsonArray();
-
-            for (int row = 0; row < this._singhaGridGetdata1._rowData.Count; row++)
+            for (int row = 0; row < this._tableFilter.Rows.Count; row++)
             {
-                if (this._singhaGridGetdata1._cellGet(row, 0).ToString().Equals("1"))
+                Console.WriteLine("================================ :" + this._tableFilter.Rows[row][1].ToString()+"="+ this._tableFilter.Rows[row][0].ToString());
+                if (this._tableFilter.Rows[row][0].ToString().Equals("1"))
                 {
-                    string __code = this._singhaGridGetdata1._cellGet(row, 1).ToString();
-                    for (int __row1 = 0; __row1 < _resultObject.Count; __row1++)
-                    {
-                        string __value_code = "";
-                        __value_code = _resultObject[__row1]["code"].ToString().Replace("\"", string.Empty);
-                        if (__value_code.Equals(__code))
-                        {
-                            __result.Add(_resultObject[__row1]);
-                        }
-                    }
-
+                    JsonValue _jsondata = (JsonValue)this._tableFilter.Rows[row][3];
+                        __result.Add(_jsondata);
                 }
+
             }
             return __result;
         }
 
+        private void _button_SelectAll_Click(object sender, EventArgs e)
+        {
+            for (int row = 0; row < this._singhaGridGetdata1._rowData.Count; row++)
+            {
+                this._singhaGridGetdata1._cellUpdate(row, 0, 1, true);
+            }
+            this._singhaGridGetdata1.Invalidate();
+        }
+
+        private void _button_SelectNone_Click(object sender, EventArgs e)
+        {
+            for (int row = 0; row < this._singhaGridGetdata1._rowData.Count; row++)
+            {
+                this._singhaGridGetdata1._cellUpdate(row, 0, 0, true);
+            }
+            this._singhaGridGetdata1.Invalidate();
+        }
     }
 }
