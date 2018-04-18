@@ -21,6 +21,7 @@ namespace SMLSINGHAControl
         public _fromfilterdetail()
         {
             InitializeComponent();
+            this.label1.BackColor = Color.Transparent;
             this._TextBoxSearch.KeyDown += TextBox1_KeyDown;
         }
 
