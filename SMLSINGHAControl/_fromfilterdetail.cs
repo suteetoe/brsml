@@ -14,6 +14,7 @@ namespace SMLSINGHAControl
     public partial class _fromfilterdetail : Form
     {
         string _tablename = "";
+        string _oldText = "";
         int _row;
         JsonValue _resultObject = null;
         DataTable _tableFilter;
@@ -22,16 +23,24 @@ namespace SMLSINGHAControl
         {
             InitializeComponent();
             this.label1.BackColor = Color.Transparent;
-            this._TextBoxSearch.KeyDown += TextBox1_KeyDown;
+            //this._TextBoxSearch.KeyDown += TextBox1_KeyDown;
+            //this._TextBoxSearch.KeyPress += _TextBoxSearch_KeyPress;
         }
 
-        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                _loadDataToGrid(this._TextBoxSearch.Text);
-            }
-        }
+
+
+        //private void _TextBoxSearch_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //        _loadDataToGrid(sender.ToString());
+        //}
+
+        // private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        //{
+        //     // if (e.KeyData == Keys.Enter)
+        //     // {
+        //     _loadDataToGrid(this._TextBoxSearch.Text);
+        //     // }
+        // }
 
 
 
@@ -89,6 +98,7 @@ namespace SMLSINGHAControl
             {
                 this._singhaGridGetdata1._loadFromDataTable(_tableFilter);
             }
+            this.timer.Stop();
 
         }
 
@@ -189,11 +199,11 @@ namespace SMLSINGHAControl
             JsonArray __result = new JsonArray();
             for (int row = 0; row < this._tableFilter.Rows.Count; row++)
             {
-                Console.WriteLine("================================ :" + this._tableFilter.Rows[row][1].ToString()+"="+ this._tableFilter.Rows[row][0].ToString());
+                Console.WriteLine("================================ :" + this._tableFilter.Rows[row][1].ToString() + "=" + this._tableFilter.Rows[row][0].ToString());
                 if (this._tableFilter.Rows[row][0].ToString().Equals("1"))
                 {
                     JsonValue _jsondata = (JsonValue)this._tableFilter.Rows[row][3];
-                        __result.Add(_jsondata);
+                    __result.Add(_jsondata);
                 }
 
             }
@@ -216,6 +226,39 @@ namespace SMLSINGHAControl
                 this._singhaGridGetdata1._cellUpdate(row, 0, 0, true);
             }
             this._singhaGridGetdata1.Invalidate();
+        }
+
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            if (MyLib._myGlobal._isDesignMode == false)
+            {
+                if (_oldText.CompareTo(this._TextBoxSearch.Text) != 0)
+                {
+                    _loadDataToGrid(this._TextBoxSearch.Text);
+                }
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            const int WM_KEYDOWN = 0x100;
+            const int WM_SYSKEYDOWN = 0x104;
+
+            if ((msg.Msg == WM_KEYDOWN) || (msg.Msg == WM_SYSKEYDOWN))
+            {
+                this.timer.Stop();
+                this.timer.Start();
+                switch (keyData)
+                {
+                    case Keys.Back:
+                        if (this._TextBoxSearch.Text.Length <=1) {
+                            this._singhaGridGetdata1._loadFromDataTable(_tableFilter);
+                        }
+                        break;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

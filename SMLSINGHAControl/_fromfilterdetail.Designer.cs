@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this._TextBoxSearch = new System.Windows.Forms.TextBox();
             this._myPanel1 = new MyLib._myPanel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this._myPanel1.SuspendLayout();
@@ -168,6 +169,11 @@
             this._myPanel1.Size = new System.Drawing.Size(789, 36);
             this._myPanel1.TabIndex = 1;
             // 
+            // timer
+            // 
+            this.timer.Interval = 500;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
             // _fromfilterdetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -200,5 +206,6 @@
         private System.Windows.Forms.TextBox _TextBoxSearch;
         private System.Windows.Forms.Label label1;
         private MyLib._myPanel _myPanel1;
+        private System.Windows.Forms.Timer timer;
     }
 }
