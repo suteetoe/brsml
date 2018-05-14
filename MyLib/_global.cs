@@ -49,7 +49,7 @@ namespace MyLib
                                            public static int _pointForPrice = 2;
                                            public static int _pointForAmount = 2;
                                            public static double _vatRate = 7.0;*/
-        public static string _syncMasterUrl = "http://dev.smlsoft.com:7400/getdb/";
+        public static string _syncMasterUrl = "http://ws.brteasy.com:8080/syncmastersinghasml/getdb/"; //http://dev.smlsoft.com:7400/getdb/
         public static Boolean _save_logs = false;
         // toe
         /// <summary>
