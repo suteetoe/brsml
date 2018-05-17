@@ -4005,7 +4005,6 @@ namespace _g
                 + _g.d.erp_company_profile._workplace_1 + ","
                 + _g.d.erp_company_profile._branch_type + ","
                 + _g.d.erp_company_profile._branch_code 
-                + _g.d.erp_company_profile._branch_code 
 
                 + " from " + _g.d.erp_company_profile._table;
             try
