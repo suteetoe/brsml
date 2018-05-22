@@ -22,7 +22,7 @@ namespace SMLDataAPI
             __query.Append("(");
             __query.Append("code character varying(25),");
             __query.Append("branch_sync character varying(100),");
-            __query.Append("CONSTRAINT ar_customer_pk_code PRIMARY KEY (code, branch_sync) ");
+            __query.Append("CONSTRAINT " + this._importedTableName + "_pk_code PRIMARY KEY (code, branch_sync) ");
             __query.Append(") ");
             return __query.ToString();
 
@@ -89,20 +89,19 @@ namespace SMLDataAPI
 "create_date_time_now",
 "last_update_time",
 "guid",
-"send_success",
 "interco",
 "branch_sync"
                 ));
 
             __query.Append(" from {0} ");
-            __query.Append(" where not exists(select code from {1} where {0}.code = {1}.code and {0}.branch_sync={1}.branch_sync ) ");
+            __query.Append(" where not exists(select code from {1} where {0}.code = {1}.code and {0}.branch_sync={1}.branch_sync ) limit 100 ");
 
             return string.Format(__query.ToString(), this.tableName, this._importedTableName);
         }
 
         protected override string _processData(DataRow row)
         {
-            throw new NotImplementedException();
+            return "";
         }
 
         protected override string afterSendDataSuccess(DataRow row)

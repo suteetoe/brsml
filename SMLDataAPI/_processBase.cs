@@ -38,12 +38,16 @@ namespace SMLDataAPI
 
             string __checkTableQuery = string.Format("SELECT count(table_name) from information_schema.tables where table_name = '{0}' ", this._importedTableName);
 
-            DataTable __result = __myFrameWork._queryShort(__checkTableQuery).Tables[0];
+            DataSet __result = __myFrameWork._query(Program.dbName, __checkTableQuery);
 
-            if (__result.Rows.Count > 0 && __result.Rows[0][0].ToString() == "0" )
+            if (__result.Tables.Count == 0 || (__result.Tables[0].Rows.Count > 0 && __result.Tables[0].Rows[0][0].ToString() == "0"))
             {
                 string _script = _createTableImportCompleteScipt();
                 string __getData = __myFrameWork._queryInsertOrUpdate(Program.dbName, _script);
+                if (__getData.Length > 0)
+                {
+                    throw new Exception(__getData);
+                }
             }
         }
 
@@ -81,7 +85,7 @@ namespace SMLDataAPI
                         if (__sendResult.Length == 0)
                         {
                             // save to send_success_table
-                          afterImportSuccess(row);
+                            afterImportSuccess(row);
 
                         }
                         else
@@ -108,7 +112,11 @@ namespace SMLDataAPI
         {
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork(Program.serverURL, "SMLConfig" + Program.provider.ToUpper() + ".xml", MyLib._myGlobal._databaseType.PostgreSql);
             string __queryInsertSendSuccess = afterSendDataSuccess(row);
-            __myFrameWork._queryInsertOrUpdate(Program.dbName, __queryInsertSendSuccess);
+            string __result = __myFrameWork._queryInsertOrUpdate(Program.dbName, __queryInsertSendSuccess);
+            if (__result.Length > 0)
+            {
+                Console.WriteLine(__result);
+            }
         }
 
         protected abstract string afterSendDataSuccess(DataRow row);
@@ -116,10 +124,17 @@ namespace SMLDataAPI
 
         public DataSet _getDataSml(string queryGetData)
         {
+            try
+            {
+                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork(Program.serverURL, "SMLConfig" + Program.provider.ToUpper() + ".xml", MyLib._myGlobal._databaseType.PostgreSql);
+                DataSet __getData = __myFrameWork._queryStream(Program.dbName, queryGetData);
 
-            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork(Program.serverURL, "SMLConfig" + Program.provider.ToUpper() + ".xml", MyLib._myGlobal._databaseType.PostgreSql);
-            DataSet __getData = __myFrameWork._queryStream(Program.dbName, queryGetData);
-            return __getData;
+                return __getData;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message.ToString());
+            }
         }
 
 
