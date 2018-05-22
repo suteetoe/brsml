@@ -168,10 +168,6 @@
       <Project>{5208DB5E-2327-414A-9170-86AA6B6C0E71}</Project>
       <Name>SMLERPReport</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SMLERPSERVICECENTER\SMLERPSERVICECENTER.csproj">
-      <Project>{F07CD4DC-D4AF-420D-A1B8-8D3C4F12ECAF}</Project>
-      <Name>SMLERPSERVICECENTER</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SMLERPSOReport\SMLERPSOReport.csproj">
       <Project>{A79D2994-F2B4-4D54-9493-4CA1C036641B}</Project>
       <Name>SMLERPSOReport</Name>

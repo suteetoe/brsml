@@ -45,7 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="_arCustomer.cs" />
+    <Compile Include="data\data.cs" />
+    <Compile Include="data\_customer.cs" />
+    <Compile Include="_arCustomerProcess.cs" />
     <Compile Include="_processBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

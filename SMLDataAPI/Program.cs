@@ -20,11 +20,11 @@ namespace SMLDataAPI
             //provider = "DATACENTER";
             //dbName = "DATACENTER1".ToLower();
 
-            serverURL = "dev.smlsoft.com:8081";
-            provider = "KOWYOOHAH";
-            dbName = "KOWYOOHAH_TEST".ToLower();
+            serverURL = "ws.brteasy.com:8080";
+            provider = "BRDATACENTER";
+            dbName = "brcenter".ToLower();
 
-            _arCustomer __processAR = new _arCustomer();
+            _arCustomerProcess __processAR = new _arCustomerProcess();
             __processAR._startProcess();
         }
 
@@ -33,7 +33,7 @@ namespace SMLDataAPI
         {
             MyLib._myGlobal._databaseConfig = "SMLConfig.xml";
             MyLib._myGlobal._webServiceName = "SMLJavaWebService";
-            MyLib._myGlobal._databaseName = "KOWYOOHAH_TEST".ToLower();
+            MyLib._myGlobal._databaseName = dbName;
         }
     }
 }
