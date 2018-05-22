@@ -48,6 +48,7 @@
     <Compile Include="data\data.cs" />
     <Compile Include="data\_customer.cs" />
     <Compile Include="_arCustomerProcess.cs" />
+    <Compile Include="_customerDetailProcess.cs" />
     <Compile Include="_processBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

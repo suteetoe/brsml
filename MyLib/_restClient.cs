@@ -21,6 +21,28 @@ namespace MyLib
         public string ContentType { get; set; }
         public string PostData { get; set; }
 
+        private string _authorization = "";
+
+        public string Authorization
+        {
+            get { return this._authorization; }
+            set { this._authorization = value; }
+        }
+
+        private string _authorizationType = "Authorization";
+        public string AuthorizationType
+        {
+            get
+            {
+                return this._authorizationType;
+            }
+            set
+            {
+                this._authorizationType = value;
+            }
+        }
+               
+
         public _restClient()
         {
             EndPoint = "";
@@ -51,10 +73,20 @@ namespace MyLib
             PostData = postData;
         }
 
+        List<String> headerList = new List<string>();
+        public void _addHeaderRequest(string data)
+        {
+            headerList.Add(data);
+        }
 
         public string MakeRequest()
         {
             return MakeRequest("");
+        }
+
+        public void _setContentType(string contentType)
+        {
+            this.ContentType = contentType;
         }
 
         public string MakeRequest(string parameters)
@@ -64,6 +96,16 @@ namespace MyLib
             request.Method = Method.ToString();
             request.ContentLength = 0;
             request.ContentType = ContentType;
+
+            if (Authorization != null && Authorization.Length > 0)
+            {
+                request.Headers.Add(_authorizationType + ": " + Authorization);
+            }
+
+            foreach(string headerValue in headerList)
+            {
+                request.Headers.Add(headerValue);
+            }
 
             if (!string.IsNullOrEmpty(PostData) && Method == HttpVerb.POST)
             {

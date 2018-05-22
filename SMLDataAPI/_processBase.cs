@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -140,9 +141,32 @@ namespace SMLDataAPI
 
         private string _sendData(string data)
         {
-            // start call service api
+#if (DEBUG)
+            return "";
+#endif
+            // pack json
 
-            // if send success 
+            MyLib._restClient __rest = new _restClient(this._addDataServiceUrl, HttpVerb.POST, data);
+            __rest._setContentType("application/json");
+
+            __rest._addHeaderRequest(string.Format("APIKey: {0}", Program.APIKey));
+            __rest._addHeaderRequest(string.Format("APISecret: {0}", Program.APISecret));
+
+            string __result = __rest.MakeRequest("");
+            if (__result.Length > 0)
+            {
+#if (DEBUG)
+                Debugger.Break();
+#endif
+                return __result;
+            }
+
+            // send request to restful api
+
+            // if send success  return ""
+
+            // else return error from restful
+
             return "";
         }
 

@@ -12,6 +12,8 @@ namespace SMLDataAPI
         public static string serverURL = "";
         public static string provider = "";
         public static string dbName = "";
+        public static string APIKey = "";
+        public static string APISecret = "";
 
         static void Main()
         {
@@ -24,8 +26,11 @@ namespace SMLDataAPI
             provider = "BRDATACENTER";
             dbName = "brcenter".ToLower();
 
-            _arCustomerProcess __processAR = new _arCustomerProcess();
-            __processAR._startProcess();
+            //_arCustomerProcess __processAR = new _arCustomerProcess();
+            //__processAR._startProcess();
+
+            _customerDetailProcess __process = new _customerDetailProcess();
+            __process._startProcess();
         }
 
 
