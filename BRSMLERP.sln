@@ -221,6 +221,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSRetail", "POSRetail\POSR
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMLSINGHAControl", "SMLSINGHAControl\SMLSINGHAControl.csproj", "{4D211C6B-0CB7-4718-8567-78BEBA69C114}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMLDataAPI", "SMLDataAPI\SMLDataAPI.csproj", "{8FCBD6B7-83BC-4E18-9066-6423916DD171}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -1038,6 +1040,14 @@ Global
 		{4D211C6B-0CB7-4718-8567-78BEBA69C114}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4D211C6B-0CB7-4718-8567-78BEBA69C114}.Release|x86.ActiveCfg = Release|Any CPU
 		{4D211C6B-0CB7-4718-8567-78BEBA69C114}.Release|x86.Build.0 = Release|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Debug|x86.Build.0 = Debug|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|x86.ActiveCfg = Release|Any CPU
+		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
