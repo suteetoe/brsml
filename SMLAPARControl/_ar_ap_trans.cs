@@ -46,6 +46,7 @@ namespace SMLERPAPARControl
         private StringBuilder _logDetailOld;
 
         public string _menuName = "";
+        string _tableName = "";
 
 
         // toe
@@ -485,6 +486,13 @@ namespace SMLERPAPARControl
             if (this._withHoldingTax != null)
             {
                 this._withHoldingTax._getDueDateEventArgs += _withHoldingTax__getDueDateEventArgs;
+            }
+
+            this._tableName = _g.d.ap_ar_trans._table;
+            if (_transFlag > 80 && _transFlag < 200)
+            {
+                // กรณีพวกตั้งหนี้
+                _tableName = _g.d.ic_trans._table;
             }
         }
 
@@ -1014,6 +1022,11 @@ namespace SMLERPAPARControl
 
         bool _myManageData1__checkEditData(int row, MyLib._myGrid sender)
         {
+            return _myManageData1__checkEditData(row, sender, true);
+        }
+
+        bool _myManageData1__checkEditData(int row, MyLib._myGrid sender, bool checkCancel)
+        {
             if (MyLib._myGlobal._isUserTest)
             {
                 //return true;
@@ -1063,7 +1076,7 @@ namespace SMLERPAPARControl
             if (__usedStatusColumn2 != -1) __usedStatus2 = MyLib._myGlobal._intPhase(sender._cellGet(row, __usedStatusColumn2).ToString());
             if (__docSuccessColumn != -1) __docSuccess = MyLib._myGlobal._intPhase(sender._cellGet(row, __docSuccessColumn).ToString());
             if (__lastStatusColumn != -1) __lastStatus = MyLib._myGlobal._intPhase(sender._cellGet(row, __lastStatusColumn).ToString());
-            Boolean __result = (__usedStatus == 1 || __usedStatus2 == 1 || __docSuccess == 1 || __lastStatus == 1) ? false : true;
+            Boolean __result = (__usedStatus == 1 || __usedStatus2 == 1 || __docSuccess == 1 || (__lastStatus == 1 && checkCancel == true)) ? false : true;
             switch (this._transControlType)
             {
                 case _g.g._transControlTypeEnum.ขาย_เสนอราคา:
@@ -1073,6 +1086,26 @@ namespace SMLERPAPARControl
                     }
                     break;
             }
+
+            if (__result == true)
+            {
+                int __columnDocNo = sender._findColumnByName(this._tableName + "." + _g.d.ic_trans._doc_no);
+                if (__columnDocNo != -1)
+                {
+                    string __docNo = sender._cellGet(row, __columnDocNo).ToString();
+
+                    string __query = "select is_lock_record from " + this._tableName + " where doc_no = \'" + __docNo + "\' and trans_flag =" + this._transFlag;
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                    DataSet __lockRecordResult = __myFrameWork._queryShort(__query);
+                    if (__lockRecordResult.Tables.Count > 0 && __lockRecordResult.Tables[0].Rows.Count > 0 &&
+                        MyLib._myGlobal._intPhase(__lockRecordResult.Tables[0].Rows[0][0].ToString()) > 0)
+                    {
+                        return false;
+                    }
+                }
+
+            }
+
             return __result;
         }
 
@@ -1508,6 +1541,7 @@ namespace SMLERPAPARControl
 
             if (keyData == (Keys.Shift | Keys.F12))
             {
+                if (_myManageData1__checkEditData(this._myManageData1._dataList._gridData._selectRow, this._myManageData1._dataList._gridData, false))
                 {
                     // un cancel  doc
                     if (MyLib._myGlobal._OEMVersion.Equals("SINGHA")
@@ -1571,6 +1605,10 @@ namespace SMLERPAPARControl
                         }
                     }
                     return false;
+                }
+                else
+                {
+                    MessageBox.Show("เอกสารอ้างอิงไปแล้ว");
                 }
             }
 
@@ -2074,7 +2112,7 @@ namespace SMLERPAPARControl
 
                                 __processControl._addTransDetailData(null, true);
                                 // detail
-                               
+
                                 // pay detail
 
                                 if (this._payControl != null)

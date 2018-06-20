@@ -241,8 +241,11 @@ namespace SMLERPAPARControl._depositControl
             return __result;
 
         }
-
         bool _myManageData1__checkEditData(int row, MyLib._myGrid sender)
+        {
+            return _myManageData1__checkEditData(row, sender, true);
+        }
+        bool _myManageData1__checkEditData(int row, MyLib._myGrid sender, bool checkCancel)
         {
             int __usedStatus = 0;
             int __usedStatus2 = 0;
@@ -256,7 +259,26 @@ namespace SMLERPAPARControl._depositControl
             if (__usedStatusColumn2 != -1) __usedStatus2 = MyLib._myGlobal._intPhase(sender._cellGet(row, __usedStatusColumn2).ToString());
             if (__docSuccessColumn != -1) __docSuccess = MyLib._myGlobal._intPhase(sender._cellGet(row, __docSuccessColumn).ToString());
             if (__lastStatusColumn != -1) __lastStatus = MyLib._myGlobal._intPhase(sender._cellGet(row, __lastStatusColumn).ToString());
-            Boolean __result = (__usedStatus == 1 || __usedStatus2 == 1 || __docSuccess == 1 || __lastStatus == 1) ? false : true;
+            Boolean __result = (__usedStatus == 1 || __usedStatus2 == 1 || __docSuccess == 1 || (__lastStatus == 1 && checkCancel == true)) ? false : true;
+
+            if (__result == true)
+            {
+                int __columnDocNo = sender._findColumnByName(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_no);
+                if (__columnDocNo != -1)
+                {
+                    string __docNo = sender._cellGet(row, __columnDocNo).ToString();
+
+                    string __query = "select is_lock_record from " + _g.d.ic_trans._table + " where doc_no = \'" + __docNo + "\' and trans_flag =" + _g.g._transFlagGlobal._transFlag(this._icTransControlType).ToString();
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                    DataSet __lockRecordResult = __myFrameWork._queryShort(__query);
+                    if (__lockRecordResult.Tables.Count > 0 && __lockRecordResult.Tables[0].Rows.Count > 0 &&
+                        MyLib._myGlobal._intPhase(__lockRecordResult.Tables[0].Rows[0][0].ToString()) > 0)
+                    {
+                        return false;
+                    }
+                }
+
+            }
 
             return __result;
         }
@@ -1733,6 +1755,7 @@ namespace SMLERPAPARControl._depositControl
 
                 if (keyData == (Keys.Shift | Keys.F12))
                 {
+                    if (_myManageData1__checkEditData(this._myManageData1._dataList._gridData._selectRow, this._myManageData1._dataList._gridData, false))
                     {
                         // un cancel  doc
                         if (MyLib._myGlobal._OEMVersion.Equals("SINGHA")
@@ -1791,6 +1814,10 @@ namespace SMLERPAPARControl._depositControl
                             return true;
                         }
                         return false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("เอกสารอ้างอิงไปแล้ว");
                     }
                 }
 

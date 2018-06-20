@@ -2380,7 +2380,10 @@ namespace SMLInventoryControl
         }
 
         bool _myManageTrans__checkEditData(int row, MyLib._myGrid sender)
-
+        {
+            return _myManageTrans__checkEditData(row, sender, true);
+        }
+        bool _myManageTrans__checkEditData(int row, MyLib._myGrid sender, bool checkCancel)
         {
             if (MyLib._myGlobal._isUserTest)
             {
@@ -2415,7 +2418,7 @@ namespace SMLInventoryControl
             if (__lastStatusColumn != -1) __lastStatus = MyLib._myGlobal._intPhase(sender._cellGet(row, __lastStatusColumn).ToString());
 
 
-            Boolean __result = (__usedStatus == 1 || __usedStatus2 == 1 || __docSuccess == 1 || __lastStatus == 1) ? false : true;
+            Boolean __result = (__usedStatus == 1 || __usedStatus2 == 1 || __docSuccess == 1 || (__lastStatus == 1 && checkCancel == true)) ? false : true;
 
             switch (this._transControlType)
             {
@@ -2433,6 +2436,27 @@ namespace SMLInventoryControl
                 && (MyLib._myGlobal._OEMVersion.Equals("ims") || MyLib._myGlobal._OEMVersion.Equals("imex")))
             {
                 __result = true;//  = (MessageBox.Show("รายการนี้มีการอ้างอิงไปแล้ว ต้องการแก้ไขหรือไม่", "อ้างอิงไปแล้ว", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes) ? true : false;
+            }
+
+            // check is lock record
+
+            if (__result == true)
+            {
+                int __columnDocNo = sender._findColumnByName(this._icTransTable + "." + _g.d.ic_trans._doc_no);
+                if (__columnDocNo != -1)
+                {
+                    string __docNo = sender._cellGet(row, __columnDocNo).ToString();
+
+                    string __query = "select is_lock_record from " + this._icTransTable + " where doc_no = \'" + __docNo + "\' and trans_flag =" + this._getTransFlag;
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                    DataSet __lockRecordResult = __myFrameWork._queryShort(__query);
+                    if (__lockRecordResult.Tables.Count > 0 && __lockRecordResult.Tables[0].Rows.Count > 0 &&
+                        MyLib._myGlobal._intPhase(__lockRecordResult.Tables[0].Rows[0][0].ToString()) > 0)
+                    {
+                        return false;
+                    }
+                }
+
             }
 
             return __result;
@@ -2770,7 +2794,7 @@ namespace SMLInventoryControl
                     {
                         __pass = false;
                     }
-                        
+
                 }
 
                 if (__pass)
@@ -5495,7 +5519,7 @@ namespace SMLInventoryControl
                     }
                 }
 
-              
+
 
 
                 if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLColorStore && this._transControlType != _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด && this._transControlType != _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก && __printForm == false)
@@ -6074,6 +6098,7 @@ namespace SMLInventoryControl
 
                 if (keyData == (Keys.Shift | Keys.F12))
                 {
+                    if (_myManageTrans__checkEditData(this._myManageTrans._dataList._gridData._selectRow, this._myManageTrans._dataList._gridData, false))
                     {
                         // un cancel  doc
                         if (MyLib._myGlobal._OEMVersion.Equals("SINGHA")
@@ -6154,6 +6179,10 @@ namespace SMLInventoryControl
                             }
                         }
                         return false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("เอกสารอ้างอิงไปแล้ว");
                     }
                 }
                 /*if (keyData == Keys.F7)
