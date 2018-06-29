@@ -153,6 +153,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\password_icon.png" />
+    <None Include="Resources\password.ico" />
     <None Include="Resources\window.png" />
     <EmbeddedResource Include="seaandhill_accountpos.ico" />
     <EmbeddedResource Include="Arrow.ico" />

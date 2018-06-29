@@ -66,6 +66,7 @@
             this.menu_order_device_id = new MyLib._myImageButton();
             this.menu_food_kitchen = new MyLib._myImageButton();
             this.menu_food_config_order_device = new MyLib._myImageButton();
+            this.menu_change_password = new MyLib._myImageButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this._checkboxShowWelcomeScreen = new MyLib._myCheckBox();
             this._labelProgramName = new MyLib._myShadowLabel(this.components);
@@ -612,6 +613,7 @@
             this._beginFlowPanel.BackColor = System.Drawing.Color.Transparent;
             this._beginFlowPanel.Controls.Add(this.menu_company_profile);
             this._beginFlowPanel.Controls.Add(this.menu_setup_staff);
+            this._beginFlowPanel.Controls.Add(this.menu_change_password);
             this._beginFlowPanel.Controls.Add(this.menu_config_pos_startup);
             this._beginFlowPanel.Controls.Add(this.menu_config_pos_machine);
             this._beginFlowPanel.Controls.Add(this.menu_config_pos_screen);
@@ -691,7 +693,7 @@
             this.menu_config_pos_startup.Image = global::SMLAccount.Properties.Resources.Security;
             this.menu_config_pos_startup.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_config_pos_startup.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_config_pos_startup.Location = new System.Drawing.Point(230, 0);
+            this.menu_config_pos_startup.Location = new System.Drawing.Point(0, 90);
             this.menu_config_pos_startup.Margin = new System.Windows.Forms.Padding(0);
             this.menu_config_pos_startup.Name = "menu_config_pos_startup";
             this.menu_config_pos_startup.ResourceName = "กำหนดค่าเริ่มต้น POS";
@@ -714,7 +716,7 @@
             this.menu_config_pos_machine.Image = global::SMLAccount.Properties.Resources.server_client;
             this.menu_config_pos_machine.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_config_pos_machine.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_config_pos_machine.Location = new System.Drawing.Point(0, 90);
+            this.menu_config_pos_machine.Location = new System.Drawing.Point(115, 90);
             this.menu_config_pos_machine.Margin = new System.Windows.Forms.Padding(0);
             this.menu_config_pos_machine.Name = "menu_config_pos_machine";
             this.menu_config_pos_machine.ResourceName = "กำหนดรหัสเครื่อง POS";
@@ -737,7 +739,7 @@
             this.menu_config_pos_screen.Image = global::SMLAccount.Properties.Resources.handheld_device;
             this.menu_config_pos_screen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_config_pos_screen.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_config_pos_screen.Location = new System.Drawing.Point(115, 90);
+            this.menu_config_pos_screen.Location = new System.Drawing.Point(230, 90);
             this.menu_config_pos_screen.Margin = new System.Windows.Forms.Padding(0);
             this.menu_config_pos_screen.Name = "menu_config_pos_screen";
             this.menu_config_pos_screen.ResourceName = "กำหนดคุณสมบัติเครื่อง POS";
@@ -760,7 +762,7 @@
             this.menu_pos_point_rate.Image = global::SMLAccount.Properties.Resources.contract;
             this.menu_pos_point_rate.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_pos_point_rate.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_pos_point_rate.Location = new System.Drawing.Point(230, 90);
+            this.menu_pos_point_rate.Location = new System.Drawing.Point(0, 180);
             this.menu_pos_point_rate.Margin = new System.Windows.Forms.Padding(0);
             this.menu_pos_point_rate.Name = "menu_pos_point_rate";
             this.menu_pos_point_rate.ResourceName = "กำหนดอัตราแต้มสะสม";
@@ -783,7 +785,7 @@
             this.menu_setup_ic_unit.Image = global::SMLAccount.Properties.Resources.inventory;
             this.menu_setup_ic_unit.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_setup_ic_unit.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_setup_ic_unit.Location = new System.Drawing.Point(0, 180);
+            this.menu_setup_ic_unit.Location = new System.Drawing.Point(115, 180);
             this.menu_setup_ic_unit.Margin = new System.Windows.Forms.Padding(0);
             this.menu_setup_ic_unit.Name = "menu_setup_ic_unit";
             this.menu_setup_ic_unit.ResourceName = "กำหนดหน่วยนับ";
@@ -806,7 +808,7 @@
             this.menu_setup_ic_shelf.Image = ((System.Drawing.Image)(resources.GetObject("menu_setup_ic_shelf.Image")));
             this.menu_setup_ic_shelf.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_setup_ic_shelf.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_setup_ic_shelf.Location = new System.Drawing.Point(115, 180);
+            this.menu_setup_ic_shelf.Location = new System.Drawing.Point(230, 180);
             this.menu_setup_ic_shelf.Margin = new System.Windows.Forms.Padding(0);
             this.menu_setup_ic_shelf.Name = "menu_setup_ic_shelf";
             this.menu_setup_ic_shelf.ResourceName = "กำหนดที่เก็บสินค้า";
@@ -829,7 +831,7 @@
             this.menu_setup_ic_wh.Image = ((System.Drawing.Image)(resources.GetObject("menu_setup_ic_wh.Image")));
             this.menu_setup_ic_wh.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_setup_ic_wh.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_setup_ic_wh.Location = new System.Drawing.Point(230, 180);
+            this.menu_setup_ic_wh.Location = new System.Drawing.Point(0, 270);
             this.menu_setup_ic_wh.Margin = new System.Windows.Forms.Padding(0);
             this.menu_setup_ic_wh.Name = "menu_setup_ic_wh";
             this.menu_setup_ic_wh.ResourceName = "กำหนดคลังสินค้า";
@@ -852,7 +854,7 @@
             this.menu_food_master_table.Image = global::SMLAccount.Properties.Resources.wooden_table;
             this.menu_food_master_table.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_food_master_table.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_food_master_table.Location = new System.Drawing.Point(0, 270);
+            this.menu_food_master_table.Location = new System.Drawing.Point(115, 270);
             this.menu_food_master_table.Margin = new System.Windows.Forms.Padding(0);
             this.menu_food_master_table.Name = "menu_food_master_table";
             this.menu_food_master_table.ResourceName = "กำหนดโต๊ะ";
@@ -876,7 +878,7 @@
             this.menu_order_device_id.Image = global::SMLAccount.Properties.Resources.server_client;
             this.menu_order_device_id.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_order_device_id.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_order_device_id.Location = new System.Drawing.Point(115, 270);
+            this.menu_order_device_id.Location = new System.Drawing.Point(230, 270);
             this.menu_order_device_id.Margin = new System.Windows.Forms.Padding(0);
             this.menu_order_device_id.Name = "menu_order_device_id";
             this.menu_order_device_id.ResourceName = "กำหนดรหัสเครื่องสั่งอาหาร";
@@ -900,7 +902,7 @@
             this.menu_food_kitchen.Image = global::SMLAccount.Properties.Resources.rubberstamp;
             this.menu_food_kitchen.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_food_kitchen.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_food_kitchen.Location = new System.Drawing.Point(230, 270);
+            this.menu_food_kitchen.Location = new System.Drawing.Point(0, 360);
             this.menu_food_kitchen.Margin = new System.Windows.Forms.Padding(0);
             this.menu_food_kitchen.Name = "menu_food_kitchen";
             this.menu_food_kitchen.ResourceName = "กำหนดห้องครัว/บาร์น้ำ";
@@ -924,7 +926,7 @@
             this.menu_food_config_order_device.Image = global::SMLAccount.Properties.Resources.handheld_device;
             this.menu_food_config_order_device.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_food_config_order_device.ImageSize = new System.Drawing.Size(36, 36);
-            this.menu_food_config_order_device.Location = new System.Drawing.Point(0, 360);
+            this.menu_food_config_order_device.Location = new System.Drawing.Point(115, 360);
             this.menu_food_config_order_device.Margin = new System.Windows.Forms.Padding(0);
             this.menu_food_config_order_device.Name = "menu_food_config_order_device";
             this.menu_food_config_order_device.ResourceName = "กำหนดุณสมบัติเครื่องสั่งอาหาร";
@@ -933,6 +935,29 @@
             this.menu_food_config_order_device.Tag = "&food&&8&";
             this.menu_food_config_order_device.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.menu_food_config_order_device.Visible = false;
+            // 
+            // menu_change_password
+            // 
+            this.menu_change_password._id = "";
+            this.menu_change_password.BackColor = System.Drawing.Color.Transparent;
+            this.menu_change_password.BaseColor = System.Drawing.Color.Transparent;
+            this.menu_change_password.ButtonColor = System.Drawing.Color.Transparent;
+            this.menu_change_password.ButtonText = "เปลี่ยนรหัสผ่าน";
+            this.menu_change_password.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_change_password.ForeColor = System.Drawing.Color.Black;
+            this.menu_change_password.GlowColor = System.Drawing.Color.Transparent;
+            this.menu_change_password.HighlightColor = System.Drawing.Color.Transparent;
+            this.menu_change_password.Image = global::SMLAccount.Properties.Resources.password_icon;
+            this.menu_change_password.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.menu_change_password.ImageSize = new System.Drawing.Size(36, 36);
+            this.menu_change_password.Location = new System.Drawing.Point(230, 0);
+            this.menu_change_password.Margin = new System.Windows.Forms.Padding(0);
+            this.menu_change_password.Name = "menu_change_password";
+            this.menu_change_password.ResourceName = "เปลี่ยนรหัสผ่าน";
+            this.menu_change_password.Size = new System.Drawing.Size(115, 90);
+            this.menu_change_password.TabIndex = 17;
+            this.menu_change_password.Tag = "&1&&2&&12&&13&&3&";
+            this.menu_change_password.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel1
             // 
@@ -965,6 +990,7 @@
             this._labelProgramName.ForeColor = System.Drawing.Color.LightSkyBlue;
             this._labelProgramName.Location = new System.Drawing.Point(0, 0);
             this._labelProgramName.Name = "_labelProgramName";
+            this._labelProgramName.ResourceName = "";
             this._labelProgramName.ShadowColor = System.Drawing.Color.Black;
             this._labelProgramName.Size = new System.Drawing.Size(857, 90);
             this._labelProgramName.StartColor = System.Drawing.Color.Transparent;
@@ -1039,5 +1065,6 @@
         private MyLib._myImageButton menu_company_profile;
         private System.Windows.Forms.Panel panel1;
         private MyLib._myCheckBox _checkboxShowWelcomeScreen;
+        private MyLib._myImageButton menu_change_password;
     }
 }

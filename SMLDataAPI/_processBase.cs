@@ -87,7 +87,6 @@ namespace SMLDataAPI
                         {
                             // save to send_success_table
                             afterImportSuccess(row);
-
                         }
                         else
                         {
@@ -114,6 +113,7 @@ namespace SMLDataAPI
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork(Program.serverURL, "SMLConfig" + Program.provider.ToUpper() + ".xml", MyLib._myGlobal._databaseType.PostgreSql);
             string __queryInsertSendSuccess = afterSendDataSuccess(row);
             string __result = __myFrameWork._queryInsertOrUpdate(Program.dbName, __queryInsertSendSuccess);
+           
             if (__result.Length > 0)
             {
                 Console.WriteLine(__result);

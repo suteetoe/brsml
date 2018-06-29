@@ -16,6 +16,7 @@ namespace SMLEDIControl
                 case "menu_sos_order_interface": return (new BRInterfaceControl.SOS._singhaOnlineOrderImport());
                 case "menu_edi_flat_file": return (new _ediFlatFile());
                 case "menu_sync_data_arm": return (new BRInterfaceControl.ARM._sendDataARM());
+                case "menu_edi_receive": return (new _ediReceive());
             }
 
             return null;

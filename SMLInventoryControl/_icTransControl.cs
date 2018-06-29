@@ -1917,6 +1917,11 @@ namespace SMLInventoryControl
                     this._vatSale._checkArDetail(this._myManageTrans._mode);
 
                 }*/
+                if (name.Equals(_g.d.ic_trans._ar_code))
+                {
+                    this._icTransRef._transGrid._clear();
+                    this._icTransItemGrid._clear();
+                }
 
                 switch (this._transControlType)
                 {

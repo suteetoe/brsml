@@ -29,8 +29,30 @@ namespace SMLDataAPI
             //_arCustomerProcess __processAR = new _arCustomerProcess();
             //__processAR._startProcess();
 
-            _customerDetailProcess __process = new _customerDetailProcess();
-            __process._startProcess();
+            //_customerDetailProcess __processCustomerDetail = new _customerDetailProcess();
+            //__processCustomerDetail._startProcess();
+
+            //_apSupplierProcess __processApSupplier = new _apSupplierProcess();
+            //__processApSupplier._startProcess();
+
+            //_arSupplierDetailProcess __processArSupplierDetailProcess = new _arSupplierDetailProcess();
+            //__processArSupplierDetailProcess._startProcess();
+
+            //_icTransProcess __processIcTransProcess = new _icTransProcess();
+            //__processIcTransProcess._startProcess();
+
+            //_icTransDetailProcess __processIcTransDetailProcess = new _icTransDetailProcess();
+            //__processIcTransDetailProcess._startProcess();
+
+            //_icInventoryProcess __processIcInventoryProcess = new _icInventoryProcess();
+            //__processIcInventoryProcess._startProcess();
+
+            _icInventoryDetailProcess __processIcInventoryDetailProcess = new _icInventoryDetailProcess();
+            __processIcInventoryDetailProcess._startProcess();
+
+            //_icUnitUseProcess __processIcUnitUseProcessProcess = new _icUnitUseProcess();
+            //__processIcUnitUseProcessProcess._startProcess();
+
         }
 
 
