@@ -124,6 +124,7 @@
     <EmbeddedResource Include="_mainShortcut.resx">
       <DependentUpon>_mainShortcut.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -153,6 +154,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\password_icon.png" />
+    <None Include="Resources\password.ico" />
     <None Include="Resources\window.png" />
     <EmbeddedResource Include="seaandhill_accountpos.ico" />
     <EmbeddedResource Include="Arrow.ico" />

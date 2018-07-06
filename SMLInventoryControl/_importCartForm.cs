@@ -53,7 +53,17 @@ namespace SMLInventoryControl
             StringBuilder __myquery = new StringBuilder();
             __myquery.Append(MyLib._myGlobal._xmlHeader + "<node>");
             __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.order_cart._table + " where " + MyLib._myGlobal._addUpper(_g.d.order_cart._user_owner) + "=\'" + __saleCode.ToUpper() + "\' and " + _g.d.order_cart._cart_number + "=\'" + __cartNumber + "\'"));
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + MyLib._myGlobal._fieldAndComma("\'\' as " + _g.d.ic_trans_detail._barcode, _g.d.order_item._item_code + " as " + _g.d.ic_trans_detail._item_code, "(select " + _g.d.ic_inventory._name_1 + " from " + _g.d.ic_inventory._table + " where " + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._code + "=" + _g.d.order_item._item_code + ") as " + _g.d.ic_trans_detail._item_name, _g.d.order_item._unit_code + " as " + _g.d.ic_trans_detail._unit_code, _g.d.order_item._qty + " as " + _g.d.ic_trans_detail._qty, _g.d.order_item._price + " as " + _g.d.ic_trans_detail._price, _g.d.order_item._discount_word + " as " + _g.d.ic_trans_detail._discount, _g.d.order_item._amount + " as " + _g.d.ic_trans_detail._sum_amount, _g.d.order_item._wh_code, _g.d.order_item._shelf_code) + " from " + _g.d.order_item._table + " where " + MyLib._myGlobal._addUpper(_g.d.order_item._user_owner) + "=\'" + __saleCode.ToUpper() + "\' and " + _g.d.order_item._cart_number + "=\'" + __cartNumber + "\' order by " + _g.d.order_item._order_date + "," + _g.d.order_item._order_time));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " +
+               MyLib._myGlobal._fieldAndComma(_g.d.table_order._barcode + " as " + _g.d.ic_trans_detail._barcode,
+               _g.d.order_item._item_code + " as " + _g.d.ic_trans_detail._item_code,
+               "(select " + _g.d.ic_inventory._name_1 + " from " + _g.d.ic_inventory._table + " where " + _g.d.ic_inventory._table + "." + _g.d.ic_inventory._code + "=" + _g.d.order_item._item_code + ") as " + _g.d.ic_trans_detail._item_name,
+               _g.d.order_item._unit_code + " as " + _g.d.ic_trans_detail._unit_code,
+               _g.d.order_item._qty + " as " + _g.d.ic_trans_detail._qty, _g.d.order_item._price + " as " + _g.d.ic_trans_detail._price,
+               _g.d.order_item._discount_word + " as " + _g.d.ic_trans_detail._discount, _g.d.order_item._amount + " as " + _g.d.ic_trans_detail._sum_amount,
+               _g.d.order_item._wh_code,
+               _g.d.order_item._shelf_code) +
+               " from " + _g.d.order_item._table +
+               " where " + MyLib._myGlobal._addUpper(_g.d.order_item._user_owner) + "=\'" + __saleCode.ToUpper() + "\' and " + _g.d.order_item._cart_number + "=\'" + __cartNumber + "\' order by " + _g.d.order_item._order_date + "," + _g.d.order_item._order_time));
             __myquery.Append("</node>");
             ArrayList _getData = this._myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
             DataTable __order = ((DataSet)_getData[0]).Tables[0];

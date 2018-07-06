@@ -11,7 +11,7 @@ namespace SMLSINGHAControl
         {
             switch (menuName)
             {
-                case "menu_import_data_ singha_master": return (new SMLSINGHAControl._singhaMasterTransfer());
+                case "menu_sync_data_center": return (new SMLSINGHAControl._singhaMasterTransfer());
             }
             return null;
         }

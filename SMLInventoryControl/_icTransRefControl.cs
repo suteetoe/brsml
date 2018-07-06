@@ -46,6 +46,11 @@ namespace SMLInventoryControl
             }
         }
 
+        public void _cleardata() {
+            this._transGrid._clear();
+        }
+
+
         public _g.g._transControlTypeEnum _icTransControlType
         {
             set
@@ -1232,6 +1237,7 @@ namespace SMLInventoryControl
                 case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
                     __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ);
                     __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ);
+                    __extraWhere = " and " + _g.d.ic_trans._cust_code + "=\'" + cust_code + "\'";
                     break;
                 case _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ:
                     __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.สินค้า_ขอเบิกสินค้าวัตถุดิบ);

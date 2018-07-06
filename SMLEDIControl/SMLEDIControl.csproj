@@ -54,6 +54,9 @@
     <Reference Include="CodeVendor.Controls">
       <HintPath>..\MyLib\myDLL\CodeVendor.Controls.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net20\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SMLERPControl">
       <HintPath>..\SMLERPControl\bin\x86\Debug\SMLERPControl.dll</HintPath>
     </Reference>
@@ -66,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="_ediCpAll.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,8 +99,16 @@
     <Compile Include="_ediExternalScreenControl.Designer.cs">
       <DependentUpon>_ediExternalScreenControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="_ediLotus.cs" />
+    <Compile Include="_ediMakro.cs" />
     <Compile Include="_selectMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="_ediReceive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_ediReceive.Designer.cs">
+      <DependentUpon>_ediReceive.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -115,11 +127,18 @@
     <EmbeddedResource Include="_ediExternalScreenControl.resx">
       <DependentUpon>_ediExternalScreenControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="_ediReceive.resx">
+      <DependentUpon>_ediReceive.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BRInterfaceControl\BRInterfaceControl.csproj">
       <Project>{bc8ac259-2673-4c2a-bff2-8d4b3a55c659}</Project>
       <Name>BRInterfaceControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\JsonLib\JsonLib.csproj">
+      <Project>{04D535B4-9302-4247-B65C-F1D2D4C05752}</Project>
+      <Name>JsonLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\MyDock\MyDock.csproj">
       <Project>{089F2363-649B-4655-B1FA-A7EBD982D73A}</Project>
@@ -139,6 +158,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Resources\disk_blue.png" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +185,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\flash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\preferences1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="delete2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="error.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

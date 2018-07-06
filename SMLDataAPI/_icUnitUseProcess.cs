@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace SMLDataAPI
 {
-    public class _arCustomerProcess : _processBase
+    public class _icUnitUseProcess : _processBase
     {
-        public _arCustomerProcess()
+
+        public _icUnitUseProcess()
         {
-            this.tableName = "ar_customer";
+            this.tableName = "ic_unit_use";
         }
 
         protected override string _createTableImportCompleteScipt()
@@ -34,63 +34,22 @@ namespace SMLDataAPI
             __query.Append(" select ");
 
             __query.Append(MyLib._myGlobal._fieldAndComma(
-                "ignore_sync",
-"is_lock_record",
-"roworder",
-"code",
-"code_old",
-"name_1",
-"name_2",
-"name_eng_1",
-"name_eng_2",
-"address",
-"address_eng",
-"tambon",
-"amper",
-"province",
-"zip_code",
-"telephone",
-"fax",
-"email",
-"website",
-"description",
-"birth_day",
-"ar_type",
-"remark",
-"status",
-"guid_code",
-"ar_status",
-"doc_format_code",
-"prefixname",
-"first_name",
-"last_name",
-"price_level",
-"point_balance",
-"sale_shift_id",
-"sms_phonenumber",
-"home_address",
-"home_name",
-"moo",
-"soi",
-"road",
-"room_no",
-"floor",
-"building",
-"sex",
-"country",
-"register_date",
-"arm_code",
-"ar_code_main",
-"ar_branch_code",
-"arm_approve",
-"arm_approve_date",
-"nfc_id",
-"arm_tier",
-"create_date_time_now",
-"last_update_time",
-"guid",
-"interco",
-"branch_sync"
+       "ignore_sync",
+        "is_lock_record",
+        "roworder",
+        "code",
+        "line_number",
+        "stand_value",
+        "divide_value",
+        "ratio",
+        "row_order",
+        "width_length_height",
+        "ic_code",
+        "remark",
+        "weight",
+        "status",
+        "create_date_time_now",
+        "branch_sync"
                 ));
 
             __query.Append(" from {0} ");
@@ -101,8 +60,8 @@ namespace SMLDataAPI
 
         protected override string _processData(DataRow row)
         {
-            ar_customer _ar_customer = new ar_customer(row);
-            return _ar_customer._getJson();
+            ic_unit_use _ic_unit_use = new ic_unit_use(row);
+            return _ic_unit_use._getJson();
         }
 
         protected override string afterSendDataSuccess(DataRow row)
@@ -112,3 +71,4 @@ namespace SMLDataAPI
         }
     }
 }
+

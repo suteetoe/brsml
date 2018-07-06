@@ -839,7 +839,7 @@ namespace SMLInventoryControl
                     this._addComboBox(__row++, 1, _g.d.ic_trans._vat_type, true, _g.g._vatType, true);
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 1, 1, true, false, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
-         
+
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._tax_doc_date, 1, true, true, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._tax_doc_no, 1, 1, 0, true, false, true);
                     break;
@@ -1623,6 +1623,7 @@ namespace SMLInventoryControl
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_time, 1, 1, 0, true, false, false);
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._doc_no, 1, 1, 1, true, false, false);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 0, true, false, true);
+                    this._addTextBox(__row++, 0, 1, 0, _g.d.ic_trans._cust_code, 2, 1, 4, true, false, true, true, true, _g.d.ic_trans._ar_code);
                     this._addDateBox(__row, 0, 1, 0, _g.d.ic_trans._doc_ref_date, 1, true, true);
                     this._addTextBox(__row++, 1, 1, 0, _g.d.ic_trans._doc_ref, 1, 1, 0, true, false, true);
                     this._addTextBox(__row, 0, 1, 0, _g.d.ic_trans._wh_from, 1, 1, 1, true, false, true);
@@ -2028,6 +2029,7 @@ namespace SMLInventoryControl
 
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
             MyLib._myTextBox __getControl = (MyLib._myTextBox)((Control)sender).Parent;
+     
             if (name.Equals(_g.d.ic_trans._tax_doc_no))
             {
                 // ตรวจสอบใบกำกับภาษีห้ามซ้ำ

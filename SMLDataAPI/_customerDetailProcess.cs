@@ -138,27 +138,9 @@ namespace SMLDataAPI
         protected override string _processData(DataRow row)
         {
 
-            /*
-            "{
- ""code"" : """",
- ""name_1"" : """",
- ""tambon"" : """",
- ""amper"" : """",
- ""province "": """",
- ""ar_type"" : """",
- ""status"" : """",
- ""ar_status"" : """",
- ""price_level"" : """",
- ""point_balance"" : """",
- ""create_date_time_now"" : """",
-  < optional fields > : """",
-  < optional fields > : ""
-}"
-
-             */
-            // pack json query
-
-            return "";
+            ar_customer_detail _ar_customer_detail = new ar_customer_detail(row);  
+            return _ar_customer_detail._getJson();
+          
         }
     }
 }
