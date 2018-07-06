@@ -343,8 +343,12 @@ namespace SMLSINGHAControl
                             string __value_unitUse_standvalue = "";
                             string __value_unitUse_dividevalue = "";
                             string __value_unitUse_roworder1 = "";
-                           
-                                this._setlog("INSERT ic_unit_use ic_inventory.code ="+__value_code + "  start !!");
+
+                            string __value_unitUse_ratio = "";
+                            string __value_unitUse_width_length_height = "";
+                            string __value_unitUse_weight = "";
+
+                            this._setlog("INSERT ic_unit_use ic_inventory.code ="+__value_code + "  start !!");
                                 for (int __unitUserow1 = 0; __unitUserow1 < __objunitUse2.Count; __unitUserow1++)
                                 {
 
@@ -354,9 +358,13 @@ namespace SMLSINGHAControl
                                     __value_unitUse_dividevalue = base._checkjson(__objunitUse2[__unitUserow1]["dividevalue"]);
                                     __value_unitUse_roworder1 = base._checkjson(__objunitUse2[__unitUserow1]["roworder1"]);
 
-                                    StringBuilder __myqueryinsertunitUse = new StringBuilder();
+                                    __value_unitUse_ratio = base._checkjson(__objunitUse2[__unitUserow1]["ratio"]);
+                                    __value_unitUse_width_length_height = base._checkjson(__objunitUse2[__unitUserow1]["width_length_height"]);
+                                    __value_unitUse_weight = base._checkjson(__objunitUse2[__unitUserow1]["weight"]);
+                                  
+                                StringBuilder __myqueryinsertunitUse = new StringBuilder();
                                     __myqueryinsertunitUse.Append(MyLib._myGlobal._xmlHeader + "<node>");
-                                    __myqueryinsertunitUse.Append(MyLib._myUtil._convertTextToXmlForQuery("INSERT INTO ic_unit_use (code, ic_code, stand_value,divide_value,row_order) VALUES ('"+__value_unitUse_code+"','"+__value_unitUse_ic_code+"',"+__value_unitUse_standvalue+","+__value_unitUse_dividevalue+","+__value_unitUse_roworder1+")"));
+                                    __myqueryinsertunitUse.Append(MyLib._myUtil._convertTextToXmlForQuery("INSERT INTO ic_unit_use (code, ic_code, stand_value,divide_value,row_order,ratio,width_length_height,weight) VALUES ('" + __value_unitUse_code+"','"+__value_unitUse_ic_code+"',"+__value_unitUse_standvalue+","+__value_unitUse_dividevalue+","+__value_unitUse_roworder1+","+__value_unitUse_ratio+",'"+__value_unitUse_width_length_height+"','"+__value_unitUse_weight+"')"));
                                     __myqueryinsertunitUse.Append("</node>");
                                     string resultunitUse = _myFrameWork._queryList(MyLib._myGlobal._databaseName, __myqueryinsertunitUse.ToString());
                                     if (resultunitUse.Length == 0)

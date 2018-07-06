@@ -5660,6 +5660,7 @@ namespace SMLInventoryControl
                                     {
                                         string __barCode = __cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._barcode).ToString();
                                         string __itemCode = __cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._item_code).ToString();
+                                        string __itemName = __cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._item_name).ToString();
                                         string __unitCode = __cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._unit_code).ToString();
                                         decimal __qty = MyLib._myGlobal._decimalPhase(__cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._qty).ToString());
                                         decimal __price = MyLib._myGlobal._decimalPhase(__cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._price).ToString());
@@ -5669,8 +5670,21 @@ namespace SMLInventoryControl
                                         string __shelf_code = __cart._itemGrid._cellGet(__row, _g.d.ic_trans_detail._shelf_code).ToString();
                                         //
                                         int __line = this._icTransItemGrid._addRow();
-                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._item_code, __itemCode, true);
-                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._unit_code, __unitCode, true);
+                                        if (__barCode.Length > 0)
+                                        {
+                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._barcode, __barCode, false);
+                                        }
+
+                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._item_code, __itemCode, false);
+                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._item_name, __itemName, false);
+                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._unit_code, __unitCode, false);
+
+                                        if (__wh_code != "")
+                                        {
+                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._wh_code, __wh_code, false);
+                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._shelf_code, __shelf_code, false);
+
+                                        }
 
                                         // กรณี ไม่ได้ set ราคา ให้หาราคา auto เลย
                                         if (__price == 0)
@@ -5680,21 +5694,19 @@ namespace SMLInventoryControl
                                         else
                                         {
                                             this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._qty, __qty, false);
-                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._price, __price, true);
+                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._price, __price, false);
                                         }
-                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._discount, __discountWord, true);
 
-                                        if (__wh_code != "")
-                                        {
-                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._wh_code, __wh_code, true);
-                                            this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._shelf_code, __shelf_code, true);
 
-                                        }
+                                        this._icTransItemGrid._cellUpdate(__line, _g.d.ic_trans_detail._discount, __discountWord, false);
+                                        this._icTransItemGrid._calcItemPrice(__line, __line, this._icTransItemGrid._findColumnByName(_g.d.ic_trans_detail._discount));
 
                                         this._isImportFromCart = true;
                                         this._importCartNumber = __cart._selectCartNumber;
                                     }
+                                    this._icTransItemGrid.Invalidate();
                                     this._icTransItemGrid._searchUnitNameWareHouseNameShelfNameAll();
+                                    this._icTransItemGrid__reCalc();
                                     __cart.Dispose();
                                 };
                                 __cart.ShowDialog();
