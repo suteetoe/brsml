@@ -30,7 +30,7 @@ namespace SMLEDIControl
             this._docGrid._addColumn("select", 11, 10, 10);
             this._docGrid._isEdit = false;
             this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 90);
-            this._docGrid._addColumn("data", 12, 0, 0, false,true);
+            this._docGrid._addColumn("data", 12, 0, 0, false, true);
             this._docGrid.WidthByPersent = true;
             this._docGrid._calcPersentWidthToScatter();
             this._docGrid._mouseClick += _docGrid__mouseClick;
@@ -98,7 +98,7 @@ namespace SMLEDIControl
                         JsonValue __lastResulValue = null;
                         for (int __row1 = 0; __row1 < __resultObject.Count; __row1++)
                         {
-                            transdata __transdata = new transdata(__resultObject[__row1].ToString());
+                            transdata __transdata = transdata.Parse(__resultObject[__row1].ToString());
                             __lastResulValue = __transdata._getJson();
                             string __BILLINGDOCNO = __lastResulValue["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
                             int __rowAdd = this._docGrid._addRow();
@@ -107,7 +107,7 @@ namespace SMLEDIControl
                             this._docGrid._cellUpdate(__rowAdd, "data", __lastResulValue, true);
                         }
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -184,7 +184,7 @@ namespace SMLEDIControl
         }
     }
 
-    class transdata 
+    class transdata
     {
         public string Agentcode { get; set; }
         public string BILLINGDOCNO { get; set; }
@@ -212,44 +212,55 @@ namespace SMLEDIControl
         public string discount_word { get; set; }
         public string PAYMENTTERM_CAL { get; set; }
 
-        public transdata(string json)
+        public transdata()
         {
-
-            if (json != null)
-            {
-                transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
-                this.Agentcode = _transdata.Agentcode;
-                this.BILLINGDOCNO = _transdata.BILLINGDOCNO;
-                this.doc_no = _transdata.doc_no;
-                this.doc_format_code = _transdata.doc_format_code;
-                this.doc_date = _transdata.doc_date;
-                this.doc_time = _transdata.doc_time;
-                this.ap_code = _transdata.ap_code;
-                this.tax_doc_date = _transdata.tax_doc_date;
-                this.tax_doc_no = _transdata.tax_doc_no;
-                this.vat_rate = _transdata.vat_rate;
-                this.total_value = _transdata.total_value;
-                this.total_discount = _transdata.total_discount;
-                this.total_before_vat = _transdata.total_before_vat;
-                this.total_vat_value = _transdata.total_vat_value;
-                this.total_except_vat = _transdata.total_except_vat;
-                this.total_after_vat = _transdata.total_after_vat;
-                this.total_amount = _transdata.total_amount;
-                this.details = _transdata.details;
-                this.wh_from = _transdata.wh_from;
-                this.location_from = _transdata.location_from;
-                this.credit_day = _transdata.credit_day;
-                this.credit_date = _transdata.credit_date;
-                this.remark = _transdata.remark;
-                this.discount_word = _transdata.discount_word;
-                this.PAYMENTTERM_CAL = _transdata.PAYMENTTERM_CAL;
-            }
+            //if (json != null)
+            //{
+            //    transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
+            //    this.Agentcode = _transdata.Agentcode;
+            //    this.BILLINGDOCNO = _transdata.BILLINGDOCNO;
+            //    this.doc_no = _transdata.doc_no;
+            //    this.doc_format_code = _transdata.doc_format_code;
+            //    this.doc_date = _transdata.doc_date;
+            //    this.doc_time = _transdata.doc_time;
+            //    this.ap_code = _transdata.ap_code;
+            //    this.tax_doc_date = _transdata.tax_doc_date;
+            //    this.tax_doc_no = _transdata.tax_doc_no;
+            //    this.vat_rate = _transdata.vat_rate;
+            //    this.total_value = _transdata.total_value;
+            //    this.total_discount = _transdata.total_discount;
+            //    this.total_before_vat = _transdata.total_before_vat;
+            //    this.total_vat_value = _transdata.total_vat_value;
+            //    this.total_except_vat = _transdata.total_except_vat;
+            //    this.total_after_vat = _transdata.total_after_vat;
+            //    this.total_amount = _transdata.total_amount;
+            //    this.details = _transdata.details;
+            //    this.wh_from = _transdata.wh_from;
+            //    this.location_from = _transdata.location_from;
+            //    this.credit_day = _transdata.credit_day;
+            //    this.credit_date = _transdata.credit_date;
+            //    this.remark = _transdata.remark;
+            //    this.discount_word = _transdata.discount_word;
+            //    this.PAYMENTTERM_CAL = _transdata.PAYMENTTERM_CAL;
+            //}
         }
+
         public JsonValue _getJson()
         {
             string json = JsonConvert.SerializeObject(this, Formatting.Indented);
             JsonValue __resultObject = JsonValue.Parse(json);
             return __resultObject;
+        }
+
+        public static transdata Parse(string json)
+        {
+            if (json != null)
+            {
+                transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
+                return _transdata;
+
+            }
+            return null;
         }
     }
 }
