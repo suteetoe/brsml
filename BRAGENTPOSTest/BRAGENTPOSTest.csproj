@@ -25,19 +25,11 @@
     <InstallUrl>http://www.smlsoft.com/bragentpostest/</InstallUrl>
     <ProductName>BR Agent POS Test</ProductName>
     <PublisherName>SMLSoft</PublisherName>
-<<<<<<< HEAD
-    <MinimumRequiredVersion>1.0.0.320</MinimumRequiredVersion>
-    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
-    <WebPage>index.html</WebPage>
-    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>321</ApplicationRevision>
-=======
     <MinimumRequiredVersion>1.0.0.321</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>322</ApplicationRevision>
->>>>>>> EDI
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
