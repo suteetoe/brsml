@@ -44,6 +44,7 @@ namespace SMLERPGL
             this._resultGrid._clear();
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
             string __errorMessage = "พบข้อผิดพลาด";
+            #region เอกสารข้อมูลรายวันที่ไม่กำหนดประเภทเอกสาร         
             {
                 // เอกสารข้อมูลรายวันที่ไม่กำหนดประเภทเอกสาร
                 int __row = this._resultGrid._addRow();
@@ -65,16 +66,22 @@ namespace SMLERPGL
                 }
                 this._resultGrid.Invalidate();
             }
+            #endregion
+
             {
+                #region ตรวจสอบ Journal Type ใน sub ถ้าไม่ตรงก็ update ให้ตรงกับหัว
                 // ตรวจสอบ Journal Type ใน sub ถ้าไม่ตรงก็ update ให้ตรงกับหัว
                 StringBuilder __myQuery = new StringBuilder();
+
                 __myQuery.Append(MyLib._myGlobal._xmlHeader + "<node>");
                 __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.gl_journal_detail._table + " set " + _g.d.gl_journal_detail._journal_type + "=(select " + _g.d.gl_journal._journal_type + " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_date + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_date + " and " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + " and " + _g.d.gl_journal._table + "." + _g.d.gl_journal._book_code + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._book_code + ") where " + _g.d.gl_journal_detail._journal_type + "<>(select " + _g.d.gl_journal._journal_type + " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_date + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_date + " and " + _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + " and " + _g.d.gl_journal._table + "." + _g.d.gl_journal._book_code + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._book_code + ")"));
                 __myQuery.Append("</node>");
                 string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __myQuery.ToString());
                 // 
-                // ตรวจสอบรายวันย่อยที่ไม่มีผังบัญชี
                 int __row = this._resultGrid._addRow();
+                #endregion
+                #region ตรวจสอบรายวันย่อยที่ไม่มีผังบัญชี
+                // ตรวจสอบรายวันย่อยที่ไม่มีผังบัญชี
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบรายวันย่อยที่ไม่มีผังบัญชี", false);
                 this._resultGrid.Invalidate();
                 string __query = "select " + _g.d.gl_journal_detail._doc_date + "," + _g.d.gl_journal_detail._doc_no + "," + _g.d.gl_journal_detail._book_code + "," + _g.d.gl_journal_detail._account_code + " from " + _g.d.gl_journal_detail._table + " where " + _g.d.gl_journal_detail._account_code + " not in (select distinct " + _g.d.gl_chart_of_account._code + " from " + _g.d.gl_chart_of_account._table + ")";
@@ -91,6 +98,8 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("วันที่: {0} เลขที่เอกสาร: {1} สมุดรายวัน: {2} รหัสผังบัญชีที่ไม่พบ: {3}", __getData.Rows[__loop].ItemArray[0], __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2], __getData.Rows[__loop].ItemArray[3]), false);
                 }
                 this._resultGrid.Invalidate();
+                #endregion
+                #region ตรวจสอบรายวันย่อยที่มีผังบัญชีเป็นบัญชีหลัก
                 // ตรวจสอบรายวันย่อยที่มีผังบัญชีเป็นบัญชีหลัก
                 __row = this._resultGrid._addRow();
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบรายวันย่อยที่ใช้ผังบัญชีหลัก", false);
@@ -109,6 +118,8 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("วันที่: {0} เลขที่เอกสาร: {1} สมุดรายวัน: {2} รหัสผังบัญชี: {3}", __getData.Rows[__loop].ItemArray[0], __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2], __getData.Rows[__loop].ItemArray[3]), false);
                 }
                 this._resultGrid.Invalidate();
+                #endregion
+                #region ตรวจสอบรายวันที่ยอดเดบิตกับเครดิตไม่เท่ากัน
                 // ตรวจสอบรายวันที่ยอดเดบิตกับเครดิตไม่เท่ากัน
                 __row = this._resultGrid._addRow();
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบรายวันที่ยอดเดบิตกับเครดิตไม่เท่ากัน", false);
@@ -128,6 +139,8 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("วันที่: {0} เลขที่เอกสาร: {1} สมุดรายวัน: {2}", __getData.Rows[__loop].ItemArray[0], __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2]), false);
                 }
                 this._resultGrid.Invalidate();
+                #endregion
+                #region ตรวจสอบรายวันไม่มีหัวเอกสาร
                 // ตรวจสอบรายวันไม่มีหัวเอกสาร
                 __row = this._resultGrid._addRow();
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบรายวันที่ไม่พบหัวเอกสาร", false);
@@ -146,6 +159,8 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("วันที่: {0} เลขที่เอกสาร: {1} สมุดรายวัน: {2}", __getData.Rows[__loop].ItemArray[0], __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2]), false);
                 }
                 this._resultGrid.Invalidate();
+                #endregion
+                #region ตรวจสอบรายวันไม่มีสมุดรายวัน
                 // ตรวจสอบรายวันไม่มีสมุดรายวัน
                 __row = this._resultGrid._addRow();
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบรายวันที่ไม่พบสมุดรายวัน", false);
@@ -164,11 +179,13 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("วันที่: {0} เลขที่เอกสาร: {1} สมุดรายวัน: {2}", __getData.Rows[__loop].ItemArray[0], __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2]), false);
                 }
                 this._resultGrid.Invalidate();
+                #endregion
+                #region ตรวจสอบเอกสารที่ยังไม่โอนไปยังแยกประเภท
                 // ตรวจสอบเอกสารที่ยังไม่โอนไปยังแยกประเภท
                 __row = this._resultGrid._addRow();
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบเอกสารที่ยังไม่โอนไปยังแยกประเภท (ic_trans)", false);
                 this._resultGrid.Invalidate();
-                _g.g._transControlTypeEnum[] __transFlagList1 = { 
+                _g.g._transControlTypeEnum[] __transFlagList1 = {
                         _g.g._transControlTypeEnum.เงินสดธนาคาร_บัตรเครดิต_ผ่าน,
                         _g.g._transControlTypeEnum.เงินสดธนาคาร_บัตรเครดิต_ยกเลิก,
                         _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_ผ่าน,
@@ -253,7 +270,7 @@ namespace SMLERPGL
                         _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป,
                         _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป_ยกเลิก,
                         _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก,
-                        _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก_ยกเลิก                                                               
+                        _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก_ยกเลิก
                                                                 };
                 StringBuilder __transFlagStr1 = new StringBuilder();
                 for (int __type = 0; __type < __transFlagList1.Length; __type++)
@@ -264,11 +281,11 @@ namespace SMLERPGL
                     }
                     __transFlagStr1.Append(_g.g._transFlagGlobal._transFlag(__transFlagList1[__type]).ToString());
                 }
-                __query = "select " + _g.d.ic_trans._trans_flag + "," + _g.d.ic_trans._doc_date + "," + _g.d.ic_trans._doc_no + "," + _g.d.gl_journal._doc_format_code + 
-                    " from " + _g.d.ic_trans._table + 
+                __query = "select " + _g.d.ic_trans._trans_flag + "," + _g.d.ic_trans._doc_date + "," + _g.d.ic_trans._doc_no + "," + _g.d.gl_journal._doc_format_code +
+                    " from " + _g.d.ic_trans._table +
                     " where " + _g.d.ic_trans._trans_flag + " in (" + __transFlagStr1.ToString() + ") and coalesce(is_cancel, 0) = 0 " +
                     //" and " + _g.d.gl_journal._doc_no + " not in (select distinct " + _g.d.gl_journal._doc_no + " from " + _g.d.gl_journal._table + ")" ; // toe add cancel doc
-                    " and not exists (select distinct doc_no from gl_journal where gl_journal.doc_no = ic_trans.doc_no) " + 
+                    " and not exists (select distinct doc_no from gl_journal where gl_journal.doc_no = ic_trans.doc_no) " +
                     " and not exists (select distinct doc_no from gl_journal where (gl_journal.doc_no) = ic_trans.doc_no || '*' ) ";
                 if (this._all.MyCheckBox.Checked == false)
                 {
@@ -289,6 +306,8 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("เลขที่เอกสาร: {2} ประเภท: {0} วันที่: {1} รหัสเอกสาร: {3}", _g.g._transFlagGlobal._transName((int)MyLib._myGlobal._decimalPhase(__getData.Rows[__loop].ItemArray[0].ToString())), __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2], __getData.Rows[__loop].ItemArray[3]), false);
                 }
                 this._resultGrid.Invalidate();
+                #endregion
+
                 /*__row = this._resultGrid._addRow();
                 this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_name, "ตรวจสอบเอกสารที่ยังไม่โอนไปยังแยกประเภท (cb_trans)", false);
                 this._resultGrid.Invalidate();
@@ -322,6 +341,9 @@ namespace SMLERPGL
                     this._resultGrid._cellUpdate(__row, _g.d.gl_resource._check_desc, string.Format("ประเภท: {0} วันที่: {1} เลขที่เอกสาร: {2} รหัสเอกสาร: {3}", _g.g._transFlagGlobal._transName((int)MyLib._myGlobal._decimalPhase(__getData.Rows[__loop].ItemArray[0].ToString())), __getData.Rows[__loop].ItemArray[1], __getData.Rows[__loop].ItemArray[2], __getData.Rows[__loop].ItemArray[3]), false);
                 }
                 this._resultGrid.Invalidate();*/
+                #region ตรวจสอบรายวันไม่ลงบัญชีสินค้ารายตัว
+
+                #endregion
             }
         }
     }
