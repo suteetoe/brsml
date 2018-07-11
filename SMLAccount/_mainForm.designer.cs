@@ -1771,7 +1771,8 @@
             System.Windows.Forms.TreeNode treeNode886 = new System.Windows.Forms.TreeNode("ยอดขายสินค้า ตามพื้นที่");
             System.Windows.Forms.TreeNode treeNode887 = new System.Windows.Forms.TreeNode("รายงานยอดขายรายเดือนตามกลุ่มผลิตภัณฑ์/เทียบปี");
             System.Windows.Forms.TreeNode treeNode888 = new System.Windows.Forms.TreeNode("สรุปรายละเอียดการขาย/เก็บเงิน รายบิล ตามระยะเวลาเครดิต");
-            System.Windows.Forms.TreeNode treeNode889 = new System.Windows.Forms.TreeNode("ขาย", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode889 = new System.Windows.Forms.TreeNode("สรุปยอดขายลูกค้า วิเคราะห์ตามสินค้า (ARM)");
+            System.Windows.Forms.TreeNode treeNode890 = new System.Windows.Forms.TreeNode("ขาย", new System.Windows.Forms.TreeNode[] {
             treeNode871,
             treeNode872,
             treeNode873,
@@ -1789,70 +1790,70 @@
             treeNode885,
             treeNode886,
             treeNode887,
-            treeNode888});
-            System.Windows.Forms.TreeNode treeNode890 = new System.Windows.Forms.TreeNode("ยอดลูกหนี้คงเหลือ");
-            System.Windows.Forms.TreeNode treeNode891 = new System.Windows.Forms.TreeNode("รายงานตรวจสอบยอดวงเงิน");
-            System.Windows.Forms.TreeNode treeNode892 = new System.Windows.Forms.TreeNode("ลูกหนี้คงค้าง");
-            System.Windows.Forms.TreeNode treeNode893 = new System.Windows.Forms.TreeNode("รายงานที่อยู่จัดส่งลูกค้า");
-            System.Windows.Forms.TreeNode treeNode894 = new System.Windows.Forms.TreeNode("ยอดลูกหนี้คงเหลือ ตามระยะเวลาเครดิต");
-            System.Windows.Forms.TreeNode treeNode895 = new System.Windows.Forms.TreeNode("รายงานรายละเอียดลูกค้า");
-            System.Windows.Forms.TreeNode treeNode896 = new System.Windows.Forms.TreeNode("ลูกหนี้", new System.Windows.Forms.TreeNode[] {
-            treeNode890,
+            treeNode888,
+            treeNode889});
+            System.Windows.Forms.TreeNode treeNode891 = new System.Windows.Forms.TreeNode("ยอดลูกหนี้คงเหลือ");
+            System.Windows.Forms.TreeNode treeNode892 = new System.Windows.Forms.TreeNode("รายงานตรวจสอบยอดวงเงิน");
+            System.Windows.Forms.TreeNode treeNode893 = new System.Windows.Forms.TreeNode("ลูกหนี้คงค้าง");
+            System.Windows.Forms.TreeNode treeNode894 = new System.Windows.Forms.TreeNode("รายงานที่อยู่จัดส่งลูกค้า");
+            System.Windows.Forms.TreeNode treeNode895 = new System.Windows.Forms.TreeNode("ยอดลูกหนี้คงเหลือ ตามระยะเวลาเครดิต");
+            System.Windows.Forms.TreeNode treeNode896 = new System.Windows.Forms.TreeNode("รายงานรายละเอียดลูกค้า");
+            System.Windows.Forms.TreeNode treeNode897 = new System.Windows.Forms.TreeNode("ลูกหนี้", new System.Windows.Forms.TreeNode[] {
             treeNode891,
             treeNode892,
             treeNode893,
             treeNode894,
-            treeNode895});
-            System.Windows.Forms.TreeNode treeNode897 = new System.Windows.Forms.TreeNode("ทะเบียนรับเช็ค");
-            System.Windows.Forms.TreeNode treeNode898 = new System.Windows.Forms.TreeNode("สรุปยอดรับเช็คคงเหลือ");
-            System.Windows.Forms.TreeNode treeNode899 = new System.Windows.Forms.TreeNode("สรุปยอดรับเช็ค  ส่งเข้าธนาคาร");
-            System.Windows.Forms.TreeNode treeNode900 = new System.Windows.Forms.TreeNode("สรุปเช็ครับล่วงหน้า (ผ่าน)");
-            System.Windows.Forms.TreeNode treeNode901 = new System.Windows.Forms.TreeNode("รายงานการตัดเช็ค");
-            System.Windows.Forms.TreeNode treeNode902 = new System.Windows.Forms.TreeNode("รายงานรับคืน (เช็ครับ)");
-            System.Windows.Forms.TreeNode treeNode903 = new System.Windows.Forms.TreeNode("เช็ครับ", new System.Windows.Forms.TreeNode[] {
-            treeNode897,
+            treeNode895,
+            treeNode896});
+            System.Windows.Forms.TreeNode treeNode898 = new System.Windows.Forms.TreeNode("ทะเบียนรับเช็ค");
+            System.Windows.Forms.TreeNode treeNode899 = new System.Windows.Forms.TreeNode("สรุปยอดรับเช็คคงเหลือ");
+            System.Windows.Forms.TreeNode treeNode900 = new System.Windows.Forms.TreeNode("สรุปยอดรับเช็ค  ส่งเข้าธนาคาร");
+            System.Windows.Forms.TreeNode treeNode901 = new System.Windows.Forms.TreeNode("สรุปเช็ครับล่วงหน้า (ผ่าน)");
+            System.Windows.Forms.TreeNode treeNode902 = new System.Windows.Forms.TreeNode("รายงานการตัดเช็ค");
+            System.Windows.Forms.TreeNode treeNode903 = new System.Windows.Forms.TreeNode("รายงานรับคืน (เช็ครับ)");
+            System.Windows.Forms.TreeNode treeNode904 = new System.Windows.Forms.TreeNode("เช็ครับ", new System.Windows.Forms.TreeNode[] {
             treeNode898,
             treeNode899,
             treeNode900,
             treeNode901,
-            treeNode902});
-            System.Windows.Forms.TreeNode treeNode904 = new System.Windows.Forms.TreeNode("รายงาน Bank Statement");
-            System.Windows.Forms.TreeNode treeNode905 = new System.Windows.Forms.TreeNode("รายงาน Bank Statement แสดงช่องทางการจ่ายเงิน");
-            System.Windows.Forms.TreeNode treeNode906 = new System.Windows.Forms.TreeNode("รายงานค่าใช้จ่ายอื่น ๆ");
-            System.Windows.Forms.TreeNode treeNode907 = new System.Windows.Forms.TreeNode("เงินสด/ธนาคาร", new System.Windows.Forms.TreeNode[] {
-            treeNode903,
+            treeNode902,
+            treeNode903});
+            System.Windows.Forms.TreeNode treeNode905 = new System.Windows.Forms.TreeNode("รายงาน Bank Statement");
+            System.Windows.Forms.TreeNode treeNode906 = new System.Windows.Forms.TreeNode("รายงาน Bank Statement แสดงช่องทางการจ่ายเงิน");
+            System.Windows.Forms.TreeNode treeNode907 = new System.Windows.Forms.TreeNode("รายงานค่าใช้จ่ายอื่น ๆ");
+            System.Windows.Forms.TreeNode treeNode908 = new System.Windows.Forms.TreeNode("เงินสด/ธนาคาร", new System.Windows.Forms.TreeNode[] {
             treeNode904,
             treeNode905,
-            treeNode906});
-            System.Windows.Forms.TreeNode treeNode908 = new System.Windows.Forms.TreeNode("รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.3)");
-            System.Windows.Forms.TreeNode treeNode909 = new System.Windows.Forms.TreeNode("รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.53)");
-            System.Windows.Forms.TreeNode treeNode910 = new System.Windows.Forms.TreeNode("รายงานภาษีซื้อ");
-            System.Windows.Forms.TreeNode treeNode911 = new System.Windows.Forms.TreeNode("รายงานภาษีขาย");
-            System.Windows.Forms.TreeNode treeNode912 = new System.Windows.Forms.TreeNode("สมุดบัญชีแยกประเภทเงินสด");
-            System.Windows.Forms.TreeNode treeNode913 = new System.Windows.Forms.TreeNode("สมุดบัญชีแยกประเงินโอน");
-            System.Windows.Forms.TreeNode treeNode914 = new System.Windows.Forms.TreeNode("รายงานข้อมูลรายวัน");
-            System.Windows.Forms.TreeNode treeNode915 = new System.Windows.Forms.TreeNode("รายงานภาษีขายสินค้าฟรี(ใบควบคุม)");
-            System.Windows.Forms.TreeNode treeNode916 = new System.Windows.Forms.TreeNode("งบกำไรขาดทุน");
-            System.Windows.Forms.TreeNode treeNode917 = new System.Windows.Forms.TreeNode("งบดุล");
-            System.Windows.Forms.TreeNode treeNode918 = new System.Windows.Forms.TreeNode("งบดุลเปรียบเทียบ");
-            System.Windows.Forms.TreeNode treeNode919 = new System.Windows.Forms.TreeNode("งบกำไร(ขาดทุน)เปรียบเทียบ");
-            System.Windows.Forms.TreeNode treeNode920 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง (มาตรฐาน)");
-            System.Windows.Forms.TreeNode treeNode921 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง (แยกแผนก)");
-            System.Windows.Forms.TreeNode treeNode922 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง (แยกสาขา)");
-            System.Windows.Forms.TreeNode treeNode923 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง", new System.Windows.Forms.TreeNode[] {
-            treeNode920,
+            treeNode906,
+            treeNode907});
+            System.Windows.Forms.TreeNode treeNode909 = new System.Windows.Forms.TreeNode("รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.3)");
+            System.Windows.Forms.TreeNode treeNode910 = new System.Windows.Forms.TreeNode("รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.53)");
+            System.Windows.Forms.TreeNode treeNode911 = new System.Windows.Forms.TreeNode("รายงานภาษีซื้อ");
+            System.Windows.Forms.TreeNode treeNode912 = new System.Windows.Forms.TreeNode("รายงานภาษีขาย");
+            System.Windows.Forms.TreeNode treeNode913 = new System.Windows.Forms.TreeNode("สมุดบัญชีแยกประเภทเงินสด");
+            System.Windows.Forms.TreeNode treeNode914 = new System.Windows.Forms.TreeNode("สมุดบัญชีแยกประเงินโอน");
+            System.Windows.Forms.TreeNode treeNode915 = new System.Windows.Forms.TreeNode("รายงานข้อมูลรายวัน");
+            System.Windows.Forms.TreeNode treeNode916 = new System.Windows.Forms.TreeNode("รายงานภาษีขายสินค้าฟรี(ใบควบคุม)");
+            System.Windows.Forms.TreeNode treeNode917 = new System.Windows.Forms.TreeNode("งบกำไรขาดทุน");
+            System.Windows.Forms.TreeNode treeNode918 = new System.Windows.Forms.TreeNode("งบดุล");
+            System.Windows.Forms.TreeNode treeNode919 = new System.Windows.Forms.TreeNode("งบดุลเปรียบเทียบ");
+            System.Windows.Forms.TreeNode treeNode920 = new System.Windows.Forms.TreeNode("งบกำไร(ขาดทุน)เปรียบเทียบ");
+            System.Windows.Forms.TreeNode treeNode921 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง (มาตรฐาน)");
+            System.Windows.Forms.TreeNode treeNode922 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง (แยกแผนก)");
+            System.Windows.Forms.TreeNode treeNode923 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง (แยกสาขา)");
+            System.Windows.Forms.TreeNode treeNode924 = new System.Windows.Forms.TreeNode("รายงานงบทดลอง", new System.Windows.Forms.TreeNode[] {
             treeNode921,
-            treeNode922});
-            System.Windows.Forms.TreeNode treeNode924 = new System.Windows.Forms.TreeNode("รายงานกระดาษทำการ");
-            System.Windows.Forms.TreeNode treeNode925 = new System.Windows.Forms.TreeNode("งบกระแสเงินสด");
-            System.Windows.Forms.TreeNode treeNode926 = new System.Windows.Forms.TreeNode("งบกำไรขาดทุน (แยกสาขา)");
-            System.Windows.Forms.TreeNode treeNode927 = new System.Windows.Forms.TreeNode("งบกำไรขาดทุน (แยกสาขา-แผนก)");
-            System.Windows.Forms.TreeNode treeNode928 = new System.Windows.Forms.TreeNode("รายงานอื่น ๆ", new System.Windows.Forms.TreeNode[] {
-            treeNode925,
+            treeNode922,
+            treeNode923});
+            System.Windows.Forms.TreeNode treeNode925 = new System.Windows.Forms.TreeNode("รายงานกระดาษทำการ");
+            System.Windows.Forms.TreeNode treeNode926 = new System.Windows.Forms.TreeNode("งบกระแสเงินสด");
+            System.Windows.Forms.TreeNode treeNode927 = new System.Windows.Forms.TreeNode("งบกำไรขาดทุน (แยกสาขา)");
+            System.Windows.Forms.TreeNode treeNode928 = new System.Windows.Forms.TreeNode("งบกำไรขาดทุน (แยกสาขา-แผนก)");
+            System.Windows.Forms.TreeNode treeNode929 = new System.Windows.Forms.TreeNode("รายงานอื่น ๆ", new System.Windows.Forms.TreeNode[] {
             treeNode926,
-            treeNode927});
-            System.Windows.Forms.TreeNode treeNode929 = new System.Windows.Forms.TreeNode("บัญชี", new System.Windows.Forms.TreeNode[] {
-            treeNode908,
+            treeNode927,
+            treeNode928});
+            System.Windows.Forms.TreeNode treeNode930 = new System.Windows.Forms.TreeNode("บัญชี", new System.Windows.Forms.TreeNode[] {
             treeNode909,
             treeNode910,
             treeNode911,
@@ -1864,97 +1865,97 @@
             treeNode917,
             treeNode918,
             treeNode919,
-            treeNode923,
+            treeNode920,
             treeNode924,
-            treeNode928});
-            System.Windows.Forms.TreeNode treeNode930 = new System.Windows.Forms.TreeNode("รายงาน", new System.Windows.Forms.TreeNode[] {
+            treeNode925,
+            treeNode929});
+            System.Windows.Forms.TreeNode treeNode931 = new System.Windows.Forms.TreeNode("รายงาน", new System.Windows.Forms.TreeNode[] {
             treeNode850,
             treeNode862,
             treeNode870,
-            treeNode889,
-            treeNode896,
-            treeNode907,
-            treeNode929});
-            System.Windows.Forms.TreeNode treeNode931 = new System.Windows.Forms.TreeNode("ฝาก");
-            System.Windows.Forms.TreeNode treeNode932 = new System.Windows.Forms.TreeNode("เบิก");
-            System.Windows.Forms.TreeNode treeNode933 = new System.Windows.Forms.TreeNode("รับคืน");
-            System.Windows.Forms.TreeNode treeNode934 = new System.Windows.Forms.TreeNode("สรุปฝากรายลูกค้า");
-            System.Windows.Forms.TreeNode treeNode935 = new System.Windows.Forms.TreeNode("สรุปสินค้า ค้างส่ง");
-            System.Windows.Forms.TreeNode treeNode936 = new System.Windows.Forms.TreeNode("สรุปฝาก");
-            System.Windows.Forms.TreeNode treeNode937 = new System.Windows.Forms.TreeNode("เบิกฝาก");
-            System.Windows.Forms.TreeNode treeNode938 = new System.Windows.Forms.TreeNode("สรุปรับคืนฝาก");
-            System.Windows.Forms.TreeNode treeNode939 = new System.Windows.Forms.TreeNode("สรุปการ์ดสินค้า VS  สินค้าฝาก");
-            System.Windows.Forms.TreeNode treeNode940 = new System.Windows.Forms.TreeNode("รายงานการ์ดสินค้าฝาก");
-            System.Windows.Forms.TreeNode treeNode941 = new System.Windows.Forms.TreeNode("รายงาน", new System.Windows.Forms.TreeNode[] {
-            treeNode934,
+            treeNode890,
+            treeNode897,
+            treeNode908,
+            treeNode930});
+            System.Windows.Forms.TreeNode treeNode932 = new System.Windows.Forms.TreeNode("ฝาก");
+            System.Windows.Forms.TreeNode treeNode933 = new System.Windows.Forms.TreeNode("เบิก");
+            System.Windows.Forms.TreeNode treeNode934 = new System.Windows.Forms.TreeNode("รับคืน");
+            System.Windows.Forms.TreeNode treeNode935 = new System.Windows.Forms.TreeNode("สรุปฝากรายลูกค้า");
+            System.Windows.Forms.TreeNode treeNode936 = new System.Windows.Forms.TreeNode("สรุปสินค้า ค้างส่ง");
+            System.Windows.Forms.TreeNode treeNode937 = new System.Windows.Forms.TreeNode("สรุปฝาก");
+            System.Windows.Forms.TreeNode treeNode938 = new System.Windows.Forms.TreeNode("เบิกฝาก");
+            System.Windows.Forms.TreeNode treeNode939 = new System.Windows.Forms.TreeNode("สรุปรับคืนฝาก");
+            System.Windows.Forms.TreeNode treeNode940 = new System.Windows.Forms.TreeNode("สรุปการ์ดสินค้า VS  สินค้าฝาก");
+            System.Windows.Forms.TreeNode treeNode941 = new System.Windows.Forms.TreeNode("รายงานการ์ดสินค้าฝาก");
+            System.Windows.Forms.TreeNode treeNode942 = new System.Windows.Forms.TreeNode("รายงาน", new System.Windows.Forms.TreeNode[] {
             treeNode935,
             treeNode936,
             treeNode937,
             treeNode938,
             treeNode939,
-            treeNode940});
-            System.Windows.Forms.TreeNode treeNode942 = new System.Windows.Forms.TreeNode("ฝาก / เบิก / รับคืน สินค้า", new System.Windows.Forms.TreeNode[] {
-            treeNode931,
+            treeNode940,
+            treeNode941});
+            System.Windows.Forms.TreeNode treeNode943 = new System.Windows.Forms.TreeNode("ฝาก / เบิก / รับคืน สินค้า", new System.Windows.Forms.TreeNode[] {
             treeNode932,
             treeNode933,
-            treeNode941});
-            System.Windows.Forms.TreeNode treeNode943 = new System.Windows.Forms.TreeNode("รับสินค้าจากเจ้าหนี้(ยืม)");
-            System.Windows.Forms.TreeNode treeNode944 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้เจ้าหนี้(คืน)");
-            System.Windows.Forms.TreeNode treeNode945 = new System.Windows.Forms.TreeNode("รับสินค้าจากลูกค้า(รับคืน)");
-            System.Windows.Forms.TreeNode treeNode946 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้ลูกค้า(ยืม)");
-            System.Windows.Forms.TreeNode treeNode947 = new System.Windows.Forms.TreeNode("รายงาน");
-            System.Windows.Forms.TreeNode treeNode948 = new System.Windows.Forms.TreeNode("ยืม / คืน ภาชนะ", new System.Windows.Forms.TreeNode[] {
-            treeNode943,
+            treeNode934,
+            treeNode942});
+            System.Windows.Forms.TreeNode treeNode944 = new System.Windows.Forms.TreeNode("รับสินค้าจากเจ้าหนี้(ยืม)");
+            System.Windows.Forms.TreeNode treeNode945 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้เจ้าหนี้(คืน)");
+            System.Windows.Forms.TreeNode treeNode946 = new System.Windows.Forms.TreeNode("รับสินค้าจากลูกค้า(รับคืน)");
+            System.Windows.Forms.TreeNode treeNode947 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้ลูกค้า(ยืม)");
+            System.Windows.Forms.TreeNode treeNode948 = new System.Windows.Forms.TreeNode("รายงาน");
+            System.Windows.Forms.TreeNode treeNode949 = new System.Windows.Forms.TreeNode("ยืม / คืน ภาชนะ", new System.Windows.Forms.TreeNode[] {
             treeNode944,
             treeNode945,
             treeNode946,
-            treeNode947});
-            System.Windows.Forms.TreeNode treeNode949 = new System.Windows.Forms.TreeNode("บันทึกการส่งสินค้า");
-            System.Windows.Forms.TreeNode treeNode950 = new System.Windows.Forms.TreeNode("รายงานบันทึกการจัดส่ง");
-            System.Windows.Forms.TreeNode treeNode951 = new System.Windows.Forms.TreeNode("การส่งสินค้า", new System.Windows.Forms.TreeNode[] {
-            treeNode949,
-            treeNode950});
-            System.Windows.Forms.TreeNode treeNode952 = new System.Windows.Forms.TreeNode("คลังสินค้า", new System.Windows.Forms.TreeNode[] {
-            treeNode942,
-            treeNode948,
+            treeNode947,
+            treeNode948});
+            System.Windows.Forms.TreeNode treeNode950 = new System.Windows.Forms.TreeNode("บันทึกการส่งสินค้า");
+            System.Windows.Forms.TreeNode treeNode951 = new System.Windows.Forms.TreeNode("รายงานบันทึกการจัดส่ง");
+            System.Windows.Forms.TreeNode treeNode952 = new System.Windows.Forms.TreeNode("การส่งสินค้า", new System.Windows.Forms.TreeNode[] {
+            treeNode950,
             treeNode951});
-            System.Windows.Forms.TreeNode treeNode953 = new System.Windows.Forms.TreeNode("Customer");
-            System.Windows.Forms.TreeNode treeNode954 = new System.Windows.Forms.TreeNode("Route Planning");
-            System.Windows.Forms.TreeNode treeNode955 = new System.Windows.Forms.TreeNode("AdHoc Jobs");
-            System.Windows.Forms.TreeNode treeNode956 = new System.Windows.Forms.TreeNode("Manage Route Plan");
-            System.Windows.Forms.TreeNode treeNode957 = new System.Windows.Forms.TreeNode("Route", new System.Windows.Forms.TreeNode[] {
-            treeNode954,
+            System.Windows.Forms.TreeNode treeNode953 = new System.Windows.Forms.TreeNode("คลังสินค้า", new System.Windows.Forms.TreeNode[] {
+            treeNode943,
+            treeNode949,
+            treeNode952});
+            System.Windows.Forms.TreeNode treeNode954 = new System.Windows.Forms.TreeNode("Customer");
+            System.Windows.Forms.TreeNode treeNode955 = new System.Windows.Forms.TreeNode("Route Planning");
+            System.Windows.Forms.TreeNode treeNode956 = new System.Windows.Forms.TreeNode("AdHoc Jobs");
+            System.Windows.Forms.TreeNode treeNode957 = new System.Windows.Forms.TreeNode("Manage Route Plan");
+            System.Windows.Forms.TreeNode treeNode958 = new System.Windows.Forms.TreeNode("Route", new System.Windows.Forms.TreeNode[] {
             treeNode955,
-            treeNode956});
-            System.Windows.Forms.TreeNode treeNode958 = new System.Windows.Forms.TreeNode("Approve Invoice (บิลขาย)");
-            System.Windows.Forms.TreeNode treeNode959 = new System.Windows.Forms.TreeNode("VAN", new System.Windows.Forms.TreeNode[] {
-            treeNode958});
-            System.Windows.Forms.TreeNode treeNode960 = new System.Windows.Forms.TreeNode("Approve Salesorder (ใบสั่งสินค้า )");
-            System.Windows.Forms.TreeNode treeNode961 = new System.Windows.Forms.TreeNode("Pre-Order", new System.Windows.Forms.TreeNode[] {
-            treeNode960});
-            System.Windows.Forms.TreeNode treeNode962 = new System.Windows.Forms.TreeNode("Approve Bill Collection");
-            System.Windows.Forms.TreeNode treeNode963 = new System.Windows.Forms.TreeNode("Approve Payment");
-            System.Windows.Forms.TreeNode treeNode964 = new System.Windows.Forms.TreeNode("Payment/Collection (จ่ายเงิน/รับเงิน)", new System.Windows.Forms.TreeNode[] {
-            treeNode962,
-            treeNode963});
-            System.Windows.Forms.TreeNode treeNode965 = new System.Windows.Forms.TreeNode("อนุมัติ ขอโอนสินค้า");
-            System.Windows.Forms.TreeNode treeNode966 = new System.Windows.Forms.TreeNode("อนุมัติ โอนสินค้า");
-            System.Windows.Forms.TreeNode treeNode967 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้ลูกค้า (ยืม)");
-            System.Windows.Forms.TreeNode treeNode968 = new System.Windows.Forms.TreeNode("อนุมัติ เบิกสินค้าให้ลูกค้า(ยืม)");
-            System.Windows.Forms.TreeNode treeNode969 = new System.Windows.Forms.TreeNode("รับสินค้าจากลูกค้า (คืน)");
-            System.Windows.Forms.TreeNode treeNode970 = new System.Windows.Forms.TreeNode("อนุมัติ รับสินค้าจากลูกค้า (คืน)");
-            System.Windows.Forms.TreeNode treeNode971 = new System.Windows.Forms.TreeNode("อนุมัติ รับคืนสินค้าเสีย");
-            System.Windows.Forms.TreeNode treeNode972 = new System.Windows.Forms.TreeNode("รับสินค้าจากเจ้าหนี้(ยืม)");
-            System.Windows.Forms.TreeNode treeNode973 = new System.Windows.Forms.TreeNode("อนุมัติ รับสินค้าจากเจ้าหนี้(ยืม)");
-            System.Windows.Forms.TreeNode treeNode974 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้เจ้าหนี้(คืน)");
-            System.Windows.Forms.TreeNode treeNode975 = new System.Windows.Forms.TreeNode("อนุมัติ เบิกสินค้าให้เจ้าหนี้(คืน)");
-            System.Windows.Forms.TreeNode treeNode976 = new System.Windows.Forms.TreeNode("รายงานการให้โปรโมชั่น");
-            System.Windows.Forms.TreeNode treeNode977 = new System.Windows.Forms.TreeNode("รายงานสรุปการให้ส่วนลด");
-            System.Windows.Forms.TreeNode treeNode978 = new System.Windows.Forms.TreeNode("รายงานรายละเอียดการให้ส่วนลด");
-            System.Windows.Forms.TreeNode treeNode979 = new System.Windows.Forms.TreeNode("รายงาน pivot ข้อมูลการขาย");
-            System.Windows.Forms.TreeNode treeNode980 = new System.Windows.Forms.TreeNode("รายงาน pivot ข้อมูลลูกค้า");
-            System.Windows.Forms.TreeNode treeNode981 = new System.Windows.Forms.TreeNode("Manage Stock", new System.Windows.Forms.TreeNode[] {
-            treeNode965,
+            treeNode956,
+            treeNode957});
+            System.Windows.Forms.TreeNode treeNode959 = new System.Windows.Forms.TreeNode("Approve Invoice (บิลขาย)");
+            System.Windows.Forms.TreeNode treeNode960 = new System.Windows.Forms.TreeNode("VAN", new System.Windows.Forms.TreeNode[] {
+            treeNode959});
+            System.Windows.Forms.TreeNode treeNode961 = new System.Windows.Forms.TreeNode("Approve Salesorder (ใบสั่งสินค้า )");
+            System.Windows.Forms.TreeNode treeNode962 = new System.Windows.Forms.TreeNode("Pre-Order", new System.Windows.Forms.TreeNode[] {
+            treeNode961});
+            System.Windows.Forms.TreeNode treeNode963 = new System.Windows.Forms.TreeNode("Approve Bill Collection");
+            System.Windows.Forms.TreeNode treeNode964 = new System.Windows.Forms.TreeNode("Approve Payment");
+            System.Windows.Forms.TreeNode treeNode965 = new System.Windows.Forms.TreeNode("Payment/Collection (จ่ายเงิน/รับเงิน)", new System.Windows.Forms.TreeNode[] {
+            treeNode963,
+            treeNode964});
+            System.Windows.Forms.TreeNode treeNode966 = new System.Windows.Forms.TreeNode("อนุมัติ ขอโอนสินค้า");
+            System.Windows.Forms.TreeNode treeNode967 = new System.Windows.Forms.TreeNode("อนุมัติ โอนสินค้า");
+            System.Windows.Forms.TreeNode treeNode968 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้ลูกค้า (ยืม)");
+            System.Windows.Forms.TreeNode treeNode969 = new System.Windows.Forms.TreeNode("อนุมัติ เบิกสินค้าให้ลูกค้า(ยืม)");
+            System.Windows.Forms.TreeNode treeNode970 = new System.Windows.Forms.TreeNode("รับสินค้าจากลูกค้า (คืน)");
+            System.Windows.Forms.TreeNode treeNode971 = new System.Windows.Forms.TreeNode("อนุมัติ รับสินค้าจากลูกค้า (คืน)");
+            System.Windows.Forms.TreeNode treeNode972 = new System.Windows.Forms.TreeNode("อนุมัติ รับคืนสินค้าเสีย");
+            System.Windows.Forms.TreeNode treeNode973 = new System.Windows.Forms.TreeNode("รับสินค้าจากเจ้าหนี้(ยืม)");
+            System.Windows.Forms.TreeNode treeNode974 = new System.Windows.Forms.TreeNode("อนุมัติ รับสินค้าจากเจ้าหนี้(ยืม)");
+            System.Windows.Forms.TreeNode treeNode975 = new System.Windows.Forms.TreeNode("เบิกสินค้าให้เจ้าหนี้(คืน)");
+            System.Windows.Forms.TreeNode treeNode976 = new System.Windows.Forms.TreeNode("อนุมัติ เบิกสินค้าให้เจ้าหนี้(คืน)");
+            System.Windows.Forms.TreeNode treeNode977 = new System.Windows.Forms.TreeNode("รายงานการให้โปรโมชั่น");
+            System.Windows.Forms.TreeNode treeNode978 = new System.Windows.Forms.TreeNode("รายงานสรุปการให้ส่วนลด");
+            System.Windows.Forms.TreeNode treeNode979 = new System.Windows.Forms.TreeNode("รายงานรายละเอียดการให้ส่วนลด");
+            System.Windows.Forms.TreeNode treeNode980 = new System.Windows.Forms.TreeNode("รายงาน pivot ข้อมูลการขาย");
+            System.Windows.Forms.TreeNode treeNode981 = new System.Windows.Forms.TreeNode("รายงาน pivot ข้อมูลลูกค้า");
+            System.Windows.Forms.TreeNode treeNode982 = new System.Windows.Forms.TreeNode("Manage Stock", new System.Windows.Forms.TreeNode[] {
             treeNode966,
             treeNode967,
             treeNode968,
@@ -1969,85 +1970,85 @@
             treeNode977,
             treeNode978,
             treeNode979,
-            treeNode980});
-            System.Windows.Forms.TreeNode treeNode982 = new System.Windows.Forms.TreeNode("Approve Code");
-            System.Windows.Forms.TreeNode treeNode983 = new System.Windows.Forms.TreeNode("Document Running NO");
-            System.Windows.Forms.TreeNode treeNode984 = new System.Windows.Forms.TreeNode("Generate Code", new System.Windows.Forms.TreeNode[] {
-            treeNode982,
-            treeNode983});
-            System.Windows.Forms.TreeNode treeNode985 = new System.Windows.Forms.TreeNode("ดึงข้อมูลจาก SML");
-            System.Windows.Forms.TreeNode treeNode986 = new System.Windows.Forms.TreeNode("Interface SML", new System.Windows.Forms.TreeNode[] {
-            treeNode985});
-            System.Windows.Forms.TreeNode treeNode987 = new System.Windows.Forms.TreeNode("Transaction", new System.Windows.Forms.TreeNode[] {
-            treeNode959,
-            treeNode961,
-            treeNode964,
-            treeNode981,
-            treeNode984,
+            treeNode980,
+            treeNode981});
+            System.Windows.Forms.TreeNode treeNode983 = new System.Windows.Forms.TreeNode("Approve Code");
+            System.Windows.Forms.TreeNode treeNode984 = new System.Windows.Forms.TreeNode("Document Running NO");
+            System.Windows.Forms.TreeNode treeNode985 = new System.Windows.Forms.TreeNode("Generate Code", new System.Windows.Forms.TreeNode[] {
+            treeNode983,
+            treeNode984});
+            System.Windows.Forms.TreeNode treeNode986 = new System.Windows.Forms.TreeNode("ดึงข้อมูลจาก SML");
+            System.Windows.Forms.TreeNode treeNode987 = new System.Windows.Forms.TreeNode("Interface SML", new System.Windows.Forms.TreeNode[] {
             treeNode986});
-            System.Windows.Forms.TreeNode treeNode988 = new System.Windows.Forms.TreeNode("Photo Group");
-            System.Windows.Forms.TreeNode treeNode989 = new System.Windows.Forms.TreeNode("Photos");
-            System.Windows.Forms.TreeNode treeNode990 = new System.Windows.Forms.TreeNode("Photo", new System.Windows.Forms.TreeNode[] {
-            treeNode988,
-            treeNode989});
-            System.Windows.Forms.TreeNode treeNode991 = new System.Windows.Forms.TreeNode("Heat Map");
-            System.Windows.Forms.TreeNode treeNode992 = new System.Windows.Forms.TreeNode("View Map");
-            System.Windows.Forms.TreeNode treeNode993 = new System.Windows.Forms.TreeNode("Fleet");
-            System.Windows.Forms.TreeNode treeNode994 = new System.Windows.Forms.TreeNode("Real Time");
-            System.Windows.Forms.TreeNode treeNode995 = new System.Windows.Forms.TreeNode("Customer GPS by salesman");
-            System.Windows.Forms.TreeNode treeNode996 = new System.Windows.Forms.TreeNode("Map Analysis");
-            System.Windows.Forms.TreeNode treeNode997 = new System.Windows.Forms.TreeNode("Map", new System.Windows.Forms.TreeNode[] {
-            treeNode991,
+            System.Windows.Forms.TreeNode treeNode988 = new System.Windows.Forms.TreeNode("Transaction", new System.Windows.Forms.TreeNode[] {
+            treeNode960,
+            treeNode962,
+            treeNode965,
+            treeNode982,
+            treeNode985,
+            treeNode987});
+            System.Windows.Forms.TreeNode treeNode989 = new System.Windows.Forms.TreeNode("Photo Group");
+            System.Windows.Forms.TreeNode treeNode990 = new System.Windows.Forms.TreeNode("Photos");
+            System.Windows.Forms.TreeNode treeNode991 = new System.Windows.Forms.TreeNode("Photo", new System.Windows.Forms.TreeNode[] {
+            treeNode989,
+            treeNode990});
+            System.Windows.Forms.TreeNode treeNode992 = new System.Windows.Forms.TreeNode("Heat Map");
+            System.Windows.Forms.TreeNode treeNode993 = new System.Windows.Forms.TreeNode("View Map");
+            System.Windows.Forms.TreeNode treeNode994 = new System.Windows.Forms.TreeNode("Fleet");
+            System.Windows.Forms.TreeNode treeNode995 = new System.Windows.Forms.TreeNode("Real Time");
+            System.Windows.Forms.TreeNode treeNode996 = new System.Windows.Forms.TreeNode("Customer GPS by salesman");
+            System.Windows.Forms.TreeNode treeNode997 = new System.Windows.Forms.TreeNode("Map Analysis");
+            System.Windows.Forms.TreeNode treeNode998 = new System.Windows.Forms.TreeNode("Map", new System.Windows.Forms.TreeNode[] {
             treeNode992,
             treeNode993,
             treeNode994,
             treeNode995,
-            treeNode996});
-            System.Windows.Forms.TreeNode treeNode998 = new System.Windows.Forms.TreeNode("Promotions");
-            System.Windows.Forms.TreeNode treeNode999 = new System.Windows.Forms.TreeNode("Import Promotion");
-            System.Windows.Forms.TreeNode treeNode1000 = new System.Windows.Forms.TreeNode("Promotion Group");
-            System.Windows.Forms.TreeNode treeNode1001 = new System.Windows.Forms.TreeNode("Advance Price");
-            System.Windows.Forms.TreeNode treeNode1002 = new System.Windows.Forms.TreeNode("Promotion", new System.Windows.Forms.TreeNode[] {
-            treeNode998,
+            treeNode996,
+            treeNode997});
+            System.Windows.Forms.TreeNode treeNode999 = new System.Windows.Forms.TreeNode("Promotions");
+            System.Windows.Forms.TreeNode treeNode1000 = new System.Windows.Forms.TreeNode("Import Promotion");
+            System.Windows.Forms.TreeNode treeNode1001 = new System.Windows.Forms.TreeNode("Promotion Group");
+            System.Windows.Forms.TreeNode treeNode1002 = new System.Windows.Forms.TreeNode("Advance Price");
+            System.Windows.Forms.TreeNode treeNode1003 = new System.Windows.Forms.TreeNode("Promotion", new System.Windows.Forms.TreeNode[] {
             treeNode999,
             treeNode1000,
-            treeNode1001});
-            System.Windows.Forms.TreeNode treeNode1003 = new System.Windows.Forms.TreeNode("Web Users");
-            System.Windows.Forms.TreeNode treeNode1004 = new System.Windows.Forms.TreeNode("Change Password");
-            System.Windows.Forms.TreeNode treeNode1005 = new System.Windows.Forms.TreeNode("Mobile Users");
-            System.Windows.Forms.TreeNode treeNode1006 = new System.Windows.Forms.TreeNode("Sync Log");
-            System.Windows.Forms.TreeNode treeNode1007 = new System.Windows.Forms.TreeNode("User Roles");
-            System.Windows.Forms.TreeNode treeNode1008 = new System.Windows.Forms.TreeNode("Users", new System.Windows.Forms.TreeNode[] {
-            treeNode1003,
+            treeNode1001,
+            treeNode1002});
+            System.Windows.Forms.TreeNode treeNode1004 = new System.Windows.Forms.TreeNode("Web Users");
+            System.Windows.Forms.TreeNode treeNode1005 = new System.Windows.Forms.TreeNode("Change Password");
+            System.Windows.Forms.TreeNode treeNode1006 = new System.Windows.Forms.TreeNode("Mobile Users");
+            System.Windows.Forms.TreeNode treeNode1007 = new System.Windows.Forms.TreeNode("Sync Log");
+            System.Windows.Forms.TreeNode treeNode1008 = new System.Windows.Forms.TreeNode("User Roles");
+            System.Windows.Forms.TreeNode treeNode1009 = new System.Windows.Forms.TreeNode("Users", new System.Windows.Forms.TreeNode[] {
             treeNode1004,
             treeNode1005,
             treeNode1006,
-            treeNode1007});
-            System.Windows.Forms.TreeNode treeNode1009 = new System.Windows.Forms.TreeNode("Import/Export data");
-            System.Windows.Forms.TreeNode treeNode1010 = new System.Windows.Forms.TreeNode("Update Mobile");
-            System.Windows.Forms.TreeNode treeNode1011 = new System.Windows.Forms.TreeNode("Import Master SML");
-            System.Windows.Forms.TreeNode treeNode1012 = new System.Windows.Forms.TreeNode("Administrator", new System.Windows.Forms.TreeNode[] {
-            treeNode1009,
+            treeNode1007,
+            treeNode1008});
+            System.Windows.Forms.TreeNode treeNode1010 = new System.Windows.Forms.TreeNode("Import/Export data");
+            System.Windows.Forms.TreeNode treeNode1011 = new System.Windows.Forms.TreeNode("Update Mobile");
+            System.Windows.Forms.TreeNode treeNode1012 = new System.Windows.Forms.TreeNode("Import Master SML");
+            System.Windows.Forms.TreeNode treeNode1013 = new System.Windows.Forms.TreeNode("Administrator", new System.Windows.Forms.TreeNode[] {
             treeNode1010,
-            treeNode1011});
-            System.Windows.Forms.TreeNode treeNode1013 = new System.Windows.Forms.TreeNode("Product");
-            System.Windows.Forms.TreeNode treeNode1014 = new System.Windows.Forms.TreeNode("Store");
-            System.Windows.Forms.TreeNode treeNode1015 = new System.Windows.Forms.TreeNode("Region");
-            System.Windows.Forms.TreeNode treeNode1016 = new System.Windows.Forms.TreeNode("State");
-            System.Windows.Forms.TreeNode treeNode1017 = new System.Windows.Forms.TreeNode("City");
-            System.Windows.Forms.TreeNode treeNode1018 = new System.Windows.Forms.TreeNode("Town");
-            System.Windows.Forms.TreeNode treeNode1019 = new System.Windows.Forms.TreeNode("Customer Type");
-            System.Windows.Forms.TreeNode treeNode1020 = new System.Windows.Forms.TreeNode("Credit Days");
-            System.Windows.Forms.TreeNode treeNode1021 = new System.Windows.Forms.TreeNode("Price Level");
-            System.Windows.Forms.TreeNode treeNode1022 = new System.Windows.Forms.TreeNode("Adjust Money");
-            System.Windows.Forms.TreeNode treeNode1023 = new System.Windows.Forms.TreeNode("News Type");
-            System.Windows.Forms.TreeNode treeNode1024 = new System.Windows.Forms.TreeNode("Payment Type");
-            System.Windows.Forms.TreeNode treeNode1025 = new System.Windows.Forms.TreeNode("Survey Type");
-            System.Windows.Forms.TreeNode treeNode1026 = new System.Windows.Forms.TreeNode("Delivery Days");
-            System.Windows.Forms.TreeNode treeNode1027 = new System.Windows.Forms.TreeNode("Material Type");
-            System.Windows.Forms.TreeNode treeNode1028 = new System.Windows.Forms.TreeNode("Display Type");
-            System.Windows.Forms.TreeNode treeNode1029 = new System.Windows.Forms.TreeNode("Common", new System.Windows.Forms.TreeNode[] {
-            treeNode1013,
+            treeNode1011,
+            treeNode1012});
+            System.Windows.Forms.TreeNode treeNode1014 = new System.Windows.Forms.TreeNode("Product");
+            System.Windows.Forms.TreeNode treeNode1015 = new System.Windows.Forms.TreeNode("Store");
+            System.Windows.Forms.TreeNode treeNode1016 = new System.Windows.Forms.TreeNode("Region");
+            System.Windows.Forms.TreeNode treeNode1017 = new System.Windows.Forms.TreeNode("State");
+            System.Windows.Forms.TreeNode treeNode1018 = new System.Windows.Forms.TreeNode("City");
+            System.Windows.Forms.TreeNode treeNode1019 = new System.Windows.Forms.TreeNode("Town");
+            System.Windows.Forms.TreeNode treeNode1020 = new System.Windows.Forms.TreeNode("Customer Type");
+            System.Windows.Forms.TreeNode treeNode1021 = new System.Windows.Forms.TreeNode("Credit Days");
+            System.Windows.Forms.TreeNode treeNode1022 = new System.Windows.Forms.TreeNode("Price Level");
+            System.Windows.Forms.TreeNode treeNode1023 = new System.Windows.Forms.TreeNode("Adjust Money");
+            System.Windows.Forms.TreeNode treeNode1024 = new System.Windows.Forms.TreeNode("News Type");
+            System.Windows.Forms.TreeNode treeNode1025 = new System.Windows.Forms.TreeNode("Payment Type");
+            System.Windows.Forms.TreeNode treeNode1026 = new System.Windows.Forms.TreeNode("Survey Type");
+            System.Windows.Forms.TreeNode treeNode1027 = new System.Windows.Forms.TreeNode("Delivery Days");
+            System.Windows.Forms.TreeNode treeNode1028 = new System.Windows.Forms.TreeNode("Material Type");
+            System.Windows.Forms.TreeNode treeNode1029 = new System.Windows.Forms.TreeNode("Display Type");
+            System.Windows.Forms.TreeNode treeNode1030 = new System.Windows.Forms.TreeNode("Common", new System.Windows.Forms.TreeNode[] {
             treeNode1014,
             treeNode1015,
             treeNode1016,
@@ -2062,18 +2063,18 @@
             treeNode1025,
             treeNode1026,
             treeNode1027,
-            treeNode1028});
-            System.Windows.Forms.TreeNode treeNode1030 = new System.Windows.Forms.TreeNode("Distributor");
-            System.Windows.Forms.TreeNode treeNode1031 = new System.Windows.Forms.TreeNode("Company");
-            System.Windows.Forms.TreeNode treeNode1032 = new System.Windows.Forms.TreeNode("Warehouse");
-            System.Windows.Forms.TreeNode treeNode1033 = new System.Windows.Forms.TreeNode("DC State");
-            System.Windows.Forms.TreeNode treeNode1034 = new System.Windows.Forms.TreeNode("DC Section");
-            System.Windows.Forms.TreeNode treeNode1035 = new System.Windows.Forms.TreeNode("Sales Area");
-            System.Windows.Forms.TreeNode treeNode1036 = new System.Windows.Forms.TreeNode("Delivery Route");
-            System.Windows.Forms.TreeNode treeNode1037 = new System.Windows.Forms.TreeNode("Bank");
-            System.Windows.Forms.TreeNode treeNode1038 = new System.Windows.Forms.TreeNode("Bank Account");
-            System.Windows.Forms.TreeNode treeNode1039 = new System.Windows.Forms.TreeNode("Agent/DC", new System.Windows.Forms.TreeNode[] {
-            treeNode1030,
+            treeNode1028,
+            treeNode1029});
+            System.Windows.Forms.TreeNode treeNode1031 = new System.Windows.Forms.TreeNode("Distributor");
+            System.Windows.Forms.TreeNode treeNode1032 = new System.Windows.Forms.TreeNode("Company");
+            System.Windows.Forms.TreeNode treeNode1033 = new System.Windows.Forms.TreeNode("Warehouse");
+            System.Windows.Forms.TreeNode treeNode1034 = new System.Windows.Forms.TreeNode("DC State");
+            System.Windows.Forms.TreeNode treeNode1035 = new System.Windows.Forms.TreeNode("DC Section");
+            System.Windows.Forms.TreeNode treeNode1036 = new System.Windows.Forms.TreeNode("Sales Area");
+            System.Windows.Forms.TreeNode treeNode1037 = new System.Windows.Forms.TreeNode("Delivery Route");
+            System.Windows.Forms.TreeNode treeNode1038 = new System.Windows.Forms.TreeNode("Bank");
+            System.Windows.Forms.TreeNode treeNode1039 = new System.Windows.Forms.TreeNode("Bank Account");
+            System.Windows.Forms.TreeNode treeNode1040 = new System.Windows.Forms.TreeNode("Agent/DC", new System.Windows.Forms.TreeNode[] {
             treeNode1031,
             treeNode1032,
             treeNode1033,
@@ -2081,53 +2082,53 @@
             treeNode1035,
             treeNode1036,
             treeNode1037,
-            treeNode1038});
-            System.Windows.Forms.TreeNode treeNode1040 = new System.Windows.Forms.TreeNode("News And Documents");
-            System.Windows.Forms.TreeNode treeNode1041 = new System.Windows.Forms.TreeNode("Mustlist Product");
-            System.Windows.Forms.TreeNode treeNode1042 = new System.Windows.Forms.TreeNode("กำหนดเป้าการขาย");
-            System.Windows.Forms.TreeNode treeNode1043 = new System.Windows.Forms.TreeNode("Operation", new System.Windows.Forms.TreeNode[] {
-            treeNode1040,
+            treeNode1038,
+            treeNode1039});
+            System.Windows.Forms.TreeNode treeNode1041 = new System.Windows.Forms.TreeNode("News And Documents");
+            System.Windows.Forms.TreeNode treeNode1042 = new System.Windows.Forms.TreeNode("Mustlist Product");
+            System.Windows.Forms.TreeNode treeNode1043 = new System.Windows.Forms.TreeNode("กำหนดเป้าการขาย");
+            System.Windows.Forms.TreeNode treeNode1044 = new System.Windows.Forms.TreeNode("Operation", new System.Windows.Forms.TreeNode[] {
             treeNode1041,
-            treeNode1042});
-            System.Windows.Forms.TreeNode treeNode1044 = new System.Windows.Forms.TreeNode("นำเข้าข้อมูลหลัก");
-            System.Windows.Forms.TreeNode treeNode1045 = new System.Windows.Forms.TreeNode("Master Data", new System.Windows.Forms.TreeNode[] {
-            treeNode1012,
-            treeNode1029,
-            treeNode1039,
-            treeNode1043,
-            treeNode1044});
-            System.Windows.Forms.TreeNode treeNode1046 = new System.Windows.Forms.TreeNode("กำหนดค่าตัวแปร Mobile");
-            System.Windows.Forms.TreeNode treeNode1047 = new System.Windows.Forms.TreeNode("Call Detail  (งานตามแผน)");
-            System.Windows.Forms.TreeNode treeNode1048 = new System.Windows.Forms.TreeNode("Call Detail (งานนอกแผน)");
-            System.Windows.Forms.TreeNode treeNode1049 = new System.Windows.Forms.TreeNode("Call Summary (รายวัน)");
-            System.Windows.Forms.TreeNode treeNode1050 = new System.Windows.Forms.TreeNode("Call Summary (รายเดือน)");
-            System.Windows.Forms.TreeNode treeNode1051 = new System.Windows.Forms.TreeNode("Call Trend");
-            System.Windows.Forms.TreeNode treeNode1052 = new System.Windows.Forms.TreeNode("จำนวนสินค้ามัดจำเคลื่อนไหว");
-            System.Windows.Forms.TreeNode treeNode1053 = new System.Windows.Forms.TreeNode("มูลค่าสินค้ามัดจำเคลื่อนไหว");
-            System.Windows.Forms.TreeNode treeNode1054 = new System.Windows.Forms.TreeNode("จำนวนสินค้าลูกหนี้มัดจำ");
-            System.Windows.Forms.TreeNode treeNode1055 = new System.Windows.Forms.TreeNode("จำนวนสินค้าเจ้าหนี้มัดจำ");
-            System.Windows.Forms.TreeNode treeNode1056 = new System.Windows.Forms.TreeNode("รายงานส่วนลด ตามประเภทร้านค้า และสินค้า");
-            System.Windows.Forms.TreeNode treeNode1057 = new System.Windows.Forms.TreeNode("รายงานการเปลี่ยนแปลง สวนลด");
-            System.Windows.Forms.TreeNode treeNode1058 = new System.Windows.Forms.TreeNode("รายงานส่วนลด จำแนกตามกลุ่มสินค้า");
-            System.Windows.Forms.TreeNode treeNode1059 = new System.Windows.Forms.TreeNode("รายงานการใช้โปรโมชั่นตามลำดับขั้น");
-            System.Windows.Forms.TreeNode treeNode1060 = new System.Windows.Forms.TreeNode("รายงานยอดขาย");
-            System.Windows.Forms.TreeNode treeNode1061 = new System.Windows.Forms.TreeNode("รายงานยอดขาย รายพนักงานขาย");
-            System.Windows.Forms.TreeNode treeNode1062 = new System.Windows.Forms.TreeNode("รายงานยอดขาย รายร้านค้า");
-            System.Windows.Forms.TreeNode treeNode1063 = new System.Windows.Forms.TreeNode("รายงานยอดการซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย");
-            System.Windows.Forms.TreeNode treeNode1064 = new System.Windows.Forms.TreeNode("รายงานเปอร์เซ็นต์ ซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย");
-            System.Windows.Forms.TreeNode treeNode1065 = new System.Windows.Forms.TreeNode("รายงานอัตราเฉลี่ยการสั่งซื้อต่อการเข้าเยี่ยมร้านค้า");
-            System.Windows.Forms.TreeNode treeNode1066 = new System.Windows.Forms.TreeNode("รายงานยอดขายเฉลี่ยตาม ต่อบิลขาย");
-            System.Windows.Forms.TreeNode treeNode1067 = new System.Windows.Forms.TreeNode("รายงานจำนวนรายการสินค้าเฉลี่ย ต่อบิลขาย");
-            System.Windows.Forms.TreeNode treeNode1068 = new System.Windows.Forms.TreeNode("รายงานอัตราขายแต่ละชนิดสินค้า ของร้านค้า");
-            System.Windows.Forms.TreeNode treeNode1069 = new System.Windows.Forms.TreeNode("รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าทั้งหมด");
-            System.Windows.Forms.TreeNode treeNode1070 = new System.Windows.Forms.TreeNode("รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าที่อยู่ในแผน");
-            System.Windows.Forms.TreeNode treeNode1071 = new System.Windows.Forms.TreeNode("รายงานอัตราขายแบ่งตามกลุ่มสินค้า ของร้านค้า");
-            System.Windows.Forms.TreeNode treeNode1072 = new System.Windows.Forms.TreeNode("รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า รายพนักงานขาย");
-            System.Windows.Forms.TreeNode treeNode1073 = new System.Windows.Forms.TreeNode("รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า เทียบกับร้านค้าในแผนต่อเดือน");
-            System.Windows.Forms.TreeNode treeNode1074 = new System.Windows.Forms.TreeNode("รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ ต่อเดือน");
-            System.Windows.Forms.TreeNode treeNode1075 = new System.Windows.Forms.TreeNode("รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ แบ่งตามอำเภอ ต่อเดือน");
-            System.Windows.Forms.TreeNode treeNode1076 = new System.Windows.Forms.TreeNode("Report", new System.Windows.Forms.TreeNode[] {
-            treeNode1047,
+            treeNode1042,
+            treeNode1043});
+            System.Windows.Forms.TreeNode treeNode1045 = new System.Windows.Forms.TreeNode("นำเข้าข้อมูลหลัก");
+            System.Windows.Forms.TreeNode treeNode1046 = new System.Windows.Forms.TreeNode("Master Data", new System.Windows.Forms.TreeNode[] {
+            treeNode1013,
+            treeNode1030,
+            treeNode1040,
+            treeNode1044,
+            treeNode1045});
+            System.Windows.Forms.TreeNode treeNode1047 = new System.Windows.Forms.TreeNode("กำหนดค่าตัวแปร Mobile");
+            System.Windows.Forms.TreeNode treeNode1048 = new System.Windows.Forms.TreeNode("Call Detail  (งานตามแผน)");
+            System.Windows.Forms.TreeNode treeNode1049 = new System.Windows.Forms.TreeNode("Call Detail (งานนอกแผน)");
+            System.Windows.Forms.TreeNode treeNode1050 = new System.Windows.Forms.TreeNode("Call Summary (รายวัน)");
+            System.Windows.Forms.TreeNode treeNode1051 = new System.Windows.Forms.TreeNode("Call Summary (รายเดือน)");
+            System.Windows.Forms.TreeNode treeNode1052 = new System.Windows.Forms.TreeNode("Call Trend");
+            System.Windows.Forms.TreeNode treeNode1053 = new System.Windows.Forms.TreeNode("จำนวนสินค้ามัดจำเคลื่อนไหว");
+            System.Windows.Forms.TreeNode treeNode1054 = new System.Windows.Forms.TreeNode("มูลค่าสินค้ามัดจำเคลื่อนไหว");
+            System.Windows.Forms.TreeNode treeNode1055 = new System.Windows.Forms.TreeNode("จำนวนสินค้าลูกหนี้มัดจำ");
+            System.Windows.Forms.TreeNode treeNode1056 = new System.Windows.Forms.TreeNode("จำนวนสินค้าเจ้าหนี้มัดจำ");
+            System.Windows.Forms.TreeNode treeNode1057 = new System.Windows.Forms.TreeNode("รายงานส่วนลด ตามประเภทร้านค้า และสินค้า");
+            System.Windows.Forms.TreeNode treeNode1058 = new System.Windows.Forms.TreeNode("รายงานการเปลี่ยนแปลง สวนลด");
+            System.Windows.Forms.TreeNode treeNode1059 = new System.Windows.Forms.TreeNode("รายงานส่วนลด จำแนกตามกลุ่มสินค้า");
+            System.Windows.Forms.TreeNode treeNode1060 = new System.Windows.Forms.TreeNode("รายงานการใช้โปรโมชั่นตามลำดับขั้น");
+            System.Windows.Forms.TreeNode treeNode1061 = new System.Windows.Forms.TreeNode("รายงานยอดขาย");
+            System.Windows.Forms.TreeNode treeNode1062 = new System.Windows.Forms.TreeNode("รายงานยอดขาย รายพนักงานขาย");
+            System.Windows.Forms.TreeNode treeNode1063 = new System.Windows.Forms.TreeNode("รายงานยอดขาย รายร้านค้า");
+            System.Windows.Forms.TreeNode treeNode1064 = new System.Windows.Forms.TreeNode("รายงานยอดการซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย");
+            System.Windows.Forms.TreeNode treeNode1065 = new System.Windows.Forms.TreeNode("รายงานเปอร์เซ็นต์ ซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย");
+            System.Windows.Forms.TreeNode treeNode1066 = new System.Windows.Forms.TreeNode("รายงานอัตราเฉลี่ยการสั่งซื้อต่อการเข้าเยี่ยมร้านค้า");
+            System.Windows.Forms.TreeNode treeNode1067 = new System.Windows.Forms.TreeNode("รายงานยอดขายเฉลี่ยตาม ต่อบิลขาย");
+            System.Windows.Forms.TreeNode treeNode1068 = new System.Windows.Forms.TreeNode("รายงานจำนวนรายการสินค้าเฉลี่ย ต่อบิลขาย");
+            System.Windows.Forms.TreeNode treeNode1069 = new System.Windows.Forms.TreeNode("รายงานอัตราขายแต่ละชนิดสินค้า ของร้านค้า");
+            System.Windows.Forms.TreeNode treeNode1070 = new System.Windows.Forms.TreeNode("รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าทั้งหมด");
+            System.Windows.Forms.TreeNode treeNode1071 = new System.Windows.Forms.TreeNode("รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าที่อยู่ในแผน");
+            System.Windows.Forms.TreeNode treeNode1072 = new System.Windows.Forms.TreeNode("รายงานอัตราขายแบ่งตามกลุ่มสินค้า ของร้านค้า");
+            System.Windows.Forms.TreeNode treeNode1073 = new System.Windows.Forms.TreeNode("รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า รายพนักงานขาย");
+            System.Windows.Forms.TreeNode treeNode1074 = new System.Windows.Forms.TreeNode("รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า เทียบกับร้านค้าในแผนต่อเดือน");
+            System.Windows.Forms.TreeNode treeNode1075 = new System.Windows.Forms.TreeNode("รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ ต่อเดือน");
+            System.Windows.Forms.TreeNode treeNode1076 = new System.Windows.Forms.TreeNode("รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ แบ่งตามอำเภอ ต่อเดือน");
+            System.Windows.Forms.TreeNode treeNode1077 = new System.Windows.Forms.TreeNode("Report", new System.Windows.Forms.TreeNode[] {
             treeNode1048,
             treeNode1049,
             treeNode1050,
@@ -2155,27 +2156,28 @@
             treeNode1072,
             treeNode1073,
             treeNode1074,
-            treeNode1075});
-            System.Windows.Forms.TreeNode treeNode1077 = new System.Windows.Forms.TreeNode("Mobile Sales", new System.Windows.Forms.TreeNode[] {
-            treeNode953,
-            treeNode957,
-            treeNode987,
-            treeNode990,
-            treeNode997,
-            treeNode1002,
-            treeNode1008,
-            treeNode1045,
-            treeNode1046,
+            treeNode1075,
             treeNode1076});
-            System.Windows.Forms.TreeNode treeNode1078 = new System.Windows.Forms.TreeNode("Data ARM");
-            System.Windows.Forms.TreeNode treeNode1079 = new System.Windows.Forms.TreeNode("Data Saleout");
-            System.Windows.Forms.TreeNode treeNode1080 = new System.Windows.Forms.TreeNode("Data Stock");
-            System.Windows.Forms.TreeNode treeNode1081 = new System.Windows.Forms.TreeNode("Import Data From DataCenter");
-            System.Windows.Forms.TreeNode treeNode1082 = new System.Windows.Forms.TreeNode("Data", new System.Windows.Forms.TreeNode[] {
-            treeNode1078,
+            System.Windows.Forms.TreeNode treeNode1078 = new System.Windows.Forms.TreeNode("Mobile Sales", new System.Windows.Forms.TreeNode[] {
+            treeNode954,
+            treeNode958,
+            treeNode988,
+            treeNode991,
+            treeNode998,
+            treeNode1003,
+            treeNode1009,
+            treeNode1046,
+            treeNode1047,
+            treeNode1077});
+            System.Windows.Forms.TreeNode treeNode1079 = new System.Windows.Forms.TreeNode("Data ARM");
+            System.Windows.Forms.TreeNode treeNode1080 = new System.Windows.Forms.TreeNode("Data Saleout");
+            System.Windows.Forms.TreeNode treeNode1081 = new System.Windows.Forms.TreeNode("Data Stock");
+            System.Windows.Forms.TreeNode treeNode1082 = new System.Windows.Forms.TreeNode("Import Data From DataCenter");
+            System.Windows.Forms.TreeNode treeNode1083 = new System.Windows.Forms.TreeNode("Data", new System.Windows.Forms.TreeNode[] {
             treeNode1079,
             treeNode1080,
-            treeNode1081});
+            treeNode1081,
+            treeNode1082});
             this._mainMenuERP = new MyLib._myTreeView();
             this._menuPanel.SuspendLayout();
             this._tabControl.SuspendLayout();
@@ -4937,557 +4939,560 @@
             treeNode888.Name = "menu_singha_report_sale_invoice_by_credit_day";
             treeNode888.Tag = "&fastreport&&1&&2&&12&&13&&3&";
             treeNode888.Text = "สรุปรายละเอียดการขาย/เก็บเงิน รายบิล ตามระยะเวลาเครดิต";
-            treeNode889.Name = "Node4";
-            treeNode889.Text = "ขาย";
-            treeNode890.Name = "menu_singha_report_customer_credit_balance";
-            treeNode890.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode890.Text = "ยอดลูกหนี้คงเหลือ";
-            treeNode891.Name = "menu_singha_report_credit_money_check";
-            treeNode891.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode891.Text = "รายงานตรวจสอบยอดวงเงิน";
-            treeNode892.Name = "menu_singha_report_ar_outstanding";
-            treeNode892.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode892.Text = "ลูกหนี้คงค้าง";
-            treeNode893.Name = "menu_singha_report_transport_address";
-            treeNode893.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode893.Text = "รายงานที่อยู่จัดส่งลูกค้า";
-            treeNode894.Name = "menu_singha_report_customer_credit_balance_by_creditdate";
-            treeNode894.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode894.Text = "ยอดลูกหนี้คงเหลือ ตามระยะเวลาเครดิต";
-            treeNode895.Name = "menu_singha_report_ar_customer";
-            treeNode895.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode895.Text = "รายงานรายละเอียดลูกค้า";
-            treeNode896.Name = "menu_singha_report_customer";
-            treeNode896.Text = "ลูกหนี้";
-            treeNode897.Name = "menu_singha_report_chequein_list";
-            treeNode897.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode897.Text = "ทะเบียนรับเช็ค";
-            treeNode898.Name = "menu_singha_report_chequein_balance";
+            treeNode889.Name = "menu_singha_report_sale_summary_byproduct_arm";
+            treeNode889.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode889.Text = "สรุปยอดขายลูกค้า วิเคราะห์ตามสินค้า (ARM)";
+            treeNode890.Name = "Node4";
+            treeNode890.Text = "ขาย";
+            treeNode891.Name = "menu_singha_report_customer_credit_balance";
+            treeNode891.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode891.Text = "ยอดลูกหนี้คงเหลือ";
+            treeNode892.Name = "menu_singha_report_credit_money_check";
+            treeNode892.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode892.Text = "รายงานตรวจสอบยอดวงเงิน";
+            treeNode893.Name = "menu_singha_report_ar_outstanding";
+            treeNode893.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode893.Text = "ลูกหนี้คงค้าง";
+            treeNode894.Name = "menu_singha_report_transport_address";
+            treeNode894.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode894.Text = "รายงานที่อยู่จัดส่งลูกค้า";
+            treeNode895.Name = "menu_singha_report_customer_credit_balance_by_creditdate";
+            treeNode895.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode895.Text = "ยอดลูกหนี้คงเหลือ ตามระยะเวลาเครดิต";
+            treeNode896.Name = "menu_singha_report_ar_customer";
+            treeNode896.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode896.Text = "รายงานรายละเอียดลูกค้า";
+            treeNode897.Name = "menu_singha_report_customer";
+            treeNode897.Text = "ลูกหนี้";
+            treeNode898.Name = "menu_singha_report_chequein_list";
             treeNode898.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode898.Text = "สรุปยอดรับเช็คคงเหลือ";
-            treeNode899.Name = "menu_singha_report_chequein_deposit";
+            treeNode898.Text = "ทะเบียนรับเช็ค";
+            treeNode899.Name = "menu_singha_report_chequein_balance";
             treeNode899.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode899.Text = "สรุปยอดรับเช็ค  ส่งเข้าธนาคาร";
-            treeNode900.Name = "menu_singha_report_chequein_pass";
+            treeNode899.Text = "สรุปยอดรับเช็คคงเหลือ";
+            treeNode900.Name = "menu_singha_report_chequein_deposit";
             treeNode900.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode900.Text = "สรุปเช็ครับล่วงหน้า (ผ่าน)";
-            treeNode901.Name = "report_singha_chq_receive_movement";
-            treeNode901.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode901.Text = "รายงานการตัดเช็ค";
-            treeNode902.Name = "menu_singha_report_chq_in_return";
-            treeNode902.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode902.Text = "รายงานรับคืน (เช็ครับ)";
-            treeNode903.Name = "menu_singha_report_chq_in";
-            treeNode903.Text = "เช็ครับ";
-            treeNode904.Name = "menu_singha_report_bank_statement";
-            treeNode904.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode904.Text = "รายงาน Bank Statement";
-            treeNode905.Name = "menu_singha_report_bank_statement_show_payment_detail";
-            treeNode905.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode905.Text = "รายงาน Bank Statement แสดงช่องทางการจ่ายเงิน";
-            treeNode906.Name = "menu_singha_report_other_expenses";
+            treeNode900.Text = "สรุปยอดรับเช็ค  ส่งเข้าธนาคาร";
+            treeNode901.Name = "menu_singha_report_chequein_pass";
+            treeNode901.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode901.Text = "สรุปเช็ครับล่วงหน้า (ผ่าน)";
+            treeNode902.Name = "report_singha_chq_receive_movement";
+            treeNode902.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode902.Text = "รายงานการตัดเช็ค";
+            treeNode903.Name = "menu_singha_report_chq_in_return";
+            treeNode903.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode903.Text = "รายงานรับคืน (เช็ครับ)";
+            treeNode904.Name = "menu_singha_report_chq_in";
+            treeNode904.Text = "เช็ครับ";
+            treeNode905.Name = "menu_singha_report_bank_statement";
+            treeNode905.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode905.Text = "รายงาน Bank Statement";
+            treeNode906.Name = "menu_singha_report_bank_statement_show_payment_detail";
             treeNode906.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode906.Text = "รายงานค่าใช้จ่ายอื่น ๆ";
-            treeNode907.Name = "menu_singha_report_cashbank";
-            treeNode907.Text = "เงินสด/ธนาคาร";
-            treeNode908.Name = "menu_singha_report_product_wht_3";
-            treeNode908.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode908.Text = "รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.3)";
-            treeNode909.Name = "menu_singha_report_product_wht_53";
+            treeNode906.Text = "รายงาน Bank Statement แสดงช่องทางการจ่ายเงิน";
+            treeNode907.Name = "menu_singha_report_other_expenses";
+            treeNode907.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode907.Text = "รายงานค่าใช้จ่ายอื่น ๆ";
+            treeNode908.Name = "menu_singha_report_cashbank";
+            treeNode908.Text = "เงินสด/ธนาคาร";
+            treeNode909.Name = "menu_singha_report_product_wht_3";
             treeNode909.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode909.Text = "รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.53)";
-            treeNode910.Name = "menu_singha_report_vat_buy";
+            treeNode909.Text = "รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.3)";
+            treeNode910.Name = "menu_singha_report_product_wht_53";
             treeNode910.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode910.Text = "รายงานภาษีซื้อ";
-            treeNode911.Name = "menu_singha_report_vat_sale";
+            treeNode910.Text = "รายงานภาษีหัก ณ ที่จ่าย (ภ.ง.ด.53)";
+            treeNode911.Name = "menu_singha_report_vat_buy";
             treeNode911.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode911.Text = "รายงานภาษีขาย";
-            treeNode912.Name = "menu_report_cash_gl_sheet";
+            treeNode911.Text = "รายงานภาษีซื้อ";
+            treeNode912.Name = "menu_singha_report_vat_sale";
             treeNode912.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode912.Text = "สมุดบัญชีแยกประเภทเงินสด";
-            treeNode913.Name = "menu_report_transfer_gl_sheet";
+            treeNode912.Text = "รายงานภาษีขาย";
+            treeNode913.Name = "menu_report_cash_gl_sheet";
             treeNode913.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode913.Text = "สมุดบัญชีแยกประเงินโอน";
-            treeNode914.Name = "menu_singha_report_journal";
+            treeNode913.Text = "สมุดบัญชีแยกประเภทเงินสด";
+            treeNode914.Name = "menu_report_transfer_gl_sheet";
             treeNode914.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode914.Text = "รายงานข้อมูลรายวัน";
-            treeNode915.Name = "menu_singha_report_vat_free_by_issue";
-            treeNode915.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode915.Text = "รายงานภาษีขายสินค้าฟรี(ใบควบคุม)";
-            treeNode916.Name = "menu_singha_report_profit_and_lost";
-            treeNode916.Tag = "&gl&";
-            treeNode916.Text = "งบกำไรขาดทุน";
-            treeNode917.Name = "menu_singha_report_balancesheet_asset";
+            treeNode914.Text = "สมุดบัญชีแยกประเงินโอน";
+            treeNode915.Name = "menu_singha_report_journal";
+            treeNode915.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode915.Text = "รายงานข้อมูลรายวัน";
+            treeNode916.Name = "menu_singha_report_vat_free_by_issue";
+            treeNode916.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode916.Text = "รายงานภาษีขายสินค้าฟรี(ใบควบคุม)";
+            treeNode917.Name = "menu_singha_report_profit_and_lost";
             treeNode917.Tag = "&gl&";
-            treeNode917.Text = "งบดุล";
-            treeNode918.Name = "menu_singha_report_balancesheet_compare";
-            treeNode918.Text = "งบดุลเปรียบเทียบ";
-            treeNode919.Name = "menu_singha_report_lost_profit_compare";
-            treeNode919.Text = "งบกำไร(ขาดทุน)เปรียบเทียบ";
-            treeNode920.Name = "menu_gl_report_trial_balance";
-            treeNode920.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode920.Text = "รายงานงบทดลอง (มาตรฐาน)";
-            treeNode921.Name = "menu_gl_report_trial_balance_depart";
+            treeNode917.Text = "งบกำไรขาดทุน";
+            treeNode918.Name = "menu_singha_report_balancesheet_asset";
+            treeNode918.Tag = "&gl&";
+            treeNode918.Text = "งบดุล";
+            treeNode919.Name = "menu_singha_report_balancesheet_compare";
+            treeNode919.Text = "งบดุลเปรียบเทียบ";
+            treeNode920.Name = "menu_singha_report_lost_profit_compare";
+            treeNode920.Text = "งบกำไร(ขาดทุน)เปรียบเทียบ";
+            treeNode921.Name = "menu_gl_report_trial_balance";
             treeNode921.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode921.Text = "รายงานงบทดลอง (แยกแผนก)";
-            treeNode922.Name = "menu_gl_report_trial_balance_branch";
+            treeNode921.Text = "รายงานงบทดลอง (มาตรฐาน)";
+            treeNode922.Name = "menu_gl_report_trial_balance_depart";
             treeNode922.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode922.Text = "รายงานงบทดลอง (แยกสาขา)";
-            treeNode923.Name = "menu_singha_gl_report_trail_balance";
-            treeNode923.Text = "รายงานงบทดลอง";
-            treeNode924.Name = "menu_gl_report_balance_sheet";
-            treeNode924.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode924.Text = "รายงานกระดาษทำการ";
-            treeNode925.Name = "menu_gl_report_other_1";
+            treeNode922.Text = "รายงานงบทดลอง (แยกแผนก)";
+            treeNode923.Name = "menu_gl_report_trial_balance_branch";
+            treeNode923.Tag = "&gl&&1&&2&&12&&13&&3&";
+            treeNode923.Text = "รายงานงบทดลอง (แยกสาขา)";
+            treeNode924.Name = "menu_singha_gl_report_trail_balance";
+            treeNode924.Text = "รายงานงบทดลอง";
+            treeNode925.Name = "menu_gl_report_balance_sheet";
             treeNode925.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode925.Text = "งบกระแสเงินสด";
-            treeNode926.Name = "menu_gl_report_profit_and_lost_branch_1";
+            treeNode925.Text = "รายงานกระดาษทำการ";
+            treeNode926.Name = "menu_gl_report_other_1";
             treeNode926.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode926.Text = "งบกำไรขาดทุน (แยกสาขา)";
-            treeNode927.Name = "menu_gl_report_trial_balance_branch_depart";
+            treeNode926.Text = "งบกระแสเงินสด";
+            treeNode927.Name = "menu_gl_report_profit_and_lost_branch_1";
             treeNode927.Tag = "&gl&&1&&2&&12&&13&&3&";
-            treeNode927.Text = "งบกำไรขาดทุน (แยกสาขา-แผนก)";
-            treeNode928.Name = "menu_singha_gl_report_other";
-            treeNode928.Text = "รายงานอื่น ๆ";
-            treeNode929.Name = "menu_report_singha_gl";
-            treeNode929.Tag = "";
-            treeNode929.Text = "บัญชี";
-            treeNode930.Name = "menu_singha_report";
-            treeNode930.Tag = "&singha&&imex&";
-            treeNode930.Text = "รายงาน";
-            treeNode931.Name = "menu_wh_deposits";
-            treeNode931.Tag = "&ic&&3&";
-            treeNode931.Text = "ฝาก";
-            treeNode932.Name = "menu_wh_issue";
+            treeNode927.Text = "งบกำไรขาดทุน (แยกสาขา)";
+            treeNode928.Name = "menu_gl_report_trial_balance_branch_depart";
+            treeNode928.Tag = "&gl&&1&&2&&12&&13&&3&";
+            treeNode928.Text = "งบกำไรขาดทุน (แยกสาขา-แผนก)";
+            treeNode929.Name = "menu_singha_gl_report_other";
+            treeNode929.Text = "รายงานอื่น ๆ";
+            treeNode930.Name = "menu_report_singha_gl";
+            treeNode930.Tag = "";
+            treeNode930.Text = "บัญชี";
+            treeNode931.Name = "menu_singha_report";
+            treeNode931.Tag = "&singha&&imex&";
+            treeNode931.Text = "รายงาน";
+            treeNode932.Name = "menu_wh_deposits";
             treeNode932.Tag = "&ic&&3&";
-            treeNode932.Text = "เบิก";
-            treeNode933.Name = "menu_wh_issue_return";
+            treeNode932.Text = "ฝาก";
+            treeNode933.Name = "menu_wh_issue";
             treeNode933.Tag = "&ic&&3&";
-            treeNode933.Text = "รับคืน";
-            treeNode934.Name = "menu_singha_report_wh_deposits_customer";
-            treeNode934.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode934.Text = "สรุปฝากรายลูกค้า";
-            treeNode935.Name = "menu_singha_report_wh_accrued_out";
-            treeNode935.Tag = "&line&&fastreport&&1&&2&&12&&13&&3&";
-            treeNode935.Text = "สรุปสินค้า ค้างส่ง";
-            treeNode936.Name = "menu_singha_report_summary_warehouse_deposit";
-            treeNode936.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode936.Text = "สรุปฝาก";
-            treeNode937.Name = "menu_singha_report_summary_warehouse_deposit_depart";
+            treeNode933.Text = "เบิก";
+            treeNode934.Name = "menu_wh_issue_return";
+            treeNode934.Tag = "&ic&&3&";
+            treeNode934.Text = "รับคืน";
+            treeNode935.Name = "menu_singha_report_wh_deposits_customer";
+            treeNode935.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode935.Text = "สรุปฝากรายลูกค้า";
+            treeNode936.Name = "menu_singha_report_wh_accrued_out";
+            treeNode936.Tag = "&line&&fastreport&&1&&2&&12&&13&&3&";
+            treeNode936.Text = "สรุปสินค้า ค้างส่ง";
+            treeNode937.Name = "menu_singha_report_summary_warehouse_deposit";
             treeNode937.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode937.Text = "เบิกฝาก";
-            treeNode938.Name = "menu_singha_report_summary_warehouse_depart_return";
+            treeNode937.Text = "สรุปฝาก";
+            treeNode938.Name = "menu_singha_report_summary_warehouse_deposit_depart";
             treeNode938.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode938.Text = "สรุปรับคืนฝาก";
-            treeNode939.Name = "menu_singha_report_stock_balance_compare_deposit";
+            treeNode938.Text = "เบิกฝาก";
+            treeNode939.Name = "menu_singha_report_summary_warehouse_depart_return";
             treeNode939.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode939.Text = "สรุปการ์ดสินค้า VS  สินค้าฝาก";
-            treeNode940.Name = "menu_singha_report_deposit_card";
+            treeNode939.Text = "สรุปรับคืนฝาก";
+            treeNode940.Name = "menu_singha_report_stock_balance_compare_deposit";
             treeNode940.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode940.Text = "รายงานการ์ดสินค้าฝาก";
-            treeNode941.Name = "men_wh_system_report";
-            treeNode941.Text = "รายงาน";
-            treeNode942.Name = "menu_wh_deposits_system";
-            treeNode942.Text = "ฝาก / เบิก / รับคืน สินค้า";
-            treeNode943.Name = "menu_ic_finish_receive_ap";
-            treeNode943.Tag = "&ic&&1&&2&&12&&13&&3&";
-            treeNode943.Text = "รับสินค้าจากเจ้าหนี้(ยืม)";
-            treeNode944.Name = "menu_ic_issue_ap";
+            treeNode940.Text = "สรุปการ์ดสินค้า VS  สินค้าฝาก";
+            treeNode941.Name = "menu_singha_report_deposit_card";
+            treeNode941.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode941.Text = "รายงานการ์ดสินค้าฝาก";
+            treeNode942.Name = "men_wh_system_report";
+            treeNode942.Text = "รายงาน";
+            treeNode943.Name = "menu_wh_deposits_system";
+            treeNode943.Text = "ฝาก / เบิก / รับคืน สินค้า";
+            treeNode944.Name = "menu_ic_finish_receive_ap";
             treeNode944.Tag = "&ic&&1&&2&&12&&13&&3&";
-            treeNode944.Text = "เบิกสินค้าให้เจ้าหนี้(คืน)";
-            treeNode945.Name = "menu_ic_finish_receive_ar";
+            treeNode944.Text = "รับสินค้าจากเจ้าหนี้(ยืม)";
+            treeNode945.Name = "menu_ic_issue_ap";
             treeNode945.Tag = "&ic&&1&&2&&12&&13&&3&";
-            treeNode945.Text = "รับสินค้าจากลูกค้า(รับคืน)";
-            treeNode946.Name = "menu_ic_issue_ar";
+            treeNode945.Text = "เบิกสินค้าให้เจ้าหนี้(คืน)";
+            treeNode946.Name = "menu_ic_finish_receive_ar";
             treeNode946.Tag = "&ic&&1&&2&&12&&13&&3&";
-            treeNode946.Text = "เบิกสินค้าให้ลูกค้า(ยืม)";
-            treeNode947.Name = "menu_wh_rent_report";
-            treeNode947.Text = "รายงาน";
-            treeNode948.Name = "menu_wh_rent";
-            treeNode948.Text = "ยืม / คืน ภาชนะ";
-            treeNode949.Name = "menu_shipment_load";
-            treeNode949.Tag = "&pp&&3&";
-            treeNode949.Text = "บันทึกการส่งสินค้า";
-            treeNode950.Name = "menu_singha_report_shipment";
-            treeNode950.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode950.Text = "รายงานบันทึกการจัดส่ง";
-            treeNode951.Name = "menu_singha_shipment";
-            treeNode951.Text = "การส่งสินค้า";
-            treeNode952.Name = "menu_singha_warehouse";
-            treeNode952.Tag = "&singha&";
-            treeNode952.Text = "คลังสินค้า";
-            treeNode953.Name = "menu_saletools_customer";
-            treeNode953.Tag = "&line&&singhareport&&1&&2&&12&&13&&3&";
-            treeNode953.Text = "Customer";
-            treeNode954.Name = "menu_saletools_route_planning";
-            treeNode954.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode954.Text = "Route Planning";
-            treeNode955.Name = "menu_saletools_adhoc_jobs";
+            treeNode946.Text = "รับสินค้าจากลูกค้า(รับคืน)";
+            treeNode947.Name = "menu_ic_issue_ar";
+            treeNode947.Tag = "&ic&&1&&2&&12&&13&&3&";
+            treeNode947.Text = "เบิกสินค้าให้ลูกค้า(ยืม)";
+            treeNode948.Name = "menu_wh_rent_report";
+            treeNode948.Text = "รายงาน";
+            treeNode949.Name = "menu_wh_rent";
+            treeNode949.Text = "ยืม / คืน ภาชนะ";
+            treeNode950.Name = "menu_shipment_load";
+            treeNode950.Tag = "&pp&&3&";
+            treeNode950.Text = "บันทึกการส่งสินค้า";
+            treeNode951.Name = "menu_singha_report_shipment";
+            treeNode951.Tag = "&fastreport&&1&&2&&12&&13&&3&";
+            treeNode951.Text = "รายงานบันทึกการจัดส่ง";
+            treeNode952.Name = "menu_singha_shipment";
+            treeNode952.Text = "การส่งสินค้า";
+            treeNode953.Name = "menu_singha_warehouse";
+            treeNode953.Tag = "&singha&";
+            treeNode953.Text = "คลังสินค้า";
+            treeNode954.Name = "menu_saletools_customer";
+            treeNode954.Tag = "&line&&singhareport&&1&&2&&12&&13&&3&";
+            treeNode954.Text = "Customer";
+            treeNode955.Name = "menu_saletools_route_planning";
             treeNode955.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode955.Text = "AdHoc Jobs";
-            treeNode956.Name = "menu_saletools_manage_route_plan";
+            treeNode955.Text = "Route Planning";
+            treeNode956.Name = "menu_saletools_adhoc_jobs";
             treeNode956.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode956.Text = "Manage Route Plan";
-            treeNode957.Name = "menu_saletools_route";
-            treeNode957.Text = "Route";
-            treeNode958.Name = "menu_saletools_approve_invoice";
-            treeNode958.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode958.Text = "Approve Invoice (บิลขาย)";
-            treeNode959.Name = "menu_saletools_transaction_van";
-            treeNode959.Text = "VAN";
-            treeNode960.Name = "menu_saletools_approve_sales_invoice";
-            treeNode960.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode960.Text = "Approve Salesorder (ใบสั่งสินค้า )";
-            treeNode961.Name = "menu_saletools_transection_preorder";
-            treeNode961.Text = "Pre-Order";
-            treeNode962.Name = "menu_saletools_approve_bill_collection";
-            treeNode962.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode962.Text = "Approve Bill Collection";
-            treeNode963.Name = "menu_saletools_approve_payment";
+            treeNode956.Text = "AdHoc Jobs";
+            treeNode957.Name = "menu_saletools_manage_route_plan";
+            treeNode957.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode957.Text = "Manage Route Plan";
+            treeNode958.Name = "menu_saletools_route";
+            treeNode958.Text = "Route";
+            treeNode959.Name = "menu_saletools_approve_invoice";
+            treeNode959.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode959.Text = "Approve Invoice (บิลขาย)";
+            treeNode960.Name = "menu_saletools_transaction_van";
+            treeNode960.Text = "VAN";
+            treeNode961.Name = "menu_saletools_approve_sales_invoice";
+            treeNode961.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode961.Text = "Approve Salesorder (ใบสั่งสินค้า )";
+            treeNode962.Name = "menu_saletools_transection_preorder";
+            treeNode962.Text = "Pre-Order";
+            treeNode963.Name = "menu_saletools_approve_bill_collection";
             treeNode963.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode963.Text = "Approve Payment";
-            treeNode964.Name = "menu_saletools_transection_bill_collection";
-            treeNode964.Text = "Payment/Collection (จ่ายเงิน/รับเงิน)";
-            treeNode965.Name = "menu_saletools_approve_goods_transfer_request";
-            treeNode965.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode965.Text = "อนุมัติ ขอโอนสินค้า";
-            treeNode966.Name = "menu_saletools_approve_ods_transfer";
+            treeNode963.Text = "Approve Bill Collection";
+            treeNode964.Name = "menu_saletools_approve_payment";
+            treeNode964.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode964.Text = "Approve Payment";
+            treeNode965.Name = "menu_saletools_transection_bill_collection";
+            treeNode965.Text = "Payment/Collection (จ่ายเงิน/รับเงิน)";
+            treeNode966.Name = "menu_saletools_approve_goods_transfer_request";
             treeNode966.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode966.Text = "อนุมัติ โอนสินค้า";
-            treeNode967.Name = "menu_saletools_issue_to_customer";
+            treeNode966.Text = "อนุมัติ ขอโอนสินค้า";
+            treeNode967.Name = "menu_saletools_approve_ods_transfer";
             treeNode967.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode967.Text = "เบิกสินค้าให้ลูกค้า (ยืม)";
-            treeNode968.Name = "menu_saletools_approve_ods_issued_customer";
+            treeNode967.Text = "อนุมัติ โอนสินค้า";
+            treeNode968.Name = "menu_saletools_issue_to_customer";
             treeNode968.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode968.Text = "อนุมัติ เบิกสินค้าให้ลูกค้า(ยืม)";
-            treeNode969.Name = "menu_saletools_receive_from_customer";
+            treeNode968.Text = "เบิกสินค้าให้ลูกค้า (ยืม)";
+            treeNode969.Name = "menu_saletools_approve_ods_issued_customer";
             treeNode969.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode969.Text = "รับสินค้าจากลูกค้า (คืน)";
-            treeNode970.Name = "menu_saletools_approve_return_from_cus";
+            treeNode969.Text = "อนุมัติ เบิกสินค้าให้ลูกค้า(ยืม)";
+            treeNode970.Name = "menu_saletools_receive_from_customer";
             treeNode970.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode970.Text = "อนุมัติ รับสินค้าจากลูกค้า (คืน)";
-            treeNode971.Name = "menu_saletools_approve_goods_return";
+            treeNode970.Text = "รับสินค้าจากลูกค้า (คืน)";
+            treeNode971.Name = "menu_saletools_approve_return_from_cus";
             treeNode971.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode971.Text = "อนุมัติ รับคืนสินค้าเสีย";
-            treeNode972.Name = "menu_saletools_ap_goods_received";
+            treeNode971.Text = "อนุมัติ รับสินค้าจากลูกค้า (คืน)";
+            treeNode972.Name = "menu_saletools_approve_goods_return";
             treeNode972.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode972.Text = "รับสินค้าจากเจ้าหนี้(ยืม)";
-            treeNode973.Name = "menu_saletools_approve_ap_goods_received";
+            treeNode972.Text = "อนุมัติ รับคืนสินค้าเสีย";
+            treeNode973.Name = "menu_saletools_ap_goods_received";
             treeNode973.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode973.Text = "อนุมัติ รับสินค้าจากเจ้าหนี้(ยืม)";
-            treeNode974.Name = "menu_saletools_ap_good_issues";
+            treeNode973.Text = "รับสินค้าจากเจ้าหนี้(ยืม)";
+            treeNode974.Name = "menu_saletools_approve_ap_goods_received";
             treeNode974.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode974.Text = "เบิกสินค้าให้เจ้าหนี้(คืน)";
-            treeNode975.Name = "menu_saletools_approve_ap_good_issues";
+            treeNode974.Text = "อนุมัติ รับสินค้าจากเจ้าหนี้(ยืม)";
+            treeNode975.Name = "menu_saletools_ap_good_issues";
             treeNode975.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode975.Text = "อนุมัติ เบิกสินค้าให้เจ้าหนี้(คืน)";
-            treeNode976.Name = "menu_saletools_promotion_get";
+            treeNode975.Text = "เบิกสินค้าให้เจ้าหนี้(คืน)";
+            treeNode976.Name = "menu_saletools_approve_ap_good_issues";
             treeNode976.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode976.Text = "รายงานการให้โปรโมชั่น";
-            treeNode977.Name = "menu_saletools_discount_summary_report  ";
+            treeNode976.Text = "อนุมัติ เบิกสินค้าให้เจ้าหนี้(คืน)";
+            treeNode977.Name = "menu_saletools_promotion_get";
             treeNode977.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode977.Text = "รายงานสรุปการให้ส่วนลด";
-            treeNode978.Name = "menu_saletools_discount_detail_report";
+            treeNode977.Text = "รายงานการให้โปรโมชั่น";
+            treeNode978.Name = "menu_saletools_discount_summary_report  ";
             treeNode978.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode978.Text = "รายงานรายละเอียดการให้ส่วนลด";
-            treeNode979.Name = "menu_saletools_sale_pivot_report";
+            treeNode978.Text = "รายงานสรุปการให้ส่วนลด";
+            treeNode979.Name = "menu_saletools_discount_detail_report";
             treeNode979.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode979.Text = "รายงาน pivot ข้อมูลการขาย";
-            treeNode980.Name = "menu_saletools_customer_pivot_report";
+            treeNode979.Text = "รายงานรายละเอียดการให้ส่วนลด";
+            treeNode980.Name = "menu_saletools_sale_pivot_report";
             treeNode980.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode980.Text = "รายงาน pivot ข้อมูลลูกค้า";
-            treeNode981.Name = "menu_saletools_transection_managestock";
-            treeNode981.Text = "Manage Stock";
-            treeNode982.Name = "menu_saletools_approve_code";
-            treeNode982.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode982.Text = "Approve Code";
-            treeNode983.Name = "menu_saletools_document_running_no";
+            treeNode980.Text = "รายงาน pivot ข้อมูลการขาย";
+            treeNode981.Name = "menu_saletools_customer_pivot_report";
+            treeNode981.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode981.Text = "รายงาน pivot ข้อมูลลูกค้า";
+            treeNode982.Name = "menu_saletools_transection_managestock";
+            treeNode982.Text = "Manage Stock";
+            treeNode983.Name = "menu_saletools_approve_code";
             treeNode983.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode983.Text = "Document Running NO";
-            treeNode984.Name = "menu_saletools_transection_generate_code";
-            treeNode984.Text = "Generate Code";
-            treeNode985.Name = "menu_saletools_ods_transfer";
-            treeNode985.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode985.Text = "ดึงข้อมูลจาก SML";
-            treeNode986.Name = "menu_saletools_transection_interface_sml";
-            treeNode986.Text = "Interface SML";
-            treeNode987.Name = "menu_saletools_transaction";
-            treeNode987.Text = "Transaction";
-            treeNode988.Name = "menu_saletools_photo_group";
-            treeNode988.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode988.Text = "Photo Group";
-            treeNode989.Name = "menu_saletools_photos";
+            treeNode983.Text = "Approve Code";
+            treeNode984.Name = "menu_saletools_document_running_no";
+            treeNode984.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode984.Text = "Document Running NO";
+            treeNode985.Name = "menu_saletools_transection_generate_code";
+            treeNode985.Text = "Generate Code";
+            treeNode986.Name = "menu_saletools_ods_transfer";
+            treeNode986.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode986.Text = "ดึงข้อมูลจาก SML";
+            treeNode987.Name = "menu_saletools_transection_interface_sml";
+            treeNode987.Text = "Interface SML";
+            treeNode988.Name = "menu_saletools_transaction";
+            treeNode988.Text = "Transaction";
+            treeNode989.Name = "menu_saletools_photo_group";
             treeNode989.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode989.Text = "Photos";
-            treeNode990.Name = "menu_saletools_photo";
-            treeNode990.Text = "Photo";
-            treeNode991.Name = "menu_saletools_hea_map";
-            treeNode991.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode991.Text = "Heat Map";
-            treeNode992.Name = "menu_saletools_view_map";
+            treeNode989.Text = "Photo Group";
+            treeNode990.Name = "menu_saletools_photos";
+            treeNode990.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode990.Text = "Photos";
+            treeNode991.Name = "menu_saletools_photo";
+            treeNode991.Text = "Photo";
+            treeNode992.Name = "menu_saletools_hea_map";
             treeNode992.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode992.Text = "View Map";
-            treeNode993.Name = "menu_saletools_fleet";
+            treeNode992.Text = "Heat Map";
+            treeNode993.Name = "menu_saletools_view_map";
             treeNode993.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode993.Text = "Fleet";
-            treeNode994.Name = "menu_saletools_real_time";
+            treeNode993.Text = "View Map";
+            treeNode994.Name = "menu_saletools_fleet";
             treeNode994.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode994.Text = "Real Time";
-            treeNode995.Name = "menu_saletools_customer_gps_by_salesman";
+            treeNode994.Text = "Fleet";
+            treeNode995.Name = "menu_saletools_real_time";
             treeNode995.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode995.Text = "Customer GPS by salesman";
-            treeNode996.Name = "menu_saletools_aap_analysis";
+            treeNode995.Text = "Real Time";
+            treeNode996.Name = "menu_saletools_customer_gps_by_salesman";
             treeNode996.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode996.Text = "Map Analysis";
-            treeNode997.Name = "menu_saletools_map";
-            treeNode997.Text = "Map";
-            treeNode998.Name = "menu_saletools_promotions";
-            treeNode998.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode998.Text = "Promotions";
-            treeNode999.Name = "menu_saletools_import_promotion";
+            treeNode996.Text = "Customer GPS by salesman";
+            treeNode997.Name = "menu_saletools_aap_analysis";
+            treeNode997.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode997.Text = "Map Analysis";
+            treeNode998.Name = "menu_saletools_map";
+            treeNode998.Text = "Map";
+            treeNode999.Name = "menu_saletools_promotions";
             treeNode999.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode999.Text = "Import Promotion";
-            treeNode1000.Name = "menu_saletools_promotion_group";
+            treeNode999.Text = "Promotions";
+            treeNode1000.Name = "menu_saletools_import_promotion";
             treeNode1000.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1000.Text = "Promotion Group";
-            treeNode1001.Name = "menu_saletools_advance_price";
+            treeNode1000.Text = "Import Promotion";
+            treeNode1001.Name = "menu_saletools_promotion_group";
             treeNode1001.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1001.Text = "Advance Price";
-            treeNode1002.Name = "menu_saletools_promotion";
-            treeNode1002.Text = "Promotion";
-            treeNode1003.Name = "menu_saletools_web_users";
-            treeNode1003.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1003.Text = "Web Users";
-            treeNode1004.Name = "menu_saletools_change_password";
+            treeNode1001.Text = "Promotion Group";
+            treeNode1002.Name = "menu_saletools_advance_price";
+            treeNode1002.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1002.Text = "Advance Price";
+            treeNode1003.Name = "menu_saletools_promotion";
+            treeNode1003.Text = "Promotion";
+            treeNode1004.Name = "menu_saletools_web_users";
             treeNode1004.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1004.Text = "Change Password";
-            treeNode1005.Name = "menu_saletools_mobile_users";
+            treeNode1004.Text = "Web Users";
+            treeNode1005.Name = "menu_saletools_change_password";
             treeNode1005.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1005.Text = "Mobile Users";
-            treeNode1006.Name = "menu_saletools_sync_log";
+            treeNode1005.Text = "Change Password";
+            treeNode1006.Name = "menu_saletools_mobile_users";
             treeNode1006.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1006.Text = "Sync Log";
-            treeNode1007.Name = "menu_saletools_user_roles";
+            treeNode1006.Text = "Mobile Users";
+            treeNode1007.Name = "menu_saletools_sync_log";
             treeNode1007.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1007.Text = "User Roles";
-            treeNode1008.Name = "menu_saletools_users";
-            treeNode1008.Text = "Users";
-            treeNode1009.Name = "menu_saletools_import_export_data";
-            treeNode1009.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1009.Text = "Import/Export data";
-            treeNode1010.Name = "menu_saletools_update_mobile";
+            treeNode1007.Text = "Sync Log";
+            treeNode1008.Name = "menu_saletools_user_roles";
+            treeNode1008.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1008.Text = "User Roles";
+            treeNode1009.Name = "menu_saletools_users";
+            treeNode1009.Text = "Users";
+            treeNode1010.Name = "menu_saletools_import_export_data";
             treeNode1010.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1010.Text = "Update Mobile";
-            treeNode1011.Name = "menu_saletools_import_master_sml";
+            treeNode1010.Text = "Import/Export data";
+            treeNode1011.Name = "menu_saletools_update_mobile";
             treeNode1011.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1011.Text = "Import Master SML";
-            treeNode1012.Name = "menu_saletools_administrator";
-            treeNode1012.Text = "Administrator";
-            treeNode1013.Name = "menu_saletools_product";
-            treeNode1013.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1013.Text = "Product";
-            treeNode1014.Name = "menu_saletools_store";
+            treeNode1011.Text = "Update Mobile";
+            treeNode1012.Name = "menu_saletools_import_master_sml";
+            treeNode1012.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1012.Text = "Import Master SML";
+            treeNode1013.Name = "menu_saletools_administrator";
+            treeNode1013.Text = "Administrator";
+            treeNode1014.Name = "menu_saletools_product";
             treeNode1014.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1014.Text = "Store";
-            treeNode1015.Name = "menu_saletools_region";
+            treeNode1014.Text = "Product";
+            treeNode1015.Name = "menu_saletools_store";
             treeNode1015.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1015.Text = "Region";
-            treeNode1016.Name = "menu_saletools_state";
+            treeNode1015.Text = "Store";
+            treeNode1016.Name = "menu_saletools_region";
             treeNode1016.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1016.Text = "State";
-            treeNode1017.Name = "menu_saletools_city";
+            treeNode1016.Text = "Region";
+            treeNode1017.Name = "menu_saletools_state";
             treeNode1017.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1017.Text = "City";
-            treeNode1018.Name = "menu_saletools_town";
+            treeNode1017.Text = "State";
+            treeNode1018.Name = "menu_saletools_city";
             treeNode1018.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1018.Text = "Town";
-            treeNode1019.Name = "menu_saletools_customer_type";
+            treeNode1018.Text = "City";
+            treeNode1019.Name = "menu_saletools_town";
             treeNode1019.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1019.Text = "Customer Type";
-            treeNode1020.Name = "menu_saletools_credit_days";
+            treeNode1019.Text = "Town";
+            treeNode1020.Name = "menu_saletools_customer_type";
             treeNode1020.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1020.Text = "Credit Days";
-            treeNode1021.Name = "menu_saletools_price_level";
+            treeNode1020.Text = "Customer Type";
+            treeNode1021.Name = "menu_saletools_credit_days";
             treeNode1021.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1021.Text = "Price Level";
-            treeNode1022.Name = "menu_saletools_adjust_money";
+            treeNode1021.Text = "Credit Days";
+            treeNode1022.Name = "menu_saletools_price_level";
             treeNode1022.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1022.Text = "Adjust Money";
-            treeNode1023.Name = "menu_saletools_news_type";
+            treeNode1022.Text = "Price Level";
+            treeNode1023.Name = "menu_saletools_adjust_money";
             treeNode1023.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1023.Text = "News Type";
-            treeNode1024.Name = "menu_saletools_payment_type";
+            treeNode1023.Text = "Adjust Money";
+            treeNode1024.Name = "menu_saletools_news_type";
             treeNode1024.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1024.Text = "Payment Type";
-            treeNode1025.Name = "menu_saletools_survey_type";
+            treeNode1024.Text = "News Type";
+            treeNode1025.Name = "menu_saletools_payment_type";
             treeNode1025.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1025.Text = "Survey Type";
-            treeNode1026.Name = "menu_saletools_delivery_days";
+            treeNode1025.Text = "Payment Type";
+            treeNode1026.Name = "menu_saletools_survey_type";
             treeNode1026.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1026.Text = "Delivery Days";
-            treeNode1027.Name = "menu_saletools_material_Type";
+            treeNode1026.Text = "Survey Type";
+            treeNode1027.Name = "menu_saletools_delivery_days";
             treeNode1027.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1027.Text = "Material Type";
-            treeNode1028.Name = "menu_saletools_display_type";
+            treeNode1027.Text = "Delivery Days";
+            treeNode1028.Name = "menu_saletools_material_Type";
             treeNode1028.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1028.Text = "Display Type";
-            treeNode1029.Name = "menu_saletools_common";
-            treeNode1029.Text = "Common";
-            treeNode1030.Name = "menu_saletools_distributor";
-            treeNode1030.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1030.Text = "Distributor";
-            treeNode1031.Name = "menu_saletools_company";
+            treeNode1028.Text = "Material Type";
+            treeNode1029.Name = "menu_saletools_display_type";
+            treeNode1029.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1029.Text = "Display Type";
+            treeNode1030.Name = "menu_saletools_common";
+            treeNode1030.Text = "Common";
+            treeNode1031.Name = "menu_saletools_distributor";
             treeNode1031.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1031.Text = "Company";
-            treeNode1032.Name = "menu_saletools_warehouse";
+            treeNode1031.Text = "Distributor";
+            treeNode1032.Name = "menu_saletools_company";
             treeNode1032.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1032.Text = "Warehouse";
-            treeNode1033.Name = "menu_saletools_dc_state";
+            treeNode1032.Text = "Company";
+            treeNode1033.Name = "menu_saletools_warehouse";
             treeNode1033.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1033.Text = "DC State";
-            treeNode1034.Name = "menu_saletools_dcsection";
+            treeNode1033.Text = "Warehouse";
+            treeNode1034.Name = "menu_saletools_dc_state";
             treeNode1034.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1034.Text = "DC Section";
-            treeNode1035.Name = "menu_saletools_sales_area";
+            treeNode1034.Text = "DC State";
+            treeNode1035.Name = "menu_saletools_dcsection";
             treeNode1035.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1035.Text = "Sales Area";
-            treeNode1036.Name = "menu_saletools_delivery_route";
+            treeNode1035.Text = "DC Section";
+            treeNode1036.Name = "menu_saletools_sales_area";
             treeNode1036.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1036.Text = "Delivery Route";
-            treeNode1037.Name = "menu_saletools_bank";
+            treeNode1036.Text = "Sales Area";
+            treeNode1037.Name = "menu_saletools_delivery_route";
             treeNode1037.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1037.Text = "Bank";
-            treeNode1038.Name = "menu_saletools_bank_account";
+            treeNode1037.Text = "Delivery Route";
+            treeNode1038.Name = "menu_saletools_bank";
             treeNode1038.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1038.Text = "Bank Account";
-            treeNode1039.Name = "menu_saletools_agent_dc";
-            treeNode1039.Text = "Agent/DC";
-            treeNode1040.Name = "menu_saletools_news_and_documents";
-            treeNode1040.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1040.Text = "News And Documents";
-            treeNode1041.Name = "menu_saletools_mustlist_product";
+            treeNode1038.Text = "Bank";
+            treeNode1039.Name = "menu_saletools_bank_account";
+            treeNode1039.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1039.Text = "Bank Account";
+            treeNode1040.Name = "menu_saletools_agent_dc";
+            treeNode1040.Text = "Agent/DC";
+            treeNode1041.Name = "menu_saletools_news_and_documents";
             treeNode1041.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1041.Text = "Mustlist Product";
-            treeNode1042.Name = "menu_saletools_sale_target_config";
+            treeNode1041.Text = "News And Documents";
+            treeNode1042.Name = "menu_saletools_mustlist_product";
             treeNode1042.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1042.Text = "กำหนดเป้าการขาย";
-            treeNode1043.Name = "menu_saletools_operation";
-            treeNode1043.Text = "Operation";
-            treeNode1044.Name = "menu_saletools_master_import";
-            treeNode1044.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1044.Text = "นำเข้าข้อมูลหลัก";
-            treeNode1045.Name = "menu_saletools_master_data";
-            treeNode1045.Text = "Master Data";
-            treeNode1046.Name = "menu_saletools_14_9";
-            treeNode1046.Tag = "&line&&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1046.Text = "กำหนดค่าตัวแปร Mobile";
-            treeNode1047.Name = "menu_saletools_web_call_detail_in_plan";
-            treeNode1047.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1047.Text = "Call Detail  (งานตามแผน)";
-            treeNode1048.Name = "menu_saletools_web_call_detail_out_plan";
+            treeNode1042.Text = "Mustlist Product";
+            treeNode1043.Name = "menu_saletools_sale_target_config";
+            treeNode1043.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1043.Text = "กำหนดเป้าการขาย";
+            treeNode1044.Name = "menu_saletools_operation";
+            treeNode1044.Text = "Operation";
+            treeNode1045.Name = "menu_saletools_master_import";
+            treeNode1045.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1045.Text = "นำเข้าข้อมูลหลัก";
+            treeNode1046.Name = "menu_saletools_master_data";
+            treeNode1046.Text = "Master Data";
+            treeNode1047.Name = "menu_saletools_14_9";
+            treeNode1047.Tag = "&line&&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1047.Text = "กำหนดค่าตัวแปร Mobile";
+            treeNode1048.Name = "menu_saletools_web_call_detail_in_plan";
             treeNode1048.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1048.Text = "Call Detail (งานนอกแผน)";
-            treeNode1049.Name = "menu_saletools_web_call_summary_daily";
+            treeNode1048.Text = "Call Detail  (งานตามแผน)";
+            treeNode1049.Name = "menu_saletools_web_call_detail_out_plan";
             treeNode1049.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1049.Text = "Call Summary (รายวัน)";
-            treeNode1050.Name = "menu_saletools_web_call_summary_monthly";
+            treeNode1049.Text = "Call Detail (งานนอกแผน)";
+            treeNode1050.Name = "menu_saletools_web_call_summary_daily";
             treeNode1050.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1050.Text = "Call Summary (รายเดือน)";
-            treeNode1051.Name = "menu_saletools_web_call_trend";
+            treeNode1050.Text = "Call Summary (รายวัน)";
+            treeNode1051.Name = "menu_saletools_web_call_summary_monthly";
             treeNode1051.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1051.Text = "Call Trend";
-            treeNode1052.Name = "menu_saletools_product_qty_deposit_movement";
+            treeNode1051.Text = "Call Summary (รายเดือน)";
+            treeNode1052.Name = "menu_saletools_web_call_trend";
             treeNode1052.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1052.Text = "จำนวนสินค้ามัดจำเคลื่อนไหว";
-            treeNode1053.Name = "menu_saletools_product_amount_deposit_movement";
+            treeNode1052.Text = "Call Trend";
+            treeNode1053.Name = "menu_saletools_product_qty_deposit_movement";
             treeNode1053.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1053.Text = "มูลค่าสินค้ามัดจำเคลื่อนไหว";
-            treeNode1054.Name = "menu_saletools_product_qty_ar_deposit";
+            treeNode1053.Text = "จำนวนสินค้ามัดจำเคลื่อนไหว";
+            treeNode1054.Name = "menu_saletools_product_amount_deposit_movement";
             treeNode1054.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1054.Text = "จำนวนสินค้าลูกหนี้มัดจำ";
-            treeNode1055.Name = "menu_saletools_product_qty_ap_deposit";
+            treeNode1054.Text = "มูลค่าสินค้ามัดจำเคลื่อนไหว";
+            treeNode1055.Name = "menu_saletools_product_qty_ar_deposit";
             treeNode1055.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1055.Text = "จำนวนสินค้าเจ้าหนี้มัดจำ";
-            treeNode1056.Name = "menu_saletools_report_discount_by_shop_and_product";
+            treeNode1055.Text = "จำนวนสินค้าลูกหนี้มัดจำ";
+            treeNode1056.Name = "menu_saletools_product_qty_ap_deposit";
             treeNode1056.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1056.Text = "รายงานส่วนลด ตามประเภทร้านค้า และสินค้า";
-            treeNode1057.Name = "menu_saletools_report_discount_changed";
+            treeNode1056.Text = "จำนวนสินค้าเจ้าหนี้มัดจำ";
+            treeNode1057.Name = "menu_saletools_report_discount_by_shop_and_product";
             treeNode1057.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1057.Text = "รายงานการเปลี่ยนแปลง สวนลด";
-            treeNode1058.Name = "menu_saletools_report_discount_by_product_group";
+            treeNode1057.Text = "รายงานส่วนลด ตามประเภทร้านค้า และสินค้า";
+            treeNode1058.Name = "menu_saletools_report_discount_changed";
             treeNode1058.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1058.Text = "รายงานส่วนลด จำแนกตามกลุ่มสินค้า";
-            treeNode1059.Name = "menu_saletools_report_promotion_use_by_level";
+            treeNode1058.Text = "รายงานการเปลี่ยนแปลง สวนลด";
+            treeNode1059.Name = "menu_saletools_report_discount_by_product_group";
             treeNode1059.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1059.Text = "รายงานการใช้โปรโมชั่นตามลำดับขั้น";
-            treeNode1060.Name = "menu_saletools_report_sale_report";
+            treeNode1059.Text = "รายงานส่วนลด จำแนกตามกลุ่มสินค้า";
+            treeNode1060.Name = "menu_saletools_report_promotion_use_by_level";
             treeNode1060.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1060.Text = "รายงานยอดขาย";
-            treeNode1061.Name = "menu_saletools_report_sale_report_by_saleman";
+            treeNode1060.Text = "รายงานการใช้โปรโมชั่นตามลำดับขั้น";
+            treeNode1061.Name = "menu_saletools_report_sale_report";
             treeNode1061.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1061.Text = "รายงานยอดขาย รายพนักงานขาย";
-            treeNode1062.Name = "menu_saletools_report_sale_report_by_shop";
+            treeNode1061.Text = "รายงานยอดขาย";
+            treeNode1062.Name = "menu_saletools_report_sale_report_by_saleman";
             treeNode1062.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1062.Text = "รายงานยอดขาย รายร้านค้า";
-            treeNode1063.Name = "menu_saletools_report_purchase_by_shop_saleman";
+            treeNode1062.Text = "รายงานยอดขาย รายพนักงานขาย";
+            treeNode1063.Name = "menu_saletools_report_sale_report_by_shop";
             treeNode1063.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1063.Text = "รายงานยอดการซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย";
-            treeNode1064.Name = "menu_saletools_report_purchase_percent_by_shop_saleman";
+            treeNode1063.Text = "รายงานยอดขาย รายร้านค้า";
+            treeNode1064.Name = "menu_saletools_report_purchase_by_shop_saleman";
             treeNode1064.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1064.Text = "รายงานเปอร์เซ็นต์ ซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย";
-            treeNode1065.Name = "menu_saletools_report_purchase_average_per_serway";
+            treeNode1064.Text = "รายงานยอดการซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย";
+            treeNode1065.Name = "menu_saletools_report_purchase_percent_by_shop_saleman";
             treeNode1065.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1065.Text = "รายงานอัตราเฉลี่ยการสั่งซื้อต่อการเข้าเยี่ยมร้านค้า";
-            treeNode1066.Name = "menu_saletools_report_sale_average_per_doc";
+            treeNode1065.Text = "รายงานเปอร์เซ็นต์ ซื้อสินค้าแต่ละร้านค้า รายพนักงานขาย";
+            treeNode1066.Name = "menu_saletools_report_purchase_average_per_serway";
             treeNode1066.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1066.Text = "รายงานยอดขายเฉลี่ยตาม ต่อบิลขาย";
-            treeNode1067.Name = "menu_saletools_report_sale_product_average_per_doc";
+            treeNode1066.Text = "รายงานอัตราเฉลี่ยการสั่งซื้อต่อการเข้าเยี่ยมร้านค้า";
+            treeNode1067.Name = "menu_saletools_report_sale_average_per_doc";
             treeNode1067.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1067.Text = "รายงานจำนวนรายการสินค้าเฉลี่ย ต่อบิลขาย";
-            treeNode1068.Name = "menu_saletools_report_sale_groupproduct_amount";
+            treeNode1067.Text = "รายงานยอดขายเฉลี่ยตาม ต่อบิลขาย";
+            treeNode1068.Name = "menu_saletools_report_sale_product_average_per_doc";
             treeNode1068.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1068.Text = "รายงานอัตราขายแต่ละชนิดสินค้า ของร้านค้า";
-            treeNode1069.Name = "menu_saletools_report_sale_ratio_average_by_groupproduct_per_shop";
+            treeNode1068.Text = "รายงานจำนวนรายการสินค้าเฉลี่ย ต่อบิลขาย";
+            treeNode1069.Name = "menu_saletools_report_sale_groupproduct_amount";
             treeNode1069.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1069.Text = "รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าทั้งหมด";
-            treeNode1070.Name = "menu_saletools_report_sale_ratio_average_by_groupproduct_per_shop_map";
+            treeNode1069.Text = "รายงานอัตราขายแต่ละชนิดสินค้า ของร้านค้า";
+            treeNode1070.Name = "menu_saletools_report_sale_ratio_average_by_groupproduct_per_shop";
             treeNode1070.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1070.Text = "รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าที่อยู่ในแผน";
-            treeNode1071.Name = "menu_saletools_report_sale_ratio_groupproduct";
+            treeNode1070.Text = "รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าทั้งหมด";
+            treeNode1071.Name = "menu_saletools_report_sale_ratio_average_by_groupproduct_per_shop_map";
             treeNode1071.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1071.Text = "รายงานอัตราขายแบ่งตามกลุ่มสินค้า ของร้านค้า";
-            treeNode1072.Name = "menu_saletools_report_purchase_ratio_by_saleman";
+            treeNode1071.Text = "รายงานสัดส่วนเฉลี่ยอัตราขายแต่ละชนิดสินค้า ต่อจำนวนร้านค้าที่อยู่ในแผน";
+            treeNode1072.Name = "menu_saletools_report_sale_ratio_groupproduct";
             treeNode1072.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1072.Text = "รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า รายพนักงานขาย";
-            treeNode1073.Name = "menu_saletools_report_purchase_ratio_in_map";
+            treeNode1072.Text = "รายงานอัตราขายแบ่งตามกลุ่มสินค้า ของร้านค้า";
+            treeNode1073.Name = "menu_saletools_report_purchase_ratio_by_saleman";
             treeNode1073.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1073.Text = "รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า เทียบกับร้านค้าในแผนต่อเดือน";
-            treeNode1074.Name = "menu_saletools_report_shop_in_month";
+            treeNode1073.Text = "รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า รายพนักงานขาย";
+            treeNode1074.Name = "menu_saletools_report_purchase_ratio_in_map";
             treeNode1074.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1074.Text = "รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ ต่อเดือน";
-            treeNode1075.Name = "menu_saletools_report_shop_in_month_byamper";
+            treeNode1074.Text = "รายงานอัตราส่วนจำนวนร้านค้าต่อการซื้อสินค้า เทียบกับร้านค้าในแผนต่อเดือน";
+            treeNode1075.Name = "menu_saletools_report_shop_in_month";
             treeNode1075.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1075.Text = "รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ แบ่งตามอำเภอ ต่อเดือน";
-            treeNode1076.Name = "menu_saletools_report_web";
-            treeNode1076.Text = "Report";
-            treeNode1077.Name = "menu_saletools";
-            treeNode1077.Tag = "&singha&";
-            treeNode1077.Text = "Mobile Sales";
-            treeNode1078.Name = "menu_sync_data_arm";
-            treeNode1078.Tag = "&edi&&1&&2&&12&&13&&3&";
-            treeNode1078.Text = "Data ARM";
-            treeNode1079.Name = "menu_sync_data_saleout";
-            treeNode1079.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1079.Text = "Data Saleout";
-            treeNode1080.Name = "menu_sync_data_stock";
+            treeNode1075.Text = "รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ ต่อเดือน";
+            treeNode1076.Name = "menu_saletools_report_shop_in_month_byamper";
+            treeNode1076.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1076.Text = "รายงานจำนวนร้านค้าทั้งหมดภายในศูนย์ แบ่งตามอำเภอ ต่อเดือน";
+            treeNode1077.Name = "menu_saletools_report_web";
+            treeNode1077.Text = "Report";
+            treeNode1078.Name = "menu_saletools";
+            treeNode1078.Tag = "&singha&";
+            treeNode1078.Text = "Mobile Sales";
+            treeNode1079.Name = "menu_sync_data_arm";
+            treeNode1079.Tag = "&edi&&1&&2&&12&&13&&3&";
+            treeNode1079.Text = "Data ARM";
+            treeNode1080.Name = "menu_sync_data_saleout";
             treeNode1080.Tag = "&singhareport&&1&&2&&12&&13&&3&";
-            treeNode1080.Text = "Data Stock";
-            treeNode1081.Name = "menu_sync_data_center";
-            treeNode1081.Tag = "&singhasyncmaster&&2&&12&&13&&3&";
-            treeNode1081.Text = "Import Data From DataCenter";
-            treeNode1082.Name = "singha_data_transfer";
-            treeNode1082.Tag = "&singha&";
-            treeNode1082.Text = "Data";
+            treeNode1080.Text = "Data Saleout";
+            treeNode1081.Name = "menu_sync_data_stock";
+            treeNode1081.Tag = "&singhareport&&1&&2&&12&&13&&3&";
+            treeNode1081.Text = "Data Stock";
+            treeNode1082.Name = "menu_sync_data_center";
+            treeNode1082.Tag = "&singhasyncmaster&&2&&12&&13&&3&";
+            treeNode1082.Text = "Import Data From DataCenter";
+            treeNode1083.Name = "singha_data_transfer";
+            treeNode1083.Tag = "&singha&";
+            treeNode1083.Text = "Data";
             this._mainMenuERP.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode146,
             treeNode289,
@@ -5502,10 +5507,10 @@
             treeNode829,
             treeNode839,
             treeNode845,
-            treeNode930,
-            treeNode952,
-            treeNode1077,
-            treeNode1082});
+            treeNode931,
+            treeNode953,
+            treeNode1078,
+            treeNode1083});
             this._mainMenuERP.Size = new System.Drawing.Size(314, 719);
             this._mainMenuERP.TabIndex = 4;
             this._mainMenuERP.TabStop = false;
