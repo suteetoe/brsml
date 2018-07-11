@@ -40,11 +40,19 @@
             this._importButton = new MyLib.VistaButton();
             this._reloadButton = new MyLib.VistaButton();
             this._detailGrid = new MyLib._myGrid();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this._myFlowLayoutPanel1.SuspendLayout();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -102,7 +110,7 @@
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -113,8 +121,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this._detailGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(920, 956);
-            this.splitContainer1.SplitterDistance = 497;
+            this.splitContainer1.Size = new System.Drawing.Size(920, 909);
+            this.splitContainer1.SplitterDistance = 523;
             this.splitContainer1.TabIndex = 5;
             // 
             // _docGrid
@@ -129,7 +137,7 @@
             this._docGrid.Location = new System.Drawing.Point(0, 0);
             this._docGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._docGrid.Name = "_docGrid";
-            this._docGrid.Size = new System.Drawing.Size(495, 921);
+            this._docGrid.Size = new System.Drawing.Size(521, 874);
             this._docGrid.TabIndex = 0;
             this._docGrid.TabStop = false;
             // 
@@ -140,9 +148,9 @@
             this._myFlowLayoutPanel1.Controls.Add(this._reloadButton);
             this._myFlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._myFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 921);
+            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 874);
             this._myFlowLayoutPanel1.Name = "_myFlowLayoutPanel1";
-            this._myFlowLayoutPanel1.Size = new System.Drawing.Size(495, 33);
+            this._myFlowLayoutPanel1.Size = new System.Drawing.Size(521, 33);
             this._myFlowLayoutPanel1.TabIndex = 1;
             // 
             // _importButton
@@ -150,7 +158,7 @@
             this._importButton._drawNewMethod = false;
             this._importButton.BackColor = System.Drawing.Color.Transparent;
             this._importButton.ButtonText = "Import";
-            this._importButton.Location = new System.Drawing.Point(398, 3);
+            this._importButton.Location = new System.Drawing.Point(424, 3);
             this._importButton.Name = "_importButton";
             this._importButton.Size = new System.Drawing.Size(94, 27);
             this._importButton.TabIndex = 0;
@@ -163,7 +171,7 @@
             this._reloadButton._drawNewMethod = false;
             this._reloadButton.BackColor = System.Drawing.Color.Transparent;
             this._reloadButton.ButtonText = "Reload";
-            this._reloadButton.Location = new System.Drawing.Point(298, 3);
+            this._reloadButton.Location = new System.Drawing.Point(324, 3);
             this._reloadButton.Name = "_reloadButton";
             this._reloadButton.Size = new System.Drawing.Size(94, 27);
             this._reloadButton.TabIndex = 1;
@@ -183,18 +191,71 @@
             this._detailGrid.Location = new System.Drawing.Point(0, 0);
             this._detailGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._detailGrid.Name = "_detailGrid";
-            this._detailGrid.Size = new System.Drawing.Size(417, 954);
+            this._detailGrid.Size = new System.Drawing.Size(391, 907);
             this._detailGrid.TabIndex = 1;
             this._detailGrid.TabStop = false;
             // 
-            // _singhaOnlineOrderImport
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 25);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.label2);
+            this.splitContainer2.Panel1.Controls.Add(this.label1);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer2.Panel1.Controls.Add(this.textBox1);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
+            this.splitContainer2.Size = new System.Drawing.Size(920, 956);
+            this.splitContainer2.SplitterDistance = 43;
+            this.splitContainer2.TabIndex = 3;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(266, 11);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 22);
+            this.textBox2.TabIndex = 1;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(91, 11);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 14);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "รหัสเอกสาร :";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(202, 15);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 14);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "คลังที่เก็บ :";
+            // 
+            // _ediReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.Name = "_singhaOnlineOrderImport";
+            this.Name = "_ediReceive";
             this.Size = new System.Drawing.Size(920, 981);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
@@ -202,6 +263,10 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
             this._myFlowLayoutPanel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel1.PerformLayout();
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +285,10 @@
         private MyLib.ToolStripMyButton _selectAllButton;
         private MyLib.ToolStripMyButton _selectNoneButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

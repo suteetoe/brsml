@@ -54,7 +54,7 @@ namespace SMLEDIControl
             }
             if (_agentCode != "")
             {
-                this._getData();
+                //this._getData();
             }
             else
             {
@@ -99,8 +99,46 @@ namespace SMLEDIControl
                         for (int __row1 = 0; __row1 < __resultObject.Count; __row1++)
                         {
                             transdata __transdata = transdata.Parse(__resultObject[__row1].ToString());
+
+                            string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+
+
+                            //ดึง detail 6002351316
+                            // string _datadetail = "{\"P_billingdocno\":\"" + __BILLINGDOCNO + "\",\"P_agentcode\":\"" + _agentCode + "\"}";
+                            string _datadetail = "{\"P_billingdocno\":\"6002351316\",\"P_agentcode\":\"" + _agentCode + "\"}";
+                            MyLib._restClient __restdetail = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLDetailMat", HttpVerb.POST, _datadetail);
+                            __restdetail._setContentType("application/json");
+                            __restdetail._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
+                            __restdetail._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
+                            string __resultdetail = __restdetail.MakeRequest("");
+                            JsonValue __jsonDetailObject = JsonValue.Parse(__resultdetail);
+                            JsonArray __resultarray = new JsonArray();
+                            JsonObject detail = new JsonObject();
+                            detail.Add("detail", __jsonDetailObject["Result"]);
+                            string jsondetail = detail.ToString();
+
+
+                            __transdata.details = new List<transdatadetail>();
+                            if (__jsonDetailObject["Result"].Count > 0)
+                            {
+
+                                for (int __row = 0; __row1 < __jsonDetailObject["Result"].Count; __row1++)
+                                {
+                                    transdatadetail __transdatadetail = transdatadetail.Parse(__jsonDetailObject["Result"][__row1].ToString());
+                                    __transdata.details.Add(__transdatadetail);
+                                }
+                            }
+                            __transdata.check();
+
+                            //  JsonArray __resultdetailObject = JsonArray.Parse(__jsonDetailObject["Result"].ToString());
+
+                            //transdatadetail __transdatadetail = transdatadetail.Parse(__resultdetailObject[0].ToString());
+
                             __lastResulValue = __transdata._getJson();
-                            string __BILLINGDOCNO = __lastResulValue["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+                            // __lastResulValue = __transdata._getJson(__resultObject[__row1].ToString(), __transdatadetail.ToString());
+                            // string __BILLINGDOCNO = __lastResulValue["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+
+
                             int __rowAdd = this._docGrid._addRow();
                             this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_no, __BILLINGDOCNO, true);
                             this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
@@ -109,6 +147,9 @@ namespace SMLEDIControl
                     }
 
                 }
+
+
+
             }
             catch (Exception ex)
             {
@@ -141,8 +182,14 @@ namespace SMLEDIControl
                         {
                             try
                             {
-                                string data = this._docGrid._cellGet(__row, 2).ToString();
-                                MessageBox.Show(data);
+                                string _data = this._docGrid._cellGet(__row, 2).ToString();
+                                MessageBox.Show(_data);
+                                //WebClient __n = new WebClient();
+                                //MyLib._restClient __rest = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLHeaderBill", HttpVerb.POST, _data);
+                                //__rest._setContentType("application/json");
+                                //__rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
+                                //__rest._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
+                                //string __result = __rest.MakeRequest("");
                             }
                             catch (Exception ex)
                             {
@@ -182,6 +229,7 @@ namespace SMLEDIControl
         {
             this.Dispose();
         }
+
     }
 
     class transdata
@@ -203,7 +251,7 @@ namespace SMLEDIControl
         public string total_except_vat { get; set; }
         public string total_after_vat { get; set; }
         public string total_amount { get; set; }
-        public string details { get; set; }
+        public List<transdatadetail> details { get; set; }
         public string wh_from { get; set; }
         public string location_from { get; set; }
         public string credit_day { get; set; }
@@ -211,38 +259,69 @@ namespace SMLEDIControl
         public string remark { get; set; }
         public string discount_word { get; set; }
         public string PAYMENTTERM_CAL { get; set; }
+        public string Bat_number { get; set; }
+        public string Bat_date { get; set; }
+        public string cust_code { get; set; }
+
+
+
+
 
         public transdata()
         {
-            //if (json != null)
-            //{
-            //    transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
-            //    this.Agentcode = _transdata.Agentcode;
-            //    this.BILLINGDOCNO = _transdata.BILLINGDOCNO;
-            //    this.doc_no = _transdata.doc_no;
-            //    this.doc_format_code = _transdata.doc_format_code;
-            //    this.doc_date = _transdata.doc_date;
-            //    this.doc_time = _transdata.doc_time;
-            //    this.ap_code = _transdata.ap_code;
-            //    this.tax_doc_date = _transdata.tax_doc_date;
-            //    this.tax_doc_no = _transdata.tax_doc_no;
-            //    this.vat_rate = _transdata.vat_rate;
-            //    this.total_value = _transdata.total_value;
-            //    this.total_discount = _transdata.total_discount;
-            //    this.total_before_vat = _transdata.total_before_vat;
-            //    this.total_vat_value = _transdata.total_vat_value;
-            //    this.total_except_vat = _transdata.total_except_vat;
-            //    this.total_after_vat = _transdata.total_after_vat;
-            //    this.total_amount = _transdata.total_amount;
-            //    this.details = _transdata.details;
-            //    this.wh_from = _transdata.wh_from;
-            //    this.location_from = _transdata.location_from;
-            //    this.credit_day = _transdata.credit_day;
-            //    this.credit_date = _transdata.credit_date;
-            //    this.remark = _transdata.remark;
-            //    this.discount_word = _transdata.discount_word;
-            //    this.PAYMENTTERM_CAL = _transdata.PAYMENTTERM_CAL;
-            //}
+
+        }
+        public string _getJson()
+        {
+            string json = JsonConvert.SerializeObject(this, Formatting.Indented);
+            //JsonValue __resultObject = JsonValue.Parse(json);
+            return json;
+
+        }
+        public void check()
+        {
+            this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
+            this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
+            this.doc_no = this.Agentcode.Substring(3) + "-" + this.BILLINGDOCNO;
+            this.cust_code = this.ap_code;
+            //this.vat_rate = MyLib._myGlobal._decimalPhase(this.vat_rate.ToString().Replace("%", string.Empty));
+            this.vat_rate =this.vat_rate.Replace("%", string.Empty);
+        }
+
+        public static transdata Parse(string json)
+        {
+
+            if (json != null)
+            {
+                transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
+                return _transdata;
+            }
+            return null;
+        }
+    }
+
+    class transdatadetail
+    {
+        public string BILLINGDOCNO { get; set; }
+        public string Agentcode { get; set; }
+        public string MATERIALCODE { get; set; }
+        public string line_number { get; set; }
+        public string is_permium { get; set; }
+        public string SALESUNIT { get; set; }
+        public string wh_code { get; set; }
+        public string shelf_code { get; set; }
+        public string qty { get; set; }
+        public string price { get; set; }
+        public string price_exclude_vat { get; set; }
+        public string discount_amount { get; set; }
+        public string sum_amount { get; set; }
+        public string vat_amount { get; set; }
+        public string tax_type { get; set; }
+        public string vat_type { get; set; }
+
+        public transdatadetail()
+        {
+
         }
 
         public JsonValue _getJson()
@@ -251,14 +330,12 @@ namespace SMLEDIControl
             JsonValue __resultObject = JsonValue.Parse(json);
             return __resultObject;
         }
-
-        public static transdata Parse(string json)
+        public static transdatadetail Parse(string json)
         {
             if (json != null)
             {
-                transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
-                return _transdata;
-
+                transdatadetail _transdatadetail = JsonConvert.DeserializeObject<transdatadetail>(json);
+                return _transdatadetail;
             }
             return null;
         }
