@@ -15,7 +15,7 @@ using Newtonsoft.Json;
 namespace SMLEDIControl
 {
        
-    public partial class _ediReceive : UserControl
+    public partial class _sapinvReceive : UserControl
     {
         string _agentCode = "";
         string __url = "http://bs.brteasy.com:8080/SinghaEDI";
@@ -35,7 +35,7 @@ namespace SMLEDIControl
         public string _screen_code = "PU";
         MyLib._myFrameWork _myFrameWork = new MyLib._myFrameWork();
 
-        public _ediReceive()
+        public _sapinvReceive()
         {
             InitializeComponent();
             this._docGrid._table_name = _g.d.ic_trans._table;
@@ -387,7 +387,7 @@ namespace SMLEDIControl
                         JsonValue __lastResulValue = null;
                         for (int __row1 = 0; __row1 < __resultObject.Count; __row1++)
                         {
-                            transdata __transdata = transdata.Parse(__resultObject[__row1].ToString());
+                            transdatasap __transdatasap = transdatasap.Parse(__resultObject[__row1].ToString());
 
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
 
@@ -406,28 +406,28 @@ namespace SMLEDIControl
                             detail.Add("detail", __jsonDetailObject["Result"]);
                             string jsondetail = detail.ToString();
 
-                            __transdata.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_no).ToString();
-                            __transdata.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                            __transdata.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                            __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_no).ToString();
+                            __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                            __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
 
-                            __transdata.details = new List<transdatadetail>();
+                            __transdatasap.details = new List<transdatadetailsap>();
                             if (__jsonDetailObject["Result"].Count > 0)
                             {
 
                                 for (int __row = 0; __row1 < __jsonDetailObject["Result"].Count; __row1++)
                                 {
-                                    transdatadetail __transdatadetail = transdatadetail.Parse(__jsonDetailObject["Result"][__row1].ToString());
-                                   
-                                    __transdata.details.Add(__transdatadetail);
+                                    transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject["Result"][__row1].ToString());
+
+                                    __transdatasap.details.Add(__transdatadetailsap);
                                 }
                             }
-                            __transdata.check();
+                            __transdatasap.check();
 
                             //  JsonArray __resultdetailObject = JsonArray.Parse(__jsonDetailObject["Result"].ToString());
 
                             //transdatadetail __transdatadetail = transdatadetail.Parse(__resultdetailObject[0].ToString());
 
-                            __lastResulValue = __transdata._getJson();
+                            __lastResulValue = __transdatasap._getJson();
                             // __lastResulValue = __transdata._getJson(__resultObject[__row1].ToString(), __transdatadetail.ToString());
                             // string __BILLINGDOCNO = __lastResulValue["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
 
@@ -529,7 +529,7 @@ namespace SMLEDIControl
         }
     }
 
-    class transdata
+    class transdatasap
     {
         public string Agentcode { get; set; }
         public string BILLINGDOCNO { get; set; }
@@ -548,7 +548,7 @@ namespace SMLEDIControl
         public string total_except_vat { get; set; }
         public string total_after_vat { get; set; }
         public string total_amount { get; set; }
-        public List<transdatadetail> details { get; set; }
+        public List<transdatadetailsap> details { get; set; }
         public string wh_from { get; set; }
         public string location_from { get; set; }
         public string credit_day { get; set; }
@@ -561,7 +561,7 @@ namespace SMLEDIControl
         public string cust_code { get; set; }
 
 
-        public transdata()
+        public transdatasap()
         {
 
         }
@@ -583,19 +583,19 @@ namespace SMLEDIControl
             this.vat_rate =this.vat_rate.Replace("%", string.Empty);
         }
 
-        public static transdata Parse(string json)
+        public static transdatasap Parse(string json)
         {
 
             if (json != null)
             {
-                transdata _transdata = JsonConvert.DeserializeObject<transdata>(json);
+                transdatasap _transdata = JsonConvert.DeserializeObject<transdatasap>(json);
                 return _transdata;
             }
             return null;
         }
     }
 
-    class transdatadetail
+    class transdatadetailsap
     {
         public string BILLINGDOCNO { get; set; }
         public string Agentcode { get; set; }
@@ -614,7 +614,7 @@ namespace SMLEDIControl
         public string tax_type { get; set; }
         public string vat_type { get; set; }
 
-        public transdatadetail()
+        public transdatadetailsap()
         {
 
         }
@@ -625,11 +625,11 @@ namespace SMLEDIControl
             JsonValue __resultObject = JsonValue.Parse(json);
             return __resultObject;
         }
-        public static transdatadetail Parse(string json)
+        public static transdatadetailsap Parse(string json)
         {
             if (json != null)
             {
-                transdatadetail _transdatadetail = JsonConvert.DeserializeObject<transdatadetail>(json);
+                transdatadetailsap _transdatadetail = JsonConvert.DeserializeObject<transdatadetailsap>(json);
                 return _transdatadetail;
             }
             return null;

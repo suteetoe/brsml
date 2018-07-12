@@ -60,6 +60,9 @@
     <Reference Include="SMLERPControl">
       <HintPath>..\SMLERPControl\bin\x86\Debug\SMLERPControl.dll</HintPath>
     </Reference>
+    <Reference Include="SMLInventoryControl">
+      <HintPath>..\SMLInventoryControl\obj\x86\Debug\SMLInventoryControl.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Design" />
@@ -101,6 +104,12 @@
     </Compile>
     <Compile Include="_ediLotus.cs" />
     <Compile Include="_ediMakro.cs" />
+    <Compile Include="_sapinvReceive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_sapinvReceive.Designer.cs">
+      <DependentUpon>_sapinvReceive.cs</DependentUpon>
+    </Compile>
     <Compile Include="_selectMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="_ediReceive.cs">
@@ -126,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_ediExternalScreenControl.resx">
       <DependentUpon>_ediExternalScreenControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_sapinvReceive.resx">
+      <DependentUpon>_sapinvReceive.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_ediReceive.resx">
       <DependentUpon>_ediReceive.cs</DependentUpon>

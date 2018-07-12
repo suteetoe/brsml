@@ -1,6 +1,6 @@
 ﻿namespace SMLEDIControl
 {
-    partial class _ediReceive
+    partial class _sapinvReceive
     {
         /// <summary> 
         /// Required designer variable.

@@ -17,6 +17,7 @@ namespace SMLEDIControl
                 case "menu_edi_flat_file": return (new _ediFlatFile());
                 case "menu_sync_data_arm": return (new BRInterfaceControl.ARM._sendDataARM());
                 case "menu_edi_receive": return (new _ediReceive());
+                case "menu_sapinv_receive": return (new _sapinvReceive());
             }
 
             return null;
