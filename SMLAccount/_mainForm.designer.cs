@@ -1725,7 +1725,7 @@
             System.Windows.Forms.TreeNode treeNode858 = new System.Windows.Forms.TreeNode("สรุปการ์ดสินค้า");
             System.Windows.Forms.TreeNode treeNode859 = new System.Windows.Forms.TreeNode("สรุปโหลดสินค้า รายคลัง");
             System.Windows.Forms.TreeNode treeNode860 = new System.Windows.Forms.TreeNode("รายงานการ์ดสินค้า เบิก-รับคืน (อ้างอิงลูกหนี้)");
-            System.Windows.Forms.TreeNode treeNode861 = new System.Windows.Forms.TreeNode("รายงานสรุปเบิก-รับคืน (อ้างอิงลูกหนี้)");
+            System.Windows.Forms.TreeNode treeNode861 = new System.Windows.Forms.TreeNode("รายงานสรุปยอดค้างสินค้าจากการเบิก(ลูกค้า)");
             System.Windows.Forms.TreeNode treeNode862 = new System.Windows.Forms.TreeNode("สินค้า", new System.Windows.Forms.TreeNode[] {
             treeNode851,
             treeNode852,
@@ -4859,7 +4859,7 @@
             treeNode860.Text = "รายงานการ์ดสินค้า เบิก-รับคืน (อ้างอิงลูกหนี้)";
             treeNode861.Name = "menu_singha_report_summary_depart_return";
             treeNode861.Tag = "&fastreport&&1&&2&&12&&13&&3&";
-            treeNode861.Text = "รายงานสรุปเบิก-รับคืน (อ้างอิงลูกหนี้)";
+            treeNode861.Text = "รายงานสรุปยอดค้างสินค้าจากการเบิก(ลูกค้า)";
             treeNode862.Name = "menu_singha_report_product";
             treeNode862.Text = "สินค้า";
             treeNode863.Name = "menu_singha_report_ap_purchase_summary_product";
