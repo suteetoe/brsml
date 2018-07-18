@@ -14,7 +14,7 @@ using Newtonsoft.Json;
 
 namespace SMLEDIControl
 {
-       
+
     public partial class _sapinvReceive : UserControl
     {
         string _agentCode = "";
@@ -28,7 +28,7 @@ namespace SMLEDIControl
         MyLib._searchDataFull _search_data_full_pointer;
         int _search_data_full_buffer_addr = -1;
         string _searchName = "";
-     
+
         TextBox _searchTextBox;
         ArrayList _searchScreenMasterList = new ArrayList();
         SMLERPGlobal._searchProperties _searchScreenProperties = new SMLERPGlobal._searchProperties();
@@ -48,7 +48,7 @@ namespace SMLEDIControl
             this._docGrid._mouseClick += _docGrid__mouseClick;
 
             this._icTransScreenTopControl1._textBoxSearch += new MyLib.TextBoxSearchHandler(_ictransScreenTopControl__textBoxSearch);
-           
+
 
             this._icTransScreenTopControl1._table_name = _g.d.ic_trans._table;
             this._icTransScreenTopControl1._maxColumn = 5;
@@ -154,36 +154,6 @@ namespace SMLEDIControl
                     string __extraWhere = "";
                     _searchScreenMasterList = _searchScreenProperties._setColumnSearch(this._searchName, 0, "", this._screen_code);
 
-                    //if (_searchScreenMasterList.Count > 0 && _searchScreenMasterList[0].ToString().Equals(_g.g._screen_erp_doc_format) && ((MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLPOS || MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLPOSLite) && _g.g._companyProfile._deposit_format_from_pos == true &&
-                    //(this._icTransControlType == _g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ_ยกเลิก || this._icTransControlType == _g.g._transControlTypeEnum.ขาย_เงินมัดจำ_คืน_ยกเลิก)))
-                    //{
-                    //    try
-                    //    {
-                    //        // อ่าน config เครื่อง POS
-                    //        string __localPath = string.Format(@"c:\\smlsoft\\smlPOSScreenConfig-{0}-{1}-{2}.xml", MyLib._myGlobal._webServiceServer.Replace(".", "_").Replace(":", "__").Replace("/", string.Empty), MyLib._myGlobal._providerCode, MyLib._myGlobal._databaseName);
-                    //        XmlDocument xDoc = new XmlDocument();
-                    //        try
-                    //        {
-                    //            xDoc.Load(__localPath);
-                    //        }
-                    //        catch
-                    //        {
-                    //        }
-
-                    //        xDoc.DocumentElement.Normalize();
-                    //        XmlElement __xRoot = xDoc.DocumentElement;
-
-                    //        string __posId = __xRoot.GetElementsByTagName("_posid").Item(0).InnerText;
-                    //        this._setDataStr(this._searchName, __posId);
-                    //    }
-                    //    catch (Exception ex)
-                    //    {
-                    //        MessageBox.Show("Cannot Load Pos Config", "ผิดพลาด");
-                    //    }
-
-                    //}
-                    //else
-                    //{
                     if (this._searchName.Equals(_g.d.ic_trans._wh_from))
                     {
                         _searchScreenMasterList.Clear();
@@ -198,39 +168,39 @@ namespace SMLEDIControl
                         _searchScreenMasterList.Add(_g.d.ic_shelf._table);
                         _searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from) + "\'");
                     }
-                   
+
                     if (_searchScreenMasterList.Count > 0)
+                    {
+                        if (this._search_data_full_pointer._name.Equals(_searchScreenMasterList[0].ToString().ToLower()) == false)
                         {
-                            if (this._search_data_full_pointer._name.Equals(_searchScreenMasterList[0].ToString().ToLower()) == false)
+                            if (this._search_data_full_pointer._name.Length == 0)
                             {
-                                if (this._search_data_full_pointer._name.Length == 0)
-                                {
-                                    this._search_data_full_pointer._name = _searchScreenMasterList[0].ToString();
-                                    this._search_data_full_pointer._dataList._loadViewFormat(this._search_data_full_pointer._name, MyLib._myGlobal._userSearchScreenGroup, false);
-                                    // ถ้าจะเอา event มาแทรกใน function ให้ลบออกก่อนไม่งั้นมันจะวน
-                                    this._search_data_full_pointer._dataList._gridData._mouseClick -= new MyLib.MouseClickHandler(_gridData__mouseClick);
-                                    this._search_data_full_pointer._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_gridData__mouseClick);
-                                    //
-                                    this._search_data_full_pointer._searchEnterKeyPress -= new MyLib.SearchEnterKeyPressEventHandler(_search_data_full__searchEnterKeyPress);
-                                    this._search_data_full_pointer._searchEnterKeyPress += new MyLib.SearchEnterKeyPressEventHandler(_search_data_full__searchEnterKeyPress);
-                                }
-                            }
-                            __extraWhere = (_searchScreenMasterList.Count == 3) ? _searchScreenMasterList[2].ToString() : __extraWhere;
-
-
-                            MyLib._myGlobal._startSearchBox(__getControl, label_name, this._search_data_full_pointer, false, true, __extraWhere);
-                            if (__getControl._iconNumber == 1)
-                            {
-                                __getControl.Focus();
-                                __getControl.textBox.Focus();
-                            }
-                            else
-                            {
-                                this._search_data_full_pointer.Focus();
-                                this._search_data_full_pointer._firstFocus();
+                                this._search_data_full_pointer._name = _searchScreenMasterList[0].ToString();
+                                this._search_data_full_pointer._dataList._loadViewFormat(this._search_data_full_pointer._name, MyLib._myGlobal._userSearchScreenGroup, false);
+                                // ถ้าจะเอา event มาแทรกใน function ให้ลบออกก่อนไม่งั้นมันจะวน
+                                this._search_data_full_pointer._dataList._gridData._mouseClick -= new MyLib.MouseClickHandler(_gridData__mouseClick);
+                                this._search_data_full_pointer._dataList._gridData._mouseClick += new MyLib.MouseClickHandler(_gridData__mouseClick);
+                                //
+                                this._search_data_full_pointer._searchEnterKeyPress -= new MyLib.SearchEnterKeyPressEventHandler(_search_data_full__searchEnterKeyPress);
+                                this._search_data_full_pointer._searchEnterKeyPress += new MyLib.SearchEnterKeyPressEventHandler(_search_data_full__searchEnterKeyPress);
                             }
                         }
-                   // }
+                        __extraWhere = (_searchScreenMasterList.Count == 3) ? _searchScreenMasterList[2].ToString() : __extraWhere;
+
+
+                        MyLib._myGlobal._startSearchBox(__getControl, label_name, this._search_data_full_pointer, false, true, __extraWhere);
+                        if (__getControl._iconNumber == 1)
+                        {
+                            __getControl.Focus();
+                            __getControl.textBox.Focus();
+                        }
+                        else
+                        {
+                            this._search_data_full_pointer.Focus();
+                            this._search_data_full_pointer._firstFocus();
+                        }
+                    }
+                    // }
 
                 }
             }
@@ -268,7 +238,7 @@ namespace SMLEDIControl
             {
                 this._search_data_full_pointer.Visible = false;
                 this._icTransScreenTopControl1._setDataStr(this._searchName, __result, "", false);
-               // this._search(true);
+                // this._search(true);
             }
         }
 
@@ -368,87 +338,129 @@ namespace SMLEDIControl
         {
             try
             {
+
                 this._docGrid._clear();
-                // get data from restful server
                 WebClient __n = new WebClient();
                 string _data = "{\"P_agentcode\":\"" + _agentCode + "\"}";
-                //string _data = "{\"P_agentcode\":\"0001014678\"}";
                 MyLib._restClient __rest = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLHeaderBill", HttpVerb.POST, _data);
                 __rest._setContentType("application/json");
                 __rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
                 __rest._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
                 string __result = __rest.MakeRequest("");
+                JsonValue __resultObject;
                 if (__result.Length > 0)
                 {
+                    string __check_doc_no;
+                    string __where_in = "";
                     JsonValue __jsonObject = JsonValue.Parse(__result);
                     if (__jsonObject.Count > 0)
                     {
-                        JsonValue __resultObject = JsonValue.Parse(__jsonObject["Result"].ToString());
-                        JsonValue __lastResulValue = null;
+                        __resultObject = JsonValue.Parse(__jsonObject["Result"].ToString());
                         for (int __row1 = 0; __row1 < __resultObject.Count; __row1++)
                         {
-                            transdatasap __transdatasap = transdatasap.Parse(__resultObject[__row1].ToString());
+                            string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
+                            string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+                            __check_doc_no = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
+                            if (__row1 == __resultObject.Count - 1)
+                            {
+                                __where_in += "'" + __check_doc_no + "'";
+                            }
+                            else
+                            {
+                                __where_in += "'" + __check_doc_no + "',";
+                            }
+                        }
 
+                        MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                        string _query = "select " + _g.d.ic_trans._doc_no + " from " + _g.d.ic_trans._table + " where " + _g.d.ic_trans._doc_no + " in (" + __where_in + ")";
+                        DataSet __resultcheck = __myFrameWork._queryShort(_query);
+                 
+
+                        if (__resultcheck.Tables.Count > 0 && __resultcheck.Tables[0].Rows.Count > 0)
+                        { }
+
+                        for (int __row1 = 1400; __row1 < __resultObject.Count; __row1++)
+                        {
+                            JsonValue __lastResulValue = null;
+                            string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
 
-
-                            //ดึง detail 6002351316
                             string _datadetail = "{\"P_billingdocno\":\"" + __BILLINGDOCNO + "\",\"P_agentcode\":\"" + _agentCode + "\"}";
-                           // string _datadetail = "{\"P_billingdocno\":\"6002351316\",\"P_agentcode\":\"" + _agentCode + "\"}";
-                            MyLib._restClient __restdetail = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLDetailMat", HttpVerb.POST, _datadetail);
+                            //string _datadetail = "{\"P_billingdocno\":\"6002351316\",\"P_agentcode\":\"" + _agentCode + "\"}";
+
+                            //rest 3 
+                            MyLib._restClient __restdetail = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLBill", HttpVerb.POST, _datadetail);
                             __restdetail._setContentType("application/json");
                             __restdetail._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
                             __restdetail._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
                             string __resultdetail = __restdetail.MakeRequest("");
-                            JsonValue __jsonDetailObject = JsonValue.Parse(__resultdetail);
-                            JsonArray __resultarray = new JsonArray();
-                            JsonObject detail = new JsonObject();
-                            detail.Add("detail", __jsonDetailObject["Result"]);
-                            string jsondetail = detail.ToString();
-
-                            __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_no).ToString();
-                            __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                            __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
-
-                            __transdatasap.details = new List<transdatadetailsap>();
-                            if (__jsonDetailObject["Result"].Count > 0)
+                            JsonValue __jsonDetailObject2 = JsonValue.Parse(__resultdetail);
+                            JsonValue __jsonDetailObject22 = JsonValue.Parse(__jsonDetailObject2["Result"][0].ToString());
+                            string __check_detail = __jsonDetailObject22["Agentcode"].ToString().Substring(4).Replace("\"", string.Empty) + "-" + __jsonDetailObject22["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+                            Boolean __check = true;
+                            if (__resultcheck.Tables.Count > 0)
                             {
-
-                                for (int __row = 0; __row1 < __jsonDetailObject["Result"].Count; __row1++)
+                                for (int __i = 0; __i < __resultcheck.Tables[0].Rows.Count; __i++)
                                 {
-                                    transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject["Result"][__row1].ToString());
-
-                                    __transdatasap.details.Add(__transdatadetailsap);
+                                    Console.WriteLine("Hello, " + __resultcheck.Tables[0].Rows[__i][_g.d.ic_trans._doc_no].ToString());
+                                    if (__resultcheck.Tables[0].Rows[__i][_g.d.ic_trans._doc_no].ToString().Equals(__check_detail))
+                                    {
+                                        __check = false;
+                                    }
                                 }
                             }
-                            __transdatasap.check();
+                            if (__check)
+                            {
+                                transdatasap __transdatasap = transdatasap.Parse(__jsonDetailObject2["Result"][0].ToString());
+                                __transdatasap.details = new List<transdatadetailsap>();
+                                if (__jsonDetailObject22["details"].Count > 0)
+                                {
 
-                            //  JsonArray __resultdetailObject = JsonArray.Parse(__jsonDetailObject["Result"].ToString());
+                                    for (int __row = 0; __row < __jsonDetailObject22["details"].Count; __row++)
+                                    {
+                                        transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject22["details"][__row].ToString());
+                                        __transdatadetailsap.wh_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                                        __transdatadetailsap.shelf_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                        //  = __transdatadetailsap.BAT_DATE
+                                        //DateTime bd = Convert.ToDateTime(__transdatadetailsap.BAT_DATE);
+                                        string date = __transdatadetailsap.BAT_DATE.ToString().Substring(0, 4) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(4, 2) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(6);
+                                        DateTime __convertDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
+                                        __transdatadetailsap.BAT_DATE = MyLib._myGlobal._convertDateToQuery(__convertDate);
+                                        __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
+                                        __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
+                                        __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
+                                        __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
+                                        __transdatasap.details.Add(__transdatadetailsap);
+                                    }
+                                }
+                                __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
+                                __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                                __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                __transdatasap.inquiry_type = 0;
+                                __transdatasap.vat_type = 0;
+                                __transdatasap.check();
+                                __lastResulValue = __transdatasap._getJson();
 
-                            //transdatadetail __transdatadetail = transdatadetail.Parse(__resultdetailObject[0].ToString());
 
-                            __lastResulValue = __transdatasap._getJson();
-                            // __lastResulValue = __transdata._getJson(__resultObject[__row1].ToString(), __transdatadetail.ToString());
-                            // string __BILLINGDOCNO = __lastResulValue["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
-
-
-                            int __rowAdd = this._docGrid._addRow();
-                            this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_no, __BILLINGDOCNO, true);
-                            this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
-                            this._docGrid._cellUpdate(__rowAdd, "data", __lastResulValue, true);
+                                int __rowAdd = this._docGrid._addRow();
+                                this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_no, __BILLINGDOCNO, true);
+                                this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
+                                this._docGrid._cellUpdate(__rowAdd, "data", __transdatasap, true);
+                            }
                         }
                     }
-
                 }
-
-
-
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error Agent Code :" + _agentCode, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
 
 
 
@@ -468,6 +480,7 @@ namespace SMLEDIControl
             {
                 if (MessageBox.Show("ต้องการนำเข้าข้อมูลที่ได้เลือกไว้หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    StringBuilder __log = new StringBuilder();
 
                     for (int __row = 0; __row < this._docGrid._rowData.Count; __row++)
                     {
@@ -475,14 +488,23 @@ namespace SMLEDIControl
                         {
                             try
                             {
-                                string _data = this._docGrid._cellGet(__row, 2).ToString();
-                                MessageBox.Show(_data);
-                                //WebClient __n = new WebClient();
-                                //MyLib._restClient __rest = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLHeaderBill", HttpVerb.POST, _data);
-                                //__rest._setContentType("application/json");
-                                //__rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
-                                //__rest._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
-                                //string __result = __rest.MakeRequest("");
+
+                                //string _data = this._docGrid._cellGet(__row, 2).ToString();
+                                transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
+                                // MessageBox.Show(dataTrans._getJson());
+                                String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + dataTrans._queryInsert() + "</node>";
+                                MyLib._myFrameWork __myFrameWork = new _myFrameWork();
+                                string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
+
+                                if (__result.Length == 0)
+                                {
+                                   // MessageBox.Show("เสร็จ");
+                                }
+                                else
+                                {
+                                    __log.Append(__result);
+                                    //MessageBox.Show(__result, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
                             }
                             catch (Exception ex)
                             {
@@ -490,7 +512,14 @@ namespace SMLEDIControl
                             }
                         }
                     } // end loop
-
+                    if (__log.Length > 0)
+                    {
+                        MessageBox.Show(__log.ToString(), "นำเข้าข้อมูลเรียบร้อยแล้ว พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("นำเข้าข้อมูลสำเร็จแล้ว", "นำเข้าข้อมูลเรียบร้อยแล้ว", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    }
                     this._getData();
                 }
             }
@@ -529,110 +558,4 @@ namespace SMLEDIControl
         }
     }
 
-    class transdatasap
-    {
-        public string Agentcode { get; set; }
-        public string BILLINGDOCNO { get; set; }
-        public string doc_no { get; set; }
-        public string doc_format_code { get; set; }
-        public string doc_date { get; set; }
-        public string doc_time { get; set; }
-        public string ap_code { get; set; }
-        public string tax_doc_date { get; set; }
-        public string tax_doc_no { get; set; }
-        public string vat_rate { get; set; }
-        public string total_value { get; set; }
-        public string total_discount { get; set; }
-        public string total_before_vat { get; set; }
-        public string total_vat_value { get; set; }
-        public string total_except_vat { get; set; }
-        public string total_after_vat { get; set; }
-        public string total_amount { get; set; }
-        public List<transdatadetailsap> details { get; set; }
-        public string wh_from { get; set; }
-        public string location_from { get; set; }
-        public string credit_day { get; set; }
-        public string credit_date { get; set; }
-        public string remark { get; set; }
-        public string discount_word { get; set; }
-        public string PAYMENTTERM_CAL { get; set; }
-        public string Bat_number { get; set; }
-        public string Bat_date { get; set; }
-        public string cust_code { get; set; }
-
-
-        public transdatasap()
-        {
-
-        }
-        public string _getJson()
-        {
-            string json = JsonConvert.SerializeObject(this, Formatting.Indented);
-            //JsonValue __resultObject = JsonValue.Parse(json);
-            return json;
-
-        }
-        public void check()
-        {
-            this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
-            this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
-            this.doc_no = this.Agentcode.Substring(3) + "-" + this.BILLINGDOCNO;
-            this.cust_code = this.ap_code;
-            this.doc_format_code = this.doc_format_code;
-            //this.vat_rate = MyLib._myGlobal._decimalPhase(this.vat_rate.ToString().Replace("%", string.Empty));
-            this.vat_rate =this.vat_rate.Replace("%", string.Empty);
-        }
-
-        public static transdatasap Parse(string json)
-        {
-
-            if (json != null)
-            {
-                transdatasap _transdata = JsonConvert.DeserializeObject<transdatasap>(json);
-                return _transdata;
-            }
-            return null;
-        }
-    }
-
-    class transdatadetailsap
-    {
-        public string BILLINGDOCNO { get; set; }
-        public string Agentcode { get; set; }
-        public string MATERIALCODE { get; set; }
-        public string line_number { get; set; }
-        public string is_permium { get; set; }
-        public string SALESUNIT { get; set; }
-        public string wh_code { get; set; }
-        public string shelf_code { get; set; }
-        public string qty { get; set; }
-        public string price { get; set; }
-        public string price_exclude_vat { get; set; }
-        public string discount_amount { get; set; }
-        public string sum_amount { get; set; }
-        public string vat_amount { get; set; }
-        public string tax_type { get; set; }
-        public string vat_type { get; set; }
-
-        public transdatadetailsap()
-        {
-
-        }
-
-        public JsonValue _getJson()
-        {
-            string json = JsonConvert.SerializeObject(this, Formatting.Indented);
-            JsonValue __resultObject = JsonValue.Parse(json);
-            return __resultObject;
-        }
-        public static transdatadetailsap Parse(string json)
-        {
-            if (json != null)
-            {
-                transdatadetailsap _transdatadetail = JsonConvert.DeserializeObject<transdatadetailsap>(json);
-                return _transdatadetail;
-            }
-            return null;
-        }
-    }
 }

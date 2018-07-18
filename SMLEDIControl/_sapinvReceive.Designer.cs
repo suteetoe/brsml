@@ -167,12 +167,12 @@
             // 
             this._reloadButton._drawNewMethod = false;
             this._reloadButton.BackColor = System.Drawing.Color.Transparent;
-            this._reloadButton.ButtonText = "Reload";
-            this._reloadButton.Location = new System.Drawing.Point(324, 3);
+            this._reloadButton.ButtonText = "Set & Load data";
+            this._reloadButton.Location = new System.Drawing.Point(311, 3);
             this._reloadButton.Name = "_reloadButton";
-            this._reloadButton.Size = new System.Drawing.Size(94, 27);
+            this._reloadButton.Size = new System.Drawing.Size(107, 27);
             this._reloadButton.TabIndex = 1;
-            this._reloadButton.Text = "Reload";
+            this._reloadButton.Text = "Set & Load data";
             this._reloadButton.UseVisualStyleBackColor = false;
             this._reloadButton.Click += new System.EventHandler(this._reloadButton_Click);
             // 
@@ -221,14 +221,14 @@
             this._icTransScreenTopControl1.Size = new System.Drawing.Size(920, 68);
             this._icTransScreenTopControl1.TabIndex = 7;
             // 
-            // _ediReceive
+            // _sapinvReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.splitContainer2);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
-            this.Name = "_ediReceive";
+            this.Name = "_sapinvReceive";
             this.Size = new System.Drawing.Size(920, 981);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
