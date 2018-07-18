@@ -27,6 +27,7 @@ namespace SMLEDIControl
         public string BAT_DATE { get; set; }
         public string BAT_NUMBER { get; set; }
         public string date_expire { get; set; }
+        public string item_code { get; set; }
 
 
 

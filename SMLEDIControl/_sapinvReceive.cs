@@ -420,8 +420,10 @@ namespace SMLEDIControl
                                         //  = __transdatadetailsap.BAT_DATE
                                         //DateTime bd = Convert.ToDateTime(__transdatadetailsap.BAT_DATE);
                                         string date = __transdatadetailsap.BAT_DATE.ToString().Substring(0, 4) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(4, 2) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(6);
-                                        DateTime oDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
-                                        __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(oDate.AddDays(90));
+                                        DateTime __convertDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
+                                        __transdatadetailsap.BAT_DATE = MyLib._myGlobal._convertDateToQuery(__convertDate);
+                                        __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
+                                        __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE.Substring(10);
                                         //Console.WriteLine(oDate.AddDays(22).ToString());
                                         __transdatasap.details.Add(__transdatadetailsap);
                                     }
@@ -429,6 +431,8 @@ namespace SMLEDIControl
                                 __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_no).ToString();
                                 __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
                                 __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                __transdatasap.inquiry_type = 0;
+                                __transdatasap.vat_type = 0;
                                 __transdatasap.check();
                                 __lastResulValue = __transdatasap._getJson();
 
