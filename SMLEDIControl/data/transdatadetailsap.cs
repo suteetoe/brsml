@@ -28,6 +28,12 @@ namespace SMLEDIControl
         public string BAT_NUMBER { get; set; }
         public string date_expire { get; set; }
         public string item_code { get; set; }
+        public decimal total_vat_value { get; set; }
+        public decimal sum_amount_exclude_vat { get; set; }
+
+        
+
+
 
 
 

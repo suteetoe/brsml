@@ -51,6 +51,8 @@ namespace SMLEDIControl
             this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
             this.doc_no = this.Agentcode.Substring(3) + "-" + this.BILLINGDOCNO;
             this.cust_code = this.ap_code;
+            this.total_discount = ((this.total_discount != null) ? this.total_discount : "0");
+            this.credit_day = ((this.credit_day != null) ? "\'" + this.credit_day + "\'" : "null");
             this.vat_rate = this.vat_rate.Trim();
         }
 
@@ -82,14 +84,14 @@ namespace SMLEDIControl
                 ", doc_ref, doc_ref_date , branch_code, last_status, credit_day"
                     + ", credit_date, remark) ");
             sqlTrans.Append(
-                " VALUES (\'?\', ?, ?" +
-                ", \'?\', \'?\', \'?\', \'?\'" +
-                ", ?, ?, ?, ?, ?, ?, ?, ?" +
-                ", ?, \'?\', \'?\', \'?\'" +
-                ", ?, ?, \'?\' " +
-                ", \'?\', \'?\', \'?\', \'?\', ?" +
-                ", \'?\', ?, \'?\', ?, ?"
-                    + ", ?, \'?\') "
+                " VALUES (\'{0}\', {1}, {2}" +
+                ", \'{3}\', \'{4}\', \'{5}\', \'{6}\'" +
+                ", {7}, {8}, {9}, {10}, {11}, {12}, {13}, {14}" +
+                ", {15}, \'{16}\', \'{17}\', \'{18}\'" +
+                ", {19}, {20}, \'{21}\' " +
+                ", \'{22}\', \'{23}\', \'{24}\', \'{25}\', {26}" +
+                ", \'{27}\', {28}, \'{29}\', {30}, {31}"
+                    + ", {32}, \'{33}\') "
                     );
 
 
@@ -103,14 +105,14 @@ namespace SMLEDIControl
                     + "qty, price, price_exclude_vat, sum_amount, discount_amount, total_vat_value, tax_type, vat_type"
                     + ", doc_time, calc_flag, sum_amount_exclude_vat"
                     + ", wh_code_2, shelf_code_2, branch_code"
-                    + ", inquiry_type, last_status, discount, cust_code)");
+                    + ", inquiry_type, last_status, discount, cust_code, bat_date, bat_number)");
             sqlDetail.Append(" VALUES (" +
-                "?, ?" +
-                ", \'?\', \'?\', \'?\', ?, ?, \'?\', \'?\', \'?\'" +
-                ", ?, ?, ?, ?, ?, ?, ?, ?" +
-                ", \'?\', ?, ?" +
-                ", \'?\', \'?\', \'?\'" +
-                ", ?, ?, \'?\', \'?\') ");
+                "{0}, {1}" +
+                ", \'{2}\', \'{3}\', \'{4}\', {5}, {6}, \'{7}\', \'{8}\', \'{9}\'" +
+                ", {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}" +
+                ", \'{18}\', {19}, {20}" +
+                ", \'{21}\', \'{22}\', \'{23}\'" +
+                ", {24}, {25}, \'{26}\', \'{27}\', \'{28}\', \'{29}\') ");
             
 
             StringBuilder __queryInsert = new StringBuilder();
@@ -120,7 +122,7 @@ namespace SMLEDIControl
             __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
                 , MyLib._myGlobal._userCode, 12, 1
                 , this.doc_no, this.doc_date, this.cust_code, ""
-                , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate
+                , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
                 0, doc_time, tax_doc_date, tax_doc_no
                 , inquiry_type, vat_type, doc_format_code
                 , wh_from, location_from, "", "", 0
@@ -141,7 +143,7 @@ namespace SMLEDIControl
                     , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
                     , doc_time, 1, detail.sum_amount_exclude_vat
                     , "", "", MyLib._myGlobal._branchCode
-                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code
+                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code, detail.BAT_DATE, detail.BAT_NUMBER
 
                     )));
             }
