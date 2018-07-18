@@ -436,7 +436,7 @@ namespace SMLEDIControl
                                 int __rowAdd = this._docGrid._addRow();
                                 this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_no, __BILLINGDOCNO, true);
                                 this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
-                                this._docGrid._cellUpdate(__rowAdd, "data", __lastResulValue, true);
+                                this._docGrid._cellUpdate(__rowAdd, "data", __transdatasap, true);
                             }
                         }
                     }
@@ -478,14 +478,22 @@ namespace SMLEDIControl
                         {
                             try
                             {
-                                string _data = this._docGrid._cellGet(__row, 2).ToString();
-                                MessageBox.Show(_data);
+                                //string _data = this._docGrid._cellGet(__row, 2).ToString();
+                                transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
+                                MessageBox.Show(dataTrans._getJson());
+
+
                                 //WebClient __n = new WebClient();
                                 //MyLib._restClient __rest = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLHeaderBill", HttpVerb.POST, _data);
                                 //__rest._setContentType("application/json");
                                 //__rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
                                 //__rest._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
                                 //string __result = __rest.MakeRequest("");
+
+                                String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + dataTrans._queryInsert() + "</node>";
+
+                                MyLib._myFrameWork __myFrameWork = new _myFrameWork();
+                                __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
                             }
                             catch (Exception ex)
                             {
@@ -531,115 +539,5 @@ namespace SMLEDIControl
 
         }
     }
-
-    class transdatadetailsap
-    {
-        public string BILLINGDOCNO { get; set; }
-        public string Agentcode { get; set; }
-        public string MATERIALCODE { get; set; }
-        public string line_number { get; set; }
-        public string is_permium { get; set; }
-        public string SALESUNIT { get; set; }
-        public string wh_code { get; set; }
-        public string shelf_code { get; set; }
-        public string qty { get; set; }
-        public string price { get; set; }
-        public string price_exclude_vat { get; set; }
-        public string discount_amount { get; set; }
-        public string sum_amount { get; set; }
-        public string vat_amount { get; set; }
-        public string tax_type { get; set; }
-        public string vat_type { get; set; }
-        public string BAT_DATE { get; set; }
-        public string BAT_NUMBER { get; set; }
-        public string date_expire { get; set; }
-
-
-
-        public transdatadetailsap()
-        {
-
-        }
-
-        public JsonValue _getJson()
-        {
-            string json = JsonConvert.SerializeObject(this, Formatting.Indented);
-            return json;
-        }
-        public static transdatadetailsap Parse(string json)
-        {
-            if (json != null)
-            {
-                transdatadetailsap _transdatadetail = JsonConvert.DeserializeObject<transdatadetailsap>(json);
-                return _transdatadetail;
-            }
-            return null;
-        }
-    }
-
-
-    class transdatasap
-    {
-        public string Agentcode { get; set; }
-        public string BILLINGDOCNO { get; set; }
-        public string doc_no { get; set; }
-        public string doc_format_code { get; set; }
-        public string doc_date { get; set; }
-        public string doc_time { get; set; }
-        public string ap_code { get; set; }
-        public string tax_doc_date { get; set; }
-        public string tax_doc_no { get; set; }
-        public string vat_rate { get; set; }
-        public string total_value { get; set; }
-        public string total_discount { get; set; }
-        public string total_before_vat { get; set; }
-        public string total_vat_value { get; set; }
-        public string total_except_vat { get; set; }
-        public string total_after_vat { get; set; }
-        public string total_amount { get; set; }
-
-        public List<transdatadetailsap> details { get; set; }
-
-
-        public string wh_from { get; set; }
-        public string location_from { get; set; }
-        public string credit_day { get; set; }
-        public string credit_date { get; set; }
-        public string remark { get; set; }
-        public string discount_word { get; set; }
-        public string PAYMENTTERM_CAL { get; set; }
-        public string cust_code { get; set; }
-
-        public transdatasap()
-        {
-
-        }
-
-        public void check()
-        {
-            this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
-            this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
-            this.doc_no = this.Agentcode.Substring(3) + "-" + this.BILLINGDOCNO;
-            this.cust_code = this.ap_code;
-            this.vat_rate = this.vat_rate.Trim();
-        }
-
-        public JsonValue _getJson()
-        {
-            string json = JsonConvert.SerializeObject(this, Formatting.Indented);
-            return json;
-        }
-        public static transdatasap Parse(string json)
-        {
-            if (json != null)
-            {
-                transdatasap _transdatasap = JsonConvert.DeserializeObject<transdatasap>(json);
-                return _transdatasap;
-            }
-            return null;
-        }
-    }
-
-
 
 }
