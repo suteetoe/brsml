@@ -92,29 +92,29 @@ namespace SMLEDIControl
                     + ", ?, \'?\') "
                     );
 
+
+
+
+
+            StringBuilder sqlDetail = new StringBuilder();
+            sqlDetail.Append("INSERT INTO ic_trans_detail (" +
+                "trans_flag, trans_type" +
+                ", doc_no, doc_date, item_code, line_number, is_permium, unit_code, wh_code, shelf_code,"
+                    + "qty, price, price_exclude_vat, sum_amount, discount_amount, total_vat_value, tax_type, vat_type"
+                    + ", doc_time, calc_flag, sum_amount_exclude_vat"
+                    + ", wh_code_2, shelf_code_2, branch_code"
+                    + ", inquiry_type, last_status, discount, cust_code)");
+            sqlDetail.Append(" VALUES (" +
+                "?, ?" +
+                ", \'?\', \'?\', \'?\', ?, ?, \'?\', \'?\', \'?\'" +
+                ", ?, ?, ?, ?, ?, ?, ?, ?" +
+                ", \'?\', ?, ?" +
+                ", \'?\', \'?\', \'?\'" +
+                ", ?, ?, \'?\', \'?\') ");
             
-             
-             
-
-        StringBuilder sqlDetail = new StringBuilder();
-        sqlDetail.Append("INSERT INTO ic_trans_detail (" + 
-            "trans_flag, trans_type" + 
-            ", doc_no, doc_date, item_code, line_number, is_permium, unit_code, wh_code, shelf_code,"
-                + "qty, price, price_exclude_vat, sum_amount, discount_amount, total_vat_value, tax_type, vat_type"
-                + ", doc_time, calc_flag, sum_amount_exclude_vat"
-                + ", wh_code_2, shelf_code_2, branch_code" 
-                + ", inquiry_type, last_status, discount, cust_code)");
-        sqlDetail.Append(" VALUES (" + 
-            "?, ?, " + 
-            "?, ?,?, ?,?, ?,?, ?,?, ?,?, ?,?, ?,?,?"
-                + ", ?, ?, ?"
-                + ", ?, ?, ?"
-                + ", ?, ?, ?, ?) ");
-           
-
 
             StringBuilder __queryInsert = new StringBuilder();
-                      
+
 
             // ic_trans
             __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
@@ -131,11 +131,20 @@ namespace SMLEDIControl
             // __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery());
 
             // detail
-            __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlDetail.ToString()
-                , 12, 1
+            for (int __row = 0; __row < this.details.Count; __row++)
+            {
+                transdatadetailsap detail = details[__row];
 
-                )));
+                __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlDetail.ToString()
+                    , 12, 1
+                    , doc_no, doc_date, detail.item_code, __row, detail.is_permium, detail.SALESUNIT, wh_from, location_from
+                    , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
+                    , doc_time, 1, detail.sum_amount_exclude_vat
+                    , "", "", MyLib._myGlobal._branchCode
+                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code
 
+                    )));
+            }
             return __queryInsert.ToString();
         }
     }
