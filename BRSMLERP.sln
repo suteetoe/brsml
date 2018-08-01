@@ -173,6 +173,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProjectOutput", "ProjectOut
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Library", "Library", "{AF2445B2-FF37-4925-9716-692F2893FCBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SMLEDIControl.Tests", "SMLEDIControl.Tests\SMLEDIControl.Tests.csproj", "{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -763,6 +765,14 @@ Global
 		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|x86.ActiveCfg = Release|Any CPU
 		{8FCBD6B7-83BC-4E18-9066-6423916DD171}.Release|x86.Build.0 = Release|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Debug|x86.Build.0 = Debug|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Release|x86.ActiveCfg = Release|Any CPU
+		{F64E2327-F24E-4EFE-8D98-2FED2E16AD24}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

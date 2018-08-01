@@ -105,21 +105,29 @@ namespace SMLEDIControl
                     + "qty, price, price_exclude_vat, sum_amount, discount_amount, total_vat_value, tax_type, vat_type"
                     + ", doc_time, calc_flag, sum_amount_exclude_vat"
                     + ", wh_code_2, shelf_code_2, branch_code"
-                    + ", inquiry_type, last_status, discount, cust_code, bat_date, bat_number)");
+                    + ", inquiry_type, last_status, discount, cust_code, bat_date, bat_number,date_expire)");
             sqlDetail.Append(" VALUES (" +
                 "{0}, {1}" +
                 ", \'{2}\', \'{3}\', \'{4}\', {5}, {6}, \'{7}\', \'{8}\', \'{9}\'" +
                 ", {10}, {11}, {12}, {13}, {14}, {15}, {16}, {17}" +
                 ", \'{18}\', {19}, {20}" +
                 ", \'{21}\', \'{22}\', \'{23}\'" +
-                ", {24}, {25}, \'{26}\', \'{27}\', \'{28}\', \'{29}\') ");
+                ", {24}, {25}, \'{26}\', \'{27}\', {28}, \'{29}\', {30}) ");
             
 
             StringBuilder __queryInsert = new StringBuilder();
 
+            //StringBuilder __queryUpdateDetail = new StringBuilder("update ic_trans_detail set "
+            //           + " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) "
+            //           + ", stand_value = (select stand_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
+            //           + ", divide_value = (select divide_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
+            //           + ", doc_date_calc = doc_date, doc_time_calc = doc_time"
+            //           + ", is_serial_number = (select ic_serial_no from ic_inventory where ic_inventory.code = ic_trans_detail.item_code )"
+            //           + " where doc_no = \'" + param.getString("doc_no") + "\' ");
 
-            // ic_trans
-            __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
+        
+           // ic_trans
+           __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
                 , MyLib._myGlobal._userCode, 12, 1
                 , this.doc_no, this.doc_date, this.cust_code, ""
                 , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
@@ -143,9 +151,15 @@ namespace SMLEDIControl
                     , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
                     , doc_time, 1, detail.sum_amount_exclude_vat
                     , "", "", MyLib._myGlobal._branchCode
-                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code, detail.BAT_DATE, detail.BAT_NUMBER
-
+                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code, ((detail.BAT_DATE != null) ? "\'"+ detail.BAT_DATE +"\'" : "null"), detail.BAT_NUMBER, ((detail.date_expire != null) ? "\'" + detail.date_expire + "\'" : "null")
                     )));
+                __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set "
+                   + " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) "
+                   + ", stand_value = (select stand_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
+                   + ", divide_value = (select divide_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
+                   + ", doc_date_calc = doc_date, doc_time_calc = doc_time"
+                   + ", is_serial_number = (select ic_serial_no from ic_inventory where ic_inventory.code = ic_trans_detail.item_code )"
+                   + " where doc_no = \'" + doc_no + "\' "));
             }
             return __queryInsert.ToString();
         }

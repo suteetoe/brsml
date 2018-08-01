@@ -777,12 +777,13 @@ namespace SMLERPConfig
                 this._addTextBox(__row++, 1, _g.d.erp_option._shop_time_close, 0);
 
                 this._addNumberBox(__row++, 0, 1, 0, _g.d.erp_option._next_process_time, 1, 0, true);
-                this._addTextBox(__row, 0, _g.d.erp_option._process_serial_device, 10);
+                this._addTextBox(__row++, 0, _g.d.erp_option._process_serial_device, 10);
+                this._addTextBox(__row++, 0, _g.d.erp_option._warehouse_on_the_way, 255);
+                this._addTextBox(__row, 0, _g.d.erp_option._shelf_on_the_way, 255);
                 //
                 this._setDataNumber(_g.d.erp_option._item_qty_decimal, 2);
                 this._setDataNumber(_g.d.erp_option._item_price_decimal, 2);
                 this._setDataNumber(_g.d.erp_option._item_amount_decimal, 2);
-
             }
         }
     }

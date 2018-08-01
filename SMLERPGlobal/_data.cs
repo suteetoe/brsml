@@ -1612,6 +1612,14 @@ namespace _g
             /// แสดงระบบ Serial รถยนต์
             /// </summary>
             public static String _show_serial_car = "show_serial_car";
+            /// <summary>
+            /// คลังระหว่างทาง
+            /// </summary>
+            public static String _warehouse_on_the_way = "warehouse_on_the_way";
+            /// <summary>
+            /// ที่เก็บระหว่างทาง
+            /// </summary>
+            public static String _shelf_on_the_way = "shelf_on_the_way";
         }
 
         /// <summary>
@@ -2758,6 +2766,10 @@ namespace _g
             /// กลุ่มสินค้าย่อย2
             /// </summary>
             public static String _group_sub2 = "group_sub2";
+            /// <summary>
+            /// กลุ่มส่วนลด
+            /// </summary>
+            public static String _ic_discount_group = "ic_discount_group";
         }
 
         /// <summary>
@@ -28373,6 +28385,10 @@ namespace _g
             /// จำนวนลูกค้า
             /// </summary>
             public static String _customer_count = "customer_count";
+            /// <summary>
+            /// ส่วนลดตามกลุ่ม
+            /// </summary>
+            public static String _discount_group = "discount_group";
         }
 
         /// <summary>
@@ -30093,6 +30109,10 @@ namespace _g
             /// barcode
             /// </summary>
             public static String _barcode = "barcode";
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _branch_code = "branch_code";
         }
 
         /// <summary>
@@ -38968,6 +38988,129 @@ namespace _g
             public static String _formula_code = "formula_code";
         }
 
+        /// <summary>
+        /// กลุ่มส่วนลด
+        /// </summary>
+        public class ic_discount_group
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ic_discount_group";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่ออังกฤษ
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// วันที่เริ่มต้น
+            /// </summary>
+            public static String _date_begin = "date_begin";
+            /// <summary>
+            /// วันที่สิ้นสุด
+            /// </summary>
+            public static String _date_end = "date_end";
+            /// <summary>
+            /// ใช้งาน
+            /// </summary>
+            public static String _status = "status";
+            /// <summary>
+            /// GUID
+            /// </summary>
+            public static String _guid_code = "guid_code";
+            /// <summary>
+            /// ส่วนลด
+            /// </summary>
+            public static String _discount_list = "discount_list";
+        }
 
+        /// <summary>
+        /// order message
+        /// </summary>
+        public class order_message
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "order_message";
+            /// <summary>
+            /// cart number
+            /// </summary>
+            public static String _cart_number = "cart_number";
+            /// <summary>
+            /// user owner
+            /// </summary>
+            public static String _user_owner = "user_owner";
+            /// <summary>
+            /// cust code
+            /// </summary>
+            public static String _cust_code = "cust_code";
+            /// <summary>
+            /// order item
+            /// </summary>
+            public static String _order_item = "order_item";
+            /// <summary>
+            /// is read
+            /// </summary>
+            public static String _is_read = "is_read";
+            /// <summary>
+            /// is notification
+            /// </summary>
+            public static String _is_notification = "is_notification";
+            /// <summary>
+            /// message
+            /// </summary>
+            public static String _message = "message";
+        }
+
+        /// <summary>
+        /// รายละเอียดการลดตามกลุ่ม
+        /// </summary>
+        public class ic_trans_discount_group
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ic_trans_discount_group";
+            /// <summary>
+            /// เอกสารเลขที่
+            /// </summary>
+            public static String _doc_no = "doc_no";
+            /// <summary>
+            /// เอกสารวันที่
+            /// </summary>
+            public static String _doc_date = "doc_date";
+            /// <summary>
+            /// ประเภทรายวัน
+            /// </summary>
+            public static String _trans_flag = "trans_flag";
+            /// <summary>
+            /// รหัสกลุ่มส่วนลด
+            /// </summary>
+            public static String _discount_group_code = "discount_group_code";
+            /// <summary>
+            /// ชื่อกลุ่มส่วนลด
+            /// </summary>
+            public static String _discount_group_name = "discount_group_name";
+            /// <summary>
+            /// ส่วนลด
+            /// </summary>
+            public static String _discount_word = "discount_word";
+            /// <summary>
+            /// มูลค่าตามกลุ่ม
+            /// </summary>
+            public static String _group_amount = "group_amount";
+            /// <summary>
+            /// มูลค่าส่วนลด
+            /// </summary>
+            public static String _discount_amount = "discount_amount";
+        }
     }
 }

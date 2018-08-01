@@ -11,6 +11,7 @@ using System.Collections;
 using System.Json;
 using MyLib;
 using Newtonsoft.Json;
+using System.Threading;
 
 namespace SMLEDIControl
 {
@@ -41,21 +42,27 @@ namespace SMLEDIControl
             this._docGrid._table_name = _g.d.ic_trans._table;
             this._docGrid._addColumn("select", 11, 10, 10);
             this._docGrid._isEdit = false;
-            this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 90);
-            this._docGrid._addColumn("data", 12, 0, 0, false, true);
+            this._docGrid._addColumn("วันที่ใบกำกับภาษี", 1, 90, 30);
+            this._docGrid._addColumn("ใบกำกับภาษี", 1, 90, 30);
+            this._docGrid._addColumn("ใบแจ้งหนี้", 1, 90, 30);
+            this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 30,false,true);
+            //this._docGrid._addColumn("data", 12, 0, 0, false, true);
             this._docGrid.WidthByPersent = true;
             this._docGrid._calcPersentWidthToScatter();
             this._docGrid._mouseClick += _docGrid__mouseClick;
 
             this._icTransScreenTopControl1._textBoxSearch += new MyLib.TextBoxSearchHandler(_ictransScreenTopControl__textBoxSearch);
-
+           
 
             this._icTransScreenTopControl1._table_name = _g.d.ic_trans._table;
             this._icTransScreenTopControl1._maxColumn = 5;
             this._icTransScreenTopControl1._addTextBox(1, 0, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 1, true, false, false);
-            this._icTransScreenTopControl1._addTextBox(1, 1, 1, 0, _g.d.ic_trans._wh_from, 1, 1, 1, true, false, true);
-            this._icTransScreenTopControl1._addTextBox(1, 2, 1, 0, _g.d.ic_trans._location_from, 1, 1, 1, true, false, true);
-
+            this._icTransScreenTopControl1._addTextBox(1, 1, 1, 0, _g.d.ic_trans._wh_from, 1, 1, 0, true, false, false);
+            this._icTransScreenTopControl1._addTextBox(1, 2, 1, 0, _g.d.ic_trans._location_from, 1, 1, 0, true, false, false);
+            this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._wh_from, _g.g._companyProfile._warehouse_on_the_way.ToString(), "", true);
+            this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._location_from, _g.g._companyProfile._shelf_on_the_way.ToString(),"",true);
+            this._icTransScreenTopControl1._getControl(_g.d.ic_trans._wh_from).Enabled = false;
+            this._icTransScreenTopControl1._getControl(_g.d.ic_trans._location_from).Enabled = false;
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.Panel2.Hide();
 
@@ -314,6 +321,10 @@ namespace SMLEDIControl
             }
             if (_agentCode != "")
             {
+                Thread __threadProcess = new Thread(new ThreadStart(_getData));
+                __threadProcess.Name = "SML Thread getData";
+                __threadProcess.IsBackground = true;
+                __threadProcess.Start();
                 //this._getData();
             }
             else
@@ -350,7 +361,7 @@ namespace SMLEDIControl
                 JsonValue __resultObject;
                 if (__result.Length > 0)
                 {
-                    string __check_doc_no;
+
                     string __where_in = "";
                     JsonValue __jsonObject = JsonValue.Parse(__result);
                     if (__jsonObject.Count > 0)
@@ -360,7 +371,8 @@ namespace SMLEDIControl
                         {
                             string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
-                            __check_doc_no = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
+                    
+                            string __check_doc_no = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
                             if (__row1 == __resultObject.Count - 1)
                             {
                                 __where_in += "'" + __check_doc_no + "'";
@@ -374,29 +386,17 @@ namespace SMLEDIControl
                         MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
                         string _query = "select " + _g.d.ic_trans._doc_no + " from " + _g.d.ic_trans._table + " where " + _g.d.ic_trans._doc_no + " in (" + __where_in + ")";
                         DataSet __resultcheck = __myFrameWork._queryShort(_query);
-                 
 
-                        if (__resultcheck.Tables.Count > 0 && __resultcheck.Tables[0].Rows.Count > 0)
-                        { }
-
-                        for (int __row1 = 1400; __row1 < __resultObject.Count; __row1++)
+                        for (int __row1 = 0; __row1 < __resultObject.Count; __row1++)
                         {
-                            JsonValue __lastResulValue = null;
+                            string __tax_doc_no = "";
                             string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
-
-                            string _datadetail = "{\"P_billingdocno\":\"" + __BILLINGDOCNO + "\",\"P_agentcode\":\"" + _agentCode + "\"}";
-                            //string _datadetail = "{\"P_billingdocno\":\"6002351316\",\"P_agentcode\":\"" + _agentCode + "\"}";
-
-                            //rest 3 
-                            MyLib._restClient __restdetail = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLBill", HttpVerb.POST, _datadetail);
-                            __restdetail._setContentType("application/json");
-                            __restdetail._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
-                            __restdetail._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
-                            string __resultdetail = __restdetail.MakeRequest("");
-                            JsonValue __jsonDetailObject2 = JsonValue.Parse(__resultdetail);
-                            JsonValue __jsonDetailObject22 = JsonValue.Parse(__jsonDetailObject2["Result"][0].ToString());
-                            string __check_detail = __jsonDetailObject22["Agentcode"].ToString().Substring(4).Replace("\"", string.Empty) + "-" + __jsonDetailObject22["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+                            if (__resultObject[__row1]["tax_doc_no"]!=null) {
+                                __tax_doc_no = __resultObject[__row1]["tax_doc_no"].ToString().Replace("\"", string.Empty);
+                            }
+                            string __tax_doc_date = __resultObject[__row1]["tax_doc_date"].ToString().Replace("\"", string.Empty);
+                            string __check_detail = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
                             Boolean __check = true;
                             if (__resultcheck.Tables.Count > 0)
                             {
@@ -411,43 +411,15 @@ namespace SMLEDIControl
                             }
                             if (__check)
                             {
-                                transdatasap __transdatasap = transdatasap.Parse(__jsonDetailObject2["Result"][0].ToString());
-                                __transdatasap.details = new List<transdatadetailsap>();
-                                if (__jsonDetailObject22["details"].Count > 0)
-                                {
-
-                                    for (int __row = 0; __row < __jsonDetailObject22["details"].Count; __row++)
-                                    {
-                                        transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject22["details"][__row].ToString());
-                                        __transdatadetailsap.wh_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                                        __transdatadetailsap.shelf_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
-                                        //  = __transdatadetailsap.BAT_DATE
-                                        //DateTime bd = Convert.ToDateTime(__transdatadetailsap.BAT_DATE);
-                                        string date = __transdatadetailsap.BAT_DATE.ToString().Substring(0, 4) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(4, 2) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(6);
-                                        DateTime __convertDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
-                                        __transdatadetailsap.BAT_DATE = MyLib._myGlobal._convertDateToQuery(__convertDate);
-                                        __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
-                                        __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
-                                        __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
-                                        __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
-                                        __transdatasap.details.Add(__transdatadetailsap);
-                                    }
-                                }
-                                __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
-                                __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                                __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
-                                __transdatasap.inquiry_type = 0;
-                                __transdatasap.vat_type = 0;
-                                __transdatasap.check();
-                                __lastResulValue = __transdatasap._getJson();
-
-
                                 int __rowAdd = this._docGrid._addRow();
                                 this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_no, __BILLINGDOCNO, true);
+                                this._docGrid._cellUpdate(__rowAdd, "วันที่ใบกำกับภาษี", __tax_doc_date, true);
+                                this._docGrid._cellUpdate(__rowAdd, "ใบกำกับภาษี", __tax_doc_no, true);
+                                this._docGrid._cellUpdate(__rowAdd, "ใบแจ้งหนี้", __BILLINGDOCNO, true);
                                 this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
-                                this._docGrid._cellUpdate(__rowAdd, "data", __transdatasap, true);
                             }
                         }
+                        this._docGrid.Invalidate();
                     }
                 }
             }
@@ -459,11 +431,6 @@ namespace SMLEDIControl
         }
 
 
-
-
-
-
-
         private void _reloadButton_Click(object sender, EventArgs e)
         {
             this._getData();
@@ -471,7 +438,11 @@ namespace SMLEDIControl
 
         private void _importButton_Click(object sender, EventArgs e)
         {
-            this._process();
+            //this._process();
+            Thread __threadProcess = new Thread(new ThreadStart(_process));
+            __threadProcess.Name = "SML Thread";
+            __threadProcess.IsBackground = true;
+            __threadProcess.Start();
         }
 
         void _process()
@@ -481,6 +452,7 @@ namespace SMLEDIControl
                 if (MessageBox.Show("ต้องการนำเข้าข้อมูลที่ได้เลือกไว้หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     StringBuilder __log = new StringBuilder();
+               
 
                     for (int __row = 0; __row < this._docGrid._rowData.Count; __row++)
                     {
@@ -488,17 +460,68 @@ namespace SMLEDIControl
                         {
                             try
                             {
+                                string __BILLINGDOCNO = (string)this._docGrid._cellGet(__row, 4);
+                                string _datadetail = "{\"P_billingdocno\":\"" + __BILLINGDOCNO + "\",\"P_agentcode\":\"" + _agentCode + "\"}";
+                                //string _datadetail = "{\"P_billingdocno\":\"6002301035\",\"P_agentcode\":\"" + _agentCode + "\"}";
+
+                                //rest 3 
+                                MyLib._restClient __restdetail = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLBill", HttpVerb.POST, _datadetail);
+                                __restdetail._setContentType("application/json");
+                                __restdetail._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
+                                __restdetail._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
+                                string __resultdetail = __restdetail.MakeRequest("");
+                                JsonValue __jsonDetailObject2 = JsonValue.Parse(__resultdetail);
+                                JsonValue __jsonDetailObject22 = JsonValue.Parse(__jsonDetailObject2["Result"][0].ToString());
+                                string __check_detail = __jsonDetailObject22["Agentcode"].ToString().Substring(4).Replace("\"", string.Empty) + "-" + __jsonDetailObject22["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
+
+
+                                transdatasap __transdatasap = transdatasap.Parse(__jsonDetailObject2["Result"][0].ToString());
+                                __transdatasap.details = new List<transdatadetailsap>();
+                                if (__jsonDetailObject22["details"].Count > 0)
+                                {
+
+                                    for (int i = 0; i < __jsonDetailObject22["details"].Count; i++)
+                                    {
+                                        transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject22["details"][i].ToString());
+                                        __transdatadetailsap.wh_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                                        __transdatadetailsap.shelf_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                        //  = __transdatadetailsap.BAT_DATE
+                                        //DateTime bd = Convert.ToDateTime(__transdatadetailsap.BAT_DATE);
+                                        if (__transdatadetailsap.BAT_DATE != null)
+                                        {
+                                            string date = __transdatadetailsap.BAT_DATE.ToString().Substring(0, 4) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(4, 2) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(6);
+                                            DateTime __convertDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
+                                            __transdatadetailsap.BAT_DATE = MyLib._myGlobal._convertDateToQuery(__convertDate);
+                                            __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
+
+
+                                        }
+                                        __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
+                                        __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
+                                        __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
+                                        __transdatasap.details.Add(__transdatadetailsap);
+
+                                    }
+                                }
+                                __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
+                                __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                                __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                __transdatasap.inquiry_type = 0;
+                                __transdatasap.vat_type = 0;
+                                __transdatasap.check();
+                                //     __lastResulValue = __transdatasap._getJson();
 
                                 //string _data = this._docGrid._cellGet(__row, 2).ToString();
-                                transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
+                                //   transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
+                                //transdatasap dataTrans = (transdatasap)__transdatasap._getJson();
                                 // MessageBox.Show(dataTrans._getJson());
-                                String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + dataTrans._queryInsert() + "</node>";
+                                String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdatasap._queryInsert() + "</node>";
                                 MyLib._myFrameWork __myFrameWork = new _myFrameWork();
                                 string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
 
                                 if (__result.Length == 0)
                                 {
-                                   // MessageBox.Show("เสร็จ");
+                                    // MessageBox.Show("เสร็จ");
                                 }
                                 else
                                 {
@@ -508,13 +531,13 @@ namespace SMLEDIControl
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(ex.ToString());
+                                __log.Append(ex);
                             }
                         }
                     } // end loop
                     if (__log.Length > 0)
                     {
-                        MessageBox.Show(__log.ToString(), "นำเข้าข้อมูลเรียบร้อยแล้ว พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(__log.ToString(), "พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -559,3 +582,4 @@ namespace SMLEDIControl
     }
 
 }
+

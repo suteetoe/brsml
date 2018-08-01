@@ -40,16 +40,11 @@
             this._importButton = new MyLib.VistaButton();
             this._reloadButton = new MyLib.VistaButton();
             this._detailGrid = new MyLib._myGrid();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this._icTransScreenTopControl1 = new SMLInventoryControl._icTransScreenTopControl();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this._myFlowLayoutPanel1.SuspendLayout();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -107,7 +102,7 @@
             // 
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -118,7 +113,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this._detailGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(920, 884);
+            this.splitContainer1.Size = new System.Drawing.Size(920, 956);
             this.splitContainer1.SplitterDistance = 523;
             this.splitContainer1.TabIndex = 5;
             // 
@@ -134,7 +129,7 @@
             this._docGrid.Location = new System.Drawing.Point(0, 0);
             this._docGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._docGrid.Name = "_docGrid";
-            this._docGrid.Size = new System.Drawing.Size(521, 849);
+            this._docGrid.Size = new System.Drawing.Size(521, 921);
             this._docGrid.TabIndex = 0;
             this._docGrid.TabStop = false;
             // 
@@ -145,7 +140,7 @@
             this._myFlowLayoutPanel1.Controls.Add(this._reloadButton);
             this._myFlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._myFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 849);
+            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 921);
             this._myFlowLayoutPanel1.Name = "_myFlowLayoutPanel1";
             this._myFlowLayoutPanel1.Size = new System.Drawing.Size(521, 33);
             this._myFlowLayoutPanel1.TabIndex = 1;
@@ -188,44 +183,15 @@
             this._detailGrid.Location = new System.Drawing.Point(0, 0);
             this._detailGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._detailGrid.Name = "_detailGrid";
-            this._detailGrid.Size = new System.Drawing.Size(391, 882);
+            this._detailGrid.Size = new System.Drawing.Size(391, 954);
             this._detailGrid.TabIndex = 1;
             this._detailGrid.TabStop = false;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 25);
-            this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this._icTransScreenTopControl1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Size = new System.Drawing.Size(920, 956);
-            this.splitContainer2.SplitterDistance = 68;
-            this.splitContainer2.TabIndex = 3;
-            // 
-            // _icTransScreenTopControl1
-            // 
-            this._icTransScreenTopControl1._icTransControlType = _g.g._transControlTypeEnum.ว่าง;
-            this._icTransScreenTopControl1._isChange = false;
-            this._icTransScreenTopControl1.BackColor = System.Drawing.Color.Transparent;
-            this._icTransScreenTopControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._icTransScreenTopControl1.Location = new System.Drawing.Point(0, 0);
-            this._icTransScreenTopControl1.Name = "_icTransScreenTopControl1";
-            this._icTransScreenTopControl1.Size = new System.Drawing.Size(920, 68);
-            this._icTransScreenTopControl1.TabIndex = 7;
             // 
             // _ediReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.splitContainer2);
+            this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.toolStrip1);
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(222)));
             this.Name = "_ediReceive";
@@ -236,9 +202,6 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
             this._myFlowLayoutPanel1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,7 +220,5 @@
         private MyLib.ToolStripMyButton _selectAllButton;
         private MyLib.ToolStripMyButton _selectNoneButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
-        private SMLInventoryControl._icTransScreenTopControl _icTransScreenTopControl1;
     }
 }

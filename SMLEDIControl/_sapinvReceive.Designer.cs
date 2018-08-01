@@ -167,12 +167,12 @@
             // 
             this._reloadButton._drawNewMethod = false;
             this._reloadButton.BackColor = System.Drawing.Color.Transparent;
-            this._reloadButton.ButtonText = "Set & Load data";
+            this._reloadButton.ButtonText = " ReLoad";
             this._reloadButton.Location = new System.Drawing.Point(311, 3);
             this._reloadButton.Name = "_reloadButton";
             this._reloadButton.Size = new System.Drawing.Size(107, 27);
             this._reloadButton.TabIndex = 1;
-            this._reloadButton.Text = "Set & Load data";
+            this._reloadButton.Text = "ReLoad ";
             this._reloadButton.UseVisualStyleBackColor = false;
             this._reloadButton.Click += new System.EventHandler(this._reloadButton_Click);
             // 

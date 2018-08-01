@@ -3465,6 +3465,14 @@ namespace _g
             /// sync master url 
             /// </summary>
             public String _sync_master_url = "";
+            /// <summary>
+            /// warehouse on the way
+            /// </summary>
+            public String _warehouse_on_the_way = "";
+            /// <summary>
+            /// shelf on the way
+            /// </summary>
+            public String _shelf_on_the_way = "";
         }
 
         //
@@ -4233,6 +4241,8 @@ namespace _g
                 _companyProfile._arm_send_cn_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_cn_to].ToString();
                 _companyProfile._arm_send_ar_change_to = __dataResult.Rows[0][_g.d.erp_option._arm_send_ar_change_to].ToString();
                 _companyProfile._sync_master_url = __dataResult.Rows[0][_g.d.erp_option._sync_master_url].ToString();
+                _companyProfile._warehouse_on_the_way = __dataResult.Rows[0][_g.d.erp_option._warehouse_on_the_way].ToString();
+                _companyProfile._shelf_on_the_way = __dataResult.Rows[0][_g.d.erp_option._shelf_on_the_way].ToString();
 
 
                 if (MyLib._myGlobal._programName.Equals("SML CM"))
