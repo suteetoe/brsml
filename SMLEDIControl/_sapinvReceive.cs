@@ -45,14 +45,14 @@ namespace SMLEDIControl
             this._docGrid._addColumn("วันที่ใบกำกับภาษี", 1, 90, 30);
             this._docGrid._addColumn("ใบกำกับภาษี", 1, 90, 30);
             this._docGrid._addColumn("ใบแจ้งหนี้", 1, 90, 30);
-            this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 30,false,true);
+            this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 30, false, true);
             //this._docGrid._addColumn("data", 12, 0, 0, false, true);
             this._docGrid.WidthByPersent = true;
             this._docGrid._calcPersentWidthToScatter();
             this._docGrid._mouseClick += _docGrid__mouseClick;
 
             this._icTransScreenTopControl1._textBoxSearch += new MyLib.TextBoxSearchHandler(_ictransScreenTopControl__textBoxSearch);
-           
+
 
             this._icTransScreenTopControl1._table_name = _g.d.ic_trans._table;
             this._icTransScreenTopControl1._maxColumn = 5;
@@ -60,7 +60,7 @@ namespace SMLEDIControl
             this._icTransScreenTopControl1._addTextBox(1, 1, 1, 0, _g.d.ic_trans._wh_from, 1, 1, 0, true, false, false);
             this._icTransScreenTopControl1._addTextBox(1, 2, 1, 0, _g.d.ic_trans._location_from, 1, 1, 0, true, false, false);
             this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._wh_from, _g.g._companyProfile._warehouse_on_the_way.ToString(), "", true);
-            this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._location_from, _g.g._companyProfile._shelf_on_the_way.ToString(),"",true);
+            this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._location_from, _g.g._companyProfile._shelf_on_the_way.ToString(), "", true);
             this._icTransScreenTopControl1._getControl(_g.d.ic_trans._wh_from).Enabled = false;
             this._icTransScreenTopControl1._getControl(_g.d.ic_trans._location_from).Enabled = false;
             splitContainer1.Panel2Collapsed = true;
@@ -371,7 +371,7 @@ namespace SMLEDIControl
                         {
                             string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
-                    
+
                             string __check_doc_no = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
                             if (__row1 == __resultObject.Count - 1)
                             {
@@ -389,13 +389,19 @@ namespace SMLEDIControl
 
                         for (int __row1 = 0; __row1 < __resultObject.Count; __row1++)
                         {
-                            string __tax_doc_no = "";
                             string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
-                            if (__resultObject[__row1]["tax_doc_no"]!=null) {
+                            string __tax_doc_no = "";
+                            string __tax_doc_date = "";
+                            if (__resultObject[__row1]["tax_doc_no"] != null)
+                            {
                                 __tax_doc_no = __resultObject[__row1]["tax_doc_no"].ToString().Replace("\"", string.Empty);
                             }
-                            string __tax_doc_date = __resultObject[__row1]["tax_doc_date"].ToString().Replace("\"", string.Empty);
+                            if (__resultObject[__row1]["tax_doc_date"] != null)
+                            {
+                                __tax_doc_date = __resultObject[__row1]["tax_doc_date"].ToString().Replace("\"", string.Empty);
+                            }
+
                             string __check_detail = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
                             Boolean __check = true;
                             if (__resultcheck.Tables.Count > 0)
@@ -452,7 +458,7 @@ namespace SMLEDIControl
                 if (MessageBox.Show("ต้องการนำเข้าข้อมูลที่ได้เลือกไว้หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     StringBuilder __log = new StringBuilder();
-               
+
 
                     for (int __row = 0; __row < this._docGrid._rowData.Count; __row++)
                     {
@@ -474,59 +480,66 @@ namespace SMLEDIControl
                                 JsonValue __jsonDetailObject22 = JsonValue.Parse(__jsonDetailObject2["Result"][0].ToString());
                                 string __check_detail = __jsonDetailObject22["Agentcode"].ToString().Substring(4).Replace("\"", string.Empty) + "-" + __jsonDetailObject22["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
 
-
-                                transdatasap __transdatasap = transdatasap.Parse(__jsonDetailObject2["Result"][0].ToString());
-                                __transdatasap.details = new List<transdatadetailsap>();
-                                if (__jsonDetailObject22["details"].Count > 0)
+                                try
                                 {
-
-                                    for (int i = 0; i < __jsonDetailObject22["details"].Count; i++)
+                                    transdatasap __transdatasap = transdatasap.Parse(__jsonDetailObject2["Result"][0].ToString());
+                                    __transdatasap.details = new List<transdatadetailsap>();
+                                    if (__jsonDetailObject22["details"].Count > 0)
                                     {
-                                        transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject22["details"][i].ToString());
-                                        __transdatadetailsap.wh_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                                        __transdatadetailsap.shelf_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
-                                        //  = __transdatadetailsap.BAT_DATE
-                                        //DateTime bd = Convert.ToDateTime(__transdatadetailsap.BAT_DATE);
-                                        if (__transdatadetailsap.BAT_DATE != null)
-                                        {
-                                            string date = __transdatadetailsap.BAT_DATE.ToString().Substring(0, 4) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(4, 2) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(6);
-                                            DateTime __convertDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
-                                            __transdatadetailsap.BAT_DATE = MyLib._myGlobal._convertDateToQuery(__convertDate);
-                                            __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
 
+                                        for (int i = 0; i < __jsonDetailObject22["details"].Count; i++)
+                                        {
+                                            transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject22["details"][i].ToString());
+                                            __transdatadetailsap.wh_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                                            __transdatadetailsap.shelf_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                            //  = __transdatadetailsap.BAT_DATE
+                                            //DateTime bd = Convert.ToDateTime(__transdatadetailsap.BAT_DATE);
+                                            if (__transdatadetailsap.BAT_DATE != null)
+                                            {
+                                                string date = __transdatadetailsap.BAT_DATE.ToString().Substring(0, 4) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(4, 2) + "-" + __transdatadetailsap.BAT_DATE.ToString().Substring(6);
+                                                DateTime __convertDate = DateTime.ParseExact(date, "yyyy-MM-dd", null);
+                                                __transdatadetailsap.BAT_DATE = MyLib._myGlobal._convertDateToQuery(__convertDate);
+                                                __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
+                                            }
+                                            __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
+                                            __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
+                                            __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
+                                            __transdatasap.details.Add(__transdatadetailsap);
 
                                         }
-                                        __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
-                                        __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
-                                        __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
-                                        __transdatasap.details.Add(__transdatadetailsap);
+                                    }
+                                    __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
+                                    __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+                                    __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                    __transdatasap.inquiry_type = 0;
+                                    __transdatasap.vat_type = 0;
+                                    __transdatasap.check();
 
+
+                                    //     __lastResulValue = __transdatasap._getJson();
+
+                                    //string _data = this._docGrid._cellGet(__row, 2).ToString();
+                                    //   transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
+                                    //transdatasap dataTrans = (transdatasap)__transdatasap._getJson();
+                                    // MessageBox.Show(dataTrans._getJson());
+                                    String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdatasap._queryInsert() + "</node>";
+                                    MyLib._myFrameWork __myFrameWork = new _myFrameWork();
+                                    string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
+
+                                    if (__result.Length == 0)
+                                    {
+                                        // MessageBox.Show("เสร็จ");
+                                    }
+                                    else
+                                    {
+                                        __log.Append(__result);
+                                        //MessageBox.Show(__result, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                 }
-                                __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
-                                __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                                __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
-                                __transdatasap.inquiry_type = 0;
-                                __transdatasap.vat_type = 0;
-                                __transdatasap.check();
-                                //     __lastResulValue = __transdatasap._getJson();
-
-                                //string _data = this._docGrid._cellGet(__row, 2).ToString();
-                                //   transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
-                                //transdatasap dataTrans = (transdatasap)__transdatasap._getJson();
-                                // MessageBox.Show(dataTrans._getJson());
-                                String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdatasap._queryInsert() + "</node>";
-                                MyLib._myFrameWork __myFrameWork = new _myFrameWork();
-                                string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
-
-                                if (__result.Length == 0)
+                                catch (Exception ex)
                                 {
-                                    // MessageBox.Show("เสร็จ");
-                                }
-                                else
-                                {
-                                    __log.Append(__result);
-                                    //MessageBox.Show(__result, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    __log.Append(ex);
+                                    __log.Append(__resultdetail);
                                 }
                             }
                             catch (Exception ex)
