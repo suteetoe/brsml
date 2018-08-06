@@ -47,9 +47,12 @@ namespace SMLEDIControl
 
         public void check()
         {
-            this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
-            this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
-            this.doc_no = this.Agentcode.Substring(3) + "-" + this.BILLINGDOCNO;
+            //this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
+            //this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
+
+            this.doc_date = this.tax_doc_date;
+            this.doc_time = "06.00";
+            this.doc_no = this.Agentcode + "-" + this.BILLINGDOCNO;
             this.cust_code = this.ap_code;
             this.total_discount = ((this.total_discount != null) ? this.total_discount : "0");
             this.credit_day = ((this.credit_day != null) ? "\'" + this.credit_day + "\'" : "null");
@@ -97,6 +100,9 @@ namespace SMLEDIControl
 
 
 
+            //   values('', 1, 1, 12, '2018-08-03', 'PU18080002', 'AP002', null, null, null, null, '2018-8-3', 'PU18080002', null, 8, 2561, 
+            //null, null, 0, 7.00, 0, 0, 0, 0, 0, 0, 'บริษัท ศรีมโหสถ พลาสติก โปรดักส์ จำกัด', null, 1, '002', 0, 0) </ query >
+
 
             StringBuilder sqlDetail = new StringBuilder();
             sqlDetail.Append("INSERT INTO ic_trans_detail (" +
@@ -113,30 +119,49 @@ namespace SMLEDIControl
                 ", \'{18}\', {19}, {20}" +
                 ", \'{21}\', \'{22}\', \'{23}\'" +
                 ", {24}, {25}, \'{26}\', \'{27}\', {28}, \'{29}\', {30}) ");
-            
+
+
+            StringBuilder sqlgj = new StringBuilder();
+            sqlgj.Append(
+                "insert into gl_journal_vat_buy(" +
+                "book_code, vat_calc,trans_type, trans_flag, doc_date, doc_no, ap_code, ref_doc_date, ref_doc_no, ref_vat_date, ref_vat_no, vat_date, vat_doc_no," +
+                "vat_new_number, vat_effective_period, vat_effective_year, vat_description, vat_group, vat_base_amount, vat_rate, vat_amount," +
+                "vat_total_amount, vat_except_amount_1, vat_average, vat_type, is_add,  manual_add, line_number)"
+                );
+            sqlgj.Append("values(" +
+                " '', 1, 2, 12, '{0}', '{1}', '{2}', null, null, null, null, '{3}', '{4}'," +
+                "null, {5}, {6}, null, null, {7}, {8}, {9},{10},{11}, {12}, {13}, {14}, {15}, {16}" +
+                " ) "
+                );
+
+
 
             StringBuilder __queryInsert = new StringBuilder();
+            string vat_effective_period = tax_doc_date.ToString().Substring(5, 2);
 
-            //StringBuilder __queryUpdateDetail = new StringBuilder("update ic_trans_detail set "
-            //           + " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) "
-            //           + ", stand_value = (select stand_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
-            //           + ", divide_value = (select divide_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
-            //           + ", doc_date_calc = doc_date, doc_time_calc = doc_time"
-            //           + ", is_serial_number = (select ic_serial_no from ic_inventory where ic_inventory.code = ic_trans_detail.item_code )"
-            //           + " where doc_no = \'" + param.getString("doc_no") + "\' ");
+            if (vat_effective_period != "10") {
+                vat_effective_period.Replace("0", string.Empty);
+            }
 
-        
-           // ic_trans
-           __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
-                , MyLib._myGlobal._userCode, 12, 1
-                , this.doc_no, this.doc_date, this.cust_code, ""
-                , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
-                0, doc_time, tax_doc_date, tax_doc_no
-                , inquiry_type, vat_type, doc_format_code
-                , wh_from, location_from, "", "", 0
-                , BILLINGDOCNO, "null", MyLib._myGlobal._branchCode, 0, credit_day
-                , ((credit_date.Length > 0) ? "\'" + credit_date + "\'" : "null"), remark
-                )));
+
+
+
+
+
+            // ic_trans
+            __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
+                 , MyLib._myGlobal._userCode, 12, 1
+                 , this.doc_no, this.doc_date, this.cust_code, ""
+                 , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
+                 0, doc_time, tax_doc_date, tax_doc_no
+                 , inquiry_type, vat_type, doc_format_code
+                 , wh_from, location_from, "", "", 0
+                 , BILLINGDOCNO, "null", MyLib._myGlobal._branchCode, 0, credit_day
+                 , ((credit_date.Length > 0) ? "\'" + credit_date + "\'" : "null"), remark
+                 )));
+
+
+
 
             // __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery());
 
@@ -147,11 +172,11 @@ namespace SMLEDIControl
 
                 __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlDetail.ToString()
                     , 12, 1
-                    , doc_no, doc_date, detail.item_code, __row, detail.is_permium, detail.SALESUNIT, wh_from, location_from
+                    , doc_no, doc_date, detail.item_code, detail.line_number, detail.is_permium, detail.SALESUNIT, wh_from, location_from
                     , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
                     , doc_time, 1, detail.sum_amount_exclude_vat
                     , "", "", MyLib._myGlobal._branchCode
-                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code, ((detail.BAT_DATE != null) ? "\'"+ detail.BAT_DATE +"\'" : "null"), detail.BAT_NUMBER, ((detail.date_expire != null) ? "\'" + detail.date_expire + "\'" : "null")
+                    , inquiry_type, 0, detail.discount_amount.ToString(), ap_code, ((detail.BAT_DATE != null) ? "\'" + detail.BAT_DATE + "\'" : "null"), detail.BAT_NUMBER, ((detail.date_expire != null) ? "\'" + detail.date_expire + "\'" : "null")
                     )));
                 __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set "
                    + " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) "
@@ -161,6 +186,22 @@ namespace SMLEDIControl
                    + ", is_serial_number = (select ic_serial_no from ic_inventory where ic_inventory.code = ic_trans_detail.item_code )"
                    + " where doc_no = \'" + doc_no + "\' "));
             }
+
+            //gl
+            __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlgj.ToString()
+            , this.doc_date, this.doc_no, this.cust_code, this.tax_doc_date, this.tax_doc_no
+            , vat_effective_period, this.tax_doc_date.ToString().Substring(0, 4), this.total_before_vat, this.vat_rate, this.total_vat_value
+            , this.total_after_vat, this.total_except_vat, "0", this.vat_type, "0", "0", "0"
+            )));
+
+
+            __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update gl_journal_vat_buy set "
+              + " ap_name = (select name_1 from ap_supplier where ap_supplier.code = '" + ap_code + "' ) "
+              + ", tax_no = (select tax_id from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
+              + ", branch_type = (select branch_type from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
+              + ", branch_code = (select branch_code from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
+              + " where doc_no = \'" + doc_no + "\' "));
+
             return __queryInsert.ToString();
         }
     }
