@@ -785,7 +785,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3893" _x="402" _y="1168" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="3957" _x="402" _y="1168" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -1993,6 +1993,26 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="shelf_on_the_way" _description="ที่เก็บระหว่างทาง" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="lock_sale_day_interval" _description="ใช้ระบบห้ามบันทึกการขายย้อนหลัง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sale_day_interval" _description="จำนวนวันห้ามขายย้อนหลัง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="lock_bill_auto" _description="ใช้ระบบล๊อคบิลขายอัตโนมัติ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="lock_bill_auto_interval" _description="จำนวนวันล๊อครายการย้อนหลัง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -35545,7 +35565,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="pos_point_condition" _description="เงื่อนไขการให้แต้ม" _descriptionEng="Table 267" _version="" _width="289" _height="85" _x="1137" _y="847">
+    <_tableList _moduleName="POS" _name="pos_point_condition" _description="เงื่อนไขการให้แต้ม" _descriptionEng="Table 267" _version="" _width="289" _height="85" _x="1139" _y="844">
       <_fields>
         <_fieldList _name="birth_month" _description="ซื้อในเดือนเกินได้แต้มคูณ (เท่า)" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -35671,7 +35691,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="coupon_list" _description="ทะเบียนคูปอง" _descriptionEng="Table 270" _version="" _width="270" _height="213" _x="835" _y="972">
+    <_tableList _moduleName="POS" _name="coupon_list" _description="ทะเบียนคูปอง" _descriptionEng="Table 270" _version="" _width="270" _height="213" _x="1132" _y="630">
       <_fields>
         <_fieldList _name="number" _description="หมายเลขคูปอง" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -39829,7 +39849,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="pos_settle_bill_discount" _description="รายละเอียดการส่งบิลส่วนลด" _descriptionEng="POS Setttle Bill Discount" _version="" _width="284" _height="197" _x="1134" _y="529">
+    <_tableList _moduleName="POS" _name="pos_settle_bill_discount" _description="รายละเอียดการส่งบิลส่วนลด" _descriptionEng="POS Setttle Bill Discount" _version="" _width="284" _height="197" _x="841" _y="974">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขทีเอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -40621,7 +40641,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="pos_log" _description="ประวัติการใช้งาน POS" _descriptionEng="POS Log" _version="" _width="224" _height="101" _x="1136" _y="733">
+    <_tableList _moduleName="POS" _name="pos_log" _description="ประวัติการใช้งาน POS" _descriptionEng="POS Log" _version="" _width="224" _height="101" _x="1128" _y="524">
       <_fields>
         <_fieldList _name="user_code" _description="รหัสพนักงาน" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -47518,6 +47538,65 @@
             <_fields>doc_no</_fields>
             <_fields>doc_date</_fields>
             <_fields>trans_flag</_fields>
+          </_fields>
+        </_indexs>
+      </_indexs>
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="POS" _name="pos_settle_group_discount" _description="รายละเอียดส่วนลดตามกลุ่ม" _descriptionEng="pos_settle_group_discount" _version="" _width="295" _height="165" _x="437" _y="1999" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+      <_fields>
+        <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="" _type="6" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="doc_time" _description="เวลา" _descriptionEng="" _type="1" _length="10" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="pos_id" _description="รหัสเครื่อง POS" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="discount_group_code" _description="รหัสกลุ่มส่วนลด" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="discount_group_amount" _description="มูลค่าตามกลุ่มส่วนลด" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="discount_group_discount" _description="ส่วนลดรวม" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="discount_group_name" _description="ชื่อกลุ่มส่วนลด" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="line_number" _description="LineNumber" _descriptionEng="" _type="4" _length="0" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs>
+        <_indexs _name="doc_no_doc_date" _custer="0" _unique="0" _fieldsDisplay="doc_no,doc_date">
+          <_fields>
+            <_fields>doc_no</_fields>
+            <_fields>doc_date</_fields>
           </_fields>
         </_indexs>
       </_indexs>

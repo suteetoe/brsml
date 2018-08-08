@@ -3473,6 +3473,22 @@ namespace _g
             /// shelf on the way
             /// </summary>
             public String _shelf_on_the_way = "";
+            /// <summary>
+            /// ใช้ระบบห้ามบันทึกการขายย้อนหลัง
+            /// </summary>
+            public Boolean _lock_sale_day_interval = false;
+            /// <summary>
+            /// จำนวนวันห้ามขายย้อนหลัง
+            /// </summary>
+            public int _sale_day_interval = 0;
+            /// <summary>
+            /// ใช้ระบบล๊อคบิลขายอัตโนมัติ
+            /// </summary>
+            public Boolean _lock_bill_auto = false;
+            /// <summary>
+            /// จำนวนวันล๊อครายการย้อนหลัง
+            /// </summary>
+            public int _lock_bill_auto_interval = 0;
         }
 
         //
@@ -4244,6 +4260,10 @@ namespace _g
                 _companyProfile._warehouse_on_the_way = __dataResult.Rows[0][_g.d.erp_option._warehouse_on_the_way].ToString();
                 _companyProfile._shelf_on_the_way = __dataResult.Rows[0][_g.d.erp_option._shelf_on_the_way].ToString();
 
+                _companyProfile._lock_sale_day_interval = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_sale_day_interval) == 1) ? true : false;
+                _companyProfile._lock_bill_auto = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_bill_auto) == 1) ? true : false;
+                _companyProfile._sale_day_interval = _convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._sale_day_interval);
+                _companyProfile._lock_bill_auto_interval = _convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_bill_auto_interval);
 
                 if (MyLib._myGlobal._programName.Equals("SML CM"))
                 {

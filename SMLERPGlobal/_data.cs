@@ -1620,6 +1620,22 @@ namespace _g
             /// ที่เก็บระหว่างทาง
             /// </summary>
             public static String _shelf_on_the_way = "shelf_on_the_way";
+            /// <summary>
+            /// ใช้ระบบห้ามบันทึกการขายย้อนหลัง
+            /// </summary>
+            public static String _lock_sale_day_interval = "lock_sale_day_interval";
+            /// <summary>
+            /// จำนวนวันห้ามขายย้อนหลัง
+            /// </summary>
+            public static String _sale_day_interval = "sale_day_interval";
+            /// <summary>
+            /// ใช้ระบบล๊อคบิลขายอัตโนมัติ
+            /// </summary>
+            public static String _lock_bill_auto = "lock_bill_auto";
+            /// <summary>
+            /// จำนวนวันล๊อครายการย้อนหลัง
+            /// </summary>
+            public static String _lock_bill_auto_interval = "lock_bill_auto_interval";
         }
 
         /// <summary>
@@ -39111,6 +39127,53 @@ namespace _g
             /// มูลค่าส่วนลด
             /// </summary>
             public static String _discount_amount = "discount_amount";
+        }
+
+        /// <summary>
+        /// รายละเอียดส่วนลดตามกลุ่ม
+        /// </summary>
+        public class pos_settle_group_discount
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "pos_settle_group_discount";
+            /// <summary>
+            /// เลขที่เอกสาร
+            /// </summary>
+            public static String _doc_no = "doc_no";
+            /// <summary>
+            /// วันที่เอกสาร
+            /// </summary>
+            public static String _doc_date = "doc_date";
+            /// <summary>
+            /// เวลา
+            /// </summary>
+            public static String _doc_time = "doc_time";
+            /// <summary>
+            /// รหัสเครื่อง POS
+            /// </summary>
+            public static String _pos_id = "pos_id";
+            /// <summary>
+            /// รหัสกลุ่มส่วนลด
+            /// </summary>
+            public static String _discount_group_code = "discount_group_code";
+            /// <summary>
+            /// มูลค่าตามกลุ่มส่วนลด
+            /// </summary>
+            public static String _discount_group_amount = "discount_group_amount";
+            /// <summary>
+            /// ส่วนลดรวม
+            /// </summary>
+            public static String _discount_group_discount = "discount_group_discount";
+            /// <summary>
+            /// ชื่อกลุ่มส่วนลด
+            /// </summary>
+            public static String _discount_group_name = "discount_group_name";
+            /// <summary>
+            /// LineNumber
+            /// </summary>
+            public static String _line_number = "line_number";
         }
     }
 }

@@ -9122,6 +9122,37 @@ namespace SMLInventoryControl
                     }
                 }
 
+                // 3.กรณีที>เครื>องลูกเวลาไม่ตรงกับ server  ระบบตอ้งไม่ใหบ้นัทึก ท
+                DateTime __now = DateTime.Now;
+
+                string __queryCheckDate = "select date(now()) as now";
+                DataTable __dateCheckResult = __myFrameWork._queryShort(__queryCheckDate).Tables[0];
+                if (__dateCheckResult.Rows.Count > 0)
+                {
+                    DateTime __dateServer = MyLib._myGlobal._convertDateFromQuery(__dateCheckResult.Rows[0][0].ToString());
+                    if (__now.Year.CompareTo(__dateServer.Year) != 0 ||
+                        __now.Month.CompareTo(__dateServer.Month) != 0 ||
+                        __now.Day.CompareTo(__dateServer.Day) != 0)
+                    {
+                        MessageBox.Show("เวลาเครื่องไม่ตรงกับเวลาในระบบ");
+                        return;
+                    }
+                }
+
+                if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ && _g.g._companyProfile._lock_sale_day_interval && _g.g._companyProfile._sale_day_interval > 0)
+                {
+                    // check 
+                    DateTime __saleDocDate = this._icTransScreenTop._getDataDate(_g.d.ic_trans._doc_date);
+                    TimeSpan __saleSpan = __now.Subtract(__saleDocDate);
+
+                    int __totalSaleDay = (int)Math.Floor(__saleSpan.TotalDays);
+                    if (__totalSaleDay > _g.g._companyProfile._sale_day_interval)
+                    {
+                        MessageBox.Show(string.Format("ห้ามขายย้อนหลังเกิน {0} วัน", _g.g._companyProfile._sale_day_interval));
+                        return;
+                    }
+                }
+
                 #region ตรวจสอบข้อมูล
 
                 // singha 

@@ -670,6 +670,18 @@ namespace SMLAccount
             //}
             _sendMessageProcess();
 
+            if (_g.g._companyProfile._lock_bill_auto && _g.g._companyProfile._lock_bill_auto_interval > 0)
+            {
+                string __queryLockBill = string.Format("update ic_trans set is_lock_record = 1 where trans_flag = 44 and last_status = 0 and doc_date <= (date(now()) - interval '{0} day') and coalesce(is_lock_record, 0) = 0 ", _g.g._companyProfile._lock_bill_auto_interval);
+
+                MyLib._myFrameWork __myFrameWork = new _myFrameWork();
+                string __result = __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __queryLockBill);
+                if (__result.Length > 0)
+                {
+                    System.Console.WriteLine(__result);
+                }
+            }
+
         }
 
         public void _sendMessageProcess()

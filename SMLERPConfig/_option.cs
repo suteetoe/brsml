@@ -661,6 +661,11 @@ namespace SMLERPConfig
                     this._addCheckBox(__row, 0, _g.d.erp_option._warning_input_customer, false, true);
                 }
 
+                this._addCheckBox(__row, 0, _g.d.erp_option._lock_sale_day_interval, false, true);
+                this._addCheckBox(__row++, 1, _g.d.erp_option._lock_bill_auto, false, true);
+                this._addNumberBox(__row, 0, 1, 0, _g.d.erp_option._sale_day_interval, 1, 2, true);
+                this._addNumberBox(__row++, 1, 1, 0, _g.d.erp_option._lock_bill_auto_interval, 1, 2, true);
+
                 //this._maxLabelWidth = new int[] { 129, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             }
         }
@@ -835,7 +840,7 @@ namespace SMLERPConfig
 
 
                 this._addCheckBox(__row, 0, _g.d.erp_option._count_customer_table, false, true);
-                 this._addTextBox(__row, 0, _g.d.erp_option._process_serial_device, 10);
+                this._addTextBox(__row, 0, _g.d.erp_option._process_serial_device, 10);
 
                 this._addCheckBox(__row, 0, _g.d.erp_option._use_order_checker, false, true);
                 this._addCheckBox(__row++, 1, _g.d.erp_option._disable_edit_order, false, true);
