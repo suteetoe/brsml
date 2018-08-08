@@ -447,9 +447,13 @@ namespace SMLInventoryControl
                     this.Controls.Add(this._transGrid);
                     break;
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:
+                    this._transGrid._addColumn(_g.d.ap_ar_trans_detail._bill_type, 10, 15, 15, true);
                     this._transGrid._addColumn(_g.d.ap_ar_trans_detail._billing_no, 1, 0, 25, true, false, true, true, "", "", "", _g.d.ap_ar_trans_detail._doc_ref);
                     this._transGrid._addColumn(_g.d.ap_ar_trans_detail._billing_date, 4, 0, 25, false, false, true, true, "", "", "", _g.d.ap_ar_trans_detail._doc_date);
                     this._transGrid._addColumn(_g.d.ap_ar_trans_detail._remark, 1, 0, 50, false, false);
+
+                    this._transGrid._cellComboBoxGet += new MyLib.CellComboBoxItemGetDisplay(_transGrid__cellComboBoxGet);
+                    this._transGrid._cellComboBoxItem += new MyLib.CellComboBoxItemEventHandler(_transGrid__cellComboBoxItem);
                     this.Controls.Add(this._transGrid);
                     break;
 
@@ -524,6 +528,7 @@ namespace SMLInventoryControl
                 case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น: return _g.g._ap_bill_type_1;
                 case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น: return _g.g._ap_bill_type_1;
                 case _g.g._transControlTypeEnum.ซื้อ_ใบสั่งซื้อ: return _g.g._po_bill_type_1;
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก: return _g.g._transfer_out_bill_type;
             }
             return null;
         }
@@ -551,6 +556,7 @@ namespace SMLInventoryControl
                         }
                         return _g.g._po_bill_type_1[(select == -1) ? 0 : select].ToString();
                     }
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก: return _g.g._transfer_out_bill_type[(select == -1) ? 0 : select].ToString();
 
             }
             return null;
@@ -1277,9 +1283,20 @@ namespace SMLInventoryControl
                     }
                     break;
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:
-                    __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.สินค้า_ขอโอน);
-                    __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_ขอโอน);
-                    __extraWhere = " and " + _g.d.ic_trans._doc_success + "=0 and " + _g.d.ic_trans._last_status + "=0 ";
+                    switch (selectTransFlag)
+                    {
+                        case 0: // โอน
+                            __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.สินค้า_ขอโอน);
+                            __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_ขอโอน);
+                            __extraWhere = " and " + _g.d.ic_trans._doc_success + "=0 and " + _g.d.ic_trans._last_status + "=0 ";
+                            break;
+                        case 1: // ซื้อ
+                            __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ);
+                            __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ);
+                            __extraWhere = " and not exists (select doc_no from ic_trans_detail where ic_trans_detail.trans_flag= 72 and ic_trans_detail.ref_doc_no = ic_trans.doc_no and ic_trans_detail.doc_ref_type = 1 )";
+                            break;
+                    }
+                
                     break;
 
             }
