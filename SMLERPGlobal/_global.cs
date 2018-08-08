@@ -3562,6 +3562,9 @@ namespace _g
         // เพิ่มหนี้ (ขาย)
         public static object[] _so_sale_order_type_4 = new object[] { "ไม่เลือก", "ขายเงินเชื่อ", "ค่าบริการเงินเชื่อ" };
 
+        // สินค้า_โอนออก
+        public static object[] _transfer_out_bill_type = new object[] { "อ้างอิงใบขอโอนสินค้า", "ซื้อสินค้า" };
+
         public static object[] _po_bill_type_1 = new object[] { "ใบอนุมัติเสนอซื้อ", "ใบเสนอซื้อ" };
         //
         public static string _search_screen_gl_chart_of_account = "screen_gl_chart_of_account";

@@ -3142,7 +3142,7 @@ namespace SMLInventoryControl
                         this._itemApprovalButton.Visible = false;
                         this._selectAllButton.Visible = false;
                         this._addButton.Visible = false;
-                        this._itemApprovalSelectButton.ResourceName = "อ้างอิงใบขอโอนสินค้า";
+                        this._itemApprovalSelectButton.ResourceName = "อ้างอิงใบขอโอนสินค้า / ซื้อสินค้า ";
                         this._itemApprovalSelectButton.Enabled = true;
                         this._itemApprovalSelectButton.Click += new EventHandler(_itemApprovalSelectButton_Click);
                     }
