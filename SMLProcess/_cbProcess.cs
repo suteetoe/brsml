@@ -299,11 +299,11 @@ namespace SMLProcess
             StringBuilder __query = new StringBuilder();
 
             __query.Append("select doc_date, doc_no, trans_flag, trans_type, ap_ar_code, pay_type" +
-            ", case when ((trans_flag=300) or (trans_flag <> 301 and pay_type =1)) then cash_amount else 0 end as income_amount" +
-            ", case when ((trans_flag=301) or (trans_flag <> 300 and pay_type =2)) then cash_amount else 0 end as pay_amount" +
+            ", case when (pay_type =1) then cash_amount else 0 end as income_amount" +
+            ", case when (pay_type =2) then cash_amount else 0 end as pay_amount" +
             ", case when(pay_type =1)then cash_amount else -1*cash_amount end as amount" +
             ", 0 as balance_amount " +
-            " from cb_trans where cash_amount <> 0 and status=0 " + dateWhere);
+            " from cb_trans where cash_amount <> 0 and (case when (trans_flag in (19,239) ) then  (select last_status from ap_ar_trans where ap_ar_trans.doc_no = cb_trans.doc_no and ap_ar_trans.trans_flag = cb_trans.trans_flag) else (select last_status from ic_trans where ic_trans.doc_no = cb_trans.doc_no and ic_trans.trans_flag = cb_trans.trans_flag) end)= 0 " + dateWhere);
 
             return __query.ToString();
         }
@@ -332,7 +332,7 @@ namespace SMLProcess
         public string _createPettyCashQuery(string dateWhere)
         {
             StringBuilder __query = new StringBuilder();
-            
+
 
             string __payFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินมัดจำ) + ","
                 + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_จ่ายเงินล่วงหน้า) + ","

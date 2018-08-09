@@ -2504,6 +2504,7 @@ namespace SMLProcess
                                     case _g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ:
                                     case _g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า:
                                         {
+                                            __queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update cb_trans set status = " + __last_status + " where doc_no = \'" + __getDocNo + "\' and trans_flag =" + __getTransFlag + " and status <> " + __last_status));
                                             __queryUpdate.Append(MyLib._myUtil._convertTextToXmlForQuery("update cb_trans_detail set last_status = " + __last_status + " where doc_no = \'" + __getDocNo + "\' and trans_flag =" + __getTransFlag + " and last_status <> " + __last_status));
                                         }
                                         break;
