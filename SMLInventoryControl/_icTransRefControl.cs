@@ -46,7 +46,8 @@ namespace SMLInventoryControl
             }
         }
 
-        public void _cleardata() {
+        public void _cleardata()
+        {
             this._transGrid._clear();
         }
 
@@ -447,7 +448,7 @@ namespace SMLInventoryControl
                     this.Controls.Add(this._transGrid);
                     break;
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:
-                    this._transGrid._addColumn(_g.d.ap_ar_trans_detail._bill_type, 10, 15, 15, true);
+                    this._transGrid._addColumn(_g.d.ap_ar_trans_detail._bill_type, 10, 15, 15, false, false);
                     this._transGrid._addColumn(_g.d.ap_ar_trans_detail._billing_no, 1, 0, 25, true, false, true, true, "", "", "", _g.d.ap_ar_trans_detail._doc_ref);
                     this._transGrid._addColumn(_g.d.ap_ar_trans_detail._billing_date, 4, 0, 25, false, false, true, true, "", "", "", _g.d.ap_ar_trans_detail._doc_date);
                     this._transGrid._addColumn(_g.d.ap_ar_trans_detail._remark, 1, 0, 50, false, false);
@@ -498,7 +499,7 @@ namespace SMLInventoryControl
                 case _g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น:
                 case _g.g._transControlTypeEnum.เจ้าหนี้_เพิ่มหนี้อื่น:
                     this._transGrid._cellUpdate(row, _g.d.ap_ar_trans_detail._bill_type, 1, false);
-                    break;
+                    break;                    
             }
 
             if (_g.g._companyProfile._ss_ref_po_only)
@@ -984,7 +985,7 @@ namespace SMLInventoryControl
                         case _g.g._transControlTypeEnum.คลัง_รับฝาก_เบิก:
                         case _g.g._transControlTypeEnum.คลัง_รับฝาก_รับคืนจากเบิก:
                             {
-                                string __query = "select " + _g.d.ic_trans._last_status + "," + _g.d.ic_trans._doc_success +  " from " + _g.d.ic_wms_trans._table + " where " + _g.d.ic_trans._doc_no + "=\'" + __billNo + "\' ";
+                                string __query = "select " + _g.d.ic_trans._last_status + "," + _g.d.ic_trans._doc_success + " from " + _g.d.ic_wms_trans._table + " where " + _g.d.ic_trans._doc_no + "=\'" + __billNo + "\' ";
                                 DataTable __getData = __myFrameWork._queryShort(__query).Tables[0];
                                 if (__getData.Rows.Count > 0)
                                 {
@@ -1247,7 +1248,8 @@ namespace SMLInventoryControl
                     {
                         __extraWhere = " and " + _g.d.ic_trans._cust_code + "=\'" + cust_code + "\' and last_status !=1";
                     }
-                    else {
+                    else
+                    {
                         __extraWhere = " and last_status !=1";
                     }
                     break;
@@ -1296,7 +1298,7 @@ namespace SMLInventoryControl
                             __extraWhere = " and not exists (select doc_no from ic_trans_detail where ic_trans_detail.trans_flag= 72 and ic_trans_detail.ref_doc_no = ic_trans.doc_no and ic_trans_detail.doc_ref_type = 1 )";
                             break;
                     }
-                
+
                     break;
 
             }
