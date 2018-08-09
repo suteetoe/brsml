@@ -3139,12 +3139,16 @@ namespace SMLInventoryControl
                         //this._icTransRef.Visible = true;
                         this._mySelectBar.Visible = true;
                         this._itemApprovalSelectButton.Visible = true;
-                        this._itemApprovalButton.Visible = false;
                         this._selectAllButton.Visible = false;
+                        this._itemApprovalButton.Visible = true;
                         this._addButton.Visible = false;
-                        this._itemApprovalSelectButton.ResourceName = "อ้างอิงใบขอโอนสินค้า / ซื้อสินค้า ";
+                        this._itemApprovalSelectButton.ResourceName = "อ้างอิงใบขอโอนสินค้า";
                         this._itemApprovalSelectButton.Enabled = true;
                         this._itemApprovalSelectButton.Click += new EventHandler(_itemApprovalSelectButton_Click);
+                        this._itemApprovalButton.ResourceName = "อ้างอิงรายการซื้อสินค้า";
+                        this._itemApprovalButton.Enabled = true;
+                        this._itemApprovalButton.Click += _itemApprovalButton_Click;
+                        //this._itemApprovalButton.Visible = true;
                     }
                     // Print ------------------------------------------
                     this._printButton.Visible = true;
@@ -4529,6 +4533,19 @@ namespace SMLInventoryControl
                         this._myManageTrans._dataList._clearLogPrintButton.Visible = true;
                 }
             }
+        }
+
+        private void _itemApprovalButton_Click(object sender, EventArgs e)
+        {
+            if (this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+            {
+                this._icTransRef._transGrid._clear();
+                this._icTransRef.Visible = (this._icTransRef.Visible) ? false : true;
+                this._icTransRef._transGrid._addRow();
+                this._icTransRef._transGrid._cellUpdate(0, _g.d.ap_ar_trans_detail._bill_type, 1, true);
+                this._icTransRef._transGrid.AddRow = false;
+            }
+
         }
 
         private void __buttonSearchSR_Click(object sender, EventArgs e)

@@ -2074,6 +2074,8 @@ namespace SMLInventoryControl
                     #region สินค้า_โอนออก
                     case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                         {
+                            Boolean __foundReferPurchase = false;
+                            this.AddRow = true;
                             this._clear();
                             for (int __rowCount = 0; __rowCount < this._icTransRef._transGrid._rowData.Count; __rowCount++)
                             {
@@ -2090,6 +2092,7 @@ namespace SMLInventoryControl
                                     case 1: // ซื้อสินค้า
                                         {
                                             __transflag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ).ToString();
+                                            __foundReferPurchase = true;
                                         }
                                         break;
                                 }
@@ -2166,6 +2169,11 @@ namespace SMLInventoryControl
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
                                         this._searchUnitNameWareHouseNameShelfName(__addr);
                                     }
+                                }
+
+                                if (__foundReferPurchase)
+                                {
+                                    this.AddRow = false;
                                 }
                             }
 
