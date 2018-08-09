@@ -2076,6 +2076,7 @@ namespace SMLInventoryControl
                         {
                             Boolean __foundReferPurchase = false;
                             this.AddRow = true;
+                            this._isEdit = true;
                             this._clear();
                             for (int __rowCount = 0; __rowCount < this._icTransRef._transGrid._rowData.Count; __rowCount++)
                             {
@@ -2175,6 +2176,8 @@ namespace SMLInventoryControl
                                 {
                                     this.AddRow = false;
                                 }
+
+                                this.Invalidate();
                             }
 
                         }

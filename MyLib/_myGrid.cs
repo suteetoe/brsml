@@ -230,6 +230,8 @@ namespace MyLib
         //
         public int _lastSelectRow = -1;
         public int _lastSelectColumn = -1;
+
+        public Boolean _allowDeleteRow = true;
         //
         /// <summary>
         /// หัว Column
@@ -996,6 +998,11 @@ namespace MyLib
             {
                 _deleteRow.Enabled = false;
                 _insertRow.Enabled = false;
+            }
+
+            if (AddRow == false && _allowDeleteRow == true)
+            {
+                _deleteRow.Enabled = true;
             }
         }
 
