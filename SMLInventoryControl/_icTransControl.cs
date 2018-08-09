@@ -4539,6 +4539,7 @@ namespace SMLInventoryControl
         {
             if (this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
             {
+                this._icTransItemGrid._clear();
                 this._icTransRef._transGrid._clear();
                 this._icTransRef.Visible = (this._icTransRef.Visible) ? false : true;
                 this._icTransRef._transGrid._addRow();
@@ -6416,6 +6417,7 @@ namespace SMLInventoryControl
             {
                 case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                     this._icTransRef.Visible = (this._icTransRef.Visible) ? false : true;
+                    this._icTransItemGrid._clear();
                     /*if (this._icTransRef._transGrid._selectRow == -1)
                     {
                         if (this._saveButton.Enabled == true)
