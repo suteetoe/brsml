@@ -2130,6 +2130,7 @@ namespace SMLInventoryControl
                                         this._icTransScreenTop._setDataStr(_g.d.ic_trans._location_from, __locationFrom);
                                     if (__locationTo.Length > 0)
                                         this._icTransScreenTop._setDataStr(_g.d.ic_trans._location_to, __locationTo);
+                                    
 
                                     string __balanceQty = "(" + _g.d.ic_trans_detail._qty + "*(" + _g.d.ic_trans_detail._stand_value + "/" + _g.d.ic_trans_detail._divide_value + "))-coalesce((select sum(" + "x." + _g.d.ic_trans_detail._qty + "*(" + "x." + _g.d.ic_trans_detail._stand_value + "/" + "x." + _g.d.ic_trans_detail._divide_value + ")) from " + _g.d.ic_trans_detail._table + " as x where " + "x." + _g.d.ic_trans_detail._trans_flag + " in (" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนออก).ToString() + ") and " + "x." + _g.d.ic_trans_detail._ref_doc_no + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._doc_no + " and x." + _g.d.ic_trans_detail._item_code + "=" + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._item_code + " and x." + _g.d.ic_trans_detail._ref_row + " = " + _g.d.ic_trans_detail._table + "." + _g.d.ic_trans_detail._line_number + " and x." + _g.d.ic_trans_detail._last_status + "=0),0)";
 
@@ -2168,6 +2169,22 @@ namespace SMLInventoryControl
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code_2, __wareHouseCode2, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code_2, __shelfCode2, false);
                                         this._cellUpdate(__addr, _g.d.ic_trans_detail._qty, __qty, false);
+
+                                        if (__bill_Type == 1) {
+                                            string __top_wareHouseCode = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from, false);
+                                            string __top_shelfCode = this._icTransScreenTop._getDataStr(_g.d.ic_trans._location_from, false);
+                                            string __top_wareHouseCode2 = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_to, false);
+                                            string __top_shelfCode2 = this._icTransScreenTop._getDataStr(_g.d.ic_trans._location_to, false);
+
+                                            if (__top_wareHouseCode.Length > 0)
+                                                this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code, __top_wareHouseCode, false);
+                                            if (__top_shelfCode.Length > 0)
+                                                this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code, __top_shelfCode, false);
+                                            if (__top_wareHouseCode2.Length > 0)
+                                                this._cellUpdate(__addr, _g.d.ic_trans_detail._wh_code_2, __top_wareHouseCode2, false);
+                                            if (__top_shelfCode2.Length > 0)
+                                                this._cellUpdate(__addr, _g.d.ic_trans_detail._shelf_code_2, __top_shelfCode2, false);
+                                        }
                                         this._searchUnitNameWareHouseNameShelfName(__addr);
                                     }
                                 }

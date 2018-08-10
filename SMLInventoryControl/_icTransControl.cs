@@ -3136,6 +3136,8 @@ namespace SMLInventoryControl
                         MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountProfessional ||
                         MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOSProfessional)
                     {
+
+
                         //this._icTransRef.Visible = true;
                         this._mySelectBar.Visible = true;
                         this._itemApprovalSelectButton.Visible = true;
