@@ -146,7 +146,7 @@ namespace BRInterfaceControl.SOS
                 {
                     string __fieldTransList = MyLib._myGlobal._fieldAndComma(
         _g.d.ic_trans._trans_flag, _g.d.ic_trans._trans_type,
-        _g.d.ic_trans._doc_no, _g.d.ic_trans._doc_date, _g.d.ic_trans._doc_time,
+        _g.d.ic_trans._doc_no, _g.d.ic_trans._doc_date, _g.d.ic_trans._doc_time, _g.d.ic_trans._doc_ref,
         _g.d.ic_trans._tax_doc_no, _g.d.ic_trans._tax_doc_date,
         _g.d.ic_trans._sale_code, _g.d.ic_trans._cust_code,
         _g.d.ic_trans._inquiry_type, _g.d.ic_trans._vat_type,
@@ -206,6 +206,10 @@ namespace BRInterfaceControl.SOS
                                 string __custCode = __json["cust_code"].ToString().Replace("\"", string.Empty);
                                 string __saleCode = __json["sale_code"].ToString().Replace("\"", string.Empty);
                                 string __docTime = DateTime.Now.ToString("HH:MM");
+                                // เนสเพิ่มรูปแบบ เลขที่เอกสาร + doc_format_code
+                                string __docFormatCode = __json["doc_format_code"].ToString().Replace("\"", string.Empty);
+                                string __doc_ref = __docNo;
+                                __docNo = __docFormatCode + __docNo;
 
                                 // for edit
                                 __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("delete from ic_trans where doc_no = \'" + __docNo + "\' and trans_flag = " + this._transFlag));
@@ -232,7 +236,7 @@ namespace BRInterfaceControl.SOS
 
                                 string __insertTrans = "insert into " + _g.d.ic_trans._table + "(" + __fieldTransList + ") " +
                                     " values (" +
-            _transFlag.ToString() + ", " + _transType.ToString() + ", \'" + __docNo + "\', \'" + __docDate + "\', \'" + __docTime + "\'," +
+            _transFlag.ToString() + ", " + _transType.ToString() + ", \'" + __docNo + "\', \'" + __docDate + "\', \'" + __docTime + "\', \'" + __doc_ref + "\'," +
             "\'" + __docNo + "\', \'" + __docDate + "\'," +
             "\'" + __saleCode + "\', \'" + __custCode + "\'," +
             "\'" + (__saleType.Equals("1") ? "0" : "1") + "\',\'" + __vatType + "\'," +
