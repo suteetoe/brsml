@@ -189,6 +189,18 @@ namespace SMLAccount
                             __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
                         }
                     }
+
+                    __result = __myFremeWork._queryShort("SELECT indexdef FROM pg_indexes WHERE indexname = \'gl_journal_pk_code\' ").Tables[0];
+                    if (__result.Rows.Count > 0)
+                    {
+                        string __newIndex = "CREATE UNIQUE INDEX gl_journal_pk_code ON gl_journal USING btree (doc_date, book_code, doc_no, trans_flag)";
+                        string __indexMatch = __result.Rows[0][0].ToString();
+                        if (__indexMatch.Equals(__newIndex) == false)
+                        {
+                            __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "ALTER TABLE public.gl_journal DROP CONSTRAINT gl_journal_pk_code");
+                            __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
+                        }
+                    }
                 }
             }
 

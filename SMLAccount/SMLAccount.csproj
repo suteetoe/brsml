@@ -14,7 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <PlatformTarget>x86</PlatformTarget>
     <TargetFrameworkProfile />
-    <ManifestCertificateThumbprint>6711B476A6FE18EE8AD2A7ECA5661F40ABD39A3E</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>82F7DDCA34F97E680F1953F712CB653A42B533F1</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
     <GenerateManifests>true</GenerateManifests>
@@ -77,8 +77,7 @@
     <PlatformTarget>x86</PlatformTarget>
     <OutputPath>bin\Debug\</OutputPath>
     <Optimize>false</Optimize>
-    <DefineConstants>
-    </DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <PlatformTarget>AnyCPU</PlatformTarget>

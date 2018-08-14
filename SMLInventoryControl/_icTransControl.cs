@@ -4505,6 +4505,8 @@ namespace SMLInventoryControl
                 case _g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินเข้าธนาคาร:
                 case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็ครับ_เปลี่ยนเช็ค:
                 case _g.g._transControlTypeEnum.เงินสดธนาคาร_เช็คจ่าย_เปลี่ยนเช็ค:
+
+                case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                     this._glCreate();
                     break;
 
@@ -6886,8 +6888,14 @@ namespace SMLInventoryControl
             int __glTableNumber = -1;
             if (this._glScreenTop != null)
             {
+                string __extraWhereGL = "";
+                if (this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+                {
+                    __extraWhereGL = " AND trans_flag =" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนออก) + " ";
+                }
+
                 __glTableNumber = __tableCount + 1;
-                __query.Append(this._glDetail._loadDataQuery(docNo));
+                __query.Append(this._glDetail._loadDataQuery(docNo, __extraWhereGL));
                 __tableCount += 7;
             }
 
@@ -11522,6 +11530,31 @@ namespace SMLInventoryControl
                         __myQuery.Append(this._glDetail._glDetailGrid._createQueryForInsert(_g.d.gl_journal_detail._table, __fieldListGl, __dataListGl));
                         // Gl Extra
                         __myQuery.Append(this._glDetail._saveGlExtraListQuery(this._glDetail._glDetailGrid, __fieldListGl, __dataListGl));
+
+                        if (this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+                        {
+                            for(int __rowDetail = 0; __rowDetail < this._glDetail._glDetailGrid._rowData.Count; __rowDetail++ )
+                            {
+                                // กลับข้าง  
+                                decimal __debitAmount = (decimal)this._glDetail._glDetailGrid._cellGet(__rowDetail, _g.d.gl_journal._debit);
+                                decimal __creditAmount = (decimal)this._glDetail._glDetailGrid._cellGet(__rowDetail, _g.d.gl_journal._credit);
+
+                                this._glDetail._glDetailGrid._cellUpdate(__rowDetail, _g.d.gl_journal._debit, __creditAmount, true);
+                                this._glDetail._glDetailGrid._cellUpdate(__rowDetail, _g.d.gl_journal._credit, __debitAmount, true);
+                            }
+
+                            // head
+                            __extData = ((MyLib._myGrid._columnType)this._glDetail._glDetailGrid._columnList[__getColumnNumberDebit])._total.ToString() + "," +
+                           ((MyLib._myGrid._columnType)this._glDetail._glDetailGrid._columnList[__getColumnNumberCredit])._total.ToString() + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนเข้า);
+                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.gl_journal._table + " (" + __getData[0].ToString() + "," + __extField + ") values (" + __getData[1].ToString() + "," + __extData + ")"));
+                            // detail
+                            __fieldListGl = _g.d.gl_journal._doc_date + "," + _g.d.gl_journal._book_code + "," + _g.d.gl_journal._doc_no + "," + _g.d.gl_journal._period_number + "," + _g.d.gl_journal._journal_type + "," + _g.d.gl_journal._trans_flag + ",";
+                            __dataListGl = this._glScreenTop._getDataStrQuery(_g.d.gl_journal._doc_date) + "," + this._glScreenTop._getDataStrQuery(_g.d.gl_journal._book_code) + "," + this._glScreenTop._getDataStrQuery(_g.d.gl_journal._doc_no) + "," + __periodNumber.ToString() + "," + this._glScreenTop._getDataStr(_g.d.gl_journal._journal_type) + "," + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนเข้า) + ",";
+                            this._glDetail._glDetailGrid._updateRowIsChangeAll(true);
+                            __myQuery.Append(this._glDetail._glDetailGrid._createQueryForInsert(_g.d.gl_journal_detail._table, __fieldListGl, __dataListGl));
+                            // Gl Extra
+                            __myQuery.Append(this._glDetail._saveGlExtraListQuery(this._glDetail._glDetailGrid, __fieldListGl, __dataListGl));
+                        }
                     }
                     // update ค่าอื่นๆ เผื่อหลุด
                     __myQuery.Append(_g.g._queryUpdateTrans());

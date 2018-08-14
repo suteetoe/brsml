@@ -419,6 +419,10 @@ namespace SMLERPGL
                         {
                             __transDetailFlagStr.Append(",").Append(_g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินเข้าธนาคาร).ToString());
                         }
+                        if (__transFlag == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+                        {
+                            __transDetailFlagStr.Append(",").Append(_g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนเข้า).ToString());
+                        }
                         if (__transFlagSelected.Length > 0)
                         {
                             __transFlagSelected.Append(",");
@@ -444,6 +448,8 @@ namespace SMLERPGL
                                 __transFlagStr.Append(",");
                             }
                             __transFlagStr.Append(_g.g._transFlagGlobal._transFlag(__transFlag).ToString());
+
+
                             if (__transDetailFlagStr.Length > 0)
                             {
                                 __transDetailFlagStr.Append(",");
@@ -452,6 +458,11 @@ namespace SMLERPGL
                             if (__transFlag == _g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินออกธนาคาร)
                             {
                                 __transDetailFlagStr.Append(",").Append(_g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_โอนเงินเข้าธนาคาร).ToString());
+                            }
+                            if (__transFlag == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+                            {
+                                __transFlagStr.Append(",").Append(_g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนเข้า).ToString());
+                                __transDetailFlagStr.Append(",").Append(_g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_โอนเข้า).ToString());
                             }
                             if (__transFlagSelected.Length > 0)
                             {
@@ -1667,6 +1678,8 @@ namespace SMLERPGL
                             _g.g._transControlTypeEnum __transFlagEnum = _g.g._transFlagGlobal._transFlagByScreenCode(__screenCode);
                             // select รูปแบบ GL
                             DataRow[] __glFormat = this._docFormatGL.Select(_g.d.erp_doc_format_gl._doc_code + "=\'" + __docFormatCode + "\'");
+
+
                             // สร้างหัว GL
                             __glTemp._docDate = MyLib._myGlobal._convertDateFromQuery(__icTransRow[_g.d.ic_trans._doc_date].ToString());
                             __glTemp._docNo = __docNo;
@@ -1877,6 +1890,14 @@ namespace SMLERPGL
                                     __total_vat_value -= __vatBuyNoReturn;
                                 }
 
+                                //
+                                _g.g._transControlTypeEnum __transFlagCompare = _g.g._transFlagGlobal._transFlagByScreenCode(__screenCode);
+                                if (__transFlagCompare == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+                                {
+                                    // get transflag from doc
+                                    __transFlagCompare = _g.g._transFlagGlobal._transFlagByNumber(MyLib._myGlobal._intPhase(__icTransRow["trans_flag"].ToString()));
+                                }
+
                                 // รวมยอด
                                 _sumDebit = 0.0M;
                                 _sumCredit = 0.0M;
@@ -1911,8 +1932,8 @@ namespace SMLERPGL
                                     int __actionCode = (int)MyLib._myGlobal._decimalPhase(__glFormat[__loop][_g.d.erp_doc_format_gl._condition_number].ToString());
                                     //
                                     _glDetailStruct __glDetailTemp = new _glDetailStruct();
-                                    //
-                                    _g.g._transControlTypeEnum __transFlagCompare = _g.g._transFlagGlobal._transFlagByScreenCode(__screenCode);
+
+
 
                                     switch (__transFlagCompare)
                                     {
@@ -4561,6 +4582,46 @@ namespace SMLERPGL
                                             }
                                             break;
                                         #endregion
+
+                                        case _g.g._transControlTypeEnum.สินค้า_โอนออก:
+                                            switch (__actionCode)
+                                            {
+                                                case 1:
+                                                    if (__isDebit)
+                                                        __debit = __total_amount;
+                                                    else
+                                                        __credit = __total_amount;
+                                                    __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, __isDebit, __custCode, __custName, "");
+                                                    break;
+                                                case 2:
+                                                    if (__isDebit)
+                                                        __debit = __total_amount;
+                                                    else
+                                                        __credit = __total_amount;
+                                                    __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, __isDebit, __custCode, __custName, "");
+                                                    break;
+                                            }
+                                            break;
+                                        case _g.g._transControlTypeEnum.สินค้า_โอนเข้า:
+                                            // กลับข้าง
+                                            switch (__actionCode)
+                                            {
+                                                case 1:
+                                                    if (!__isDebit)
+                                                        __debit = __total_amount;
+                                                    else
+                                                        __credit = __total_amount;
+                                                    __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, !__isDebit, __custCode, __custName, "");
+                                                    break;
+                                                case 2:
+                                                    if (!__isDebit)
+                                                        __debit = __total_amount;
+                                                    else
+                                                        __credit = __total_amount;
+                                                    __addDetail = this._accountByDetail(_accountDetailType.สินค้า_ต้นทุน, this._icTransDetail, __docNo, __accountCode, __transFlagCompare, __glTemp, __getAccountDescription, !__isDebit, __custCode, __custName, "");
+                                                    break;
+                                            }
+                                            break;
 
                                         #endregion
 
@@ -7376,7 +7437,8 @@ namespace SMLERPGL
                                     }
                                 }
 
-                                if (_g.g._companyProfile._gl_trans_type == 1 && _g.g._transFlagGlobal._transFlagByScreenCode(__screenCode).ToString().IndexOf("เงินสดธนาคาร") == -1)
+                                string __screenName = _g.g._transFlagGlobal._transFlagByScreenCode(__screenCode).ToString();
+                                if (_g.g._companyProfile._gl_trans_type == 1 && (__screenName.IndexOf("เงินสดธนาคาร") == -1 && __screenName.IndexOf("สินค้า_โอน") == -1))
                                 {
                                     // คอมปาว
                                     int __addr = 0;
