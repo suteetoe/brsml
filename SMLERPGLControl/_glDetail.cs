@@ -97,6 +97,7 @@ namespace SMLERPGLControl
             return __result.ToString();
         }
 
+
         public string _saveGlExtraListQuery(MyLib._myGrid detailGrid, string __fieldList, string __dataList)
         {
             StringBuilder __myQuery = new StringBuilder();
@@ -176,22 +177,32 @@ namespace SMLERPGLControl
 
         public string _loadDataQuery(string docNo)
         {
+            return _loadDataQuery(docNo, "");
+        }
+
+        public string _loadDataQuery(string docNo, string extraWhere)
+        {
             StringBuilder __myquery = new StringBuilder();
             // 1
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select * from ", _g.d.gl_journal._table, " where ", _g.d.gl_journal._doc_no, "=\'", docNo, "\'")));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select * from ", _g.d.gl_journal._table, " where ", _g.d.gl_journal._doc_no, "=\'", docNo, "\'" + extraWhere)));
             // 2
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select *, (" + _g.d.gl_journal_detail._branch_code + " || '" + "~" + "' || (select name_1 from erp_branch_list where erp_branch_list.code = gl_journal_detail.branch_code )) as " + this._columnBranchCodeTemp + " from ", _g.d.gl_journal_detail._table, " where ", _g.d.gl_journal._doc_no, "=\'", docNo, "\'", " order by ", _g.d.gl_journal_detail._line_number + "," + _g.d.gl_journal_detail._debit_or_credit)));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select *" +
+                ", (" + _g.d.gl_journal_detail._branch_code + " || '" + "~" + "' || (select name_1 from erp_branch_list where erp_branch_list.code = gl_journal_detail.branch_code )) as " + this._columnBranchCodeTemp + " from ",
+                _g.d.gl_journal_detail._table,
+                " where ", _g.d.gl_journal._doc_no, "=\'", docNo, "\'" + extraWhere,
+                " order by ", _g.d.gl_journal_detail._line_number + "," + _g.d.gl_journal_detail._debit_or_credit)));
+
             // 3 Side List
             __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_side_list._side_code, ",", _g.d.gl_journal_side_list._side_name, ",", _g.d.gl_journal_side_list._allocate_persent, ",", _g.d.gl_journal_side_list._allocate_amount, ",", _g.d.gl_journal_side_list._line_number + ",", _g.d.gl_journal_side_list._line_number_detail,
-                " from ", _g.d.gl_journal_side_list._table, " where ", _g.d.gl_journal_side_list._doc_no, "=\'", docNo, "\' order by ", _g.d.gl_journal_side_list._line_number, ",", _g.d.gl_journal_side_list._line_number_detail)));
+                " from ", _g.d.gl_journal_side_list._table, " where ", _g.d.gl_journal_side_list._doc_no, "=\'", docNo, "\' " + extraWhere, " order by ", _g.d.gl_journal_side_list._line_number, ",", _g.d.gl_journal_side_list._line_number_detail)));
             // 4 Department List
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_depart_list._department_code, ",", _g.d.gl_journal_depart_list._department_name, ",", _g.d.gl_journal_depart_list._allocate_persent, ",", _g.d.gl_journal_depart_list._allocate_amount, ",", _g.d.gl_journal_depart_list._line_number + ",", _g.d.gl_journal_depart_list._line_number_detail, " from ", _g.d.gl_journal_depart_list._table, " where ", _g.d.gl_journal_depart_list._doc_no, "=\'", docNo, "\' order by ", _g.d.gl_journal_depart_list._line_number, ",", _g.d.gl_journal_depart_list._line_number_detail)));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_depart_list._department_code, ",", _g.d.gl_journal_depart_list._department_name, ",", _g.d.gl_journal_depart_list._allocate_persent, ",", _g.d.gl_journal_depart_list._allocate_amount, ",", _g.d.gl_journal_depart_list._line_number + ",", _g.d.gl_journal_depart_list._line_number_detail, " from ", _g.d.gl_journal_depart_list._table, " where ", _g.d.gl_journal_depart_list._doc_no, "=\'", docNo, "\' " + extraWhere, " order by ", _g.d.gl_journal_depart_list._line_number, ",", _g.d.gl_journal_depart_list._line_number_detail)));
             // 5 Project List
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_project_list._project_code, ",", _g.d.gl_journal_project_list._project_name, ",", _g.d.gl_journal_project_list._allocate_persent, ",", _g.d.gl_journal_project_list._allocate_amount, ",", _g.d.gl_journal_project_list._line_number + ",", _g.d.gl_journal_project_list._line_number_detail, " from ", _g.d.gl_journal_project_list._table, " where ", _g.d.gl_journal_project_list._doc_no, "=\'", docNo, "\' order by ", _g.d.gl_journal_project_list._line_number, ",", _g.d.gl_journal_project_list._line_number_detail)));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_project_list._project_code, ",", _g.d.gl_journal_project_list._project_name, ",", _g.d.gl_journal_project_list._allocate_persent, ",", _g.d.gl_journal_project_list._allocate_amount, ",", _g.d.gl_journal_project_list._line_number + ",", _g.d.gl_journal_project_list._line_number_detail, " from ", _g.d.gl_journal_project_list._table, " where ", _g.d.gl_journal_project_list._doc_no, "=\'", docNo, "\' " + extraWhere, " order by ", _g.d.gl_journal_project_list._line_number, ",", _g.d.gl_journal_project_list._line_number_detail)));
             // 6 Allocate List
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_allocate_list._allocate_code, ",", _g.d.gl_journal_allocate_list._allocate_name, ",", _g.d.gl_journal_allocate_list._allocate_persent, ",", _g.d.gl_journal_allocate_list._allocate_amount, ",", _g.d.gl_journal_allocate_list._line_number + ",", _g.d.gl_journal_allocate_list._line_number_detail, " from ", _g.d.gl_journal_allocate_list._table, " where ", _g.d.gl_journal_allocate_list._doc_no, "=\'", docNo, "\' order by ", _g.d.gl_journal_allocate_list._line_number, ",", _g.d.gl_journal_allocate_list._line_number_detail)));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_allocate_list._allocate_code, ",", _g.d.gl_journal_allocate_list._allocate_name, ",", _g.d.gl_journal_allocate_list._allocate_persent, ",", _g.d.gl_journal_allocate_list._allocate_amount, ",", _g.d.gl_journal_allocate_list._line_number + ",", _g.d.gl_journal_allocate_list._line_number_detail, " from ", _g.d.gl_journal_allocate_list._table, " where ", _g.d.gl_journal_allocate_list._doc_no, "=\'", docNo, "\' " + extraWhere, " order by ", _g.d.gl_journal_allocate_list._line_number, ",", _g.d.gl_journal_allocate_list._line_number_detail)));
             // 7 Job List
-            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_job_list._job_code, ",", _g.d.gl_journal_job_list._job_name, ",", _g.d.gl_journal_job_list._allocate_persent, ",", _g.d.gl_journal_job_list._allocate_amount, ",", _g.d.gl_journal_job_list._line_number + ",", _g.d.gl_journal_job_list._line_number_detail, " from ", _g.d.gl_journal_job_list._table, " where ", _g.d.gl_journal_job_list._doc_no, "=\'", docNo, "\' order by ", _g.d.gl_journal_job_list._line_number, ",", _g.d.gl_journal_job_list._line_number_detail)));
+            __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery(string.Concat("select ", _g.d.gl_journal_job_list._job_code, ",", _g.d.gl_journal_job_list._job_name, ",", _g.d.gl_journal_job_list._allocate_persent, ",", _g.d.gl_journal_job_list._allocate_amount, ",", _g.d.gl_journal_job_list._line_number + ",", _g.d.gl_journal_job_list._line_number_detail, " from ", _g.d.gl_journal_job_list._table, " where ", _g.d.gl_journal_job_list._doc_no, "=\'", docNo, "\' " + extraWhere, " order by ", _g.d.gl_journal_job_list._line_number, ",", _g.d.gl_journal_job_list._line_number_detail)));
             return __myquery.ToString();
         }
 
@@ -252,10 +263,15 @@ namespace SMLERPGLControl
 
         public void _loadData(SMLERPGLControl._journalScreen screenTop, bool forEdit, string docNo)
         {
+            this._loadData(screenTop, forEdit, docNo, 0);
+        }
+
+        public void _loadData(SMLERPGLControl._journalScreen screenTop, bool forEdit, string docNo, int transFlag)
+        {
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
             StringBuilder __myquery = new StringBuilder();
             __myquery.Append(MyLib._myGlobal._xmlHeader + "<node>");
-            __myquery.Append(_loadDataQuery(docNo));
+            __myquery.Append(_loadDataQuery(docNo, (transFlag > 0) ? " AND trans_flag = " + transFlag + " " : ""));
             __myquery.Append("</node>");
             ArrayList __getDataMain = __myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
             screenTop._loadData(((DataSet)__getDataMain[0]).Tables[0]);
@@ -527,11 +543,11 @@ namespace SMLERPGLControl
             }
             else
                 if (this._glDetailGrid._selectColumn == this._glDetailGrid._findColumnByName(_g.d.gl_journal_detail._debit))
-                {
-                    _clearAmount();
-                    _glDetailGrid._cellUpdate(this._glDetailGrid._selectRow, _g.d.gl_journal_detail._debit, get_debit, false);
-                    _updateExtra(this._glDetailGrid._selectRow);
-                }
+            {
+                _clearAmount();
+                _glDetailGrid._cellUpdate(this._glDetailGrid._selectRow, _g.d.gl_journal_detail._debit, get_debit, false);
+                _updateExtra(this._glDetailGrid._selectRow);
+            }
             this.Invalidate();
         }
 

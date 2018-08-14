@@ -43,7 +43,7 @@ namespace SMLERPGL
 
             if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccount ||
                 MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOS ||
-                MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountProfessional || 
+                MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountProfessional ||
                 MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLAccountPOSProfessional)
             {
                 _g.g._checkOpenPeriod();
@@ -72,9 +72,18 @@ namespace SMLERPGL
             _myManageData1._newDataClick += new MyLib.NewDataEvent(_myManageData1__newDataClick);
             _myManageData1._discardData += new MyLib.DiscardDataEvent(_myManageData1__discardData);
             _myManageData1._clearData += new MyLib.ClearDataEvent(_myManageData1__clearData);
+
+            int __columnTransFlagIndex = _myManageData1._dataList._gridData._findColumnByName(_g.d.gl_journal._table + "." + _g.d.gl_journal._trans_flag);
+            if (__columnTransFlagIndex == -1)
+            {
+                _myManageData1._dataList._gridData._addColumn(_g.d.gl_journal._table + "." + _g.d.gl_journal._trans_flag, 2, 10, 10);
+            }
+
             _myManageData1._dataList._referFieldAdd(_g.d.gl_journal._doc_date, 2);
             _myManageData1._dataList._referFieldAdd(_g.d.gl_journal._doc_no, 1);
             _myManageData1._dataList._referFieldAdd(_g.d.gl_journal._book_code, 1);
+            _myManageData1._dataList._referFieldAdd(_g.d.gl_journal._trans_flag, 4);
+
             _myManageData1._closeScreen += new MyLib.CloseScreenEvent(_myManageData1__closeScreen);
             _myManageData1._dataList._gridData._beforeDisplayRendering += new MyLib.BeforeDisplayRenderRowEventHandler(_gridData__beforeDisplayRendering);
             //
@@ -706,7 +715,7 @@ namespace SMLERPGL
                 _oldDocNo = __rowDataArray[_getColumnDocNo].ToString();
                 _oldTransFlag = (_getColumnTransFlag != -1) ? MyLib._myGlobal._intPhase(__rowDataArray[_getColumnTransFlag].ToString()) : 0;
                 //
-                this._glDetail1._loadData(this._screenTop, forEdit, _oldDocNo);
+                this._glDetail1._loadData(this._screenTop, forEdit, _oldDocNo, _oldTransFlag);
 
                 //if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLGeneralLedger)
                 {
