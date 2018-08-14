@@ -357,6 +357,9 @@ namespace BRInterfaceControl.SOS
                                         int __isPremium = (__items[__rowDetail]["is_permium"] == null) ? 0 : MyLib._myGlobal._intPhase(__items[__rowDetail]["is_permium"].ToString().Replace("\"", string.Empty));
                                         int __lineNumber = MyLib._myGlobal._intPhase(__items[__rowDetail]["line_number"].ToString().Replace("\"", string.Empty));
 
+
+
+
                                         Decimal __qty = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["qty"].ToString().Replace("\"", string.Empty));
                                         Decimal __price = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["price"].ToString().Replace("\"", string.Empty));
                                         Decimal __priceExcludeVat = MyLib._myGlobal._decimalPhase(__items[__rowDetail]["price_exclude_vat"].ToString().Replace("\"", string.Empty));
@@ -368,7 +371,16 @@ namespace BRInterfaceControl.SOS
                                         int __tax_type = MyLib._myGlobal._intPhase(__items[__rowDetail]["tax_type"].ToString().Replace("\"", string.Empty));
                                         int __vat_type = MyLib._myGlobal._intPhase(__items[__rowDetail]["vat_type"].ToString().Replace("\"", string.Empty));
 
-                                        string __itemName = (__isPremium == 1) ? JsonLib._utils._getJsonValue(__items[__rowDetail]["promotion"]) : "";
+                                        string __itemName = "";
+
+                                        if (__isPremium == 1)
+                                        {
+                                            __itemName = JsonLib._utils._getJsonValue(__items[__rowDetail]["promotion"]);
+                                        }
+                                        else
+                                        {
+                                            __itemName = (__items[__rowDetail]["item_name"] == null) ? "" : __items[__rowDetail]["item_name"].ToString().Replace("\"", string.Empty);
+                                        }
 
                                         string __insertDetail = "insert into " + _g.d.ic_trans_detail._table +
                                             "(" + __fieldDetailList + ") values " +
@@ -398,8 +410,8 @@ namespace BRInterfaceControl.SOS
 
                                 // update ชื่อสินค้า
                                 __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set " +
-                                    " item_name = (case when is_permium = 1 then item_name else (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) end) " +
-                                    ", " + _g.d.ic_trans_detail._stand_value + " = (select " + _g.d.ic_unit_use._stand_value + " from " + _g.d.ic_unit_use._table + " where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) " +
+                                    //" item_name = (case when is_permium = 1 then item_name else (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) end) " +
+                                    "" + _g.d.ic_trans_detail._stand_value + " = (select " + _g.d.ic_unit_use._stand_value + " from " + _g.d.ic_unit_use._table + " where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) " +
                                     ", " + _g.d.ic_trans_detail._divide_value + " = (select " + _g.d.ic_unit_use._divide_value + " from " + _g.d.ic_unit_use._table + " where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) " +
                                     //", " + _g.d.ic_trans_detail._item_ty + " = (select " + _g.d.ic_unit_use._divide_value + " from " + _g.d.ic_unit_use._table + " where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) " +
                                     ", wh_code = coalesce((select wh_code from ic_wh_shelf where ic_wh_shelf.ic_code =ic_trans_detail.item_code " + ((__extraWhereGetDefaultWhShelf.Length > 0) ? " and " + __extraWhereGetDefaultWhShelf.ToString() : "") + "  order by wh_code limit 1),'') " +
@@ -413,6 +425,12 @@ namespace BRInterfaceControl.SOS
                                     " shelf_code <> coalesce((select shelf_code from ic_wh_shelf where ic_wh_shelf.ic_code = ic_trans_detail.item_code " + ((__extraWhereGetDefaultWhShelf.Length > 0) ? " and " + __extraWhereGetDefaultWhShelf.ToString() : "") + "  order by wh_code limit 1),'')   " +
 
                                     " )"));
+
+                                // update ชื่อสินค้า
+                                __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set " +
+                                " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) " +
+                                " WHERE  doc_no = \'" + __docNo + "\' AND length(item_name) = 0 "
+                                ));
 
                                 // update คลังที่เก็บ
                                 /*
@@ -433,7 +451,6 @@ namespace BRInterfaceControl.SOS
 
                                     " )"));
                                     */
-
 
                                 __myQuery.Append("</node>");
 
