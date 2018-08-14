@@ -379,7 +379,7 @@ namespace BRInterfaceControl.SOS
                                         }
                                         else
                                         {
-                                            __itemName = (__items[__rowDetail]["item_name"] == null) ? "" : __items[__rowDetail]["item_name"].ToString().Replace("\"", string.Empty);
+                                            __itemName = (__items[__rowDetail].ContainsKey("item_name") && __items[__rowDetail]["item_name"] == null) ? "" : __items[__rowDetail]["item_name"].ToString().Replace("\"", string.Empty);
                                         }
 
                                         string __insertDetail = "insert into " + _g.d.ic_trans_detail._table +
