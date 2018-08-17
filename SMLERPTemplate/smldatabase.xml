@@ -7013,6 +7013,8 @@
 <field name="sale_credit_amount" thai="ยอดขายเงินเชื่อ" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="order_amount" thai="ยอดค้างเช็คบิล" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="total_credit_charge" thai="ยอด Charge บัตรเครดิต" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="total_service_amount" thai="ยอดรวม Service Charge" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="total_vat_amount" thai="ยอดรวมภาษีมูลค่าเพิ่ม" eng="" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="ic_inventory_barcode_price" thai="กำหนดส่วนลดหรือโปรโมชั่นตามบาร์โค๊ด" eng="Table 268" xversion="" >
 <field name="barcode" thai="Barcode" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -7723,7 +7725,6 @@
 <field name="tax_type" thai="ประเภทภาษี" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="branch_code" thai="branch code" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="order_cart_pk_order_cart_user_number" field="user_owner,cart_number"  custer="true"  unique="true" ></index>
-<index index_name="order_cart_pk_order_cart_branch_code" field="branch_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="order_item" thai="รายการสินค้า" eng="Table 313" xversion="" >
 <field name="user_owner" thai="เจ้าของ" eng="" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>

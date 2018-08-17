@@ -27241,6 +27241,14 @@ namespace _g
             /// ยอด Charge บัตรเครดิต
             /// </summary>
             public static String _total_credit_charge = "total_credit_charge";
+            /// <summary>
+            /// ยอดรวม Service Charge
+            /// </summary>
+            public static String _total_service_amount = "total_service_amount";
+            /// <summary>
+            /// ยอดรวมภาษีมูลค่าเพิ่ม
+            /// </summary>
+            public static String _total_vat_amount = "total_vat_amount";
         }
 
         /// <summary>
@@ -39175,5 +39183,7 @@ namespace _g
             /// </summary>
             public static String _line_number = "line_number";
         }
+
+
     }
 }

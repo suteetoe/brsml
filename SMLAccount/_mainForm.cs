@@ -201,6 +201,12 @@ namespace SMLAccount
                             __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
                         }
                     }
+
+                    __result = __myFremeWork._queryShort("SELECT indexdef FROM pg_indexes WHERE indexname = \'pk_order_cart_branch_code\' ").Tables[0];
+                    if (__result.Rows.Count > 0)
+                    {
+                        __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "DROP INDEX pk_order_cart_branch_code");
+                    }
                 }
             }
 

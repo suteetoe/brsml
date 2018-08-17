@@ -35111,7 +35111,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="POSCashierSettle" _description="รายการส่งเงินของพนักงาน " _descriptionEng="รายการส่งเงินของพนักงาน " _version="" _width="285" _height="757" _x="831" _y="12">
+    <_tableList _moduleName="POS" _name="POSCashierSettle" _description="รายการส่งเงินของพนักงาน " _descriptionEng="รายการส่งเงินของพนักงาน " _version="" _width="285" _height="789" _x="831" _y="12" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="DocNo" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -35343,6 +35343,16 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="total_service_amount" _description="ยอดรวม Service Charge" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="total_vat_amount" _description="ยอดรวมภาษีมูลค่าเพิ่ม" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs />
       <_afterCreated />
@@ -35476,7 +35486,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="pos_period" _description="กะการทำงาน" _descriptionEng="Table 269" _version="" _width="284" _height="181" _x="837" _y="780">
+    <_tableList _moduleName="POS" _name="pos_period" _description="กะการทำงาน" _descriptionEng="Table 269" _version="" _width="284" _height="181" _x="830" _y="813">
       <_fields>
         <_fieldList _name="machine_code" _description="รหัสเครื่อง" _descriptionEng="" _type="1" _length="10" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -35938,7 +35948,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="table_order" _description="รายการที่สั่ง" _descriptionEng="Table 273" _version="" _width="333" _height="549" _x="437" _y="1444" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="POS" _name="table_order" _description="รายการที่สั่ง" _descriptionEng="Table 273" _version="" _width="333" _height="549" _x="437" _y="1553" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="table_number" _description="เลขที่โต๊ะ" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -36394,7 +36404,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="kitchen_master" _description="ครัว/บาร์น้ำ" _descriptionEng="Table 276" _version="" _width="370" _height="741" _x="407" _y="692">
+    <_tableList _moduleName="POS" _name="kitchen_master" _description="ครัว/บาร์น้ำ" _descriptionEng="Table 276" _version="" _width="370" _height="741" _x="405" _y="797">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -38795,11 +38805,6 @@
             <_fields>cart_number</_fields>
           </_fields>
         </_indexs>
-        <_indexs _name="pk_order_cart_branch_code" _custer="1" _unique="1" _fieldsDisplay="branch_code">
-          <_fields>
-            <_fields>branch_code</_fields>
-          </_fields>
-        </_indexs>
       </_indexs>
       <_afterCreated />
       <_afterVerify />
@@ -41042,7 +41047,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Temp" _name="ic_trans_temp" _description="รายวัน(ชัวคราว)" _descriptionEng="IC Trans Temp" _version="" _width="283" _height="245" _x="8" _y="384">
+    <_tableList _moduleName="Temp" _name="ic_trans_temp" _description="รายวัน(ชัวคราว)" _descriptionEng="IC Trans Temp" _version="" _width="283" _height="245" _x="8" _y="373">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -47544,7 +47549,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="pos_settle_group_discount" _description="รายละเอียดส่วนลดตามกลุ่ม" _descriptionEng="pos_settle_group_discount" _version="" _width="295" _height="165" _x="437" _y="1999" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="POS" _name="pos_settle_group_discount" _description="รายละเอียดส่วนลดตามกลุ่ม" _descriptionEng="pos_settle_group_discount" _version="" _width="295" _height="165" _x="442" _y="2118" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขที่เอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
