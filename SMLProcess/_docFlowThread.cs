@@ -2501,6 +2501,8 @@ namespace SMLProcess
                                     case _g.g._transControlTypeEnum.ขาย_รับคืนสินค้าจากการขายและลดหนี้:
                                     case _g.g._transControlTypeEnum.ขาย_เพิ่มหนี้:
 
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_ถอนเงิน:
+                                    case _g.g._transControlTypeEnum.เงินสดธนาคาร_ฝากเงิน:
                                     case _g.g._transControlTypeEnum.ขาย_รับเงินมัดจำ:
                                     case _g.g._transControlTypeEnum.ขาย_รับเงินล่วงหน้า:
                                         {

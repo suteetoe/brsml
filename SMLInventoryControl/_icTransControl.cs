@@ -7560,6 +7560,8 @@ namespace SMLInventoryControl
             this._lastDocRefNo = "";
             this._icTransScreenTop._clear();
             this._icTransItemGrid._clear();
+            this._icTransItemGrid.AddRow = true;
+          //  this._icTransItemGrid
             this._icTransItemGrid._lastApprovePrice = "";
 
             this._icTransScreenBottom._clear();

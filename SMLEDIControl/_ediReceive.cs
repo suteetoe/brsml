@@ -226,7 +226,26 @@ namespace SMLEDIControl
                                         string Discount_Percent4 = line[_runline].Substring(249, 5);
                                         string Discount_Amount4 = line[_runline].Substring(254, 15);
                                         Console.WriteLine("--ตัว--");
-                                        Console.WriteLine("");
+                                        Console.WriteLine(Header);
+                                        Console.WriteLine(Line_Number);
+                                        Console.WriteLine(Product_Code);
+                                        Console.WriteLine(Customer_Product_Number);
+                                        Console.WriteLine(Product_Description_Of_Customer_In_Thai);
+                                        Console.WriteLine(Order_Quantity);
+                                        Console.WriteLine(Free_Unit_of_Measure_Value);
+                                        Console.WriteLine(Unit_Price);
+                                        Console.WriteLine(Full_Pallet_Quantity_Pallet);
+                                        Console.WriteLine(Order_Quantity_for_Small_Unit);
+                                        Console.WriteLine(Order_unit_of_Measure_For_Small_Unit);
+                                        Console.WriteLine(Free_Quantity_For_Small_Unit);
+                                        Console.WriteLine(Free_Unit_Of_Measure_For_Small_Unit);
+                                        Console.WriteLine(Discount_Percent1);
+                                        Console.WriteLine(Discount_Amount1);
+                                        Console.WriteLine(Discount_Percent2);
+                                        Console.WriteLine(Discount_Amount2);
+                                        Console.WriteLine(Discount_Percent3);
+                                        Console.WriteLine(Discount_Amount3);
+                                        Console.WriteLine(Discount_Percent4);
                                         Console.WriteLine("------");
                                     }
 

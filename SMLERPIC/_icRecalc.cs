@@ -226,6 +226,26 @@ namespace SMLERPIC
                         __process._processAll(_g.g._transControlTypeEnum.สินค้า_ยอดคงเหลือสินค้ายกมา, "", _g.g._getItemRepack(__itemListForCalc));
                     }
                 }
+
+
+                // ic_trans
+                __query = "update ic_trans set last_status = 1 where is_cancel = 1 and last_status <> 1";
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __query);
+
+
+                // ปรับ last_status , ic_trans, ic_trans_detail
+                __query = "update ic_trans_detail set last_status = 1 where exists(select doc_no from ic_trans where ic_trans.doc_no = ic_trans_detail.doc_no and ic_trans.trans_flag = ic_trans_detail.trans_flag and ic_trans.last_status = 1) and ic_trans_detail.last_status <> 1";
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __query);
+
+
+                // cb_trans
+                __query = "update cb_trans set status = 1  where exists(select doc_no from ic_trans where ic_trans.doc_no = cb_trans.doc_no and ic_trans.trans_flag = cb_trans.trans_flag and ic_trans.last_status = 1) and cb_trans.status <> 1";
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __query);
+
+                // cb_trans_detail
+                __query = "update cb_trans_detail set last_status = 1  where exists(select doc_no from ic_trans where ic_trans.doc_no = cb_trans_detail.doc_no and ic_trans.trans_flag = cb_trans_detail.trans_flag and ic_trans.last_status = 1)  and cb_trans_detail.last_status <> 1";
+                __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __query);
+
                 /*
                    ArrayList __itemList = new ArrayList();
                    for (int __row = 0; __row < __item.Rows.Count; __row++)
