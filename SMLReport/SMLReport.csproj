@@ -78,8 +78,7 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BarcodeLib, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="BarcodeLib">
       <HintPath>myDLL\BarcodeLib.dll</HintPath>
     </Reference>
     <Reference Include="CodeVendor.Controls, Version=1.0.0.0, Culture=neutral">
