@@ -352,11 +352,23 @@ namespace SMLEDIControl
 
                 this._docGrid._clear();
                 WebClient __n = new WebClient();
-                string _data = "{\"P_agentcode\":\"" + _agentCode + "\"}";
+                string _data = "";
+                if (_g.g._companyProfile._begin_date_import_inv.ToString() != "" && _g.g._companyProfile._end_date_import_inv.ToString() != "")
+                {
+                    _data = "{\"P_agentcode\":\"" + _agentCode + "\",\"P_start_date\":\"" + _g.g._companyProfile._begin_date_import_inv.ToString() + "\",\"P_end_date\":\"" + _g.g._companyProfile._end_date_import_inv.ToString() + "\"}";
+                }
+                else {
+                     _data = "{\"P_agentcode\":\"" + _agentCode + "\"}";
+                }
+             
                 MyLib._restClient __rest = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLHeaderBill", HttpVerb.POST, _data);
                 __rest._setContentType("application/json");
                 __rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
                 __rest._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
+                if (_g.g._companyProfile._begin_date_import_inv.ToString() !="" && _g.g._companyProfile._end_date_import_inv.ToString() != "") {
+                    __rest._addHeaderRequest(string.Format("P_start_date: {0}", _g.g._companyProfile._begin_date_import_inv.ToString()));
+                    __rest._addHeaderRequest(string.Format("P_end_date: {0}", _g.g._companyProfile._end_date_import_inv.ToString()));
+                }
                 string __result = __rest.MakeRequest("");
                 JsonValue __resultObject;
                 if (__result.Length > 0)

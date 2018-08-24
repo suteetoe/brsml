@@ -3489,6 +3489,14 @@ namespace _g
             /// จำนวนวันล๊อครายการย้อนหลัง
             /// </summary>
             public int _lock_bill_auto_interval = 0;
+            /// <summary>
+            /// วันที่เริ่มนำเข้า INV
+            /// </summary>
+            public String _begin_date_import_inv = "";
+            /// <summary>
+            /// วันที่สิ้นสุดนำเข้า INV
+            /// </summary>
+            public String _end_date_import_inv = "";
         }
 
         //
@@ -4262,6 +4270,8 @@ namespace _g
                 _companyProfile._sync_master_url = __dataResult.Rows[0][_g.d.erp_option._sync_master_url].ToString();
                 _companyProfile._warehouse_on_the_way = __dataResult.Rows[0][_g.d.erp_option._warehouse_on_the_way].ToString();
                 _companyProfile._shelf_on_the_way = __dataResult.Rows[0][_g.d.erp_option._shelf_on_the_way].ToString();
+                _companyProfile._begin_date_import_inv = __dataResult.Rows[0][_g.d.erp_option._begin_date_import_inv].ToString();
+                _companyProfile._end_date_import_inv = __dataResult.Rows[0][_g.d.erp_option._end_date_import_inv].ToString();
 
                 _companyProfile._lock_sale_day_interval = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_sale_day_interval) == 1) ? true : false;
                 _companyProfile._lock_bill_auto = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_bill_auto) == 1) ? true : false;

@@ -1636,6 +1636,14 @@ namespace _g
             /// จำนวนวันล๊อครายการย้อนหลัง
             /// </summary>
             public static String _lock_bill_auto_interval = "lock_bill_auto_interval";
+            /// <summary>
+            /// วันที่เริ่มนำเข้า INV
+            /// </summary>
+            public static String _begin_date_import_inv = "begin_date_import_inv";
+            /// <summary>
+            /// วันที่สิ้นสุดนำเข้า INV
+            /// </summary>
+            public static String _end_date_import_inv = "end_date_import_inv";
         }
 
         /// <summary>
@@ -29545,6 +29553,14 @@ namespace _g
             /// ลองจิจูด
             /// </summary>
             public static String _longitude = "longitude";
+            /// <summary>
+            /// จากดวงที่
+            /// </summary>
+            public static String _from_label = "from_label";
+            /// <summary>
+            /// จำนวนทั้งหมด
+            /// </summary>
+            public static String _box_count = "box_count";
         }
 
         /// <summary>

@@ -403,6 +403,8 @@
 <field name="sale_day_interval" thai="จำนวนวันห้ามขายย้อนหลัง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="lock_bill_auto" thai="ใช้ระบบล๊อคบิลขายอัตโนมัติ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="lock_bill_auto_interval" thai="จำนวนวันล๊อครายการย้อนหลัง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="begin_date_import_inv" thai="วันที่เริ่มนำเข้า INV" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="end_date_import_inv" thai="วันที่สิ้นสุดนำเข้า INV" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -7597,6 +7599,8 @@
 <field name="logistic_area" thai="เขตการขนส่ง" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="latitude" thai="ละติจูด" eng="Latitude" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="longitude" thai="ลองจิจูด" eng="Longitude" type="float" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="from_label" thai="จากดวงที่" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="box_count" thai="จำนวนทั้งหมด" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 </table>
 <table name="erp_data_center" thai="Table 304" eng="Table 304" xversion="" >
 <field name="datacenter_server" thai="ตำแหน่ง DataCenter" eng="" type="varchar" length="150" indentity="no" allow_null="false" resource_only="false"></field>
