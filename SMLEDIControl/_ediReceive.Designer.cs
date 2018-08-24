@@ -35,16 +35,27 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this._closeButton = new MyLib.ToolStripMyButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this._docGrid = new MyLib._myGrid();
+            this.textShowData = new System.Windows.Forms.TextBox();
             this._myFlowLayoutPanel1 = new MyLib._myFlowLayoutPanel();
             this._importButton = new MyLib.VistaButton();
             this._reloadButton = new MyLib.VistaButton();
             this._detailGrid = new MyLib._myGrid();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this._icTransScreenTopControl1 = new SMLInventoryControl._icTransScreenTopControl();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.toolStrip1.SuspendLayout();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
             this._myFlowLayoutPanel1.SuspendLayout();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -107,7 +118,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this._docGrid);
+            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel1.Controls.Add(this._myFlowLayoutPanel1);
             // 
             // splitContainer1.Panel2
@@ -116,6 +127,24 @@
             this.splitContainer1.Size = new System.Drawing.Size(920, 956);
             this.splitContainer1.SplitterDistance = 523;
             this.splitContainer1.TabIndex = 5;
+            // 
+            // splitContainer2
+            // 
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
+            // 
+            // splitContainer2.Panel2
+            // 
+            this.splitContainer2.Panel2.Controls.Add(this.textShowData);
+            this.splitContainer2.Size = new System.Drawing.Size(521, 918);
+            this.splitContainer2.SplitterDistance = 610;
+            this.splitContainer2.TabIndex = 2;
             // 
             // _docGrid
             // 
@@ -129,9 +158,18 @@
             this._docGrid.Location = new System.Drawing.Point(0, 0);
             this._docGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._docGrid.Name = "_docGrid";
-            this._docGrid.Size = new System.Drawing.Size(521, 921);
+            this._docGrid.Size = new System.Drawing.Size(521, 545);
             this._docGrid.TabIndex = 0;
             this._docGrid.TabStop = false;
+            // 
+            // textShowData
+            // 
+            this.textShowData.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textShowData.Location = new System.Drawing.Point(0, 0);
+            this.textShowData.Multiline = true;
+            this.textShowData.Name = "textShowData";
+            this.textShowData.Size = new System.Drawing.Size(521, 304);
+            this.textShowData.TabIndex = 0;
             // 
             // _myFlowLayoutPanel1
             // 
@@ -140,9 +178,9 @@
             this._myFlowLayoutPanel1.Controls.Add(this._reloadButton);
             this._myFlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._myFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 921);
+            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 918);
             this._myFlowLayoutPanel1.Name = "_myFlowLayoutPanel1";
-            this._myFlowLayoutPanel1.Size = new System.Drawing.Size(521, 33);
+            this._myFlowLayoutPanel1.Size = new System.Drawing.Size(521, 36);
             this._myFlowLayoutPanel1.TabIndex = 1;
             // 
             // _importButton
@@ -187,6 +225,40 @@
             this._detailGrid.TabIndex = 1;
             this._detailGrid.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // _icTransScreenTopControl1
+            // 
+            this._icTransScreenTopControl1._icTransControlType = _g.g._transControlTypeEnum.ว่าง;
+            this._icTransScreenTopControl1._isChange = false;
+            this._icTransScreenTopControl1.BackColor = System.Drawing.Color.Transparent;
+            this._icTransScreenTopControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this._icTransScreenTopControl1.Location = new System.Drawing.Point(0, 0);
+            this._icTransScreenTopControl1.Name = "_icTransScreenTopControl1";
+            this._icTransScreenTopControl1.Size = new System.Drawing.Size(521, 68);
+            this._icTransScreenTopControl1.TabIndex = 8;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this._icTransScreenTopControl1);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this._docGrid);
+            this.splitContainer3.Size = new System.Drawing.Size(521, 610);
+            this.splitContainer3.SplitterDistance = 61;
+            this.splitContainer3.TabIndex = 9;
+            // 
             // _ediReceive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -201,7 +273,14 @@
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            this.splitContainer2.ResumeLayout(false);
             this._myFlowLayoutPanel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            this.splitContainer3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,5 +299,10 @@
         private MyLib.ToolStripMyButton _selectAllButton;
         private MyLib.ToolStripMyButton _selectNoneButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.TextBox textShowData;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private SMLInventoryControl._icTransScreenTopControl _icTransScreenTopControl1;
+        private System.Windows.Forms.SplitContainer splitContainer3;
     }
 }
