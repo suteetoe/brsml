@@ -366,6 +366,7 @@ namespace SMLEDIControl
                     {
                         transdatasap __transdataedi = new transdatasap();
                         transdatadetailsap __transdatadetailsap = new transdatadetailsap();
+               
                         if (this._docGrid._cellGet(__row, 0).ToString().Equals("1"))
                         {
                             //StringBuilder __rejectMessage = new StringBuilder();
@@ -382,7 +383,7 @@ namespace SMLEDIControl
                                 MessageBox.Show(__jsonStr.ToString(), "นำเข้าข้อมูลเรียบร้อยแล้ว พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 string __doc = __jsonStr.ToString();
                                 string[] line = __doc.Split('\n');
-                  
+                                int i = 1;
                                 foreach (string __text_in_line in line)
                                 {
                                    
@@ -390,14 +391,24 @@ namespace SMLEDIControl
                                     //เช็คหัวแถว
                                     if (_gethead.Equals("HDRINF"))
                                     {
-                                         __transdataedi = transdatasap.ParseEDIText(__text_in_line);
-                                        __itemList.Add(__transdataedi._queryInsertEdi());
+                                        if (i != 1)
+                                        {
+                                            __itemList.Add(__transdataedi._queryInsertEdi());
+                                        }
+                                        __transdataedi = transdatasap.ParseEDIText(__text_in_line);
+                                        __transdataedi.details = new List<transdatadetailsap>();
+                                        // __itemList.Add(__transdataedi._queryInsertEdi());
                                     }
                                     else {
-                                         __transdatadetailsap = transdatadetailsap.ParseEDIText(__text_in_line);
-                                        __itemList.Add(__transdatadetailsap._queryInsertEdiDetail());
+                                        __transdatadetailsap = transdatadetailsap.ParseEDIText(__text_in_line);
+                                        __transdataedi.details.Add(__transdatadetailsap);
+                                        if (i == line.LongLength)
+                                        {
+                                            __itemList.Add(__transdataedi._queryInsertEdi());
+                                        }
+
                                     }
-                                    
+                                    i++;
                                 }
                                 Console.WriteLine(__itemList.Count);
                                 string line123456 = string.Join("----", __itemList.ToArray());
@@ -410,7 +421,7 @@ namespace SMLEDIControl
                                 MessageBox.Show(ex.ToString(), "นำเข้าข้อมูลเรียบร้อยแล้ว พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 //__rejectMessage.AppendLine("Error : " + ex.ToString());
                             }
-                            String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdataedi._queryInsertEdi() + "</node>";
+                            //String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdataedi._queryInsertEdi() + "</node>";
                             //MyLib._myFrameWork __myFrameWork = new _myFrameWork();
                             //string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
 

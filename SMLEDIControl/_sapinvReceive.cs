@@ -365,10 +365,6 @@ namespace SMLEDIControl
                 __rest._setContentType("application/json");
                 __rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
                 __rest._addHeaderRequest(string.Format("APISecret: {0}", "@p1_$m1@p1_$m1"));
-                if (_g.g._companyProfile._begin_date_import_inv.ToString() !="" && _g.g._companyProfile._end_date_import_inv.ToString() != "") {
-                    __rest._addHeaderRequest(string.Format("P_start_date: {0}", _g.g._companyProfile._begin_date_import_inv.ToString()));
-                    __rest._addHeaderRequest(string.Format("P_end_date: {0}", _g.g._companyProfile._end_date_import_inv.ToString()));
-                }
                 string __result = __rest.MakeRequest("");
                 JsonValue __resultObject;
                 if (__result.Length > 0)
@@ -384,7 +380,7 @@ namespace SMLEDIControl
                             string __Agentcode = __resultObject[__row1]["Agentcode"].ToString().Replace("\"", string.Empty);
                             string __BILLINGDOCNO = __resultObject[__row1]["BILLINGDOCNO"].ToString().Replace("\"", string.Empty);
 
-                            string __check_doc_no = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
+                            string __check_doc_no = __Agentcode + "-" + __BILLINGDOCNO;
                             if (__row1 == __resultObject.Count - 1)
                             {
                                 __where_in += "'" + __check_doc_no + "'";
@@ -414,7 +410,7 @@ namespace SMLEDIControl
                                 __tax_doc_date = __resultObject[__row1]["tax_doc_date"].ToString().Replace("\"", string.Empty);
                             }
 
-                            string __check_detail = __Agentcode.Substring(3) + "-" + __BILLINGDOCNO;
+                            string __check_detail = __Agentcode + "-" + __BILLINGDOCNO;
                             Boolean __check = true;
                             if (__resultcheck.Tables.Count > 0)
                             {

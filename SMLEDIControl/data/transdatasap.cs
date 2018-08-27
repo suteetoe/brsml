@@ -105,6 +105,7 @@ namespace SMLEDIControl
             this.vat_rate = this.vat_rate.Trim();
         }
 
+
         public JsonValue _getJson()
         {
             string json = JsonConvert.SerializeObject(this, Formatting.Indented);
@@ -180,29 +181,30 @@ namespace SMLEDIControl
             Console.WriteLine("---------------------");
             transdatasap _transdatasap = new transdatasap();
 
-            _transdatasap.doc_no = Order_Number;
+            _transdatasap.doc_no = "EDI"+Order_Number;
             _transdatasap.doc_date = Order_Date;
             _transdatasap.cust_code = Customer_Number;
             _transdatasap.doc_time = "";
-            _transdatasap.doc_ref = "";
+            _transdatasap.doc_ref = Order_Number;
             _transdatasap.tax_doc_no = "";
             _transdatasap.tax_doc_date = "";
+            _transdatasap.sale_code = "EDI";
             _transdatasap.cust_code = "";
-            _transdatasap.vat_rate = "";
-            _transdatasap.total_value = "";
-            _transdatasap.send_date = "";
-            _transdatasap.discount_word = "";
-            _transdatasap.total_discount = "";
+            _transdatasap.vat_rate = _g.g._companyProfile._vat_rate.ToString();
+            _transdatasap.total_value = Total_Amount;
+            _transdatasap.send_date = Delivery_Date;
+            _transdatasap.discount_word = ((Discount_Amount1.Length > 0) ? Discount_Amount1 : "")+((Discount_Amount2.Length > 0) ? ","+Discount_Amount2 : "") + ((Discount_Amount3.Length > 0) ? "," + Discount_Amount3 : "");
+            _transdatasap.total_discount = Discount_Amount;
             _transdatasap.total_before_vat = "";
             _transdatasap.total_vat_value = "";
             _transdatasap.total_after_vat = "";
             _transdatasap.total_except_vat = "";
-            _transdatasap.total_amount = "";
-            _transdatasap.ref_doc_type = "";
+            _transdatasap.total_amount = Total_Amount;
+            _transdatasap.ref_doc_type = "EDI";
 
             //shipment
-            _transdatasap.transport_name = "";
-            _transdatasap.transport_address = "";
+            _transdatasap.transport_name = Ship_to_Code;
+            _transdatasap.transport_address = Ship_to_Name;
             _transdatasap.latitude = "";
             _transdatasap.longitude = "";
 
@@ -413,8 +415,8 @@ namespace SMLEDIControl
 
             __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlTrans.ToString()
                  , 36, 2, this.doc_no, this.doc_date, this.doc_time, this.doc_ref
-                 , this.tax_doc_no, this.tax_doc_date, /*this.sale_code*/ "EDI", this.cust_code, 1
-                 , 1, this.vat_rate, this.total_value, this.send_date, this.discount_word
+                 , this.tax_doc_no, this.tax_doc_date, this.sale_code , this.cust_code, 0
+                 , 0, this.vat_rate, this.total_value, this.send_date, this.discount_word
                  , this.total_discount, this.total_before_vat, this.total_vat_value, this.total_after_vat, this.total_except_vat
                  , this.total_amount, this.ref_doc_type
                  )));
@@ -464,42 +466,42 @@ namespace SMLEDIControl
 
 
             //detail
-            //StringBuilder sqlDetail = new StringBuilder();
-            //sqlDetail.Append("INSERT INTO ic_trans_detail (" +
-            //    "trans_flag, trans_type, doc_no, doc_date, doc_time, item_code," +
-            //    "line_number,unit_code, qty, wh_code, shelf_code, price," +
-            //    "price_exclude_vat, sum_amount, discount_amount, discount, total_vat_value," +
-            //    "tax_type, vat_type, item_name" +
-            //    ")");
-            //sqlDetail.Append(
-            //       " VALUES (\'{0}\', {1}, {2},\'{3}\', \'{4}\',\'{5}\'" +
-            //       ",{6},{7},{8},{9},{10}" +
-            //       ",{11},{12},{13},{14},{15}" +
-            //       ",{16},{17},{18})"
-            //);
+            StringBuilder sqlDetail = new StringBuilder();
+            sqlDetail.Append("INSERT INTO ic_trans_detail (" +
+                "trans_flag, trans_type, doc_no, doc_date, doc_time, item_code," +
+                "line_number,unit_code, qty, wh_code, shelf_code, price," +
+                "price_exclude_vat, sum_amount, discount_amount, discount, total_vat_value," +
+                "tax_type, vat_type, item_name" +
+                ")");
+            sqlDetail.Append(
+                   " VALUES (\'{0}\', {1}, {2},\'{3}\', \'{4}\',\'{5}\'" +
+                   ",{6},{7},{8},{9},{10}" +
+                   ",{11},{12},{13},{14},{15}" +
+                   ",{16},{17},{18})"
+            );
 
-            //for (int __row = 0; __row < this.details.Count; __row++)
-            //{
-            //    transdatadetailsap detail = details[__row];
+            for (int __row = 0; __row < this.details.Count; __row++)
+            {
+                transdatadetailsap detail = details[__row];
 
-            //    __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlDetail.ToString()
-            //        , 36, 2, this.doc_no, this.doc_date, this.doc_time, detail.item_code
-            //        , detail.line_number, detail.unit_code, detail.qty, detail.wh_code, detail.shelf_code, detail.price
-            //        , detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.discount, detail.total_vat_value
-            //        , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
-            //        , detail.tax_type, detail.vat_type, detail.item_name
+                __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlDetail.ToString()
+                    , 36, 2, this.doc_no, this.doc_date, this.doc_time, detail.item_code
+                    , detail.line_number, detail.unit_code, detail.qty, detail.wh_code, detail.shelf_code, detail.price
+                    , detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.discount, detail.total_vat_value
+                    , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
+                    , detail.tax_type, detail.vat_type, detail.item_name
 
-            //        )));
+                    )));
 
 
-            //    __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set "
-            //       + " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) "
-            //       + ", stand_value = (select stand_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
-            //       + ", divide_value = (select divide_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
-            //       + ", doc_date_calc = doc_date, doc_time_calc = doc_time"
-            //       + ", is_serial_number = (select ic_serial_no from ic_inventory where ic_inventory.code = ic_trans_detail.item_code )"
-            //       + " where doc_no = \'" + doc_no + "\' "));
-            //}
+                __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set "
+                   + " item_name = (select name_1 from ic_inventory where ic_inventory.code = ic_trans_detail.item_code ) "
+                   + ", stand_value = (select stand_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
+                   + ", divide_value = (select divide_value from ic_unit_use where ic_unit_use.code = ic_trans_detail.unit_code and ic_unit_use.ic_code = ic_trans_detail.item_code ) "
+                   + ", doc_date_calc = doc_date, doc_time_calc = doc_time"
+                   + ", is_serial_number = (select ic_serial_no from ic_inventory where ic_inventory.code = ic_trans_detail.item_code )"
+                   + " where doc_no = \'" + doc_no + "\' "));
+            }
 
 
 
