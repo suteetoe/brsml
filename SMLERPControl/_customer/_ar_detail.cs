@@ -74,21 +74,29 @@ namespace SMLERPControl._customer
             //
             this._screenTop.Enabled = false;
 
-            Control _arm_approve_date_Control = this._screen_customer._getControl(_g.d.ar_customer_detail._arm_approve_date);
-            Control _arm_ar_shoptype1_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype1_code);
-            Control _arm_ar_shoptype2_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype2_code);
-            Control _arm_ar_shoptype3_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype3_code);
-            Control _arm_ar_shoptype4_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype4_code);
-            Control _arm_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._ar_shoptype5_code);
-            Control _arm_sub_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._sub_ar_shoptype5_code);
+            if (_g.g._companyProfile._check_edit_project) {
+                this._screen_customer.Enabled = false;
+            }
 
-            _arm_approve_date_Control.Enabled = false;
+            // Control _arm_approve_date_Control = this._screen_customer._getControl(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._arm_approve_date);
+            Control _arm_ar_shoptype1_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype1_code);
+            Control _arm_ar_shoptype2_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype2_code);
+            Control _arm_ar_shoptype3_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype3_code);
+            Control _arm_ar_shoptype4_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype4_code);
+            Control _arm_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype5_code);
+            Control _arm_sub_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._sub_ar_shoptype5_code);
+            Control _arm_ar_shoptype6_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype6_code);
+            Control _arm_ar_shoptype7_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype7_code);
+
+            // _arm_approve_date_Control.Enabled = false;
             _arm_ar_shoptype1_code.Enabled = false;
             _arm_ar_shoptype2_code.Enabled = false;
             _arm_ar_shoptype3_code.Enabled = false;
             _arm_ar_shoptype4_code.Enabled = false;
             _arm_ar_shoptype5_code.Enabled = false;
             _arm_sub_ar_shoptype5_code.Enabled = false;
+            _arm_ar_shoptype6_code.Enabled = false;
+            _arm_ar_shoptype7_code.Enabled = false;
         }
 
         bool _screen_ar_detail_5__checkKeyDownReturn(object sender, Keys keyData)
@@ -341,9 +349,15 @@ namespace SMLERPControl._customer
                             //    __extraField = "," + _g.d.ar_customer_detail._close_reason;
                             //    __extraValue = ",\'" + __reasonCombo.Text + "\'";
                             //}
-                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer_detail._table + " (ar_code," + __getData1[0].ToString() + "," + __getData2[0].ToString() + "," + __getData3[0].ToString() + "," + __getData4[0].ToString() + "," + __getData5[0].ToString() + "," + __getData6[0].ToString() + __extraField + ") values (" + __dataList_1 + "" + __getData1[1].ToString() + "," + __getData2[1].ToString() + "," + __getData3[1].ToString() + "," + __getData4[1].ToString() + "," + __getData5[1].ToString() + "," + __getData6[1].ToString() + __extraValue + ")"));
-                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " +  _g.d.ar_customer._last_update_time + " = now() where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
-                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._arm_tier + " = "+ this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._arm_tier) +" where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
+                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ar_customer_detail._table + " (ar_code," + __getData1[0].ToString() + "," + __getData2[0].ToString() + "," + __getData3[0].ToString() + "," + __getData4[0].ToString() + "," + __getData5[0].ToString() + "," + __getData6[0].ToString().Replace("ar_customer_detail.", string.Empty) + __extraField + ") values (" + __dataList_1 + "" + __getData1[1].ToString() + "," + __getData2[1].ToString() + "," + __getData3[1].ToString() + "," + __getData4[1].ToString() + "," + __getData5[1].ToString() + "," + __getData6[1].ToString() + __extraValue + ")"));
+                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._last_update_time + " = now() where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
+                            // __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._arm_tier + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._arm_tier) + " where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
+
+                            __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._arm_code + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_code) + "," +
+                                " " + _g.d.ar_customer._arm_tier + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_tier) + "," +
+                                " " + _g.d.ar_customer._arm_register + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register) + "," +
+                                " " + _g.d.ar_customer._arm_register_date + " ='" + this._screen_customer._getDataDate(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register_date).ToString() + "'" +
+                                " where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
 
 
                             string __result_images = this._getPicture1._updateImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));
@@ -552,10 +566,15 @@ namespace SMLERPControl._customer
                 StringBuilder __myquery = new StringBuilder();
                 __myquery.Append(MyLib._myGlobal._xmlHeader + "<node>");
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _myManageData1._dataList._tableName + whereString));
-                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * , (select " + _g.d.ar_customer._arm_tier + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer_detail._arm_tier + ", (select " + _g.d.ar_customer._arm_approve_date + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer_detail._arm_approve_date + " from " + _g.d.ar_customer_detail._table + " where " + _g.d.ar_customer_detail._ar_code + " = '" + _oldDocNo + "'"));
+                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * , (select " + _g.d.ar_customer._arm_tier + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer_detail._arm_tier + ", (select " + _g.d.ar_customer._arm_approve_date + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer_detail._arm_approve_date + "" +
+                    ", (select " + _g.d.ar_customer._arm_code + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_code +
+                    ", (select " + _g.d.ar_customer._arm_register + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_register +  
+                      ", (select " + _g.d.ar_customer._arm_register_date + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_register_date +  
+                    " from " + _g.d.ar_customer_detail._table + " where " + _g.d.ar_customer_detail._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.ar_contactor._table + " where " + _g.d.ar_contactor._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.ar_item_by_customer._table + " where " + _g.d.ar_item_by_customer._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append("</node>");
+             
                 ArrayList _getData = _myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
                 this._screenTop._loadData(((DataSet)_getData[0]).Tables[0]);
                 this._screen_ar_detail_1._loadData(((DataSet)_getData[1]).Tables[0]);
@@ -568,7 +587,29 @@ namespace SMLERPControl._customer
                 DataSet getData = (DataSet)_getData[1];
                 if (getData.Tables.Count > 0 && getData.Tables[0].Rows.Count > 0)
                 {
-                    this._screen_customer._setDataDate(_g.d.ar_customer_detail._arm_approve_date, MyLib._myGlobal._convertDateFromQuery(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._arm_approve_date].ToString()));
+                    //this._screen_customer._setDataDate(_g.d.ar_customer_detail._arm_approve_date, MyLib._myGlobal._convertDateFromQuery(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._arm_approve_date].ToString()));
+                    this._screen_customer._setComboBox(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_code_name, MyLib._myGlobal._intPhase(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_project_code_name].ToString()));
+                    this._screen_customer._setDataStr(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_code, getData.Tables[0].Rows[0][_g.d.ar_customer._arm_code].ToString());
+                    this._screen_customer._setComboBox(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_tier, MyLib._myGlobal._intPhase(getData.Tables[0].Rows[0][_g.d.ar_customer._arm_tier].ToString()));
+                    if (getData.Tables[0].Rows[0][_g.d.ar_customer._arm_register].ToString() == "1") {
+                        this._screen_customer._setCheckBox(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register, true);
+                    }
+                    this._screen_customer._setDataDate(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register_date, MyLib._myGlobal._convertDateFromQuery(getData.Tables[0].Rows[0][_g.d.ar_customer._arm_register_date].ToString()));
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype1_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype1_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype2_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype2_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype3_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype3_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype4_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype4_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype5_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype5_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._sub_ar_shoptype5_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._sub_ar_shoptype5_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype6_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype6_code].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype7_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_shoptype7_code].ToString());
+
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._latitude, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._latitude].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._longitude, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._longitude].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._line_id, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._line_id].ToString());
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._facebook, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._facebook].ToString());
+
+                    this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._br_cust_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._br_cust_code].ToString());
                 }
                 this._screen_ar_contact_grid1._loadFromDataTable(((DataSet)_getData[2]).Tables[0]);
                 this._screen_ar_item_grid1._loadFromDataTable(((DataSet)_getData[3]).Tables[0]);
@@ -620,11 +661,12 @@ namespace SMLERPControl._customer
                     this._getPicture6._setEnable(true);
                     this._getPicture7._setEnable(true);
                 }
-                
+
                 return (true);
             }
             catch (Exception)
             {
+
             }
             return (false);
         }

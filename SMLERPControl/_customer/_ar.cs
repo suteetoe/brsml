@@ -96,12 +96,12 @@ namespace SMLERPControl._customer
 
             //เนสปิดปุ่ม
 
-            Control arm_approve_Control = this._screenTop._getControl(_g.d.ar_customer._arm_approve);
-            Control arm_approve_date_codeControl = this._screenTop._getControl(_g.d.ar_customer._arm_approve_date);
-            Control arm_register_date_codeControl = this._screenTop._getControl(_g.d.ar_customer._arm_register_date);
-            arm_approve_Control.Enabled = false;
-            arm_approve_date_codeControl.Enabled = false;
-            arm_register_date_codeControl.Enabled = false;
+            //Control arm_approve_Control = this._screenTop._getControl(_g.d.ar_customer._arm_approve);
+            //Control arm_approve_date_codeControl = this._screenTop._getControl(_g.d.ar_customer._arm_approve_date);
+            //Control arm_register_date_codeControl = this._screenTop._getControl(_g.d.ar_customer._arm_register_date);
+            //arm_approve_Control.Enabled = false;
+            //arm_approve_date_codeControl.Enabled = false;
+            //arm_register_date_codeControl.Enabled = false;
 
             
 

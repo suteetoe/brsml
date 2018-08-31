@@ -34,7 +34,8 @@ namespace BRInterfaceControl.SOS
             this._docGrid._table_name = _g.d.ic_trans._table;
             this._docGrid._addColumn("select", 11, 10, 10);
             this._docGrid._isEdit = false;
-            this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 90);
+            this._docGrid._addColumn(_g.d.ic_trans._doc_date_po, 1, 90, 45);
+            this._docGrid._addColumn(_g.d.ic_trans._doc_no, 1, 90, 45);
             this._docGrid.WidthByPersent = true;
             this._docGrid._calcPersentWidthToScatter();
             this._docGrid._mouseClick += _docGrid__mouseClick;
@@ -116,6 +117,8 @@ namespace BRInterfaceControl.SOS
                         {
                             int __rowAdd = this._docGrid._addRow();
                             this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_no, __object.ToString().Replace("\"", string.Empty), true);
+                            this._docGrid._cellUpdate(__rowAdd, _g.d.ic_trans._doc_date_po,  __object.ToString().Replace("\"", string.Empty).Substring(10, 4)+"-"+ __object.ToString().Replace("\"", string.Empty).Substring(8, 2) + "-" + __object.ToString().Replace("\"", string.Empty).Substring(6, 2), true);
+                            this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
                             this._docGrid._cellUpdate(__rowAdd, 0, 1, true);
                         }
                     }

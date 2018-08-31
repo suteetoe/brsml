@@ -405,6 +405,7 @@
 <field name="lock_bill_auto_interval" thai="จำนวนวันล๊อครายการย้อนหลัง" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="begin_date_import_inv" thai="วันที่เริ่มนำเข้า INV" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="end_date_import_inv" thai="วันที่สิ้นสุดนำเข้า INV" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="check_edit_project" thai="ห้ามแก้ไข รายระเอียดโครงการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
@@ -692,6 +693,7 @@
 <field name="gpu_code" thai="GPU" eng="" type="varchar" length="20" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="group_sub2" thai="กลุ่มสินค้าย่อย2" eng="Item Group Sub" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ic_discount_group" thai="กลุ่มส่วนลด" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_from_remark" thai="แสดงชื่อสินค้าจากหมายเหตุ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ic_inventory_PK_CODE" field="code"  custer="true"  unique="true" ></index>
 <index index_name="PK_inventory_name_1" field="name_1" ></index>
 <index index_name="PK_inventory_unit_standard_name" field="unit_standard_name" ></index>
@@ -1720,10 +1722,10 @@
 <field name="headquarters" thai="สำนักงานใหญ่" eng="HeadQueaters" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="branch" thai="สาขา" eng="Branch" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="branch_code" thai="เลขที่สาขา" eng="Branch Code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="arm_code" thai="ARM Code" eng="ARM Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="arm_code" thai="รหัสสมาชิก" eng="ARM Code" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_code_main" thai="รหัสลูกค้าหลัก" eng="Main Code" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="ar_branch_code" thai="ใช้เฉพาะสาขา" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="arm_approve" thai="อนุมัติ ARM Code" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="arm_approve" thai="อนุมัติโครงการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_approve_date" thai="วันที่อนุมัติ ARM Code" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="nfc_id" thai="NFC ID" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_tier" thai="Tier" eng="Tier" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
@@ -1741,7 +1743,7 @@
 <field name="tab_liquor_license" thai="ใบอนุญาตขายสุรา " eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="tab_other_picture1" thai="อื่นๆ 1" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="tab_other_picture2" thai="อื่นๆ 2" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
-<field name="tab_customer" thai="ลูกค้า" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="tab_customer" thai="รายละเอียดสมาชิก" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="arm_register_date" thai="วันที่สมัคร ARM Code" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="arm_register" thai="สมัคร อาร์ม" eng="Register" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ar_customer_PK_CODE" field="code"  custer="true"  unique="true" ></index>
@@ -1944,6 +1946,8 @@
 <field name="tier_4" thai="Diamond" eng="Diamond" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="ar_customer_channel" thai="Customer Channel" eng="Customer Channel" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="ar_project_code_name" thai="โครงการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype6_code" thai="Modern Trade" eng="" type="char" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype7_code" thai="อื่นๆ" eng="" type="char" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ar_customer_detail_PK_CODE" field="ar_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_contactor" thai="ผู้ติดต่อ (ลูกหนี้)" eng="Contactor" xversion="SMLERP" >
@@ -8230,6 +8234,8 @@
 <field name="shelf_code" thai="ที่เก็บ" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="wh_code_2" thai="เข้าคลัง" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="shelf_code_2" thai="เข้าที่เก็บ" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="user_code" thai="User Code" eng="" type="varchar" length="50" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="success_status" thai="Success Status" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="pp_shipment" thai="การจัดส่งสินค้า" eng="pp_shipment" xversion="" >
 <field name="doc_date" thai="วันที่เอกสาร" eng="" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
@@ -9966,5 +9972,23 @@
 <field name="discount_group_name" thai="ชื่อกลุ่มส่วนลด" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="line_number" thai="LineNumber" eng="" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>
 <index index_name="doc_no_doc_date" field="doc_no,doc_date" ></index>
+</table>
+<table name="device_uuid" thai="device_uuid" eng="" xversion="" >
+<field name="uuid" thai="UUID" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="gen_code_1" thai="GEN Code 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype7" thai="AR Shoptype7" eng="AR Shoptype7" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
+</table>
+<table name="ar_shoptype6" thai="AR Shoptype6" eng="AR Shoptype6" xversion="" >
+<field name="code" thai="รหัส" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_1" thai="ชื่อ 1" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="name_2" thai="ชื่อ 2" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="remark" thai="หมายเหตุ" eng="" type="varchar" length="255" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="guid_code" thai="guid code" eng="" type="varchar" length="35" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 </node>

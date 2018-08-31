@@ -665,6 +665,7 @@ namespace SMLERPConfig
                 this._addCheckBox(__row++, 1, _g.d.erp_option._lock_bill_auto, false, true);
                 this._addNumberBox(__row, 0, 1, 0, _g.d.erp_option._sale_day_interval, 1, 2, true);
                 this._addNumberBox(__row++, 1, 1, 0, _g.d.erp_option._lock_bill_auto_interval, 1, 2, true);
+                this._addCheckBox(__row, 0, _g.d.erp_option._check_edit_project, false, true);
 
                 //this._maxLabelWidth = new int[] { 129, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             }

@@ -587,6 +587,9 @@ namespace SMLAccount
             MyLib._myResource._updateResource("erp_option.sms_and_salehub_approve", MyLib._myGlobal._resource("ผ่านระบบ SMS และ SINGHA ARM"));
             MyLib._myResource._updateResource("erp_user.sale_hub_user", MyLib._myGlobal._resource("Sale Hub Users"));
 
+            MyLib._myResource._updateResource("ar_customer.tab_customer", MyLib._myGlobal._resource("รายละเอียดสมาชิก"));
+            MyLib._myResource._updateResource("ar_customer.arm_code", MyLib._myGlobal._resource("รหัสสมาชิก"));
+            MyLib._myResource._updateResource("ar_customer.arm_approve_date", MyLib._myGlobal._resource("วันที่อนุมัติโครงการ"));
 
 
             MyLib._myGlobal._mainSize = this.Size;

@@ -1129,6 +1129,8 @@ namespace _g
                 case "menu_setup_ar_shoptype3": return (new _arShopType3(screenName));
                 case "menu_setup_ar_shoptype4": return (new _arShopType4(screenName));
                 case "menu_setup_ar_shoptype5": return (new _arShopType5(screenName));
+                case "menu_setup_ar_shoptype6": return (new _arShopType6(screenName));
+                case "menu_setup_ar_shoptype7": return (new _arShopType7(screenName));
                 case "menu_setup_sub_ar_shoptype5":
                     __screenFull = new MyLib._manageMasterCodeFull();
                     //

@@ -3497,6 +3497,12 @@ namespace _g
             /// วันที่สิ้นสุดนำเข้า INV
             /// </summary>
             public String _end_date_import_inv = "";
+            /// <summary>
+            /// วันที่สิ้นสุดนำเข้า INV
+            /// </summary>
+            public Boolean _check_edit_project = false;
+
+
         }
 
         //
@@ -3646,6 +3652,8 @@ namespace _g
         public static string _search_master_ar_shoptype4 = "screen_ms_ar_shoptype4";// เนส 
         public static string _search_master_ar_shoptype5 = "screen_ms_ar_shoptype5";// เนส 
         public static string _search_master_sub_ar_shoptype5 = "screen_ms_sub_ar_shoptype5";// เนส 
+        public static string _search_master_ar_shoptype6 = "screen_ms_ar_shoptype6";// เนส 
+        public static string _search_master_ar_shoptype7 = "screen_ms_ar_shoptype7";// เนส 
 
 
         public static string _search_master_ar_logistic_area = "screen_ms_ar_logistic_area";   //เอ้  เขตการขนส่ง
@@ -4277,7 +4285,8 @@ namespace _g
                 _companyProfile._lock_bill_auto = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_bill_auto) == 1) ? true : false;
                 _companyProfile._sale_day_interval = _convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._sale_day_interval);
                 _companyProfile._lock_bill_auto_interval = _convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_bill_auto_interval);
-
+                _companyProfile._check_edit_project = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._check_edit_project) == 1) ? true : false;
+                
                 if (MyLib._myGlobal._programName.Equals("SML CM"))
                 {
                     _companyProfile._use_price_center = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._use_price_center) == 1) ? true : false;

@@ -1793,10 +1793,25 @@
     <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype5.remark" column_field_sort="ar_shoptype5.remark" column_width="40" column_type="varchar" column_align="left"></detail>
   </screen>
 
-  <screen screen_code="screen_ms_sub_ar_shoptype5" name_1="Sub Special Channel" name_2="Sub Special Channel" table_name="sub_ar_shoptype5" table_list="sub_ar_shoptype5" sort="sub_ar_shoptype5.code" filter="" width_by_persent="true">
+  <screen screen_code="screen_ms_sub_ar_shoptype5" name_1="Modern Trade" name_2="Modern Trade" table_name="sub_ar_shoptype5" table_list="sub_ar_shoptype5" sort="sub_ar_shoptype5.code" filter="" width_by_persent="true">
     <detail column_name="รหัส" column_name_2="Code" column_field_name="sub_ar_shoptype5.code" column_field_sort="sub_ar_shoptype5.code" column_width="20" column_type="varchar" column_align="left"></detail>
     <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="sub_ar_shoptype5.name_1" column_field_sort="sub_ar_shoptype5.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
     <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="sub_ar_shoptype5.name_2" column_field_sort="sub_ar_shoptype5.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
     <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="sub_ar_shoptype5.remark" column_field_sort="sub_ar_shoptype5.remark" column_width="40" column_type="varchar" column_align="left"></detail>
   </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype6" name_1="Modern Trade" name_2="Modern Trade" table_name="ar_shoptype6" table_list="ar_shoptype6" sort="ar_shoptype6.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype6.code" column_field_sort="ar_shoptype6.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype6.name_1" column_field_sort="ar_shoptype6.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype6.name_2" column_field_sort="ar_shoptype6.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype6.remark" column_field_sort="ar_shoptype6.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+
+  <screen screen_code="screen_ms_ar_shoptype7" name_1="อื่นๆ" name_2="อื่นๆ" table_name="ar_shoptype7" table_list="ar_shoptype7" sort="ar_shoptype7.code" filter="" width_by_persent="true">
+    <detail column_name="รหัส" column_name_2="Code" column_field_name="ar_shoptype7.code" column_field_sort="ar_shoptype7.code" column_width="20" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ" column_name_2="Name"  column_field_name="ar_shoptype7.name_1" column_field_sort="ar_shoptype7.name_1" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="ชื่อ (ภาษาอังกฤษ)" column_name_2="Name (English)"  column_field_name="ar_shoptype7.name_2" column_field_sort="ar_shoptype7.name_2" column_width="40" column_type="varchar" column_align="left"></detail>
+    <detail column_name="หมายเหตุ" column_name_2="Remark"  column_field_name="ar_shoptype7.remark" column_field_sort="ar_shoptype7.remark" column_width="40" column_type="varchar" column_align="left"></detail>
+  </screen>
+  
 </node>

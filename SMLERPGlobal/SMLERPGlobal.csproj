@@ -94,6 +94,12 @@
     <Compile Include="_arShopType4.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="_arShopType6.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="_arShopType7.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="_arSupShopType5.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -306,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="_arShopType4.resx">
       <DependentUpon>_arShopType4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType6.resx">
+      <DependentUpon>_arShopType6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_arShopType7.resx">
+      <DependentUpon>_arShopType7.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="_arSupShopType5.resx">
       <DependentUpon>_arSupShopType5.cs</DependentUpon>
