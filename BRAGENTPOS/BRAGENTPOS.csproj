@@ -25,11 +25,11 @@
     <InstallUrl>http://www.brteasy.com:8080/bragentpos/</InstallUrl>
     <ProductName>BR Agent POS</ProductName>
     <PublisherName>SMLSoft</PublisherName>
-    <MinimumRequiredVersion>1.0.0.152</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.0.153</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>153</ApplicationRevision>
+    <ApplicationRevision>154</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -55,11 +55,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>3B3B096B4F5056837AF7692D21AB7136C99F9C3C</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A5F93BCD62E1C4A37AAFE5F5437A793A4238AF13</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>sml_cm_cert.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -116,6 +115,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="sml_cm_cert.pfx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MyLib\MyLib.csproj">
