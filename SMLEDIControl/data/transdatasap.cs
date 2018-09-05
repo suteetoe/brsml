@@ -247,7 +247,7 @@ namespace SMLEDIControl
                 ", inquiry_type, vat_type, doc_format_code" +
                 ", wh_from, location_from, wh_to, location_to, send_type" +
                 ", doc_ref, doc_ref_date , branch_code, last_status, credit_day"
-                    + ", credit_date, remark) ");
+                    + ", credit_date, remark,is_lock_record) ");
             sqlTrans.Append(
                 " VALUES (\'{0}\', {1}, {2}" +
                 ", \'{3}\', \'{4}\', \'{5}\', \'{6}\'" +
@@ -256,7 +256,7 @@ namespace SMLEDIControl
                 ", {19}, {20}, \'{21}\' " +
                 ", \'{22}\', \'{23}\', \'{24}\', \'{25}\', {26}" +
                 ", \'{27}\', {28}, \'{29}\', {30}, {31}"
-                    + ", {32}, \'{33}\') "
+                    + ", {32}, \'{33}\',1) "
                     );
 
 

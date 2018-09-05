@@ -1109,7 +1109,8 @@ namespace SMLProcess
                      "(select " + _g.d.gl_journal._table + "." + _g.d.gl_journal._description + " from " + _g.d.gl_journal._table + " where " +
                      _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_date + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_date + " and " +
                      _g.d.gl_journal._table + "." + _g.d.gl_journal._book_code + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._book_code + " and " +
-                     _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + ")" +
+                     _g.d.gl_journal._table + "." + _g.d.gl_journal._doc_no + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._doc_no + " " + " and " +
+                     _g.d.gl_journal._table + "." + _g.d.gl_journal._trans_flag + "=" + _g.d.gl_journal_detail._table + "." + _g.d.gl_journal_detail._trans_flag + ")" +
                      " as " + _g.d.gl_journal_detail._account_name + "," + _g.d.gl_journal_detail._description +
                     "," + _g.d.gl_journal_detail._debit + "," + _g.d.gl_journal_detail._credit + "," + _g.d.gl_journal_detail._period_number + " from " + _g.d.gl_journal_detail._table + " where " + MyLib._myGlobal._addUpper(_g.d.gl_journal_detail._account_code) + "=\'" +
                     accountCode.ToUpper() + "\' and " + _g.d.gl_journal_detail._doc_date + ">=\'" + MyLib._myGlobal._convertDateToQuery(dateBegin) + "\' and " + _g.d.gl_journal_detail._doc_date + "<=\'" + MyLib._myGlobal._convertDateToQuery(dateEnd) + "\' " + __isPassQuery +

@@ -427,7 +427,7 @@ namespace SMLERPControl._customer
                     //this._addTextBox(3, 1, 1, 0, _g.d.ar_customer_detail._ar_sub_equipment, 1, 0, 1, true, false, true);
                     //this._addTextBox(4, 0, 1, 0, _g.d.ar_customer_detail._ar_location_type_code, 1, 0, 1, true, false, true);
                     // this._addTextBox(1, 0, 1, 0, _g.d.ar_customer_detail._ar_project_code, 1, 0, 1, true, false, true,);
-                    this._addComboBox(1, 0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_code_name, 1, true, new string[] { "เลือกโครงการ", "ARM ค้าส่ง", "ARM ค้าปลีก", "ARM ON-Premise", "ARM Special Channel", "โครงการ SINGHA HAPPY", "โครงการ SINGHA EXCLUSIVE", "โครงการ SINGHA NORMAL", "MODERN TRADE", "LOCAL MODERN TRADE", "OTHER" }, false, "ar_customer_detail.ar_project_code_name", false, true);
+                    this._addComboBox(1, 0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_code_name, 1, true, new string[] { "เลือกโครงการ", "ARM ค้าส่ง", "ARM ค้าปลีก", "ARM ON-Premise", "ARM Special Channel", "โครงการ SINGHA HAPPY", "โครงการ SINGHA EXCLUSIVE", "โครงการ SINGHA NORMAL", "OTHER", "MODERN TRADE", "LOCAL MODERN TRADE" }, false, "ar_customer_detail.ar_project_code_name", false, true);
                  //   this._addComboBox(1, 1, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._arm_tier, 1, true, new string[] { _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._tier_0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._tier_1, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._tier_2, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._tier_3, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._tier_4 }, false, "arm_tier", true, false);
 
                     this._addTextBox(2, 0, 1, 0, _g.d.ar_customer._table + "." + _g.d.ar_customer._arm_code, 1, 10, 1, true, false, true, false);
@@ -858,6 +858,18 @@ namespace SMLERPControl._customer
 
                         break;
                     case 8:
+                        __get_ar_shoptype1_code.Enabled = true;
+                        __get_ar_shoptype2_code.Enabled = true;
+                        __get_ar_shoptype3_code.Enabled = true;
+                        __get_ar_shoptype4_code.Enabled = true;
+                        __get_ar_shoptype5_code.Enabled = true;
+                        __get_sub_ar_shoptype5_code.Enabled = true;
+                        __get_ar_shoptype6_code.Enabled = true;
+                        __get_ar_shoptype7_code.Enabled = true;
+
+
+                        break;
+                    case 9:
                         __get_ar_shoptype1_code.Enabled = false;
                         __get_ar_shoptype2_code.Enabled = false;
                         __get_ar_shoptype3_code.Enabled = false;
@@ -866,8 +878,9 @@ namespace SMLERPControl._customer
                         __get_sub_ar_shoptype5_code.Enabled = false;
                         __get_ar_shoptype6_code.Enabled = true;
                         __get_ar_shoptype7_code.Enabled = false;
+                  
                         break;
-                    case 9:
+                    case 10:
                         __get_ar_shoptype1_code.Enabled = false;
                         __get_ar_shoptype2_code.Enabled = false;
                         __get_ar_shoptype3_code.Enabled = true;
@@ -876,17 +889,6 @@ namespace SMLERPControl._customer
                         __get_sub_ar_shoptype5_code.Enabled = false;
                         __get_ar_shoptype6_code.Enabled = false;
                         __get_ar_shoptype7_code.Enabled = false;
-                        break;
-                    case 10:
-                        __get_ar_shoptype1_code.Enabled = false;
-                        __get_ar_shoptype2_code.Enabled = false;
-                        __get_ar_shoptype3_code.Enabled = false;
-                        __get_ar_shoptype4_code.Enabled = false;
-                        __get_ar_shoptype5_code.Enabled = false;
-                        __get_sub_ar_shoptype5_code.Enabled = false;
-                        __get_ar_shoptype6_code.Enabled = false;
-                        __get_ar_shoptype7_code.Enabled = true;
-
                         break;
                 }
             }
@@ -1078,16 +1080,16 @@ namespace SMLERPControl._customer
                 name.Equals(_g.d.ar_customer_detail._ar_equipment_code) ||
                 name.Equals(_g.d.ar_customer_detail._ar_sub_equipment) ||
 
-                 name.Equals(_g.d.ar_customer_detail._ar_project_code) ||
-                  name.Equals(_g.d.ar_customer_detail._ar_shoptype1_code) ||
-                   name.Equals(_g.d.ar_customer_detail._ar_shoptype2_code) ||
-                    name.Equals(_g.d.ar_customer_detail._ar_shoptype3_code) ||
-                     name.Equals(_g.d.ar_customer_detail._ar_shoptype4_code) ||
-                      name.Equals(_g.d.ar_customer_detail._ar_shoptype5_code) ||
-                       name.Equals(_g.d.ar_customer_detail._sub_ar_shoptype5_code) ||
-                           name.Equals(_g.d.ar_customer_detail._ar_shoptype6_code) ||
-                      name.Equals(_g.d.ar_customer_detail._ar_shoptype7_code) ||
-                name.Equals(_g.d.ar_customer_detail._ar_location_type_code))
+                 name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_project_code) ||
+                  name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code) ||
+                   name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code) ||
+                    name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code) ||
+                     name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code) ||
+                      name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code) ||
+                       name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code) ||
+                           name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code) ||
+                      name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code) ||
+                name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_location_type_code))
                 {
                     this._searchTextBox = (TextBox)sender;
                     this._searchName = name;
@@ -1097,78 +1099,80 @@ namespace SMLERPControl._customer
 
             if (this._controlName == _controlTypeEnum.Customer)
             {
-                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype1_code) && !sender.Equals(" "))
+                if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
                 }
                 else
-           if (name.Equals(_g.d.ar_customer_detail._ar_shoptype2_code) && !sender.Equals(" "))
+           if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
                 }
                 else
-           if (name.Equals(_g.d.ar_customer_detail._ar_shoptype3_code) && !sender.Equals(" "))
+           if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
                 }
                 else
-           if (name.Equals(_g.d.ar_customer_detail._ar_shoptype4_code) && !sender.Equals(" "))
+           if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
                 }
                 else
-           if (name.Equals(_g.d.ar_customer_detail._ar_shoptype5_code) && !sender.Equals(" "))
+           if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
                 }
-                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype6_code) && !sender.Equals(" "))
+                if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code, "", "", true);
                 }
                 else
-                if (name.Equals(_g.d.ar_customer_detail._ar_shoptype7_code) && !sender.Equals(" "))
+                if (name.Equals(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype7_code) && !sender.Equals(" "))
                 {
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
-                    this._setDataStr(_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype1_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype2_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype3_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype4_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._sub_ar_shoptype5_code, "", "", true);
+                    this._setDataStr(_g.d.ar_customer_detail._table+"."+_g.d.ar_customer_detail._ar_shoptype6_code, "", "", true);
                 }
             }
 

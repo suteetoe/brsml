@@ -56,11 +56,13 @@ namespace SMLERPGlobal
             {
                 __list.Add(_g.g._search_screen_erp_user);
                 __list.Add(_g.d.erp_user._table);
+                __list.Add(_g.d.erp_user._status + "=1");
             }
             else if (_cName.Equals(_g.d.ic_trans._user_request_transfer))
             {
                 __list.Add(_g.g._search_screen_erp_user);
                 __list.Add(_g.d.erp_user._table);
+                __list.Add(_g.d.erp_user._status + "=1");
             }
             else if (_cName.Equals(_g.d.ic_trans._approve_code))
             {

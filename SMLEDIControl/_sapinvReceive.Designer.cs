@@ -118,7 +118,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this._detailGrid);
-            this.splitContainer1.Size = new System.Drawing.Size(920, 884);
+            this.splitContainer1.Size = new System.Drawing.Size(920, 882);
             this.splitContainer1.SplitterDistance = 523;
             this.splitContainer1.TabIndex = 5;
             // 
@@ -134,7 +134,7 @@
             this._docGrid.Location = new System.Drawing.Point(0, 0);
             this._docGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._docGrid.Name = "_docGrid";
-            this._docGrid.Size = new System.Drawing.Size(521, 849);
+            this._docGrid.Size = new System.Drawing.Size(521, 847);
             this._docGrid.TabIndex = 0;
             this._docGrid.TabStop = false;
             // 
@@ -145,7 +145,7 @@
             this._myFlowLayoutPanel1.Controls.Add(this._reloadButton);
             this._myFlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this._myFlowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 849);
+            this._myFlowLayoutPanel1.Location = new System.Drawing.Point(0, 847);
             this._myFlowLayoutPanel1.Name = "_myFlowLayoutPanel1";
             this._myFlowLayoutPanel1.Size = new System.Drawing.Size(521, 33);
             this._myFlowLayoutPanel1.TabIndex = 1;
@@ -188,7 +188,7 @@
             this._detailGrid.Location = new System.Drawing.Point(0, 0);
             this._detailGrid.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this._detailGrid.Name = "_detailGrid";
-            this._detailGrid.Size = new System.Drawing.Size(391, 882);
+            this._detailGrid.Size = new System.Drawing.Size(391, 880);
             this._detailGrid.TabIndex = 1;
             this._detailGrid.TabStop = false;
             // 
@@ -207,7 +207,7 @@
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer1);
             this.splitContainer2.Size = new System.Drawing.Size(920, 956);
-            this.splitContainer2.SplitterDistance = 68;
+            this.splitContainer2.SplitterDistance = 70;
             this.splitContainer2.TabIndex = 3;
             // 
             // _icTransScreenTopControl1
@@ -218,7 +218,7 @@
             this._icTransScreenTopControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this._icTransScreenTopControl1.Location = new System.Drawing.Point(0, 0);
             this._icTransScreenTopControl1.Name = "_icTransScreenTopControl1";
-            this._icTransScreenTopControl1.Size = new System.Drawing.Size(920, 68);
+            this._icTransScreenTopControl1.Size = new System.Drawing.Size(920, 70);
             this._icTransScreenTopControl1.TabIndex = 7;
             // 
             // _sapinvReceive
