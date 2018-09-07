@@ -441,7 +441,6 @@ namespace SMLInventoryControl
             string __getData = "";
             string __getDataStr = this._getDataStr(fieldName);
             string __getDataStr1 = this._getDataStr(fieldName);
-            this._setDataStr(fieldName, __getDataStr, __getData, true);
             if (__dataResult.Tables[0].Rows.Count > 0)
             {
                 __getData = __dataResult.Tables[0].Rows[0][0].ToString();
@@ -453,6 +452,10 @@ namespace SMLInventoryControl
                 {
                     if (__dataResult.Tables[0].Rows.Count == 0 && warning)
                     {
+                        //if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && fieldName.Equals("branch_code"))
+                        //{
+                        //    warning = false;
+                        //}
                         //MessageBox.Show(MyLib._myGlobal._resource("เอกสารเลขที่ หรือ ยอดตัดจ่าย ห้ามว่าง"), MyLib._myGlobal._resource("เตือน"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         MessageBox.Show("ไม่พบข้อมูล : " + ((MyLib._myTextBox)this._searchTextBox.Parent)._labelName, MyLib._myGlobal._resource("เตือน"), MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 

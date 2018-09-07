@@ -17,7 +17,7 @@ namespace SMLERPGLControl
 
         private _glDetailExtra __detailExtra;
         string _columnBranchCodeTemp = "barnch_code_temp";
-
+        
 
         public _glDetail()
         {

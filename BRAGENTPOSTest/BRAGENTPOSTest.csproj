@@ -22,14 +22,14 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>true</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://www.smlsoft.com/bragentpostest/</InstallUrl>
+    <InstallUrl>https://www.smlaccount.com/bragentpostest/</InstallUrl>
     <ProductName>BR Agent POS Test</ProductName>
     <PublisherName>SMLSoft</PublisherName>
-    <MinimumRequiredVersion>1.0.0.353</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.0.354</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>353</ApplicationRevision>
+    <ApplicationRevision>355</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
