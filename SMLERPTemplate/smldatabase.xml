@@ -406,6 +406,8 @@
 <field name="begin_date_import_inv" thai="วันที่เริ่มนำเข้า INV" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="end_date_import_inv" thai="วันที่สิ้นสุดนำเข้า INV" eng="" type="smalldatetime" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 <field name="check_edit_project" thai="ห้ามแก้ไข รายระเอียดโครงการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="change_customer_not_clear_detail" thai="เปลี่ยนลูกค้าไม่ล้างรายการสินค้า" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="print_every_case" thai="พิมพ์บิลขายได้ทุกกรณี" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
 </table>
 <table name="erp_side_list" thai="รายชื่อฝ่าย" eng="Side list" xversion="ALL" >
 <field name="code" thai="รหัส" eng="Side code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>

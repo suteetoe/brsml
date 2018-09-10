@@ -1648,6 +1648,14 @@ namespace _g
             /// ห้ามแก้ไข รายระเอียดโครงการ
             /// </summary>
             public static String _check_edit_project = "check_edit_project";
+            /// <summary>
+            /// เปลี่ยนลูกค้าไม่ล้างรายการสินค้า
+            /// </summary>
+            public static String _change_customer_not_clear_detail = "change_customer_not_clear_detail";
+            /// <summary>
+            /// พิมพ์บิลขายได้ทุกกรณี
+            /// </summary>
+            public static String _print_every_case = "print_every_case";
         }
 
         /// <summary>

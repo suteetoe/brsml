@@ -785,7 +785,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="4005" _x="402" _y="1168" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="4037" _x="403" _y="1168" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -2028,6 +2028,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="check_edit_project" _description="ห้ามแก้ไข รายระเอียดโครงการ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="change_customer_not_clear_detail" _description="เปลี่ยนลูกค้าไม่ล้างรายการสินค้า" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="print_every_case" _description="พิมพ์บิลขายได้ทุกกรณี" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
