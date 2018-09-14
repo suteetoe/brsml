@@ -517,10 +517,10 @@ namespace SMLEDIControl
                                                     __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
                                                 }
                                                 __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
-                                                __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
+                                                //__transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
+                                                __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.sum_amount);
                                                 __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
                                                 __transdatasap.details.Add(__transdatadetailsap);
-
                                             }
                                         }
                                         __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();

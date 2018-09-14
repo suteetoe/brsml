@@ -3501,6 +3501,14 @@ namespace _g
             /// วันที่สิ้นสุดนำเข้า INV
             /// </summary>
             public Boolean _check_edit_project = false;
+            /// <summary>
+            /// เปลี่ยนลูกค้าไม่ล้างรายการสินค้า
+            /// </summary>
+            public Boolean _change_customer_not_clear_detail = false;
+            /// <summary>
+            /// พิมพ์บิลขายได้ทุกกรณี
+            /// </summary>
+            public Boolean _print_every_case = false;
 
 
         }
@@ -4286,7 +4294,9 @@ namespace _g
                 _companyProfile._sale_day_interval = _convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._sale_day_interval);
                 _companyProfile._lock_bill_auto_interval = _convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._lock_bill_auto_interval);
                 _companyProfile._check_edit_project = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._check_edit_project) == 1) ? true : false;
-                
+                _companyProfile._change_customer_not_clear_detail = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._change_customer_not_clear_detail) == 1) ? true : false;
+                _companyProfile._print_every_case = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._print_every_case) == 1) ? true : false;
+
                 if (MyLib._myGlobal._programName.Equals("SML CM"))
                 {
                     _companyProfile._use_price_center = (_convertStringToInt32(__dataResult.Rows[0], _g.d.erp_option._use_price_center) == 1) ? true : false;

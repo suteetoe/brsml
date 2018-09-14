@@ -1917,10 +1917,24 @@ namespace SMLInventoryControl
                     this._vatSale._checkArDetail(this._myManageTrans._mode);
 
                 }*/
-                if (name.Equals(_g.d.ic_trans._ar_code))
+                if ( name.Equals(_g.d.ic_trans._ar_code))
                 {
-                    this._icTransRef._transGrid._clear();
-                    this._icTransItemGrid._clear();
+                    switch (this._transControlType)
+                    {
+                        case _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ:
+                            {
+                                if (_g.g._companyProfile._change_customer_not_clear_detail)
+                                {
+                                    this._icTransRef._transGrid._clear();
+                                }
+                                else
+                                {
+                                    this._icTransRef._transGrid._clear();
+                                    this._icTransItemGrid._clear();
+                                }
+                            }
+                            break;
+                    }
                 }
 
                 switch (this._transControlType)
@@ -2294,30 +2308,30 @@ namespace SMLInventoryControl
             //if ((MyLib._myGlobal._OEMVersion.Equals("SINGHA") || _g.g._companyProfile._branchStatus == 1) && this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
             //{
 
-                //if (name.Equals(_g.d.ic_trans._wh_to))
-                //{
-                //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_to);
-                //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+            //if (name.Equals(_g.d.ic_trans._wh_to))
+            //{
+            //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_to);
+            //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-                //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
-                //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
-                //    {
-                //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code_to, __getBranchTable.Rows[0][0].ToString());
-                //    }
+            //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
+            //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
+            //    {
+            //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code_to, __getBranchTable.Rows[0][0].ToString());
+            //    }
 
-                //}
-                //else if (name.Equals(_g.d.ic_trans._wh_from))
-                //{
-                //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from);
-                //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+            //}
+            //else if (name.Equals(_g.d.ic_trans._wh_from))
+            //{
+            //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from);
+            //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-                //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
-                //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
-                //    {
-                //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code, __getBranchTable.Rows[0][0].ToString());
-                //    }
+            //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
+            //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
+            //    {
+            //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code, __getBranchTable.Rows[0][0].ToString());
+            //    }
 
-                //}
+            //}
 
             //}
 
@@ -7561,7 +7575,7 @@ namespace SMLInventoryControl
             this._icTransScreenTop._clear();
             this._icTransItemGrid._clear();
             this._icTransItemGrid.AddRow = true;
-          //  this._icTransItemGrid
+            //  this._icTransItemGrid
             this._icTransItemGrid._lastApprovePrice = "";
 
             this._icTransScreenBottom._clear();
@@ -11535,7 +11549,7 @@ namespace SMLInventoryControl
 
                         if (this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
                         {
-                            for(int __rowDetail = 0; __rowDetail < this._glDetail._glDetailGrid._rowData.Count; __rowDetail++ )
+                            for (int __rowDetail = 0; __rowDetail < this._glDetail._glDetailGrid._rowData.Count; __rowDetail++)
                             {
                                 // กลับข้าง  
                                 decimal __debitAmount = (decimal)this._glDetail._glDetailGrid._cellGet(__rowDetail, _g.d.gl_journal._debit);

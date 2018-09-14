@@ -198,7 +198,8 @@ namespace SMLAccount
                         if (__indexMatch.Equals(__newIndex) == false)
                         {
                             __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "ALTER TABLE public.gl_journal DROP CONSTRAINT gl_journal_pk_code");
-                            __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
+                            __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "ALTER TABLE  gl_journal ADD CONSTRAINT gl_journal_pk_code   PRIMARY KEY(doc_date, book_code, doc_no, trans_flag)");
+                            //__myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, __newIndex);
                         }
                     }
 

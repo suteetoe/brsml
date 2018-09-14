@@ -3901,6 +3901,7 @@ namespace SMLInventoryControl
                 //
                 string __querySearchDocRef = "select " + _g.d.ic_trans._doc_date + "," + _g.d.ic_trans._last_status + "," + _g.d.ic_trans._doc_success + " from " + _g.d.ic_trans._table + " where " + MyLib._myGlobal._addUpper(_g.d.ic_trans._doc_no) + "=\'" + this._getDataStr(_g.d.ic_trans._doc_ref).ToUpper() + "\'";
                 //
+               
                 switch (this._icTransControlType)
                 {
                     case _g.g._transControlTypeEnum.ขาย_เสนอราคา_อนุมัติ:
@@ -4236,6 +4237,14 @@ namespace SMLInventoryControl
                 int __tableCountLocationTo = __tableCount;
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ic_shelf._name_1 + " from " + _g.d.ic_shelf._table + " where " + MyLib._myGlobal._addUpper(_g.d.ic_shelf._whcode) + "=\'" + this._getDataStr(_g.d.ic_trans._wh_to).ToUpper() + "\' and " + MyLib._myGlobal._addUpper(_g.d.ic_shelf._code) + "=\'" + this._getDataStr(_g.d.ic_trans._location_to).ToUpper() + "\'"));
                 __tableCount++;
+                // ลูกหนี้
+                int __tableCountAr = __tableCount;
+                __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select " + _g.d.ar_customer._name_1 + " from " + _g.d.ar_customer._table + " where " + MyLib._myGlobal._addUpper(_g.d.ar_customer._code) + "=\'" + this._getDataStr(_g.d.ic_trans._cust_code).ToUpper() + "\'"));
+                __tableCount++;
+
+
+               // string __querySearcAr = "select " + _g.d.ar_customer._name_1 + " from " + _g.d.ar_customer._table + " where " + MyLib._myGlobal._addUpper(_g.d.ar_customer._code) + "=\'" + this._getDataStr(_g.d.ic_trans._ar_code).ToUpper() + "\'";
+                //
                 //
                 __myquery.Append("</node>");
                 //
@@ -4258,6 +4267,13 @@ namespace SMLInventoryControl
                     case _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต็อก:
                     case _g.g._transControlTypeEnum.สินค้า_ปรับปรุงสต๊อก_ขาด:
                     case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
+                        _searchAndWarning(_g.d.ic_trans._wh_from, (DataSet)_getData[__tableCountWareHouse], warning);
+                        _searchAndWarning(_g.d.ic_trans._location_from, (DataSet)_getData[__tableCountLocation], warning);
+                        if (MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
+                        {
+                            _searchAndWarning(_g.d.ic_trans._cust_code, (DataSet)_getData[__tableCountAr], warning);
+                        }
+                        break;
                     case _g.g._transControlTypeEnum.สินค้า_ขอเบิกสินค้าวัตถุดิบ:
                     case _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ:
                     case _g.g._transControlTypeEnum.สินค้า_ตรวจนับสินค้า:
