@@ -2305,35 +2305,35 @@ namespace SMLInventoryControl
                 this._setDefaultDate();
             }
 
-            //if ((MyLib._myGlobal._OEMVersion.Equals("SINGHA") || _g.g._companyProfile._branchStatus == 1) && this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
-            //{
+            if ((MyLib._myGlobal._OEMVersion.Equals("SINGHA") || _g.g._companyProfile._branchStatus == 1) && this._transControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+            {
 
-            //if (name.Equals(_g.d.ic_trans._wh_to))
-            //{
-            //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_to);
-            //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                if (name.Equals(_g.d.ic_trans._wh_to))
+                {
+                    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_to);
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-            //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
-            //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
-            //    {
-            //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code_to, __getBranchTable.Rows[0][0].ToString());
-            //    }
+                    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
+                    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
+                    {
+                        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code_to, __getBranchTable.Rows[0][0].ToString());
+                    }
 
-            //}
-            //else if (name.Equals(_g.d.ic_trans._wh_from))
-            //{
-            //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from);
-            //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                }
+                //else if (name.Equals(_g.d.ic_trans._wh_from))
+                //{
+                //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from);
+                //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-            //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
-            //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
-            //    {
-            //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code, __getBranchTable.Rows[0][0].ToString());
-            //    }
+                //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
+                //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
+                //    {
+                //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code, __getBranchTable.Rows[0][0].ToString());
+                //    }
 
-            //}
+                //}
 
-            //}
+            }
 
             if (MyLib._myGlobal._OEMVersion.Equals("SINGHA") && _g.g._companyProfile._tax_from_invoice &&
                (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ ||
@@ -2816,6 +2816,9 @@ namespace SMLInventoryControl
 
                 }
 
+                if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ && _g.g._companyProfile._print_invoice_one_time == false) {
+                    __pass = true;
+                }
                 if (__pass)
                 {
                     List<SMLERPReportTool._ReportToolCondition> __condition = new List<SMLERPReportTool._ReportToolCondition>();
@@ -5597,6 +5600,11 @@ namespace SMLInventoryControl
                                 __isPrint = false;
                             }
                         }
+                    }
+
+                    if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ && _g.g._companyProfile._print_invoice_one_time == false)
+                    {
+                        __isPrint = true;
                     }
 
                     if (__isPrint)

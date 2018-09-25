@@ -1366,7 +1366,7 @@ namespace SMLERPControl._customer
                 if (result.Length != 0)
                 {
                     this._search_data_full.Visible = false;
-                    if (this._searchName == "ar_shoptype1_code" || this._searchName == "ar_shoptype2_code" || this._searchName == "ar_shoptype3_code" || this._searchName == "ar_shoptype4_code" || this._searchName == "ar_shoptype5_code" || this._searchName == "ar_shoptype6_code" || this._searchName == "ar_shoptype4_code" || this._searchName == "sub_ar_shoptype5_code") {
+                    if (this._searchName == "ar_shoptype1_code" || this._searchName == "ar_shoptype2_code" || this._searchName == "ar_shoptype3_code" || this._searchName == "ar_shoptype4_code" || this._searchName == "ar_shoptype5_code" || this._searchName == "ar_shoptype6_code" || this._searchName == "ar_shoptype7_code" || this._searchName == "sub_ar_shoptype5_code") {
                         this._searchName = "ar_customer_detail." + this._searchName;
                     }
                     this._setDataStr(_searchName, result, "", false);

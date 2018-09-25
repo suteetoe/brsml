@@ -592,7 +592,14 @@ namespace SMLERPControl._customer
                         this._screen_customer.Enabled = true;
                     }
                     else {
-                        this._screen_customer.Enabled = false;
+                        if (_g.g._companyProfile._check_edit_project)
+                        {
+                            this._screen_customer.Enabled = false;
+                        }
+                        else
+                        {
+                            this._screen_customer.Enabled = true;
+                        }
                     }
                     //this._screen_customer._setDataDate(_g.d.ar_customer_detail._arm_approve_date, MyLib._myGlobal._convertDateFromQuery(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._arm_approve_date].ToString()));
                     this._screen_customer._setComboBox(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_code_name, MyLib._myGlobal._intPhase(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_project_code_name].ToString()));

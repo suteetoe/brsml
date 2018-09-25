@@ -208,6 +208,14 @@ namespace SMLAccount
                     {
                         __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "DROP INDEX pk_order_cart_branch_code");
                     }
+
+                    __result = __myFremeWork._queryShort("SELECT * FROM information_schema.columns WHERE table_name = 'ar_customer_detail' and column_name = 'ar_shoptype6_code' and character_maximum_length < 25").Tables[0];
+                    if (__result.Rows.Count > 0)
+                    {
+                        __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "ALTER TABLE ar_customer_detail ALTER COLUMN ar_shoptype6_code TYPE VARCHAR(25);");
+                        __myFremeWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "ALTER TABLE ar_customer_detail ALTER COLUMN ar_shoptype7_code TYPE VARCHAR(25);");
+                    }
+
                 }
             }
 

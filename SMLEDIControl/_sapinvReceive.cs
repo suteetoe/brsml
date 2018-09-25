@@ -357,10 +357,11 @@ namespace SMLEDIControl
                 {
                     _data = "{\"P_agentcode\":\"" + _agentCode + "\",\"P_start_date\":\"" + _g.g._companyProfile._begin_date_import_inv.ToString() + "\",\"P_end_date\":\"" + _g.g._companyProfile._end_date_import_inv.ToString() + "\"}";
                 }
-                else {
-                     _data = "{\"P_agentcode\":\"" + _agentCode + "\"}";
+                else
+                {
+                    _data = "{\"P_agentcode\":\"" + _agentCode + "\"}";
                 }
-             
+
                 MyLib._restClient __rest = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLHeaderBill", HttpVerb.POST, _data);
                 __rest._setContentType("application/json");
                 __rest._addHeaderRequest(string.Format("APIKey: {0}", "api_sml"));
@@ -473,7 +474,16 @@ namespace SMLEDIControl
                     if (MessageBox.Show("ต้องการนำเข้าข้อมูลที่ได้เลือกไว้หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         StringBuilder __log = new StringBuilder();
+                        //หาสาขาตามรูปแบบเอกสาร
+                        string sql_branch_list = "select branch_list from erp_doc_format where code = '" + this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString() + "'";
+                        string branch_code = "";
+                        MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                        DataSet __result_branch_code = __myFrameWork._queryShort(sql_branch_list);
 
+                        if (__result_branch_code.Tables.Count > 0 && __result_branch_code.Tables[0].Rows.Count > 0)
+                        {
+                            branch_code = __result_branch_code.Tables[0].Rows[0][_g.d.erp_doc_format._branch_list].ToString();
+                        }
 
                         for (int __row = 0; __row < this._docGrid._rowData.Count; __row++)
                         {
@@ -528,6 +538,7 @@ namespace SMLEDIControl
                                         __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
                                         __transdatasap.inquiry_type = 0;
                                         __transdatasap.vat_type = 0;
+                                        __transdatasap.branch_code = branch_code;
                                         __transdatasap.check();
 
 
@@ -538,7 +549,7 @@ namespace SMLEDIControl
                                         //transdatasap dataTrans = (transdatasap)__transdatasap._getJson();
                                         // MessageBox.Show(dataTrans._getJson());
                                         String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdatasap._queryInsert() + "</node>";
-                                        MyLib._myFrameWork __myFrameWork = new _myFrameWork();
+                                        //MyLib._myFrameWork __myFrameWork = new _myFrameWork();
                                         string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
 
                                         if (__result.Length == 0)

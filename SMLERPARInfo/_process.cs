@@ -692,7 +692,7 @@ namespace SMLERPARAPInfo
                         __debitTransFlag2.Append("(" + _g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ส่งคืนสินค้าลดหนี้ราคาผิด).ToString() + " and " + _g.d.ic_trans._inquiry_type + " in (0,1)) or ");
                         __debitTransFlag2.Append("(" + _g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_พาเชียล_ลดหนี้).ToString() + " and " + _g.d.ic_trans._inquiry_type + " in (0,1)) or ");
                         __debitTransFlag2.Append(_g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้ยกมา).ToString() + " or ");
-                        __debitTransFlag2.Append(_g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้).ToString() + " or ");
+                        __debitTransFlag2.Append("(" + _g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เงินสดธนาคาร_รายจ่ายอื่น_ลดหนี้).ToString() + " and " + _g.d.ic_trans._inquiry_type + "=0) or ");
                         __debitTransFlag2.Append(_g.d.ic_trans._trans_flag + "=" + _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เจ้าหนี้_ลดหนี้อื่น).ToString());
                         __payFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.เจ้าหนี้_จ่ายชำระหนี้).ToString();
                         break;

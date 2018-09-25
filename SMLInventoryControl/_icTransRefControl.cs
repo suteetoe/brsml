@@ -1295,7 +1295,11 @@ namespace SMLInventoryControl
                         case 1: // ซื้อ
                             __templateName = _g.g._transGlobalTemplate._transTemplate(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ);
                             __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ);
-                            __extraWhere = " and not exists (select doc_no from ic_trans_detail where ic_trans_detail.trans_flag= 72 and ic_trans_detail.ref_doc_no = ic_trans.doc_no and ic_trans_detail.doc_ref_type = 1 )";
+                            string __wheredoc_date = "";
+                            if (_g.g._companyProfile._begin_date_import_inv.ToString() !="") {
+                                __wheredoc_date = " and ic_trans.doc_date >'" + _g.g._companyProfile._begin_date_import_inv.ToString() + "'";
+                            }
+                            __extraWhere = __wheredoc_date + " and not exists (select doc_no from ic_trans_detail where ic_trans_detail.trans_flag= 72 and ic_trans_detail.ref_doc_no = ic_trans.doc_no and ic_trans_detail.doc_ref_type = 1 )";
                             break;
                     }
 

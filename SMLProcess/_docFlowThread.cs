@@ -1685,7 +1685,7 @@ namespace SMLProcess
                                 break;
                             case _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ:
                                 __queryDocCancelCount = "(select count(doc_no) from ( select doc_no from ic_trans as doc_cancel where doc_cancel.trans_flag = 13 and doc_cancel.doc_ref = ic_trans.doc_no union all select doc_no from ic_trans as doc_cancel2 where doc_cancel2.trans_flag = 12 and doc_cancel2.is_cancel = 1 and doc_cancel2.doc_no =  ic_trans.doc_no ) as doc_cancel_temp ) ";
-                                __queryDocRefCount = "(select count(ref_doc_no) from ic_trans_detail as doc_ref where doc_ref.ref_doc_no = ic_trans.doc_no and doc_ref.trans_flag in (14,16) and doc_ref.last_status=0 )";
+                                __queryDocRefCount = "(select count(ref_doc_no) from ic_trans_detail as doc_ref where doc_ref.ref_doc_no = ic_trans.doc_no and doc_ref.trans_flag in (14,16,70) and doc_ref.last_status=0 )";
                                 __queryDocRefCount2 = "(select count(billing_no) from ap_ar_trans_detail as doc_ref where doc_ref.billing_no = ic_trans.doc_no and doc_ref.bill_type = ic_trans.trans_flag and doc_ref.last_status=0 )";
 
                                 __queryDocRefForNextProcess = "select billing_no from ap_ar_trans_detail as doc_ref where doc_ref.doc_no = \'" + __docNo + "\' and doc_ref.last_status=0";

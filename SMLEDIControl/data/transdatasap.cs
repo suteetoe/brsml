@@ -41,6 +41,8 @@ namespace SMLEDIControl
 
         public int vat_type { get; set; }
         public int inquiry_type { get; set; }
+        public string branch_code { get; set; }
+        
 
         //edi
         //tran
@@ -238,6 +240,11 @@ namespace SMLEDIControl
 
         public string _queryInsert()
         {
+
+           
+
+
+
             StringBuilder sqlTrans = new StringBuilder();
             sqlTrans.Append(
                 "INSERT INTO ic_trans(creator_code, trans_flag, trans_type" +
@@ -318,7 +325,7 @@ namespace SMLEDIControl
                  , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
                  0, doc_time, tax_doc_date, tax_doc_no
                  , inquiry_type, vat_type, doc_format_code
-                 , wh_from, location_from, "", "", 0
+                 , wh_from, location_from, branch_code, "", 0
                  , BILLINGDOCNO, "null", MyLib._myGlobal._branchCode, 0, credit_day
                  , ((credit_date.Length > 0) ? "\'" + credit_date + "\'" : "null"), remark
                  )));
