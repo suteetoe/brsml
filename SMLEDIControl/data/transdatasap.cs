@@ -98,8 +98,8 @@ namespace SMLEDIControl
             //this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
             //this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
 
-            this.doc_date = this.tax_doc_date;
-            this.doc_time = "06.00";
+            //this.doc_date = this.tax_doc_date;
+            this.doc_time = "06:00";
             this.doc_no = this.Agentcode + "-" + this.BILLINGDOCNO;
             this.cust_code = this.ap_code;
             this.total_discount = ((this.total_discount != null) ? this.total_discount : "0");
@@ -360,7 +360,7 @@ namespace SMLEDIControl
             //gl
             __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlgj.ToString()
             , this.doc_date, this.doc_no, this.cust_code, this.tax_doc_date, this.tax_doc_no
-            , vat_effective_period, this.tax_doc_date.ToString().Substring(0, 4), this.total_before_vat, this.vat_rate, this.total_vat_value
+            , vat_effective_period, MyLib._myGlobal._intPhase(this.tax_doc_date.ToString().Substring(0, 4))+543, this.total_before_vat, this.vat_rate, this.total_vat_value
             , this.total_after_vat, this.total_except_vat, "0", this.vat_type, "0", "0", "0"
             )));
 

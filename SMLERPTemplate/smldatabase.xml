@@ -1948,8 +1948,8 @@
 <field name="tier_4" thai="Diamond" eng="Diamond" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="ar_customer_channel" thai="Customer Channel" eng="Customer Channel" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="ar_project_code_name" thai="โครงการ" eng="" type="smallint" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="ar_shoptype6_code" thai="Modern Trade" eng="" type="char" length="0" indentity="no" allow_null="true" resource_only="false"></field>
-<field name="ar_shoptype7_code" thai="อื่นๆ" eng="" type="char" length="0" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype6_code" thai="Modern Trade" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
+<field name="ar_shoptype7_code" thai="อื่นๆ" eng="" type="varchar" length="25" indentity="no" allow_null="true" resource_only="false"></field>
 <index index_name="ar_customer_detail_PK_CODE" field="ar_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="ar_contactor" thai="ผู้ติดต่อ (ลูกหนี้)" eng="Contactor" xversion="SMLERP" >
@@ -3386,17 +3386,17 @@
 <table name="gl_chart_of_account_project_list" thai="ผังบัญชีแยกตามโครงการ" eng="Account Project list" xversion="SMLGL+SMLERP" >
 <field name="account_code" thai="รหัสผังบัญชี" eng="Account code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
 <field name="project_code" thai="รหัสโครงการ" eng="Project code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
-<index index_name="gl_chart_of_account_project_list__pk" field="account_code"  custer="true"  unique="true" ></index>
+<index index_name="gl_chart_of_account_project_list__pk" field="account_code,project_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="gl_chart_of_account_allocate_list" thai="ผังบัญชีแยกตามการจัดสรร" eng="Account Allocate list" xversion="SMLGL+SMLERP" >
 <field name="account_code" thai="รหัสผังบัญชี" eng="Account code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
 <field name="allocate_code" thai="รหัสการจัดสรร" eng="Allocate code" type="varchar" length="10" indentity="no" allow_null="false" resource_only="false"></field>
-<index index_name="gl_chart_of_account_allocate_list__pk" field="account_code"  custer="true"  unique="true" ></index>
+<index index_name="gl_chart_of_account_allocate_list__pk" field="account_code,allocate_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="gl_chart_of_account_job_list" thai="ผังบัญชีแยกตามงาน" eng="Account Job list" xversion="SMLGL+SMLERP" >
 <field name="account_code" thai="รหัสผังบัญชี" eng="Account code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
 <field name="job_code" thai="รหัสงาน" eng="Job code" type="varchar" length="25" indentity="no" allow_null="false" resource_only="false"></field>
-<index index_name="gl_chart_of_account_job_list__pk" field="account_code"  custer="true"  unique="true" ></index>
+<index index_name="gl_chart_of_account_job_list__pk" field="account_code,job_code"  custer="true"  unique="true" ></index>
 </table>
 <table name="gl_journal_side_list" thai="ข้อมูลรายวันแยกหน่วยงาน" eng="Journal Side" xversion="SMLGL+SMLERP" >
 <field name="doc_date" thai="เอกสารวันที่" eng="Document Date" type="smalldatetime" length="0" indentity="no" allow_null="false" resource_only="false"></field>
@@ -3857,6 +3857,7 @@
 <field name="price_member_3" thai="ราคาสมาชิก 3" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="price_member_4" thai="ราคาสมาชิก 4" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 <field name="document_type" thai="ชนิดเอกสาร" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
+<field name="date_of_import" thai="วันที่สินเค้าเข้า" eng="" type="char" length="0" indentity="no" allow_null="false" resource_only="true"></field>
 </table>
 <table name="ic_trans" thai="รายวันทั้งหมด" eng="IC - Transection" xversion="SMLERP" >
 <field name="trans_type" thai="ประเภทรายวัน" eng="Transection Type" type="smallint" length="0" indentity="no" allow_null="false" resource_only="false"></field>

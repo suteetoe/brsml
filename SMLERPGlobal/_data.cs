@@ -15188,6 +15188,10 @@ namespace _g
             /// ชนิดเอกสาร
             /// </summary>
             public static String _document_type = "document_type";
+            /// <summary>
+            /// วันที่สินเค้าเข้า
+            /// </summary>
+            public static String _date_of_import = "date_of_import";
         }
 
         /// <summary>

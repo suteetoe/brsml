@@ -8845,7 +8845,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2469" _x="989" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2469" _x="990" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -9602,12 +9602,12 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_shoptype6_code" _description="Modern Trade" _descriptionEng="" _type="0" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_shoptype6_code" _description="Modern Trade" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="ar_shoptype7_code" _description="อื่นๆ" _descriptionEng="" _type="0" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="ar_shoptype7_code" _description="อื่นๆ" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -13857,7 +13857,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_resource" _description="รายละเอียดข้อความ" _descriptionEng="gl resource" _version="SMLGL+SMLERP" _width="360" _height="613" _x="9" _y="1306">
+    <_tableList _moduleName="GL" _name="gl_resource" _description="รายละเอียดข้อความ" _descriptionEng="gl resource" _version="SMLGL+SMLERP" _width="360" _height="613" _x="13" _y="1310">
       <_fields>
         <_fieldList _name="date_begin" _description="วันที่เริ่มต้น" _descriptionEng="Date begin" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -14136,7 +14136,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_recurring" _description="ข้อมูลไม่จำเป็น" _descriptionEng="GL Recurring" _version="SMLGL+SMLERP" _width="200" _height="69" _x="378" _y="1047">
+    <_tableList _moduleName="GL" _name="gl_recurring" _description="ข้อมูลไม่จำเป็น" _descriptionEng="GL Recurring" _version="SMLGL+SMLERP" _width="200" _height="69" _x="553" _y="1018">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -16624,7 +16624,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_project_list" _description="ผังบัญชีแยกตามโครงการ" _descriptionEng="Account Project list" _version="SMLGL+SMLERP" _width="314" _height="53" _x="11" _y="1185">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_project_list" _description="ผังบัญชีแยกตามโครงการ" _descriptionEng="Account Project list" _version="SMLGL+SMLERP" _width="314" _height="53" _x="11" _y="1185" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -16638,16 +16638,17 @@
         </_fieldList>
       </_fields>
       <_indexs>
-        <_indexs _name="_pk" _custer="1" _unique="1" _fieldsDisplay="account_code">
+        <_indexs _name="_pk" _custer="1" _unique="1" _fieldsDisplay="account_code,project_code">
           <_fields>
             <_fields>account_code</_fields>
+            <_fields>project_code</_fields>
           </_fields>
         </_indexs>
       </_indexs>
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_allocate_list" _description="ผังบัญชีแยกตามการจัดสรร" _descriptionEng="Account Allocate list" _version="SMLGL+SMLERP" _width="324" _height="53" _x="9" _y="1247">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_allocate_list" _description="ผังบัญชีแยกตามการจัดสรร" _descriptionEng="Account Allocate list" _version="SMLGL+SMLERP" _width="324" _height="53" _x="9" _y="1247" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -16661,16 +16662,17 @@
         </_fieldList>
       </_fields>
       <_indexs>
-        <_indexs _name="_pk" _custer="1" _unique="1" _fieldsDisplay="account_code">
+        <_indexs _name="_pk" _custer="1" _unique="1" _fieldsDisplay="account_code,allocate_code">
           <_fields>
             <_fields>account_code</_fields>
+            <_fields>allocate_code</_fields>
           </_fields>
         </_indexs>
       </_indexs>
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="GL" _name="gl_chart_of_account_job_list" _description="ผังบัญชีแยกตามงาน" _descriptionEng="Account Job list" _version="SMLGL+SMLERP" _width="273" _height="53" _x="11" _y="997">
+    <_tableList _moduleName="GL" _name="gl_chart_of_account_job_list" _description="ผังบัญชีแยกตามงาน" _descriptionEng="Account Job list" _version="SMLGL+SMLERP" _width="273" _height="53" _x="273" _y="1026" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="account_code" _description="รหัสผังบัญชี" _descriptionEng="Account code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -16684,9 +16686,10 @@
         </_fieldList>
       </_fields>
       <_indexs>
-        <_indexs _name="_pk" _custer="1" _unique="1" _fieldsDisplay="account_code">
+        <_indexs _name="_pk" _custer="1" _unique="1" _fieldsDisplay="account_code,job_code">
           <_fields>
             <_fields>account_code</_fields>
+            <_fields>job_code</_fields>
           </_fields>
         </_indexs>
       </_indexs>
@@ -17889,7 +17892,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC" _name="ic_resource" _description="รายละเอียดข้อความ" _descriptionEng="Inventory Resource" _version="SMLERP" _width="338" _height="3541" _x="743" _y="13" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="IC" _name="ic_resource" _description="รายละเอียดข้อความ" _descriptionEng="Inventory Resource" _version="SMLERP" _width="338" _height="3557" _x="743" _y="13" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ic_name" _description="ชื่อสินค้า" _descriptionEng="Item Name" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -18987,6 +18990,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="document_type" _description="ชนิดเอกสาร" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="date_of_import" _description="วันที่สินเค้าเข้า" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>

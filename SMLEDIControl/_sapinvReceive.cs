@@ -30,6 +30,13 @@ namespace SMLEDIControl
         int _search_data_full_buffer_addr = -1;
         string _searchName = "";
 
+        delegate void _resetDocdate();
+        event _resetDocdate reset;
+
+        string _doc_formate = "";
+        string _wh_from = "";
+        string _location_from = "";
+
         TextBox _searchTextBox;
         ArrayList _searchScreenMasterList = new ArrayList();
         SMLERPGlobal._searchProperties _searchScreenProperties = new SMLERPGlobal._searchProperties();
@@ -39,6 +46,7 @@ namespace SMLEDIControl
         public _sapinvReceive()
         {
             InitializeComponent();
+            this.reset += _resetdocdate;
             this._docGrid._table_name = _g.d.ic_trans._table;
             this._docGrid._addColumn("select", 11, 10, 10);
             this._docGrid._isEdit = false;
@@ -59,14 +67,22 @@ namespace SMLEDIControl
             this._icTransScreenTopControl1._addTextBox(1, 0, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 1, true, false, false);
             this._icTransScreenTopControl1._addTextBox(1, 1, 1, 0, _g.d.ic_trans._wh_from, 1, 1, 0, true, false, false);
             this._icTransScreenTopControl1._addTextBox(1, 2, 1, 0, _g.d.ic_trans._location_from, 1, 1, 0, true, false, false);
+            this._icTransScreenTopControl1._table_name = _g.d.ic_resource._table;
+            this._icTransScreenTopControl1._addDateBox(1, 3, 1, 0, _g.d.ic_trans._doc_date, 1,true,false,false,_g.d.ic_resource._date_of_import);
             this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._wh_from, _g.g._companyProfile._warehouse_on_the_way.ToString(), "", true);
             this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._location_from, _g.g._companyProfile._shelf_on_the_way.ToString(), "", true);
             this._icTransScreenTopControl1._getControl(_g.d.ic_trans._wh_from).Enabled = false;
             this._icTransScreenTopControl1._getControl(_g.d.ic_trans._location_from).Enabled = false;
+            this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.Panel2.Hide();
 
             this.Load += _singhaOnlineOrderImport_Load;
+        }
+
+        internal void _resetdocdate()
+        {
+            this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
         }
 
         MyLib.BeforeDisplayRowReturn _gridData__beforeDisplayRow(MyLib._myGrid sender, int row, int columnNumber, string columnName, MyLib.BeforeDisplayRowReturn senderRow, MyLib._myGrid._columnType columnType, ArrayList rowData)
@@ -349,7 +365,7 @@ namespace SMLEDIControl
         {
             try
             {
-
+            
                 this._docGrid._clear();
                 WebClient __n = new WebClient();
                 string _data = "";
@@ -449,16 +465,22 @@ namespace SMLEDIControl
 
         private void _reloadButton_Click(object sender, EventArgs e)
         {
+            this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
             this._getData();
         }
 
         private void _importButton_Click(object sender, EventArgs e)
         {
+            this._doc_formate = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
+            this._wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
+            this._location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
             //this._process();
             Thread __threadProcess = new Thread(new ThreadStart(_process));
             __threadProcess.Name = "SML Thread";
             __threadProcess.IsBackground = true;
             __threadProcess.Start();
+
+            //this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
         }
 
         void _process()
@@ -533,12 +555,13 @@ namespace SMLEDIControl
                                                 __transdatasap.details.Add(__transdatadetailsap);
                                             }
                                         }
-                                        __transdatasap.doc_format_code = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString();
-                                        __transdatasap.wh_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._wh_from).ToString();
-                                        __transdatasap.location_from = this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._location_from).ToString();
+                                        __transdatasap.doc_format_code = this._doc_formate;
+                                        __transdatasap.wh_from = this._wh_from;
+                                        __transdatasap.location_from = this._location_from;
                                         __transdatasap.inquiry_type = 0;
                                         __transdatasap.vat_type = 0;
                                         __transdatasap.branch_code = branch_code;
+                                        __transdatasap.doc_date = MyLib._myGlobal._convertDateToQuery(this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_date).ToString());
                                         __transdatasap.check();
 
 
@@ -581,7 +604,9 @@ namespace SMLEDIControl
                         else
                         {
                             MessageBox.Show("นำเข้าข้อมูลสำเร็จแล้ว", "นำเข้าข้อมูลเรียบร้อยแล้ว", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            this.Invoke(reset, new object[] {  });
                         }
+
                         this._getData();
                     }
                 }

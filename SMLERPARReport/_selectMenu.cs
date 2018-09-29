@@ -68,6 +68,13 @@ namespace SMLERPARReport
                 //case "menu_ar_report_receipt_daily": return new SMLERPARAPReport.report._receipt_daily();//รายงานการรับเงินประจำวัน 
                     //toe
                 case "menu_report_point_balance": return new SMLERPARReport.report._ar_report(SMLERPReportTool._reportEnum.ลูกหนี้_แต้มคงเหลือ, screenName);
+                case "menu_ar_documents_early_year_other": return new SMLERPReportTool._reportTrans(SMLERPReportTool._reportEnum.ลูกหนี้_ตั้งหนี้อื่น, _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้อื่น, screenName);
+                case "menu_report_ar_increase_debt_other": return new SMLERPReportTool._reportTrans(SMLERPReportTool._reportEnum.ลูกหนี้_เพิ่มหนี้อื่น, _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น, screenName);
+                case "menu_ar_reduction_dept_other": return new SMLERPReportTool._reportTrans(SMLERPReportTool._reportEnum.ลูกหนี้_ลดหนี้อื่น, _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น, screenName);
+
+                case "menu_ar_cancel_documents_early_year_other": return new SMLERPReportTool._reportTrans(SMLERPReportTool._reportEnum.ลูกหนี้_ตั้งหนี้อื่น_ยกเลิก, _g.g._transControlTypeEnum.ลูกหนี้_ตั้งหนี้อื่น_ยกเลิก, screenName);
+                case "menu_ar_cancel_increase_debt_other": return new SMLERPReportTool._reportTrans(SMLERPReportTool._reportEnum.ลูกหนี้_เพิ่มหนี้อื่น_ยกเลิก, _g.g._transControlTypeEnum.ลูกหนี้_เพิ่มหนี้อื่น_ยกเลิก, screenName);
+                case "menu_ar_cancel_reduction_dept_other": return new SMLERPReportTool._reportTrans(SMLERPReportTool._reportEnum.ลูกหนี้_ลดหนี้อื่น_ยกเลิก, _g.g._transControlTypeEnum.ลูกหนี้_ลดหนี้อื่น_ยกเลิก, screenName);
             }
             return null;
         }

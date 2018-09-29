@@ -2512,7 +2512,7 @@ namespace SMLInventoryControl
                                     _searchScreenMasterList.Add(_g.g._search_master_ic_warehouse);
                                     _searchScreenMasterList.Add(_g.d.ic_warehouse._table);
 
-                                    if (_g.g._companyProfile._branchStatus == 1)
+                                    if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
                                     {
                                         if (this._getBranchCode != null)
                                         {
@@ -2529,16 +2529,20 @@ namespace SMLInventoryControl
                                     if (_g.g._companyProfile._perm_wh_shelf)
                                     {
                                         string __screen_type = "";
-                                        string __and = "";
                                         string __getBranchSelect = this._getBranchCode();
                                         //__screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "IM" + "\' ";
                                         if (__extraWhere.Length > 0)
                                         {
-                                            __and = "and ";
+                                            __extraWhere += "and exists ( " +
+                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
                                         }
-                                        __extraWhere = __and + " exists ( " +
-                                " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
-                               " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
+                                        else {
+                                            __extraWhere =   " exists ( " +
+                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
+                                        }
+                          
                                     }
                                 }
                                 else
@@ -2592,11 +2596,16 @@ namespace SMLInventoryControl
                                         //__screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "IM" + "\' ";
                                         if (__extraWhere.Length > 0)
                                         {
-                                            __and = "and ";
+                                            __extraWhere += "and exists ( " +
+                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
                                         }
-                                        __extraWhere = __and + " exists ( " +
-                                        " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
-                                        " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
+                                        else
+                                        {
+                                            __extraWhere = " exists ( " +
+                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
+                                        }
                                     }
                                 }
                                 else
