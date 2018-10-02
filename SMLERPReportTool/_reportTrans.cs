@@ -810,6 +810,9 @@ namespace SMLERPReportTool
                 case _reportEnum.เจ้าหนี้_ตั้งหนี้อื่น:
                 case _reportEnum.เจ้าหนี้_เพิ่มหนี้อื่น:
                 case _reportEnum.เจ้าหนี้_ลดหนี้อื่น:
+                case _reportEnum.ลูกหนี้_ตั้งหนี้อื่น:
+                case _reportEnum.ลูกหนี้_เพิ่มหนี้อื่น:
+                case _reportEnum.ลูกหนี้_ลดหนี้อื่น:
                     {
                         string __custCodeField = "";
                         string __custNameField = "";
@@ -1225,6 +1228,9 @@ namespace SMLERPReportTool
                 case _reportEnum.เจ้าหนี้_ตั้งหนี้อื่น_ยกเลิก:
                 case _reportEnum.เจ้าหนี้_เพิ่มหนี้อื่น_ยกเลิก:
                 case _reportEnum.เจ้าหนี้_ลดหนี้อื่น_ยกเลิก:
+                case _reportEnum.ลูกหนี้_ตั้งหนี้อื่น_ยกเลิก:
+                case _reportEnum.ลูกหนี้_เพิ่มหนี้อื่น_ยกเลิก:
+                case _reportEnum.ลูกหนี้_ลดหนี้อื่น_ยกเลิก:
                     columnList.Add(new SMLReport._generateColumnListClass(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_date, null, 10, SMLReport._report._cellType.DateTime, 0, __fontStyle));
                     columnList.Add(new SMLReport._generateColumnListClass(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_no, null, 20, SMLReport._report._cellType.String, 0, __fontStyle));
                     columnList.Add(new SMLReport._generateColumnListClass(_g.d.ic_trans._table + "." + _g.d.ic_trans._doc_ref_date, null, 10, SMLReport._report._cellType.DateTime, 0, __fontStyle));
@@ -1681,6 +1687,9 @@ namespace SMLERPReportTool
                         case _reportEnum.ลูกหนี้_เพิ่มหนี้ยกมา:
                         case _reportEnum.ลูกหนี้_ลดหนี้ยกมา:
                         case _reportEnum.เจ้าหนี้_ตั้งหนี้ยกมา:
+                        case _reportEnum.ลูกหนี้_ตั้งหนี้อื่น:
+                        case _reportEnum.ลูกหนี้_เพิ่มหนี้อื่น:
+                        case _reportEnum.ลูกหนี้_ลดหนี้อื่น:
                         case _reportEnum.เจ้าหนี้_เพิ่มหนี้ยกมา:
                         case _reportEnum.เจ้าหนี้_ลดหนี้ยกมา:
                         case _reportEnum.เจ้าหนี้_ตั้งหนี้อื่น:

@@ -1411,6 +1411,14 @@ namespace SMLERPReportTool
                     this._addDateBox(0, 0, 1, 0, _g.d.resource_report._from_date, 1, true, true);
                     this._addDateBox(0, 1, 1, 0, _g.d.resource_report._to_date, 1, true, true);
                     break;
+                case _reportEnum.ลูกหนี้_ตั้งหนี้อื่น:
+                case _reportEnum.ลูกหนี้_เพิ่มหนี้อื่น:
+                case _reportEnum.ลูกหนี้_ลดหนี้อื่น:
+                    this._maxColumn = 2;
+                    this._addDateBox(0, 0, 1, 0, _g.d.resource_report._from_date, 1, true, true);
+                    this._addDateBox(0, 1, 1, 0, _g.d.resource_report._to_date, 1, true, true);
+                    this._addCheckBox(1, 0, _g.d.resource_report._show_cancel_document, false, true, false);
+                    break;
                 case _reportEnum.ลูกหนี้_รับชำระหนี้:
                 case _reportEnum.ลูกหนี้_รับวางบิล:
                 case _reportEnum.เจ้าหนี้_จ่ายชำระหนี้:
@@ -1449,6 +1457,10 @@ namespace SMLERPReportTool
                     }
 
                     break;
+                case _reportEnum.ลูกหนี้_ตั้งหนี้อื่น_ยกเลิก:
+                case _reportEnum.ลูกหนี้_เพิ่มหนี้อื่น_ยกเลิก:
+                case _reportEnum.ลูกหนี้_ลดหนี้อื่น_ยกเลิก:
+
                 case _reportEnum.ลูกหนี้_รับวางบิล_ยกเลิก:
                 case _reportEnum.ลูกหนี้_รับชำระหนี้_ยกเลิก:
                     {
