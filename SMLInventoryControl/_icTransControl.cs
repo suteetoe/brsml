@@ -1343,7 +1343,7 @@ namespace SMLInventoryControl
                             if (__unitType == 1)
                             {
                                 // หลายหน่วยนับ
-                                ///string __queryPacking = "select " + MyLib._myGlobal._fieldAndComma(_g.d.ic_unit_use._code, String.Format(__queryUnit, _g.d.ic_unit_use._table + "." + _g.d.ic_unit_use._code) + " as " + _g.d.ic_unit_use._name_1, _g.d.ic_unit_use._row_order, _g.d.ic_unit_use._stand_value, _g.d.ic_unit_use._divide_value) + " from " + _g.d.ic_unit_use._table + " where " + _g.d.ic_unit_use._status + "=1 and " + _g.d.ic_unit_use._ic_code + "=\'" + __itemCode + "\' order by " + _g.d.ic_unit_use._ratio;
+                                ///string __queryPacking = "select " + MyLib._myGlobal._fieldAndComma(_g.d.ic_unit_use._code, String.Format(__queryUnit, _g.d.ic_unit_use._table + "." + _g.d.ic_unit_usหหหหหหหฟe._code) + " as " + _g.d.ic_unit_use._name_1, _g.d.ic_unit_use._row_order, _g.d.ic_unit_use._stand_value, _g.d.ic_unit_use._divide_value) + " from " + _g.d.ic_unit_use._table + " where " + _g.d.ic_unit_use._status + "=1 and " + _g.d.ic_unit_use._ic_code + "=\'" + __itemCode + "\' order by " + _g.d.ic_unit_use._ratio;
                                 DataTable __dtPacking = ((DataSet)__getData[1]).Tables[0]; //__myFrameWork._queryShort(__queryPacking).Tables[0];
                                 if (__dtPacking.Rows.Count > 0)
                                 {
@@ -2816,7 +2816,7 @@ namespace SMLInventoryControl
 
                 }
 
-                if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ && _g.g._companyProfile._print_invoice_one_time == false) {
+                if ((this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ || this._transControlType == _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ) && _g.g._companyProfile._print_invoice_one_time == false) {
                     __pass = true;
                 }
                 if (__pass)
@@ -5602,7 +5602,7 @@ namespace SMLInventoryControl
                         }
                     }
 
-                    if (this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ && _g.g._companyProfile._print_invoice_one_time == false)
+                    if ((this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ || this._transControlType == _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ) && _g.g._companyProfile._print_invoice_one_time == false)
                     {
                         __isPrint = true;
                     }

@@ -47,6 +47,7 @@ namespace SMLInventoryControl
         public void _newData()
         {
             this._setDataStr(_g.d.ic_trans._branch_code, MyLib._myGlobal._branchCode, "", true);
+            this._setDataStr(_g.d.ic_trans._branch_code_to, MyLib._myGlobal._branchCode, "", true);
             this._setDataStr(_g.d.ic_trans._cashier_code, MyLib._myGlobal._userCode, "", true);
         }
 

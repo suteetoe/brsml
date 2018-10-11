@@ -7,6 +7,7 @@ using System.Data;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace SMLERPGL
 {
@@ -31,7 +32,12 @@ namespace SMLERPGL
         SMLERPGLControl._withHoldingTax _whtIn;
         SMLERPGLControl._withHoldingTax _whtOut;
 
+
         private int _oldTransFlag = 0;
+        private string _logDocDateOld;
+        private string _logDocNoOld;
+        private decimal _logAmountOld;
+        private StringBuilder _logDetailOld;
 
         public _journalEntryAccount()
         {
@@ -158,6 +164,10 @@ namespace SMLERPGL
                 this._tab.ResumeLayout(false);
                 this.ResumeLayout(false);
             }
+
+            this._logDetailOld = new StringBuilder();
+            this._logDocNoOld = "";
+            this._logDocDateOld = "";
         }
 
         void _glDetailGrid__afterAddRow(object sender, int row)
@@ -287,6 +297,68 @@ namespace SMLERPGL
             int __getInt = (int)sender._cellGet(row, sender._rowNumberName);
             return (string.Concat(sender._rowNumberName, "=", __getInt.ToString()));
         }
+
+
+        private string _createLog(int mode)
+        {
+            int __columnDebit = this._glDetail1._glDetailGrid._findColumnByName(_g.d.gl_journal_detail._debit);
+
+            string __docDate = (mode == 3) ? "\'\'" : this._screenTop._getDataStrQuery(_g.d.gl_journal._doc_date);
+            string __docNo = (mode == 3) ? "\'\'" : this._screenTop._getDataStrQuery(_g.d.gl_journal._doc_no);
+            decimal __amount = (mode == 3) ? 0M : this._screenTop._getDataNumber(_g.d.gl_journal._debit);
+            if (__columnDebit != -1)
+                __amount = ((MyLib._myGrid._columnType)this._glDetail1._glDetailGrid._columnList[__columnDebit])._total; // this._screenTop._getDataNumber(_g.d.gl_journal._total_amount);
+
+            string __docRef = this._screenTop._getDataStr(_g.d.gl_journal._ref_no);
+            if (mode == 1 && __docRef.Length > 0)
+            {
+                // ดึงรายการจาก doc_ref มาให้
+                String __docRefQuery = "select doc_no, " + _g.d.gl_journal._doc_date + "," + _g.d.gl_journal._debit +
+                    " from " + _g.d.gl_journal._table + " where " + _g.d.gl_journal._doc_no + "=\'" + __docRef.ToUpper() + "\'";
+                MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                DataTable __ref = __myFrameWork._queryShort(__docRefQuery).Tables[0];
+                if (__ref.Rows.Count > 0)
+                {
+                    this._logDocNoOld = "\'" + __ref.Rows[0][_g.d.gl_journal._doc_no].ToString() + "\'";
+                    this._logDocDateOld = "\'" + __ref.Rows[0][_g.d.gl_journal._doc_date].ToString() + "\'";
+                    this._logAmountOld = MyLib._myGlobal._decimalPhase(__ref.Rows[0][_g.d.gl_journal._debit].ToString());
+                }
+            }
+
+            if (this._logDocNoOld.Length == 0)
+            {
+                this._logDocNoOld = "\'\'";
+            }
+            if (this._logDocDateOld.Length == 0)
+            {
+                this._logDocDateOld = "null";
+            }
+
+            StringBuilder __logDetail = new StringBuilder();
+            __logDetail.Append(this._screenTop._logCreate("top"));
+            string __query = MyLib._myUtil._convertTextToXml("insert into " + _g.d.logs._table + " (" + _g.d.logs._function_type + "," + _g.d.logs._computer_name + "," + _g.d.logs._guid + "," +
+                _g.d.logs._doc_date + "," + _g.d.logs._doc_no + "," + _g.d.logs._doc_amount + "," +
+                _g.d.logs._doc_date_old + "," + _g.d.logs._doc_no_old + "," + _g.d.logs._doc_amount_old + "," +
+                _g.d.logs._menu_name + "," + _g.d.logs._screen_code + "," + _g.d.logs._function_code + "," + _g.d.logs._user_code + "," +
+                _g.d.logs._date_time + "," + _g.d.logs._data1 + "," + _g.d.logs._data2 + ") values (2," +
+                "\'" + SystemInformation.ComputerName + "\'," + "\'" + Guid.NewGuid().ToString("N") + "\'," +
+                __docDate + "," + __docNo + "," + __amount.ToString() + "," +
+                this._logDocDateOld + "," + this._logDocNoOld + "," + this._logAmountOld.ToString() + "," +
+                "\'menu_gl_journal\',99," + mode.ToString() + ",\'" +
+                MyLib._myGlobal._userCode + "\',\'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", new CultureInfo("en-US")) + "\',\'" + __logDetail.ToString() + "\',\'" + this._logDetailOld + "\')");
+            return __query;
+        }
+
+        private void _saveLog(int mode)
+        {
+            MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+            string __resultLog = __myFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, _createLog(mode));
+            if (__resultLog.Length != 0)
+            {
+                MessageBox.Show(__resultLog, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         void _screenTop__saveKeyDown(object sender)
         {
@@ -449,6 +521,9 @@ namespace SMLERPGL
                         {
                             MyLib._myGlobal._displayWarning(1, null);
 
+                            // Save Log
+                            this._saveLog(this._myManageData1._mode);
+
                             // print
                             _printFormData(this._screenTop.screenCode);
 
@@ -598,6 +673,14 @@ namespace SMLERPGL
             this._screenTop._setCheckBox(_g.d.gl_journal._trans_direct, true);
             _glDetail1._glDetailGrid._clear();
             _oldTransFlag = 0;
+
+
+            // Log
+            this._logDocNoOld = "\'\'";
+            this._logDocDateOld = "\'\'";
+            this._logAmountOld = 0M;
+            this._logDetailOld = new StringBuilder();
+
             if (MyLib._myGlobal._isVersionEnum == MyLib._myGlobal._versionType.SMLGeneralLedger)
             {
                 this._vatSale._vatGrid._clear();
@@ -644,6 +727,8 @@ namespace SMLERPGL
         void _dataList__deleteData(ArrayList selectRowOrder)
         {
             _get_column_number();
+
+            int __columnDocAmount = this._myManageData1._dataList._gridData._findColumnByName(_g.d.gl_journal._table + "." + _g.d.gl_journal._debit);
             StringBuilder __myQuery = new StringBuilder();
             __myQuery.Append(MyLib._myGlobal._xmlHeader + "<node>");
             for (int __loop = 0; __loop < selectRowOrder.Count; __loop++)
@@ -679,6 +764,16 @@ namespace SMLERPGL
                     __myQuery.Append(this._whtIn._queryDelete(__getDocNo, _g.g._transControlTypeEnum.GL_ภาษีหักณที่จ่าย));
                     __myQuery.Append(this._whtOut._queryDelete(__getDocNo, _g.g._transControlTypeEnum.GL_ภาษีถูกหักณที่จ่าย));
                 }
+
+                // log
+                this._logDocNoOld = "\'" + __getDocNo + "\'";
+                this._logDocDateOld = "\'\'";
+                if (_getColumnDocDate != -1) this._logDocDateOld = "\'" + MyLib._myGlobal._convertDateToQuery((DateTime)(this._myManageData1._dataList._gridData._cellGet(__getData.row, _getColumnDocDate))) + "\'";
+                this._logAmountOld = 0M;
+                if (__columnDocAmount != -1) this._logAmountOld = MyLib._myGlobal._decimalPhase(this._myManageData1._dataList._gridData._cellGet(__getData.row, __columnDocAmount).ToString());
+
+                __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery(this._createLog(3)));
+
             } // for
             __myQuery.Append("</node>");
             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
@@ -777,6 +872,18 @@ namespace SMLERPGL
                         this._whtOut._loadToScreen(__getDataMain, 4);
 
                     }
+
+                    // Log
+                    this._logDetailOld = new StringBuilder();
+                    this._logDetailOld.Append(this._screenTop._logCreate("top"));
+                    this._logDocDateOld = this._screenTop._getDataStrQuery(_g.d.gl_journal._doc_date);
+                    this._logDocNoOld = this._screenTop._getDataStrQuery(_g.d.gl_journal._doc_no);
+
+                    int __columnDebit = this._glDetail1._glDetailGrid._findColumnByName(_g.d.gl_journal_detail._debit);
+                    this._logAmountOld = 0M;
+                    if (__columnDebit != -1)
+                        this._logAmountOld = ((MyLib._myGrid._columnType)this._glDetail1._glDetailGrid._columnList[__columnDebit])._total; // this._screenTop._getDataNumber(_g.d.gl_journal._total_amount);
+                    //
                 }
             }
             catch (Exception ex)

@@ -930,10 +930,10 @@ namespace SMLERPControl._customer
 
         void _screenArControl__textBoxChanged(object sender, string name)
         {
-            if (name.Equals(_g.d.ar_customer._ar_branch_code) == false && MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
-            {
-                this._setDataStr(_g.d.ar_customer._ar_branch_code, _g.g._companyProfile._branch_code);
-            }
+            //if (name.Equals(_g.d.ar_customer._ar_branch_code) == false && MyLib._myGlobal._OEMVersion.Equals("SINGHA"))
+            //{
+            //    this._setDataStr(_g.d.ar_customer._ar_branch_code, _g.g._companyProfile._branch_code);
+            //}
 
             if (name.Equals(_g.d.ar_customer._code))
             {

@@ -103,7 +103,7 @@ namespace SMLEDIControl
             this.doc_no = this.Agentcode + "-" + this.BILLINGDOCNO;
             this.cust_code = this.ap_code;
             this.total_discount = ((this.total_discount != null) ? this.total_discount : "0");
-            this.credit_day = ((this.credit_day != null) ? "\'" + this.credit_day + "\'" : "null");
+            this.credit_day = ((this.PAYMENTTERM_CAL != null) ? "\'" + this.PAYMENTTERM_CAL + "\'" : "null");
             this.vat_rate = this.vat_rate.Trim();
         }
 
@@ -326,7 +326,7 @@ namespace SMLEDIControl
                  0, doc_time, tax_doc_date, tax_doc_no
                  , inquiry_type, vat_type, doc_format_code
                  , wh_from, location_from, branch_code, "", 0
-                 , BILLINGDOCNO, "null", MyLib._myGlobal._branchCode, 0, credit_day
+                 , BILLINGDOCNO, "null", branch_code, 0, credit_day
                  , ((credit_date.Length > 0) ? "\'" + credit_date + "\'" : "null"), remark
                  )));
 
@@ -345,7 +345,7 @@ namespace SMLEDIControl
                     , doc_no, doc_date, detail.item_code, detail.line_number, detail.is_permium, detail.SALESUNIT, wh_from, location_from
                     , detail.qty, detail.price, detail.price_exclude_vat, detail.sum_amount, detail.discount_amount, detail.total_vat_value, detail.tax_type, detail.vat_type
                     , doc_time, 1, detail.sum_amount_exclude_vat
-                    , "", "", MyLib._myGlobal._branchCode
+                    , "", "", branch_code
                     , inquiry_type, 0, detail.discount_amount.ToString(), ap_code, ((detail.BAT_DATE != null) ? "\'" + detail.BAT_DATE + "\'" : "null"), detail.BAT_NUMBER, ((detail.date_expire != null) ? "\'" + detail.date_expire + "\'" : "null")
                     )));
                 __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update ic_trans_detail set "

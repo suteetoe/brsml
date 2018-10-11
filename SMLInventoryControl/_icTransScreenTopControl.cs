@@ -2398,9 +2398,34 @@ namespace SMLInventoryControl
             }
         }
 
+        public string   _check_perm_wh_shelf(string _wh_shelf, string _extraWhere ,string screen_type) {
+
+            string __screen_type = "and screen_code='"+ screen_type + "'" ;
+            string __and = "";
+            if (_extraWhere.Length > 0)
+            {
+                __and = " and ";
+            }
+            if (_wh_shelf.Equals(_g.d.ic_trans._wh_from) || _wh_shelf.Equals(_g.d.ic_trans._wh_to)) {
+                _extraWhere += __and +" exists ( " +
+                " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
+            }
+             else if(_wh_shelf.Equals(_g.d.ic_trans._location_from) || _wh_shelf.Equals(_g.d.ic_trans._location_to)) {
+                _extraWhere += __and + " exists ( " +
+                " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
+                " and ic_shelf.whcode = erp_user_group_wh_shelf.wh_code  and ic_shelf.code = erp_user_group_wh_shelf.shelf_code  ) ";
+            }
+            return _extraWhere;
+        }
+
         void _ictransScreenTopControl__textBoxSearch(object sender)
         {
             MyLib._myTextBox __getControl = (MyLib._myTextBox)sender;
+            //ย้ายมาเพื่อใช้กับทุกอัน
+            string __getBranchSelect = MyLib._myGlobal._branchCode;
+            string __screen_type = "";
+
             if (!this._old_filed_name.Equals(__getControl._name.ToLower()))
             {
                 Boolean __found = false;
@@ -2498,14 +2523,12 @@ namespace SMLInventoryControl
                     else
                     {
 
-
                         switch (this._icTransControlType)
                         {
                             case _g.g._transControlTypeEnum.สินค้า_โอนออก:
                             case _g.g._transControlTypeEnum.สินค้า_ขอโอน:
 
-
-
+                                __screen_type = "IM";
                                 if (this._searchName.Equals(_g.d.ic_trans._wh_from))
                                 {
                                     _searchScreenMasterList.Clear();
@@ -2516,33 +2539,19 @@ namespace SMLInventoryControl
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            string __getBranchSelect = this._getBranchCode();
-
+                                            //แก้ ให้ดึงสาขาขากพนักงาน เท่านั้น 
+                                            // string __getBranchSelect = this._getBranchCode();
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
+                                                //__extraWhere = " coalesce(branch_code)  like \'%" + __getBranchSelect + "%\' ";
                                             }
                                         }
                                     }
-
                                     if (_g.g._companyProfile._perm_wh_shelf)
                                     {
-                                        string __screen_type = "";
-                                        string __getBranchSelect = this._getBranchCode();
-                                        //__screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "IM" + "\' ";
-                                        if (__extraWhere.Length > 0)
-                                        {
-                                            __extraWhere += "and exists ( " +
-                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
-                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
-                                        }
-                                        else {
-                                            __extraWhere =   " exists ( " +
-                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
-                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
-                                        }
-                          
+                                        __extraWhere = _check_perm_wh_shelf(this._searchName, __extraWhere, __screen_type);
                                     }
                                 }
                                 else
@@ -2551,22 +2560,28 @@ namespace SMLInventoryControl
                                     _searchScreenMasterList.Clear();
                                     _searchScreenMasterList.Add(_g.g._search_master_ic_shelf);
                                     _searchScreenMasterList.Add(_g.d.ic_shelf._table);
-                                    _searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_from) + "\'");
-
-                                    if (_g.g._companyProfile._branchStatus == 1)
+                                    //_searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_from) + "\'");
+                                    __extraWhere = _g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_from) + "\'";
+                                    if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            string __getBranchSelect = this._getBranchCode();
+                                            //string __getBranchSelect = this._getBranchCode();
 
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 //this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
-                                                __extraWhere = "  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                //__extraWhere += " and whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                __extraWhere += " and whcode in (select code from ic_warehouse where coalesce( branch_code) like \'%" + __getBranchSelect + "%\')  ";
                                             }
                                         }
                                     }
+                                    if (_g.g._companyProfile._perm_wh_shelf)
+                                    {
+                                        __extraWhere = _check_perm_wh_shelf(this._searchName, __extraWhere, __screen_type);
+                                    }
+
                                 }
                                 else
                                         if (this._searchName.Equals(_g.d.ic_trans._wh_to))
@@ -2575,37 +2590,23 @@ namespace SMLInventoryControl
                                     _searchScreenMasterList.Add(_g.g._search_master_ic_warehouse);
                                     _searchScreenMasterList.Add(_g.d.ic_warehouse._table);
 
-                                    if (_g.g._companyProfile._branchStatus == 1)
+                                    if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            string __getBranchSelect = this._getBranchCode();
+                                            //string __getBranchSelect = this._getBranchCode();
 
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
+                                                //__extraWhere = " coalesce(branch_code)  like \'%" + __getBranchSelect + "%\' ";
                                             }
                                         }
                                     }
                                     if (_g.g._companyProfile._perm_wh_shelf)
                                     {
-                                        string __screen_type = "";
-                                        string __and = "";
-                                        string __getBranchSelect = this._getBranchCode();
-                                        //__screen_type = " and " + _g.d.erp_user_group_wh_shelf._screen_code + "=\'" + "IM" + "\' ";
-                                        if (__extraWhere.Length > 0)
-                                        {
-                                            __extraWhere += "and exists ( " +
-                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
-                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
-                                        }
-                                        else
-                                        {
-                                            __extraWhere = " exists ( " +
-                                            " select wh_code, shelf_code from erp_user_group_wh_shelf where group_code in (select group_code from erp_user_group_detail where   " + MyLib._myGlobal._addUpper(_g.d.erp_user_group_detail._user_code) + " = '" + MyLib._myGlobal._userCode.ToUpper() + "' )  " + __screen_type + " " +
-                                            " and ic_warehouse.code = erp_user_group_wh_shelf.wh_code  ) ";
-                                        }
+                                        __extraWhere = _check_perm_wh_shelf(this._searchName, __extraWhere, __screen_type);
                                     }
                                 }
                                 else
@@ -2614,21 +2615,26 @@ namespace SMLInventoryControl
                                     _searchScreenMasterList.Clear();
                                     _searchScreenMasterList.Add(_g.g._search_master_ic_shelf);
                                     _searchScreenMasterList.Add(_g.d.ic_shelf._table);
-                                    _searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_to) + "\'");
-
-                                    if (_g.g._companyProfile._branchStatus == 1)
+                                    //_searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_to) + "\'");
+                                    __extraWhere = _g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_to) + "\'";
+                                    if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            string __getBranchSelect = this._getBranchCode();
+                                            //string __getBranchSelect = this._getBranchCode();
 
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 //this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
-                                                __extraWhere = "  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                //__extraWhere = "  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                __extraWhere += " and whcode in (select code from ic_warehouse where coalesce( branch_code) like \'%" + __getBranchSelect + "%\')  ";
                                             }
                                         }
+                                    }
+                                    if (_g.g._companyProfile._perm_wh_shelf)
+                                    {
+                                        __extraWhere = _check_perm_wh_shelf(this._searchName, __extraWhere, __screen_type);
                                     }
                                 }
                                 break;
@@ -2646,11 +2652,30 @@ namespace SMLInventoryControl
                             case _g.g._transControlTypeEnum.สินค้า_รับคืนสินค้าจากการเบิก:
                             case _g.g._transControlTypeEnum.สินค้า_รับสินค้าสำเร็จรูป:
                             case _g.g._transControlTypeEnum.สินค้า_ตรวจนับสินค้า:
+
                                 if (this._searchName.Equals(_g.d.ic_trans._wh_from))
                                 {
+                                   
                                     _searchScreenMasterList.Clear();
                                     _searchScreenMasterList.Add(_g.g._search_master_ic_warehouse);
                                     _searchScreenMasterList.Add(_g.d.ic_warehouse._table);
+                                    //if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
+                                    //{
+                                    //    if (this._getBranchCode != null)
+                                    //    {
+                                    //        //แก้ ให้ดึงสาขาขากพนักงาน เท่านั้น 
+                                    //        // string __getBranchSelect = this._getBranchCode();
+                                    //        if (__getBranchSelect.Length > 0)
+                                    //        {
+                                    //            // where branch
+                                    //            __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
+                                    //        }
+                                    //    }
+                                    //}
+                                    //if (_g.g._companyProfile._perm_wh_shelf)
+                                    //{
+                                    //    __extraWhere = _check_perm_wh_shelf(this._searchName, __extraWhere);
+                                    //}
                                 }
                                 else
                                     if (this._searchName.Equals(_g.d.ic_trans._location_from))
@@ -2659,6 +2684,23 @@ namespace SMLInventoryControl
                                     _searchScreenMasterList.Add(_g.g._search_master_ic_shelf);
                                     _searchScreenMasterList.Add(_g.d.ic_shelf._table);
                                     _searchScreenMasterList.Add(_g.d.ic_shelf._whcode + "=\'" + this._getDataStr(_g.d.ic_trans._wh_from) + "\'");
+                                    //if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false)
+                                    //{
+                                    //    if (this._getBranchCode != null)
+                                    //    {
+                                    //        //แก้ ให้ดึงสาขาขากพนักงาน เท่านั้น 
+                                    //        // string __getBranchSelect = this._getBranchCode();
+                                    //        if (__getBranchSelect.Length > 0)
+                                    //        {
+                                    //            // where branch
+                                    //            __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
+                                    //        }
+                                    //    }
+                                    //}
+                                    //if (_g.g._companyProfile._perm_wh_shelf)
+                                    //{
+                                    //    __extraWhere = _check_perm_wh_shelf(this._searchName, __extraWhere);
+                                    //}
                                 }
                                 break;
                             case _g.g._transControlTypeEnum.คลัง_รับสินค้าเข้า_จากการซื้อ:
@@ -5023,6 +5065,8 @@ namespace SMLInventoryControl
         }
 
     }
+
+  
 
     public delegate void RadioButtonCheckedChangedEventHandler(object sender);
     public delegate void ChangeCreditDayEventHandler(int creditDay);
