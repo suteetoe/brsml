@@ -1321,8 +1321,12 @@ namespace SMLInventoryControl
                 {
                     //if (__extraWhere.Length > 0)
                     //    __extraWhere += " and ";
+                    //ถ้าไม่เช็ค
+                    //if (this._icTransControlType ==  _g.g._transControlTypeEnum.สินค้า_โอนออก && selectTransFlag == 1 ) {
 
+                    //}
                     __extraWhere += " and " + _g.d.ic_trans._branch_code + "=\'" + MyLib._myGlobal._branchCode + "\'";
+
                 }
                 //
                 this._icTransSearch._dataList._loadViewFormat(__templateName, MyLib._myGlobal._userSearchScreenGroup, false);

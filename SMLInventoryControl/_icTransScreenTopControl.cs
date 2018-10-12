@@ -54,7 +54,7 @@ namespace SMLInventoryControl
         public string _oldDocRef = "";
 
         //public _icTransScreenBottomControl _icTransScreenBottom = null;
-        public delegate string BranchCodeHandler();
+        public delegate string BranchCodeHandler(int mode);
         public event BranchCodeHandler _getBranchCode;
         public string _menuName = "";
 
@@ -2423,7 +2423,7 @@ namespace SMLInventoryControl
         {
             MyLib._myTextBox __getControl = (MyLib._myTextBox)sender;
             //ย้ายมาเพื่อใช้กับทุกอัน
-            string __getBranchSelect = MyLib._myGlobal._branchCode;
+        
             string __screen_type = "";
 
             if (!this._old_filed_name.Equals(__getControl._name.ToLower()))
@@ -2540,12 +2540,12 @@ namespace SMLInventoryControl
                                         if (this._getBranchCode != null)
                                         {
                                             //แก้ ให้ดึงสาขาขากพนักงาน เท่านั้น 
-                                            // string __getBranchSelect = this._getBranchCode();
+                                            string __getBranchSelect  = MyLib._myGlobal._branchCode;
+
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 __extraWhere = " coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code)  like \'%" + __getBranchSelect + "%\' ";
-                                                //__extraWhere = " coalesce(branch_code)  like \'%" + __getBranchSelect + "%\' ";
                                             }
                                         }
                                     }
@@ -2566,14 +2566,14 @@ namespace SMLInventoryControl
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            //string __getBranchSelect = this._getBranchCode();
+                                            string __getBranchSelect = MyLib._myGlobal._branchCode;
 
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 //this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
-                                                //__extraWhere += " and whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
-                                                __extraWhere += " and whcode in (select code from ic_warehouse where coalesce( branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                __extraWhere += " and whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                //__extraWhere += " and whcode in (select code from ic_warehouse where coalesce( branch_code) like \'%" + __getBranchSelect + "%\')  ";
                                             }
                                         }
                                     }
@@ -2594,7 +2594,7 @@ namespace SMLInventoryControl
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            //string __getBranchSelect = this._getBranchCode();
+                                            string __getBranchSelect = MyLib._myGlobal._branchCode;
 
                                             if (__getBranchSelect.Length > 0)
                                             {
@@ -2621,14 +2621,14 @@ namespace SMLInventoryControl
                                     {
                                         if (this._getBranchCode != null)
                                         {
-                                            //string __getBranchSelect = this._getBranchCode();
+                                            string __getBranchSelect = MyLib._myGlobal._branchCode;
 
                                             if (__getBranchSelect.Length > 0)
                                             {
                                                 // where branch
                                                 //this._icTransItemGridSelectWareHouse._extraWhere = " wh_code in (select code from ic_warehouse where branch_code like \'%" + __getBranchSelect + "%\') ";
-                                                //__extraWhere = "  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
-                                                __extraWhere += " and whcode in (select code from ic_warehouse where coalesce( branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                __extraWhere += " and  whcode in (select code from ic_warehouse where coalesce(" + _g.d.ic_warehouse._branch_use + ", branch_code) like \'%" + __getBranchSelect + "%\')  ";
+                                                //__extraWhere += " and whcode in (select code from ic_warehouse where coalesce( branch_code) like \'%" + __getBranchSelect + "%\')  ";
                                             }
                                         }
                                     }

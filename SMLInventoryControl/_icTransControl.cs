@@ -548,19 +548,28 @@ namespace SMLInventoryControl
                 return this._transControlTypeTemp;
             }
         }
+        private string _icTransScreenTop__getBranchCode() {
+            return this._icTransScreenTop__getBranchCode(0);
+        }
 
-        private string _icTransScreenTop__getBranchCode()
+
+        private string _icTransScreenTop__getBranchCode(int mode)
         {
             if (this._icTransScreenBottom != null)
             {
                 switch (this._transControlType)
                 {
                     case _g.g._transControlTypeEnum.สินค้า_โอนออก:
-                        return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code_to);
-                        break;
+                        if (mode == 1)
+                        {
+                            return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code_to);
+                        }
+                        else {
+                            return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code);
+                        }
+                       
                     default:
                         return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code);
-                        break;
                 }
             }
             return "";
@@ -731,21 +740,9 @@ namespace SMLInventoryControl
         }
 
 
-        private string _icTransItemGrid__getBranchCode()
+        private string _icTransItemGrid__getBranchCode(int mode)
         {
-            if (this._icTransScreenBottom != null)
-            {
-                switch (this._transControlType)
-                {
-                    case _g.g._transControlTypeEnum.สินค้า_โอนออก:
-                        return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code_to);
-                        break;
-                    default:
-                        return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code);
-                        break;
-                }
-            }
-            return "";
+            return this._icTransScreenTop__getBranchCode(mode);
         }
 
         private decimal _icTransItemGrid__exchangeRateGet()
@@ -2320,18 +2317,18 @@ namespace SMLInventoryControl
                     }
 
                 }
-                //else if (name.Equals(_g.d.ic_trans._wh_from))
-                //{
-                //    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from);
-                //    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
+                else if (name.Equals(_g.d.ic_trans._wh_from))
+                {
+                    string __getWHTo = this._icTransScreenTop._getDataStr(_g.d.ic_trans._wh_from);
+                    MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
 
-                //    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
-                //    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
-                //    {
-                //        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code, __getBranchTable.Rows[0][0].ToString());
-                //    }
+                    DataTable __getBranchTable = __myFrameWork._queryShort("select branch_code from ic_warehouse where code = \'" + __getWHTo + "\' ").Tables[0];
+                    if (__getBranchTable.Rows.Count > 0 && __getBranchTable.Rows[0][0].ToString().Length > 0)
+                    {
+                        this._icTransScreenMore._setDataStr(_g.d.ic_trans._branch_code, __getBranchTable.Rows[0][0].ToString());
+                    }
 
-                //}
+                }
 
             }
 

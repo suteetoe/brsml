@@ -28,7 +28,7 @@ namespace SMLInventoryControl
         public delegate void ItemReplacementHandler(string itemCode);
         public delegate void SetRemarkEventHandler(string fieldName, string remark);
         public delegate decimal ExchangeRateGetEventHandler();
-        public delegate string BranchCodeHandler();
+        public delegate string BranchCodeHandler(int mode);
         //
         public event VatTypeEventHandler _vatType;
         public event DocDateEventHandler _getDocDate;
@@ -5743,8 +5743,10 @@ namespace SMLInventoryControl
             {
                 if (this._getBranchCode != null)
                 {
-                    string __getBranchSelect = this._getBranchCode();
-
+                    string __getBranchSelect = this._getBranchCode(mode);
+                    if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก) {
+                        __getBranchSelect = MyLib._myGlobal._branchCode;
+                    }
                     if (__getBranchSelect.Length > 0)
                     {
                         // where branch
@@ -7330,7 +7332,7 @@ namespace SMLInventoryControl
                 }
 
                 _findPriceCenter __priceCenter = new _findPriceCenter();
-                _priceStruct __resultCenter = __priceCenter._findPrice(this._getBranchCode(), itemCode, barcode, unitCode, qty, custCode, memberCode, approve, getUserApprove, __today, this._vatType(this), this._vatRate(), __saleType, transport_type);
+                _priceStruct __resultCenter = __priceCenter._findPrice(this._getBranchCode(0), itemCode, barcode, unitCode, qty, custCode, memberCode, approve, getUserApprove, __today, this._vatType(this), this._vatRate(), __saleType, transport_type);
                 return __resultCenter;
             }
 
