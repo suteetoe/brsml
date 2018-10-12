@@ -669,7 +669,7 @@ namespace SINGHAReport.GL
 
                             string __whShelfCodeWhere = this._conditionScreen._selectWarehouseAndLocation._wareHouseLocationSelected("wh_code", "shelf_code");
 
-                            string __balanceStockQuery = "select ic_code, doc_type, null as doc_date, \'\' as  doc_no, trans_flag, wh_code, shelf_code, qty_in, qty_out, balance_qty from ( " +
+                            string __balanceStockQuery = "select ic_code, doc_type, null as doc_date, '' as doc_time, \'\' as  doc_no, trans_flag, wh_code, shelf_code, qty_in, qty_out, balance_qty from ( " +
                                 "select item_code as ic_code, 0 as doc_type, 0 as trans_flag, wh_code, shelf_code" +
                                 ", 0 as qty_in, 0 as qty_out" +
                                 ", coalesce(sum(calc_flag * (case when((trans_flag in (66, 68, 70, 54, 60, 58, 310, 12) or(trans_flag = 14 and inquiry_type = 0) or(trans_flag = 48 and inquiry_type < 2)) or(trans_flag in (56, 72, 44) or(trans_flag = 46 and inquiry_type = 1) or(trans_flag = 16 and inquiry_type in (0, 2)) or(trans_flag = 311 and inquiry_type = 0))) then qty*(stand_value / divide_value) else 0 end)),0) as balance_qty" +
@@ -679,12 +679,12 @@ namespace SINGHAReport.GL
                                 " group by item_code, wh_code, shelf_code " +
                                 " ) as b where balance_qty <> 0 ";
 
-                            string __movementStockQuery = "select ic_code, doc_type, doc_date, doc_no, trans_flag, wh_code, shelf_code " +
+                            string __movementStockQuery = "select ic_code, doc_type, doc_date, doc_time, doc_no, trans_flag, wh_code, shelf_code " +
                                 ", case when(calc_flag = 1 and qty > 0) then qty*(stand_value / divide_value) else 0 end as qty_in " +
                                 ", case when(calc_flag = -1 or trans_flag = 66 and qty < 0) then qty*(stand_value / divide_value) else 0 end as qty_out " +
                                 ", 0 as balance_qty " +
                                 " from ( " +
-                                " select 1 as doc_type, item_code as ic_code, doc_date, doc_no, trans_flag, calc_flag, qty, stand_value, divide_value, wh_code, shelf_code " +
+                                " select 1 as doc_type, item_code as ic_code, doc_date, doc_time, doc_no, trans_flag, calc_flag, qty, stand_value, divide_value, wh_code, shelf_code " +
                                 " from ic_trans_detail " +
                                 " where last_status = 0 " +
                                 " and((trans_flag in (66, 68, 70, 54, 60, 58, 310, 12) or(trans_flag = 14 and inquiry_type = 0) or(trans_flag = 48 and inquiry_type < 2)) or(trans_flag in (56, 72, 44) or(trans_flag = 46 and inquiry_type = 1) or(trans_flag = 16 and inquiry_type in (0, 2)) or(trans_flag = 311 and inquiry_type = 0)) ) " +
@@ -701,7 +701,7 @@ namespace SINGHAReport.GL
                                 ", (select name_1 from ic_unit where ic_unit.code = (select code from ic_unit_use where ic_unit_use.ic_code = net.ic_code order by row_order limit 1)) as unit_min " +
                                 " from ( ");
                             __queryDetail.Append(__balanceStockQuery + " union all " + __movementStockQuery);
-                            __queryDetail.Append(" ) as net " + ((__itemCodeWhereList.Length > 0) ? " where " + __itemCodeWhereList : "") + " order by wh_code, shelf_code, ic_code, doc_type, doc_date ");
+                            __queryDetail.Append(" ) as net " + ((__itemCodeWhereList.Length > 0) ? " where " + __itemCodeWhereList : "") + " order by wh_code, shelf_code, ic_code, doc_type, doc_date, doc_time ");
 
                             MyLib._myFrameWork __myFrameWork = new MyLib._myFrameWork();
                             this._dataDetailTable = __myFrameWork._query(MyLib._myGlobal._databaseName, __queryDetail.ToString()).Tables[0];
