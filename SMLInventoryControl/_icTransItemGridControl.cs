@@ -5739,7 +5739,7 @@ namespace SMLInventoryControl
             this._icTransItemGridSelectWareHouse._lastCode = __wareHouseCode.Split('~')[0].ToString() + "/" + __shelfCode.Split('~')[0].ToString();
             this._icTransItemGridSelectWareHouse.Text = __itemDesc;
             this._icTransItemGridSelectWareHouse._extraWhere = "";
-            if (_g.g._companyProfile._branchStatus == 1) // MyLib._myGlobal._OEMVersion.Equals("SINGHA") && 
+            if (_g.g._companyProfile._branchStatus == 1 && _g.g._companyProfile._change_branch_code == false) // MyLib._myGlobal._OEMVersion.Equals("SINGHA") && 
             {
                 if (this._getBranchCode != null)
                 {

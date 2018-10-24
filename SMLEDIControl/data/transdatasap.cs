@@ -42,7 +42,12 @@ namespace SMLEDIControl
         public int vat_type { get; set; }
         public int inquiry_type { get; set; }
         public string branch_code { get; set; }
-        
+
+        public int branch_type { get; set; }
+        public string BRANCH_CODE { get; set; }
+
+
+
 
         //edi
         //tran
@@ -98,7 +103,7 @@ namespace SMLEDIControl
             //this.doc_date = MyLib._myGlobal._convertDateToQuery(MyLib._myGlobal._convertDateToString(MyLib._myGlobal._workingDate, true));
             //this.doc_time = DateTime.Now.Hour.ToString("D2") + ":" + DateTime.Now.Minute.ToString("D2");
 
-            //this.doc_date = this.tax_doc_date;
+            this.doc_date = this.tax_doc_date;
             this.doc_time = "06:00";
             this.doc_no = this.Agentcode + "-" + this.BILLINGDOCNO;
             this.cust_code = this.ap_code;
@@ -295,11 +300,11 @@ namespace SMLEDIControl
                 "insert into gl_journal_vat_buy(" +
                 "book_code, vat_calc,trans_type, trans_flag, doc_date, doc_no, ap_code, ref_doc_date, ref_doc_no, ref_vat_date, ref_vat_no, vat_date, vat_doc_no," +
                 "vat_new_number, vat_effective_period, vat_effective_year, vat_description, vat_group, vat_base_amount, vat_rate, vat_amount," +
-                "vat_total_amount, vat_except_amount_1, vat_average, vat_type, is_add,  manual_add, line_number)"
+                "vat_total_amount, vat_except_amount_1, vat_average, vat_type, is_add,  manual_add, line_number,branch_type,branch_code)"
                 );
             sqlgj.Append("values(" +
                 " '', 1, 2, 12, '{0}', '{1}', '{2}', null, null, null, null, '{3}', '{4}'," +
-                "null, {5}, {6}, null, null, {7}, {8}, {9},{10},{11}, {12}, {13}, {14}, {15}, {16}" +
+                "null, {5}, {6}, null, null, {7}, {8}, {9},{10},{11}, {12}, {13}, {14}, {15}, {16}, {17},'{18}'" +
                 " ) "
                 );
 
@@ -358,18 +363,25 @@ namespace SMLEDIControl
             }
 
             //gl
+            if (this.BRANCH_CODE.Equals("00000"))
+            {
+                this.branch_type = 0;
+            }
+            else {
+                this.branch_type = 1;
+            }
             __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery(String.Format(sqlgj.ToString()
             , this.doc_date, this.doc_no, this.cust_code, this.tax_doc_date, this.tax_doc_no
             , vat_effective_period, MyLib._myGlobal._intPhase(this.tax_doc_date.ToString().Substring(0, 4))+543, this.total_before_vat, this.vat_rate, this.total_vat_value
-            , this.total_after_vat, this.total_except_vat, "0", this.vat_type, "0", "0", "0"
+            , this.total_after_vat, this.total_except_vat, "0", this.vat_type, "0", "0", "0",this.branch_type, this.BRANCH_CODE
             )));
 
 
             __queryInsert.Append(MyLib._myUtil._convertTextToXmlForQuery("update gl_journal_vat_buy set "
               + " ap_name = (select name_1 from ap_supplier where ap_supplier.code = '" + ap_code + "' ) "
               + ", tax_no = (select tax_id from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
-              + ", branch_type = (select branch_type from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
-              + ", branch_code = (select branch_code from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
+              //+ ", branch_type = (select branch_type from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
+              //+ ", branch_code = (select branch_code from ap_supplier_detail where ap_supplier_detail.ap_code = '" + ap_code + "') "
               + " where doc_no = \'" + doc_no + "\' "));
 
             return __queryInsert.ToString();

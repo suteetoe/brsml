@@ -30,8 +30,8 @@ namespace SMLEDIControl
         int _search_data_full_buffer_addr = -1;
         string _searchName = "";
 
-        delegate void _resetDocdate();
-        event _resetDocdate reset;
+        //delegate void _resetDocdate();
+        //event _resetDocdate reset;
 
         string _doc_formate = "";
         string _wh_from = "";
@@ -46,7 +46,7 @@ namespace SMLEDIControl
         public _sapinvReceive()
         {
             InitializeComponent();
-            this.reset += _resetdocdate;
+            //this.reset += _resetdocdate;
             this._docGrid._table_name = _g.d.ic_trans._table;
             this._docGrid._addColumn("select", 11, 10, 10);
             this._docGrid._isEdit = false;
@@ -67,23 +67,23 @@ namespace SMLEDIControl
             this._icTransScreenTopControl1._addTextBox(1, 0, 1, 0, _g.d.ic_trans._doc_format_code, 1, 1, 1, true, false, false);
             this._icTransScreenTopControl1._addTextBox(1, 1, 1, 0, _g.d.ic_trans._wh_from, 1, 1, 0, true, false, false);
             this._icTransScreenTopControl1._addTextBox(1, 2, 1, 0, _g.d.ic_trans._location_from, 1, 1, 0, true, false, false);
-            this._icTransScreenTopControl1._table_name = _g.d.ic_resource._table;
-            this._icTransScreenTopControl1._addDateBox(1, 3, 1, 0, _g.d.ic_trans._doc_date, 1,true,false,false,_g.d.ic_resource._date_of_import);
+            //this._icTransScreenTopControl1._table_name = _g.d.ic_resource._table;
+            //this._icTransScreenTopControl1._addDateBox(1, 3, 1, 0, _g.d.ic_trans._doc_date, 1,true,false,false,_g.d.ic_resource._date_of_import);
             this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._wh_from, _g.g._companyProfile._warehouse_on_the_way.ToString(), "", true);
             this._icTransScreenTopControl1._setDataStr(_g.d.ic_trans._location_from, _g.g._companyProfile._shelf_on_the_way.ToString(), "", true);
             this._icTransScreenTopControl1._getControl(_g.d.ic_trans._wh_from).Enabled = false;
             this._icTransScreenTopControl1._getControl(_g.d.ic_trans._location_from).Enabled = false;
-            this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
+            //this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
             splitContainer1.Panel2Collapsed = true;
             splitContainer1.Panel2.Hide();
 
             this.Load += _singhaOnlineOrderImport_Load;
         }
 
-        internal void _resetdocdate()
-        {
-            this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
-        }
+        //internal void _resetdocdate()
+        //{
+        //    this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
+        //}
 
         MyLib.BeforeDisplayRowReturn _gridData__beforeDisplayRow(MyLib._myGrid sender, int row, int columnNumber, string columnName, MyLib.BeforeDisplayRowReturn senderRow, MyLib._myGrid._columnType columnType, ArrayList rowData)
         {
@@ -480,7 +480,7 @@ namespace SMLEDIControl
             __threadProcess.IsBackground = true;
             __threadProcess.Start();
 
-            //this._icTransScreenTopControl1._setDataDate(_g.d.ic_trans._doc_date, MyLib._myGlobal._workingDate);
+        
         }
 
         void _process()
@@ -496,6 +496,7 @@ namespace SMLEDIControl
                     if (MessageBox.Show("ต้องการนำเข้าข้อมูลที่ได้เลือกไว้หรือไม่", "ยืนยัน", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         StringBuilder __log = new StringBuilder();
+                        Boolean _save = true;
                         //หาสาขาตามรูปแบบเอกสาร
                         string sql_branch_list = "select branch_list from erp_doc_format where code = '" + this._icTransScreenTopControl1._getDataStr(_g.d.ic_trans._doc_format_code).ToString() + "'";
                         string branch_code = "";
@@ -516,7 +517,8 @@ namespace SMLEDIControl
                                     string __BILLINGDOCNO = (string)this._docGrid._cellGet(__row, 4);
                                     string _datadetail = "{\"P_billingdocno\":\"" + __BILLINGDOCNO + "\",\"P_agentcode\":\"" + _agentCode + "\"}";
                                     //string _datadetail = "{\"P_billingdocno\":\"6002301035\",\"P_agentcode\":\"" + _agentCode + "\"}";
-
+                                    string _headlog = "เอกสาร :" + __BILLINGDOCNO + "\n";
+                                    string _headlogtemp = "";
                                     //rest 3 
                                     MyLib._restClient __restdetail = new _restClient("http://ws-dev.boonrawd.co.th/MasterPaymentAgent/api/SMLBill", HttpVerb.POST, _datadetail);
                                     __restdetail._setContentType("application/json");
@@ -533,7 +535,7 @@ namespace SMLEDIControl
                                         __transdatasap.details = new List<transdatadetailsap>();
                                         if (__jsonDetailObject22["details"].Count > 0)
                                         {
-
+                                           
                                             for (int i = 0; i < __jsonDetailObject22["details"].Count; i++)
                                             {
                                                 transdatadetailsap __transdatadetailsap = transdatadetailsap.Parse(__jsonDetailObject22["details"][i].ToString());
@@ -549,6 +551,22 @@ namespace SMLEDIControl
                                                     __transdatadetailsap.date_expire = MyLib._myGlobal._convertDateToQuery(__convertDate.AddDays(90));
                                                 }
                                                 __transdatadetailsap.item_code = __transdatadetailsap.MATERIALCODE;
+
+                                                //เซ็คซื้อสินค้า
+                                                string sql_item = "select name_1 from ic_inventory where ic_inventory.code = '" + __transdatadetailsap.item_code.ToString() + "'";
+                                                DataSet __result_item = __myFrameWork._queryShort(sql_item);
+                                                if (__result_item.Tables.Count > 0 && __result_item.Tables[0].Rows.Count == 0)
+                                                {
+                                                    
+                                                    if (!_headlog.Equals(_headlogtemp)) {
+                                                        __log.Append(_headlog);
+                                                    }
+                                                    __log.Append("-ไม่พบชื่อสินค้าที่ code :"+ __transdatadetailsap.item_code.ToString()+ "\n");
+                                                    _save = false;
+                                                    _headlogtemp = _headlog;
+                                                }
+                                                //////
+                                             
                                                 //__transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.qty) * MyLib._myGlobal._decimalPhase(__transdatadetailsap.price);
                                                 __transdatadetailsap.sum_amount_exclude_vat = MyLib._myGlobal._decimalPhase(__transdatadetailsap.sum_amount);
                                                 __transdatadetailsap.total_vat_value = __transdatadetailsap.sum_amount_exclude_vat * 7 / 100;
@@ -571,19 +589,20 @@ namespace SMLEDIControl
                                         //   transdatasap dataTrans = (transdatasap)this._docGrid._cellGet(__row, "data");
                                         //transdatasap dataTrans = (transdatasap)__transdatasap._getJson();
                                         // MessageBox.Show(dataTrans._getJson());
-                                        String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdatasap._queryInsert() + "</node>";
-                                        //MyLib._myFrameWork __myFrameWork = new _myFrameWork();
-                                        string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
-
-                                        if (__result.Length == 0)
-                                        {
-                                            // MessageBox.Show("เสร็จ");
+                                        if (_save) {
+                                            String __queryInsert = MyLib._myGlobal._xmlHeader + "<node>" + __transdatasap._queryInsert() + "</node>";
+                                            string __result = __myFrameWork._queryList(MyLib._myGlobal._databaseName, __queryInsert);
+                                            if (__result.Length == 0)
+                                            {
+                                                // MessageBox.Show("เสร็จ");
+                                            }
+                                            else
+                                            {
+                                                __log.Append(__result);
+                                                //MessageBox.Show(__result, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                            }
                                         }
-                                        else
-                                        {
-                                            __log.Append(__result);
-                                            //MessageBox.Show(__result, "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                        }
+                                     
                                     }
                                     catch (Exception ex)
                                     {
@@ -599,12 +618,12 @@ namespace SMLEDIControl
                         } // end loop
                         if (__log.Length > 0)
                         {
-                            MessageBox.Show(__log.ToString(), "พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show(__log.ToString(), "พบข้อผิดพลาดที่รายการดังต่อไปนี้", MessageBoxButtons.OK);
                         }
                         else
                         {
                             MessageBox.Show("นำเข้าข้อมูลสำเร็จแล้ว", "นำเข้าข้อมูลเรียบร้อยแล้ว", MessageBoxButtons.OK, MessageBoxIcon.None);
-                            this.Invoke(reset, new object[] {  });
+                            //this.Invoke(reset, new object[] {  });
                         }
 
                         this._getData();
