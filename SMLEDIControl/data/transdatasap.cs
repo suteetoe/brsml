@@ -330,7 +330,7 @@ namespace SMLEDIControl
                  , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
                  0, doc_time, tax_doc_date, tax_doc_no
                  , inquiry_type, vat_type, doc_format_code
-                 , wh_from, location_from, branch_code, "", 0
+                 , wh_from, location_from, "", "", 0
                  , BILLINGDOCNO, "null", branch_code, 0, credit_day
                  , ((credit_date.Length > 0) ? "\'" + credit_date + "\'" : "null"), remark
                  )));

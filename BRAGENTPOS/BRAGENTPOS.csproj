@@ -25,7 +25,7 @@
     <InstallUrl>http://www.brteasy.com:8080/bragentpos/</InstallUrl>
     <ProductName>BR Agent POS</ProductName>
     <PublisherName>SMLSoft</PublisherName>
-    <MinimumRequiredVersion>1.0.0.159</MinimumRequiredVersion>
+    <MinimumRequiredVersion>1.0.0.160</MinimumRequiredVersion>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.html</WebPage>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>

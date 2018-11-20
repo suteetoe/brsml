@@ -290,7 +290,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_branch_list" _description="รายชื่อสาขา" _descriptionEng="Branch list" _version="ALL" _width="383" _height="341" _x="9" _y="1075">
+    <_tableList _moduleName="Setup" _name="erp_branch_list" _description="รายชื่อสาขา" _descriptionEng="Branch list" _version="ALL" _width="383" _height="389" _x="9" _y="1075" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัสสาขา" _descriptionEng="Branch code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -388,6 +388,21 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="arm_send_ar_change_to" _description="ผู้รับ" _descriptionEng="" _type="1" _length="1000" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="branch_type" _description="ประเภทสาขา" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="head_quaters" _description="สำนักงานใหญ่" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="branch" _description="สาขา" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -785,7 +800,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="4037" _x="403" _y="1168" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Setup" _name="erp_option" _description="ข้อเลือกในการทำงาน" _descriptionEng="Option" _version="ALL" _width="443" _height="4229" _x="403" _y="1168" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="year_type" _description="ประเภทปี" _descriptionEng="Year type" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -2042,6 +2057,66 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="print_table_move" _description="พิมพ์รายการย้ายโต๊ะ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="receive_more_po" _description="อนุญาติให้รับสินค้ามากกว่าใบสั่งซื้อได้" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_lugent_store_id" _description="Store ID" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_lugent_terminal_id" _description="Terminal ID" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_lugent_merchant_name" _description="Merchant Nme" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_lugent_access_code" _description="Access Code" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_bcel_mcid" _description="MCID" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_bcel_mcc" _description="MCC" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_bcel_contact" _description="Contact" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tab_wallet" _description="e-Wallet" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_lugent" _description="Lugent" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="wallet_bcel" _description="BCEL" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs />
       <_afterCreated />
@@ -2287,7 +2362,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_view_column_custom" _description="รายละเอียดการแก้ไขหน้าจอค้นหา" _descriptionEng="View column" _version="ALL" _width="321" _height="229" _x="933" _y="1583">
+    <_tableList _moduleName="Setup" _name="erp_view_column_custom" _description="รายละเอียดการแก้ไขหน้าจอค้นหา" _descriptionEng="View column" _version="ALL" _width="321" _height="245" _x="933" _y="1583" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="screen_group" _description="กลุ่มหน้าจอ" _descriptionEng="Screen group" _type="3" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -2350,6 +2425,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="column_field_search" _description="สำหรับการค้นหา" _descriptionEng="Column Search" _type="1" _length="500" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="column_no_search" _description="ปิดการค้นหา" _descriptionEng="Not Search" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -4587,7 +4667,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Cash_Bank" _name="erp_pass_book" _description="สมุดธนาคาร" _descriptionEng="Pass Book" _version="CB" _width="332" _height="341" _x="17" _y="392">
+    <_tableList _moduleName="Cash_Bank" _name="erp_pass_book" _description="สมุดธนาคาร" _descriptionEng="Pass Book" _version="CB" _width="332" _height="357" _x="17" _y="392" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัสสมุด" _descriptionEng="Book Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -4689,6 +4769,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="currency_code" _description="สกุลเงิน" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs>
         <_indexs _name="PK_CODE" _custer="1" _unique="1" _fieldsDisplay="code">
@@ -4743,7 +4828,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Cash_Bank" _name="cb_petty_cash" _description="วงเงินสดย่อย" _descriptionEng="Petty Cash" _version="CB" _width="294" _height="165" _x="22" _y="845">
+    <_tableList _moduleName="Cash_Bank" _name="cb_petty_cash" _description="วงเงินสดย่อย" _descriptionEng="Petty Cash" _version="CB" _width="294" _height="181" _x="22" _y="845" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัสวงเงินสดย่อย" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -4786,6 +4871,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="guid_code" _description="GUID" _descriptionEng="guid_code" _type="1" _length="35" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="currency_code" _description="สกุลเงิน" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -6484,7 +6574,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="ic_shelf" _description="ที่เก็บสินค้า" _descriptionEng="Item Shelf" _version="" _width="233" _height="213" _x="289" _y="700" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Master" _name="ic_shelf" _description="ที่เก็บสินค้า" _descriptionEng="Item Shelf" _version="" _width="233" _height="213" _x="1177" _y="1334" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -6596,7 +6686,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ap_contactor" _description="ผู้ติดต่อ (เจ้าหนี้)" _descriptionEng="Contactor" _version="" _width="235" _height="181" _x="660" _y="1554">
+    <_tableList _moduleName="AP_AR" _name="ap_contactor" _description="ผู้ติดต่อ (เจ้าหนี้)" _descriptionEng="Contactor" _version="" _width="235" _height="181" _x="660" _y="1554" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ap_code" _description="รหัสเจ้าหนี้" _descriptionEng="AP Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -6911,7 +7001,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_serial_number" _description="serial number (รายวัน)" _descriptionEng="Serial Number Result" _version="" _width="263" _height="469" _x="21" _y="1586" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_serial_number" _description="serial number (รายวัน)" _descriptionEng="Serial Number Result" _version="" _width="263" _height="469" _x="16" _y="1599" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="serial_number" _description="หมายเลขเครื่อง" _descriptionEng="Serial Number" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -8845,7 +8935,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2469" _x="990" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="AP_AR" _name="ar_customer_detail" _description="รายละเอียดลูกหนี้" _descriptionEng="Customer Detail" _version="SMLERP" _width="328" _height="2485" _x="990" _y="8" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -9612,6 +9702,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="ar_project_date_end" _description="วันที่สินสุดโครงการ" _descriptionEng="" _type="6" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs>
         <_indexs _name="PK_CODE" _custer="1" _unique="1" _fieldsDisplay="ar_code">
@@ -9623,7 +9718,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR" _name="ar_contactor" _description="ผู้ติดต่อ (ลูกหนี้)" _descriptionEng="Contactor" _version="SMLERP" _width="235" _height="197" _x="11" _y="1623">
+    <_tableList _moduleName="AP_AR" _name="ar_contactor" _description="ผู้ติดต่อ (ลูกหนี้)" _descriptionEng="Contactor" _version="SMLERP" _width="235" _height="293" _x="11" _y="1623" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="ar_code" _description="รหัสลูกค้า" _descriptionEng="Customer Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -9676,6 +9771,36 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="group_contactor" _description="กลุ่ม" _descriptionEng="Group" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark_1" _description="หมายเหตุ 1" _descriptionEng="Remark 1" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark_2" _description="หมายเหตุ 2" _descriptionEng="Remark 2" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark_3" _description="หมายเหตุ 3" _descriptionEng="Remark 3" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark_4" _description="หมายเหตุ 4" _descriptionEng="Remark 4" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark_5" _description="หมายเหตุ 5" _descriptionEng="Remark 5" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="remark_6" _description="หมายเหตุ 6" _descriptionEng="Remark 6" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -10927,7 +11052,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_user" _description="พนักงาน" _descriptionEng="User" _version="ALL" _width="405" _height="949" _x="7" _y="2061" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Setup" _name="erp_user" _description="พนักงาน" _descriptionEng="User" _version="ALL" _width="405" _height="949" _x="11" _y="2070" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -11430,7 +11555,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_currency" _description="สกุลเงิน" _descriptionEng="Currency" _version="ALL" _width="287" _height="117" _x="674" _y="1049">
+    <_tableList _moduleName="Setup" _name="erp_currency" _description="สกุลเงิน" _descriptionEng="Currency" _version="ALL" _width="287" _height="117" _x="672" _y="1033">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -12034,7 +12159,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_debt_billing_cut" _description="ตัดหนี้สูญ" _descriptionEng="AP AR Debt Billing Cut" _version="" _width="263" _height="389" _x="938" _y="16">
+    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_debt_billing_cut" _description="ตัดหนี้สูญ" _descriptionEng="AP AR Debt Billing Cut" _version="" _width="263" _height="389" _x="974" _y="12">
       <_fields>
         <_fieldList _name="doc_date" _description="เอกสารวันที่" _descriptionEng="Document Date" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -12162,7 +12287,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_debt_billing_cut_detail" _description="รายละเอียดการตัดหนี้สูญ" _descriptionEng="AP AR Debt Billing Cut Detail" _version="" _width="297" _height="229" _x="936" _y="432">
+    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_debt_billing_cut_detail" _description="รายละเอียดการตัดหนี้สูญ" _descriptionEng="AP AR Debt Billing Cut Detail" _version="" _width="297" _height="229" _x="956" _y="413">
       <_fields>
         <_fieldList _name="doc_date" _description="เอกสารวันที่" _descriptionEng="Document Date" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -15251,7 +15376,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_resource" _description="รายละเอียดข้อความ" _descriptionEng="AP/AR Resource" _version="SMLERP" _width="291" _height="2341" _x="660" _y="11">
+    <_tableList _moduleName="AP_AR_Trans" _name="ap_ar_resource" _description="รายละเอียดข้อความ" _descriptionEng="AP/AR Resource" _version="SMLERP" _width="291" _height="2357" _x="660" _y="11" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="customer" _description="ลูกค้า" _descriptionEng="Customer" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -15974,6 +16099,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="to_credit_day" _description="ถึงวันเครดิต" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="tab_pay_wallet" _description="Wallet Payment" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -22498,7 +22628,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="IC - Transection Detail" _version="SMLERP" _width="328" _height="2853" _x="1053" _y="6" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="IC - Transection Detail" _version="SMLERP" _width="328" _height="2917" _x="1053" _y="6" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -23482,6 +23612,26 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="bat_number" _description="bat number" _descriptionEng="bat number" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="product_year" _description="ปีที่ผลิต" _descriptionEng="" _type="1" _length="10" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="product_week" _description="สัปดาห์ที่ผลิต" _descriptionEng="" _type="1" _length="10" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="currency_code" _description="สกุลเงิน" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="exchange_rate" _description="อัตราแลกเปลี่ยน" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -26150,7 +26300,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Cash_Bank" _name="cb_trans" _description="รายวันทั้งหมด" _descriptionEng="Cash and Bank Transection" _version="SMLERP" _width="274" _height="917" _x="664" _y="12">
+    <_tableList _moduleName="Cash_Bank" _name="cb_trans" _description="รายวันทั้งหมด" _descriptionEng="Cash and Bank Transection" _version="SMLERP" _width="274" _height="933" _x="664" _y="12" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -26486,6 +26636,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
+        <_fieldList _name="wallet_amount" _description="Wallet Payment" _descriptionEng="Wallet Payment" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
       </_fields>
       <_indexs>
         <_indexs _name="PK_CODE" _custer="1" _unique="1" _fieldsDisplay="doc_no,trans_flag">
@@ -26510,7 +26665,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Cash_Bank" _name="cb_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="Cash And Bank Transection Detail" _version="CB" _width="640" _height="997" _x="655" _y="897">
+    <_tableList _moduleName="Cash_Bank" _name="cb_trans_detail" _description="รายละเอียดรายวัน" _descriptionEng="Cash And Bank Transection Detail" _version="CB" _width="701" _height="1061" _x="664" _y="1049" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="Transection Type" _type="4" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -26596,7 +26751,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="trans_number" _description="เลขที่เช็ค" _descriptionEng="Chq Number" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="trans_number" _description="เลขที่เช็ค" _descriptionEng="Chq Number" _type="1" _length="100" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -26666,7 +26821,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="approve_code" _description="กลุ่มผู้อนุมัติ" _descriptionEng="Approve User GRoup" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="approve_code" _description="กลุ่มผู้อนุมัติ" _descriptionEng="Approve User GRoup" _type="1" _length="100" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -26728,9 +26883,11 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="doc_type" _description="1=เงินโอน,2=เช็ค,3=บัตรเครดิต,4=เงินสดย่อย,5=เงินล่วงหน้า,9=คูปอง,11=จ่ายอื่น,12=รับอื่น,19=สกุลเงินอื่น" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+        <_fieldList _name="doc_type" _description="1=เงินโอน,2=เช็ค,3=บัตรเครดิต,4=เงินสดย่อย,5=เงินล่วงหน้า,9=คูปอง,11=จ่ายอื่น,12=รับอื่น,19=สกุลเงินอื่น,21=eWallet" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
-            <_remark />
+            <_remark>
+              <_remark>1=เงินโอน,2=เช็ค,3=บัตรเครดิต,4=เงินสดย่อย,5=เงินล่วงหน้า,9=คูปอง,11=จ่ายอื่น,12=รับอื่น,19=สกุลเงินอื่น,21=eWallet</_remark>
+            </_remark>
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="deposit_no" _description="เลขที่เงินล่วงหน้า" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
@@ -26858,7 +27015,7 @@
             <_remark />
           </_fieldExtra>
         </_fieldList>
-        <_fieldList _name="currency_code" _description="รหัสสกุลเงิน" _descriptionEng="Currency Code" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+        <_fieldList _name="currency_code" _description="รหัสสกุลเงิน" _descriptionEng="Currency Code" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -26869,6 +27026,26 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="is_doc_copy" _description="เป็นเอกสารออกแทน" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="transection_number" _description="เลขที่รายการ" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref1" _description="เลขที่อ้างอิง 1" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref2" _description="เลขที่อ้างอิง 2" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="sum_amount_2" _description="รวมจำนวนเงิน" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -28731,7 +28908,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_resource" _description="รายละเอียดข้อความ" _descriptionEng="Inventory Transfer Resource" _version="SMLERP" _width="241" _height="213" _x="290" _y="1378">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_resource" _description="รายละเอียดข้อความ" _descriptionEng="Inventory Transfer Resource" _version="SMLERP" _width="241" _height="213" _x="326" _y="1383">
       <_fields>
         <_fieldList _name="from_doc_no" _description="จากเลขที่เอกสาร" _descriptionEng="From Document No" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -32273,7 +32450,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_user_group_detail" _description="ผู้ใช้ในกลุ่ม" _descriptionEng="Table 242" _version="" _width="211" _height="69" _x="902" _y="1823">
+    <_tableList _moduleName="Setup" _name="erp_user_group_detail" _description="ผู้ใช้ในกลุ่ม" _descriptionEng="Table 242" _version="" _width="211" _height="69" _x="902" _y="1854">
       <_fields>
         <_fieldList _name="group_code" _description="รหัสกลุ่ม" _descriptionEng="Group Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -32444,7 +32621,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_lot" _description="Table 237" _descriptionEng="Table 237" _version="" _width="270" _height="293" _x="21" _y="1284">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_lot" _description="Table 237" _descriptionEng="Table 237" _version="" _width="270" _height="325" _x="17" _y="1268" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="trans_flag" _description="รายวันระบบ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -32527,6 +32704,16 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="doc_line_number" _description="หมายเลขบรรทัดอ้างอิง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="product_year" _description="ปีที่ผลิต" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="product_week" _description="สัปดาห์ที่ผลิต" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -34245,7 +34432,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="POSConfig" _description="กำหนด config ระบบ POS " _descriptionEng="กำหนด config ระบบ POS " _version="" _width="428" _height="2149" _x="2" _y="1969" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="POS" _name="POSConfig" _description="กำหนด config ระบบ POS " _descriptionEng="กำหนด config ระบบ POS " _version="" _width="428" _height="2165" _x="2" _y="1969" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="cust_code_default" _description="ลูกค้าเริ่มต้น" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -34908,6 +35095,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="max_change_money" _description="ทอนเงินสูงสุด" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="weight_scale_price_digit_power" _description="ตัวคูณหลักมูลค่าจากเครื่องชั่ง" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -38254,7 +38446,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_data_center" _description="Table 304" _descriptionEng="Table 304" _version="" _width="369" _height="245" _x="10" _y="1423">
+    <_tableList _moduleName="Setup" _name="erp_data_center" _description="Table 304" _descriptionEng="Table 304" _version="" _width="369" _height="245" _x="11" _y="1477">
       <_fields>
         <_fieldList _name="datacenter_server" _description="ตำแหน่ง DataCenter" _descriptionEng="" _type="1" _length="150" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -38781,7 +38973,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="kitchen_command" _description="คำสั่งพิเศษ" _descriptionEng="Table 311" _version="" _width="292" _height="85" _x="845" _y="1835">
+    <_tableList _moduleName="POS" _name="kitchen_command" _description="คำสั่งพิเศษ" _descriptionEng="Table 311" _version="" _width="292" _height="101" _x="845" _y="1835" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="doc_no" _description="เอกสาร" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -38799,6 +38991,11 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="doc_type" _description="ประเภทเอกสาร(0=order,1=cancel)" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="kitchen_data" _description="data" _descriptionEng="" _type="10" _length="5000" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -39571,7 +39768,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Setup" _name="erp_sale_plan" _description="แผนการขาย" _descriptionEng="Sale Plan" _version="" _width="214" _height="117" _x="9" _y="1678">
+    <_tableList _moduleName="Setup" _name="erp_sale_plan" _description="แผนการขาย" _descriptionEng="Sale Plan" _version="" _width="214" _height="117" _x="1245" _y="2685">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -39912,7 +40109,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="POS" _name="pos_settle_bill_discount" _description="รายละเอียดการส่งบิลส่วนลด" _descriptionEng="POS Setttle Bill Discount" _version="" _width="284" _height="197" _x="841" _y="974">
+    <_tableList _moduleName="POS" _name="pos_settle_bill_discount" _description="รายละเอียดการส่งบิลส่วนลด" _descriptionEng="POS Setttle Bill Discount" _version="" _width="284" _height="197" _x="829" _y="999">
       <_fields>
         <_fieldList _name="doc_no" _description="เลขทีเอกสาร" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -40088,7 +40285,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_allocate" _description="รายละเอียดรายวันการจัดสรร" _descriptionEng="" _version="" _width="282" _height="181" _x="305" _y="2518">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_allocate" _description="รายละเอียดรายวันการจัดสรร" _descriptionEng="" _version="" _width="282" _height="181" _x="304" _y="2522">
       <_fields>
         <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -40145,7 +40342,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_site" _description="รายละเอียดรายวันฝ่าย" _descriptionEng="" _version="" _width="233" _height="181" _x="21" _y="2393">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_site" _description="รายละเอียดรายวันฝ่าย" _descriptionEng="" _version="" _width="233" _height="181" _x="20" _y="2424">
       <_fields>
         <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -40202,7 +40399,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_jobs" _description="รายละเอียดรายวันงาน" _descriptionEng="Table 335" _version="" _width="235" _height="181" _x="20" _y="2581">
+    <_tableList _moduleName="IC_Trans" _name="ic_trans_detail_jobs" _description="รายละเอียดรายวันงาน" _descriptionEng="Table 335" _version="" _width="235" _height="181" _x="25" _y="3126">
       <_fields>
         <_fieldList _name="doc_date" _description="วันที่เอกสาร" _descriptionEng="" _type="6" _length="0" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -40390,7 +40587,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="IC_Trans" _name="take_order_temp" _description="take order" _descriptionEng="Table 344" _version="" _width="181" _height="149" _x="305" _y="2731">
+    <_tableList _moduleName="IC_Trans" _name="take_order_temp" _description="take order" _descriptionEng="Table 344" _version="" _width="181" _height="149" _x="20" _y="2611">
       <_fields>
         <_fieldList _name="barcode" _description="Barcode" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -46114,7 +46311,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Asset" _name="as_trans" _description="รายวันสินทรัพย์" _descriptionEng="Asset Trans" _version="" _width="258" _height="357" _x="324" _y="950" _fieldExtend="ic_trans" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Asset" _name="as_trans" _description="รายวันสินทรัพย์" _descriptionEng="Asset Trans" _version="" _width="258" _height="469" _x="324" _y="950" _fieldExtend="ic_trans" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="guid_code" _description="GUID" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -46217,6 +46414,41 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="trans_type" _description="ประเภทรายวัน" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="process_mode" _description="ชนิดการคำนวณ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="by_revenue" _description="ตามหลักสรรพากร" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="by_account" _description="ตามหลักการบัญชี" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="by_total_date" _description="ตามจำนวนวันจริง" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="process_by" _description="วิธีการคำนวณ" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="by_day" _description="วัน" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="by_month" _description="เดือน" _descriptionEng="" _type="0" _length="0" _null="0" _resource_only="1" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
@@ -47234,7 +47466,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="sml_tooltip" _description="SML Tooltip" _descriptionEng="SML Tooltip" _version="" _width="206" _height="165" _x="1128" _y="945" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Master" _name="sml_tooltip" _description="SML Tooltip" _descriptionEng="SML Tooltip" _version="" _width="206" _height="165" _x="1176" _y="934" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -47298,7 +47530,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="banknotes" _description="ธนบัตร" _descriptionEng="Banknotes" _version="" _width="186" _height="85" _x="1128" _y="1137" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Master" _name="banknotes" _description="ธนบัตร" _descriptionEng="Banknotes" _version="" _width="186" _height="85" _x="1175" _y="1110" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="value" _description="มูลค่า" _descriptionEng="Value" _type="1" _length="255" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -47325,7 +47557,7 @@
       <_afterCreated />
       <_afterVerify />
     </_tableList>
-    <_tableList _moduleName="Master" _name="POSCashierSettle_detail" _description="รายละเอียดการส่งเงิน" _descriptionEng="POSCashierSettle Detail" _version="" _width="261" _height="117" _x="976" _y="1279" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+    <_tableList _moduleName="Master" _name="POSCashierSettle_detail" _description="รายละเอียดการส่งเงิน" _descriptionEng="POSCashierSettle Detail" _version="" _width="261" _height="117" _x="1175" _y="1207" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
       <_fields>
         <_fieldList _name="bill_number" _description="เลขที่ใบส่งเงิน" _descriptionEng="Bill number" _type="1" _length="25" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
@@ -47748,6 +47980,142 @@
           </_fieldExtra>
         </_fieldList>
         <_fieldList _name="guid_code" _description="guid code" _descriptionEng="" _type="1" _length="35" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Setup" _name="erp_wallet_list" _description="ประเภท Wallet" _descriptionEng="Wallet List" _version="" _width="254" _height="117" _x="1222" _y="960" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+      <_fields>
+        <_fieldList _name="code" _description="รหัส" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_1" _description="ชื่อ" _descriptionEng="" _type="1" _length="255" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="GUID" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_2" _description="ชื่ออังกฤษ" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="account_code" _description="ผังบัญชี" _descriptionEng="" _type="1" _length="25" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="credit_period" _description="ระยะเวลาดำเนินการ(วัน)" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="POS" _name="wallet_payments" _description="Wallet Payments" _descriptionEng="Wallet Payments" _version="" _width="263" _height="229" _x="835" _y="2366" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+      <_fields>
+        <_fieldList _name="wallet_code" _description="Wallet Code" _descriptionEng="" _type="1" _length="25" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="qr_code" _description="QR Code" _descriptionEng="" _type="1" _length="255" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref1" _description="Ref1" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="ref2" _description="Ref2" _descriptionEng="" _type="1" _length="50" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="approve_status" _description="Approve Status" _descriptionEng="" _type="4" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="approve_code" _description="Approve Code" _descriptionEng="" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="approve_date" _description="Approve Date" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="create_date" _description="Create Date" _descriptionEng="" _type="8" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="user_code" _description="User Code" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="computer_name" _description="Computer Name" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="pos_id" _description="POS ID" _descriptionEng="" _type="1" _length="50" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="amount" _description="Amount" _descriptionEng="" _type="2" _length="0" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="transection_id" _description="Transection ID" _descriptionEng="" _type="1" _length="255" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+      </_fields>
+      <_indexs />
+      <_afterCreated />
+      <_afterVerify />
+    </_tableList>
+    <_tableList _moduleName="Master" _name="ar_contact_group" _description="กลุ่มผู้ติดต่อ" _descriptionEng="ar contact group" _version="" _width="233" _height="85" _x="1324" _y="15" _fieldExtend="" _indexExtend="" _afterCreatedExtend="" _afterVerifyExtend="" _tableExtend="">
+      <_fields>
+        <_fieldList _name="code" _description="รหัส" _descriptionEng="Code" _type="1" _length="25" _null="0" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_1" _description="ชื่อ" _descriptionEng="Name" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="name_2" _description="ชื่อ (ภาษาอังกฤษ)" _descriptionEng="Name (English)" _type="1" _length="100" _null="1" _resource_only="0" _default="">
+          <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
+            <_remark />
+          </_fieldExtra>
+        </_fieldList>
+        <_fieldList _name="guid_code" _description="GUID" _descriptionEng="GUID" _type="1" _length="35" _null="1" _resource_only="0" _default="">
           <_fieldExtra _indentity="0" _indentitySeed="0" _indentityIncrement="0">
             <_remark />
           </_fieldExtra>
