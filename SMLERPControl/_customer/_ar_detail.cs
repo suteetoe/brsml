@@ -88,6 +88,7 @@ namespace SMLERPControl._customer
             Control _arm_sub_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._sub_ar_shoptype5_code);
             Control _arm_ar_shoptype6_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype6_code);
             Control _arm_ar_shoptype7_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype7_code);
+            Control _arm_ar_project_date_end = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_date_end);
 
             // _arm_approve_date_Control.Enabled = false;
             _arm_ar_shoptype1_code.Enabled = false;
@@ -98,6 +99,7 @@ namespace SMLERPControl._customer
             _arm_sub_ar_shoptype5_code.Enabled = false;
             _arm_ar_shoptype6_code.Enabled = false;
             _arm_ar_shoptype7_code.Enabled = false;
+            _arm_ar_project_date_end.Enabled = false;
         }
 
         bool _screen_ar_detail_5__checkKeyDownReturn(object sender, Keys keyData)
@@ -655,6 +657,7 @@ namespace SMLERPControl._customer
                     this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._facebook, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._facebook].ToString());
 
                     this._screen_customer._setDataStr(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._br_cust_code, getData.Tables[0].Rows[0][_g.d.ar_customer_detail._br_cust_code].ToString());
+                    this._screen_customer._setDataDate(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_date_end, MyLib._myGlobal._convertDateFromQuery(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_project_date_end].ToString()));
                 }
                 this._screen_ar_contact_grid1._loadFromDataTable(((DataSet)_getData[2]).Tables[0]);
                 this._screen_ar_item_grid1._loadFromDataTable(((DataSet)_getData[3]).Tables[0]);

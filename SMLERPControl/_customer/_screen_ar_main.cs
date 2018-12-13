@@ -452,6 +452,7 @@ namespace SMLERPControl._customer
                     //this._addTextBox(2, 1, 1, 0, "รหัสโครงการ", 1, 0, 0, false, false, true, false);
                     MyLib._addLabelReturn __labelcustomer = this._addLabel(5, 0, "", _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_customer_channel, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_customer_channel);
                     this._addTextBox(6, 0, 1, 0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype1_code, 1, 0, 1, true, false, true);
+                    this._addDateBox(6, 1, 1, 1, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_date_end, 1, true, false, true);
                     this._addTextBox(7, 0, 1, 0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype2_code, 1, 0, 1, true, false, true);
                     this._addTextBox(8, 0, 1, 0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype3_code, 1, 0, 1, true, false, true);
                     this._addTextBox(9, 0, 1, 0, _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype4_code, 1, 0, 1, true, false, true);

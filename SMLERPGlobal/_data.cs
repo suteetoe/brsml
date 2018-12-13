@@ -327,6 +327,18 @@ namespace _g
             /// ผู้รับ
             /// </summary>
             public static String _arm_send_ar_change_to = "arm_send_ar_change_to";
+            /// <summary>
+            /// ประเภทสาขา
+            /// </summary>
+            public static String _branch_type = "branch_type";
+            /// <summary>
+            /// สำนักงานใหญ่
+            /// </summary>
+            public static String _head_quaters = "head_quaters";
+            /// <summary>
+            /// สาขา
+            /// </summary>
+            public static String _branch = "branch";
         }
 
         /// <summary>
@@ -1656,6 +1668,54 @@ namespace _g
             /// พิมพ์บิลขายได้ทุกกรณี
             /// </summary>
             public static String _print_every_case = "print_every_case";
+            /// <summary>
+            /// พิมพ์รายการย้ายโต๊ะ
+            /// </summary>
+            public static String _print_table_move = "print_table_move";
+            /// <summary>
+            /// อนุญาติให้รับสินค้ามากกว่าใบสั่งซื้อได้
+            /// </summary>
+            public static String _receive_more_po = "receive_more_po";
+            /// <summary>
+            /// Store ID
+            /// </summary>
+            public static String _wallet_lugent_store_id = "wallet_lugent_store_id";
+            /// <summary>
+            /// Terminal ID
+            /// </summary>
+            public static String _wallet_lugent_terminal_id = "wallet_lugent_terminal_id";
+            /// <summary>
+            /// Merchant Nme
+            /// </summary>
+            public static String _wallet_lugent_merchant_name = "wallet_lugent_merchant_name";
+            /// <summary>
+            /// Access Code
+            /// </summary>
+            public static String _wallet_lugent_access_code = "wallet_lugent_access_code";
+            /// <summary>
+            /// MCID
+            /// </summary>
+            public static String _wallet_bcel_mcid = "wallet_bcel_mcid";
+            /// <summary>
+            /// MCC
+            /// </summary>
+            public static String _wallet_bcel_mcc = "wallet_bcel_mcc";
+            /// <summary>
+            /// Contact
+            /// </summary>
+            public static String _wallet_bcel_contact = "wallet_bcel_contact";
+            /// <summary>
+            /// e-Wallet
+            /// </summary>
+            public static String _tab_wallet = "tab_wallet";
+            /// <summary>
+            /// Lugent
+            /// </summary>
+            public static String _wallet_lugent = "wallet_lugent";
+            /// <summary>
+            /// BCEL
+            /// </summary>
+            public static String _wallet_bcel = "wallet_bcel";
         }
 
         /// <summary>
@@ -1923,6 +1983,10 @@ namespace _g
             /// สำหรับการค้นหา
             /// </summary>
             public static String _column_field_search = "column_field_search";
+            /// <summary>
+            /// ปิดการค้นหา
+            /// </summary>
+            public static String _column_no_search = "column_no_search";
         }
 
         /// <summary>
@@ -3697,6 +3761,10 @@ namespace _g
             /// แสดงบน Mobile Sale
             /// </summary>
             public static String _mobile_use = "mobile_use";
+            /// <summary>
+            /// สกุลเงิน
+            /// </summary>
+            public static String _currency_code = "currency_code";
         }
 
         /// <summary>
@@ -3779,6 +3847,10 @@ namespace _g
             /// GUID
             /// </summary>
             public static String _guid_code = "guid_code";
+            /// <summary>
+            /// สกุลเงิน
+            /// </summary>
+            public static String _currency_code = "currency_code";
         }
 
         /// <summary>
@@ -7579,6 +7651,10 @@ namespace _g
             /// อื่นๆ
             /// </summary>
             public static String _ar_shoptype7_code = "ar_shoptype7_code";
+            /// <summary>
+            /// วันที่สินสุดโครงการ
+            /// </summary>
+            public static String _ar_project_date_end = "ar_project_date_end";
         }
 
         /// <summary>
@@ -7634,6 +7710,30 @@ namespace _g
             /// กลุ่ม
             /// </summary>
             public static String _group_contactor = "group_contactor";
+            /// <summary>
+            /// หมายเหตุ 1
+            /// </summary>
+            public static String _remark_1 = "remark_1";
+            /// <summary>
+            /// หมายเหตุ 2
+            /// </summary>
+            public static String _remark_2 = "remark_2";
+            /// <summary>
+            /// หมายเหตุ 3
+            /// </summary>
+            public static String _remark_3 = "remark_3";
+            /// <summary>
+            /// หมายเหตุ 4
+            /// </summary>
+            public static String _remark_4 = "remark_4";
+            /// <summary>
+            /// หมายเหตุ 5
+            /// </summary>
+            public static String _remark_5 = "remark_5";
+            /// <summary>
+            /// หมายเหตุ 6
+            /// </summary>
+            public static String _remark_6 = "remark_6";
         }
 
         /// <summary>
@@ -12734,6 +12834,10 @@ namespace _g
             /// ถึงวันเครดิต
             /// </summary>
             public static String _to_credit_day = "to_credit_day";
+            /// <summary>
+            /// Wallet Payment
+            /// </summary>
+            public static String _tab_pay_wallet = "tab_pay_wallet";
         }
 
         /// <summary>
@@ -18309,6 +18413,22 @@ namespace _g
             /// bat number
             /// </summary>
             public static String _bat_number = "bat_number";
+            /// <summary>
+            /// ปีที่ผลิต
+            /// </summary>
+            public static String _product_year = "product_year";
+            /// <summary>
+            /// สัปดาห์ที่ผลิต
+            /// </summary>
+            public static String _product_week = "product_week";
+            /// <summary>
+            /// สกุลเงิน
+            /// </summary>
+            public static String _currency_code = "currency_code";
+            /// <summary>
+            /// อัตราแลกเปลี่ยน
+            /// </summary>
+            public static String _exchange_rate = "exchange_rate";
         }
 
         /// <summary>
@@ -20113,6 +20233,10 @@ namespace _g
             /// เป็นเอกสารออกแทน
             /// </summary>
             public static String _is_doc_copy = "is_doc_copy";
+            /// <summary>
+            /// Wallet Payment
+            /// </summary>
+            public static String _wallet_amount = "wallet_amount";
         }
 
         /// <summary>
@@ -20253,7 +20377,7 @@ namespace _g
             /// </summary>
             public static String _chq_number = "chq_number";
             /// <summary>
-            /// 1=เงินโอน,2=เช็ค,3=บัตรเครดิต,4=เงินสดย่อย,5=เงินล่วงหน้า,9=คูปอง,11=จ่ายอื่น,12=รับอื่น,19=สกุลเงินอื่น
+            /// 1=เงินโอน,2=เช็ค,3=บัตรเครดิต,4=เงินสดย่อย,5=เงินล่วงหน้า,9=คูปอง,11=จ่ายอื่น,12=รับอื่น,19=สกุลเงินอื่น,21=eWallet
             /// </summary>
             public static String _doc_type = "doc_type";
             /// <summary>
@@ -20368,6 +20492,22 @@ namespace _g
             /// เป็นเอกสารออกแทน
             /// </summary>
             public static String _is_doc_copy = "is_doc_copy";
+            /// <summary>
+            /// เลขที่รายการ
+            /// </summary>
+            public static String _transection_number = "transection_number";
+            /// <summary>
+            /// เลขที่อ้างอิง 1
+            /// </summary>
+            public static String _ref1 = "ref1";
+            /// <summary>
+            /// เลขที่อ้างอิง 2
+            /// </summary>
+            public static String _ref2 = "ref2";
+            /// <summary>
+            /// รวมจำนวนเงิน
+            /// </summary>
+            public static String _sum_amount_2 = "sum_amount_2";
         }
 
         /// <summary>
@@ -24968,6 +25108,14 @@ namespace _g
             /// หมายเลขบรรทัดอ้างอิง
             /// </summary>
             public static String _doc_line_number = "doc_line_number";
+            /// <summary>
+            /// ปีที่ผลิต
+            /// </summary>
+            public static String _product_year = "product_year";
+            /// <summary>
+            /// สัปดาห์ที่ผลิต
+            /// </summary>
+            public static String _product_week = "product_week";
         }
 
         /// <summary>
@@ -26883,6 +27031,10 @@ namespace _g
             /// ทอนเงินสูงสุด
             /// </summary>
             public static String _max_change_money = "max_change_money";
+            /// <summary>
+            /// ตัวคูณหลักมูลค่าจากเครื่องชั่ง
+            /// </summary>
+            public static String _weight_scale_price_digit_power = "weight_scale_price_digit_power";
         }
 
         /// <summary>
@@ -30063,6 +30215,10 @@ namespace _g
             /// ประเภทเอกสาร(0=order,1=cancel)
             /// </summary>
             public static String _doc_type = "doc_type";
+            /// <summary>
+            /// data
+            /// </summary>
+            public static String _kitchen_data = "kitchen_data";
         }
 
         /// <summary>
@@ -35942,6 +36098,34 @@ namespace _g
             /// </summary>
             public static String _trans_type = "trans_type";
             /// <summary>
+            /// ชนิดการคำนวณ
+            /// </summary>
+            public static String _process_mode = "process_mode";
+            /// <summary>
+            /// ตามหลักสรรพากร
+            /// </summary>
+            public static String _by_revenue = "by_revenue";
+            /// <summary>
+            /// ตามหลักการบัญชี
+            /// </summary>
+            public static String _by_account = "by_account";
+            /// <summary>
+            /// ตามจำนวนวันจริง
+            /// </summary>
+            public static String _by_total_date = "by_total_date";
+            /// <summary>
+            /// วิธีการคำนวณ
+            /// </summary>
+            public static String _process_by = "process_by";
+            /// <summary>
+            /// วัน
+            /// </summary>
+            public static String _by_day = "by_day";
+            /// <summary>
+            /// เดือน
+            /// </summary>
+            public static String _by_month = "by_month";
+            /// <summary>
             /// กลุ่มเอกสาร
             /// </summary>
             public static String _doc_group = "doc_group";
@@ -37976,6 +38160,22 @@ namespace _g
             /// bat number
             /// </summary>
             public static String _bat_number = "bat_number";
+            /// <summary>
+            /// ปีที่ผลิต
+            /// </summary>
+            public static String _product_year = "product_year";
+            /// <summary>
+            /// สัปดาห์ที่ผลิต
+            /// </summary>
+            public static String _product_week = "product_week";
+            /// <summary>
+            /// สกุลเงิน
+            /// </summary>
+            public static String _currency_code = "currency_code";
+            /// <summary>
+            /// อัตราแลกเปลี่ยน
+            /// </summary>
+            public static String _exchange_rate = "exchange_rate";
         }
 
         /// <summary>
@@ -39317,6 +39517,129 @@ namespace _g
             public static String _guid_code = "guid_code";
         }
 
+        /// <summary>
+        /// ประเภท Wallet
+        /// </summary>
+        public class erp_wallet_list
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "erp_wallet_list";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// GUID
+            /// </summary>
+            public static String _guid_code = "guid_code";
+            /// <summary>
+            /// ชื่ออังกฤษ
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// ผังบัญชี
+            /// </summary>
+            public static String _account_code = "account_code";
+            /// <summary>
+            /// ระยะเวลาดำเนินการ(วัน)
+            /// </summary>
+            public static String _credit_period = "credit_period";
+        }
 
+        /// <summary>
+        /// Wallet Payments
+        /// </summary>
+        public class wallet_payments
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "wallet_payments";
+            /// <summary>
+            /// Wallet Code
+            /// </summary>
+            public static String _wallet_code = "wallet_code";
+            /// <summary>
+            /// QR Code
+            /// </summary>
+            public static String _qr_code = "qr_code";
+            /// <summary>
+            /// Ref1
+            /// </summary>
+            public static String _ref1 = "ref1";
+            /// <summary>
+            /// Ref2
+            /// </summary>
+            public static String _ref2 = "ref2";
+            /// <summary>
+            /// Approve Status
+            /// </summary>
+            public static String _approve_status = "approve_status";
+            /// <summary>
+            /// Approve Code
+            /// </summary>
+            public static String _approve_code = "approve_code";
+            /// <summary>
+            /// Approve Date
+            /// </summary>
+            public static String _approve_date = "approve_date";
+            /// <summary>
+            /// Create Date
+            /// </summary>
+            public static String _create_date = "create_date";
+            /// <summary>
+            /// User Code
+            /// </summary>
+            public static String _user_code = "user_code";
+            /// <summary>
+            /// Computer Name
+            /// </summary>
+            public static String _computer_name = "computer_name";
+            /// <summary>
+            /// POS ID
+            /// </summary>
+            public static String _pos_id = "pos_id";
+            /// <summary>
+            /// Amount
+            /// </summary>
+            public static String _amount = "amount";
+            /// <summary>
+            /// Transection ID
+            /// </summary>
+            public static String _transection_id = "transection_id";
+        }
+
+        /// <summary>
+        /// กลุ่มผู้ติดต่อ
+        /// </summary>
+        public class ar_contact_group
+        {
+            /// <summary>
+            /// ชื่อ Table
+            /// </summary>
+            public static String _table = "ar_contact_group";
+            /// <summary>
+            /// รหัส
+            /// </summary>
+            public static String _code = "code";
+            /// <summary>
+            /// ชื่อ
+            /// </summary>
+            public static String _name_1 = "name_1";
+            /// <summary>
+            /// ชื่อ (ภาษาอังกฤษ)
+            /// </summary>
+            public static String _name_2 = "name_2";
+            /// <summary>
+            /// GUID
+            /// </summary>
+            public static String _guid_code = "guid_code";
+        }
     }
 }

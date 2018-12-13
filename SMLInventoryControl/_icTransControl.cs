@@ -4567,6 +4567,10 @@ namespace SMLInventoryControl
 
         }
 
+        
+
+
+
         private void __buttonSearchSR_Click(object sender, EventArgs e)
         {
             // search sr
