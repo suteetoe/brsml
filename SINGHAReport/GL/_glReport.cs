@@ -672,7 +672,7 @@ namespace SINGHAReport.GL
                             string __balanceStockQuery = "select ic_code, doc_type, null as doc_date, '' as doc_time, \'\' as  doc_no, trans_flag, wh_code, shelf_code, qty_in, qty_out, balance_qty from ( " +
                                 "select item_code as ic_code, 0 as doc_type, 0 as trans_flag, wh_code, shelf_code" +
                                 ", 0 as qty_in, 0 as qty_out" +
-                                ", coalesce(sum(calc_flag * (case when((trans_flag in (66, 68, 70, 54, 60, 58, 310, 12) or(trans_flag = 14 and inquiry_type = 0) or(trans_flag = 48 and inquiry_type < 2)) or(trans_flag in (56, 72, 44) or(trans_flag = 46 and inquiry_type = 1) or(trans_flag = 16 and inquiry_type in (0, 2)) or(trans_flag = 311 and inquiry_type = 0))) then qty*(stand_value / divide_value) else 0 end)),0) as balance_qty" +
+                                ", coalesce(sum(calc_flag * (case when((trans_flag in (66, 68, 70, 54, 60, 58, 310, 12) or(trans_flag = 14 and inquiry_type = 0) or(trans_flag = 48 and inquiry_type < 2)) or(trans_flag in (56, 72, 44) or(trans_flag = 46 and inquiry_type = 0) or(trans_flag = 16 and inquiry_type in (0, 2)) or(trans_flag = 311 and inquiry_type = 0))) then qty*(stand_value / divide_value) else 0 end)),0) as balance_qty" +
                                 " from ic_trans_detail " +
                                 " where last_status = 0 and item_type<> 3 and item_type<> 5 and doc_date_calc < \'" + __from_date + "\' " +
                                 ((__whShelfCodeWhere.Length > 0) ? " and (" + __whShelfCodeWhere + ")" : "") +
@@ -687,7 +687,7 @@ namespace SINGHAReport.GL
                                 " select 1 as doc_type, item_code as ic_code, doc_date, doc_time, doc_no, trans_flag, calc_flag, qty, stand_value, divide_value, wh_code, shelf_code " +
                                 " from ic_trans_detail " +
                                 " where last_status = 0 " +
-                                " and((trans_flag in (66, 68, 70, 54, 60, 58, 310, 12) or(trans_flag = 14 and inquiry_type = 0) or(trans_flag = 48 and inquiry_type < 2)) or(trans_flag in (56, 72, 44) or(trans_flag = 46 and inquiry_type = 1) or(trans_flag = 16 and inquiry_type in (0, 2)) or(trans_flag = 311 and inquiry_type = 0)) ) " +
+                                " and((trans_flag in (66, 68, 70, 54, 60, 58, 310, 12) or(trans_flag = 14 and inquiry_type = 0) or(trans_flag = 48 and inquiry_type < 2)) or(trans_flag in (56, 72, 44) or(trans_flag = 46 and inquiry_type = 0) or(trans_flag = 16 and inquiry_type in (0, 2)) or(trans_flag = 311 and inquiry_type = 0)) ) " +
                                 " and doc_date_calc>= \'" + __from_date + "\'  and doc_date_calc<= \'" + __to_date + "\' " +
                                 ((__whShelfCodeWhere.Length > 0) ? " and (" + __whShelfCodeWhere + ")" : "") +
                                 " ) as temp1 ";

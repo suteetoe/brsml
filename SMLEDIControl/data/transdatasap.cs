@@ -245,7 +245,6 @@ namespace SMLEDIControl
 
         public string _queryInsert()
         {
-
            
 
 
@@ -259,7 +258,7 @@ namespace SMLEDIControl
                 ", inquiry_type, vat_type, doc_format_code" +
                 ", wh_from, location_from, wh_to, location_to, send_type" +
                 ", doc_ref, doc_ref_date , branch_code, last_status, credit_day"
-                    + ", credit_date, remark,is_lock_record) ");
+                    + ", credit_date, remark,is_lock_record,ref_doc_type) ");
             sqlTrans.Append(
                 " VALUES (\'{0}\', {1}, {2}" +
                 ", \'{3}\', \'{4}\', \'{5}\', \'{6}\'" +
@@ -268,7 +267,7 @@ namespace SMLEDIControl
                 ", {19}, {20}, \'{21}\' " +
                 ", \'{22}\', \'{23}\', \'{24}\', \'{25}\', {26}" +
                 ", \'{27}\', {28}, \'{29}\', {30}, {31}"
-                    + ", {32}, \'{33}\',1) "
+                    + ", {32}, \'{33}\',1,'SAP') "
                     );
 
 
@@ -330,7 +329,7 @@ namespace SMLEDIControl
                  , this.total_value, this.total_after_vat, this.total_amount, this.total_before_vat, total_discount, total_except_vat, total_vat_value, vat_rate,
                  0, doc_time, tax_doc_date, tax_doc_no
                  , inquiry_type, vat_type, doc_format_code
-                 , wh_from, location_from, branch_code, "", 0
+                 , wh_from, location_from, "", "", 0
                  , BILLINGDOCNO, "null", branch_code, 0, credit_day
                  , ((credit_date.Length > 0) ? "\'" + credit_date + "\'" : "null"), remark
                  )));

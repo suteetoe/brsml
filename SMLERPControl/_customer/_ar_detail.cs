@@ -74,7 +74,8 @@ namespace SMLERPControl._customer
             //
             this._screenTop.Enabled = false;
 
-            if (_g.g._companyProfile._check_edit_project) {
+            if (_g.g._companyProfile._check_edit_project)
+            {
                 this._screen_customer.Enabled = false;
             }
 
@@ -291,7 +292,33 @@ namespace SMLERPControl._customer
                     MessageBox.Show(MyLib._myGlobal._resource("warning55"), MyLib._myGlobal._resource("warning"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+                string projectcode = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_code_name).ToString();
+                if (projectcode != "0")
+                {
+                    string ar_shoptype1 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype1_code).ToString();
+                    string ar_shoptype2 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype2_code).ToString();
+                    string ar_shoptype3 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype3_code).ToString();
+                    string ar_shoptype4 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype4_code).ToString();
+                    string ar_shoptype5 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype5_code).ToString();
+                    string ar_shoptype6 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype6_code).ToString();
+                    string ar_shoptype7 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype7_code).ToString();
+                    string ar_shoptype8 = this._screen_customer._getDataStrQuery(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._sub_ar_shoptype5_code).ToString();
+                    if (
+                       (ar_shoptype1 == "null" || ar_shoptype1 == "") &&
+                       (ar_shoptype2 == "null" || ar_shoptype2 == "") &&
+                       (ar_shoptype3 == "null" || ar_shoptype3 == "") &&
+                       (ar_shoptype4 == "null" || ar_shoptype4 == "") &&
+                       (ar_shoptype5 == "null" || ar_shoptype5 == "") &&
+                       (ar_shoptype6 == "null" || ar_shoptype6 == "") &&
+                       (ar_shoptype7 == "null" || ar_shoptype7 == "") &&
+                       (ar_shoptype8 == "null" || ar_shoptype8 == "")
+                    )
+                    {
+                        MessageBox.Show("กรุณาเลือก Customer Channel", "พบข้อผิดพลาดจากการเลือกโครงการ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
 
+                }
                 if (MyLib._myGlobal._checkChangeMaster())
                 {
                     string getEmtry = this._screenTop._checkEmtryField();
@@ -315,6 +342,8 @@ namespace SMLERPControl._customer
                             ArrayList __getData4 = this._screen_ar_detail_4._createQueryForDatabase();
                             ArrayList __getData5 = this._screen_ar_detail_5._createQueryForDatabase();
                             ArrayList __getData6 = this._screen_customer._createQueryForDatabase();
+
+
 
                             string __dataList = this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + ",";
                             string __fieldList_1 = _g.d.ar_customer._code + ",";
@@ -568,13 +597,13 @@ namespace SMLERPControl._customer
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _myManageData1._dataList._tableName + whereString));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * , (select " + _g.d.ar_customer._arm_tier + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer_detail._arm_tier + ", (select " + _g.d.ar_customer._arm_approve_date + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer_detail._arm_approve_date + "" +
                     ", (select " + _g.d.ar_customer._arm_code + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_code +
-                    ", (select " + _g.d.ar_customer._arm_register + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_register +  
-                      ", (select " + _g.d.ar_customer._arm_register_date + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_register_date +  
+                    ", (select " + _g.d.ar_customer._arm_register + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_register +
+                      ", (select " + _g.d.ar_customer._arm_register_date + " from " + _g.d.ar_customer._table + " where " + _g.d.ar_customer._table + "." + _g.d.ar_customer._code + " = " + _g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_code + ") as " + _g.d.ar_customer._arm_register_date +
                     " from " + _g.d.ar_customer_detail._table + " where " + _g.d.ar_customer_detail._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.ar_contactor._table + " where " + _g.d.ar_contactor._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append(MyLib._myUtil._convertTextToXmlForQuery("select * from " + _g.d.ar_item_by_customer._table + " where " + _g.d.ar_item_by_customer._ar_code + " = '" + _oldDocNo + "'"));
                 __myquery.Append("</node>");
-             
+
                 ArrayList _getData = _myFrameWork._queryListGetData(MyLib._myGlobal._databaseName, __myquery.ToString());
                 this._screenTop._loadData(((DataSet)_getData[0]).Tables[0]);
                 this._screen_ar_detail_1._loadData(((DataSet)_getData[1]).Tables[0]);
@@ -591,7 +620,8 @@ namespace SMLERPControl._customer
                     {
                         this._screen_customer.Enabled = true;
                     }
-                    else {
+                    else
+                    {
                         if (_g.g._companyProfile._check_edit_project)
                         {
                             this._screen_customer.Enabled = false;
@@ -605,7 +635,8 @@ namespace SMLERPControl._customer
                     this._screen_customer._setComboBox(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_code_name, MyLib._myGlobal._intPhase(getData.Tables[0].Rows[0][_g.d.ar_customer_detail._ar_project_code_name].ToString()));
                     this._screen_customer._setDataStr(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_code, getData.Tables[0].Rows[0][_g.d.ar_customer._arm_code].ToString());
                     this._screen_customer._setComboBox(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_tier, MyLib._myGlobal._intPhase(getData.Tables[0].Rows[0][_g.d.ar_customer._arm_tier].ToString()));
-                    if (getData.Tables[0].Rows[0][_g.d.ar_customer._arm_register].ToString() == "1") {
+                    if (getData.Tables[0].Rows[0][_g.d.ar_customer._arm_register].ToString() == "1")
+                    {
                         this._screen_customer._setCheckBox(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register, true);
                     }
                     this._screen_customer._setDataDate(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register_date, MyLib._myGlobal._convertDateFromQuery(getData.Tables[0].Rows[0][_g.d.ar_customer._arm_register_date].ToString()));
