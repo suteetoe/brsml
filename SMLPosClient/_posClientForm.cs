@@ -14794,7 +14794,8 @@ namespace SMLPosClient
                     _g.d.ic_trans._period_guid,
                     _g.d.ic_trans._point_telephone,
                     _g.d.ic_trans._sum_point_2,
-                    _g.d.ic_trans._department_code);
+                    _g.d.ic_trans._department_code,
+                    _g.d.ic_trans._create_datetime);
                 string __value = MyLib._myGlobal._fieldAndComma(
                     "\'" + __docDate + "\'",
                     "\'" + __docTime + "\'",
@@ -14836,7 +14837,9 @@ namespace SMLPosClient
                     "\'" + this._periodGuid + "\'",
                     "\'" + __telephone_number + "\'",
                     __pointTelephone.ToString(),
-                    "\'" + this._department_code + "\'");
+                    "\'" + this._department_code + "\'",
+                    "now()");
+             
                 __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ic_trans._table + " (" + __field + ") values (" + __value + ")"));
 
                 // รายละเอียดสินค้า

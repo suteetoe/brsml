@@ -1246,7 +1246,14 @@ namespace SMLInventoryControl
                     __icTransFlag = _g.g._transFlagGlobal._transFlag(_g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ);
                     if (!cust_code.Equals(""))
                     {
-                        __extraWhere = " and " + _g.d.ic_trans._cust_code + "=\'" + cust_code + "\' and last_status !=1";
+                        if (_g.g._companyProfile._branchStatus == 1)
+                        {
+                            __extraWhere = " and " + _g.d.ic_trans._cust_code + "=\'" + cust_code + "\' and last_status !=1 and branch_code ='" + MyLib._myGlobal._branchCode + "'";
+                        }
+                        else {
+                            __extraWhere = " and " + _g.d.ic_trans._cust_code + "=\'" + cust_code + "\' and last_status !=1";
+
+                        }
                     }
                     else
                     {

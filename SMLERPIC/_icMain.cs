@@ -673,6 +673,9 @@ namespace SMLERPIC
                                     // StandardCost
                                     this._icMainPanel._icStandardCost._updateRowIsChangeAll(true);
                                     __myQuery.Append(this._icMainPanel._icStandardCost._createQueryForInsert(_g.d.ic_standard_cost._table, __fieldList, __dataList, false));
+                                    //create_date_time
+                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ic_inventory._table + " set create_datetime=now(),last_update_date_time=now(),create_code='" + MyLib._myGlobal._userCode + "', last_update_code='" + MyLib._myGlobal._userCode + "' where code = '"+__itemCode+"'"));
+
                                 }
                                 else
                                 {
@@ -722,6 +725,8 @@ namespace SMLERPIC
                                         __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ic_inventory_detail._table + " set " + _g.d.ic_inventory_detail._is_premium + "=" + this._icMainPanel._icmainScreenMoreControl._getDataStrQuery(_g.d.ic_inventory_detail._is_premium) + " where " + MyLib._myGlobal._addUpper(_g.d.ic_inventory_detail._ic_code) + "=\'" + __itemCode + "\'"));
 
                                     }
+                                    //last_update_date_time
+                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ic_inventory._table + " set last_update_date_time=now(),last_update_code='" + MyLib._myGlobal._userCode + "'" + __whereString + ""));
 
                                 }
 

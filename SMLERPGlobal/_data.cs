@@ -1716,6 +1716,10 @@ namespace _g
             /// BCEL
             /// </summary>
             public static String _wallet_bcel = "wallet_bcel";
+            /// <summary>
+            /// ไม่ปัดเศษในการลดต่อเนื่อง
+            /// </summary>
+            public static String _discount_step_round_off = "discount_step_round_off";
         }
 
         /// <summary>
@@ -2874,6 +2878,26 @@ namespace _g
             /// แสดงชื่อสินค้าจากหมายเหตุ
             /// </summary>
             public static String _name_from_remark = "name_from_remark";
+            /// <summary>
+            /// ผู้ผลิต
+            /// </summary>
+            public static String _manufacturer_code = "manufacturer_code";
+            /// <summary>
+            /// วันที่สร้าง
+            /// </summary>
+            public static String _create_datetime = "create_datetime";
+            /// <summary>
+            /// วันที่แก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_date_time = "last_update_date_time";
+            /// <summary>
+            /// ผู้สร้าง
+            /// </summary>
+            public static String _create_code = "create_code";
+            /// <summary>
+            /// ผู้แก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_code = "last_update_code";
         }
 
         /// <summary>
@@ -4784,6 +4808,22 @@ namespace _g
             /// INTERCO
             /// </summary>
             public static String _interco = "interco";
+            /// <summary>
+            /// วันที่สร้าง
+            /// </summary>
+            public static String _create_datetime = "create_datetime";
+            /// <summary>
+            /// วันที่แก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_date_time = "last_update_date_time";
+            /// <summary>
+            /// ผู้สร้าง
+            /// </summary>
+            public static String _create_code = "create_code";
+            /// <summary>
+            /// ผู้แก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_code = "last_update_code";
         }
 
         /// <summary>
@@ -6861,6 +6901,22 @@ namespace _g
             /// สมัคร อาร์ม
             /// </summary>
             public static String _arm_register = "arm_register";
+            /// <summary>
+            /// วันที่สร้าง
+            /// </summary>
+            public static String _create_datetime = "create_datetime";
+            /// <summary>
+            /// วันที่แก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_date_time = "last_update_date_time";
+            /// <summary>
+            /// ผู้สร้าง
+            /// </summary>
+            public static String _create_code = "create_code";
+            /// <summary>
+            /// ผู้แก้ไขล่าสุด
+            /// </summary>
+            public static String _last_update_code = "last_update_code";
         }
 
         /// <summary>
@@ -20237,6 +20293,10 @@ namespace _g
             /// Wallet Payment
             /// </summary>
             public static String _wallet_amount = "wallet_amount";
+            /// <summary>
+            /// ยอด Charge สกุลเงิน
+            /// </summary>
+            public static String _total_other_currency_charge = "total_other_currency_charge";
         }
 
         /// <summary>
@@ -27437,6 +27497,22 @@ namespace _g
             /// ยอดรวมภาษีมูลค่าเพิ่ม
             /// </summary>
             public static String _total_vat_amount = "total_vat_amount";
+            /// <summary>
+            /// ยอดเงินโอน
+            /// </summary>
+            public static String _transfer_amount = "transfer_amount";
+            /// <summary>
+            /// ยอด Wallet
+            /// </summary>
+            public static String _wallet_amount = "wallet_amount";
+            /// <summary>
+            /// ยอดเงินสกุลอื่น
+            /// </summary>
+            public static String _total_currency_amount = "total_currency_amount";
+            /// <summary>
+            /// ยอด Charge สกุลเงินอื่น ๆ
+            /// </summary>
+            public static String _total_currency_charge_amount = "total_currency_charge_amount";
         }
 
         /// <summary>

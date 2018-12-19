@@ -293,6 +293,9 @@ namespace SMLERPControl._customer
                                     // toe add save dealer
                                     String __q1 = this._gridDealer._createQueryForInsert(_g.d.ar_dealer._table, _g.d.ar_dealer._ar_code + ",", "'" + _cust_code + "',");
                                     __myQuery.Append(__q1);
+                                    //create_date_time
+                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _myManageData1._dataList._tableName + " set create_datetime=now(),last_update_date_time=now(),create_code='" + MyLib._myGlobal._userCode + "', last_update_code='" + MyLib._myGlobal._userCode + "' where code ='"+ _cust_code + "'"));
+
                                 }
                                 else
                                 {
@@ -330,6 +333,10 @@ namespace SMLERPControl._customer
 
                                     //string __q2 = this._gridDealer._createQueryForUpdate(_g.d.ar_dealer._table, MyLib._myGlobal._fieldAndComma(_g.d.ar_dealer._regist_date, _g.d.ar_dealer._expire_date));
                                     //__myQuery.Append(__q2);
+
+                                    //last_update_date_time
+                                    __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _myManageData1._dataList._tableName + " set last_update_date_time=now(),last_update_code='" + MyLib._myGlobal._userCode + "'" + _myManageData1._dataList._whereString + ""));
+
                                 }
                                 //
 

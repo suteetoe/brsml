@@ -88,7 +88,7 @@ namespace SMLERPControl._customer
             Control _arm_sub_ar_shoptype5_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._sub_ar_shoptype5_code);
             Control _arm_ar_shoptype6_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype6_code);
             Control _arm_ar_shoptype7_code = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_shoptype7_code);
-            Control _arm_ar_project_date_end = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_date_end);
+           // Control _arm_ar_project_date_end = this._screen_customer._getControl(_g.d.ar_customer_detail._table + "." + _g.d.ar_customer_detail._ar_project_date_end);
 
             // _arm_approve_date_Control.Enabled = false;
             _arm_ar_shoptype1_code.Enabled = false;
@@ -99,7 +99,7 @@ namespace SMLERPControl._customer
             _arm_sub_ar_shoptype5_code.Enabled = false;
             _arm_ar_shoptype6_code.Enabled = false;
             _arm_ar_shoptype7_code.Enabled = false;
-            _arm_ar_project_date_end.Enabled = false;
+          //  _arm_ar_project_date_end.Enabled = false;
         }
 
         bool _screen_ar_detail_5__checkKeyDownReturn(object sender, Keys keyData)

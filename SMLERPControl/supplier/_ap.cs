@@ -135,6 +135,8 @@ namespace SMLERPControl.supplier
                                 string __detailValue = "\'" + __ap_code + "\', \'" + this._screenTop._getDataStr(_g.d.ap_supplier._tax_id) + "\', \'" + this._screenTop._getDataStr(_g.d.ap_supplier._card_id) + "\', \'" + this._screenTop._getDataStr(_g.d.ap_supplier._branch_type) + "\', \'" + this._screenTop._getDataStr(_g.d.ap_supplier._branch_code) + "\' ";
 
                                 __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("insert into " + _g.d.ap_supplier_detail._table + " (" + __detailField + ") values (" + __detailValue + ")"));
+                                //create_date_time
+                                __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _myManageData1._dataList._tableName + " set create_datetime=now(),last_update_date_time=now(),create_code='" + MyLib._myGlobal._userCode+ "', last_update_code='" + MyLib._myGlobal._userCode + "' where code='"+ __ap_code + "'"));
 
                             }
                             else
@@ -147,7 +149,8 @@ namespace SMLERPControl.supplier
                                     _g.d.ap_supplier_detail._branch_code + "=\'" + this._screenTop._getDataStr(_g.d.ar_customer._branch_code) + "\' ";
 
                                 __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _g.d.ap_supplier_detail._table + " set " + __updateDetail + " where " + _g.d.ap_supplier_detail._ap_code + "=\'" + __ap_code + "\' "));
-
+                                //last_update_date_time
+                                __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update " + _myManageData1._dataList._tableName + " set last_update_date_time=now(),last_update_code='" + MyLib._myGlobal._userCode + "'" + _myManageData1._dataList._whereString + ""));
 
                             }
                             //
