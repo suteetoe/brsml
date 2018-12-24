@@ -2280,15 +2280,15 @@ namespace SMLDataCenterSync
                                                                     if (__result.Length == 0)
                                                                     {
                                                                         // toe
-                                                                        if (_g.g._companyProfile._use_point_center)
-                                                                        {
-                                                                            // สั่ง process ที่ center
-                                                                            if (__tableName == _g.d.ic_trans._table)
-                                                                            {
-                                                                                string __queryPointBalance = SMLProcess._posProcess._processPointBalanceQuery("", "", "", true);
-                                                                                string __resultPointBalance = __datacenterFrameWork._queryInsertOrUpdate(_g.g._companyProfile._activeSyncDatabase, __queryPointBalance);
-                                                                            }
-                                                                        }
+                                                                        //if (_g.g._companyProfile._use_point_center)
+                                                                        //{
+                                                                        //    // สั่ง process ที่ center
+                                                                        //    if (__tableName == _g.d.ic_trans._table)
+                                                                        //    {
+                                                                       //         string __queryPointBalance = SMLProcess._posProcess._processPointBalanceQuery("", "", "", true);
+                                                                         //       string __resultPointBalance = __datacenterFrameWork._queryInsertOrUpdate(_g.g._companyProfile._activeSyncDatabase, __queryPointBalance);
+                                                                        //    }
+                                                                        //}
 
                                                                         // update สถานะ sned_success
                                                                         __result = __clientFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update " + __tableName + " set send_success=" + __updateSuccessValue + " where guid in  (" + __guidSelect.ToString() + ")");
@@ -3099,15 +3099,15 @@ namespace SMLDataCenterSync
                                                                         if (__result.Length == 0)
                                                                         {
                                                                             // toe
-                                                                            if (_g.g._companyProfile._use_point_center)
-                                                                            {
-                                                                                // สั่ง process ที่ center
-                                                                                if (__tableName == _g.d.ic_trans._table)
-                                                                                {
-                                                                                    string __queryPointBalance = SMLProcess._posProcess._processPointBalanceQuery("", "", "", true);
-                                                                                    string __resultPointBalance = __datacenterFrameWork._queryInsertOrUpdate(_g.g._companyProfile._activeSyncDatabase, __queryPointBalance);
-                                                                                }
-                                                                            }
+                                                                            //if (_g.g._companyProfile._use_point_center)
+                                                                            //{
+                                                                            //    // สั่ง process ที่ center
+                                                                            //    if (__tableName == _g.d.ic_trans._table)
+                                                                            //    {
+                                                                            //        string __queryPointBalance = SMLProcess._posProcess._processPointBalanceQuery("", "", "", true);
+                                                                            //        string __resultPointBalance = __datacenterFrameWork._queryInsertOrUpdate(_g.g._companyProfile._activeSyncDatabase, __queryPointBalance);
+                                                                            //    }
+                                                                            //}
 
                                                                             // update สถานะ sned_success
                                                                             //__result = __clientFrameWork._queryInsertOrUpdate(MyLib._myGlobal._databaseName, "update " + __tableName + " set send_success=" + __updateSuccessValue + ",is_sync_in=true where guid in  (" + __guidSelect.ToString() + ")");

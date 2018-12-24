@@ -387,9 +387,9 @@ namespace SMLERPControl._customer
                             __myQuery.Append(MyLib._myUtil._convertTextToXmlForQuery("update ar_customer set " + _g.d.ar_customer._arm_code + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_code) + "," +
                                 " " + _g.d.ar_customer._arm_tier + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_tier) + "," +
                                 " " + _g.d.ar_customer._arm_register + " = " + this._screen_customer._getDataStrQuery(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register) + "," +
-                                " " + _g.d.ar_customer._arm_register_date + " ='" + this._screen_customer._getDataDate(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register_date).ToString() + "'" +
+                                " " + _g.d.ar_customer._arm_register_date + " ='" + MyLib._myGlobal._convertDateTimeToQuery(this._screen_customer._getDataDate(_g.d.ar_customer._table + "." + _g.d.ar_customer._arm_register_date)).ToString() + "'" +
                                 " where " + _g.d.ar_customer._code + "= " + this._screenTop._getDataStrQuery(_g.d.ar_customer._code) + " "));
-
+                          
 
                             string __result_images = this._getPicture1._updateImage("CONTRACT" + this._screenTop._getDataStr(_g.d.ar_customer._code));
                             string __result_images2 = this._getPicture2._updateImage("CONTRACT#6#" + this._screenTop._getDataStr(_g.d.ar_customer._code));
