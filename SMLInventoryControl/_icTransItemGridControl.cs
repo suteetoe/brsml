@@ -8495,11 +8495,7 @@ namespace SMLInventoryControl
                         //
                         if (__qty != 0 && itemCodeProcess.Length > 0)
                         {
-
-                            //Boolean __balanceAlert = _g.g._companyProfile._balance_control; //แจ้งเตือนสินค้าติดลบ
                             Boolean __balanceControl = _g.g._companyProfile._balance_control; // สินค้าห้ามติดลบทั้งระบบ
-
-                            //Boolean __balanceControl = true; // สินค้าห้ามติดลบทั้งระบบ
                             Boolean __accruedControl = _g.g._companyProfile._accrued_control; // สินค้าห้ามติดลบทั้งระบบ
                             Boolean __transferControl = _g.g._companyProfile._transfer_stock_control;
                             Boolean __issueControl = _g.g._companyProfile._issue_stock_control; // ห้าเบิกสินค้าติดลบ
@@ -8580,7 +8576,7 @@ namespace SMLInventoryControl
                                         {
                                             __balanceControl = false;
                                         }
-                                        if ((__balanceControl || __transferControl) || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ))
+                                        if (__balanceControl || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ))
                                         {
                                             int __balance_control_type = _g.g._companyProfile._balance_control_type;
                                             if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && __transferControl)
@@ -8596,26 +8592,12 @@ namespace SMLInventoryControl
                                                         decimal __balanceQty = (decimal)MyLib._myGlobal._decimalPhase(__item.Rows[0][_g.d.ic_inventory._balance_qty].ToString());
                                                         if (__balanceQty - __qty < 0)
                                                         {
-
                                                             MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " [" + itemCodeProcess + "] " + MyLib._myGlobal._resource("ห้ามติดลบ"));
                                                             __warning = true;
-                                                            //if (_g.g._companyProfile._ic_stock_control || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ))
-                                                            //{
-                                                            //    this._cellUpdate(row, qtyColumnNumber, 0M, true);
-                                                            //    return true;
-                                                            //}
-
-                                                            if ((this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control == false))
+                                                            if (_g.g._companyProfile._ic_stock_control || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ))
                                                             {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
                                                                 return true;
-                                                            }
-                                                            else
-                                                            {
-                                                                if (_g.g._companyProfile._ic_stock_control || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ) || (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control)) // nes
-                                                                {
-                                                                    this._cellUpdate(row, qtyColumnNumber, 0M, true);
-                                                                    return true;
-                                                                }
                                                             }
                                                         }
                                                     }
@@ -8649,18 +8631,10 @@ namespace SMLInventoryControl
                                                         {
                                                             __warning = true;
                                                             MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
-
-                                                            if ((this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control == false))
+                                                            if (_g.g._companyProfile._ic_stock_control)
                                                             {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
                                                                 return true;
-                                                            }
-                                                            else
-                                                            {
-                                                                if (_g.g._companyProfile._ic_stock_control || (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control)) // nes
-                                                                {
-                                                                    this._cellUpdate(row, qtyColumnNumber, 0M, true);
-                                                                    return true;
-                                                                }
                                                             }
                                                         }
                                                     }
@@ -8697,17 +8671,10 @@ namespace SMLInventoryControl
                                                         {
                                                             __warning = true;
                                                             MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + "," + MyLib._myGlobal._resource("ที่เก็บ") + " : " + __locationCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
-                                                            if ((this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control == false))
+                                                            if (_g.g._companyProfile._ic_stock_control || (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control)) // toe
                                                             {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
                                                                 return true;
-                                                            }
-                                                            else
-                                                            {
-                                                                if (_g.g._companyProfile._ic_stock_control || (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control)) // nes
-                                                                {
-                                                                    this._cellUpdate(row, qtyColumnNumber, 0M, true);
-                                                                    return true;
-                                                                }
                                                             }
                                                         }
                                                     }
