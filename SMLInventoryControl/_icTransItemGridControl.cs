@@ -8495,12 +8495,15 @@ namespace SMLInventoryControl
                         //
                         if (__qty != 0 && itemCodeProcess.Length > 0)
                         {
-                            Boolean __balanceControl = _g.g._companyProfile._balance_control; // สินค้าห้ามติดลบทั้งระบบ
+                       
                             Boolean __accruedControl = _g.g._companyProfile._accrued_control; // สินค้าห้ามติดลบทั้งระบบ
-                            Boolean __transferControl = _g.g._companyProfile._transfer_stock_control;
+                            Boolean __transferControl = _g.g._companyProfile._transfer_stock_control; // ห้ามโอน
                             Boolean __issueControl = _g.g._companyProfile._issue_stock_control; // ห้าเบิกสินค้าติดลบ
                             Boolean __reservedControl = _g.g._companyProfile._stock_reserved_control;
+                            Boolean __icStockControl = _g.g._companyProfile._ic_stock_control; //ห้ามขายติดลบ
 
+                            Boolean __balanceControl = _g.g._companyProfile._balance_control || (__icStockControl || __accruedControl || __transferControl); 
+                            
                             // toe กรณี ไม่ใช่สินค้าบริการ ค่อยให้ทำ
                             if (__itemType == 0 || __itemType == 2 || __itemType == 4)
                             {
@@ -8576,13 +8579,15 @@ namespace SMLInventoryControl
                                         {
                                             __balanceControl = false;
                                         }
-                                        if (__balanceControl || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ))
+
+                                        /// เช็คเบิก /////
+                                        if (__balanceControl && __issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ)
                                         {
                                             int __balance_control_type = _g.g._companyProfile._balance_control_type;
-                                            if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && __transferControl)
-                                            {
-                                                __balance_control_type = 2;
-                                            }
+                                            //if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && __transferControl)
+                                            //{
+                                            //    __balance_control_type = 2;
+                                            //}
 
                                             // เริ่มตรวจ สินค้าห้ามติดลบ
                                             switch (__balance_control_type)
@@ -8594,7 +8599,7 @@ namespace SMLInventoryControl
                                                         {
                                                             MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " [" + itemCodeProcess + "] " + MyLib._myGlobal._resource("ห้ามติดลบ"));
                                                             __warning = true;
-                                                            if (_g.g._companyProfile._ic_stock_control || (__issueControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_เบิกสินค้าวัตถุดิบ))
+                                                            if (__issueControl)
                                                             {
                                                                 this._cellUpdate(row, qtyColumnNumber, 0M, true);
                                                                 return true;
@@ -8631,7 +8636,7 @@ namespace SMLInventoryControl
                                                         {
                                                             __warning = true;
                                                             MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
-                                                            if (_g.g._companyProfile._ic_stock_control)
+                                                            if (__issueControl)
                                                             {
                                                                 this._cellUpdate(row, qtyColumnNumber, 0M, true);
                                                                 return true;
@@ -8671,7 +8676,7 @@ namespace SMLInventoryControl
                                                         {
                                                             __warning = true;
                                                             MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + "," + MyLib._myGlobal._resource("ที่เก็บ") + " : " + __locationCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
-                                                            if (_g.g._companyProfile._ic_stock_control || (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && _g.g._companyProfile._transfer_stock_control)) // toe
+                                                            if (__issueControl)
                                                             {
                                                                 this._cellUpdate(row, qtyColumnNumber, 0M, true);
                                                                 return true;
@@ -8681,6 +8686,226 @@ namespace SMLInventoryControl
                                                     break;
                                             }
                                         }
+
+
+                                        /// เช็คโอน ///////
+                                        if (__balanceControl && __transferControl && this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก)
+                                        {
+                                            int __balance_control_type = _g.g._companyProfile._balance_control_type;
+                                            if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && __transferControl)
+                                            {
+                                                __balance_control_type = 2;
+                                            }
+
+                                            // เริ่มตรวจ สินค้าห้ามติดลบ
+                                            switch (__balance_control_type)
+                                            {
+                                                case 0: // ห้ามติดลบทั้งระบบ
+                                                    {
+                                                        decimal __balanceQty = (decimal)MyLib._myGlobal._decimalPhase(__item.Rows[0][_g.d.ic_inventory._balance_qty].ToString());
+                                                        if (__balanceQty - __qty < 0)
+                                                        {
+                                                            MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " [" + itemCodeProcess + "] " + MyLib._myGlobal._resource("ห้ามติดลบ"));
+                                                            __warning = true;
+                                                            if (__transferControl)
+                                                            {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                                case 1: // ห้ามติดลบตามคลัง
+                                                    {
+                                                        // เอายอดที่บันทึก กรณีสินค้ารหัสเดียวกัน เอามารวมยอดกัน
+                                                        string __wareHouseCode = this._cellGet(row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper();
+                                                        __qty = 0M;
+                                                        for (int __row = 0; __row < this._rowData.Count; __row++)
+                                                        {
+                                                            if (itemCodeProcess.Equals(this._cellGet(__row, itemCodeColumnNumber).ToString().ToUpper()) &&
+                                                                __wareHouseCode.Equals(this._cellGet(__row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper()))
+                                                            {
+                                                                decimal __standValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._stand_value);
+                                                                decimal __divideValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._divide_value);
+                                                                __qty += (decimal)this._cellGet(__row, qtyColumnNumber) * (__standValue / __divideValue);
+                                                            }
+                                                        }
+                                                        //
+                                                        DataTable __item2 = ((DataSet)__queryResult[1]).Tables[0];
+                                                        decimal __balanceQty = 0M;
+                                                        for (int __row2 = 0; __row2 < __item2.Rows.Count; __row2++)
+                                                        {
+                                                            if (__wareHouseCode.Equals(__item2.Rows[__row2][_g.d.ic_resource._warehouse].ToString().ToString().Trim().ToUpper()))
+                                                            {
+                                                                __balanceQty += (decimal)MyLib._myGlobal._decimalPhase(__item2.Rows[__row2][_g.d.ic_resource._qty].ToString());
+                                                            }
+                                                        }
+                                                        if (__balanceQty - __qty < 0)
+                                                        {
+                                                            __warning = true;
+                                                            MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
+                                                            if (__transferControl)
+                                                            {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                                case 2: // ห้ามติดลบตามที่เก็บ
+                                                    {
+                                                        // เอายอดที่บันทึก กรณีสินค้ารหัสเดียวกัน เอามารวมยอดกัน
+                                                        string __wareHouseCode = this._cellGet(row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper();
+                                                        string __locationCode = this._cellGet(row, _g.d.ic_trans_detail._shelf_code).ToString().Trim().ToUpper();
+                                                        __qty = 0M;
+                                                        for (int __row = 0; __row < this._rowData.Count; __row++)
+                                                        {
+                                                            if (itemCodeProcess.Equals(this._cellGet(__row, itemCodeColumnNumber).ToString().ToUpper()) &&
+                                                                __wareHouseCode.Equals(this._cellGet(__row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper()) &&
+                                                                __locationCode.Equals(this._cellGet(__row, _g.d.ic_trans_detail._shelf_code).ToString().Trim().ToUpper()))
+                                                            {
+                                                                decimal __standValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._stand_value);
+                                                                decimal __divideValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._divide_value);
+                                                                __qty += (decimal)this._cellGet(__row, qtyColumnNumber) * (__standValue / __divideValue);
+                                                            }
+                                                        }
+                                                        //
+                                                        DataTable __item2 = ((DataSet)__queryResult[1]).Tables[0];
+                                                        decimal __balanceQty = 0M;
+                                                        for (int __row2 = 0; __row2 < __item2.Rows.Count; __row2++)
+                                                        {
+                                                            if (__wareHouseCode.Equals(__item2.Rows[__row2][_g.d.ic_resource._warehouse].ToString().ToString().Trim().ToUpper()) &&
+                                                                __locationCode.Equals(__item2.Rows[__row2][_g.d.ic_resource._location].ToString().ToString().Trim().ToUpper()))
+                                                            {
+                                                                __balanceQty += (decimal)MyLib._myGlobal._decimalPhase(__item2.Rows[__row2][_g.d.ic_resource._qty].ToString());
+                                                            }
+                                                        }
+                                                        if (__balanceQty - __qty < 0)
+                                                        {
+                                                            __warning = true;
+                                                            MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + "," + MyLib._myGlobal._resource("ที่เก็บ") + " : " + __locationCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
+                                                            if (__transferControl) 
+                                                            {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                            }
+                                        }
+
+
+                                        /// เช็คขาย ///////
+                                        if (__balanceControl && __icStockControl && this._icTransControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ)
+                                        {
+                                            int __balance_control_type = _g.g._companyProfile._balance_control_type;
+                                            //if (this._icTransControlType == _g.g._transControlTypeEnum.สินค้า_โอนออก && __transferControl)
+                                            //{
+                                            //    __balance_control_type = 2;
+                                            //}
+
+                                            // เริ่มตรวจ สินค้าห้ามติดลบ
+                                            switch (__balance_control_type)
+                                            {
+                                                case 0: // ห้ามติดลบทั้งระบบ
+                                                    {
+                                                        decimal __balanceQty = (decimal)MyLib._myGlobal._decimalPhase(__item.Rows[0][_g.d.ic_inventory._balance_qty].ToString());
+                                                        if (__balanceQty - __qty < 0)
+                                                        {
+                                                            MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " [" + itemCodeProcess + "] " + MyLib._myGlobal._resource("ห้ามติดลบ"));
+                                                            __warning = true;
+                                                            if (__icStockControl)
+                                                            {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                                case 1: // ห้ามติดลบตามคลัง
+                                                    {
+                                                        // เอายอดที่บันทึก กรณีสินค้ารหัสเดียวกัน เอามารวมยอดกัน
+                                                        string __wareHouseCode = this._cellGet(row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper();
+                                                        __qty = 0M;
+                                                        for (int __row = 0; __row < this._rowData.Count; __row++)
+                                                        {
+                                                            if (itemCodeProcess.Equals(this._cellGet(__row, itemCodeColumnNumber).ToString().ToUpper()) &&
+                                                                __wareHouseCode.Equals(this._cellGet(__row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper()))
+                                                            {
+                                                                decimal __standValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._stand_value);
+                                                                decimal __divideValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._divide_value);
+                                                                __qty += (decimal)this._cellGet(__row, qtyColumnNumber) * (__standValue / __divideValue);
+                                                            }
+                                                        }
+                                                        //
+                                                        DataTable __item2 = ((DataSet)__queryResult[1]).Tables[0];
+                                                        decimal __balanceQty = 0M;
+                                                        for (int __row2 = 0; __row2 < __item2.Rows.Count; __row2++)
+                                                        {
+                                                            if (__wareHouseCode.Equals(__item2.Rows[__row2][_g.d.ic_resource._warehouse].ToString().ToString().Trim().ToUpper()))
+                                                            {
+                                                                __balanceQty += (decimal)MyLib._myGlobal._decimalPhase(__item2.Rows[__row2][_g.d.ic_resource._qty].ToString());
+                                                            }
+                                                        }
+                                                        if (__balanceQty - __qty < 0)
+                                                        {
+                                                            __warning = true;
+                                                            MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
+                                                            if (__icStockControl)
+                                                            {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                                case 2: // ห้ามติดลบตามที่เก็บ
+                                                    {
+                                                        // เอายอดที่บันทึก กรณีสินค้ารหัสเดียวกัน เอามารวมยอดกัน
+                                                        string __wareHouseCode = this._cellGet(row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper();
+                                                        string __locationCode = this._cellGet(row, _g.d.ic_trans_detail._shelf_code).ToString().Trim().ToUpper();
+                                                        __qty = 0M;
+                                                        for (int __row = 0; __row < this._rowData.Count; __row++)
+                                                        {
+                                                            if (itemCodeProcess.Equals(this._cellGet(__row, itemCodeColumnNumber).ToString().ToUpper()) &&
+                                                                __wareHouseCode.Equals(this._cellGet(__row, _g.d.ic_trans_detail._wh_code).ToString().Trim().ToUpper()) &&
+                                                                __locationCode.Equals(this._cellGet(__row, _g.d.ic_trans_detail._shelf_code).ToString().Trim().ToUpper()))
+                                                            {
+                                                                decimal __standValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._stand_value);
+                                                                decimal __divideValue = (decimal)this._cellGet(__row, _g.d.ic_trans_detail._divide_value);
+                                                                __qty += (decimal)this._cellGet(__row, qtyColumnNumber) * (__standValue / __divideValue);
+                                                            }
+                                                        }
+                                                        //
+                                                        DataTable __item2 = ((DataSet)__queryResult[1]).Tables[0];
+                                                        decimal __balanceQty = 0M;
+                                                        for (int __row2 = 0; __row2 < __item2.Rows.Count; __row2++)
+                                                        {
+                                                            if (__wareHouseCode.Equals(__item2.Rows[__row2][_g.d.ic_resource._warehouse].ToString().ToString().Trim().ToUpper()) &&
+                                                                __locationCode.Equals(__item2.Rows[__row2][_g.d.ic_resource._location].ToString().ToString().Trim().ToUpper()))
+                                                            {
+                                                                __balanceQty += (decimal)MyLib._myGlobal._decimalPhase(__item2.Rows[__row2][_g.d.ic_resource._qty].ToString());
+                                                            }
+                                                        }
+                                                        if (__balanceQty - __qty < 0)
+                                                        {
+                                                            __warning = true;
+                                                            MessageBox.Show(MyLib._myGlobal._resource("สินค้า") + " : " + itemCodeProcess + "," + MyLib._myGlobal._resource("คลัง") + " : " + __wareHouseCode + "," + MyLib._myGlobal._resource("ที่เก็บ") + " : " + __locationCode + " " + MyLib._myGlobal._resource("ห้ามติดลบ"));
+                                                            if (__icStockControl)
+                                                            {
+                                                                this._cellUpdate(row, qtyColumnNumber, 0M, true);
+                                                                return true;
+                                                            }
+                                                        }
+                                                    }
+                                                    break;
+                                            }
+                                        }
+
+
+
+
                                         // ตรวจสอบสินค้าห้ามขายเกินสินค้าค้างส่ง (สั่งขาย)
                                         if ((int)MyLib._myGlobal._decimalPhase(__item.Rows[0][__fieldAccruedControl].ToString()) == 1)
                                         {
