@@ -6,6 +6,7 @@ using System.Data;
 using System.Json;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Windows.Forms;
 
 
@@ -554,6 +555,10 @@ namespace SMLSINGHAControl
                     this._setlog("process import " + this.tableName + " error :" + __ex);
                 }
 
+                _g._utils __utils = new _g._utils();
+                __utils._updateInventoryMaster("");
+                Thread __thread = new Thread(new ThreadStart(__utils._updateInventoryMasterFunction));
+                __thread.Start();
             }
 
         }
