@@ -548,7 +548,8 @@ namespace SMLInventoryControl
                 return this._transControlTypeTemp;
             }
         }
-        private string _icTransScreenTop__getBranchCode() {
+        private string _icTransScreenTop__getBranchCode()
+        {
             return this._icTransScreenTop__getBranchCode(0);
         }
 
@@ -564,10 +565,11 @@ namespace SMLInventoryControl
                         {
                             return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code_to);
                         }
-                        else {
+                        else
+                        {
                             return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code);
                         }
-                       
+
                     default:
                         return this._icTransScreenMore._getDataStr(_g.d.ic_trans._branch_code);
                 }
@@ -1914,7 +1916,7 @@ namespace SMLInventoryControl
                     this._vatSale._checkArDetail(this._myManageTrans._mode);
 
                 }*/
-                if ( name.Equals(_g.d.ic_trans._ar_code))
+                if (name.Equals(_g.d.ic_trans._ar_code))
                 {
                     switch (this._transControlType)
                     {
@@ -2813,7 +2815,8 @@ namespace SMLInventoryControl
 
                 }
 
-                if ((this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ || this._transControlType == _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ) && _g.g._companyProfile._print_invoice_one_time == false) {
+                if ((this._transControlType == _g.g._transControlTypeEnum.ขาย_ขายสินค้าและบริการ || this._transControlType == _g.g._transControlTypeEnum.ซื้อ_ซื้อสินค้าและค่าบริการ) && _g.g._companyProfile._print_invoice_one_time == false)
+                {
                     __pass = true;
                 }
                 if (__pass)
@@ -12218,51 +12221,57 @@ namespace SMLInventoryControl
                                 // credit
                             }
 
-                            __processControl._procesGLByTemp(this._icTransScreenTop._docFormatCode);
-                            List<SMLERPGL._transProcessUserControl._glStruct> __glStruct = __processControl.getGLTrans;
-
-                            // check balance 
-                            if (__glStruct != null && __glStruct.Count > 0 && __glStruct[0]._debit != __glStruct[0]._credit)
+                            if (__processControl._procesGLByTemp(this._icTransScreenTop._docFormatCode))
                             {
-                                //MessageBox.Show("ยอดเดบิต : " + __glStruct[0]._debit + " เครดิต : " + __glStruct[0]._credit + " ไม่ลงตัว ", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                List<SMLERPGL._transProcessUserControl._glStruct> __glStruct = __processControl.getGLTrans;
 
-                                string __textHeader = "ยอดเดบิต : " + __glStruct[0]._debit + " เครดิต : " + __glStruct[0]._credit + " ไม่ลงตัว ";
-
-                                SMLERPGLControl._glDetail __detail = new SMLERPGLControl._glDetail();
-                                Form __alertGLDetailForm = new Form();
-                                __alertGLDetailForm.Text = __textHeader;
-                                __alertGLDetailForm.Size = new Size(600, 400);
-                                __alertGLDetailForm.Controls.Add(__detail);
-                                __alertGLDetailForm.StartPosition = FormStartPosition.CenterScreen;
-
-                                __detail.Dock = DockStyle.Fill;
-                                __detail._glDetailGrid.IsEdit = false;
-
-                                // add data togrid
-                                for (int glRow = 0; glRow < __glStruct[0]._glDetail.Count; glRow++)
+                                // check balance 
+                                if (__glStruct != null && __glStruct.Count > 0 && __glStruct[0]._debit != __glStruct[0]._credit)
                                 {
-                                    string __accCode = __glStruct[0]._glDetail[glRow]._accountCode;
-                                    string __accName = __glStruct[0]._glDetail[glRow]._accountName;
-                                    string __accDesc = __glStruct[0]._glDetail[glRow]._accountDescription;
-                                    string __accBranch = ""; // __glStruct[0]._glDetail[0].bra
-                                    decimal __debit = __glStruct[0]._glDetail[glRow]._debit;
-                                    decimal __credit = __glStruct[0]._glDetail[glRow]._credit;
+                                    //MessageBox.Show("ยอดเดบิต : " + __glStruct[0]._debit + " เครดิต : " + __glStruct[0]._credit + " ไม่ลงตัว ", "Fail", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                                    int __addRow = __detail._glDetailGrid._addRow();
+                                    string __textHeader = "ยอดเดบิต : " + __glStruct[0]._debit + " เครดิต : " + __glStruct[0]._credit + " ไม่ลงตัว ";
 
-                                    __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._account_code, __accCode, true);
-                                    __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._account_name, __accName, true);
-                                    __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._description, __accDesc, true);
-                                    __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._branch_code, __accBranch, true);
-                                    __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._debit, __debit, true);
-                                    __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._credit, __credit, true);
+                                    SMLERPGLControl._glDetail __detail = new SMLERPGLControl._glDetail();
+                                    Form __alertGLDetailForm = new Form();
+                                    __alertGLDetailForm.Text = __textHeader;
+                                    __alertGLDetailForm.Size = new Size(600, 400);
+                                    __alertGLDetailForm.Controls.Add(__detail);
+                                    __alertGLDetailForm.StartPosition = FormStartPosition.CenterScreen;
 
+                                    __detail.Dock = DockStyle.Fill;
+                                    __detail._glDetailGrid.IsEdit = false;
+
+                                    // add data togrid
+                                    for (int glRow = 0; glRow < __glStruct[0]._glDetail.Count; glRow++)
+                                    {
+                                        string __accCode = __glStruct[0]._glDetail[glRow]._accountCode;
+                                        string __accName = __glStruct[0]._glDetail[glRow]._accountName;
+                                        string __accDesc = __glStruct[0]._glDetail[glRow]._accountDescription;
+                                        string __accBranch = ""; // __glStruct[0]._glDetail[0].bra
+                                        decimal __debit = __glStruct[0]._glDetail[glRow]._debit;
+                                        decimal __credit = __glStruct[0]._glDetail[glRow]._credit;
+
+                                        int __addRow = __detail._glDetailGrid._addRow();
+
+                                        __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._account_code, __accCode, true);
+                                        __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._account_name, __accName, true);
+                                        __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._description, __accDesc, true);
+                                        __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._branch_code, __accBranch, true);
+                                        __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._debit, __debit, true);
+                                        __detail._glDetailGrid._cellUpdate(__addRow, _g.d.gl_journal_detail._credit, __credit, true);
+
+                                    }
+
+                                    __detail._glDetailGrid.Invalidate();
+
+                                    __alertGLDetailForm.ShowDialog();
+
+                                    return;
                                 }
-
-                                __detail._glDetailGrid.Invalidate();
-
-                                __alertGLDetailForm.ShowDialog();
-
+                            }
+                            else
+                            {
                                 return;
                             }
                         }

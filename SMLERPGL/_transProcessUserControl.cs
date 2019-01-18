@@ -196,7 +196,7 @@ namespace SMLERPGL
             }
         }
 
-        public void _procesGLByTemp(string docFormatCode)
+        public Boolean _procesGLByTemp(string docFormatCode)
         {
             this._autoSaveData = false;
             this._docFormatTempProcess = docFormatCode;
@@ -204,7 +204,15 @@ namespace SMLERPGL
             this._queryDocFormat = "select " + MyLib._myGlobal._fieldAndComma(_g.d.erp_doc_format._code, _g.d.erp_doc_format._name_1, _g.d.erp_doc_format._screen_code, _g.d.erp_doc_format._gl_book, _g.d.erp_doc_format._gl_description) + " from " + _g.d.erp_doc_format._table + " where " + _g.d.erp_doc_format._code + "=\'" + this._docFormatTempProcess + "\' and coalesce((select count(*) from " + _g.d.erp_doc_format_gl._table + " where " + _g.d.erp_doc_format_gl._table + "." + _g.d.erp_doc_format_gl._doc_code + "=" + _g.d.erp_doc_format._table + "." + _g.d.erp_doc_format._code + "),0) > 0 or " + _g.d.erp_doc_format._gl_book + "<>\'\' order by " + _g.d.erp_doc_format._code;
 
             this._loadBeforeForProcess();
+            if (this._chatOfAccount.Rows.Count == 0)
+            {
+                MessageBox.Show("ไม่พบข้อมูลผังบัญชีในระบบ");
+                return false;
+
+            }
             processWithData(this._autoSaveData);
+
+            return true;
         }
 
         public void _addTransData(_transDataObject trans, bool isCreateNew)
